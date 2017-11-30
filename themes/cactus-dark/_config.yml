@@ -1,7 +1,7 @@
 nav:
   Home: /
   About: /about/
-  Writing: /archives/
+  Blog: /blog/
   Projects: /projects/
 
 projects_url: http://github.com/probberechts
