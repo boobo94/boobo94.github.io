@@ -7,6 +7,8 @@ nav:
 projects_url: http://github.com/probberechts
 
 customize:
+    aboutme:
+        email: militaru.bogdanalexandru@gmail.com
     gravatar:
         email: 
     logo:
