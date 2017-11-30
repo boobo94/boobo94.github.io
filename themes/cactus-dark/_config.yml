@@ -28,9 +28,10 @@ customize:
         gravator: false
     social_links:
         github: https://github.com/boobo94
-        twitter: https://twitter.com/militaru_bogdan
+        stack-overflow: https://stackoverflow.com/users/4471897/bogdan-alexandru-militaru
         facebook: https://www.facebook.com/bogdanalexandru.militaru
         linkedin: https://www.linkedin.com/in/bogdan-alexandru-militaru-bb801697/
+        twitter: https://twitter.com/militaru_bogdan
     show_all_posts: false
     post_count: 5
     highlight: rainbow
