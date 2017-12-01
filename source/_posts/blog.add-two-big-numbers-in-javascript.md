@@ -6,7 +6,7 @@ tags:
     - html
     - regular expression
     - alghoritms
-categories:
+category:
     - blog
     - tutorials
 ---
