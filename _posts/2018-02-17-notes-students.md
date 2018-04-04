@@ -15,4 +15,4 @@ The code is structured as object oriented programming either on client and serve
 
 Is design specifically for universities, but can be scalable to any types of education system.
 
-[Click to read Scientific Article](https://docs.google.com/document/d/e/2PACX-1vQnqK2pN3mQEcpvpe7xz0X4wXtII5i2Vf4DSluPjFecul4KdumBFU-V7yVsr8W4loBwRxRIU8dE4uxe/pub){:target="_blank"}
+[Click to read Scientific Article](https://docs.google.com/document/d/e/2PACX-1vQnqK2pN3mQEcpvpe7xz0X4wXtII5i2Vf4DSluPjFecul4KdumBFU-V7yVsr8W4loBwRxRIU8dE4uxe/pub){:target="_blank"} or [GitHub Project <i class="fab fa-github"></i>](https://github.com/boobo94/notes-student)
