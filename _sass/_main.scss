@@ -452,3 +452,39 @@ ul.topbar {
 ::-webkit-scrollbar-corner {
 	background-color: #cacaca;
 } /* if both the vertical and the horizontal bars appear, then perhaps the right bottom corner also needs to be styled */
+
+@media (min-width: 426px) {
+	.topbar {
+		#search {
+			float: right;
+		}
+	}
+}
+
+@media (max-width: 425px) {
+	.topbar {
+		#search {
+			display: block;
+			margin: 0.5rem auto;
+		}
+
+		input#search-box {
+			width: 70%;
+		}
+	}
+}
+
+// clearfix
+
+.clearfix { 
+	// display: inline-block;
+
+	&:after {
+		visibility: hidden;
+		display: block;
+		font-size: 0;
+		content: " ";
+		clear: both;
+		height: 0;
+	}
+}
