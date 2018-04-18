@@ -37,3 +37,6 @@ social:
   github:
       icon: fab fa-github
       link: https://github.com/boobo94
+
+plugins:
+  - jekyll-seo-tag
