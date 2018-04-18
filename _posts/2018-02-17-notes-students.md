@@ -1,6 +1,8 @@
 ---
 layout: default
 title: "Notes Students"
+description: "The application aims to complete needs of students from universities by showing them the scolar results and specific information. The system consists in a client application, a web service and a database server which are interconnected."
+language: english
 tags: research
 categories: articles
 ---

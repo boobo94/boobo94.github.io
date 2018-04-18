@@ -1,6 +1,8 @@
 ---
 layout: default
 title: "How to format an usb drive to fat16 or fat 32 on mac"
+description: "How to format an usb drive to fat16 or fat 32 on mac"
+lang: english
 tags: tutorials
 categories: articles
 ---
