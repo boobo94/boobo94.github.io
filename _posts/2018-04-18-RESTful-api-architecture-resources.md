@@ -3,6 +3,9 @@ layout: default
 title: "RESTful API Architecture - Resources"
 tags: tips
 categories: tips
+
+description: short desc
+lang: english
 ---
 
 # RESTful API Architecture - Resources

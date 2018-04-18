@@ -12,7 +12,8 @@ All you have to do is to open you terminal and to run the following commands
 1. List all the disks inside your computer, to find name of the disk that you want to format in the next step 
 `diskutil list`
 
-Example 
+## Example
+
 ```Bash
 Macs-MacBook-Pro:~ boobo94$ diskutil list
 /dev/disk0 (internal, physical):
@@ -41,7 +42,8 @@ Macs-MacBook-Pro:~ boobo94$ diskutil list
 
 `diskutil eraseDisk "MS-DOS FAT16" SOMENAME /dev/disk#`
 
-Wiki:
-SOMENAME - here you can put the name that you want to be displayed on you computer in the future
-FAT16 - if you want to use fat32, please just replace 16 with 32
-/dev/disk# - replace # with your disk number, for example if I want to format that usb connected to my computer,its name is /dev/disk2
+## Wiki:
+
++ SOMENAME - here you can put the name that you want to be displayed on you computer in the future
++ FAT16 - if you want to use fat32, please just replace 16 with 32
++ /dev/disk# - replace # with your disk number, for example if I want to format that usb connected to my computer,its name is /dev/disk2

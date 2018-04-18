@@ -178,3 +178,13 @@ Incididunt in culpa cupidatat mollit cillum qui proident sit. In cillum aliquip 
 [![Box](http://img.youtube.com/vi/qEuD6v1Y9fg/0.jpg)](http://www.youtube.com/watch?v=qEuD6v1Y9fg)
 
 Reprehenderit non eu quis in ad elit esse qui aute id [incididunt](#!) dolore cillum. Esse laboris consequat dolor anim exercitation tempor aliqua deserunt velit magna laboris. Culpa culpa minim duis amet mollit do quis amet commodo nulla irure.
+
+# SEO tags
+
+The SEO tag will respect the following YAML front matter if included in a post, page, or document:
+
+title - The title of the post, page, or document
+description - A short description of the page's content
+image - URL to an image associated with the post, page, or document (e.g., /assets/page-pic.jpg)
+author - Page-, post-, or document-specific author information (see Advanced usage)
+lang - Page-, post-, or document-specific language information
