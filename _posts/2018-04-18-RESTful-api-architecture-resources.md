@@ -14,14 +14,14 @@ Here you can find a list of resources which describes from the basic to the high
 
 ## Best practice to develop an API
 
-- <https://www.vinaysahni.com/best-practices-for-a-pragmatic-restful-api>
-- <https://docs.microsoft.com/en-us/azure/architecture/best-practices/api-design>
+- <https://www.vinaysahni.com/best-practices-for-a-pragmatic-restful-api>{:target="_blank"}
+- <https://docs.microsoft.com/en-us/azure/architecture/best-practices/api-design>{:target="_blank"}
 
 
 ### Other resources
 
-- <http://www.restapitutorial.com/lessons/whatisrest.html>
+- <http://www.restapitutorial.com/lessons/whatisrest.html>{:target="_blank"}
 
 ## What to know as a back-end developer
 
-- <https://medium.com/tech-tajawal/modern-backend-developer-in-2018-6b3f7b5f8b9>
+- <https://medium.com/tech-tajawal/modern-backend-developer-in-2018-6b3f7b5f8b9>{:target="_blank"}
