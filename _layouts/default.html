@@ -68,7 +68,7 @@
 			{% else %}
 				<div class="left">{{ site.posts | size }} object(s)</div>
 			{% endif %}
-			<div class="right">&nbsp;</div>
+			<div class="right">{% include social.html %}</div>
 		</div>
 	</div>
 	{% if page.title %}
@@ -85,9 +85,6 @@
 			</ul>
 			<div class="post_content">
         		{{ content }}
-				{% if page.title %}
-					{% include social.html %}
-				{% endif %}
 			</div>
 		</div>
     {% endif %}
