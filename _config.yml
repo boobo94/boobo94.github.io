@@ -40,3 +40,4 @@ social:
 
 plugins:
   - jekyll-seo-tag
+  - jekyll-sitemap
