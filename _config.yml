@@ -29,14 +29,14 @@ social:
     icon: fab fa-stack-overflow
     link: https://stackoverflow.com/users/4471897/bogdan-alexandru-militaru?tab=profile
   facebook:
-      icon: fab fa-facebook
-      link: https://www.facebook.com/bogdanalexandru.militaru
+    icon: fab fa-facebook
+    link: https://www.facebook.com/bogdanalexandru.militaru
   linkedin:
-      icon: fab fa-linkedin
-      link: https://www.linkedin.com/in/bogdan-alexandru-militaru-bb801697/
+    icon: fab fa-linkedin
+    link: https://www.linkedin.com/in/bogdan-alexandru-militaru-bb801697/
   github:
-      icon: fab fa-github
-      link: https://github.com/boobo94
+    icon: fab fa-github
+    link: https://github.com/boobo94
 
 plugins:
   - jekyll-seo-tag
