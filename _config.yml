@@ -37,6 +37,12 @@ social:
   github:
     icon: fab fa-github
     link: https://github.com/boobo94
+  skype:
+    icon: fab fa-skype
+    link: https://join.skype.com/dU90XfWbX19q
+  mail:
+    icon: fas fa-envelope
+    link: mailto:mba@cmevo.com
 
 plugins:
   - jekyll-seo-tag
