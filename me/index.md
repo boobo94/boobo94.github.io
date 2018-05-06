@@ -3,6 +3,7 @@ layout: me
 title: me
 ---
 
+<img style="width:30%" src="/assets/img/LogoMakr_4KmWjC.png">
 This is about me
 
 
