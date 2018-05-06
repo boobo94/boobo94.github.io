@@ -7,6 +7,8 @@ title: Resume
 
 ## <center><i class="fas fa-university"></i> Education</center>
 
+### <i class="fas fa-graduation-cap"></i> Electrical Engineering & Inteligent Systems, University of Pitesti (2017 → 2019)
+
 ### <i class="fas fa-graduation-cap"></i> Computer Engineering, University of Pitesti (2013 → 2017)
 
 ### <i class="fas fa-graduation-cap"></i> Math and Computer Science, "Ion Mihalache" High School (2009 → 2013)

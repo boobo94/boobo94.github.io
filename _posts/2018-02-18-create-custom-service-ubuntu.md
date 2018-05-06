@@ -2,7 +2,7 @@
 layout: default
 title: "Create systemd service (Ubuntu 15+)"
 tags: tutorials
-categories: articles
+categories: tutorials
 ---
 
 
