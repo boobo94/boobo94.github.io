@@ -1,8 +1,8 @@
 articles: {
-  name: A,
+  name: Articles,
   tags: { research, tutorials, tips }
 }
 portfolio: {
-  name: P,
+  name: Portfolio,
   tags: { web }
 }
