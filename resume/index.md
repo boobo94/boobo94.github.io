@@ -25,7 +25,10 @@ title: Resume
 - bug fixes
 - maintenance
 - team work
-- project management
+- project management 
+- webservice development and maintenance 
+- AWS Management
+- database administration
 
 ### <i class="fas fa-terminal"></i> Web Developer at Way 2 Web Development SRL (Apr 2015 → Nov 2015)
 Created custom platform developed in php Work with php framework called Codeigniter Work with html,css,php,jquery,bootstrap,javascript,json Database Manipulation CSV Manipulation Improved skills of SEO optimization website Websites development Websites mainntenance Knowledge of OOP Work with Google API’s Learned Mangento Administration Developed functionalities for Mangento Work with deadline Self learning improvement
