@@ -43,7 +43,11 @@ social:
   mail:
     icon: fas fa-envelope
     link: mailto:mba@cmevo.com
+  feed:
+    icon: fa fa-rss-square
+    link: /feed.xml
 
 plugins:
   - jekyll-seo-tag
   - jekyll-sitemap
+  - jekyll-feed
