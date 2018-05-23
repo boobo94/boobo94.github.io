@@ -27,6 +27,8 @@ Here you can find a list of resources which describes from the basic to the high
 - <https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html>{:target="_blank"}
 - <http://www.ics.uci.edu/~fielding/pubs/dissertation/top.htm>{:target="_blank"}
 - <https://docs.microsoft.com/en-us/azure/architecture/best-practices/auto-scaling>{:target="_blank"}
+- <https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/ETag>{:target="_blank"}
+- <https://en.wikipedia.org/wiki/HTTP_ETag>{:target="_blank"}
 
 
 ### Other resources
