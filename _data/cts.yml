@@ -1,6 +1,6 @@
 articles: {
   name: Articles,
-  tags: { research, tutorials, tips }
+  tags: { tips, tutorials, research, ai }
 }
 portfolio: {
   name: Portfolio,
