@@ -2,7 +2,7 @@
 layout: default
 title: "Third eye for blind people"
 description: "Third eye for blind people"
-tags: tutorials
+tags: research
 ---
 
 # Senzori ultrasonici - Arduino
@@ -384,12 +384,12 @@ la dispozitie de dezvoltator Arduino IDE. [4]
 
 ## Bibliografie
 
-1. Youtube - https://youtu.be/t3j2ZW9T8CI
-2. Youtube - https://youtu.be/_xjXieP_hY
-3. https://create.arduino.cc/projecthub/muhammedazhar/third-eye-for-the-blind-8c246d?ref=tag&ref_id=sensor&offset=
-4. https://www.arduino.cc/en/main/software
-5. https://www.robofun.ro/arduino_pro_mini_328_16mhz
-6. [http://www.senzori-ultrasonici.ro/principiul-ultrasonic](http://www.senzori-ultrasonici.ro/principiul-ultrasonic)
-7. [http://www.electromatic.ro/component/content/article/](http://www.electromatic.ro/component/content/article/)
+1. Youtube - <https://youtu.be/t3j2ZW9T8CI>
+2. Youtube - <https://youtu.be/_xjXieP_hY>
+3. <https://create.arduino.cc/projecthub/muhammedazhar/third-eye-for-the-blind-8c246d?ref=tag&ref_id=sensor&offset=>
+4. <https://www.arduino.cc/en/main/software>
+5. <https://www.robofun.ro/arduino_pro_mini_328_16mhz>
+6. <http://www.senzori-ultrasonici.ro/principiul-ultrasonic>
+7. <http://www.electromatic.ro/component/content/article/>
 
 
