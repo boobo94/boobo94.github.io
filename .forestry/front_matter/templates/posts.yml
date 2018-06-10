@@ -33,6 +33,7 @@ fields:
     - web
   label: Tags
 pages:
+- _posts/test-3.md
 - _posts/test-2.md
 - _posts/test-1.md
 - _posts/test.md
