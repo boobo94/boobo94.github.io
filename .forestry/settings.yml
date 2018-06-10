@@ -4,8 +4,8 @@ auto_deploy: false
 admin_path: 
 webhook_url: 
 collections: 
-upload_dir: uploads
-public_path: "/uploads"
+upload_dir: media
+public_path: "/media"
 front_matter_path: ''
 use_front_matter_path: false
 file_template: ":filename:"
