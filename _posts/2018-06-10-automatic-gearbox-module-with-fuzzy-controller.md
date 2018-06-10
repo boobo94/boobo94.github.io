@@ -4,6 +4,8 @@ layout: default
 categories: articles
 date: 2018-06-10 00:00:00 +0000
 tags: research
+description: 'Sistemul isi propune realizarea unui modul electronic, pentru schimbarea
+  automata a vitezelor unui autovehicul, folosind o cutie de viteze automata. '
 ---
 Sistemul isi propune realizarea unui modul electronic, pentru schimbarea automata a vitezelor unui autovehicul, folosind o cutie de viteze automata. Factorii ce influenteaza sistemul sunt: 
 
