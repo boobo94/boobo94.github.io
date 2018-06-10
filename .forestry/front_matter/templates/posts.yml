@@ -6,12 +6,17 @@ fields:
   default: default
   label: Layout
   name: layout
-- type: tag_list
-  name: tags
-  label: Tags
 - type: datetime
   name: date
   label: Date
+- type: select
+  name: tags
+  config:
+    source:
+      type: datafiles
+      file: _data-cts-yml
+      path: cts
+  label: tags
 pages:
 - _posts/test-1.md
 - _posts/test.md
