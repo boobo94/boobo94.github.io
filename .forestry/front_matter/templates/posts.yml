@@ -4,19 +4,13 @@ is_partial: false
 fields:
 - type: text
   default: default
-  label: Template
-  name: template
-- type: textarea
-  name: description
-  label: Description
+  label: Layout
+  name: layout
 - type: tag_list
   name: tags
   label: Tags
 - type: datetime
   name: date
   label: Date
-- type: file
-  name: file_upload
-  label: File Upload
 pages:
 - _posts/test.md
