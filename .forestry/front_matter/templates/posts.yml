@@ -13,4 +13,5 @@ fields:
   name: date
   label: Date
 pages:
+- _posts/test-1.md
 - _posts/test.md
