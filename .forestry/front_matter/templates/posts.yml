@@ -18,3 +18,5 @@ fields:
 - type: file
   name: file_upload
   label: File Upload
+pages:
+- _posts/test.md
