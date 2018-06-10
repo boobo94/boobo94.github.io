@@ -18,6 +18,20 @@ fields:
       path: cts
   label: Category
   default: articles
+- type: select
+  name: tags
+  config:
+    source:
+      type: simple
+      file: 
+      path: 
+    options:
+    - tips
+    - tutorials
+    - research
+    - ai
+    - web
+  label: Tags
 pages:
 - _posts/test-2.md
 - _posts/test-1.md
