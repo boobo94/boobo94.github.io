@@ -32,3 +32,5 @@ fields:
     - ai
     - web
   label: Tags
+pages:
+- _posts/test.md
