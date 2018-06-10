@@ -33,4 +33,5 @@ fields:
     - web
   label: Tags
 pages:
+- _posts/chatbots-a-different-approach-for-messaging.md
 - _posts/2018-06-10-automatic-gearbox-module-with-fuzzy-controller.md
