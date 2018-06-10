@@ -10,13 +10,14 @@ fields:
   name: date
   label: Date
 - type: select
-  name: tags
+  name: categories
   config:
     source:
       type: datafiles
       file: _data-cts-yml
       path: cts
-  label: tags
+  label: Category
+  default: articles
 pages:
 - _posts/test-2.md
 - _posts/test-1.md
