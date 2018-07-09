@@ -29,9 +29,13 @@ There are some requirements about choosing the invocation name and you can read 
 
 So for the moment we know how to open the skill, but now we have the skill, how you can ask Alexa to open a section. Referring to the example presented before, we have a skill about technology news, but this it's a generic subject. If you want that your skill to be able to presents informations about Artificial Intelligence, Programming Languages, New Smartphones etc.., you need an intent for each of these departments. So when users says 'Alexa, ask technology news', she will knows that he wanted news from my skill, but after that let's say that user wants news about Artificial Intelligence and he will say something like 'Give me news about Artificial Intelligence', this sentence it's an utterance, but we will discuss in the next subchapter, but this it's an utterance defined under Artificial Intelligence intent, so Alexa will know, now, that my intention it's to get information about Artificial Intelligence.
 
-Let's recap, an intent represent an action wanted by a user, it's like a definitory section. [Here](https://developer.amazon.com/docs/custom-skills/create-intents-utterances-and-slots.html#intent-name) you can find some rules to choose the best name for your intents
+Let's recap, an intent represent an action wanted by a user, it's like a definitory section. [Here](https://developer.amazon.com/docs/custom-skills/create-intents-utterances-and-slots.html#intent-name) you can find some rules to choose the best name for your intents. As well, there are some built in intents which can be found [here](https://developer.amazon.com/docs/custom-skills/built-in-intent-library.html).
 
 ### Utterances
+
+As I already told you an utterance represent a sentence which it's part from a n Intent and define particularly that Intent. 
+
+### Intent Slots
 
 ### Slots
 
