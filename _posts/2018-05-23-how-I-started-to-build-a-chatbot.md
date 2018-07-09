@@ -1,15 +1,16 @@
 ---
 layout: default
-title: "How I started to build a chatbot"
-description: "This article it's the first from a future series. Presents the idea behind the scene, how I started to think on it"
+title: How I started to build a chatbot
+description: This article it's the first from a future series. Presents the idea behind
+  the scene, how I started to think on it
 lang: english
-tags: 
-    - ai
-    - chatbot
+tags:
+- ai
+- chatbot
 categories: articles
+date: 2018-05-23 00:00:00 +0000
 ---
-
-# So le'ts begin
+# So let's begin
 
 I'm not here to say how brave I am. or something else, but trying to listen to a good guy on [youtube](https://www.youtube.com/channel/UCFh7FvnJ_0sVP4V0rZe6AaA) and thinking on my dissertation which comes soon and to the fact that I need to choose a subject for my final project, having the shower on top of me I got this briliant idea. So yea I say let's build something to help people and John was talking about some guys which are in college and wants to learn programming and I remember how hard was for me to find informations from many and many places to put them together and in the end to have something real which can help people all over the world.
 
