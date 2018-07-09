@@ -41,6 +41,8 @@ As I already told you an utterance represent a sentence which it's part from a n
 
 ### Slots
 
+[https://developer.amazon.com/docs/custom-skills/slot-type-reference.html](https://developer.amazon.com/docs/custom-skills/slot-type-reference.html "https://developer.amazon.com/docs/custom-skills/slot-type-reference.html")
+
 You can exercise in the [Developer Console](https://developer.amazon.com/alexa/console/ask)
 
 ## How to run a server locally ?
