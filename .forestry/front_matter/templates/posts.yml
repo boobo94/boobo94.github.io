@@ -1,4 +1,5 @@
 ---
+label: Posts
 hide_body: false
 is_partial: false
 fields:
@@ -36,5 +37,6 @@ fields:
   name: description
   label: Meta description
 pages:
-- _posts/2018-06-10-chatbots-a-different-approach-for-messaging.md
+- _posts/how-to-build-a-skill-with-amazon-alexa.md
 - _posts/2018-06-10-automatic-gearbox-module-with-fuzzy-controller.md
+- _posts/2018-06-10-chatbots-a-different-approach-for-messaging.md
