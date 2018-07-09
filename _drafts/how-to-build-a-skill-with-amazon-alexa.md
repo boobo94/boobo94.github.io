@@ -42,15 +42,15 @@ As I already told you an utterance represents a sentence which it's part from an
 
 Don't be lazy and please not overestimate your user, because not all of them are smart or maybe they are not used with AI, so please have in mind that your user can be very stupid and in that way, you'll make it the best. Add as much as possible utterances to cover all the variations that a user can ask for an intent. 
 
-If you want to know best practices and recommendations please [visit this](https://developer.amazon.com/docs/custom-skills/best-practices-for-sample-utterances-and-custom-slot-type-values.html).
-
-[https://developer.amazon.com/docs/custom-skills/create-intents-utterances-and-slots.html#create-intent](https://developer.amazon.com/docs/custom-skills/create-intents-utterances-and-slots.html#create-intent "https://developer.amazon.com/docs/custom-skills/create-intents-utterances-and-slots.html#create-intent")
+If you want to know best practices and recommendations please [visit this](https://developer.amazon.com/docs/custom-skills/best-practices-for-sample-utterances-and-custom-slot-type-values.html) or rules [here](https://developer.amazon.com/docs/custom-skills/create-intents-utterances-and-slots.html#h3_intentref_rules).
 
 ### Intent Slots
 
 [https://developer.amazon.com/docs/custom-skills/create-intents-utterances-and-slots.html#identify-slots](https://developer.amazon.com/docs/custom-skills/create-intents-utterances-and-slots.html#identify-slots "https://developer.amazon.com/docs/custom-skills/create-intents-utterances-and-slots.html#identify-slots")
 
 [https://developer.amazon.com/docs/custom-skills/create-intents-utterances-and-slots.html#assign-slot-types](https://developer.amazon.com/docs/custom-skills/create-intents-utterances-and-slots.html#assign-slot-types "https://developer.amazon.com/docs/custom-skills/create-intents-utterances-and-slots.html#assign-slot-types")
+
+[https://developer.amazon.com/docs/custom-skills/best-practices-for-sample-utterances-and-custom-slot-type-values.html#h3_custom_slot_values](https://developer.amazon.com/docs/custom-skills/best-practices-for-sample-utterances-and-custom-slot-type-values.html#h3_custom_slot_values "https://developer.amazon.com/docs/custom-skills/best-practices-for-sample-utterances-and-custom-slot-type-values.html#h3_custom_slot_values")
 
 ### Slots
 
