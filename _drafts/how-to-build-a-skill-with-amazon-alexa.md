@@ -60,9 +60,21 @@ You can exercise in the [Developer Console](https://developer.amazon.com/alexa/c
 
 ## How to run a server locally ?
 
+ngrok
+
 ## Should I choose Lambda Function or HTTPS server ?
 
+why
+
+advantages / desadvantages 
+
 ## Where to start from the coding ?
+
+chose an sdk
+
+write handlers
+
+set up environment
 
 ## Which sdk to use v1 or v2 ?
 
