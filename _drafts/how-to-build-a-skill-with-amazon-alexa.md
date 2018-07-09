@@ -35,6 +35,8 @@ Let's recap, an intent represent an action wanted by a user, it's like a definit
 
 As I already told you an utterance represent a sentence which it's part from a n Intent and define particularly that Intent. 
 
+[https://developer.amazon.com/docs/custom-skills/built-in-intent-library.html](https://developer.amazon.com/docs/custom-skills/built-in-intent-library.html "https://developer.amazon.com/docs/custom-skills/built-in-intent-library.html")
+
 ### Intent Slots
 
 ### Slots
