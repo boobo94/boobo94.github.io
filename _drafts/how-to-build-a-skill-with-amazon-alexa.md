@@ -33,15 +33,24 @@ Let's recap, an intent represent an action wanted by a user, it's like a definit
 
 ### Utterances
 
-As I already told you an utterance represent a sentence which it's part from a n Intent and define particularly that Intent. 
+As I already told you an utterance represents a sentence which it's part from an Intent and define particularly that Intent. This it's a very important part, that you should focus on and think of all variations for an idea and multiple ways that a user can ask the same idea. For example, if I want news about Artificial intelligence you can have multiple way to open that intent like:
 
-[https://developer.amazon.com/docs/custom-skills/built-in-intent-library.html](https://developer.amazon.com/docs/custom-skills/built-in-intent-library.html "https://developer.amazon.com/docs/custom-skills/built-in-intent-library.html")
+1. Offer me news about Artificial Intelligence
+2. Give me informations about Artificial Intelligence
+3. I want news about AI
+4. More information about AI
+
+Don't be lazy and please not overestimate your user, because not all of them are smart or maybe they are not used with AI, so please have in mind that your user can be very stupid and in that way, you'll make it the best. Add as much as possible utterances to cover all the variations that a user can ask for an intent. 
+
+If you want to know best practices and recommendations please [visit this](https://developer.amazon.com/docs/custom-skills/best-practices-for-sample-utterances-and-custom-slot-type-values.html).
+
+[https://developer.amazon.com/docs/custom-skills/create-intents-utterances-and-slots.html#create-intent](https://developer.amazon.com/docs/custom-skills/create-intents-utterances-and-slots.html#create-intent "https://developer.amazon.com/docs/custom-skills/create-intents-utterances-and-slots.html#create-intent")
 
 ### Intent Slots
 
-[https://developer.amazon.com/docs/custom-skills/slot-type-reference.html](https://developer.amazon.com/docs/custom-skills/slot-type-reference.html "https://developer.amazon.com/docs/custom-skills/slot-type-reference.html")
+[https://developer.amazon.com/docs/custom-skills/create-intents-utterances-and-slots.html#identify-slots](https://developer.amazon.com/docs/custom-skills/create-intents-utterances-and-slots.html#identify-slots "https://developer.amazon.com/docs/custom-skills/create-intents-utterances-and-slots.html#identify-slots")
 
-[https://developer.amazon.com/docs/custom-skills/slot-type-reference.html](https://developer.amazon.com/docs/custom-skills/slot-type-reference.html "https://developer.amazon.com/docs/custom-skills/slot-type-reference.html")
+[https://developer.amazon.com/docs/custom-skills/create-intents-utterances-and-slots.html#assign-slot-types](https://developer.amazon.com/docs/custom-skills/create-intents-utterances-and-slots.html#assign-slot-types "https://developer.amazon.com/docs/custom-skills/create-intents-utterances-and-slots.html#assign-slot-types")
 
 ### Slots
 
