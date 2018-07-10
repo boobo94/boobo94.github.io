@@ -60,9 +60,7 @@ Alexa will match the values with slots. You can read more [here](https://develop
 
 ### Slot Types
 
-[https://developer.amazon.com/docs/custom-skills/slot-type-reference.html](https://developer.amazon.com/docs/custom-skills/slot-type-reference.html "https://developer.amazon.com/docs/custom-skills/slot-type-reference.html")
-
-[https://developer.amazon.com/docs/custom-skills/best-practices-for-sample-utterances-and-custom-slot-type-values.html#h3_custom_slot_values](https://developer.amazon.com/docs/custom-skills/best-practices-for-sample-utterances-and-custom-slot-type-values.html#h3_custom_slot_values "https://developer.amazon.com/docs/custom-skills/best-practices-for-sample-utterances-and-custom-slot-type-values.html#h3_custom_slot_values")
+A slot type represents the value type of slot. There are [default value](https://developer.amazon.com/docs/custom-skills/slot-type-reference.html) builds by Amazon. If you want to discover best practices you can find [here]()
 
 [https://developer.amazon.com/docs/custom-skills/create-intents-utterances-and-slots.html#assign-slot-types](https://developer.amazon.com/docs/custom-skills/create-intents-utterances-and-slots.html#assign-slot-types "https://developer.amazon.com/docs/custom-skills/create-intents-utterances-and-slots.html#assign-slot-types")
 
