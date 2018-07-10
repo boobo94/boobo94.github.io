@@ -56,15 +56,13 @@ So we can identify two variables, _pointA_ and _pointB_, now we can rewrite rule
 1. Give me distance from {pointA} to {pointB}
 2. How long it's between {pointA} to {pointB}
 
-Alexa will match the values with slots. You can read more [here](https://developer.amazon.com/docs/custom-skills/create-intents-utterances-and-slots.html#identify-slots), how to identify slots inside utterances or best practices. A slot have a type, so let's discuss next about that.
+Alexa will match the values with slots. You can read more [here](https://developer.amazon.com/docs/custom-skills/create-intents-utterances-and-slots.html#identify-slots), how to identify slots inside utterances or best practices. A slot can have a type, so if you want to know how to assign a slot type to a slot read [here](https://developer.amazon.com/docs/custom-skills/create-intents-utterances-and-slots.html#assign-slot-types).
 
 ### Slot Types
 
-A slot type represents the value type of slot. There are [default value](https://developer.amazon.com/docs/custom-skills/slot-type-reference.html) builds by Amazon. If you want to discover best practices you can find [here]()
+A slot type represents the type of slot, it's like a variable type. There are [default value](https://developer.amazon.com/docs/custom-skills/slot-type-reference.html) builds by Amazon. If you want to discover best practices you can find [here]()
 
-[https://developer.amazon.com/docs/custom-skills/create-intents-utterances-and-slots.html#assign-slot-types](https://developer.amazon.com/docs/custom-skills/create-intents-utterances-and-slots.html#assign-slot-types "https://developer.amazon.com/docs/custom-skills/create-intents-utterances-and-slots.html#assign-slot-types")
-
-You can exercise in the [Developer Console](https://developer.amazon.com/alexa/console/ask)
+You can exercise more by doing on your on in the [Developer Console](https://developer.amazon.com/alexa/console/ask)
 
 ## How to run a server locally ?
 
