@@ -9,9 +9,9 @@ description: How to build an Alexa skill from scratch with TypeScript. Discover 
 ---
 Hi guys,
 
-Recently, I started a new project, for Spanish market and at this moment that market it's in the beginning phase, in beta, I'll probably disclosure more in the future posts. The idea of this article it's to help you to develop a skill from scratch using a starter pack. In this article I want to present more about [**alexa-skill-starter-pack-typescript **](https://github.com/boobo94/alexa-skill-starter-pack-typescript)from my github account. I dont' want to discuss to much about this starter pack, because you can find more details how to use it or where to start from in the [README.md](https://github.com/boobo94/alexa-skill-starter-pack-typescript/blob/master/README.md)
+Recently, I started a new project, for Spanish market and at this moment that market it's in the beginning phase, in beta, I'll probably disclosure more in the future posts. The idea of this article it's to help you to develop a skill from scratch using a starter pack. In this article I want to present more about [\*\*alexa-skill-starter-pack-typescript \*\*](https://github.com/boobo94/alexa-skill-starter-pack-typescript)from my github account. I dont' want to discuss to much about this starter pack, because you can find more details how to use it or where to start from in the [README.md](https://github.com/boobo94/alexa-skill-starter-pack-typescript/blob/master/README.md)
 
-When I recently started the research to build this, I had few questions that I want to answer to you here. 
+When I recently started the research to build this, I had few questions that I want to answer to you here.
 
 ## Where to start from ?
 
@@ -21,7 +21,7 @@ I started to read about what it's an [Invocation Name](https://developer.amazon.
 
 ### Invocation Name
 
-The invocation name represents the name used to invoke your skill. So if for example you want to build a skill which presents news about technology, a good invocation name can be "technology news" or "technology facts", so this it's the name which will open your skill, like you enter the name of a website in the web browser to invoke that website. 
+The invocation name represents the name used to invoke your skill. So if for example you want to build a skill which presents news about technology, a good invocation name can be "technology news" or "technology facts", so this it's the name which will open your skill, like you enter the name of a website in the web browser to invoke that website.
 
 There are some requirements about choosing the invocation name and you can read them [here](https://developer.amazon.com/docs/custom-skills/choose-the-invocation-name-for-a-custom-skill.html#cert-invocation-name-req).
 
@@ -40,21 +40,31 @@ As I already told you an utterance represents a sentence which it's part from an
 3. I want news about AI
 4. More information about AI
 
-Don't be lazy and please not overestimate your user, because not all of them are smart or maybe they are not used with AI, so please have in mind that your user can be very stupid and in that way, you'll make it the best. Add as much as possible utterances to cover all the variations that a user can ask for an intent. 
+Don't be lazy and please not overestimate your user, because not all of them are smart or maybe they are not used with AI, so please have in mind that your user can be very stupid and in that way, you'll make it the best. Add as much as possible utterances to cover all the variations that a user can ask for an intent.
 
 If you want to know best practices and recommendations please [visit this](https://developer.amazon.com/docs/custom-skills/best-practices-for-sample-utterances-and-custom-slot-type-values.html) or rules [here](https://developer.amazon.com/docs/custom-skills/create-intents-utterances-and-slots.html#h3_intentref_rules).
 
 ### Intent Slots
 
-[https://developer.amazon.com/docs/custom-skills/create-intents-utterances-and-slots.html#identify-slots](https://developer.amazon.com/docs/custom-skills/create-intents-utterances-and-slots.html#identify-slots "https://developer.amazon.com/docs/custom-skills/create-intents-utterances-and-slots.html#identify-slots")
+So now, you know what it's an intent and an utterance, but an intent slot it's like a variable. For example if we have an intent to get distance between two points, point a to point b, we will have utterances like:
 
-[https://developer.amazon.com/docs/custom-skills/create-intents-utterances-and-slots.html#assign-slot-types](https://developer.amazon.com/docs/custom-skills/create-intents-utterances-and-slots.html#assign-slot-types "https://developer.amazon.com/docs/custom-skills/create-intents-utterances-and-slots.html#assign-slot-types")
+1. Give me distance from Paris to New York
+2. How long it's between Budapest to Bucharest
+
+So we can identify two variables, _pointA_ and _pointB_, now we can rewrite rules like:
+
+1. Give me distance from {pointA} to {pointB}
+2. How long it's between {pointA} to {pointB}
+
+Alexa will match the values with slots. You can read more [here](https://developer.amazon.com/docs/custom-skills/create-intents-utterances-and-slots.html#identify-slots), how to identify slots inside utterances or best practices. A slot have a type, so let's discuss next about that.
+
+### Slot Types
+
+[https://developer.amazon.com/docs/custom-skills/slot-type-reference.html](https://developer.amazon.com/docs/custom-skills/slot-type-reference.html "https://developer.amazon.com/docs/custom-skills/slot-type-reference.html")
 
 [https://developer.amazon.com/docs/custom-skills/best-practices-for-sample-utterances-and-custom-slot-type-values.html#h3_custom_slot_values](https://developer.amazon.com/docs/custom-skills/best-practices-for-sample-utterances-and-custom-slot-type-values.html#h3_custom_slot_values "https://developer.amazon.com/docs/custom-skills/best-practices-for-sample-utterances-and-custom-slot-type-values.html#h3_custom_slot_values")
 
-### Slots
-
-[https://developer.amazon.com/docs/custom-skills/slot-type-reference.html](https://developer.amazon.com/docs/custom-skills/slot-type-reference.html "https://developer.amazon.com/docs/custom-skills/slot-type-reference.html")
+[https://developer.amazon.com/docs/custom-skills/create-intents-utterances-and-slots.html#assign-slot-types](https://developer.amazon.com/docs/custom-skills/create-intents-utterances-and-slots.html#assign-slot-types "https://developer.amazon.com/docs/custom-skills/create-intents-utterances-and-slots.html#assign-slot-types")
 
 You can exercise in the [Developer Console](https://developer.amazon.com/alexa/console/ask)
 
@@ -66,7 +76,7 @@ ngrok
 
 why
 
-advantages / desadvantages 
+advantages / desadvantages
 
 ## Where to start from the coding ?
 
@@ -78,7 +88,7 @@ set up environment
 
 ## Which sdk to use v1 or v2 ?
 
-###  Resources
+### Resources
 
      https://medium.com/@cnadeau_/allow-alexa-to-run-your-locally-hosted-skill-1786e3ca7a1b
      https://github.com/balassy/aws-lambda-typescript
