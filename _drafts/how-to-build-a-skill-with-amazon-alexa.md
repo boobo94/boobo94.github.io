@@ -70,9 +70,27 @@ ngrok
 
 ## Should I choose Lambda Function or HTTPS server ?
 
-why
+Depends very much by your skill, but probably the most of you can use Lambda Function.
 
-advantages / desadvantages
+Why to choose Lambda:
+
+* you don't need to administrate any resource
+* don't need SSL certificate
+* don't need to verify where requests come from
+* AWS Lambda run only when a request comes
+* First 1M requests per month are free. [Read more about pricing](https://aws.amazon.com/lambda/pricing/)
+
+Read [here](https://developer.amazon.com/docs/custom-skills/host-a-custom-skill-as-an-aws-lambda-function.html#about-lambda-functions-and-custom-skills) more about connecting Alexa with AWS Lambda or [here](https://developer.amazon.com/docs/custom-skills/host-a-custom-skill-as-an-aws-lambda-function.html#create-a-lambda-function-for-an-alexa-skill) to create a Lambda for Alexa.
+
+Requirements for HTTPS Webservice:
+
+* The service must be Internet-accessible.
+* The service must adhere to the [Alexa Skills Kit interface](https://developer.amazon.com/docs/custom-skills/request-and-response-json-reference.html).
+* The service must support HTTP over SSL/TLS, leveraging an Amazon-trusted certificate.
+* The service must accept requests on port 443.
+* The service must validate that incoming requests are coming from Alexa.
+
+If you want to read more about configuration and requirements read [here](https://developer.amazon.com/docs/custom-skills/host-a-custom-skill-as-a-web-service.html).
 
 ## Where to start from the coding ?
 
