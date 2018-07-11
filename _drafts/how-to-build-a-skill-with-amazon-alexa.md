@@ -138,7 +138,7 @@ If you want to read more about configuration and requirements read [here](https:
 
 ## Where to start coding from ?
 
-chose an sdk
+Before to start any code, I suggest you to choose an SDK, but if you choose javascript SKD v2 it's a better option than v1 and after that take a at someone else code. You can find basic examples on [Alexa's Github profile](https://github.com/alexa/alexa-skills-kit-sdk-for-nodejs) but you can check more for example: [alexa-typescript-hello-world](https://github.com/Xzya/alexa-typescript-hello-world), [alexa-romanian-radio](https://github.com/Xzya/alexa-romanian-radio), [alexa-lambda-typescript](https://github.com/Xzya/alexa-lambda-typescript).
 
 write handlers
 
