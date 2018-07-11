@@ -9,7 +9,7 @@ description: How to build an Alexa skill from scratch with TypeScript. Discover 
 ---
 Hi guys,
 
-Recently, I started a new project, for Spanish market and at this moment that market it's in the beginning phase, in beta, I'll probably disclosure more in the future posts. The idea of this article it's to help you to develop a skill from scratch using a starter pack. In this article I want to present more about [\*\*alexa-skill-starter-pack-typescript \*\*](https://github.com/boobo94/alexa-skill-starter-pack-typescript)from my github account. I dont' want to discuss to much about this starter pack, because you can find more details how to use it or where to start from in the [README.md](https://github.com/boobo94/alexa-skill-starter-pack-typescript/blob/master/README.md)
+Recently, I started a new project, for Spanish market and at this moment that market it's in the beginning phase, in beta, I'll probably disclosure more in the future posts. The idea of this article it's to help you to develop a skill from scratch using a starter pack. In this article I want to present more about [alexa-skill-starter-pack-typescript](https://github.com/boobo94/alexa-skill-starter-pack-typescript) from my github account. I dont' want to discuss to much about this starter pack, because you can find more details how to use it or where to start from in the [README.md](https://github.com/boobo94/alexa-skill-starter-pack-typescript/blob/master/README.md)
 
 When I recently started the research to build this, I had few questions that I want to answer to you here.
 
@@ -102,15 +102,13 @@ You can do it simple just by downloading \[ngrok\](https://ngrok.com/) and creat
     // connect the lambda functions to http
     server.post("/", ConvertHandler(handler));
 
+Take a look at [this](https://github.com/boobo94/alexa-skill-starter-pack-typescript) code.
+
 Open Terminal and run
 
-\`\`\`bash
+`$ ./ngrok http -bind-tls=true -host-header=rewrite 3000`
 
-\$ ./ngrok http -bind-tls=true -host-header=rewrite 3000
-
-\`\`\`    
-
-Copy the https link and go to \[Alexa Console\](https://developer.amazon.com/alexa/console/ask/test/amzn1.ask.skill.15bebd4e-4520-4a06-8fb7-57149258f4d0/development/en_US/), under Endpoint section, select \`TTPS\` and paste the link in \`Default Region\` input field. From the below dropdown choose \`My development endpoint is a sub-domain of a domain that has a wildcard certificate from a certificate authority\`.  
+Copy the https link and go to \[Alexa Console\](https://developer.amazon.com/alexa/console/ask/test/amzn1.ask.skill.15bebd4e-4520-4a06-8fb7-57149258f4d0/development/en_US/), under Endpoint section, select \`TTPS\` and paste the link in \`Default Region\` input field. From the below dropdown choose \`My development endpoint is a sub-domain of a domain that has a wildcard certificate from a certificate authority\`.
 
 \* Every time when you run the ngrok, you need to update the endpoint url.
 
