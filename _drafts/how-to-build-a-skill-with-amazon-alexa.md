@@ -136,7 +136,7 @@ Requirements for HTTPS Web Service:
 
 If you want to read more about configuration and requirements read [here](https://developer.amazon.com/docs/custom-skills/host-a-custom-skill-as-a-web-service.html).
 
-## Where to start from the coding ?
+## Where to start coding from ?
 
 chose an sdk
 
