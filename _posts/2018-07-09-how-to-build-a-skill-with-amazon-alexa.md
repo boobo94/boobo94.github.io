@@ -4,8 +4,9 @@ layout: default
 categories: articles
 date: 2018-07-09 00:00:00 +0000
 tags: ai
-description: How to build an Alexa skill from scratch with TypeScript. Discover more
-  from inside.
+description: How to build a custom skill for Amazon Alexa and learn about invocation
+  name, intents and slots, utterances, slot types. Learn  how to run a server locally
+  and configure it with Lambda Function or Web Service.
 ---
 Hi guys,
 

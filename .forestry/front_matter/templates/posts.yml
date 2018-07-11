@@ -37,6 +37,6 @@ fields:
   name: description
   label: Meta description
 pages:
-- _posts/how-to-build-a-skill-with-amazon-alexa.md
+- _posts/2018-07-09-how-to-build-a-skill-with-amazon-alexa.md
 - _posts/2018-06-10-chatbots-a-different-approach-for-messaging.md
 - _posts/2018-06-10-automatic-gearbox-module-with-fuzzy-controller.md
