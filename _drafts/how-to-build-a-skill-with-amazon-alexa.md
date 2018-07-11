@@ -66,7 +66,7 @@ You can exercise more by doing on your on in the [Developer Console](https://dev
 
 ## How to run a server locally ?
 
-You can do it simple just by downloading \[ngrok\](https://ngrok.com/).
+You can do it simple just by downloading \[ngrok\](https://ngrok.com/) and create a server with the following index code
 
 Open Terminal and run
 
@@ -76,8 +76,9 @@ Open Terminal and run
 
 \`\`\`    
 
-Copy the https link and go to \[Alexa Console\](https://developer.amazon.com/alexa/console/ask/test/amzn1.ask.skill.15bebd4e-4520-4a06-8fb7-57149258f4d0/development/en_US/), under Endpoint section, select \``TTPS\` and paste the link in \`Default Region\` input field. From the below dropdown choose \`My development endpoint is a sub-domain of a domain that has a wildcard certificate from a certificate authority\``.
-  Every time when you run the ngrok, you need to update the endpoint url. \[\[1\]\](https://medium.com/@cnadeau_/allow-alexa-to-run-your-locally-hosted-skill-1786e3ca7a1b)
+Copy the https link and go to \[Alexa Console\](https://developer.amazon.com/alexa/console/ask/test/amzn1.ask.skill.15bebd4e-4520-4a06-8fb7-57149258f4d0/development/en_US/), under Endpoint section, select \`TTPS\` and paste the link in \`Default Region\` input field. From the below dropdown choose \`My development endpoint is a sub-domain of a domain that has a wildcard certificate from a certificate authority\`.  
+
+\* Every time when you run the ngrok, you need to update the endpoint url.
 
 ## Should I choose Lambda Function or HTTPS server ?
 
