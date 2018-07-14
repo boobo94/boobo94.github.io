@@ -189,10 +189,11 @@ ul.topbar {
     width: 98.5%;
     min-height: 600px;
     max-height: 600px;
-    padding: 2px;
+    padding: 10px;
     margin: 0 auto;
     overflow-y: scroll;
     overflow-x: scroll;
+    box-sizing: border-box;
     p {
         line-height: 150%;
         margin-bottom: 15px;
