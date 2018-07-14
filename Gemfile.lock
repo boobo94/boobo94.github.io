@@ -259,6 +259,7 @@ PLATFORMS
 DEPENDENCIES
   github-pages
   jekyll-admin
+  jekyll-analytics
   jekyll-seo-tag
 
 BUNDLED WITH
