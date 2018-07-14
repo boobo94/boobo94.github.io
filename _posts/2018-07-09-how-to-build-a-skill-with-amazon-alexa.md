@@ -1,12 +1,13 @@
 ---
 title: How to build a skill with Amazon Alexa
 layout: default
-categories: articles
+categories: ''
 date: 2018-07-09 00:00:00 +0000
 tags: ai
 description: How to build a custom skill for Amazon Alexa and learn about invocation
   name, intents and slots, utterances, slot types. Learn  how to run a server locally
   and configure it with Lambda Function or Web Service.
+
 ---
 Hi guys,
 
@@ -109,7 +110,7 @@ Open Terminal and run
 
 `$ ./ngrok http -bind-tls=true -host-header=rewrite 3000`
 
-Copy the https link and go to \[Alexa Console\](https://developer.amazon.com/alexa/console/ask/test/amzn1.ask.skill.15bebd4e-4520-4a06-8fb7-57149258f4d0/development/en_US/), under Endpoint section, select \`TTPS\` and paste the link in \`Default Region\` input field. From the below dropdown choose \`My development endpoint is a sub-domain of a domain that has a wildcard certificate from a certificate authority\`.
+Copy the https link and go to [Alexa Console](https://developer.amazon.com/alexa/console/ask/test/amzn1.ask.skill.15bebd4e-4520-4a06-8fb7-57149258f4d0/development/en_US), under Endpoint section, select \`TTPS\` and paste the link in \`Default Region\` input field. From the below dropdown choose \`My development endpoint is a sub-domain of a domain that has a wildcard certificate from a certificate authority\`.
 
 \* Every time when you run the ngrok, you need to update the endpoint url.
 
