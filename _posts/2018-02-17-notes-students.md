@@ -10,7 +10,7 @@ categories: web open-source
 
 The application aims to complete needs of students from universities by showing them the scolar results and specific information. The system consists in a client application, a web service and a database server which are interconnected.
 
-![Notes students image](/media/note-students.png)
+![Notes students image](/images/note-students.png)
 
 The code is structured as object oriented programming either on client and server side. The client app is written in Angular 2 with Typescript, the server is running on a Node JS and the database is running on PostgreSQL engine.
 

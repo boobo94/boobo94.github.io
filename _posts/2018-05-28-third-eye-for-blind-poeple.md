@@ -107,7 +107,7 @@ in acest moment care incearca sa rezolve acest handicap vizual, insa cele mai mu
 deficiente precum: greutate prea mare in transport sau necesitatea unui instructaj amanuntit in
 prealabil.
 
-![general concept](/media/Page-3-Image-1.png)
+![general concept](/images/Page-3-Image-1.png)
 
 O particularitate a acestui proiect o reprezinta faptul ca este accesibila tuturor, costurile de
 productie fiind sub 100lei ( 20€ ). Iar avantajul particular il reprezinta faptul ca este usor de montat,
@@ -271,7 +271,7 @@ buzzer.
 Swtich-ul utilizat, are 2 pozitii ce permite comutarea intre buzzer sau vibrator, deoarece exista cazuri
 in care persoanele au si probleme auditive sau mediul inconjurator este unul foarte zgomots.
 
-![Diagrama schema generala](/media/Page-12-Image-15.png)
+![Diagrama schema generala](/images/Page-12-Image-15.png)
 
 Pentru conectarea senzorului cu ultrasunete se va proceda in urmatorul mod:
 
