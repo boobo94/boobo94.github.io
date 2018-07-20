@@ -14,7 +14,7 @@ header_pages:
 google_verification:
 # Use either direct GA implementation or set up GTM account
 # - using both will skew your data (leave blank to not use at all)
-google_analytics:
+google_analytics: UA-113538337-2
 google_tag_manager:
 # Bing services
 bing_verification:
@@ -23,7 +23,7 @@ bing_verification:
 animated:             false
 show_related_posts:   false
 show_post_footers:    false
-show_social_icons:    false
+show_social_icons:    true
 ajaxify_contact_form: false
 enable_mathjax: false
 extended_fonts: false
@@ -51,15 +51,15 @@ facebook_appid:
 facebook_comments_number: 10
 
 # Social icons
-github_username:boobo94
+github_username: boobo94
 reddit_username:
 bitbucket_username:
-stackoverflow_id:4471897
+stackoverflow_id: 4471897
 twitter_username:
-skype_username:boobo_boobo94
+skype_username: boobo_boobo94
 steam_nickname:
 google_plus_id:
-linkedin_username:bogdan-alexandru-militaru-bb801697
+linkedin_username: bogdan-alexandru-militaru-bb801697
 angellist_username:
 medium_id:
 bitcoin_url:
@@ -69,12 +69,12 @@ telegram_username:
 vk_id:
 
 # Post sharing icons
-show_sharing_icons: false
+show_sharing_icons: true
 # Change to 'true' to enable individual icons
-share_facebook: false
-share_twitter: false
-share_googleplus: false
-share_linkedin: false
+share_facebook: true
+share_twitter: true
+share_googleplus: true
+share_linkedin: true
 share_digg: false
 share_tumblr: false
 share_reddit: false
