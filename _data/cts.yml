@@ -1,8 +1,0 @@
-articles: {
-  name: A,
-  tags: { tag1, tag2, tag3, tag4 }
-}
-portfolio: {
-  name: P,
-  tags: { web }
-}
