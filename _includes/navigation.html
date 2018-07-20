@@ -11,3 +11,7 @@
 
     
 {% endfor %}
+
+{% if site.subscribe %}
+    <a href="https://feedburner.google.com/fb/a/mailverify?uri={{site.subscribe}}&amp;loc=en_US" target="_blank">Subscribe</a>
+{% endif %}
