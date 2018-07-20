@@ -1,8 +1,0 @@
-articles: {
-  name: Articles,
-  tags: { tips, tutorials, research, ai }
-}
-portfolio: {
-  name: Portfolio,
-  tags: { web }
-}
