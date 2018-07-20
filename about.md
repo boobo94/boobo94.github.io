@@ -5,7 +5,8 @@ permalink: /about/
 tags: about
 ---
 
-# Resume
+<img src="{{ site.baseurl }}/images/me.jpg" alt="John Otander" class="avatar" />
+
 
 ## <center><i class="fas fa-university"></i> Education</center>
 
