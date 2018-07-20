@@ -4,16 +4,16 @@
     
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>boobo94</title>
+    <title>How to format an usb drive to fat16 or fat 32 on mac &#8211; boobo94</title>
     <link rel="dns-prefetch" href="//maxcdn.bootstrapcdn.com">
     <link rel="dns-prefetch" href="//cdnjs.cloudflare.com">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="A simple, beautiful theme for Jekyll that emphasizes content rather than aesthetic fluff.">
+    <meta name="description" content="How to format an usb drive to fat16 or fat 32 on mac">
     <meta name="robots" content="all">
     <meta name="author" content="Bogdan Alexandru Militaru">
     
-    
-    <link rel="canonical" href="http://localhost:4000/">
+    <meta name="keywords" content="tutorials">
+    <link rel="canonical" href="http://localhost:4000/tutorials/2018/04/14/how-to-format-an-usb-drive-to-fat16-or-fat32-on-mac/">
     <link rel="alternate" type="application/rss+xml" title="RSS Feed for boobo94" href="/feed.xml" />
 
     <!-- Custom CSS -->
@@ -39,18 +39,18 @@
     <!-- From: https://github.com/mmistakes/hpstr-jekyll-theme/blob/master/_includes/head.html -->
     <meta property="og:locale" content="en_US">
     <meta property="og:type" content="article">
-    <meta property="og:title" content="boobo94">
+    <meta property="og:title" content="How to format an usb drive to fat16 or fat 32 on mac">
     <meta property="og:description" content="A simple, beautiful theme for Jekyll that emphasizes content rather than aesthetic fluff.">
-    <meta property="og:url" content="http://localhost:4000/">
+    <meta property="og:url" content="http://localhost:4000/tutorials/2018/04/14/how-to-format-an-usb-drive-to-fat16-or-fat32-on-mac/">
     <meta property="og:site_name" content="boobo94">
     
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary" />
     
-    <meta name="twitter:title" content="boobo94" />
-    <meta name="twitter:description" content="A simple, beautiful theme for Jekyll that emphasizes content rather than aesthetic fluff." />
-    <meta name="twitter:url" content="http://localhost:4000/" />
+    <meta name="twitter:title" content="How to format an usb drive to fat16 or fat 32 on mac" />
+    <meta name="twitter:description" content="How to format an usb drive to fat16 or fat 32 on mac" />
+    <meta name="twitter:url" content="http://localhost:4000/tutorials/2018/04/14/how-to-format-an-usb-drive-to-fat16-or-fat32-on-mac/" />
     
 
     <!-- Icons -->
@@ -163,70 +163,113 @@
       <div class="measure">
         
 
-<div class="home">
+
+<div class="post-header mb2">
+  <h1>How to format an usb drive to fat16 or fat 32 on mac</h1>
+  <span class="post-meta">Apr 14, 2018</span><br>
   
-    <div class="posts">
-      
-        <div class="post py3">
-          <p class="post-meta">Jul 9, 2018</p>
-          <a href="/ai/alexa-skill/2018/07/09/how-to-build-a-skill-with-amazon-alexa/" class="post-link"><h3 class="h1 post-title">How to build a skill with Amazon Alexa</h3></a>
-          <span class="post-summary">
-            
-              How to build a custom skill for Amazon Alexa and learn about invocation name, intents and slots, utterances, slot types. Learn  how to run a server locally and configure it with Lambda Function or Web Service.
-            
-          </span>
-        </div>
-      
-        <div class="post py3">
-          <p class="post-meta">Jun 10, 2018</p>
-          <a href="/research/2018/06/10/automatic-gearbox-module-with-fuzzy-controller/" class="post-link"><h3 class="h1 post-title">Automatic GearBox Module with Fuzzy Controller</h3></a>
-          <span class="post-summary">
-            
-              Sistemul isi propune realizarea unui modul electronic, pentru schimbarea automata a vitezelor unui autovehicul, folosind o cutie de viteze automata. 
-            
-          </span>
-        </div>
-      
-        <div class="post py3">
-          <p class="post-meta">Jun 10, 2018</p>
-          <a href="/research/2018/06/10/chatbots-a-different-approach-for-messaging/" class="post-link"><h3 class="h1 post-title">Chatbots a different approach for messaging</h3></a>
-          <span class="post-summary">
-            
-              Chatbots a different approach for messaging
-            
-          </span>
-        </div>
-      
-        <div class="post py3">
-          <p class="post-meta">May 28, 2018</p>
-          <a href="/research/2018/05/28/third-eye-for-blind-poeple/" class="post-link"><h3 class="h1 post-title">Third eye for blind people</h3></a>
-          <span class="post-summary">
-            
-              Third eye for blind people
-            
-          </span>
-        </div>
-      
-    </div>
+  <span class="post-meta small">
+  
+    1 minute read
+  
+  </span>
+</div>
+
+<article class="post-content">
+  <p>Today I want to show you a simple trick that works simply and precise.</p>
+
+<p>All you have to do is to open you terminal and to run the following commands</p>
+
+<ol>
+  <li>List all the disks inside your computer, to find name of the disk that you want to format in the next step 
+<code class="highlighter-rouge">diskutil list</code></li>
+</ol>
+
+<h2 id="example">Example</h2>
+
+<pre><code class="language-Bash">Macs-MacBook-Pro:~ boobo94$ diskutil list
+/dev/disk0 (internal, physical):
+   #:                       TYPE NAME                    SIZE       IDENTIFIER
+   0:      GUID_partition_scheme                        *251.0 GB   disk0
+   1:                        EFI EFI                     209.7 MB   disk0s1
+   2:                 Apple_APFS Container disk1         250.8 GB   disk0s2
+
+/dev/disk1 (synthesized):
+   #:                       TYPE NAME                    SIZE       IDENTIFIER
+   0:      APFS Container Scheme -                      +250.8 GB   disk1
+                                 Physical Store disk0s2
+   1:                APFS Volume Untitled                114.5 GB   disk1s1
+   2:                APFS Volume Preboot                 22.8 MB    disk1s2
+   3:                APFS Volume Recovery                517.8 MB   disk1s3
+   4:                APFS Volume VM                      2.1 GB     disk1s4
+
+/dev/disk2 (external, physical):
+   #:                       TYPE NAME                    SIZE       IDENTIFIER
+   0:      GUID_partition_scheme                        *16.3 GB    disk2
+   1:                        EFI EFI                     209.7 MB   disk2s1
+   2:       Microsoft Basic Data MUZICA                  16.0 GB    disk2s2
+</code></pre>
+
+<ol>
+  <li>Format your usb drive</li>
+</ol>
+
+<p><code class="highlighter-rouge">diskutil eraseDisk "MS-DOS FAT16" SOMENAME /dev/disk#</code></p>
+
+<h2 id="wiki">Wiki:</h2>
+
+<ul>
+  <li>SOMENAME - here you can put the name that you want to be displayed on you computer in the future</li>
+  <li>FAT16 - if you want to use fat32, please just replace 16 with 32</li>
+  <li>/dev/disk# - replace # with your disk number, for example if I want to format that usb connected to my computer,its name is /dev/disk2</li>
+</ul>
+
+</article>
+
+
+  <div class="share-page">
+  Share this post!
+
+  <div class="share-links">
+    
+      <a class="fa fa-facebook" href="https://facebook.com/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2Ftutorials%2F2018%2F04%2F14%2Fhow-to-format-an-usb-drive-to-fat16-or-fat32-on-mac%2F" rel="nofollow" target="_blank" title="Share on Facebook"></a>
+    
 
     
-<div class="pagination clearfix mb1 mt4">
-  <div class="left">
+      <a class="fa fa-twitter" href="https://twitter.com/intent/tweet?text=How+to+format+an+usb+drive+to+fat16+or+fat+32+on+mac&amp;url=http%3A%2F%2Flocalhost%3A4000%2Ftutorials%2F2018%2F04%2F14%2Fhow-to-format-an-usb-drive-to-fat16-or-fat32-on-mac%2F" rel="nofollow" target="_blank" title="Share on Twitter"></a>
     
-      <span class="pagination-item disabled">Newer</span>
+
+    
+      <a class="fa fa-google-plus" href="https://plus.google.com/share?url=http%3A%2F%2Flocalhost%3A4000%2Ftutorials%2F2018%2F04%2F14%2Fhow-to-format-an-usb-drive-to-fat16-or-fat32-on-mac%2F" rel="nofollow" target="_blank" title="Share on Google+"></a>
+    
+
+    
+      <a class="fa fa-linkedin" href="http://www.linkedin.com/shareArticle?url=http%3A%2F%2Flocalhost%3A4000%2Ftutorials%2F2018%2F04%2F14%2Fhow-to-format-an-usb-drive-to-fat16-or-fat32-on-mac%2F&amp;title=How+to+format+an+usb+drive+to+fat16+or+fat+32+on+mac" rel="nofollow" target="_blank" title="Share on LinkedIn"></a>
+    
+
+    
+
+    
+
+    
+
+    
+
     
   </div>
-  <div class="right">
-    
-      <a class="pagination-item" href="/page2">Older</a>
-    
-  </div>
-  <div class="pagination-meta">Page 1 of 4</div>
 </div>
 
 
-  
-</div>
+
+
+
+
+
+
+
+
+
+
 
       </div>
     </div>

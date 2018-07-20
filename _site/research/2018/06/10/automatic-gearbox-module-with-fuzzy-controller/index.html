@@ -4,16 +4,16 @@
     
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>boobo94</title>
+    <title>Automatic GearBox Module with Fuzzy Controller &#8211; boobo94</title>
     <link rel="dns-prefetch" href="//maxcdn.bootstrapcdn.com">
     <link rel="dns-prefetch" href="//cdnjs.cloudflare.com">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="A simple, beautiful theme for Jekyll that emphasizes content rather than aesthetic fluff.">
+    <meta name="description" content="Sistemul isi propune realizarea unui modul electronic, pentru schimbarea automata a vitezelor unui autovehicul, folosind o cutie de viteze automata. ">
     <meta name="robots" content="all">
     <meta name="author" content="Bogdan Alexandru Militaru">
     
-    
-    <link rel="canonical" href="http://localhost:4000/">
+    <meta name="keywords" content="research">
+    <link rel="canonical" href="http://localhost:4000/research/2018/06/10/automatic-gearbox-module-with-fuzzy-controller/">
     <link rel="alternate" type="application/rss+xml" title="RSS Feed for boobo94" href="/feed.xml" />
 
     <!-- Custom CSS -->
@@ -39,18 +39,18 @@
     <!-- From: https://github.com/mmistakes/hpstr-jekyll-theme/blob/master/_includes/head.html -->
     <meta property="og:locale" content="en_US">
     <meta property="og:type" content="article">
-    <meta property="og:title" content="boobo94">
+    <meta property="og:title" content="Automatic GearBox Module with Fuzzy Controller">
     <meta property="og:description" content="A simple, beautiful theme for Jekyll that emphasizes content rather than aesthetic fluff.">
-    <meta property="og:url" content="http://localhost:4000/">
+    <meta property="og:url" content="http://localhost:4000/research/2018/06/10/automatic-gearbox-module-with-fuzzy-controller/">
     <meta property="og:site_name" content="boobo94">
     
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary" />
     
-    <meta name="twitter:title" content="boobo94" />
-    <meta name="twitter:description" content="A simple, beautiful theme for Jekyll that emphasizes content rather than aesthetic fluff." />
-    <meta name="twitter:url" content="http://localhost:4000/" />
+    <meta name="twitter:title" content="Automatic GearBox Module with Fuzzy Controller" />
+    <meta name="twitter:description" content="Sistemul isi propune realizarea unui modul electronic, pentru schimbarea automata a vitezelor unui autovehicul, folosind o cutie de viteze automata. " />
+    <meta name="twitter:url" content="http://localhost:4000/research/2018/06/10/automatic-gearbox-module-with-fuzzy-controller/" />
     
 
     <!-- Icons -->
@@ -163,70 +163,100 @@
       <div class="measure">
         
 
-<div class="home">
+
+<div class="post-header mb2">
+  <h1>Automatic GearBox Module with Fuzzy Controller</h1>
+  <span class="post-meta">Jun 10, 2018</span><br>
   
-    <div class="posts">
-      
-        <div class="post py3">
-          <p class="post-meta">Jul 9, 2018</p>
-          <a href="/ai/alexa-skill/2018/07/09/how-to-build-a-skill-with-amazon-alexa/" class="post-link"><h3 class="h1 post-title">How to build a skill with Amazon Alexa</h3></a>
-          <span class="post-summary">
-            
-              How to build a custom skill for Amazon Alexa and learn about invocation name, intents and slots, utterances, slot types. Learn  how to run a server locally and configure it with Lambda Function or Web Service.
-            
-          </span>
-        </div>
-      
-        <div class="post py3">
-          <p class="post-meta">Jun 10, 2018</p>
-          <a href="/research/2018/06/10/automatic-gearbox-module-with-fuzzy-controller/" class="post-link"><h3 class="h1 post-title">Automatic GearBox Module with Fuzzy Controller</h3></a>
-          <span class="post-summary">
-            
-              Sistemul isi propune realizarea unui modul electronic, pentru schimbarea automata a vitezelor unui autovehicul, folosind o cutie de viteze automata. 
-            
-          </span>
-        </div>
-      
-        <div class="post py3">
-          <p class="post-meta">Jun 10, 2018</p>
-          <a href="/research/2018/06/10/chatbots-a-different-approach-for-messaging/" class="post-link"><h3 class="h1 post-title">Chatbots a different approach for messaging</h3></a>
-          <span class="post-summary">
-            
-              Chatbots a different approach for messaging
-            
-          </span>
-        </div>
-      
-        <div class="post py3">
-          <p class="post-meta">May 28, 2018</p>
-          <a href="/research/2018/05/28/third-eye-for-blind-poeple/" class="post-link"><h3 class="h1 post-title">Third eye for blind people</h3></a>
-          <span class="post-summary">
-            
-              Third eye for blind people
-            
-          </span>
-        </div>
-      
-    </div>
+  <span class="post-meta small">
+  
+    1 minute read
+  
+  </span>
+</div>
+
+<article class="post-content">
+  <p>Sistemul isi propune realizarea unui modul electronic, pentru schimbarea automata a vitezelor unui autovehicul, folosind o cutie de viteze automata. Factorii ce influenteaza sistemul sunt:</p>
+
+<ul>
+  <li>Viteza autoturismului</li>
+  <li>Turatia motorului</li>
+  <li>
+    <p>Modul de condus - modul de utilizare al autoturismului in functie de dorinta</p>
+
+    <p>soferului. Presupunem ca selectia se va face in baza unui comutator si permite 3</p>
+
+    <p>moduri de lucru:</p>
+    <ul>
+      <li>
+        <p>Eco - un mod de condus specializat pentru un consum mic si un mod de poluare</p>
+
+        <p>redus. In acest context motorul va opera cu turatii mici si viteza redusa.</p>
+      </li>
+      <li>
+        <p>City - un mod de condus specializat pentru modul de oras, viteze reduse, turatii</p>
+
+        <p>mari pentru demaraje fapt datorat indicatiilor semafoarelor</p>
+      </li>
+      <li>
+        <p>Sport - in acest mod de condus se va utiliza motorul cu turatii mari si viteze</p>
+
+        <p>mici sau mari.</p>
+
+        <p>Se va utiliza un Controller cu logica Fuzzy care sa reactioneze conform variabilelor de intrare viteza, turatie si mod de condus, astfel incat sa gestioneze schimbarea treptei de viteze in mod automat.</p>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<p>Intregul articol poate fi citit si descarcat <a href="http://libgen.io/book/index.php?md5=6C1FF04E74F0AC17DB2E1A130291BDF8">aici</a>.</p>
+
+</article>
+
+
+  <div class="share-page">
+  Share this post!
+
+  <div class="share-links">
+    
+      <a class="fa fa-facebook" href="https://facebook.com/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2Fresearch%2F2018%2F06%2F10%2Fautomatic-gearbox-module-with-fuzzy-controller%2F" rel="nofollow" target="_blank" title="Share on Facebook"></a>
+    
 
     
-<div class="pagination clearfix mb1 mt4">
-  <div class="left">
+      <a class="fa fa-twitter" href="https://twitter.com/intent/tweet?text=Automatic+GearBox+Module+with+Fuzzy+Controller&amp;url=http%3A%2F%2Flocalhost%3A4000%2Fresearch%2F2018%2F06%2F10%2Fautomatic-gearbox-module-with-fuzzy-controller%2F" rel="nofollow" target="_blank" title="Share on Twitter"></a>
     
-      <span class="pagination-item disabled">Newer</span>
+
+    
+      <a class="fa fa-google-plus" href="https://plus.google.com/share?url=http%3A%2F%2Flocalhost%3A4000%2Fresearch%2F2018%2F06%2F10%2Fautomatic-gearbox-module-with-fuzzy-controller%2F" rel="nofollow" target="_blank" title="Share on Google+"></a>
+    
+
+    
+      <a class="fa fa-linkedin" href="http://www.linkedin.com/shareArticle?url=http%3A%2F%2Flocalhost%3A4000%2Fresearch%2F2018%2F06%2F10%2Fautomatic-gearbox-module-with-fuzzy-controller%2F&amp;title=Automatic+GearBox+Module+with+Fuzzy+Controller" rel="nofollow" target="_blank" title="Share on LinkedIn"></a>
+    
+
+    
+
+    
+
+    
+
+    
+
     
   </div>
-  <div class="right">
-    
-      <a class="pagination-item" href="/page2">Older</a>
-    
-  </div>
-  <div class="pagination-meta">Page 1 of 4</div>
 </div>
 
 
-  
-</div>
+
+
+
+
+
+
+
+
+
+
 
       </div>
     </div>

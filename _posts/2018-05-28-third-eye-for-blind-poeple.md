@@ -1,8 +1,8 @@
 ---
-layout: post
-title: "Third eye for blind people"
-date: 2018-05-38 12:31:19
-summary: "Third eye for blind people"
+layout:     post
+title:      "Third eye for blind people"
+date:       2018-05-28 12:31:19
+summary:    "Third eye for blind people"
 categories: research
 ---
 

@@ -4,16 +4,16 @@
     
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>boobo94</title>
+    <title>Create systemd service (Ubuntu 15+) &#8211; boobo94</title>
     <link rel="dns-prefetch" href="//maxcdn.bootstrapcdn.com">
     <link rel="dns-prefetch" href="//cdnjs.cloudflare.com">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="A simple, beautiful theme for Jekyll that emphasizes content rather than aesthetic fluff.">
+    <meta name="description" content="Create systemd service (Ubuntu 15+)">
     <meta name="robots" content="all">
     <meta name="author" content="Bogdan Alexandru Militaru">
     
-    
-    <link rel="canonical" href="http://localhost:4000/">
+    <meta name="keywords" content="tutorials">
+    <link rel="canonical" href="http://localhost:4000/tutorials/2018/02/18/create-custom-service-ubuntu/">
     <link rel="alternate" type="application/rss+xml" title="RSS Feed for boobo94" href="/feed.xml" />
 
     <!-- Custom CSS -->
@@ -39,18 +39,18 @@
     <!-- From: https://github.com/mmistakes/hpstr-jekyll-theme/blob/master/_includes/head.html -->
     <meta property="og:locale" content="en_US">
     <meta property="og:type" content="article">
-    <meta property="og:title" content="boobo94">
+    <meta property="og:title" content="Create systemd service (Ubuntu 15+)">
     <meta property="og:description" content="A simple, beautiful theme for Jekyll that emphasizes content rather than aesthetic fluff.">
-    <meta property="og:url" content="http://localhost:4000/">
+    <meta property="og:url" content="http://localhost:4000/tutorials/2018/02/18/create-custom-service-ubuntu/">
     <meta property="og:site_name" content="boobo94">
     
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary" />
     
-    <meta name="twitter:title" content="boobo94" />
-    <meta name="twitter:description" content="A simple, beautiful theme for Jekyll that emphasizes content rather than aesthetic fluff." />
-    <meta name="twitter:url" content="http://localhost:4000/" />
+    <meta name="twitter:title" content="Create systemd service (Ubuntu 15+)" />
+    <meta name="twitter:description" content="Create systemd service (Ubuntu 15+)" />
+    <meta name="twitter:url" content="http://localhost:4000/tutorials/2018/02/18/create-custom-service-ubuntu/" />
     
 
     <!-- Icons -->
@@ -163,70 +163,105 @@
       <div class="measure">
         
 
-<div class="home">
+
+<div class="post-header mb2">
+  <h1>Create systemd service (Ubuntu 15+)</h1>
+  <span class="post-meta">Feb 18, 2018</span><br>
   
-    <div class="posts">
-      
-        <div class="post py3">
-          <p class="post-meta">Jul 9, 2018</p>
-          <a href="/ai/alexa-skill/2018/07/09/how-to-build-a-skill-with-amazon-alexa/" class="post-link"><h3 class="h1 post-title">How to build a skill with Amazon Alexa</h3></a>
-          <span class="post-summary">
-            
-              How to build a custom skill for Amazon Alexa and learn about invocation name, intents and slots, utterances, slot types. Learn  how to run a server locally and configure it with Lambda Function or Web Service.
-            
-          </span>
-        </div>
-      
-        <div class="post py3">
-          <p class="post-meta">Jun 10, 2018</p>
-          <a href="/research/2018/06/10/automatic-gearbox-module-with-fuzzy-controller/" class="post-link"><h3 class="h1 post-title">Automatic GearBox Module with Fuzzy Controller</h3></a>
-          <span class="post-summary">
-            
-              Sistemul isi propune realizarea unui modul electronic, pentru schimbarea automata a vitezelor unui autovehicul, folosind o cutie de viteze automata. 
-            
-          </span>
-        </div>
-      
-        <div class="post py3">
-          <p class="post-meta">Jun 10, 2018</p>
-          <a href="/research/2018/06/10/chatbots-a-different-approach-for-messaging/" class="post-link"><h3 class="h1 post-title">Chatbots a different approach for messaging</h3></a>
-          <span class="post-summary">
-            
-              Chatbots a different approach for messaging
-            
-          </span>
-        </div>
-      
-        <div class="post py3">
-          <p class="post-meta">May 28, 2018</p>
-          <a href="/research/2018/05/28/third-eye-for-blind-poeple/" class="post-link"><h3 class="h1 post-title">Third eye for blind people</h3></a>
-          <span class="post-summary">
-            
-              Third eye for blind people
-            
-          </span>
-        </div>
-      
-    </div>
+  <span class="post-meta small">
+  
+    1 minute read
+  
+  </span>
+</div>
+
+<article class="post-content">
+  <h2 id="setup">Setup</h2>
+
+<ul>
+  <li>Create a file: 
+    <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>      <span class="nv">$ </span><span class="nb">sudo </span>vi /etc/systemd/system/CUSTOM_SERVICE_NAME.service 
+</code></pre></div>    </div>
+  </li>
+  <li>With the following content</li>
+</ul>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">[</span>Unit]
+<span class="nv">Description</span><span class="o">=</span>CUSTOM_SERVICE_NAME
+
+<span class="o">[</span>Service]
+<span class="nv">ExecStart</span><span class="o">=</span>/opt/www/EXEC_FILE
+<span class="nv">WorkingDirectory</span><span class="o">=</span>/opt/www
+<span class="nv">Restart</span><span class="o">=</span>always
+
+<span class="o">[</span>Install]
+<span class="nv">WantedBy</span><span class="o">=</span>multi-user.target
+</code></pre></div></div>
+
+<ul>
+  <li>
+    <p>Enable the service to be started automatically on boot</p>
+
+    <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>      <span class="nv">$ </span><span class="nb">sudo </span>systemctl <span class="nb">enable </span>CUSTOM_SERVICE_NAME.service
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>Check status/start/stop/restart</p>
+
+    <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>      <span class="nv">$ </span><span class="nb">sudo </span>systemctl <span class="o">{</span>status|start|stop|restart<span class="o">}</span> CUSTOM_SERVICE_NAME
+</code></pre></div>    </div>
+  </li>
+</ul>
+
+<p><a href="https://gist.github.com/boobo94/ad6ed51c07024f17201eb234fb0c91f5" target="_blank"><i class="fab fa-github"></i> Gist on GitHub here</a></p>
+
+
+</article>
+
+
+  <div class="share-page">
+  Share this post!
+
+  <div class="share-links">
+    
+      <a class="fa fa-facebook" href="https://facebook.com/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2Ftutorials%2F2018%2F02%2F18%2Fcreate-custom-service-ubuntu%2F" rel="nofollow" target="_blank" title="Share on Facebook"></a>
+    
 
     
-<div class="pagination clearfix mb1 mt4">
-  <div class="left">
+      <a class="fa fa-twitter" href="https://twitter.com/intent/tweet?text=Create+systemd+service+%28Ubuntu+15%2B%29&amp;url=http%3A%2F%2Flocalhost%3A4000%2Ftutorials%2F2018%2F02%2F18%2Fcreate-custom-service-ubuntu%2F" rel="nofollow" target="_blank" title="Share on Twitter"></a>
     
-      <span class="pagination-item disabled">Newer</span>
+
+    
+      <a class="fa fa-google-plus" href="https://plus.google.com/share?url=http%3A%2F%2Flocalhost%3A4000%2Ftutorials%2F2018%2F02%2F18%2Fcreate-custom-service-ubuntu%2F" rel="nofollow" target="_blank" title="Share on Google+"></a>
+    
+
+    
+      <a class="fa fa-linkedin" href="http://www.linkedin.com/shareArticle?url=http%3A%2F%2Flocalhost%3A4000%2Ftutorials%2F2018%2F02%2F18%2Fcreate-custom-service-ubuntu%2F&amp;title=Create+systemd+service+%28Ubuntu+15%2B%29" rel="nofollow" target="_blank" title="Share on LinkedIn"></a>
+    
+
+    
+
+    
+
+    
+
+    
+
     
   </div>
-  <div class="right">
-    
-      <a class="pagination-item" href="/page2">Older</a>
-    
-  </div>
-  <div class="pagination-meta">Page 1 of 4</div>
 </div>
 
 
-  
-</div>
+
+
+
+
+
+
+
+
+
+
 
       </div>
     </div>
