@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Create systemd service (Ubuntu 15+) &#8211; boobo94</title>
+    <link rel="dns-prefetch" href="//maxcdn.bootstrapcdn.com">
+    <link rel="dns-prefetch" href="//cdnjs.cloudflare.com">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Create systemd service (Ubuntu 15+)">
+    <meta name="robots" content="all">
+    <meta name="author" content="Bogdan Alexandru Militaru">
+    
+    <meta name="keywords" content="tutorials">
+    <link rel="canonical" href="http://localhost:4000/tutorials/2018/02/18/create-custom-service-ubuntu/">
+    <link rel="alternate" type="application/rss+xml" title="RSS Feed for boobo94" href="/feed.xml" />
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/pixyll.css?201807201425" type="text/css">
+
+    <!-- Fonts -->
+    
+    <link href='//fonts.googleapis.com/css?family=Merriweather:900,900italic,300,300italic' rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Lato:900,300' rel='stylesheet' type='text/css'>
+    
+    
+      <link href="//maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">
+    
+
+    <!-- MathJax -->
+    
+
+    <!-- Verifications -->
+    
+    
+
+    <!-- Open Graph -->
+    <!-- From: https://github.com/mmistakes/hpstr-jekyll-theme/blob/master/_includes/head.html -->
+    <meta property="og:locale" content="en_US">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Create systemd service (Ubuntu 15+)">
+    <meta property="og:description" content="A simple, beautiful theme for Jekyll that emphasizes content rather than aesthetic fluff.">
+    <meta property="og:url" content="http://localhost:4000/tutorials/2018/02/18/create-custom-service-ubuntu/">
+    <meta property="og:site_name" content="boobo94">
+    
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary" />
+    
+    <meta name="twitter:title" content="Create systemd service (Ubuntu 15+)" />
+    <meta name="twitter:description" content="Create systemd service (Ubuntu 15+)" />
+    <meta name="twitter:url" content="http://localhost:4000/tutorials/2018/02/18/create-custom-service-ubuntu/" />
+    
+
+    <!-- Icons -->
+    <link rel="apple-touch-icon" sizes="57x57" href="/apple-touch-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="/apple-touch-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="/apple-touch-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="/apple-touch-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="/apple-touch-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="/apple-touch-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="/apple-touch-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon-180x180.png">
+    <link rel="icon" type="image/png" href="/favicon-192x192.png" sizes="192x192">
+    <link rel="icon" type="image/png" href="/favicon-160x160.png" sizes="160x160">
+    <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96">
+    <link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16">
+    <link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32">
+
+    
+    <script type="text/javascript">
+       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+       (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+       m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+       })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+       ga('create', 'UA-113538337-2', 'auto');
+       ga('send', 'pageview');
+    </script>
+    
+</head>
+
+<body class="site">
+  
+	
+
+  <div class="site-wrap">
+    <header class="site-header px2 px-responsive">
+  <div class="mt2 wrap">
+    <div class="measure">
+      <a href="http://localhost:4000" class="site-title">boobo94</a>
+      <nav class="site-nav">
+        
+
+
+
+    
+    
+    
+    
+        <a href="/about/">About me</a>
+    
+
+    
+
+    
+    
+    
+    
+        <a href="/contact/">Contact</a>
+    
+
+    
+
+
+      </nav>
+      <div class="clearfix"></div>
+      
+        <div class="social-icons">
+  <div class="social-icons-right">
+    
+      <a class="fa fa-github" href="https://github.com/boobo94"></a>
+    
+    
+    
+    
+      <a class="fa fa-stack-overflow" href="https://stackoverflow.com/users/4471897"></a>
+    
+    <a class="fa fa-rss" href="/feed.xml"></a>
+    
+    
+      <a class="fa fa-skype" href="skype:boobo_boobo94?userinfo"></a>
+    
+    
+    
+    
+      <a class="fa fa-envelope" href="mailto:mba@cmevo.com"></a>
+    
+    
+      <a class="fa fa-linkedin" href="https://www.linkedin.com/in/bogdan-alexandru-militaru-bb801697"></a>
+    
+    
+    
+    
+    
+  </div>
+  <div class="right">
+    
+    
+    
+  </div>
+</div>
+<div class="clearfix"></div>
+
+      
+    </div>
+  </div>
+</header>
+
+
+    <div class="post p2 p-responsive wrap" role="main">
+      <div class="measure">
+        
+
+
+<div class="post-header mb2">
+  <h1>Create systemd service (Ubuntu 15+)</h1>
+  <span class="post-meta">Feb 18, 2018</span><br>
+  
+  <span class="post-meta small">
+  
+    1 minute read
+  
+  </span>
+</div>
+
+<article class="post-content">
+  <h2 id="setup">Setup</h2>
+
+<ul>
+  <li>Create a file: 
+    <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>      <span class="nv">$ </span><span class="nb">sudo </span>vi /etc/systemd/system/CUSTOM_SERVICE_NAME.service 
+</code></pre></div>    </div>
+  </li>
+  <li>With the following content</li>
+</ul>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">[</span>Unit]
+<span class="nv">Description</span><span class="o">=</span>CUSTOM_SERVICE_NAME
+
+<span class="o">[</span>Service]
+<span class="nv">ExecStart</span><span class="o">=</span>/opt/www/EXEC_FILE
+<span class="nv">WorkingDirectory</span><span class="o">=</span>/opt/www
+<span class="nv">Restart</span><span class="o">=</span>always
+
+<span class="o">[</span>Install]
+<span class="nv">WantedBy</span><span class="o">=</span>multi-user.target
+</code></pre></div></div>
+
+<ul>
+  <li>
+    <p>Enable the service to be started automatically on boot</p>
+
+    <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>      <span class="nv">$ </span><span class="nb">sudo </span>systemctl <span class="nb">enable </span>CUSTOM_SERVICE_NAME.service
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>Check status/start/stop/restart</p>
+
+    <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>      <span class="nv">$ </span><span class="nb">sudo </span>systemctl <span class="o">{</span>status|start|stop|restart<span class="o">}</span> CUSTOM_SERVICE_NAME
+</code></pre></div>    </div>
+  </li>
+</ul>
+
+<p><a href="https://gist.github.com/boobo94/ad6ed51c07024f17201eb234fb0c91f5" target="_blank"><i class="fab fa-github"></i> Gist on GitHub here</a></p>
+
+
+</article>
+
+
+  <div class="share-page">
+  Share this post!
+
+  <div class="share-links">
+    
+      <a class="fa fa-facebook" href="https://facebook.com/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2Ftutorials%2F2018%2F02%2F18%2Fcreate-custom-service-ubuntu%2F" rel="nofollow" target="_blank" title="Share on Facebook"></a>
+    
+
+    
+      <a class="fa fa-twitter" href="https://twitter.com/intent/tweet?text=Create+systemd+service+%28Ubuntu+15%2B%29&amp;url=http%3A%2F%2Flocalhost%3A4000%2Ftutorials%2F2018%2F02%2F18%2Fcreate-custom-service-ubuntu%2F" rel="nofollow" target="_blank" title="Share on Twitter"></a>
+    
+
+    
+      <a class="fa fa-google-plus" href="https://plus.google.com/share?url=http%3A%2F%2Flocalhost%3A4000%2Ftutorials%2F2018%2F02%2F18%2Fcreate-custom-service-ubuntu%2F" rel="nofollow" target="_blank" title="Share on Google+"></a>
+    
+
+    
+      <a class="fa fa-linkedin" href="http://www.linkedin.com/shareArticle?url=http%3A%2F%2Flocalhost%3A4000%2Ftutorials%2F2018%2F02%2F18%2Fcreate-custom-service-ubuntu%2F&amp;title=Create+systemd+service+%28Ubuntu+15%2B%29" rel="nofollow" target="_blank" title="Share on LinkedIn"></a>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+      </div>
+    </div>
+  </div>
+
+  <footer class="center">
+  <div class="measure">
+    <small>
+      Theme crafted with &lt;3 by <a href="http://johnotander.com">John Otander</a> (<a href="https://twitter.com/4lpine">@4lpine</a>).<br>
+      &lt;/&gt; available on <a href="https://github.com/johnotander/pixyll">GitHub</a>.
+    </small>
+  </div>
+</footer>
+
+
+</body>
+</html>
