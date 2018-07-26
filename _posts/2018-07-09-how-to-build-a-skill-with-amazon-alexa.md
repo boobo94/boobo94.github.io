@@ -72,39 +72,39 @@ You can exercise more by doing on your own in the [Developer Console](https://de
 You can do it simple, just by downloading \[ngrok\](https://ngrok.com/) and create a server with the following code
 
 ```js
-    import * as express from "express";
-    import * as bodyParser from "body-parser";
-    import { LambdaHandler } from "ask-sdk-core/dist/skill/factory/BaseSkillFactory";
-    import { RequestEnvelope } from "ask-sdk-model";
-    import { AddressInfo } from "net";
-    
-    import { handler } from './lambda/custom/index'
-    
-    // Convert LambdaFunction to RequestHandler
-    
-    function ConvertHandler(handler: LambdaHandler): express.RequestHandler {
-        return (req, res) => {
-            handler(req.body as RequestEnvelope, null, (err, result) => {
-                if (err) {
-                    return res.status(500).send(err);
-                }
-                return res.status(200).json(result);
-            });
-        };
-    }
-    
-    // create server
-    const server = express();
-    const listener = server.listen(process.env.port || process.env.PORT || 3000, function () {
-        const { address, port } = listener.address() as AddressInfo;
-        console.log('%s listening to %s%s', server.name, address, port);
-    });
-    
-    // parse json
-    server.use(bodyParser.json());
-    
-    // connect the lambda functions to http
-    server.post("/", ConvertHandler(handler));
+import * as express from "express";
+import * as bodyParser from "body-parser";
+import { LambdaHandler } from "ask-sdk-core/dist/skill/factory/BaseSkillFactory";
+import { RequestEnvelope } from "ask-sdk-model";
+import { AddressInfo } from "net";
+
+import { handler } from './lambda/custom/index'
+
+// Convert LambdaFunction to RequestHandler
+
+function ConvertHandler(handler: LambdaHandler): express.RequestHandler {
+    return (req, res) => {
+        handler(req.body as RequestEnvelope, null, (err, result) => {
+            if (err) {
+                return res.status(500).send(err);
+            }
+            return res.status(200).json(result);
+        });
+    };
+}
+
+// create server
+const server = express();
+const listener = server.listen(process.env.port || process.env.PORT || 3000, function () {
+    const { address, port } = listener.address() as AddressInfo;
+    console.log('%s listening to %s%s', server.name, address, port);
+});
+
+// parse json
+server.use(bodyParser.json());
+
+// connect the lambda functions to http
+server.post("/", ConvertHandler(handler));
 ```
 
 Take a look at [this](https://github.com/boobo94/alexa-skill-starter-pack-typescript) code.
@@ -113,7 +113,7 @@ Open Terminal and run
 
 `$ ./ngrok http -bind-tls=true -host-header=rewrite 3000`
 
-Copy the https link and go to [Alexa Console](https://developer.amazon.com/alexa/console/ask/test/amzn1.ask.skill.15bebd4e-4520-4a06-8fb7-57149258f4d0/development/en_US), under Endpoint section, select `TTPS` and paste the link in `Default Region` input field. From the below dropdown, choose `My development endpoint is a sub-domain of a domain that has a wildcard certificate from a certificate authority`.
+Copy the https link and go to [Alexa Console](https://developer.amazon.com/alexa/console/ask/test/amzn1.ask.skill.15bebd4e-4520-4a06-8fb7-57149258f4d0/development/en_US), under Endpoint section, select **TTPS** and paste the link in **Default Region** input field. From the below dropdown, choose **My development endpoint is a sub-domain of a domain that has a wildcard certificate from a certificate authority**.
 
 **Every time when you run the ngrok, you need to update the endpoint url.**
 
@@ -147,9 +147,9 @@ Before to start any code, I suggest you to choose an SDK, if you want to code in
 
 ### Resources
 
-- https://medium.com/@cnadeau_/allow-alexa-to-run-your-locally-hosted-skill-1786e3ca7a1b
-- https://github.com/balassy/aws-lambda-typescript
-- https://ask-sdk-for-nodejs.readthedocs.io/en/latest/Developing-Your-First-Skill.html
-- https://ngrok.com/
-- https://developer.amazon.com/docs/smapi/ask-cli-command-reference.html
-- https://developer.amazon.com/docs/smapi/quick-start-alexa-skills-kit-command-line-interface.html
+- <https://medium.com/@cnadeau_/allow-alexa-to-run-your-locally-hosted-skill-1786e3ca7a1b>
+- <https://github.com/balassy/aws-lambda-typescript>
+- <https://ask-sdk-for-nodejs.readthedocs.io/en/latest/Developing-Your-First-Skill.html>
+- <https://ngrok.com/>
+- <https://developer.amazon.com/docs/smapi/ask-cli-command-reference.html>
+- <https://developer.amazon.com/docs/smapi/quick-start-alexa-skills-kit-command-line-interface.html>
