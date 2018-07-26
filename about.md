@@ -5,7 +5,7 @@ permalink: /about/
 tags: about
 ---
 
-<img src="{{ site.baseurl }}/images/me.jpg" alt="John Otander" class="avatar" />
+<img src="{{ site.baseurl }}/images/me.jpg" alt="Bogdan Alexandru Militaru" class="avatar"  style="max-height: 400px;border-radius: 50%;display: block;margin: 0 auto;"/>
 
 
 ## <center><i class="fas fa-university"></i> Education</center>
