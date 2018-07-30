@@ -8,7 +8,7 @@ categories: tutorials
 
 ## Setup
 
-* Create a file: `/etc/systemd/system/CUSTOM_SERVICE_NAME.service` with the following content:
+Start by creating a file: `/etc/systemd/system/CUSTOM_SERVICE_NAME.service` with the following content:
 
 ```
 [Unit]
@@ -23,13 +23,13 @@ Restart=always
 WantedBy=multi-user.target
 ```
 
-* Enable the service to be started automatically on boot
+Enable the service. It will start automatically on boot, after that.
 
 ```bash
 $ sudo systemctl enable CUSTOM_SERVICE_NAME.service
 ```
   
-* Check status/start/stop/restart
+Check status/start/stop/restart
 
 ```bash
 $ sudo systemctl {status|start|stop|restart} CUSTOM_SERVICE_NAME
@@ -48,7 +48,6 @@ Example 1 for a webservice written in Golang
 You must have a new folder `api` in the root `/home/ubuntu/`. The `main` file it's the binary file resulted after go compilation. In my example I use flags to set environment `--env=dev`, this is not mandatory.
 
 ```
-
 [Unit]
 Description= Go API Webservice Example
 
@@ -59,7 +58,6 @@ Restart=always
 
 [Install]
 WantedBy=multi-user.target
-
 ```
 
 Example 2 for a javascript
@@ -67,7 +65,7 @@ Example 2 for a javascript
 You must have create a `web` folder into `/home/ubuntu/` root folder. The npm must be installed before and use the absolute path in `ExecStart` command, as you can see in the below example `/usr/bin/npm`.
 
 ```
-
+[Unit]
 Description=Javascript Web Application Example
 
 [Service]
