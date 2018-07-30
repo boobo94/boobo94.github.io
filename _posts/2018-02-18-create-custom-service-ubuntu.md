@@ -81,9 +81,9 @@ WantedBy=multi-user.target
 
 `$ service --status-all` - display all services
 
-    [ + ] for running services
-    [ - ] for stopped services
-    [ ? ] for services without a 'status' command
+[+ ] for running services
+[ - ] for stopped services
+[ ? ] for services without a 'status' command
     
 
   
