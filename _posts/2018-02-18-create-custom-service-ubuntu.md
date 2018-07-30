@@ -80,6 +80,7 @@ WantedBy=multi-user.target
 ## Usefull command
 
 `$ service --status-all` - display all services
+
     [ + ] for running services
     [ - ] for stopped services
     [ ? ] for services without a 'status' command
