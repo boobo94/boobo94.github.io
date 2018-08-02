@@ -8,6 +8,15 @@
 {% if site.enable_anchorjs %}<!-- AnchorJS -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/3.0.0/anchor.min.js"></script>
 <script>
-    anchors.options.visible = 'always';
-    anchors.add('article h2, article h3, article h4, article h5, article h6');
+  anchors.options.visible = 'always';
+  anchors.add('article h2, article h3, article h4, article h5, article h6');
 </script>{% endif %}
+<script src="https://unpkg.com/simple-jekyll-search@1.5.0/dest/simple-jekyll-search.min.js"></script>
+<script>
+  SimpleJekyllSearch({
+    searchInput: document.getElementById('search-input'),
+    resultsContainer: document.getElementById('search-container'),
+    json: '/search.json',
+    searchResultTemplate: '<div class="post py3"> <p class="post-meta">{date}</p><a href="{{post.url | prepend: site.baseurl}}" class="post-link"> <h3 class="h1 post-title">{title}</h3> </a> <span class="post-summary">{summary}</span> </div>'
+  })
+</script>

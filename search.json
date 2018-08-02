@@ -1,0 +1,15 @@
+---
+layout: nil
+---
+[
+  {% for post in site.posts %}
+    {
+      "title"    : "{{ post.title | escape }}",
+      "summary"  : "{% if post.summary %} {{ post.summary }} {% else %} {{ post.excerpt }} {% endif %}",
+      "category" : "{{ post.category }}",
+      "tags"     : "{{ post.tags | join: ', ' }}",
+      "url"      : "{{ site.baseurl }}{{ post.url }}",
+      "date"     : "{{ post.date | date: site.date_format }}"
+    } {% unless forloop.last %},{% endunless %}
+  {% endfor %}
+]
