@@ -70,3 +70,9 @@
     -webkit-transition: width .1s;
     transition: width .1s;
 }
+
+@media screen and (max-width: $viewport-small) {
+    #search-input:focus { 
+        width: 80px;
+    }
+}
