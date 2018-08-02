@@ -63,7 +63,8 @@
     height: auto;
 }
 
-#search-input:focus {
+#search-input:focus,
+#search-input:hover {
     outline: none;
     padding-left: 10px;
     width: 200px;
@@ -72,7 +73,8 @@
 }
 
 @media screen and (max-width: $viewport-small) {
-    #search-input:focus { 
+    #search-input:focus,
+    #search-input:hover { 
         width: 80px;
     }
 }
