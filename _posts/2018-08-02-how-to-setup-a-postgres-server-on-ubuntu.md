@@ -6,14 +6,6 @@ summary: How to setup a Postgres Server on Ubuntu, create an user, access it rem
 categories: tutorials ubuntu database
 ---
 
-# Useful commands
-
-Show all databases `\l+`
-
-Show all roles `\du+`
-
-Show all tables `\dt`
-
 ## Installing on Linux
 
 `$ sudo apt-get update`
@@ -61,3 +53,11 @@ host    all     all     ::/0            md5
 4. Restart postgres `$ sudo service postgresql restart`
 
 PS: Make sure that you have postgres version 9.5 `$ psql --version` . If the file it's empty try to use autocomplete `vi /etc/postgresql/` and then press tab for version autocomplete.
+
+## Useful commands
+
+Show all databases `\l+`
+
+Show all roles `\du+`
+
+Show all tables `\dt`
