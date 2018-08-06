@@ -23,9 +23,11 @@ TLS/SSL required: true
 
 ## Use Local Server
 
+I installed MailCatcher and I discover that it's very easy to install it and to use it.
+
 ### About MailCatcher
 
-I installed MailCatcher and I discover that it's very easy to install it and to use it. MailCatcher runs a simple SMTP server, catch all the messages send to it and display them into a web interface.
+MailCatcher runs a simple SMTP server, catch all the messages send to it and display them into a web interface.
 
 ### How to use it
 
