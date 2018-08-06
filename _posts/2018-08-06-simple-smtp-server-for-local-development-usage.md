@@ -8,9 +8,9 @@ categories: tools
 
 Today I needed a local smtp server and I tried to connect firstly with my gmail account, but that's not a good idea, because maybe you don't want to commit your credentials and share them with your team. 
 
-## Default SMTP Settings
+## Use Gmail SMTP Settings
 
-If you want to connect with gmail server, you can use these credentials:
+If you want to use gmail server, with your credentials, here are the credentials:
 
 ```
 Host: smtp.gmail.com
@@ -21,11 +21,13 @@ Port (SSL): 465
 TLS/SSL required: true
 ```
 
-## About MailCatcher
+## Use Local Server
+
+### About MailCatcher
 
 I installed MailCatcher and I discover that it's very easy to install it and to use it. MailCatcher runs a simple SMTP server, catch all the messages send to it and display them into a web interface.
 
-## How to use it
+### How to use it
 
 `$ gem install mailcatcher`
 
