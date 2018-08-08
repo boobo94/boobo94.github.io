@@ -79,7 +79,9 @@ First you need to find the current maximum value:
 
 then you can reset it with one of these commands:
 
-`SELECT setval('accounts_id_seq', DESIRED_VALUE);`
+```sql
+SELECT setval('accounts_id_seq', DESIRED_VALUE);
+```
 
 or
 
