@@ -61,3 +61,26 @@ Show all databases `\l+`
 Show all roles `\du+`
 
 Show all tables `\dt`
+
+## Reset auto increment counter in postgres
+
+Firstly you need to find your sequence identifier for the column that you want to reset the counter. Usually the name it's the name of the table followed by column name followed by `_seq`.
+
+Example:
+
+table name: 'users'
+column name: 'id'
+
+sequence name will be: `users_id_seq`
+
+First you need to find the current maximum value:
+
+`SELECT setval('users_id_seq', max(id)) FROM  accounts;`
+
+then you can reset it with one of these commands:
+
+`SELECT setval('accounts_id_seq', DESIRED_VALUE);`
+
+or
+
+`ALTER SEQUENCE accounts_id_seq RESTART WITH DESIRED_VALUE;`
