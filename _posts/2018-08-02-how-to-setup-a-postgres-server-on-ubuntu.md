@@ -75,7 +75,9 @@ sequence name will be: `users_id_seq`
 
 First you need to find the current maximum value:
 
-`SELECT setval('users_id_seq', max(id)) FROM  accounts;`
+```sql
+SELECT setval('users_id_seq', max(id)) FROM  accounts;
+```
 
 then you can reset it with one of these commands:
 
@@ -85,4 +87,6 @@ SELECT setval('accounts_id_seq', DESIRED_VALUE);
 
 or
 
-`ALTER SEQUENCE accounts_id_seq RESTART WITH DESIRED_VALUE;`
+```sql
+ALTER SEQUENCE accounts_id_seq RESTART WITH DESIRED_VALUE;
+```
