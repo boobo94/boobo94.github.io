@@ -1,8 +1,8 @@
 ---
 layout: post
-title: How to make a bootable usb
+title: "How to make a bootable usb"
 date:       2018-08-08 23:59:00
-summary: Are you tired to search for a great tool to make an usb bootable ? Check this out and find two of the best tools: Etcher or UNetbootin
+summary: "Are you tired to search for a great tool to make an usb bootable ? Check this out and find two of the best tools: Etcher or UNetbootin"
 categories: tools
 ---
 
