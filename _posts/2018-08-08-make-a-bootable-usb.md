@@ -8,7 +8,7 @@ categories: tools
 
 I know why you are here. Few days ago, I encountered some troubles trying to make a bootable usb drive with Windows 10. So I decided to make this post to let you drink a coffee instead of searching for help.
 
-For me worked very well two apps and I liked them very much, because are intuitive and easy to use. Both of them are compatible with Windows, Linux and MacOS.
+For me, two apps, worked very well and I like them very much, because are intuitive and easy to use. Both of them are compatible with Windows, Linux and MacOS.
 
 ## Etcher
 
