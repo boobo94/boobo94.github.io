@@ -3,7 +3,7 @@ layout: post
 title: "RESTful API Architecture - Resources"
 date: 2018-04-18 12:31:19
 summary: "I'm writing this article because when I started to look into this area I searched a lot after the best information that can help me to achieve a high level to design the best RESTful API architecture."
-categories: tips webservice
+categories: research webservice
 ---
 
 # RESTful API Architecture - Resources
