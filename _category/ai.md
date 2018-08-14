@@ -1,0 +1,4 @@
+---
+category: ai
+permalink: "/ai"
+---
