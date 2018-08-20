@@ -204,6 +204,10 @@ git pull upstream master
 
 There may be merge conflicts, so be sure to fix the files that git lists if they occur. That's it!
 
+#### Redirects with jekyll-redirect-from
+
+https://github.com/jekyll/jekyll-redirect-from
+
 ## Thanks to the following
 
 * [BASSCSS](http://basscss.com)
