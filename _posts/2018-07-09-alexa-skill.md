@@ -1,24 +1,28 @@
 ---
 layout: post
-title: How to build a skill with Amazon Alexa
+title: "5 common questions about how to build an Alexa Skill (Amazon Alexa)" 
 date: 2018-07-09 00:00:00
-summary: How to build a custom skill for Amazon Alexa and learn about invocation
-  name, intents and slots, utterances, slot types. Learn  how to run a server locally
-  and configure it with Lambda Function or Web Service.
-categories: ai alexa-skill
-
+summary: "5 common questions how to build an Alexa Skill. Read about intents, utterances, slot types, invocation name. How to run a server locally or why to deploy on AWS Lambda Function over HTTPS servers."
+categories: ai
+tags: ai alexa-skill
+redirect_from: /ai/alexa-skill/2018/07/09/how-to-build-a-skill-with-amazon-alexa/
 ---
-Hello guys,
 
-Recently, I started a new project, for the Spanish market. At this moment the market it's in the beginning phase, I'll probably disclosure more details in the future posts, but for the moment it's not very important. The idea of this article it's to help you to develop a skill from scratch or based on a starter pack, this is an example [alexa-skill-starter-pack-typescript](https://github.com/boobo94/alexa-skill-starter-pack-typescript) from my github account. I dont' want to discuss too much about this starter pack, because you can find more details how to use it or where to start from in the [README.md](https://github.com/boobo94/alexa-skill-starter-pack-typescript/blob/master/README.md)
+<img src="/images/alexa-skill.jpg" alt="Alexa Skill" />
+
+## 1. Alexa Skill, where to start from ?
+
+The idea of this article it's to help you to develop a skill from scratch or based on a starter pack, this is an example [alexa-skill-starter-pack-typescript](https://github.com/boobo94/alexa-skill-starter-pack-typescript) from my github account. I dont' want to discuss too much about this starter pack, because you can find more details how to use it or where to start from in the [README.md](https://github.com/boobo94/alexa-skill-starter-pack-typescript/blob/master/README.md). So if you want to learn more about how to build alexa skill, keep reading. 
+
+Recently, I started a new project, for the Spanish market. At this moment the market it's in the beginning phase, I'll probably disclosure more details in the future posts, but for the moment it's not very important. . Don't 
 
 When I recently started the research, I had few questions about we will learn below:
 
-## Where to start from ?
+## 2. How to build Alexa Skill ?
 
 When I started it was very tough for me to understand where to start from, what to read first or how to know what I need to learn. If you are here, probably you started already to read some documents from Amazon and guess what ?! you already discovered that Amazon have a comprehensive documentation about [how to build a custom skill](https://developer.amazon.com/docs/custom-skills/understanding-custom-skills.html) and the documentation explains very well how to do it. You don't have to read all, just to understand basics, keep reading this for help.
 
-I started to read about what it's an [Invocation Name](https://developer.amazon.com/docs/custom-skills/choose-the-invocation-name-for-a-custom-skill.html), [Intents](https://developer.amazon.com/docs/custom-skills/create-the-interaction-model-for-your-skill.html#intents-and-slots), [Intent Slots](https://developer.amazon.com/docs/custom-skills/create-intents-utterances-and-slots.html#identify-slots), [Utterances](https://developer.amazon.com/docs/custom-skills/create-the-interaction-model-for-your-skill.html#sample-utterances), [Slot Types](https://developer.amazon.com/docs/custom-skills/create-intents-utterances-and-slots.html#identify-slots). So if you check the links, you'll find the official definitions from Amazon, but let's explain more simple than that.
+I started to read about what it's an [Invocation Name](https://developer.amazon.com/docs/custom-skills/choose-the-invocation-name-for-a-custom-skill.html), [Intents](https://developer.amazon.com/docs/custom-skills/create-the-interaction-model-for-your-skill.html#intents-and-slots), [Intent Slots](https://developer.amazon.com/docs/custom-skills/create-intents-utterances-and-slots.html#identify-slots), [Utterances](https://developer.amazon.com/docs/custom-skills/create-the-interaction-model-for-your-skill.html#sample-utterances), [Slot Types](https://developer.amazon.com/docs/custom-skills/create-intents-utterances-and-slots.html#identify-slots). So if you check the links, you'll find the official definitions on Amazon Alexa Developers Portal, but let's explain them more simple than that.
 
 ### Invocation Name
 
@@ -65,9 +69,9 @@ A slot type represents the type of slot, it's like a variable type. There are [d
 
 You can exercise more by doing on your own in the [Developer Console](https://developer.amazon.com/alexa/console/ask)
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/q-mrSBrlDso" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/q-mrSBrlDso" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen style="margin: 0 auto; display: block;"></iframe>
 
-## How to run a server locally ?
+## 3. How to run a server locally ?
 
 You can do it simple, just by downloading \[ngrok\](https://ngrok.com/) and create a server with the following code
 
@@ -107,7 +111,7 @@ server.use(bodyParser.json());
 server.post("/", ConvertHandler(handler));
 ```
 
-Take a look at [this](https://github.com/boobo94/alexa-skill-starter-pack-typescript) code.
+Take a look at [this](https://github.com/boobo94/alexa-skill-starter-pack-typescript) alexa open source project.
 
 Open Terminal and run
 
@@ -117,7 +121,7 @@ Copy the https link and go to [Alexa Console](https://developer.amazon.com/alexa
 
 **Every time when you run the ngrok, you need to update the endpoint url.**
 
-## Should I choose Lambda Function or HTTPS server ?
+## 4. Should I choose Lambda Function or HTTPS server ?
 
 Depends by your skill, but probably the most of you can use Lambda Function.
 
@@ -141,9 +145,15 @@ Read [here](https://developer.amazon.com/docs/custom-skills/host-a-custom-skill-
 
 If you want to read more about configurations and requirements check [here](https://developer.amazon.com/docs/custom-skills/host-a-custom-skill-as-a-web-service.html).
 
-## Where to start coding from ?
+## 5. Where to start coding from ?
 
-Before to start any code, I suggest you to choose an SDK, if you want to code in javascript, **SDK v2** it's a better option than v1 and after that, you can take a look throw other open-source projects. You can find basic examples on [Alexa's Github profile](https://github.com/alexa/alexa-skills-kit-sdk-for-nodejs), but can search for more: [alexa-typescript-hello-world](https://github.com/Xzya/alexa-typescript-hello-world), [alexa-romanian-radio](https://github.com/Xzya/alexa-romanian-radio), [alexa-lambda-typescript](https://github.com/Xzya/alexa-lambda-typescript).
+Before to start any code, I suggest you to choose an SDK, if you want to code in javascript, **SDK v2** it's a better option than v1 and after that, you can take a look throw other alexa open source projects. You can find basic examples on [Alexa's Github profile](https://github.com/alexa/alexa-skills-kit-sdk-for-nodejs), but can search for more: [alexa-typescript-hello-world](https://github.com/Xzya/alexa-typescript-hello-world), [alexa-romanian-radio](https://github.com/Xzya/alexa-romanian-radio), [alexa-lambda-typescript](https://github.com/Xzya/alexa-lambda-typescript). I really recommand you to choose an sdk because it's more easier to interact with Amazon Alexa API.
+
+## Summary
+
+What you've learned here will offer you a better overview about how to create alexa skills. You've learned about alexa skill intents, alexa slot types, alexa skill utterances, how to run a server locally and why to choose a Lambda function.
+
+What alexa skill do you want to build ? Please leave me a comment and I can offer you more advices.
 
 ### Resources
 
