@@ -28,6 +28,6 @@ tags: about
 
 ## Certificates
 
-|Duolingo English Advanced Award|d|
-|Digital Marketing - Digital Workshop|d|
+| mar. 2016 | Digital Marketing - Digital Workshop |
+| apr. 2016 | Duolingo English Advanced Award |
 
