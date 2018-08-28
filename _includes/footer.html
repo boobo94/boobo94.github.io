@@ -17,6 +17,6 @@
     searchInput: document.getElementById('search-input'),
     resultsContainer: document.getElementById('search-container'),
     json: '/search.json',
-    searchResultTemplate: '<div class="post py3"> <p class="post-meta">{date}</p><a href="{{post.url | prepend: site.baseurl}}" class="post-link"> <h3 class="h1 post-title">{title}</h3> </a> <span class="post-summary">{summary}</span> </div>'
+    searchResultTemplate: '<div class="post py3"> <p class="post-meta">{date}</p><a href="{url}" class="post-link"> <h3 class="h1 post-title">{title}</h3> </a> <span class="post-summary">{summary}</span> </div>'
   })
 </script>
