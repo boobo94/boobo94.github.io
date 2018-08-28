@@ -69,7 +69,7 @@ A slot type represents the type of slot, it's like a variable type. There are [d
 
 You can exercise more by doing on your own in the [Developer Console](https://developer.amazon.com/alexa/console/ask)
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/q-mrSBrlDso" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen style="margin: 0 auto; display: block;"></iframe>
+<iframe src="https://www.youtube.com/embed/q-mrSBrlDso" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
 
 ## 3. How to run a server locally ?
 
