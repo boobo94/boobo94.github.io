@@ -5,7 +5,9 @@ date: 2018-07-09 00:00:00
 summary: "5 common questions how to build an Alexa Skill. Read about intents, utterances, slot types, invocation name. How to run a server locally or why to deploy on AWS Lambda Function over HTTPS servers."
 categories: ai
 tags: ai alexa-skill
-redirect_from: /ai/alexa-skill/2018/07/09/how-to-build-a-skill-with-amazon-alexa/
+redirect_from: 
+    - /ai/alexa-skill/2018/07/09/how-to-build-a-skill-with-amazon-alexa/
+    - /ai/2018/07/09/alexa-skill/
 ---
 
 <img src="/images/alexa-skill.jpg" alt="Alexa Skill" />

@@ -3,7 +3,9 @@ layout: post
 title: "How to setup a Postgres Server on Ubuntu"
 date:       2018-08-02 22:28:19
 summary: How to setup a Postgres Server on Ubuntu, create an user, access it remotely
-categories: tutorials ubuntu database
+categories: tutorials
+tags: tutorials ubuntu database
+redirect_from: /tutorials/ubuntu/database/2018/08/03/how-to-setup-a-postgres-server-on-ubuntu/
 ---
 
 ## Installing on Linux

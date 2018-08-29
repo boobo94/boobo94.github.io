@@ -5,6 +5,7 @@ date: 2018-06-10 12:31:19
 summary: 'Sistemul isi propune realizarea unui modul electronic, pentru schimbarea
   automata a vitezelor unui autovehicul, folosind o cutie de viteze automata. '
 categories: research
+redirect_from: /research/2018/06/10/automatic-gearbox-module-with-fuzzy-controller/
 ---
 
 Sistemul isi propune realizarea unui modul electronic, pentru schimbarea automata a vitezelor unui autovehicul, folosind o cutie de viteze automata. Factorii ce influenteaza sistemul sunt: 

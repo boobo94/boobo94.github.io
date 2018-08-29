@@ -4,6 +4,7 @@ title: "How to format an usb drive to fat16 or fat 32 on mac"
 date: 2018-04-14 12:31:19
 summary: "How to format an usb drive to fat16 or fat 32 on mac"
 categories: tutorials
+redirect_from: /tutorials/2018/04/14/how-to-format-an-usb-drive-to-fat16-or-fat32-on-mac/
 ---
 
 Today I want to show you a simple trick that works simply and precise.

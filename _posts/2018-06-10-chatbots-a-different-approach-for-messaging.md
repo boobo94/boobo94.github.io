@@ -4,6 +4,7 @@ title: Chatbots a different approach for messaging
 summary: Chatbots a different approach for messaging
 date: 2018-06-10 00:00:00
 categories: research
+redirect_from: /research/2018/06/10/chatbots-a-different-approach-for-messaging/
 ---
 
 **_Abstract_ - This article shows general informations and different issues of usage about chatbots. Also shows a new way of usage of these in a new domain, throw these can be used to send alerts and notifications to many users.** 

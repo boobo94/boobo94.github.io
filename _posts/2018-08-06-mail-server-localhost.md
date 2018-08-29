@@ -4,6 +4,7 @@ title: "Simple SMTP server for local development usage"
 date:       2018-08-06 22:09:00
 summary: Discover how to set up Gmail smtp server or a simple mail server for local development. 
 categories: tools
+redirect_from: /tools/2018/08/07/simple-smtp-server-for-local-development-usage/
 ---
 
 Today I needed a local smtp server and I tried to connect firstly with my gmail account, but that's not a good idea, because maybe you don't want to commit your credentials and share them with your team. 

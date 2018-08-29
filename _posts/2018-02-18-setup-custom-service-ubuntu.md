@@ -3,7 +3,8 @@ layout: post
 title: Create systemd service - daemon (Ubuntu 15+)
 date:       2018-02-18 12:31:19
 summary:    Create systemd service - daemon (Ubuntu 15+)
-categories: tutorials
+categories: webservice
+redirect_from: /tutorials/2018/02/18/create-custom-service-ubuntu/
 ---
 
 ## Setup

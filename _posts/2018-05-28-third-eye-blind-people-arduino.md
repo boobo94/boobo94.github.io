@@ -4,6 +4,7 @@ title:      "Third eye for blind people"
 date:       2018-05-28 12:31:19
 summary:    "Third eye for blind people"
 categories: research
+redirect_from: /research/2018/05/28/third-eye-for-blind-poeple-arduino/
 ---
 
 # Senzori ultrasonici - Arduino
