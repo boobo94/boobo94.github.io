@@ -24,6 +24,7 @@ fields:
     - tools
     - ai
     - webservice
+    - tips
     required: true
   label: Category
   name: categories
