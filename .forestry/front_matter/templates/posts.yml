@@ -28,4 +28,5 @@ fields:
   label: Category
   name: categories
 pages:
+- _posts/test.md
 - _posts/2018-06-10-chatbots-a-different-approach-for-messaging.md
