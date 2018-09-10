@@ -4,37 +4,11 @@ hide_body: false
 is_partial: false
 fields:
 - type: text
-  default: default
+  default: post
   label: Layout
   name: layout
-- type: datetime
-  name: date
-  label: Date
-- type: select
-  name: categories
-  config:
-    source:
-      type: datafiles
-      file: _data-cts-yml
-      path: cts
-  label: Category
-  default: articles
-- type: select
-  name: tags
-  config:
-    source:
-      type: simple
-      file: 
-      path: 
-    options:
-    - tips
-    - tutorials
-    - research
-    - ai
-    - web
-  label: Tags
 - type: textarea
-  name: description
-  label: Meta description
+  name: summary
+  label: Summary
 pages:
 - _posts/2018-06-10-chatbots-a-different-approach-for-messaging.md
