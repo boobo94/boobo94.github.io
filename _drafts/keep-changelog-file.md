@@ -32,9 +32,9 @@ The last reason that I think it's relevant here it's about versions and dates wh
 
 ## How to do it ?
 
-When I searched for this question I got the best answer for me [here](https://keepachangelog.com/en/1.0.0/). Keep a Changelog it's an open-source project under [MIT License](https://choosealicense.com/licenses/mit/). Have a simple but powerful structure and [keep](/tools/bootable-windows-usb-from-mac/) tracking of everything I need.
+When I searched for this question I got the best answer for me [here](https://keepachangelog.com/en/1.0.0/). Keep a Changelog file it's an open-source project under [MIT License](https://choosealicense.com/licenses/mit/). Have a simple but powerful structure and [keep](/tools/bootable-windows-usb-from-mac/) tracking of everything I need.
 
-### Most common headers
+### Most common types of changes
 
 * `Added` for new features.
 * `Changed` for changes in existing functionality.
