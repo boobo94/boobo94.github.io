@@ -1,0 +1,4 @@
+---
+category: tips
+permalink: "/tips"
+---
