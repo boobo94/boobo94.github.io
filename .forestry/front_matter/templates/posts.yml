@@ -39,5 +39,5 @@ fields:
   label: Redirect From
   name: redirect_from
 pages:
-- _posts/3-reasons-to-keep-a-changelog-for-your-project-developer-tips.md
+- _posts/keep-changelog-file.md
 - _posts/2018-06-10-chatbots-a-different-approach-for-messaging.md
