@@ -3,7 +3,9 @@ title: 3 reasons to keep a changelog for your project [developer tips]
 layout: post
 categories: tips
 date: 2018-09-10 19:09:38 +0000
-summary: 3 reasons to keep a changelog file for your project [developer tips]
+summary: A changelog file it's just a history of changes made for a project. It's
+  very useful to keep track of everything into a single place and to summarize some
+  features than to look throw all the commits from git repository.
 keywords: ''
 tags:
 - tips
