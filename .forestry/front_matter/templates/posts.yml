@@ -13,5 +13,8 @@ fields:
 - type: text
   name: keywords
   label: Keywords
+- type: tag_list
+  name: tags
+  label: Tags
 pages:
 - _posts/2018-06-10-chatbots-a-different-approach-for-messaging.md
