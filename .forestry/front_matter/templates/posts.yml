@@ -16,5 +16,16 @@ fields:
 - type: tag_list
   name: tags
   label: Tags
+- type: select
+  config:
+    source:
+      type: simple
+    options:
+    - tutorials
+    - research
+    - tools
+    - ai
+  label: Category
+  name: categories
 pages:
 - _posts/2018-06-10-chatbots-a-different-approach-for-messaging.md
