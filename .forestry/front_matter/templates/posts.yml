@@ -7,15 +7,10 @@ fields:
   default: post
   label: Layout
   name: layout
+  hidden: true
 - type: textarea
   name: summary
   label: Summary
-- type: text
-  name: keywords
-  label: Keywords
-- type: tag_list
-  name: tags
-  label: Tags
 - type: select
   config:
     source:
@@ -27,6 +22,12 @@ fields:
     - ai
   label: Category
   name: categories
+- type: text
+  name: keywords
+  label: Keywords
+- type: tag_list
+  name: tags
+  label: Tags
 pages:
 - _posts/test.md
 - _posts/2018-06-10-chatbots-a-different-approach-for-messaging.md
