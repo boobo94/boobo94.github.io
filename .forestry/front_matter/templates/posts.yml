@@ -1,0 +1,41 @@
+---
+label: Posts
+hide_body: false
+is_partial: false
+fields:
+- type: text
+  default: post
+  label: Layout
+  name: layout
+  hidden: true
+- type: textarea
+  name: summary
+  label: Summary
+  description: Meta description
+  config:
+    required: true
+- type: select
+  config:
+    source:
+      type: simple
+    options:
+    - tutorials
+    - research
+    - tools
+    - ai
+    required: true
+  label: Category
+  name: categories
+  default: tutorials
+- type: text
+  name: keywords
+  label: Keywords
+- type: tag_list
+  name: tags
+  label: Tags
+- type: list
+  label: Redirect From
+  name: redirect_from
+pages:
+- _posts/keep-a-changelog-file.md
+- _posts/2018-06-10-chatbots-a-different-approach-for-messaging.md
