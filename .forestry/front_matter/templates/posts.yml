@@ -23,6 +23,7 @@ fields:
     - research
     - tools
     - ai
+    - webservice
     required: true
   label: Category
   name: categories
