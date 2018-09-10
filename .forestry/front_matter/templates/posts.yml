@@ -37,5 +37,4 @@ fields:
   label: Redirect From
   name: redirect_from
 pages:
-- _posts/test.md
 - _posts/2018-06-10-chatbots-a-different-approach-for-messaging.md
