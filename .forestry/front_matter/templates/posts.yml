@@ -11,6 +11,9 @@ fields:
 - type: textarea
   name: summary
   label: Summary
+  description: Meta description
+  config:
+    required: true
 - type: select
   config:
     source:
