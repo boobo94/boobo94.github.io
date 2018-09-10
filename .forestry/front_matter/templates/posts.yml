@@ -23,6 +23,7 @@ fields:
     - research
     - tools
     - ai
+    required: true
   label: Category
   name: categories
 - type: text
