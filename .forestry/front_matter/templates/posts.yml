@@ -10,5 +10,8 @@ fields:
 - type: textarea
   name: summary
   label: Summary
+- type: text
+  name: keywords
+  label: Keywords
 pages:
 - _posts/2018-06-10-chatbots-a-different-approach-for-messaging.md
