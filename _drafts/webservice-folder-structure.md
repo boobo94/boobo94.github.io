@@ -9,18 +9,30 @@ tags: []
 redirect_from: []
 
 ---
-![](/images/Screen Shot 2018-09-26 at 10.10.10 PM.png)
+![](/images/webservice-folder-structure-golang.png)
 
-.
+Webservice folder structure it's the first phase before building every project, it's like you prepare to build a house and start by creating the architecture plan.
 
-├── config
+This article will presents you how I structure my projects when I need to create a simple web service in Golang. It's very important for you to keep a simple but intuitive architecture, because as you know, in golang you can call methods by reference the package name before.
 
-├── development.yaml
+/api
 
-└── loader.go
+/cmd
 
-├── database
+/config
 
-└── database.go
+/db
 
-└── server.go
+/db/dbmodels
+
+/db/handlers
+
+/gen
+
+/locales
+
+/public
+
+/utils
+
+/vendor
