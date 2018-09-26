@@ -15,6 +15,8 @@ Webservice folder structure it's the first phase before building every project, 
 
 This article will presents you how I structure my projects when I need to create a simple web service in Golang. It's very important for you to keep a simple but intuitive architecture, because as you know, in golang you can call methods by reference the package name before.
 
+In the following lines I'll present a simple
+
 /api
 
 /cmd
