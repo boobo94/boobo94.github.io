@@ -19,7 +19,24 @@ In the following lines I'll present a simple, but traditional model architecture
 
 ## /api
 
-this is the place where I put all the time all my routes. All the routes are grouped by each domain and wrapped into a package
+The api package is the folder where all the API endpoints are grouped by the purpose served, in other sub packages. That means, I prefer to have a special package which have as main scope to solve a specific problem. 
+
+For example all the login, register, forgot password, reset password handlers, I prefer to be defined into a package, named for example **registration**.
+
+The registration package can looks like below:
+
+    .
+    ├── api
+    │   ├── registration
+    │   │   ├── login.handler.go
+    │   │   ├── social_login.handler.go
+    │   │   ├── register.handler.go
+    │   │   ├── social_register.handler.go
+    │   │   ├── reset.handler.go
+    │   │   ├── helper.go
+    │   │   └── adapter.go
+    ..........................
+    
 
 ### /api/auth
 
@@ -37,7 +54,7 @@ you can use multiple json files for you environments or a single one which will 
 
 ## /db
 
-I like to keep my database connection and interaction with the webservice totally disconnected by webservice. 
+I like to keep my database connection and interaction with the webservice totally disconnected by webservice.
 
 * about db.go
 * about service.go
@@ -53,7 +70,7 @@ I like to keep my database connection and interaction with the webservice totall
 
 ## /gen
 
-Sometimes we use tools like swagger which generate some code.. will be easier to keep all that code in a single place 
+Sometimes we use tools like swagger which generate some code.. will be easier to keep all that code in a single place
 
 ## /locales
 
