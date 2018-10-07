@@ -27,6 +27,9 @@ The registration package can looks like below:
 
     .
     ├── api
+    │   ├── auth
+    │   │   ├── principal.middleware.go
+    │   │   └── jwt.helper.go
     │   ├── registration
     │   │   ├── login.handler.go
     │   │   ├── social_login.handler.go
@@ -51,7 +54,7 @@ In the interaction between a client and a web service are send and received some
 
 ### /api/auth
 
-### /api/errors
+about jwt
 
 ## /cmd
 
