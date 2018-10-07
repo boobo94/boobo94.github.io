@@ -19,7 +19,7 @@ In the following lines I'll present a simple, but traditional model architecture
 
 ## /api
 
-The api package is the folder where all the API endpoints are grouped by the purpose served, in other sub packages. That means, I prefer to have a special package which have as main scope to solve a specific problem. 
+The api package is the folder where all the API endpoints are grouped by the purpose served, in other sub packages. That means, I prefer to have a special package with his main scope to solve a specific problem.
 
 For example all the login, register, forgot password, reset password handlers, I prefer to be defined into a package, named for example **registration**.
 
@@ -36,7 +36,18 @@ The registration package can looks like below:
     │   │   ├── helper.go
     │   │   └── adapter.go
     ..........................
-    
+
+#### handler.go
+
+As you can see, there is a suffix **handler.go**, in the name of the files. In these you can write effectively the code which will handle the request, where the data requested, will be retrieved from database, proccessed and in the end the response will be composed.
+
+#### helper.go
+
+Sometimes, before to send the response, you need to collect multiple data from multiple places, eventually to process them and after that, when all the infos are collected the response can be send to the client app. But the code, must be kept as simple as possible in the handler, so all that extra code which it's part from the process can be put here.
+
+#### adapter.go
+
+In the interaction between a client and a web service are send and received some data, but in the same time, probably there it's involved a third party API, another application or the database. Having this in mind, before to transfer some data from an application to another one, we need to convert the format, before to be accepted by the new app, so that converter function I write it here, in this _adapter.go_ file.
 
 ### /api/auth
 
