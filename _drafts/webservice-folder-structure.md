@@ -5,7 +5,14 @@ categories: webservice
 date: 2018-09-26 19:07:54 +0000
 summary: webservice folder structure
 keywords: ''
-tags: []
+tags:
+- webservice
+- software-architecture
+- software
+- architecture
+- golang
+- go
+- models
 redirect_from: []
 
 ---
