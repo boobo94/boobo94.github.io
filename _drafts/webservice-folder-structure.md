@@ -42,6 +42,8 @@ The registration package can looks like below:
     │   │   └── adapter.go
     ├── cmd
     │   └── main.go
+    ├── config
+    │   └── config.go
     ..........................
 
 #### handler.go
@@ -92,7 +94,7 @@ In this package I always prefer to put the _main.go_ file, which contains all th
 
 **Why is name like that ?** Because simple, _cmd_ is the shortcut for command. 
 
-**What to understand throw command?**  A command represents a task which it's part from something, call other tasks or run independently. The main.go file it's a task which usually
+**What to understand throw command?**  A command represents a task which it's part from something, call other tasks or run independently. The _main.go_ file it's a command which usually wrap all the functions and packages of webservice in a single files and calls just the main functions of any package. At any moment, if you want to remove a functionality, can be simple removed just by comment the his instance from main file.
 
 ## /config
 
