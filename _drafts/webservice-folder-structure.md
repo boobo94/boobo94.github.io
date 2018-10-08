@@ -201,6 +201,8 @@ Sometimes we use tools like swagger which generate some code.. will be easier to
 
 sometimes I need to have some translations for error messages or others .. depends by user's language preference
 
+about gotrans [https://github.com/bykovme/gotrans](https://github.com/bykovme/gotrans "https://github.com/bykovme/gotrans")
+
 ## /public
 
 * email templates
