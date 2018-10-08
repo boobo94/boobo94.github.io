@@ -171,7 +171,7 @@ Any time when you need to use something from config it's enough to type the pack
 
 `CONFIG_PATH=home/username/.../config.local.json go run cmd/main.go`
 
-And instead of `PATH_TO_CONFIG_FILE` put `os.Getenv("CONFIG_PATH")`. In this way, doesn't matter which is your path.. so you can skip some operating systems errors
+And instead of `PATH_TO_CONFIG_FILE` put `os.Getenv("CONFIG_PATH")`. In this way, doesn't matter which is your path.. so you can skip some operating systems errors.
 
 ## /db
 
