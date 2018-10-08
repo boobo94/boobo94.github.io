@@ -216,4 +216,6 @@ here is the place where to put all the "tools" that helps you
 
 to keep all dependences together I use dep so where to place all those dependences if not in a folder like this
 
+about dep [https://github.com/golang/dep](https://github.com/golang/dep "https://github.com/golang/dep")
+
 **--leave me some comments ... --**
