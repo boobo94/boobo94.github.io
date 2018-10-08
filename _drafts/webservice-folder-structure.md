@@ -165,11 +165,15 @@ What you need to know for this implementation is that I use a library called [Co
 
 Any time when you need to use something from config it's enough to type the package name which is config and to call the variable `Main` as the following example which retrieve the configuration for database:
 
-`var myDBConf = config.Main.Database`
+```go
+var myDBConf = config.Main.Database
+```
 
 **!!!Tips**: As you can see there must be inserted the path to your config file, but because you want to have a different file for different environment, maybe you can set an environment variable called `CONFIG_PATH`, define that as env variable or put it before to run your go like:
 
-`CONFIG_PATH=home/username/.../config.local.json go run cmd/main.go`
+```bash
+CONFIG_PATH=home/username/.../config.local.json go run cmd/main.go
+```
 
 And instead of `PATH_TO_CONFIG_FILE` put `os.Getenv("CONFIG_PATH")`. In this way, doesn't matter which is your path.. so you can skip some operating systems errors.
 
