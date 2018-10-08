@@ -127,8 +127,9 @@ type Configuration struct {
 
 But this, is just the structure definitions and we still need the real data to be placed somewhere. For that part I prefer to have multiple [JSON files](https://json.org), depends by environment and to name them like `config.ENV.json`. For the structs defined before a dummy JSON example is the following:
 
-    {
-      "Database": {
+```json
+ {
+    "Database": {
         "Dialect": "postgres",
         "Debug": true,
         "Username": "postgres",
@@ -136,13 +137,14 @@ But this, is just the structure definitions and we still need the real data to b
         "Host": "example.com",
         "Port": 5432,
         "SSLMode": true,
-      },
-      "JWT": {
+    },
+    "JWT": {
         "Secret": "abcdefghijklmnopqrstuvwxyz"
-      }
     }
+}
+```
 
- you can use multiple json files for you environments or a single one which will be used, but modified in any environment
+you can use multiple json files for you environments or a single one which will be used, but modified in any environment
 
 ## /db
 
