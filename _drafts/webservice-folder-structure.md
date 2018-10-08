@@ -43,6 +43,10 @@ The registration package can looks like below:
     ├── cmd
     │   └── main.go
     ├── config
+    │   ├── config.dev.json
+    │   ├── config.local.json
+    │   ├── config.prod.json
+    │   ├── config.test.json
     │   └── config.go
     ..........................
 
@@ -60,7 +64,7 @@ In the interaction between a client and a web service are send and received some
 
 ### /api/auth
 
-In any web service that you write, must have at least an authorization method implemented like: 
+In any web service that you write, must have at least an authorization method implemented like:
 
 * [OAuth](https://en.wikipedia.org/wiki/OAuth) — Open Authentication
 * Basic Authentication
@@ -80,7 +84,7 @@ Personally I use [JWT](https://jwt.io) because I write web services for our clie
 
 So you have to verify the signature, to encode or decode the body or to compose the JWT body, so for this kind of processes I created that file _jwt.helper.go_, to keep a consistency and to find all the code related to JWT in a single place under the package _auth_.
 
-Let's discuss about the other file, from _auth_ package, _principal.middleware.go_, the file has this name because is the first middleware in the interaction with any API, so all the requests are coming throw it. In this file I write a function which serve as a blocker for any requests and if the rules are not passed, a **401 status code** will be send as response. Now, if you're asking which are those rules, we already talked about JWT, so attached to any request (except endpoints like login, register, which doesn't need authorization) the client must send a [HTTP header](https://en.wikipedia.org/wiki/List_of_HTTP_header_fields), **Authorization** which must contain the token provided. 
+Let's discuss about the other file, from _auth_ package, _principal.middleware.go_, the file has this name because is the first middleware in the interaction with any API, so all the requests are coming throw it. In this file I write a function which serve as a blocker for any requests and if the rules are not passed, a **401 status code** will be send as response. Now, if you're asking which are those rules, we already talked about JWT, so attached to any request (except endpoints like login, register, which doesn't need authorization) the client must send a [HTTP header](https://en.wikipedia.org/wiki/List_of_HTTP_header_fields), **Authorization** which must contain the token provided.
 
 As a sum up, if the client app doesn't send a token or the token is corrupted or invalid, the web web service will invalidate the request.
 
@@ -92,15 +96,53 @@ Probably this is a question that you think of while read the previous paragraph,
 
 In this package I always prefer to put the _main.go_ file, which contains all the sub packages from a project. It's like a wrapper which encapsulate all the submodules, to work all together.
 
-**Why is name like that ?** Because simple, _cmd_ is the shortcut for command. 
+**Why is name like that ?** Because simple, _cmd_ is the shortcut for command.
 
-**What to understand throw command?**  A command represents a task which it's part from something, call other tasks or run independently. The _main.go_ file it's a command which usually wrap all the functions and packages of webservice in a single files and calls just the main functions of any package. At any moment, if you want to remove a functionality, can be simple removed just by comment the his instance from main file.
+**What to understand throw command?**  A command represents a task which it's part from something, call other tasks or run independently. The _main.go_ file it's a command which usually wrap all the functions and packages of web service in a single files and calls just the main functions of any package. At any moment, if you want to remove a functionality, can be simple removed just by comment the his instance from main file.
 
 ## /config
 
-usually I have this folder where I put a config.go file which unmarshal json files.
+This package is very important in my opinion, because I found it very useful to keep all the configs in a single place and not search around in all the files of project. In this package usually I write a file called _config.go_ which contains the model for configuration, this model is nothing else than a [structure](https://gobyexample.com/structs), for example:
 
-you can use multiple json files for you environments or a single one which will be used, but modified in any environment
+```go
+type JWT struct {
+	Secret string `required:"true"`
+}
+
+type Database struct {
+	Dialect  string `default:"postgres"`
+	Debug    bool   `default:"false"`
+	Username string `required:"true"`
+	Password string `required:"true"`
+	Host     string `required:"true"`
+	Port     int
+	SSLMode bool
+}
+
+type Configuration struct {
+	Database Database `required:"true"`
+	JWT      JWT      `required:"true"`
+}
+```
+
+But this, is just the structure definitions and we still need the real data to be placed somewhere. For that part I prefer to have multiple [JSON files](https://json.org), depends by environment and to name them like `config.ENV.json`. For the structs defined before a dummy JSON example is the following:
+
+    {
+      "Database": {
+        "Dialect": "postgres",
+        "Debug": true,
+        "Username": "postgres",
+        "Password": "pass",
+        "Host": "example.com",
+        "Port": 5432,
+        "SSLMode": true,
+      },
+      "JWT": {
+        "Secret": "abcdefghijklmnopqrstuvwxyz"
+      }
+    }
+
+ you can use multiple json files for you environments or a single one which will be used, but modified in any environment
 
 ## /db
 
