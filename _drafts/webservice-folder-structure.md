@@ -30,6 +30,8 @@ The registration package can looks like below:
     │   ├── auth
     │   │   ├── principal.middleware.go
     │   │   └── jwt.helper.go
+    │   ├── cmd
+    │   │   └── main.go
     │   ├── registration
     │   │   ├── login.handler.go
     │   │   ├── social_login.handler.go
@@ -38,6 +40,8 @@ The registration package can looks like below:
     │   │   ├── reset.handler.go
     │   │   ├── helper.go
     │   │   └── adapter.go
+    ├── cmd
+    │   └── main.go
     ..........................
 
 #### handler.go
@@ -84,7 +88,11 @@ Probably this is a question that you think of while read the previous paragraph,
 
 ## /cmd
 
-the place where I put main.go
+In this package I always prefer to put the _main.go_ file, which contains all the sub packages from a project. It's like a wrapper which encapsulate all the submodules, to work all together.
+
+**Why is name like that ?** Because simple, _cmd_ is the shortcut for command. 
+
+**What to understand throw command?**  A command represents a task which it's part from something, call other tasks or run independently. The main.go file it's a task which usually
 
 ## /config
 
@@ -128,3 +136,5 @@ here is the place where to put all the "tools" that helps you
 ## /vendor
 
 to keep all dependences together I use dep so where to place all those dependences if not in a folder like this
+
+**--leave me some comments ... --**
