@@ -151,17 +151,27 @@ Let's talk about business, because this part it's very special for me and very i
 * inject the config object directly where I need and yes, this is my best option which fits perfectly with me. In _config.go_ file, at the end of it, I declare the following lines:
 
 ```go
-var Config = (func() Configuration {
+var Main = (func() Configuration {
 
 	var conf Configuration
-	if err := configor.Load(&conf, os.Getenv("CONFIG_PATH")); err != nil {
+	if err := configor.Load(&conf, "PATH_TO_CONFIG_FILE"); err != nil {
 		panic(err.Error())
 	}
 	return conf
 })()
 ```
 
-What you need to know for this implementation is that I use a library called [Configor](https://github.com/jinzhu/configor).
+What you need to know for this implementation is that I use a library called [Configor](https://github.com/jinzhu/configor) which unmarshal a file, in our case a JSON and load it into a variable `conf` which is returned.
+
+Any time when you need to use something from config it's enough to type the package name which is config and to call the variable `Main` as the following example which retrieve the configuration for database:
+
+`var myDBConf = config.Main.Database`
+
+**!!!Tips**: As you can see there must be inserted the path to your config file, but because you want to have a different file for different environment, maybe you can set an environment variable called `CONFIG_PATH`, define that as env variable or put it before to run your go like:
+
+`CONFIG_PATH=home/username/.../config.local.json go run cmd/main.go`
+
+And instead of `PATH_TO_CONFIG_FILE` put `os.Getenv("CONFIG_PATH")`. In this way, doesn't matter which is your path.. so you can skip some operating systems errors
 
 ## /db
 
