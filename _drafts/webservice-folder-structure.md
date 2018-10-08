@@ -54,7 +54,33 @@ In the interaction between a client and a web service are send and received some
 
 ### /api/auth
 
-about jwt
+In any web service that you write, must have at least an authorization method implemented like: 
+
+* [OAuth](https://en.wikipedia.org/wiki/OAuth) — Open Authentication
+* Basic Authentication
+* Token Authentication ( I prefer this one with JWT —[ JSON Web Token](https://jwt.io))
+* OpenID
+
+Personally I use [JWT](https://jwt.io) because I write web services for our clients ([ATNM](https://www.airtouchmedia.com)), in the most of cases for mobile apps or [CMS](https://en.wikipedia.org/wiki/Content_management_system). If you'd like to read more about [Web Authentication API](https://developer.mozilla.org/en-US/docs/Web/API/Web_Authentication_API), Mozilla has a great article and very well explained.
+
+##### What is JWT ?
+
+> JSON Web Tokens are an open, industry standard [**RFC 7519**](https://tools.ietf.org/html/rfc7519) method for representing claims securely between two parties.
+
+##### Why you should use JWT ?
+
+> * **Authorization**: This is the most common scenario for using JWT. Once the user is logged in, each subsequent request will include the JWT, allowing the user to access routes, services, and resources that are permitted with that token. Single Sign On is a feature that widely uses JWT nowadays, because of its small overhead and its ability to be easily used across different domains.
+> * **Information Exchange**: JSON Web Tokens are a good way of securely transmitting information between parties. Because JWTs can be signed—for example, using public/private key pairs—you can be sure the senders are who they say they are. Additionally, as the signature is calculated using the header and the payload, you can also verify that the content hasn't been tampered with.
+
+So you have to verify the signature, to encode or decode the body or to compose the JWT body, so for this kind of processes I created that file _jwt.helper.go_, to keep a consistency and to find all the code related to JWT in a single place under the package _auth_.
+
+Let's discuss about the other file, from _auth_ package, _principal.middleware.go_, the file has this name because is the first middleware in the interaction with any API, so all the requests are coming throw it. In this file I write a function which serve as a blocker for any requests and if the rules are not passed, a **401 status code** will be send as response. Now, if you're asking which are those rules, we already talked about JWT, so attached to any request (except endpoints like login, register, which doesn't need authorization) the client must send a [HTTP header](https://en.wikipedia.org/wiki/List_of_HTTP_header_fields), **Authorization** which must contain the token provided. 
+
+As a sum up, if the client app doesn't send a token or the token is corrupted or invalid, the web web service will invalidate the request.
+
+##### Where to get that token from ?
+
+Probably this is a question that you think of while read the previous paragraph, so let's make this clear. I mentions that on login or register (and yes, probably other routes as well doesn't required authentication) you don't need to send a token, because here is the place ( request ) where the token will be get. So you fill in your credentials and if them are right, you'll get a token in the response, on login, to be send all the time when a request impose that.
 
 ## /cmd
 
