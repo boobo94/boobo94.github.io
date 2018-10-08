@@ -144,7 +144,24 @@ But this, is just the structure definitions and we still need the real data to b
 }
 ```
 
-you can use multiple json files for you environments or a single one which will be used, but modified in any environment
+Let's talk about business, because this part it's very special for me and very important for the time invested in finding the best answer. I don't know if you faced or not this problem, or for you maybe is not a problem, but I really  encountered some problems trying to import the config in a good way.. The possibilities are multiple but I had to face the dilemma to chose between two:
+
+* passing a variable with the config object from main.go to the final function, where I need to use it. This for sure it's a good idea, because I pass that variable just for those instances which need it, so in this way I don't compromise speed quality, but it's very time consuming for development or refactoring, because I need all the time to pass from on function to another one the config object, so in the end, you want to kill yourself, meeh.., maybe not, but I still don't like it
+* declaring a global variable and to use that instance everywhere I need. But this is not the best option in my opinion at all, because I have to declare a variable, for example in main.go file, and later in the main function I need to `Unmarshal()` the JSON file, to put that content into the variable object declared as global. But guess what, maybe I'm trying to call that object before his initialization to be ready, so I'll have an empty object, with no real values, so in this case my app will crash.
+* inject the config object directly where I need and yes, this is my best option which fits perfectly with me. In _config.go_ file, at the end of it, I declare the following lines:
+
+```go
+var Config = (func() Configuration {
+
+	var conf Configuration
+	if err := configor.Load(&conf, os.Getenv("CONFIG_PATH")); err != nil {
+		panic(err.Error())
+	}
+	return conf
+})()
+```
+
+What you need to know for this implementation is that I use a library called [Configor](https://github.com/jinzhu/configor).
 
 ## /db
 
