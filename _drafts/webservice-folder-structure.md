@@ -55,6 +55,9 @@ The registration package can look like below:
     │   ├── config.prod.json
     │   ├── config.test.json
     │   └── config.go
+    ├── db
+    │   ├── db.go
+    │   └── service.go
     ..........................
 
 #### handler.go
