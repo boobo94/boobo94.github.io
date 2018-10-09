@@ -61,6 +61,15 @@ The registration package can look like below:
 
 As you can see, there is a **handler.go** suffix in the name of the files. In these you can effectively write the code, which will handle the request, where the data requested will be retrieved from the database, processed and in the end the response will be composed.
 
+A simple example which explain better can be shown below:
+
+```go
+http.HandleFunc("/bar", func(w http.ResponseWriter, r *http.Request) {
+	...
+    // handle the request
+})
+```
+
 #### helper.go
 
 Sometimes, before sending the response, you need to collect data from multiple places to process them, and after that, when all the details are collected, the response can be sent to the client app. But the code must be kept as simple as possible in the handler, so all that extra code which is part of the process can be put here.
@@ -68,6 +77,28 @@ Sometimes, before sending the response, you need to collect data from multiple p
 #### adapter.go
 
 In the interaction between a client and a web service, they are sending and receiving data, but at the same time, there is probably a third party API involved, another application, or the database. Having this in mind, before transferring the data from an application to another one, we need to convert the format, before being accepted by the new app. This conversion function can be written here, in this _adapter.go_ file.
+
+For example, if I need to convert a struct `A` to a struct `B`, I need an adapter function which looks like:
+
+```go
+type A struct {
+	FirstName string
+	LastName  string
+	Email     string
+}
+
+type B struct {
+	Name  string
+	Email string
+}
+
+func ConvertAToB(obj *A) *B {
+	return &B{
+		Name:  obj.FirstName + obj.LastName,
+		Email: obj.Email,
+	}
+}
+```
 
 ### /api/auth
 
