@@ -18,19 +18,19 @@ redirect_from: []
 ---
 ![](/images/webservice-folder-structure-golang.png)
 
-Webservice folder structure it's the first phase before building every project, it's like you prepare to build a house and start by creating the architecture plan.
+Webservice folder structure is the first phase before building every project, it's like you prepare to build a house and start by creating the architecture plan.
 
-This article will presents you how I structure my projects when I need to create a simple web service in Golang. It's very important for you to keep a simple but intuitive architecture, because as you know, in golang you can call methods by reference the package name before.
+This article will present how I structure my projects when I need to create a simple web service in Golang. It's very important for you to keep a simple but intuitive architecture, because as you know, in golang you can call methods by referencing the package name.
 
-In the following lines I'll present a simple, but traditional model architecture used by my in the most of the web services that I'm involved in
+In the following lines I'll present a simple, but traditional model architecture used by me in most of the web services that I'm involved in.
 
 ## /api
 
-The api package is the folder where all the API endpoints are grouped by the purpose served, in other sub packages. That means, I prefer to have a special package with his main scope to solve a specific problem.
+The api package is the folder where all the API endpoints are grouped into sub-packages by the purpose they serve. That means, I prefer to have a special package with it's main scope to solve a specific problem.
 
-For example all the login, register, forgot password, reset password handlers, I prefer to be defined into a package, named for example **registration**.
+For example all the login, register, forgot password, reset password handlers, I prefer to be defined into a package named **registration**.
 
-The registration package can looks like below:
+The registration package can look like below:
 
     .
     ├── api
@@ -59,26 +59,26 @@ The registration package can looks like below:
 
 #### handler.go
 
-As you can see, there is a suffix **handler.go**, in the name of the files. In these you can write effectively the code which will handle the request, where the data requested, will be retrieved from database, proccessed and in the end the response will be composed.
+As you can see, there is a **handler.go** suffix in the name of the files. In these you can effectively write the code, which will handle the request, where the data requested will be retrieved from the database, processed and in the end the response will be composed.
 
 #### helper.go
 
-Sometimes, before to send the response, you need to collect multiple data from multiple places, eventually to process them and after that, when all the infos are collected the response can be send to the client app. But the code, must be kept as simple as possible in the handler, so all that extra code which it's part from the process can be put here.
+Sometimes, before sending the response, you need to collect data from multiple places to process them, and after that, when all the details are collected, the response can be sent to the client app. But the code must be kept as simple as possible in the handler, so all that extra code which is part of the process can be put here.
 
 #### adapter.go
 
-In the interaction between a client and a web service are send and received some data, but in the same time, probably there it's involved a third party API, another application or the database. Having this in mind, before to transfer some data from an application to another one, we need to convert the format, before to be accepted by the new app, so that converter function I write it here, in this _adapter.go_ file.
+In the interaction between a client and a web service, they are sending and receiving data, but at the same time, there is probably a third party API involved, another application, or the database. Having this in mind, before transferring the data from an application to another one, we need to convert the format, before being accepted by the new app. This conversion function can be written here, in this _adapter.go_ file.
 
 ### /api/auth
 
-In any web service that you write, must have at least an authorization method implemented like:
+Most web services must have at least one authorization method implemented, like:
 
 * [OAuth](https://en.wikipedia.org/wiki/OAuth) — Open Authentication
 * Basic Authentication
-* Token Authentication ( I prefer this one with JWT —[ JSON Web Token](https://jwt.io))
+* Token Authentication (I prefer this one with JWT — [JSON Web Token](https://jwt.io))
 * OpenID
 
-Personally I use [JWT](https://jwt.io) because I write web services for our clients ([ATNM](https://www.airtouchmedia.com)), in the most of cases for mobile apps or [CMS](https://en.wikipedia.org/wiki/Content_management_system). If you'd like to read more about [Web Authentication API](https://developer.mozilla.org/en-US/docs/Web/API/Web_Authentication_API), Mozilla has a great article and very well explained.
+Personally, I use [JWT](https://jwt.io), because I write web services for our clients ([ATNM](https://www.airtouchmedia.com)), mostly for mobile apps or [CMS](https://en.wikipedia.org/wiki/Content_management_system). If you'd like to read more about the [Web Authentication API](https://developer.mozilla.org/en-US/docs/Web/API/Web_Authentication_API), Mozilla has a great article that explains it very well.
 
 ##### What is JWT ?
 
@@ -89,27 +89,27 @@ Personally I use [JWT](https://jwt.io) because I write web services for our clie
 > * **Authorization**: This is the most common scenario for using JWT. Once the user is logged in, each subsequent request will include the JWT, allowing the user to access routes, services, and resources that are permitted with that token. Single Sign On is a feature that widely uses JWT nowadays, because of its small overhead and its ability to be easily used across different domains.
 > * **Information Exchange**: JSON Web Tokens are a good way of securely transmitting information between parties. Because JWTs can be signed—for example, using public/private key pairs—you can be sure the senders are who they say they are. Additionally, as the signature is calculated using the header and the payload, you can also verify that the content hasn't been tampered with.
 
-So you have to verify the signature, to encode or decode the body or to compose the JWT body, so for this kind of processes I created that file _jwt.helper.go_, to keep a consistency and to find all the code related to JWT in a single place under the package _auth_.
+So, you have to verify the signature, to encode or decode the body, or to compose the JWT body. For this kind of processes I created the file _jwt.helper.go_, to keep a consistency and to find all the code related to JWT in a single place under the package _auth_.
 
-Let's discuss about the other file, from _auth_ package, _principal.middleware.go_, the file has this name because is the first middleware in the interaction with any API, so all the requests are coming throw it. In this file I write a function which serve as a blocker for any requests and if the rules are not passed, a **401 status code** will be send as response. Now, if you're asking which are those rules, we already talked about JWT, so attached to any request (except endpoints like login, register, which doesn't need authorization) the client must send a [HTTP header](https://en.wikipedia.org/wiki/List_of_HTTP_header_fields), **Authorization** which must contain the token provided.
+Let's discuss about the other file, from the _auth_ package, _principal.middleware.go_. The file has this name because it is the first middleware in the interaction with any API, so all the requests are coming through it. In this file I write a function which serves as a blocker for any requests, and if the rules are not passed, a **401 status code** will be sent as the response. Now, if you're asking which are those rules, we already talked about JWT, so attached to any request (except endpoints like login, register, which don't need authorization) the client must send an [HTTP header](https://en.wikipedia.org/wiki/List_of_HTTP_header_fields), **Authorization**, which must contain the JWT token.
 
-As a sum up, if the client app doesn't send a token or the token is corrupted or invalid, the web web service will invalidate the request.
+As a sum up, if the client app doesn't send a token, or the token is corrupted or invalid, the web service will invalidate the request.
 
 ##### Where to get that token from ?
 
-Probably this is a question that you think of while read the previous paragraph, so let's make this clear. I mentions that on login or register (and yes, probably other routes as well doesn't required authentication) you don't need to send a token, because here is the place ( request ) where the token will be get. So you fill in your credentials and if them are right, you'll get a token in the response, on login, to be send all the time when a request impose that.
+Probably this is a question that you thought of while reading the previous paragraph, so let's make this clear. I mentioned that on login or register (and yes, probably other routes as well don't require authentication) you don't need to send a token, because you will actually get the token from these requests. So you fill in your credentials, and if they are right, you'll get a token in the response, on login, which will be sent for each request that imposes it.
 
 ## /cmd
 
-In this package I always prefer to put the _main.go_ file, which contains all the sub packages from a project. It's like a wrapper which encapsulate all the submodules, to work all together.
+I always prefer to put the _main.go_ file in this package, which contains all the sub packages from a project. It's like a wrapper which encapsulate all the submodules, to work all together.
 
-**Why is name like that ?** Because simple, _cmd_ is the shortcut for command.
+**Why is name like that ?** It's simple, because _cmd_ is short for command.
 
-**What to understand throw command?**  A command represents a task which it's part from something, call other tasks or run independently. The _main.go_ file it's a command which usually wrap all the functions and packages of web service in a single files and calls just the main functions of any package. At any moment, if you want to remove a functionality, can be simple removed just by comment the his instance from main file.
+**What to understand through command?**  A command represents a task which is part of something, call other tasks, or run independently. The _main.go_ file is a command which usually wraps all the functions and packages of a web service in a single file and calls just the main functions of any package. At any moment, if you want to remove a functionality, you can simply remove it just by commenting the instance from the main file.
 
 ## /config
 
-This package is very important in my opinion, because I found it very useful to keep all the configs in a single place and not search around in all the files of project. In this package usually I write a file called _config.go_ which contains the model for configuration, this model is nothing else than a [structure](https://gobyexample.com/structs), for example:
+This package is very important in my opinion, because I found it very useful to keep all the configs in a single place and not search around in all the files of the project. In this package, I usually write a file called _config.go_ which contains the model for the configuration. This model is nothing more than a [structure](https://gobyexample.com/structs), for example:
 
 ```go
 type JWT struct {
@@ -151,11 +151,11 @@ But this, is just the structure definitions and we still need the real data to b
 }
 ```
 
-Let's talk about business, because this part it's very special for me and very important for the time invested in finding the best answer. I don't know if you faced or not this problem, or for you maybe is not a problem, but I really  encountered some problems trying to import the config in a good way.. The possibilities are multiple but I had to face the dilemma to chose between two:
+Let's talk about business, because this part is very special for me and very important for the time invested in finding the best answer. I don't know if you faced this problem or not, or for you, maybe it is not a problem, but I really encountered some problems trying to import the config in a good way. There are many possibilities, but I had to face the dilemma to choose between two:
 
-* passing a variable with the config object from main.go to the final function, where I need to use it. This for sure it's a good idea, because I pass that variable just for those instances which need it, so in this way I don't compromise speed quality, but it's very time consuming for development or refactoring, because I need all the time to pass from on function to another one the config object, so in the end, you want to kill yourself, meeh.., maybe not, but I still don't like it
-* declaring a global variable and to use that instance everywhere I need. But this is not the best option in my opinion at all, because I have to declare a variable, for example in main.go file, and later in the main function I need to `Unmarshal()` the JSON file, to put that content into the variable object declared as global. But guess what, maybe I'm trying to call that object before his initialization to be ready, so I'll have an empty object, with no real values, so in this case my app will crash.
-* inject the config object directly where I need and yes, this is my best option which fits perfectly with me. In _config.go_ file, at the end of it, I declare the following lines:
+* passing the config object as a variable from main.go to the final function, where I need to use it. This for sure is a good idea, because I pass that variable just for those instances which need it, so in this way I don't compromise speed quality. But this is very time consuming for development or refactoring, because I need to pass the config from one function to another one all the time, so in the end, you want to kill yourself, meeh.., maybe not, but I still don't like it.
+* declaring a global variable and using that instance everywhere I need. But this is not the best option at all in my opinion, because I have to declare a variable, for example in main.go file, and later in the main function I need to `Unmarshal()` the JSON file, to put that content into the variable object declared as global. But guess what, maybe I'm trying to call that object before it's initialization is ready, so I'll have an empty object, with no real values, so in this case my app will crash.
+* inject the config object directly where I need, and yes, this is my best option which fits perfectly with me. In _config.go_ file, at the end of it, I declare the following lines:
 
 ```go
 var Main = (func() Configuration {
@@ -168,25 +168,25 @@ var Main = (func() Configuration {
 })()
 ```
 
-What you need to know for this implementation is that I use a library called [Configor](https://github.com/jinzhu/configor) which unmarshal a file, in our case a JSON and load it into a variable `conf` which is returned.
+What you need to know for this implementation is that I use a library called [Configor](https://github.com/jinzhu/configor) which unmarshals a file, in our case a JSON, and loads it into a variable `conf`, which is returned.
 
-Any time when you need to use something from config it's enough to type the package name which is config and to call the variable `Main` as the following example which retrieve the configuration for database:
+Any time when you need to use something from the config, it's enough to type the package name, which is `config`, and to call the variable `Main`, as the following example which retrieves the configuration for the database:
 
 ```go
 var myDBConf = config.Main.Database
 ```
 
-**!!!Tips**: As you can see there must be inserted the path to your config file, but because you want to have a different file for different environment, maybe you can set an environment variable called `CONFIG_PATH`, define that as env variable or put it before to run your go like:
+**!!!Tips**: As you can see, you must insert there the path to your config file, but because you want to have a different file for different environments, maybe you can set an environment variable called `CONFIG_PATH`. Define that as an env variable, or put it before you run your go like:
 
 ```bash
 CONFIG_PATH=home/username/.../config.local.json go run cmd/main.go
 ```
 
-And instead of `PATH_TO_CONFIG_FILE` put `os.Getenv("CONFIG_PATH")`. In this way, doesn't matter which is your path.. so you can skip some operating systems errors.
+And instead of `PATH_TO_CONFIG_FILE` put `os.Getenv("CONFIG_PATH")`. This way, it doesn't where the path to your file is.. so you can skip some operating system errors.
 
 ## /db
 
-I like to keep my database connection and interaction with the webservice totally disconnected by webservice.
+I like to keep my database connection logic and API handlers completely separate.
 
 * about db.go
 * about service.go
