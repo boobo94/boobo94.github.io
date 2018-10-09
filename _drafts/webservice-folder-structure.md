@@ -222,9 +222,14 @@ And instead of `PATH_TO_CONFIG_FILE` put `os.Getenv("CONFIG_PATH")`. This way, i
 
 I like to keep my database connection logic and API handlers completely separate.
 
-* about db.go
-* about service.go
-* i preffer to use gorm talk about it
+* about db.go with example
+* about service.go 
+  * with example..
+  * why I need a service file
+* i prefer to use gorm 
+  * talk about it, 
+  * what is an orm, 
+  * why is good..
 
 ### /db/models
 
