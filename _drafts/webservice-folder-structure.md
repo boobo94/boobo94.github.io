@@ -92,8 +92,8 @@ type B struct {
 	Email string
 }
 
-func ConvertAToB(obj *A) *B {
-	return &B{
+func ConvertAToB(obj A) B {
+	return B{
 		Name:  obj.FirstName + obj.LastName,
 		Email: obj.Email,
 	}
