@@ -56,6 +56,9 @@ The registration package can look like below:
     │   ├── config.test.json
     │   └── config.go
     ├── db
+    │   ├── handlers
+    │   ├── models
+    │   ├── tests
     │   ├── db.go
     │   └── service.go
     ..........................
@@ -238,6 +241,13 @@ I like to keep my database connection logic and API handlers completely separate
 ### /db/handlers
 
 * this are queries .. but functions that will repeat all over the WS boilerplate code
+  * examples
+
+### /db/tests
+
+* about tests.. 
+* about library
+* example of tests
 
 ## /gen
 
