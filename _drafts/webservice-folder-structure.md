@@ -257,6 +257,8 @@ At work, we usually use [Swagger](https://swagger.io), a tool that makes our lif
 
 ## /locales
 
+Some time ago I faced a problem sending translated error messages from web service and invested some time looking for a simple, but good package which does a simple task: to use a JSON file as input for
+
 sometimes I need to have some translations for error messages or others .. depends by user's language preference
 
 about gotrans [https://github.com/bykovme/gotrans](https://github.com/bykovme/gotrans "https://github.com/bykovme/gotrans")
