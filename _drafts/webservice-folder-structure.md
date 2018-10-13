@@ -226,12 +226,12 @@ And instead of `PATH_TO_CONFIG_FILE` put `os.Getenv("CONFIG_PATH")`. This way, i
 I like to keep my database connection logic and API handlers completely separate.
 
 * about db.go with example
-* about service.go 
+* about service.go
   * with example..
   * why I need a service file
-* i prefer to use gorm 
-  * talk about it, 
-  * what is an orm, 
+* i prefer to use gorm
+  * talk about it,
+  * what is an orm,
   * why is good..
 
 ### /db/models
@@ -245,7 +245,7 @@ I like to keep my database connection logic and API handlers completely separate
 
 ### /db/tests
 
-* about tests.. 
+* about tests..
 * about library
 * example of tests
 
@@ -270,7 +270,7 @@ about gotrans [https://github.com/bykovme/gotrans](https://github.com/bykovme/go
 
 ## /utils
 
-here is the place where to put all the "tools" that helps you
+Sometimes, you need a place where to put all the code from the project which helps you in different packages, but that code is not big enough to be a standalone package
 
 ## /vendor
 
