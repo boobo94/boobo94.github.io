@@ -296,7 +296,7 @@ Except Auto Migration I set manually the foreign keys or if it's needed, index o
 
 ### /db/models
 
-> Models are usually just normal Golang structs, basic Go types, or pointers of them. 
+> Models are usually just normal Golang structs, basic Go types, or pointers of them.
 
 As you can see I put in the auto migration function 4 models Account, PersonalInfo, Category and Subcategory. I like to define each model into a different file, choosing an intuitive name like _account.go_, _personalInfo.go_, _category.go_ and _subcategory.go_.
 
@@ -363,14 +363,12 @@ func HashPassword(password string) (*string, error) {
 func GenerateToken() string {
 	hasher := md5.New()
     
-    // you can check the utils.RandStr() in /utils chapter of this article
+	// you can check the utils.RandStr() in /utils chapter of this article
 	hasher.Write([]byte(utils.RandStr(32)))
 
 	return hex.EncodeToString(hasher.Sum(nil))
 }
-
 ```
-
 
 ### /db/handlers
 
