@@ -61,6 +61,7 @@ The registration package can look like below:
     │   ├── tests
     │   ├── db.go
     │   └── service.go
+    ├── vendor
     ..........................
 
 #### handler.go
@@ -273,6 +274,17 @@ about gotrans [https://github.com/bykovme/gotrans](https://github.com/bykovme/go
 Building a big project, sometimes require extra tools or let's say helpers to solve little problems. But these helpers are just small piece of code, so is not needed to create a separated package just for a simple and small piece of code. So yeah, **utils** package make the trick, because you can put here into separated files different code to make for example things like:
 
 * generate a random token
+```go
+var letters = []rune("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ")
+
+func RandStr(n int) string {
+	b := make([]rune, n)
+	for i := range b {
+		b[i] = letters[rand.Intn(len(letters))]
+	}
+	return string(b)
+}
+```
 * generate a hash password
 * creating handlers to upload in Cloud
 * creating handlers to send emails
@@ -295,7 +307,7 @@ Probably your question now it's _"Ok, but how can I keep all dependencies togeth
 
 I prefer [**DEP**](https://github.com/golang/dep), the default one from Golang.
 
-![](https://github.com/golang/dep/raw/master/docs/assets/DigbyShadows.png)
+![dep management dependecy tool](https://github.com/golang/dep/raw/master/docs/assets/DigbyShadows.png)
 
 It can be install simple with brew for MAC
 
@@ -310,9 +322,6 @@ or with CURL
  $ curl https://raw.githubusercontent.com/golang/dep/master/install.sh | sh
 ```
 
-to keep all dependences together I use dep so where to place all those dependences if not in a folder like this
-
-* about dep [https://github.com/golang/dep](https://github.com/golang/dep "https://github.com/golang/dep")
 * about makefile
   * example
   * some basic tasks
