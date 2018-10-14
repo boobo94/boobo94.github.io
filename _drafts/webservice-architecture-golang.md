@@ -62,6 +62,7 @@ The registration package can look like below:
     │   ├── db.go
     │   └── service.go
     ├── vendor
+    ├── Makefile
     ..........................
 
 #### handler.go
