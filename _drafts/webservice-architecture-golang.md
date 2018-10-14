@@ -482,6 +482,8 @@ If you want an example of an SQL package handler I recommend you [SQLHandler](ht
 
 ### /db/tests
 
+I know probably you project manager can skip this step, because the project must be prepared as sooner as possible, but trust me, it's better to write tests. 
+
 * about tests..
 * about library
 * example of tests
