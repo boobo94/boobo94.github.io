@@ -229,16 +229,66 @@ And instead of `PATH_TO_CONFIG_FILE` put `os.Getenv("CONFIG_PATH")`. This way, i
 
 ## /db
 
-I like to keep my database connection logic and API handlers completely separate.
+This **db** package is one of the most important from your web service and you really have to invest a big amount of time thinking at the architecture and developing the package because it's one of the purposes of a web service, collecting and storing data. In the following lines I present my own version which fit perfectly in most of the cases when I build a web service, so stay tuned..
+
+Before going deeper into folder structure I have two confess you that I prefer to use an [ORM](https://en.wikipedia.org/wiki/Object-relational_mapping), because it's much easier and offers a good approach working with objects than to work with SQL queries and convert that data into arrays and try to debug a simple query. I use [GORM](https://github.com/jinzhu/gorm) because fulfill all me requirements: have all the basic ORM functions (Find, Update, Delete, etc..), accept associations (Has One, Has Many, Belongs To, Many To Many, Polymorphism), accept transactions, have sql builder, have Auto Migrations and other cool features.
 
 * about db.go with example
 * about service.go
   * with example..
   * why I need a service file
-* i prefer to use gorm
-  * talk about it,
-  * what is an orm,
-  * why is good..
+
+### /db.go
+
+I have this file to keep all the important configuration for GORM. So in this file I make a function which return a connection to database as object and this function will be called in _main.go_ and passed to all APIs which need interaction with database.
+
+```go
+// NewDatabase returns a new Database Client Connection
+func NewDatabase(config *config.Database) (*gorm.DB, error) {
+	db, err := gorm.Open(config.Dialect, config.Source)
+	if err != nil {
+		return nil, err
+	}
+
+	if err := InitDatabase(db, config); err != nil {
+		return nil, err
+	}
+
+	return db, nil
+}
+```
+
+Another function that I need to call in _main.go_ is `InitDatabase()` which define the behavior of my ORM and set the automigration function
+
+```go
+// InitDatabase initializes the database
+func InitDatabase(db *gorm.DB, config *config.Database) error {
+	db.LogMode(config.Debug)
+
+	// auto migrate
+	models := []interface{}{
+		&dbmodels.Account{},
+		&dbmodels.PersonalInfo{},
+		&dbmodels.Category{},
+		&dbmodels.Subcategory{},
+	}
+	if err := db.AutoMigrate(models...).Error; err != nil {
+		return err
+	}
+
+	// Personal info
+	if err := db.Model(&dbmodels.PersonalInfo{}).AddForeignKey("account_id", fmt.Sprintf("%s(id)", dbmodels.AccountTableName), "CASCADE", "CASCADE").Error; err != nil {
+		return err
+	}
+
+	// Subcategories
+	if err := db.Model(&dbmodels.Subcategory{}).AddForeignKey("category_id", fmt.Sprintf("%s(id)", dbmodels.CategoryTableName), "CASCADE", "CASCADE").Error; err != nil {
+		return err
+	}
+
+	return nil
+}
+```
 
 ### /db/models
 
