@@ -324,6 +324,12 @@ or with CURL
  $ curl https://raw.githubusercontent.com/golang/dep/master/install.sh | sh
 ```
 
+## Makefile
+
+I use make file, because it's simple and can automatize some tasks that I have to repeat from time to time and because I have to make some steps before to create for example a build and I need to do this process after few months or maybe years, probably I need to spend some time figuring out how to do that build. But instead to spend all that time discovering again how should I build my project, I can do it when that information is hot and after that I just need to look inside the make file and to choose what task I need to run.
+
+You can find a great article about [makefile](https://www.gnu.org/software/make/manual/make.html#toc-Overview-of-make) and how to use it from [GNU.org](https://www.gnu.org).
+
 * about makefile
   * example
   * some basic tasks
