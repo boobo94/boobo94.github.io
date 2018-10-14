@@ -283,9 +283,16 @@ Basically here it's the place where with store all your mess which cannot be cat
 
 ## /vendor
 
+This folder is the only place that you don't necessary need to change something, here all the external dependences or packages imported in your project are downloaded and stored in order to make you build working. This is automatically created on `build` or `run` task, because before your project to be compiled, it verify if all the imports are in vendor folder.
+
+### How can you download a package ?
+
+Here are multiple right answers and I don't want to go into polemics, but I can tell you that the default one is `go get PACKAGE` which will put the dependencies in `$GOPATH/src` or `go install PACKAGE` which will put the binaries in `$GOPATH/bin` and packages in `$GOPATH/pkg`.
+
 to keep all dependences together I use dep so where to place all those dependences if not in a folder like this
 
 * about dep [https://github.com/golang/dep](https://github.com/golang/dep "https://github.com/golang/dep")
+
 * about makefile
   * example
   * some basic tasks
