@@ -62,7 +62,8 @@ The registration package can look like below:
     │   ├── db.go
     │   └── service.go
     ├── locales
-    │   └── en.json
+    │   ├── en.json
+    │   └── fr.json
     ├── public
     ├── vendor
     ├── Makefile
@@ -221,7 +222,7 @@ var myDBConf = config.Main.Database
 **!!!Tips**: As you can see, you must insert there the path to your config file, but because you want to have a different file for different environments, maybe you can set an environment variable called `CONFIG_PATH`. Define that as an env variable, or put it before you run your go like:
 
 ```bash
-CONFIG_PATH=home/username/.../config.local.json go run cmd/main.go
+ $ CONFIG_PATH=home/username/.../config.local.json go run cmd/main.go
 ```
 
 And instead of `PATH_TO_CONFIG_FILE` put `os.Getenv("CONFIG_PATH")`. This way, it doesn't where the path to your file is.. so you can skip some operating system errors.
@@ -262,11 +263,33 @@ At work, we usually use [Swagger](https://swagger.io), a tool that makes our lif
 
 ## /locales
 
-Some time ago I faced a problem sending translated error messages from web service and invested some time looking for a simple, but good package which does a simple task: to use a JSON file as input for
+In the most of the time, the translations are implemented by the client app, but maybe sometimes you need to send some custom errors or some translated email templates and you face a problem. I had this dilemma at some point in my carrier as Go Developer and I had the option to build something very simple and very basic or to look through the existing packages maybe one it fits for me. And yes I found one very simple, but exactly what I need. I wanted a simple package which can read a JSON file, because the client app already had these translations and in this way I didn't had to create something extra so I discovered [GoTrans](https://github.com/bykovme/gotrans). What is cool about this package it's that you can declare it for example in the _cmd/main.go_ and then you can just call the translate function wherever you want inside the project.
 
-sometimes I need to have some translations for error messages or others .. depends by user's language preference
+### How to initialize Gotrans?
 
-about gotrans [https://github.com/bykovme/gotrans](https://github.com/bykovme/gotrans "https://github.com/bykovme/gotrans")
+```go
+	// initialize locales
+	if err := gotrans.InitLocales("locales"); err != nil {
+		panic(err)
+	}
+```
+
+### How to use Gotrans ?
+
+JSON files looks like:
+
+```json
+{
+    "hello_world":"Hello World",
+    "find_more":"Find more information about the project on the website %s"
+}
+```
+
+> JSON file name should use standard language code or language-country code supported by browsers. At least one file "en.json" should be in the localization folder.
+
+```go
+ gotrans.Tr("fr", "hello_world")
+```
 
 ## /public
 
