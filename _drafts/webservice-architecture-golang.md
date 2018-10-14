@@ -337,6 +337,8 @@ PEM_FILE = "...PATH_TO_PEM/wistrip.pem"
 # Run the server
 run:
 	CONFIG=config/config.local.json go run cmd/main.go --port 8000
+
+# Remove generated files under gen/ folder
 clean:
 	rm -r gen
 
@@ -345,28 +347,26 @@ serve:
     
 # Build
 build:
-	go build -tags 'bindatafs' cmd/main.go
+	go build cmd/main.go
     
 # Build for linux
 build-linux:
-	env GOOS=linux go build -tags 'bindatafs' cmd/main.go
+	env GOOS=linux go build cmd/main.go
     
 # Deploy just the code to dev
 deploy-dev-code: build-linux copy-project
 
 # Full deploy to dev
 # With tests and swagger generation
-deploy-dev: gen compile-templates deploy-dev-code
-
+deploy-dev: gen deploy-dev-code
 
 # Copy the project build and dependencies to server
 copy-project:
 	ssh -i $(PEM_FILE) ubuntu@$(IP) 'sudo service api stop'
-	scp -i $(PEM_FILE) -r locales/ ubuntu@$(IP):/home/ubuntu/wistrip
-	scp -i $(PEM_FILE) main ubuntu@$(IP):/home/ubuntu/wistrip
+	scp -i $(PEM_FILE) -r locales/ ubuntu@$(IP):/home/ubuntu/project_name
+	scp -i $(PEM_FILE) main ubuntu@$(IP):/home/ubuntu/project_name
 	ssh -i $(PEM_FILE) ubuntu@$(IP) 'sudo service api start'
 	rm main
-
 ```
 
 You can find a great article about [makefile](https://www.gnu.org/software/make/manual/make.html#toc-Overview-of-make) and how to use it from [GNU.org](https://www.gnu.org).
