@@ -258,7 +258,7 @@ func NewDatabase(config *config.Database) (*gorm.DB, error) {
 }
 ```
 
-Another function that I need to call in _main.go_ is `InitDatabase()` which define the behavior of my ORM and set the automigration function
+As you can see inside NewDatabase, on line 8, it's called a function `InitDatabase()`, this function define the behavior of my ORM and action the AutoMigration
 
 ```go
 // InitDatabase initializes the database
@@ -267,22 +267,22 @@ func InitDatabase(db *gorm.DB, config *config.Database) error {
 
 	// auto migrate
 	models := []interface{}{
-		&dbmodels.Account{},
-		&dbmodels.PersonalInfo{},
-		&dbmodels.Category{},
-		&dbmodels.Subcategory{},
+		&models.Account{},
+		&models.PersonalInfo{},
+		&models.Category{},
+		&models.Subcategory{},
 	}
 	if err := db.AutoMigrate(models...).Error; err != nil {
 		return err
 	}
 
 	// Personal info
-	if err := db.Model(&dbmodels.PersonalInfo{}).AddForeignKey("account_id", fmt.Sprintf("%s(id)", dbmodels.AccountTableName), "CASCADE", "CASCADE").Error; err != nil {
+	if err := db.Model(&models.PersonalInfo{}).AddForeignKey("account_id", fmt.Sprintf("%s(id)", models.AccountTableName), "CASCADE", "CASCADE").Error; err != nil {
 		return err
 	}
 
 	// Subcategories
-	if err := db.Model(&dbmodels.Subcategory{}).AddForeignKey("category_id", fmt.Sprintf("%s(id)", dbmodels.CategoryTableName), "CASCADE", "CASCADE").Error; err != nil {
+	if err := db.Model(&models.Subcategory{}).AddForeignKey("category_id", fmt.Sprintf("%s(id)", models.CategoryTableName), "CASCADE", "CASCADE").Error; err != nil {
 		return err
 	}
 
@@ -290,9 +290,87 @@ func InitDatabase(db *gorm.DB, config *config.Database) error {
 }
 ```
 
+The Auto Migration verify if the tables exist and if not or the model is different will try to make a sync.
+
+Except Auto Migration I set manually the foreign keys or if it's needed, index or other sql constraints.
+
 ### /db/models
 
-* what is a model
+> Models are usually just normal Golang structs, basic Go types, or pointers of them. 
+
+As you can see I put in the auto migration function 4 models Account, PersonalInfo, Category and Subcategory. I like to define each model into a different file, choosing an intuitive name like _account.go_, _personalInfo.go_, _category.go_ and _subcategory.go_.
+
+And just as an example, the content of account.go will look like:
+
+```go
+package models
+
+import (
+	"crypto/md5"
+	"encoding/hex"
+	"PROJECT_FOLDER/utils"
+
+	"github.com/jinzhu/gorm"
+	"golang.org/x/crypto/bcrypt"
+)
+
+type Role string
+
+const (
+	RoleAdmin Role = "admin"
+	RoleUser  Role = "user"
+)
+
+const (
+	AccountTableName = "accounts"
+)
+
+type Account struct {
+	gorm.Model
+
+	Username string `gorm:"type:varchar(100); unique; not null"`
+	Password string `gorm:"not null"`
+	Role     Role   `gorm:"type:varchar(5); not null"`
+	Active   bool   `gorm:"not null"`
+	Token    string `gorm:"not null"`
+
+	IsSocial     bool `gorm:"not null"`
+	Provider     string
+	PersonalInfo PersonalInfo
+}
+
+func (account *Account) BeforeCreate() error {
+	password, err := HashPassword(account.Password)
+	if err != nil {
+		return err
+	}
+	account.Password = *password
+	account.Token = GenerateToken()
+
+	return nil
+}
+
+func HashPassword(password string) (*string, error) {
+	hash, err := bcrypt.GenerateFromPassword([]byte(password), bcrypt.DefaultCost)
+	if err != nil {
+		return nil, err
+	}
+
+	pass := string(hash)
+	return &pass, nil
+}
+
+func GenerateToken() string {
+	hasher := md5.New()
+    
+    // you can check the utils.RandStr() in /utils chapter of this article
+	hasher.Write([]byte(utils.RandStr(32)))
+
+	return hex.EncodeToString(hasher.Sum(nil))
+}
+
+```
+
 
 ### /db/handlers
 
