@@ -293,8 +293,7 @@ JSON files looks like:
 
 ## /public
 
-* email templates
-* reset password form
+Probably you asked yourself _Whatt?! A public folder inside a webservice ?!_ Yeah, that's true, maybe not all the time you need it, but I'm trying to explain as much I can a general architecture for web services and occasionally you need to have like _Terms and conditions_ page or _Privacy Policy_ or HTML mail templates or whatever can be public and can be exported as a resource on a public API.
 
 ## /utils
 
