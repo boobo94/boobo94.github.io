@@ -61,6 +61,9 @@ The registration package can look like below:
     │   ├── tests
     │   ├── db.go
     │   └── service.go
+    ├── locales
+    │   └── en.json
+    ├── public
     ├── vendor
     ├── Makefile
     ..........................
