@@ -295,12 +295,16 @@ Probably your question now it's _"Ok, but how can I keep all dependencies togeth
 
 I prefer [**DEP**](https://github.com/golang/dep), the default one from Golang. It can be install simple with brew for MAC
 
-     $ brew install dep
-     $ brew upgrade dep
+```bash
+ $ brew install dep
+ $ brew upgrade dep
+```
 
 or with CURL
 
-     $ curl https://raw.githubusercontent.com/golang/dep/master/install.sh | sh
+```bash
+ $ curl https://raw.githubusercontent.com/golang/dep/master/install.sh | sh
+```
 
 to keep all dependences together I use dep so where to place all those dependences if not in a folder like this
 
