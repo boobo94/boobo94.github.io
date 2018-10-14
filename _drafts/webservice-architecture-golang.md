@@ -417,7 +417,7 @@ A handler for database represents a boilerplate code which it's repeated in mult
 package handlers
 
 import (
-	"PROJECT_FOLDER/db/dbmodels"
+	"PROJECT_FOLDER/db/models"
 
 	"fmt"
 
@@ -434,8 +434,8 @@ func NewAccountHandler(db *gorm.DB) *AccountHandler {
 	}
 }
 
-func (h *AccountHandler) Find(accountID uint) (*dbmodels.Account, error) {
-	var res dbmodels.Account
+func (h *AccountHandler) Find(accountID uint) (*models.Account, error) {
+	var res models.Account
 
 	if err := h.db.Find(&res, "id = ?", accountID).Error; err != nil {
 		return nil, err
@@ -444,8 +444,8 @@ func (h *AccountHandler) Find(accountID uint) (*dbmodels.Account, error) {
 	return &res, nil
 }
 
-func (h *AccountHandler) FindBy(cond *dbmodels.Account) (*dbmodels.Account, error) {
-	var res dbmodels.Account
+func (h *AccountHandler) FindBy(cond *models.Account) (*models.Account, error) {
+	var res models.Account
 
 	if err := h.db.Find(&res, cond).Error; err != nil {
 		return nil, err
@@ -454,17 +454,17 @@ func (h *AccountHandler) FindBy(cond *dbmodels.Account) (*dbmodels.Account, erro
 	return &res, nil
 }
 
-func (h *AccountHandler) Update(account *dbmodels.Account, accountID uint) error {
-	return h.db.Model(dbmodels.Account{}).Where(" id = ? ", accountID).Update(account).Error
+func (h *AccountHandler) Update(account *models.Account, accountID uint) error {
+	return h.db.Model(models.Account{}).Where(" id = ? ", accountID).Update(account).Error
 }
 
-func (h *AccountHandler) Create(account *dbmodels.Account) error {
+func (h *AccountHandler) Create(account *models.Account) error {
 	return h.db.Create(account).Error
 }
 
-func (h *AccountHandler) UpdateProfile(profile *dbmodels.PersonalInfo, accountID uint) error {
-	var personalInfo dbmodels.PersonalInfo
-	cond := &dbmodels.PersonalInfo{
+func (h *AccountHandler) UpdateProfile(profile *models.PersonalInfo, accountID uint) error {
+	var personalInfo models.PersonalInfo
+	cond := &models.PersonalInfo{
 		AccountID: accountID,
 	}
 
@@ -474,12 +474,11 @@ func (h *AccountHandler) UpdateProfile(profile *dbmodels.PersonalInfo, accountID
 		return h.db.Create(profile).Error
 	}
 
-	return h.db.Model(dbmodels.PersonalInfo{}).Where(cond).Update(profile).Error
+	return h.db.Model(models.PersonalInfo{}).Where(cond).Update(profile).Error
 }
 ```
 
-* this are queries .. but functions that will repeat all over the WS boilerplate code
-  * examples
+If you want an example of an SQL package handler I recommend you [SQLHandler](https://github.com/Xzya/sqlhandler) from [XZYA](https://github.com/Xzya).
 
 ### /db/tests
 
