@@ -233,11 +233,6 @@ This **db** package is one of the most important from your web service and you r
 
 Before going deeper into folder structure I have two confess you that I prefer to use an [ORM](https://en.wikipedia.org/wiki/Object-relational_mapping), because it's much easier and offers a good approach working with objects than to work with SQL queries and convert that data into arrays and try to debug a simple query. I use [GORM](https://github.com/jinzhu/gorm) because fulfill all me requirements: have all the basic ORM functions (Find, Update, Delete, etc..), accept associations (Has One, Has Many, Belongs To, Many To Many, Polymorphism), accept transactions, have sql builder, have Auto Migrations and other cool features.
 
-* about db.go with example
-* about service.go
-  * with example..
-  * why I need a service file
-
 ### /db.go
 
 I have this file to keep all the important configuration for GORM. So in this file I make a function which return a connection to database as object and this function will be called in _main.go_ and passed to all APIs which need interaction with database.
@@ -294,9 +289,13 @@ The Auto Migration verify if the tables exist and if not or the model is differe
 
 Except Auto Migration I set manually the foreign keys or if it's needed, index or other sql constraints.
 
+### /service.go
+
+The purpose of this file is to keep a structure for all the handlers and instead to import a handler in multiple places or to keep an inconsistency
+
 ### /db/models
 
-> Models are usually just normal Golang structs, basic Go types, or pointers of them.
+> [Models](http://gorm.io/docs/models.html) are usually just normal Golang structs, basic Go types, or pointers of them.
 
 As you can see I put in the auto migration function 4 models Account, PersonalInfo, Category and Subcategory. I like to define each model into a different file, choosing an intuitive name like _account.go_, _personalInfo.go_, _category.go_ and _subcategory.go_.
 
