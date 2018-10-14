@@ -1,5 +1,5 @@
 ---
-title: Webservice Folder Structure
+title: Web Service Architecture for Golang Developers
 layout: post
 categories: webservice
 date: 2018-09-26 19:07:54 +0000
