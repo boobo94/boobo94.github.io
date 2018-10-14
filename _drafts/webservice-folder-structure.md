@@ -270,7 +270,16 @@ about gotrans [https://github.com/bykovme/gotrans](https://github.com/bykovme/go
 
 ## /utils
 
-Sometimes, you need a place where to put all the code from the project which helps you in different packages, but that code is not big enough to be a standalone package
+Building a big project, sometimes require extra tools or let's say helpers to solve little problems. But these helpers are just small piece of code, so is not needed to create a separated package just for a simple and small piece of code. So yeah, **utils** package make the trick, because you can put here into separated files different code to make for example things like:
+
+* generate a random token
+* generate a hash password
+* creating handlers to upload in Cloud
+* creating handlers to send emails
+* manager for logs
+* etc..
+
+Basically here it's the place where with store all your mess which cannot be categorized, but it's more than a mess, because this mess makes your life easier and probably helps you to save time, by not repeating to write the same code in many places.
 
 ## /vendor
 
