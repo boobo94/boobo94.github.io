@@ -328,11 +328,47 @@ or with CURL
 ## Makefile
 
 I use make file, because it's simple and can automatize some tasks that I have to repeat from time to time and because I have to make some steps before to create for example a build and I need to do this process after few months or maybe years, probably I need to spend some time figuring out how to do that build. But instead to spend all that time discovering again how should I build my project, I can do it when that information is hot and after that I just need to look inside the make file and to choose what task I need to run.
+I want to share with you some simple and basic tasks that I use in the most of my projects:
+
+```make
+IP = "XXX.XXX.XXX.XXX"
+PEM_FILE = "...PATH_TO_PEM/wistrip.pem"
+
+# Run the server
+run:
+	CONFIG=config/config.local.json go run cmd/main.go --port 8000
+clean:
+	rm -r gen
+
+serve:
+	realize start
+    
+# Build
+build:
+	go build -tags 'bindatafs' cmd/main.go
+    
+# Build for linux
+build-linux:
+	env GOOS=linux go build -tags 'bindatafs' cmd/main.go
+    
+# Deploy just the code to dev
+deploy-dev-code: build-linux copy-project
+
+# Full deploy to dev
+# With tests and swagger generation
+deploy-dev: gen compile-templates deploy-dev-code
+
+
+# Copy the project build and dependencies to server
+copy-project:
+	ssh -i $(PEM_FILE) ubuntu@$(IP) 'sudo service api stop'
+	scp -i $(PEM_FILE) -r locales/ ubuntu@$(IP):/home/ubuntu/wistrip
+	scp -i $(PEM_FILE) main ubuntu@$(IP):/home/ubuntu/wistrip
+	ssh -i $(PEM_FILE) ubuntu@$(IP) 'sudo service api start'
+	rm main
+
+```
 
 You can find a great article about [makefile](https://www.gnu.org/software/make/manual/make.html#toc-Overview-of-make) and how to use it from [GNU.org](https://www.gnu.org).
-
-* about makefile
-  * example
-  * some basic tasks
 
 **--leave me some comments ... --**
