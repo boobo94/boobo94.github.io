@@ -326,7 +326,7 @@ func NewService(db *gorm.DB) Service {
 
 As you can see here I have just two handlers which not contains PersonalInfo and Subcategory, because this are not needed, being part from the main handlers. You don't need for example the personal information without knowing the account assigned to it, so both will be wrapped in one object.
 
-This can be simply called in _main.go_ like below: 
+This can be simply called in _main.go_ like below:
 
 ```go
 	// create the database service
@@ -410,6 +410,73 @@ func GenerateToken() string {
 ```
 
 ### /db/handlers
+
+A handler for database represents a boilerplate code which it's repeated in multiple places, so instead to call GORM functions, it's better to call a function which prepare the response to be used inside the API handlers.
+
+```go
+package handlers
+
+import (
+	"PROJECT_FOLDER/db/dbmodels"
+
+	"fmt"
+
+	"github.com/jinzhu/gorm"
+)
+
+type AccountHandler struct {
+	db *gorm.DB
+}
+
+func NewAccountHandler(db *gorm.DB) *AccountHandler {
+	return &AccountHandler{
+		db,
+	}
+}
+
+func (h *AccountHandler) Find(accountID uint) (*dbmodels.Account, error) {
+	var res dbmodels.Account
+
+	if err := h.db.Find(&res, "id = ?", accountID).Error; err != nil {
+		return nil, err
+	}
+
+	return &res, nil
+}
+
+func (h *AccountHandler) FindBy(cond *dbmodels.Account) (*dbmodels.Account, error) {
+	var res dbmodels.Account
+
+	if err := h.db.Find(&res, cond).Error; err != nil {
+		return nil, err
+	}
+
+	return &res, nil
+}
+
+func (h *AccountHandler) Update(account *dbmodels.Account, accountID uint) error {
+	return h.db.Model(dbmodels.Account{}).Where(" id = ? ", accountID).Update(account).Error
+}
+
+func (h *AccountHandler) Create(account *dbmodels.Account) error {
+	return h.db.Create(account).Error
+}
+
+func (h *AccountHandler) UpdateProfile(profile *dbmodels.PersonalInfo, accountID uint) error {
+	var personalInfo dbmodels.PersonalInfo
+	cond := &dbmodels.PersonalInfo{
+		AccountID: accountID,
+	}
+
+	// only create it if it doesn't already exist
+	if h.db.First(&personalInfo, cond).RecordNotFound() {
+		profile.AccountID = accountID
+		return h.db.Create(profile).Error
+	}
+
+	return h.db.Model(dbmodels.PersonalInfo{}).Where(cond).Update(profile).Error
+}
+```
 
 * this are queries .. but functions that will repeat all over the WS boilerplate code
   * examples
