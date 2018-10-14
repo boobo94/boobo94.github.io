@@ -274,6 +274,7 @@ about gotrans [https://github.com/bykovme/gotrans](https://github.com/bykovme/go
 Building a big project, sometimes require extra tools or let's say helpers to solve little problems. But these helpers are just small piece of code, so is not needed to create a separated package just for a simple and small piece of code. So yeah, **utils** package make the trick, because you can put here into separated files different code to make for example things like:
 
 * generate a random token
+
 ```go
 var letters = []rune("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ")
 
@@ -285,6 +286,7 @@ func RandStr(n int) string {
 	return string(b)
 }
 ```
+
 * generate a hash password
 * creating handlers to upload in Cloud
 * creating handlers to send emails
