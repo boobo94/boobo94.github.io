@@ -289,9 +289,49 @@ The Auto Migration verify if the tables exist and if not or the model is differe
 
 Except Auto Migration I set manually the foreign keys or if it's needed, index or other sql constraints.
 
+A simple example of instantiation in main.go looks like:
+
+```go
+	// setup the database
+	dbc, err := db.NewDatabase(&config.Config.Database)
+	if err != nil {
+		panic(err.Error())
+	}
+```
+
 ### /service.go
 
-The purpose of this file is to keep a structure for all the handlers and instead to import a handler in multiple places or to keep an inconsistency
+The purpose of this file is to keep a structure for all the handlers and instead to import a handler in multiple places or to keep an inconsistency to pass just a single object from _main.go_  to all API handlers which contains a reference to all handlers of database. So this file looks like:
+
+```go
+package db
+
+import (
+	"github.com/jinzhu/gorm"
+	"PROJECT_FOLDER/db/handlers"
+)
+
+type Service struct {
+	Account  *handlers.AccountHandler
+	Category *handlers.CategoryHandler
+}
+
+func NewService(db *gorm.DB) Service {
+	return Service{
+		Account:  handlers.NewAccountHandler(db),
+		Category: handlers.NewCategoryHandler(db),
+	}
+}
+```
+
+As you can see here I have just two handlers which not contains PersonalInfo and Subcategory, because this are not needed, being part from the main handlers. You don't need for example the personal information without knowing the account assigned to it, so both will be wrapped in one object.
+
+This can be simply called in _main.go_ like below: 
+
+```go
+	// create the database service
+	dbService := db.NewService(dbc)
+```
 
 ### /db/models
 
