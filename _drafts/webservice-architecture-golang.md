@@ -287,12 +287,24 @@ This folder is the only place that you don't necessary need to change something,
 
 ### How can you download a package ?
 
-Here are multiple right answers and I don't want to go into polemics, but I can tell you that the default one is `go get PACKAGE` which will put the dependencies in `$GOPATH/src` or `go install PACKAGE` which will put the binaries in `$GOPATH/bin` and packages in `$GOPATH/pkg`.
+Here are multiple right answers and I don't want to go into polemics, but I can tell you that the default one is `go get PACKAGE` which will put the [dependencies](https://stackoverflow.com/questions/37237036/how-should-i-use-vendor-in-go-1-6) in `$GOPATH/src` or `go install PACKAGE` which will put the binaries in `$GOPATH/bin` and packages in `$GOPATH/pkg`.
+
+### How to manage packages ?
+
+Probably your question now it's _"Ok, but how can I keep all dependencies together and to install them with a simple command, instead to run multiple commands, if I need to change the environment for example ?"_ and the answer it's very simple, use a management dependency tool. With a dependency tool you can achieve basic tasks and you can save some time. 
+
+I prefer [**DEP**](https://github.com/golang/dep), the default one from Golang. It can be install simple with brew for MAC
+
+     $ brew install dep
+     $ brew upgrade dep
+
+or with CURL
+
+     $ curl https://raw.githubusercontent.com/golang/dep/master/install.sh | sh
 
 to keep all dependences together I use dep so where to place all those dependences if not in a folder like this
 
 * about dep [https://github.com/golang/dep](https://github.com/golang/dep "https://github.com/golang/dep")
-
 * about makefile
   * example
   * some basic tasks
