@@ -482,11 +482,7 @@ If you want an example of an SQL package handler I recommend you [SQLHandler](ht
 
 ### /db/tests
 
-I know probably you project manager can skip this step, because the project must be prepared as sooner as possible, but trust me, it's better to write tests. 
-
-* about tests..
-* about library
-* example of tests
+I know probably you project manager can skip this step, because the project must be prepared as sooner as possible, but trust me, it's better to write tests. So a good package for Go, in my opinion, to write Unit Tests is [Testify](https://github.com/stretchr/testify), it's very simple to use it and very powerful.
 
 ## /gen
 
