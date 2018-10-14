@@ -291,9 +291,13 @@ Here are multiple right answers and I don't want to go into polemics, but I can 
 
 ### How to manage packages ?
 
-Probably your question now it's _"Ok, but how can I keep all dependencies together and to install them with a simple command, instead to run multiple commands, if I need to change the environment for example ?"_ and the answer it's very simple, use a management dependency tool. With a dependency tool you can achieve basic tasks and you can save some time. 
+Probably your question now it's _"Ok, but how can I keep all dependencies together and to install them with a simple command, instead to run multiple commands, if I need to change the environment for example ?"_ and the answer it's very simple, use a management dependency tool. With a dependency tool you can achieve basic tasks and you can save some time.
 
-I prefer [**DEP**](https://github.com/golang/dep), the default one from Golang. It can be install simple with brew for MAC
+I prefer [**DEP**](https://github.com/golang/dep), the default one from Golang.
+
+![](https://github.com/golang/dep/raw/master/docs/assets/DigbyShadows.png)
+
+It can be install simple with brew for MAC
 
 ```bash
  $ brew install dep
