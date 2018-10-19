@@ -629,4 +629,8 @@ copy-project:
 
 You can find a great article about [makefile](https://www.gnu.org/software/make/manual/make.html#toc-Overview-of-make) and how to use it from [GNU.org](https://www.gnu.org).
 
-Did you found this article useful ? Please let me a comment below and tell me what do you want to know especially about web service architecture.
+## Summary
+
+In this article you've learn about APIs and how to build an architecture, how to interact with a database from your web service, how to make a config file, take care of security and permissions between client and server with JWT and how to make your life easier using other packages, in the end you learned how to run multiple tasks using a make file.
+
+If you have any question or I you consider that I missed some informations, please leave me a comment.
