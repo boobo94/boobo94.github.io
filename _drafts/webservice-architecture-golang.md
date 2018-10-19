@@ -22,7 +22,7 @@ Webservice folder structure is the first phase before building every project, it
 
 This article will present how I structure my projects when I need to create a simple web service in Golang. It's very important for you to keep a simple but intuitive architecture, because as you know, in golang you can call methods by referencing the package name.
 
-In the following lines I'll present a simple, but traditional model architecture used by me in most of the web services that I'm involved in.
+In the following lines I'll present a simple, but traditional model [architecture](/webservice/setup-custom-service-ubuntu/) used by me in most of the web services that I'm involved in.
 
 ## /api
 
@@ -73,7 +73,7 @@ The registration package can look like below:
 
 #### handler.go
 
-As you can see, there is a **handler.go** suffix in the name of the files. In these you can effectively write the code, which will handle the request, where the data requested will be retrieved from the database, processed and in the end the response will be composed.
+As you can see, there is a **handler.go** suffix in the name of the files. In these you can effectively write the code, which will handle the request, where the data requested will be retrieved from the [database](/tutorials/postgres-ubuntu-setup/), processed and in the end the response will be composed.
 
 A simple example which explain better can be shown below:
 
@@ -90,7 +90,7 @@ Sometimes, before sending the response, you need to collect data from multiple p
 
 #### adapter.go
 
-In the interaction between a client and a web service, they are sending and receiving data, but at the same time, there is probably a third party API involved, another application, or the database. Having this in mind, before transferring the data from an application to another one, we need to convert the format, before being accepted by the new app. This conversion function can be written here, in this _adapter.go_ file.
+In the interaction between a client and a web service, they are sending and receiving data, but at the same time, there is probably a third party [API](/webservice/RESTful-api-resources/) involved, another application, or the database. Having this in mind, before transferring the data from an application to another one, we need to convert the format, before being accepted by the new app. This conversion function can be written here, in this _adapter.go_ file.
 
 For example, if I need to convert a struct `A` to a struct `B`, I need an adapter function which looks like:
 
@@ -530,7 +530,7 @@ Probably you asked yourself _Whatt?! A public folder inside a webservice ?!_ Yea
 
 ## /utils
 
-Building a big project, sometimes require extra tools or let's say helpers to solve little problems. But these helpers are just small piece of code, so is not needed to create a separated package just for a simple and small piece of code. So yeah, **utils** package make the trick, because you can put here into separated files different code to make for example things like:
+Building a big project, sometimes require extra tools or let's say helpers to solve little problems. But these [helpers](/ai/5-questions-build-custom-alexa-skill/) are just small piece of code, so is not needed to create a separated package just for a simple and small piece of code. So yeah, **utils** package make the trick, because you can put here into separated files different code to make for example things like:
 
 * generate a random token
 
@@ -631,6 +631,6 @@ You can find a great article about [makefile](https://www.gnu.org/software/make/
 
 ## Summary
 
-In this article you've learn about APIs and how to build an architecture, how to interact with a database from your web service, how to make a config file, take care of security and permissions between client and server with JWT and how to make your life easier using other packages, in the end you learned how to run multiple tasks using a make file.
+In this article you've learn about APIs and how to build an architecture, how to interact with a database from your web service, how to make a config file, take care of security and permissions between [client and server](/tutorials/setup-apache-host-as-proxy/) with JWT and how to make your life easier using other packages, in the end you learned how to run multiple tasks using a make file.
 
 If you have any question or I you consider that I missed some informations, please leave me a comment.
