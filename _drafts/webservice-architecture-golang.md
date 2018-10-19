@@ -16,6 +16,7 @@ tags:
 redirect_from: []
 
 ---
+![](/images/webservice-software-architecture.jpeg)
 
 Webservice folder structure is the first phase before building every project, it's like you prepare to build a house and start by creating the architecture plan.
 
