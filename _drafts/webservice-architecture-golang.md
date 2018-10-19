@@ -26,6 +26,8 @@ In the following lines I'll present a simple, but traditional model architecture
 
 ## /api
 
+![](/images/api.svg)
+
 The api package is the folder where all the API endpoints are grouped into sub-packages by the purpose they serve. That means, I prefer to have a special package with it's main scope to solve a specific problem.
 
 For example all the login, register, forgot password, reset password handlers, I prefer to be defined into a package named **registration**.
@@ -122,6 +124,8 @@ Most web services must have at least one authorization method implemented, like:
 * OpenID
 
 Personally, I use [JWT](https://jwt.io), because I write web services for our clients ([ATNM](https://www.airtouchmedia.com)), mostly for mobile apps or [CMS](https://en.wikipedia.org/wiki/Content_management_system). If you'd like to read more about the [Web Authentication API](https://developer.mozilla.org/en-US/docs/Web/API/Web_Authentication_API), Mozilla has a great article that explains it very well.
+
+![](/images/jwt.png)
 
 ##### What is JWT ?
 
