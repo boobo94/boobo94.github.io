@@ -16,7 +16,6 @@ tags:
 redirect_from: []
 
 ---
-![](/images/webservice-folder-structure-golang.png)
 
 Webservice folder structure is the first phase before building every project, it's like you prepare to build a house and start by creating the architecture plan.
 
@@ -148,8 +147,6 @@ Probably this is a question that you thought of while reading the previous parag
 
 ## /cmd
 
-![](/images/cmd.png)
-
 I always prefer to put the _main.go_ file in this package, which contains all the sub packages from a project. It's like a wrapper which encapsulate all the submodules, to work all together.
 
 **Why is name like that ?** It's simple, because _cmd_ is short for command.
@@ -234,8 +231,6 @@ var myDBConf = config.Main.Database
 And instead of `PATH_TO_CONFIG_FILE` put `os.Getenv("CONFIG_PATH")`. This way, it doesn't where the path to your file is.. so you can skip some operating system errors.
 
 ## /db
-
-![](/images/db.jpg)
 
 This **db** package is one of the most important from your web service and you really have to invest a big amount of time thinking at the architecture and developing the package because it's one of the purposes of a web service, collecting and storing data. In the following lines I present my own version which fit perfectly in most of the cases when I build a web service, so stay tuned..
 
