@@ -235,6 +235,8 @@ And instead of `PATH_TO_CONFIG_FILE` put `os.Getenv("CONFIG_PATH")`. This way, i
 
 ## /db
 
+![](/images/db.jpg)
+
 This **db** package is one of the most important from your web service and you really have to invest a big amount of time thinking at the architecture and developing the package because it's one of the purposes of a web service, collecting and storing data. In the following lines I present my own version which fit perfectly in most of the cases when I build a web service, so stay tuned..
 
 Before going deeper into folder structure I have two confess you that I prefer to use an [ORM](https://en.wikipedia.org/wiki/Object-relational_mapping), because it's much easier and offers a good approach working with objects than to work with SQL queries and convert that data into arrays and try to debug a simple query. I use [GORM](https://github.com/jinzhu/gorm) because fulfill all me requirements: have all the basic ORM functions (Find, Update, Delete, etc..), accept associations (Has One, Has Many, Belongs To, Many To Many, Polymorphism), accept transactions, have sql builder, have Auto Migrations and other cool features.
