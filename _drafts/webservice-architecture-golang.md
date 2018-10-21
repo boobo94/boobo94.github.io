@@ -18,11 +18,11 @@ redirect_from: []
 ---
 ![](/images/webservice-software-architecture.jpeg)
 
-Webservice folder structure is the first phase before building every project, it's like you prepare to build a house and start by creating the architecture plan.
+Web service architecture is the first phase before building every project, it's like you prepare to build a house and start by creating the architecture plan.
 
 This article will present how I structure my projects when I need to create a simple web service in Golang. It's very important for you to keep a simple but intuitive architecture, because as you know, in golang you can call methods by referencing the package name.
 
-In the following lines I'll present a simple, but traditional model [architecture](/webservice/setup-custom-service-ubuntu/) used by me in most of the web services that I'm involved in.
+In the following lines I'll present a simple, but traditional model of web service [architecture](/webservice/setup-custom-service-ubuntu/) used by me in most of the projects that I'm involved in.
 
 ## /api
 
