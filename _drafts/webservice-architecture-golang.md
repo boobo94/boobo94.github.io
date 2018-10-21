@@ -22,13 +22,13 @@ Web service architecture is the first phase before building every project, it's 
 
 This article will present how I structure my projects when I need to create a simple web service in Golang. It's very important for you to keep a simple but intuitive architecture, because as you know, in golang you can call methods by referencing the package name.
 
-In the following lines I'll present a simple, but traditional model of web service [architecture](/webservice/setup-custom-service-ubuntu/) used by me in most of the projects that I'm involved in.
+In the following lines I'll present a simple, but traditional model of web service [architecture](/webservice/setup-custom-service-ubuntu/) used by me in most of the projects that I'm involved in, treating each individual web service's component.
 
 ## /api
 
 ![](/images/api.svg)
 
-The api package is the folder where all the API endpoints are grouped into sub-packages by the purpose they serve. That means, I prefer to have a special package with it's main scope to solve a specific problem.
+The API package is the folder where all the API endpoints are grouped into sub-packages by the purpose they serve. That means, I prefer to have a special package with it's main scope to solve a specific problem.
 
 For example all the login, register, forgot password, reset password handlers, I prefer to be defined into a package named **registration**.
 
