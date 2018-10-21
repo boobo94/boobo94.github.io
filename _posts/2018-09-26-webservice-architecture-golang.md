@@ -592,7 +592,7 @@ I want to share with you some simple and basic tasks that I use in the most of m
 
 ```make
 IP = "XXX.XXX.XXX.XXX"
-PEM_FILE = "...PATH_TO_PEM/wistrip.pem"
+PEM_FILE = "...PATH_TO_PEM/key.pem"
 
 # Run the server
 run:
