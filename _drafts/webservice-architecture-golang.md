@@ -3,8 +3,10 @@ title: Web Service Architecture for Golang Developers
 layout: post
 categories: webservice
 date: 2018-09-26 19:07:54 +0000
-summary: webservice folder structure
-keywords: ''
+summary: The web service architecture it's on the most important part from your project.
+  Learn how to create APIs, take care of security, interact with the database, write
+  tests, use translations and manage the deployment process simply by using Golang.
+keywords: web service architecture, software architecture, golang, apis
 tags:
 - webservice
 - software-architecture
