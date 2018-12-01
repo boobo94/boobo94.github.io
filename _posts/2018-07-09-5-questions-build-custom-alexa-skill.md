@@ -8,9 +8,8 @@ tags: ai alexa-skill
 redirect_from: 
     - /ai/alexa-skill/2018/07/09/how-to-build-a-skill-with-amazon-alexa/
     - /ai/2018/07/09/alexa-skill/
+cover: /images/alexa-skill.jpg
 ---
-
-<img src="/images/alexa-skill.jpg" alt="Alexa Skill" />
 
 ## 1. Alexa Skill, where to start from ?
 
