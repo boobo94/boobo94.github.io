@@ -25,6 +25,10 @@ layout: default
 </div>
 
 <article class="post-content">
+  {% if page.cover %}
+  <img src="{{ page.cover }}" />
+  {% endif %}
+
   {{ content }}
 </article>
 
