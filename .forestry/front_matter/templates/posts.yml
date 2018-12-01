@@ -43,6 +43,7 @@ fields:
   label: Cover Image
   description: The image that will appear on the first page
 pages:
+- _posts/test.md
 - _category/portfolio.md
 - _posts/2018-09-10-keep-changelog-file.md
 - _posts/2018-06-10-chatbots-a-different-approach-for-messaging.md
