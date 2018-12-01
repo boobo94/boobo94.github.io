@@ -17,9 +17,8 @@ tags:
 - go
 - models
 redirect_from: []
-
+cover: /images/webservice-software-architecture.jpeg
 ---
-![](/images/webservice-software-architecture.jpeg)
 
 Web service architecture is the first phase before building every project, it's like you prepare to build a house and start by creating the architecture plan.
 
