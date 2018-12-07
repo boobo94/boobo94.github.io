@@ -10,6 +10,7 @@ redirect_from: []
 cover_image: ''
 
 ---
+
 I had a real debate with one team mate, from work, which is a great developer and you can see his great work [here](https://github.com/Xzya), about choosing a new technology stack for our new office, the team grows and we really want to improve some stuff there.
 
 > Always must be something to improve!
