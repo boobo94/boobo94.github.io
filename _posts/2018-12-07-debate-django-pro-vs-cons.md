@@ -11,7 +11,6 @@ tags:
 - django
 - software architecture
 redirect_from: []
-cover_image: "/images/boobo94-django-pro-vs-cons.png"
 cover: "/images/boobo94-django-pro-vs-cons.png"
 
 ---
