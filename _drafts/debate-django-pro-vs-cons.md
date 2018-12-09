@@ -5,9 +5,12 @@ categories: tips
 date: 2018-12-07 11:56:51 +0000
 summary: Django debate
 keywords: ''
-tags: []
+tags:
+- web development
+- django
+- software architecture
 redirect_from: []
-cover_image: ''
+cover_image: "/images/boobo94-django-pro-vs-cons.png"
 
 ---
 Why do you think is a great or a bad idea to use a technology ? We are humans and that makes us to be vulnerable taking personal decisions without trying to understand someone else opinion, so in this article I don't choose for you, but I just let you know some thoughts about subject
