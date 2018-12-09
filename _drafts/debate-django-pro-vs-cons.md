@@ -3,8 +3,9 @@ title: Debate Django [Pro vs. Cons]
 layout: post
 categories: tips
 date: 2018-12-07 11:56:51 +0000
-summary: Django debate
-keywords: ''
+summary: Discover the usage of Django and learn if the framework is suitable for your
+  project. Read all the pros and cons and take a final decision.
+keywords: django, pro vs cons django, django pros, django cons
 tags:
 - web development
 - django
