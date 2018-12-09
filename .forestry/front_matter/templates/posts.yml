@@ -44,6 +44,6 @@ fields:
   description: The image that will appear on the first page
 pages:
 - _posts/2018-06-10-chatbots-a-different-approach-for-messaging.md
-- _posts/debate-django-pro-vs-cons.md
+- _posts/2018-12-07-debate-django-pro-vs-cons.md
 - _posts/2018-09-10-keep-changelog-file.md
 - _category/portfolio.md
