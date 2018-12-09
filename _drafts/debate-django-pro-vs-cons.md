@@ -28,7 +28,7 @@ So he suggested [Django](https://www.djangoproject.com/), which is not bad, but 
 * Everything is deployed together;
 * Because is old there is a good part, people contribute for community;
 * It fits perfectly for big teams because all the developers have like a single way to write code, because that’s in fact Django;
-* With Django, comes a lot of 3rd party modules, a great REST framework. Works with dozens of additional features that significantly help with user authentication, site maps, content administration, RSS and many others. 
+* With Django, comes a lot of 3rd party modules, a great [REST framework](/webservice/webservice-architecture-golang/). Works with dozens of additional features that significantly help with user authentication, site maps, content administration, RSS and many others. 
 * It’s good for small to medium projects;
 * Speed: Django was designed to help developers create an application as quickly as possible. This includes the formation of ideas, the development and release of the project, where Django saves time and resources at each of these stages. Thus, it can be called the ideal solution for developers for whom the question of deadline is in priority;
 * Security: By working in Django, you get protection from security-related errors. I mean such common mistakes as SQL injections, cross-site forgery, clickjacking and cross-site scripting. To effectively use logins and passwords, the user authentication system is the key;
@@ -43,9 +43,9 @@ So he suggested [Django](https://www.djangoproject.com/), which is not bad, but 
 * It's ORM, created before SQLAlchemy existed, is now much inferior to SQLAlchemy. It is less flexible, its API is less well thought out, and it is based on the Active Record pattern which is worse than the Unit of Work pattern adopted by SQLAlchemy. This means, in Django, models can “save” themselves and transactions are off by default. Model relationships have `ON DELETECASCADE` by default, which is a poor choice because it is not safe ― one might lose data because of this. The default should be safe, and the programmer would declare the cascade when applicable. To avoid cascading, one needs to `writeon_delete=models.PROTECT` in each ForeignKey;
 * Class-based views, again, for a different reason. If you ever want to subclass one of them, to change their behaviour slightly, you will be in pain. This is because they themselves are a deep hierarchy of subclasses. Too deep. So you read about 10 classes trying to figure out where you should interfere. This is such a big problem for every Django user who likes class-based views, that an entire website was created to help understand them:http://ccbv.co.uk ― the very existence of which should be seen as a red flag
 * Django didn't have support for real time web applications;
-* Bad support for noSQL database;
+* Bad support for [noSQL database](https://en.wikipedia.org/wiki/NoSQL);
 * The code base is huge and newbies might find it difficult to navigate the jargon;
-* For outsource Django is probably not a good solution, because is not so simple to find developers.
+* For outsource Django is probably not a [good solution](/ai/5-questions-build-custom-alexa-skill/), because is not so simple to find developers.
 
 ### Sites Using Django
 
@@ -59,6 +59,8 @@ So he suggested [Django](https://www.djangoproject.com/), which is not bad, but 
 * Pinterest
 * Open Stack
 * Bitbucket
+
+As a conclusion I prefer personally to write code from scratch when the project is big and I can play with it in the future, because I know that the only purpose of that piece of code was to deserve a single scope.
 
 ##### Sources:
 
