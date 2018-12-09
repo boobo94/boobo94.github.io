@@ -39,7 +39,7 @@ fields:
   label: Redirect From
   name: redirect_from
 - type: file
-  name: cover_image
+  name: cover
   label: Cover Image
   description: The image that will appear on the first page
 pages:
