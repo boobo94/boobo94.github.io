@@ -13,7 +13,7 @@ redirect_from: []
 cover_image: "/images/boobo94-django-pro-vs-cons.png"
 
 ---
-Why do you think is a great or a bad idea to use a technology ? We are humans and that makes us to be vulnerable taking personal decisions without trying to understand someone else opinion, so in this article I don't choose for you, but I just let you know some thoughts about subject
+Why do you think is a great or bad idea to use a technology ? We are humans and that makes us to be vulnerable taking personal decisions without trying to understand someone else opinion, so in this article I don't choose for you, but I just let you know some thoughts about subject
 
 I had a real debate with one team mate, from work, which is a great developer and you can see his great work [here](https://github.com/Xzya), about choosing a new technology stack for our new office, the team grows and we really want to improve some stuff there.
 
