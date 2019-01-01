@@ -1,0 +1,28 @@
+---
+layout: default
+title: Portfolio
+permalink: /portfolio/
+---
+
+<!-- {% assign posts_count = paginator.posts | size %} -->
+
+<div class="portfolio">
+    <div class="posts" id="search-container">
+
+        {% for post in site.portfolio %}
+        <div class="post">
+            <a href="{{ post.url | prepend: site.baseurl }}" class="post-link">
+                {% if post.cover %}
+                <span class="cover">
+                    <img src="{{ post.cover }}" />
+                </span>
+                {% endif %}
+                <h3 class="post-title">{{ post.title }}</h3>
+            </a>
+        </div>
+        {% endfor %}
+    </div>
+
+    <!-- {% include pagination.html %} -->
+
+</div>

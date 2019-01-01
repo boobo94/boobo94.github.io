@@ -9,6 +9,7 @@ url:         "http://www.boobo94.xyz"
 date_format: "%b %-d, %Y"
 header_pages:
  - about.md
+ - portfolio.html
  - contact.html
 
 # Google services
@@ -136,6 +137,10 @@ exclude:
 collections:
   category:
     output: true
+
+  portfolio:
+    output: true
+    permalink: /portfolio/:path/
 
 defaults:
   -
