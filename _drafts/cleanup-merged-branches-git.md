@@ -5,7 +5,9 @@ categories: tutorials
 summary: Cleanup merged branches and remove dead branches from your repository. You
   can see how to make a very simple bash script to achieve this.
 keywords: ''
-tags: []
+tags:
+- git
+- bash
 redirect_from: []
 cover: "/images/cleanup-merged-branches.png"
 date: 2019-01-09 11:12:21 +0000
