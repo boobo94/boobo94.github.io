@@ -29,6 +29,8 @@ If that is your case, what I suggest you to do it's to add an **alias** in your 
 alias clean-branch='echo Cleaning merged branches && git branch --merged | egrep -v "(^\\*|master|dev)" | xargs git branch -d'
 ```
 
+If you look at this command you can find an area having these specification: `master|dev`. All you need to do to escape a branch from beeing omited by this scrip is to add your branch name in this like for example I have a branch `my-branch`, the command will become `alias clean-branch='echo Cleaning merged branches && git branch --merged | egrep -v "(^\\*|master|dev|my-branch)" | xargs git branch -d'`
+
 1. [Reset your bash](https://stackoverflow.com/questions/4608187/how-to-reload-bash-profile-from-the-command-line) to understand the new command or you can simply open a new terminal
 
 ```bash
