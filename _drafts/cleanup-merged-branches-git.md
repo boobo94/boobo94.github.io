@@ -13,7 +13,7 @@ cover: "/images/cleanup-merged-branches.png"
 date: 2019-01-09 11:12:21 +0000
 
 ---
-If you are a developer and you contribute and work with a lot of branches, after some time you face the problem of having a lot of [dead branches](https://stackoverflow.com/questions/27578521/git-remove-dead-branch-after-a-rebase) on you local machine. Yes, you can automate this task, just run a simple command and get rid of this painful task.
+If you are a developer and you contribute and work with a lot of branches, after some time you face the problem of having a lot of [dead branches](https://stackoverflow.com/questions/27578521/git-remove-dead-branch-after-a-rebase) on you local machine. Yes, you can automate this task, just run a simple command and get rid of this painful job by simply remove the merged branches.
 
 If that is your case, what I suggest you to do it's to add an **alias** in your [bash profile](https://www.quora.com/What-is-bash_profile-and-what-is-its-use) as the following:
 
