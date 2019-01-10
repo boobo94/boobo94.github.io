@@ -17,13 +17,13 @@ If you are a developer and you contribute and work with a lot of branches, after
 
 If that is your case, what I suggest you to do it's to add an **alias** in your [bash profile](https://www.quora.com/What-is-bash_profile-and-what-is-its-use) as the following:
 
-1. Open bash profile
+1\. Open bash profile
 
 ```bash
  $ vi .bash_profile
 ```
 
-2. Add the alias inside vim, in my case I used `clean-branch`
+2\. Add the alias inside vim, in my case I used `clean-branch`
 
 ```bash  
 alias clean-branch='echo Cleaning merged branches && git branch --merged | egrep -v "(^\\*|master|dev)" | xargs git branch -d'
