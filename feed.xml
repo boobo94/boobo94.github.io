@@ -14,7 +14,7 @@ layout: null
         <description>{{ post.content | xml_escape }}</description>
         <image>{{ post.cover | prepend: site.baseurl | prepend: site.url }}</image>
         <pubDate>{{ post.date | date: "%a, %d %b %Y %H:%M:%S %z" }}</pubDate>
-        <media:content url="{{ post.url | prepend: site.baseurl | prepend: site.url }}">
+        <image>{{ post.url | prepend: site.baseurl | prepend: site.url }}</image>
         <guid isPermaLink="true">{{ post.url | prepend: site.baseurl | prepend: site.url }}</guid>
       </item>
     {% endfor %}
