@@ -6,6 +6,7 @@ summary: Fix mongoose error "this.$__path is not a function"
 tags:
 - mongoose
 - nodejs
+- mongodb
 date: 2021-01-11 09:09:09 +0000
 
 ---
