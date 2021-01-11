@@ -1,8 +1,8 @@
 ---
 layout: post
-title: \"this.$__path is not a function\" mongoose error
+title: this.$__path is not a function mongoose error
 categories: tips
-summary: Fix mongoose error \"this.$__path is not a function\"
+summary: Fix mongoose error this.$__path is not a function
 tags:
 - mongoose
 - nodejs
