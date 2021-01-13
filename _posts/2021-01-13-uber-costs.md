@@ -2,7 +2,7 @@
 layout: post
 title: Uber cost algorithm
 categories: research
-summary: Uber cost algorithm
+summary: Research about how uber cost algorithm works. Discover how Uber surge pricing and benefits from hight traffic.
 tags:
 - uber
 - costs
@@ -20,11 +20,11 @@ Surfing a few articles attached below, Uber calculates the costs for its trip ba
 Thanks to [Ride.guru](https://ride.guru/content/newsroom/how-is-my-uber-fare-calculated) we have an example:
 
 > Your Uber fare is first calculated on 4 main criteria:
->    Base (or initial) fare – A flat fee charged at the beginning of every ride
->    Cost per minute – How much you are charged for each minute you are inside the ride
->    Cost per mile – How much you are charged for each mile of the ride
->    Booking Fee (Formerly ‘Safe Rides Fee’) – A flat fee to cover Uber’s ‘operating costs’ (Not included for Uber’s more luxury services like UberBlack or UberSUV)
->Here’s how Uber uses the 4 main criteria above to calculate your fare:
+> Base (or initial) fare – A flat fee charged at the beginning of every ride
+> Cost per minute – How much you are charged for each minute you are inside the ride
+> Cost per mile – How much you are charged for each mile of the ride
+> Booking Fee (Formerly ‘Safe Rides Fee’) – A flat fee to cover Uber’s ‘operating costs’ (Not included for Uber’s more luxury services like UberBlack or UberSUV)
+> Here’s how Uber uses the 4 main criteria above to calculate your fare:
 > Base Fare + (Cost per minute * time in ride) + (Cost per mile * ride distance) + Booking Fee = Your Fare
 
 A great article was found on Medium [How does Uber do Surge Pricing using Location Data?](https://medium.com/locale-ai/how-does-uber-do-price-surge-using-location-data-cfee03415022) which explains how they handle huge demand.
