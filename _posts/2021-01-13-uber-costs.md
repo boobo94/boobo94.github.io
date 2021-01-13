@@ -8,6 +8,7 @@ tags:
 - costs
 - mongodb
 date: 2021-01-13 09:09:09 +0000
+cover: "https://cdn.pixabay.com/photo/2014/07/01/12/35/taxi-381233_1280.jpg"
 ---
 ## How uber calculate rides costs
 Surfing a few articles attached below, Uber calculates the costs for its trip based on multiple factors:
