@@ -1,6 +1,6 @@
 ---
 layout: post
-title: How to serve a JavaScript build with Apache
+title: Install Nginx on Linux with ssl certificate
 summary: Install Nginx on Linux with ssl certificate
 categories: devops
 date: 2021-01-22 09:09:09 +0000
