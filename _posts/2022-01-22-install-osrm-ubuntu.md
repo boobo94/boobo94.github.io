@@ -144,4 +144,5 @@ Test the api
 curl "http://your_IP_or_DNS/route/v1/driving/route/v1/driving/source_longitude,source_latitude;destination_longitude,destination_latitude?steps=true&alternatives=true&geometries=geojson"
 
 
+Official documentation from OSRM API can be found [here](http://project-osrm.org/docs/v5.23.0/api/#)
 
