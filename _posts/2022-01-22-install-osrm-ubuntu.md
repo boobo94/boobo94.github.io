@@ -7,7 +7,7 @@ tags:
 - devops
 - osrm
 - map
-date: 2021-01-13 09:09:09 +0000
+date: 2021-01-22 09:09:09 +0000
 cover: http://project-osrm.org/images/osrm_logo.svg
 ---
 
