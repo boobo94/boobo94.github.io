@@ -1,0 +1,4 @@
+---
+category: devops
+permalink: "/devops"
+---
