@@ -13,7 +13,7 @@ cover: http://project-osrm.org/images/osrm_logo.svg
 
 Tutorial used from [Digital Ocean](https://www.digitalocean.com/community/tutorials/how-to-set-up-an-osrm-server-on-ubuntu-14-04) using [Geofabrik Map for Romania](http://download.geofabrik.de/europe/romania.html).
 
-Before diging into, you can check [Initial Server Setup with Ubuntu 14.04](https://www.digitalocean.com/community/tutorials/initial-server-setup-with-ubuntu-14-04). I added 4GB swap memory using [this tutorial](https://www.digitalocean.com/community/tutorials/how-to-add-swap-on-ubuntu-14-04).
+Before digging into, you can check [Initial Server Setup with Ubuntu 14.04](https://www.digitalocean.com/community/tutorials/initial-server-setup-with-ubuntu-14-04). I added 4GB swap memory using [this tutorial](https://www.digitalocean.com/community/tutorials/how-to-add-swap-on-ubuntu-14-04).
 
 Please note that the structure for your folders should be
 
