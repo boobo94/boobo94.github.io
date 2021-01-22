@@ -16,7 +16,7 @@ What is [OSRM](http://project-osrm.org/)?
 > The Open Source Routing Machine or OSRM is a C++ implementation of a high-performance routing engine for shortest paths in road networks. Licensed under the permissive 2-clause BSD license, OSRM is a free network service. OSRM supports Linux, FreeBSD, Windows, and Mac OS X platform.
 
 
-Tutorial used from [Digital Ocean](https://www.digitalocean.com/community/tutorials/how-to-set-up-an-osrm-server-on-ubuntu-14-04) using [Geofabrik Map for Romania](http://download.geofabrik.de/europe/romania.html).
+Tutorial used from [Digital Ocean](https://www.digitalocean.com/community/tutorials/how-to-set-up-an-osrm-server-on-ubuntu-14-04) using [Geofabrik Map](http://download.geofabrik.de).
 
 Before digging into, you can check [Initial Server Setup with Ubuntu 14.04](https://www.digitalocean.com/community/tutorials/initial-server-setup-with-ubuntu-14-04). I added 4GB swap memory using [this tutorial](https://www.digitalocean.com/community/tutorials/how-to-add-swap-on-ubuntu-14-04).
 
@@ -24,13 +24,24 @@ Please note that the structure for your folders should be
 
 - ROOT
     - osrm
-        - romania.osm.pbf
+        - map.osm.pbf
     - osrm-backend (this is the repo cloned. info how to build also [here](https://github.com/Project-OSRM/osrm-backend/wiki/Building-OSRM))
+
+See below for required dependencies.
+
+```sh
+mkdir -p build
+cd build
+cmake .. -DCMAKE_BUILD_TYPE=Release
+cmake --build .
+sudo cmake --build . --target install
+```
+
     
 To extract the maps you should be in the root.
 
 ```sh
-~$ osrm-extract osrm/romania-latest.osm.pbf -p ./osrm-backend/profiles/car.lua
+~$ osrm-extract osrm/map-latest.osm.pbf -p ./osrm-backend/profiles/car.lua
 ```
 
 How to run osrm locally:
