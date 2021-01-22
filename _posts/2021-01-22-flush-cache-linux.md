@@ -3,12 +3,12 @@ layout: post
 title: How to flush cache in Linux
 summary: Flush cache in linux
 categories: devops
-date: 2020-07-16 01:09:00 UTC
+date: 2021-01-22 09:09:09 +0000
 tags: 
-    - tutorials
-    - cache
-    - cronjob
-    - linux
+- tutorials
+- cache
+- cronjob
+- linux
 ---
 
 Hello guys,  

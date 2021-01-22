@@ -3,12 +3,12 @@ layout: post
 title: How to serve a JavaScript build with Apache
 summary: To serve a JavaScript build with Apache is a very simple task and today I want to present you a very simple way of achieving that.
 categories: devops
-date: 2020-06-09 17:44:58 UTC
+date: 2021-01-22 09:09:09 +0000
 tags:
-    - devops
-    - javascript
-    - apache
-    - linux
+- devops
+- javascript
+- apache
+- linux
 cover: https://cdn.pixabay.com/photo/2017/06/14/16/20/network-2402637_960_720.jpg
 ---
 
