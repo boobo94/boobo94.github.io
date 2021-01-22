@@ -20,5 +20,3 @@ Because all you need is already in place on Digital Ocean, I’ll just attach yo
 [https://www.digitalocean.com/community/tutorials/how-to-secure-apache-with-let-s-encrypt-on-centos-7](https://www.digitalocean.com/community/tutorials/how-to-secure-apache-with-let-s-encrypt-on-centos-7)
 
 [https://www.digitalocean.com/community/tutorials/how-to-install-nginx-on-ubuntu-16-04](https://www.digitalocean.com/community/tutorials/how-to-install-nginx-on-ubuntu-16-04)
-
-The post [Install Nginx on Linux with ssl certificate](https://boobo94.xyz/devops/install-nginx-on-linux-with-ssl-certificate/) appeared first on [boobo94](https://boobo94.xyz).

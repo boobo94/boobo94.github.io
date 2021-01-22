@@ -19,5 +19,3 @@ $ sudo apt-get upgrade
 ```
 
 I hope this article was helpful. If you consider it useful, please give it a share.
-
-The post [The easiest way to update Jenkins](https://boobo94.xyz/devops/update-jenkins/) appeared first on [boobo94](https://boobo94.xyz).

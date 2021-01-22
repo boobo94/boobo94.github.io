@@ -45,5 +45,4 @@ To serve a JavaScript build with Apache is a very simple task and today I want t
 ```
 
 If you consider this helpful please give it a share. For any question or discussion please consider the comments section.
-
-The post [How to serve a JavaScript build with Apache](https://boobo94.xyz/devops/serve-a-javascript-build-with-apache/) appeared first on [boobo94](https://boobo94.xyz).
+å

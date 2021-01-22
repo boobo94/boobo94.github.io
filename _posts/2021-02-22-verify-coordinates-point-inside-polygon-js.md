@@ -13,7 +13,7 @@ date: 2021-01-13 09:09:09 +0000
 cover: "https://cdn.pixabay.com/photo/2015/09/05/20/03/globe-924927_960_720.jpg"
 ---
 
-Solution ES6
+Solution ES6å
 
 ```
 
@@ -49,5 +49,3 @@ export function isPointInPolygon (latitude, longitude, polygon) {
 };
 
 ```
-
-The post [How to verify if point of coordinates is inside polygon [Javascript]](https://boobo94.xyz/tips/how-to-verify-if-point-of-coordinates-is-inside-polygon-javascript/) appeared first on [boobo94](https://boobo94.xyz).

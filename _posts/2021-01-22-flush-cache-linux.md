@@ -83,5 +83,4 @@ A new text editor will open now, probably it’s VIM. All you have to do is to a
 This cron will execute every day at 2am.
 
 I hope you enjoyed this article, so if you consider this article great, hit the share button below and spread the word far away. If you have any mention, please tell me more in comments. Good suggestion will go directly in the article.
-
-The post [How to flush cache in Linux](https://boobo94.xyz/tutorials/flush-cache-linux/) appeared first on [boobo94](https://boobo94.xyz).
+å
