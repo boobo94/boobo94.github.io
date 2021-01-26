@@ -1,6 +1,6 @@
 ---
 layout: post
-title: How to setup LEMP server for Wordpress
+title: How to setup LEMP stack for Wordpress
 categories: devops
 summary: "In this tutorial, you’ll learn how to install and secure a LEMP server on Ubuntu or Debian. I used the following software versions, but most versions will be okay to use: Ubuntu 18.04 LTS, Nginx 1.14.0, MariaDB 15.1, PHP 7.2"
 tags:
