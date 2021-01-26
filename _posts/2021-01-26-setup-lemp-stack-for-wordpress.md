@@ -11,6 +11,7 @@ tags:
 - mariadb
 - php
 date: 2021-01-26 09:09:09 +0000
+cover: https://www.raffaelechiatto.com/wp-content/uploads/2018/09/lemp-logo2-978x489.jpg
 ---
 
 !Note: The article is taken over <https://tonyteaches.tech/wordpress-on-nginx-server/>
