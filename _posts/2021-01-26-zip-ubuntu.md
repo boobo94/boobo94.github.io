@@ -8,6 +8,7 @@ tags:
 - ubuntu
 - zip
 date: 2021-01-26 09:09:09 +0000
+cover: https://upload.wikimedia.org/wikipedia/en/thumb/c/c0/Iomega_ZIP.svg/1920px-Iomega_ZIP.svg.png
 ---
 
 First step, make sure that you have zip installed on your machine:
