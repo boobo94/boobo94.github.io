@@ -8,7 +8,6 @@ tags:
 - nodejs
 - jenkins
 - docker
-cover: ""
 date: 2021-01-08 11:12:21 +0000
 
 ---
