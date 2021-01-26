@@ -13,7 +13,7 @@ tags:
 date: 2021-01-26 09:09:09 +0000
 ---
 
-!Note: The article is taken over https://tonyteaches.tech/wordpress-on-nginx-server/
+!Note: The article is taken over <https://tonyteaches.tech/wordpress-on-nginx-server/>
 
 While it may sounds complicated, it’s actually quite simple to install WordPress on a LEMP server. For those who aren’t familiar, a LEMP server is simply an acronym describing the web software stack: Linux, Nginx, MySQL (or MariaDB), and PHP.
 
