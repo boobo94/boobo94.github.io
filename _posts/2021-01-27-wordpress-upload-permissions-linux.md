@@ -11,7 +11,6 @@ tags:
 - apache
 - wordpress
 date: 2021-01-27 09:09:09 +0000
-cover: https://cdn-images-1.medium.com/max/1600/1*Cd2NBjQD8Luwbu1Z23n5QQ.png
 ---
 
 This may indicate a permissions problem with your WordPress uploads directory.
