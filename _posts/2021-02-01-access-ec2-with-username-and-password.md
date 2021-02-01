@@ -8,15 +8,6 @@ cover: https://cdn.pixabay.com/photo/2017/06/23/19/16/woman-2435605_1280.jpg
 layout: post
 ---
 
-
----
-title: Access EC2 without pem file with with username and password
-published: false
-date: 2020-07-30 01:09:00 UTC
-tags: Security,Tutorials,Amazon,ec2
-canonical_url: https://boobo94.xyz/tutorials/access-ec2-without-pem-file/
----
-
 Sometimes you need to grant permissions to someone else and maybe you don’t want to share the .pem file. By default, the [ssh access](https://boobo94.github.io/devops/generate-ssh-key/) is granted through a .pem file by [Amazon EC2](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AccessingInstancesLinux.html).
 
 1. You can create your own user and access the server using a password. In order to set up this, firstly first let’s login on the server as usual
