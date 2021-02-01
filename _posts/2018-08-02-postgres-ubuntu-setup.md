@@ -1,7 +1,7 @@
 ---
 layout: post
-title: "How to setup a Postgres Server on Ubuntu"
-date:       2018-08-02 22:28:19
+title: How to setup a Postgres Server on Ubuntu
+date: 2018-08-02 22:28:19
 summary: How to setup a Postgres Server on Ubuntu, create an user, access it remotely
 categories: tutorials
 tags: tutorials ubuntu database
@@ -10,35 +10,47 @@ redirect_from: /tutorials/ubuntu/database/2018/08/03/how-to-setup-a-postgres-ser
 
 ## Installing on Linux
 
-`$ sudo apt-get update`
+```sh
+$ sudo apt-get update
 
-`$ sudo apt-get install postgresql postgresql-contrib`
+$ sudo apt-get install postgresql postgresql-contrib
+```
 
 Switch over to the postgres account on your server by typing:
 
-`$ sudo -i -u postgres`
+```sh
+$ sudo -i -u postgres
+```
 
-You can now access a Postgres prompt immediately by typing:
-
-`$ psql`, exit with `\q`
+You can now access a Postgres prompt immediately by typing: `$ psql`, exit with `\q`
 
 ## Creating user
 
-`$ sudo -u postgres createuser <username>`
+```sh
+$ sudo -u postgres createuser <username>
+```
 
 ## Creating Database
 
-`$ sudo -u postgres createdb <dbname>`
+```sh
+$ sudo -u postgres createdb <dbname>
+```
 
 ## Giving the user a password
 
-`$ sudo -u postgres psql`
+```sh
+$ sudo -u postgres psql
+```
 
-`psql=# alter user <username> with encrypted password '<password>';`
+```sql
+psql=# alter user <username> with encrypted password '<password>';
+```
 
 ## Granting privileges on database
 
-`psql=# grant all privileges on database <dbname> to <username> ;`
+```sql
+psql=# grant all privileges on database <dbname> to <username> ;
+```
 
 ## Access remotely
 
@@ -52,7 +64,11 @@ Append at the end of the file these:
 host    all     all     0.0.0.0/0       md5
 host    all     all     ::/0            md5
 ```
-4. Restart postgres `$ sudo service postgresql restart`
+4. Restart postgres
+
+```sh
+$ sudo service postgresql restart
+```
 
 PS: Make sure that you have postgres version 9.5 `$ psql --version` . If the file it's empty try to use autocomplete `vi /etc/postgresql/` and then press tab for version autocomplete.
 

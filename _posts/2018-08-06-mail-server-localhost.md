@@ -32,9 +32,11 @@ MailCatcher runs a simple SMTP server, catch all the messages send to it and dis
 
 ### How to use it
 
-`$ gem install mailcatcher`
+```sh
+$ gem install mailcatcher
 
-`$ mailcatcher`
+$ mailcatcher
+```
 
 Go to http://127.0.0.1:1080/
 Send mail through smtp://127.0.0.1:1025

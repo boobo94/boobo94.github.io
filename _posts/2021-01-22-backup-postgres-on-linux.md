@@ -17,7 +17,7 @@ Learn how to backup Postgres database on Linux, using cronjobs. Very simple and 
 
 1. Make new .pgpass file in the root folder
 
-```
+```sh
 $ vi .pgpass
 ```
 
@@ -26,19 +26,19 @@ And paste the content from `/root/.pgpass`
 1. Create new file `/root/pg_backup.sh` and paste the content
 2. Change permissions
 
-```
+```sh
 $ chmod 700 /root/pg_backup.sh
 ```
 
 1. Add new cron
 
-```
+```sh
 $ crontab -e
 ```
 
 Add at the end of the file the content:
 
-```
+```sh
 0 0 * * * /root/pg_backup.sh
 ```
 
@@ -50,7 +50,7 @@ localhost:5432:DATABASE:USER:PASSWORD
 
 ## pg\_backup.sh
 
-```
+```bash
 #!/bin/bash
 # This script will backup the postgresql database
 # and store it in a specified directory
