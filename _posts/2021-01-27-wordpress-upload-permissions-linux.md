@@ -11,6 +11,7 @@ tags:
 - apache
 - wordpress
 date: 2021-01-27 09:09:09 +0000
+cover: https://cdn.pixabay.com/photo/2015/10/05/21/45/wordpress-973439_1280.jpg
 ---
 
 This may indicate a permissions problem with your WordPress uploads directory.
