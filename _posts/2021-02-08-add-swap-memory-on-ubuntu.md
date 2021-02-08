@@ -1,6 +1,6 @@
 ---
 title: How to add Swap memory on Ubuntu
-summary: Summary Draft Template
+summary: Swap memory uses hard disk space memory (swap space) to store information from RAM and release some space from RAM.
 categories: devops
 tags: devops ubuntu swap memory
 date: 2021-02-08 09:09:09 +0000
