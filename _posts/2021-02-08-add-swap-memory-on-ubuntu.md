@@ -4,6 +4,7 @@ summary: Summary Draft Template
 categories: devops
 tags: devops ubuntu swap memory
 date: 2021-02-08 09:09:09 +0000
+cover: https://www.linux-bibel-oesterreich.at/wp-content/uploads/2019/12/swap.png
 layout: post
 ---
 
