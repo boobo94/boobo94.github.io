@@ -9,3 +9,9 @@ layout: post
 ---
 
 This is just a short note, so it won't take long. The full description, step by step can be found on the [Official documentation](https://docs.mongodb.com/manual/tutorial/install-mongodb-on-ubuntu/).
+
+## Handle CLI
+
+```sh
+sudo service mongod {start|stop|restart|status}
+```
