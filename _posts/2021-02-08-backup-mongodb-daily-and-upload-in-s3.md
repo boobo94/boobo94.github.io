@@ -3,7 +3,7 @@ title: Dump MongoDB daily and upload the backup on AWS S3 in Ubuntu with AWS CLI
 summary: Step by step guide about how you can backup daily MongoDB using AWS CLI on Ubuntu OS
 categories: devops
 tags: mongodb ubuntu servers awscli s3
-date: 2021-01-01 09:09:09 +0000
+date: 2021-02-08 09:09:09 +0000
 cover: https://universo-digital.net/wp-content/uploads/2016/10/mongodb-backupsl.jpg
 layout: post
 ---
