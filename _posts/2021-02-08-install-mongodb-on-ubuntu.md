@@ -10,6 +10,7 @@ layout: post
 
 This is just a short note, so it won't take long. The full description, step by step can be found on the [Official documentation](https://docs.mongodb.com/manual/tutorial/install-mongodb-on-ubuntu/).
 
+To enable authentication follow [this article](https://docs.mongodb.com/manual/tutorial/enable-authentication/)
 ## Handle CLI
 
 ```sh
