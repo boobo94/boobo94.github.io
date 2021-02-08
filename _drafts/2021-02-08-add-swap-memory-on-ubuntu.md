@@ -4,7 +4,6 @@ summary: Summary Draft Template
 categories: devops
 tags: devops ubuntu swap memory
 date: 2021-02-08 09:09:09 +0000
-cover: https://example.com/img.png
 layout: post
 ---
 
