@@ -9,10 +9,10 @@ layout: post
 
 Socket.io has a really good example how to implement a simple chat with private rooms (1:1)
 
-https://socket.io/get-started/private-messaging-part-1/
-https://socket.io/get-started/private-messaging-part-2/
-https://socket.io/get-started/private-messaging-part-3/
-https://socket.io/get-started/private-messaging-part-4/
+<https://socket.io/get-started/private-messaging-part-1/>
+<https://socket.io/get-started/private-messaging-part-2/>
+<https://socket.io/get-started/private-messaging-part-3/>
+<https://socket.io/get-started/private-messaging-part-4/>
 
 Github repo
-https://github.com/socketio/socket.io/tree/master/examples/private-messaging
+<https://github.com/socketio/socket.io/tree/master/examples/private-messaging>
