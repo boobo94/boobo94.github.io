@@ -4,6 +4,7 @@ summary: Private chat with Socket.io, Redis on Node.js
 categories: research
 tags: chat socket js
 date: 2021-02-22 09:09:09 +0000
+cover: https://socket.io/images/private-messaging-part-1-chat.png
 layout: post
 ---
 
