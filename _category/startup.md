@@ -1,0 +1,4 @@
+---
+category: startup
+permalink: "/startup"
+---
