@@ -24,6 +24,10 @@ ES_JAVA_OPTS="-Xms10g -Xmx10g" ./bin/elasticsearch
 
 Ensure that the min (Xms) and max (Xmx) sizes are the same to prevent the heap from resizing at runtime, a very costly process.
 
+```sh
+sudo vi /etc/elasticsearch/jvm.options
+```
+
 Generally, setting the ES_HEAP_SIZE environment variable is preferred over setting explicit -Xmx and -Xms values.
 
 Source: <https://www.elastic.co/guide/en/elasticsearch/guide/current/heap-sizing.html>
