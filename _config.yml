@@ -11,6 +11,7 @@ header_pages:
  - about.md
  - portfolio.html
  - contact.html
+ - _category/webservice.md
 
 # Google services
 google_verification:
