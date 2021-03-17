@@ -48,7 +48,7 @@ txtpen_sitename:
 
 # Facebook Comments plugin
 # (leave blank to disable Facebook Comments, otherwise set it to true)
-facebook_comments: true
+facebook_comments:
 facebook_appid:
 facebook_comments_number: 10
 
@@ -57,7 +57,7 @@ github_username: boobo94
 reddit_username:
 bitbucket_username:
 stackoverflow_id: 4471897
-twitter_username:
+twitter_username: militaru_bogdan
 skype_username: boobo_boobo94
 steam_nickname:
 google_plus_id:
