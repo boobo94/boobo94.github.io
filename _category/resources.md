@@ -1,0 +1,4 @@
+---
+category: resources
+permalink: "/resources"
+---
