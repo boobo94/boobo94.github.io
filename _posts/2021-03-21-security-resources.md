@@ -3,7 +3,7 @@ title: Security Resources
 summary: Server Security Best Practices
 categories: resources
 tags: security resources
-date: 2021-01-01 09:09:09 +0000
+date: 2021-03-21 09:09:09 +0000
 cover: https://cdn.pixabay.com/photo/2017/10/31/09/55/fingerprint-2904774_1280.jpg
 layout: post
 ---
