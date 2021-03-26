@@ -61,3 +61,5 @@ networks:
 volumes:
   db_data:
 ```
+
+Official [documentation](https://docs.docker.com/compose/wordpress/)
