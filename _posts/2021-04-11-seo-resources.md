@@ -4,7 +4,7 @@ summary: This article is a journal about best resources that I've read. I update
 categories: resources
 tags: seo marketing web
 date: 2021-04-11 09:09:09 +0000
-cover: https://cmevo.com/wp-content/uploads/2021/03/optimizare-seo.png
+cover: https://image.freepik.com/free-vector/tiny-content-writers-creating-web-articles-flat-illustration_74855-15537.jpg
 layout: post
 ---
 
