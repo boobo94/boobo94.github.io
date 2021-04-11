@@ -8,7 +8,7 @@ cover: https://cmevo.com/wp-content/uploads/2021/03/optimizare-seo.png
 layout: post
 ---
 
-## 1. [Here’s why you can’t blindly trust keyword search volume for traffic estimations](https://ahrefs.com/blog/keyword-traffic-estimation/)
+## 1. <a href="https://ahrefs.com/blog/keyword-traffic-estimation/" target="_blank">Here’s why you can’t blindly trust keyword search volume for traffic estimations</a>
 
 The practical application of the keyword search volume metric is quite obvious. We use it to determine how much organic search traffic our page will get if it ranks on the front page of Google for a given keyword. 
 
