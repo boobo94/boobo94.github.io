@@ -1,6 +1,6 @@
 ---
 title: Seo Resources
-summary: This article is a journal about best resources that I've read. I update constantly the list, so stay ahead and follow me.
+summary: This article is a journal about best resources that I've read about seo. I update constantly the list, so stay ahead and follow me.
 categories: resources
 tags: seo marketing web
 date: 2021-04-11 09:09:09 +0000
