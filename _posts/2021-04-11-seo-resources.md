@@ -3,7 +3,7 @@ title: Seo Resources
 summary: This article is a journal about best resources that I've read. I update constantly the list, so stay ahead and follow me.
 categories: resources
 tags: seo marketing web
-date: 2021-01-01 09:09:09 +0000
+date: 2021-04-11 09:09:09 +0000
 cover: https://cmevo.com/wp-content/uploads/2021/03/optimizare-seo.png
 layout: post
 ---
