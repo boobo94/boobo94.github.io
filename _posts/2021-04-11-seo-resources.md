@@ -57,5 +57,21 @@ Long-tail keywords are terms with low search volumes. Despite what many people t
 
 Finding a bunch of keywords that you want to rank for is easy. The hard part is figuring out what it’ll take to rank for those keywords (i.e., “keyword difficulty”), and then using that information to prioritize and plan your SEO strategy.
 
+### 8. <a href="https://ahrefs.com/blog/competitive-analysis/" target="_blank">How to Do an SEO Competitor Analysis [Template Included]</a>
 
+Your competitors are a goldmine of information that can inform every aspect of your SEO strategy and help to skyrocket your website’s organic traffic.
+
+If we can find broken pages on our competitors’ websites, that have backlinks, and are also somewhat relevant to our business, then we may be able to take advantage of such pages by:
+
+Figuring out what the dead page used to be;
+Publishing something similar, but better;
+Finding everyone linking to the dead resource (use the Backlinks report in Site Explorer)
+Asking them to swap out the dead link in favor of our working resource.
+We could also use what’s commonly known as the ‘skyscraper’ technique to attract links:
+
+Create a similar but even better piece of content
+Show it to everyone who links to our competitor’s now inferior content
+Ask them to swap out the link in favor of our superior content
+
+<hr>
 <a href="https://cmevo.com/seo-services/" target="_blank"> Seo Services with &#10084; from Cmevo</a>
