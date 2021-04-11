@@ -1,6 +1,6 @@
 ---
 title: Inkscape - modify PDF files
-summary: Inkscape is a Free and open source vector graphics editor for GNU/Linux, Windows and MacOS X. I offers some infos regarding this great tool, so press the link and read the full article.
+summary: Inkscape is a Free and open source vector graphics editor for GNU/Linux, Windows and MacOS X. I offer some infos regarding this great tool, so press the link and read the full article.
 categories: tools
 tags: pdf tools opensource linux mac windows
 date: 2021-04-11 09:09:09 +0000
