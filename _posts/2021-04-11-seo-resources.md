@@ -63,15 +63,16 @@ Your competitors are a goldmine of information that can inform every aspect of y
 
 If we can find broken pages on our competitors’ websites, that have backlinks, and are also somewhat relevant to our business, then we may be able to take advantage of such pages by:
 
-Figuring out what the dead page used to be;
-Publishing something similar, but better;
-Finding everyone linking to the dead resource (use the Backlinks report in Site Explorer)
-Asking them to swap out the dead link in favor of our working resource.
+1. Figuring out what the dead page used to be;
+2. Publishing something similar, but better;
+3. Finding everyone linking to the dead resource (use the Backlinks report in Site Explorer)
+4. Asking them to swap out the dead link in favor of our working resource.
+
 We could also use what’s commonly known as the ‘skyscraper’ technique to attract links:
 
-Create a similar but even better piece of content
-Show it to everyone who links to our competitor’s now inferior content
-Ask them to swap out the link in favor of our superior content
+1. Create a similar but even better piece of content
+2. Show it to everyone who links to our competitor’s now inferior content
+3. Ask them to swap out the link in favor of our superior content
 
 <hr>
 <a href="https://cmevo.com/seo-services/" target="_blank"> Seo Services with &#10084; from Cmevo</a>
