@@ -1,6 +1,6 @@
 ---
-title: Nginx configuration example for nodejs app
-summary: Use this NGINX configuration example for nodejs app, running on port 8000. The server has an SSL from Certbot installed.
+title: Nginx configuration example for NodeJS app
+summary: Use this NGINX configuration example for NodeJS app, running on port 8000. The server has an SSL from Certbot installed.
 categories: devops
 tags: nginx nodejs certbot ssl
 date: 2021-04-13 09:09:09 +0000
