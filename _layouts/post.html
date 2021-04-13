@@ -22,6 +22,11 @@ layout: default
     {{ minutes }} {{ site.text.post.minute_read }}
   {% endif %}
   </span>
+  <span class="post-meta small"></span>
+  {% for tag in site.tags %}
+    {{tag}}
+  {% endfor %}
+  </span>
 </div>
 
 <article class="post-content">
