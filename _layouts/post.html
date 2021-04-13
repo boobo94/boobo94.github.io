@@ -22,10 +22,8 @@ layout: default
     {{ minutes }} {{ site.text.post.minute_read }}
   {% endif %}
   </span>
-  <span class="post-meta small"></span>
-  {% for tag in page.tags %}
-    {{tag}}
-  {% endfor %}
+  <span class="post-meta small">
+    <a href="{{ page.category | prepend: site.baseurl }}" class="post-link">{{page.category}}</a> 
   </span>
 </div>
 
