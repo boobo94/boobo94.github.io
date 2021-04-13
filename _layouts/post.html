@@ -24,7 +24,7 @@ layout: default
   </span>
   <span class="post-meta small">
   {% for category in page.categories %}
-    <a href="{{ category | prepend: site.baseurl }}" class="post-link">#{{category}}</a> 
+    <a href="{{ category | prepend: site.url }}" class="post-link">#{{category}}</a> 
   {% endfor %}
   </span>
 </div>
