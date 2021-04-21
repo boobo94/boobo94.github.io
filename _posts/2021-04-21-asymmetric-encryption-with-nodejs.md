@@ -114,7 +114,7 @@ The output:
 decrypted text: simple text
 ```
 
-if you need to decrypt from base64 string:
+If you need to decrypt from base64 string:
 ```js
   const base64Encrypted = 'V8ZwxwmjCosiiUGclRbGpwkTqEcwOw/fy6Sfg+xQnCZY51rr5e93XbcyDEBjrmTfkLKQ/y/fwskajrfattp7Pb5nXH+yqRi0jJ/mL0BrpAvwpY+5TMmGRubaWMEk6AbkrmOV+rNg8SSro1wZNc7dyVttXP6pjuBSBM4Mc9GCFCNPq28aClwVFmByQfR4gS+WfYHXpavBWi+obc4C+JrfG9L3PT1Th0XHi49xWQxrlQRwKahe7vbtBJIxG8H/VlUqlZcnABw0caIago1VGJbMo1XdE/OTpgIqozcP76wjEZNdeuBhVS3hU50gW/qx7gm/SlWwIaHjvsm8sMMI60TnDs9OAkSRXt3LXtTk7H+PjtTl2+5e46PYC6MXvFtJgqZOz5csilT/AXp/on2n0DdZT+nLwe5/8IK2LylRbIm7+ICGbGE97tn9v+LuGplPO953pVRPLgtFxxcCEFiCPGPxoYWm+TDfF3XstjdjiHFAkVeVPPd+1Vtu1WxDKKtXIu1ALY552jZQApGTBhTDrL2GbKRVgrSZdO7oTPiSBZcknL1IoRAK6sn3X/58JFkMsfPhtjlMFJ1AWNC1l+8wxzMbDrwkMuUN2lodw5rvy+IquxQPJPFkCHjv8gpReNyDU7iLR8IPwX09FY3CaGuUR3x+de5kUDRIuP19CTGV8M6jL0g='
 
