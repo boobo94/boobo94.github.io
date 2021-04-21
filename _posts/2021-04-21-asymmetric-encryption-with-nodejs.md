@@ -122,3 +122,10 @@ if you need to decrypt from base64 string:
   console.log('decrypted text', decryptedText.toString())
 // decrypted text: simple text
 ```
+
+Resources:
+
+1. <a href="https://www.sohamkamani.com/nodejs/rsa-encryption/" target="_blank">Implementing RSA Encryption and Signing in Node.js (With Examples)</>
+2. <a href="https://marcomelilli.com/posts/how-to-asymmetric-encryption-in-nodejs" target="_blank">Asymmetric encryption in Nodejs</a>
+3. <a href="https://en.wikipedia.org/wiki/Public-key_cryptography" target="_blank">Public-key cryptography</a>
+4. <a href="https://nodejs.org/api/crypto.html" target="_blank">Crypto Node.js v16.0.0 documentation</a>
