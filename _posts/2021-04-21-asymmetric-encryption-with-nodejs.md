@@ -1,6 +1,6 @@
 ---
 title: Asymmetric encryption (Public-key cryptography) with Node.js
-summary: Summary Draft Template
+summary: In an asymmetric key encryption scheme, anyone can encrypt messages using a public key, but only the holder of the paired private key can decrypt such a message. The security of the system depends on the secrecy of the private key, which must not become known to any other.
 categories: devops tutorials
 tags: cryptography nodejs rsa
 date: 2021-04-21 09:09:09 +0000
