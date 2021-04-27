@@ -32,3 +32,40 @@ Generally, setting the ES_HEAP_SIZE environment variable is preferred over setti
 
 Source: <https://www.elastic.co/guide/en/elasticsearch/guide/current/heap-sizing.html>
 See also [Setting JVM options](There are two ways to change the heap size in Elasticsearch. The easiest is to set an environment variable called ES_HEAP_SIZE.)
+
+
+## Full disk space problems
+
+1. You could try to remove indexes
+
+```sh
+$ curl -XDELETE http://localhost:9200/PATTERN_OR_PATH
+```
+Replace `PATTERN_OR_PATH` with the pattern or index that you want to remove.
+
+To remove all indexes:
+
+```sh
+$ curl -XDELETE http://localhost:9200/*
+```
+
+2. Remove .hprof files
+
+```sh
+
+# got to cd /var/lib/elasticsearch/
+$ cd cd /var/lib/elasticsearch/
+
+# show all files
+
+root@ip:/var/lib/elasticsearch# ls -lh
+total 29138560
+-rw------- 1 elasticsearch elasticsearch 1175937553 Mar  7 12:01 java_pid19447.hprof
+-rw------- 1 elasticsearch elasticsearch 1459518773 Apr  1 07:10 java_pid20206.hprof
+drwxr-sr-x 3 elasticsearch elasticsearch       4096 Oct 29  2019 nodes
+
+
+# remove unwanted files
+
+$ rm java_pid19447.hprof
+```
