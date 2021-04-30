@@ -61,4 +61,4 @@ The driver benefits too because they get a percentage of that surge price too. S
 3. Really helpful article, because it summaries a lot <https://www.ridesharingforum.com/t/how-does-uber-calculate-estimate-your-fare-explained/164>
 4. <https://www.newscientist.com/article/2246202-uber-and-lyft-pricing-algorithms-charge-more-in-non-white-areas/>
 5. <https://www.technologyreview.com/2015/12/01/247388/when-your-boss-is-an-uber-algorithm/>
-
+6. < https://www.educative.io/blog/uber-backend-system-design>
