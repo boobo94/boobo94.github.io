@@ -4,6 +4,7 @@ summary: A complete list with reading resources and free books for either studen
 categories: resources
 tags: books reading free
 date: 2021-05-02 09:09:09 +0000
+cover: https://cdn.pixabay.com/photo/2015/07/27/20/16/book-863418_1280.jpg
 layout: post
 ---
 
