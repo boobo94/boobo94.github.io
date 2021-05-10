@@ -10,7 +10,7 @@ layout: post
 
 ## Cloud Infrastructure
 
-### 1. <a href="" target="_blank">How to Optimize your AWS Cloud Architecture Costs</a>https://www.freecodecamp.org/news/cost-optimization-in-aws/) - from freeCodeCamp
+### 1. <a href="https://www.freecodecamp.org/news/cost-optimization-in-aws/" target="_blank">How to Optimize your AWS Cloud Architecture Costs</a> - from freeCodeCamp
 
 In this article, you'll discover highlights about what means optimizing your costs in AWS cloud architecture. Then I'll share how you can do it with respect to the AWS Well-Architected framework.
 
