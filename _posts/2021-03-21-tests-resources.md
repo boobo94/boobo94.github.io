@@ -10,6 +10,6 @@ layout: post
 
 ## End-to-end
 
-### 1. [What is End-to-End Testing and When Should You Use It?](https://www.freecodecamp.org/news/end-to-end-testing-tutorial/) from Freecodecamp
+### 1. <a href="https://www.freecodecamp.org/news/end-to-end-testing-tutorial/" target="_blank">What is End-to-End Testing and When Should You Use It?</a> from Freecodecamp
 
 For those who are still exploring the world of Software Testing, E2E testing is when you validate your entire application from start to finish, along with any of its dependencies. 
