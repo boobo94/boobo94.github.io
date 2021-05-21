@@ -1,6 +1,6 @@
 ---
 title: Promote the mobile application in 13 steps
-summary: During this article, we set out to approach a complete study on the subject. We have divided this article into two categories, depending on the financial investment: free and paid promotion. Obviously, nothing is free and each of them comes with a certain cost, but we made this division based on direct financial investment. Because we want to respond promptly to your requirements, we present the table of contents:
+summary: During this article, we set out to approach a complete study on the subject. We have divided this article into two categories.
 categories: startup
 tags: aso marketing mobile
 date: 2021-01-01 09:09:09 +0000
