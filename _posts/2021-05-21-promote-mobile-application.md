@@ -3,7 +3,7 @@ title: Promote the mobile application in 13 steps
 summary: During this article, we set out to approach a complete study on the subject. We have divided this article into two categories.
 categories: startup
 tags: aso marketing mobile
-date: 2021-01-01 09:09:09 +0000
+date: 2021-05-21 09:09:09 +0000
 cover: https://cmevo.com/wp-content/uploads/2021/05/promoveaza-aplicatia-mobila.jpg
 canonical_url: https://cmevo.com/promote-mobile-application/
 layout: post
