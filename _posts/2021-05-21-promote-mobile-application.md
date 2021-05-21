@@ -5,7 +5,7 @@ categories: startup
 tags: aso marketing mobile
 date: 2021-01-01 09:09:09 +0000
 cover: https://cmevo.com/wp-content/uploads/2021/05/promoveaza-aplicatia-mobila.jpg
-canonical: https://cmevo.com/promote-mobile-application/
+canonical_url: https://cmevo.com/promote-mobile-application/
 layout: post
 ---
 
