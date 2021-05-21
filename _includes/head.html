@@ -25,7 +25,11 @@
   <meta property="fb:pages" content="{{ site.fb_page_id }}" />{% endif %}
   {% if page.keywords %}
   <meta name="keywords" content="{{ page.keywords }}">{% endif %}
+  {% if page.canonical_url != nil %}
+  <link rel="canonical" href="{{ page.canonical_url }}"/>
+  {% else %}
   <link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}">
+  {% endif %}
   <link rel="alternate" type="application/rss+xml" title="RSS Feed for {{ site.title }}" href="{{ "/feed.xml" | prepend: site.baseurl }}" />
 
   <!-- Custom CSS -->
