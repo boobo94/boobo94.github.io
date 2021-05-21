@@ -1,18 +1,3 @@
-# Pixyll
-
-[pixyll.com](http://www.pixyll.com)
-
-![Pixyll screenshot](https://cloud.githubusercontent.com/assets/1424573/3847467/134aa236-1e66-11e4-8421-4e8c122118dc.png)
-
-Pixyll is a simple, beautiful theme for Jekyll that emphasizes content rather than aesthetic fluff. It's mobile _first_, fluidly responsive, and delightfully lightweight.
-
-It's pretty minimal, but leverages large type and drastic contrast to make a statement, on all devices.
-
-This Jekyll theme was crafted with <3 by [John Otander](http://johnotander.com)
-([@4lpine](https://twitter.com/4lpine)).
-
-中文版 <https://github.com/ee0703/pixyll-zh-cn>.
-
 ## Getting Started
 
 If you're completely new to Jekyll, I recommend checking out the documentation at <http://jekyllrb.com> or there's a tutorial by [Smashing Magazine](http://www.smashingmagazine.com/2014/08/01/build-blog-jekyll-github-pages/).
@@ -223,3 +208,19 @@ https://github.com/jekyll/jekyll-redirect-from
 3. Commit your changes (`git commit -am 'Add some feature'`)
 4. Push to the branch (`git push origin my-new-feature`)
 5. Create new Pull Request
+
+## Page attributes
+
+```md
+title: Draft Template
+summary: Summary Draft Template
+categories: category
+tags: tag1 tag2
+date: 2021-01-01 09:09:09 +0000
+cover: https://example.com/img.png
+redirect_from: 
+- /old1-route
+- /old2-route
+layout: post
+canonical_url: https://example.com
+```
