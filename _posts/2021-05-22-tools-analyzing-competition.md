@@ -50,7 +50,7 @@ Is a free tool. It stands out for providing you with information about traffic o
 
 PageSpeed Insights analyzes the content of a web page, then generates suggestions to make that page faster.
 
-7<h2>. <a href="https://answerthepublic.com/" target="_blank">Answer the public</a></h2>
+<h2>7. <a href="https://answerthepublic.com/" target="_blank">Answer the public</a></h2>
 
 AnswerThePublic listens into autocomplete data from search engines like Google then quickly cranks out every useful phrase and question people are asking around your keyword.
 
