@@ -4,7 +4,7 @@ summary: Before to knwo where your business stands, you should look at market an
 categories: startup resources
 tags: startup competition analysis seo
 date: 2021-05-22 09:09:09 +0000
-cover: https://cdn.pixabay.com/photo/2018/04/16/15/52/chess-3325010_1280.jpg
+cover: https://cdn.pixabay.com/photo/2015/04/20/13/41/person-731479_1280.jpg
 layout: post
 ---
 
@@ -70,4 +70,4 @@ Mention enables brands and agencies to monitor the web, listen to their audience
 
  With Fanpage Karma you have everything you need for professional social media management: analyzing, publishing, communicating, researching, and presenting. Everything in one tool. 
 
-Image Source: <a href="https://pixabay.com/photos/chess-pawn-gameplan-queen-game-3325010/" target="_blank">Pixabay</a>
+Image Source: <a href="https://pixabay.com/images/id-731479/" target="_blank">Pixabay</a>
