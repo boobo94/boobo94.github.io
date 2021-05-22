@@ -10,14 +10,14 @@ layout: default
     {% for post in paginator.posts %}
     <div class="post py3">
       <p class="post-meta">{{ post.date | date: site.date_format }}</p>
-      <a href="{{ post.url | prepend: site.baseurl }}" class="post-link">
-        <h3 class="h1 post-title">{{ post.title }}</h3>
-      </a>
       <span class="post-meta small">
         {% for category in post.categories %}
           <a href="{{ site.url }}/{{ category }}" class="post-link">#{{ category }}</a> 
         {% endfor %}
       </span>
+      <a href="{{ post.url | prepend: site.baseurl }}" class="post-link">
+        <h3 class="h1 post-title">{{ post.title }}</h3>
+      </a>
       <span class="post-summary">
         {% if post.cover %}
         <a href="{{ post.url | prepend: site.baseurl }}">
