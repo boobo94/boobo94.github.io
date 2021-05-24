@@ -11,10 +11,6 @@
       <a class="fa fa-twitter" href="https://twitter.com/intent/tweet?text={{ page.title | cgi_escape }}&amp;url={{ site.url | cgi_escape }}{{ page.url | cgi_escape }}" rel="nofollow" target="_blank" title="{{ site.text.share_buttons.twitter }}"></a>
     {% endif %}
 
-    {% if site.share_googleplus %}
-      <a class="fa fa-google-plus" href="https://plus.google.com/share?url={{ site.url | cgi_escape }}{{ page.url | cgi_escape }}" rel="nofollow" target="_blank" title="{{ site.text.share_buttons.googleplus }}"></a>
-    {% endif %}
-
     {% if site.share_linkedin %}
       <a class="fa fa-linkedin" href="http://www.linkedin.com/shareArticle?url={{ site.url | cgi_escape }}{{ page.url | cgi_escape }}&amp;title={{ page.title | cgi_escape }}" rel="nofollow" target="_blank" title="{{ site.text.share_buttons.linkedin }}"></a>
     {% endif %}
