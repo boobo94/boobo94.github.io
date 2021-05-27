@@ -27,7 +27,7 @@ I'll present two methods to generate the keys, depending on your needs, but for 
 Generate private key
 
 ```sh
-$ openssl rsa -pubout -in private_key.pem -out rsa_4096_pub.pem
+$ openssl genrsa -out private_key.pem 4096
 ```
 
 Generate public key
