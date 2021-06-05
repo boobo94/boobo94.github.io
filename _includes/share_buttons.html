@@ -1,8 +1,8 @@
-<span class="share-page">
+<div class="share-page">
   <br>
   {{ site.text.share_buttons.text }}
 
-  <div class="share-links">
+  <span class="share-links">
     {% if site.share_facebook %}
       <a class="fa fa-facebook" href="https://facebook.com/sharer.php?u={{ site.url | cgi_escape }}{{ page.url | cgi_escape }}" rel="nofollow" target="_blank" title="{{ site.text.share_buttons.facebook }}"></a>
     {% endif %}
@@ -34,5 +34,5 @@
     {% if site.share_hackernews %}
       <a class="fa fa-hacker-news" onclick="parent.postMessage('submit','*')" href="https://news.ycombinator.com/submitlink?u={{ site.url | cgi_escape }}{{ page.url | cgi_escape }}&amp;t={{ page.title | cgi_escape }}" rel="nofollow" target="_blank" title="{{ site.text.share_buttons.hackernews }}"></a>
     {% endif %}
-  </div>
-</span>
+  </span>
+</div>
