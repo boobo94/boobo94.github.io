@@ -8,8 +8,6 @@ keywords: ''
 tags:
 - git
 - bash
-redirect_from: []
-cover: "/images/cleanup-merged-branches.png"
 date: 2019-01-09 11:12:21 +0000
 
 ---
