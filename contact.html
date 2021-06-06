@@ -49,12 +49,15 @@ tags: contact
 {% endif %}
 
 <div class="py2">
-<form class="form-stacked" style="border:1px solid #ccc;padding:3px;text-align:center;" action="https://tinyletter.com/boobo94" method="post"
-  target="popupwindow"
-  onsubmit="window.open('https://tinyletter.com/boobo94', 'popupwindow', 'scrollbars=yes,width=800,height=600');return true">
-  <p><label for="tlemail">Enter your email address</label></p>
-  <p><input type="text" style="width:140px" name="email" id="tlemail" /></p><input type="hidden" value="1"
-    name="embed" /><input type="submit" value="Subscribe" class="button button-blue button-big mobile-block" />
-  <p><a href="https://tinyletter.com" target="_blank">powered by TinyLetter</a></p>
-</form>
+  <h2 class="h2">Newsletter</h2>
+  <form class="form-stacked" style="border:1px solid #ccc;padding:3px;text-align:center;"
+    action="https://tinyletter.com/boobo94" method="post" target="popupwindow"
+    onsubmit="window.open('https://tinyletter.com/boobo94', 'popupwindow', 'scrollbars=yes,width=800,height=600');return true">
+    <label for="tlemail">
+      Enter your email address
+      <input type="text" style="width:140px" name="email" id="tlemail" class="field-light" />
+    </label>
+    <input type="hidden" value="1" name="embed" />
+    <input type="submit" value="Subscribe" class="button button-blue button-big mobile-block" />
+  </form>
 </div>
