@@ -7,41 +7,52 @@ tags: contact
 
 <div class="py2">
   {% if site.ajaxify_contact_form %}
-    <form class="form-stacked">
-      <label>
-        Email
-        <input type="text" name="email" class="field-light" placeholder="{{ site.text.contact.email }}">
-      </label>
+  <form class="form-stacked">
+    <label>
+      Email
+      <input type="text" name="email" class="field-light" placeholder="{{ site.text.contact.email }}">
+    </label>
 
-      <label>
-        Content
-        <textarea type="text" name="content" class="field-light" rows="5" placeholder="{{ site.text.contact.content }}" style="resize: vertical"></textarea>
-      </label>
+    <label>
+      Content
+      <textarea type="text" name="content" class="field-light" rows="5" placeholder="{{ site.text.contact.content }}"
+        style="resize: vertical"></textarea>
+    </label>
 
-      <input type="text" name="_gotcha" style="display:none" />
+    <input type="text" name="_gotcha" style="display:none" />
 
-      <button type='submit' class="button button-blue button-big mobile-block">{{ site.text.contact.submit }}</button>
-    </form>
+    <button type='submit' class="button button-blue button-big mobile-block">{{ site.text.contact.submit }}</button>
+  </form>
   {% else %}
-    <form action="https://formspree.io/{{ site.email }}" method="POST" class="form-stacked">
-      <label>
-        Email
-        <input type="text" name="email" class="field-light" placeholder="{{ site.text.contact.email }}">
-      </label>
-      <label>
-        Content
-        <textarea type="text" name="content" class="field-light" rows="5" placeholder="{{ site.text.contact.content }}" style="resize: vertical"></textarea>
-      </label>
+  <form action="https://formspree.io/{{ site.email }}" method="POST" class="form-stacked">
+    <label>
+      Email
+      <input type="text" name="email" class="field-light" placeholder="{{ site.text.contact.email }}">
+    </label>
+    <label>
+      Content
+      <textarea type="text" name="content" class="field-light" rows="5" placeholder="{{ site.text.contact.content }}"
+        style="resize: vertical"></textarea>
+    </label>
 
-      <input type="hidden" name="_next" value="{{ site.baseurl }}/thanks/" />
-      <input type="hidden" name="_subject" value="{{ site.text.contact.subject }}" />
-      <input type="text" name="_gotcha" style="display:none" />
+    <input type="hidden" name="_next" value="{{ site.baseurl }}/thanks/" />
+    <input type="hidden" name="_subject" value="{{ site.text.contact.subject }}" />
+    <input type="text" name="_gotcha" style="display:none" />
 
-      <input type="submit" class="button button-blue button-big mobile-block" value="{{ site.text.contact.submit }}">
-    </form>
+    <input type="submit" class="button button-blue button-big mobile-block" value="{{ site.text.contact.submit }}">
+  </form>
   {% endif %}
 </div>
 
 {% if site.ajaxify_contact_form %}
   {% include ajaxify_content_form.html %}
 {% endif %}
+
+<form style="border:1px solid #ccc;padding:3px;text-align:center;" action="https://tinyletter.com/boobo94" method="post"
+  target="popupwindow"
+  onsubmit="window.open('https://tinyletter.com/boobo94', 'popupwindow', 'scrollbars=yes,width=800,height=600');return true">
+  <p><label for="tlemail">Enter your email address</label></p>
+  <p><input type="text" style="width:140px" name="email" id="tlemail" /></p><input type="hidden" value="1"
+    name="embed" /><input type="submit" value="Subscribe" />
+  <p><a href="https://tinyletter.com" target="_blank">powered by TinyLetter</a></p>
+</form>
