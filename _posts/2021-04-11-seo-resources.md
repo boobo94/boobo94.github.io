@@ -3,7 +3,7 @@ title: Seo Resources
 summary: This article is a journal about the best resources that I've read about seo. I update constantly the list, so stay ahead and follow me.
 categories: resources
 tags: seo marketing web
-date: 2021-04-11 09:09:09 +0000
+date: 2021-06-07 09:09:09 +0000
 cover: https://image.freepik.com/free-vector/tiny-content-writers-creating-web-articles-flat-illustration_74855-15537.jpg
 layout: post
 ---
@@ -57,7 +57,7 @@ Long-tail keywords are terms with low search volumes. Despite what many people t
 
 Finding a bunch of keywords that you want to rank for is easy. The hard part is figuring out what it’ll take to rank for those keywords (i.e., “keyword difficulty”), and then using that information to prioritize and plan your SEO strategy.
 
-### 8. <a href="https://ahrefs.com/blog/competitive-analysis/" target="_blank">How to Do an SEO Competitor Analysis</a>
+## 8. <a href="https://ahrefs.com/blog/competitive-analysis/" target="_blank">How to Do an SEO Competitor Analysis</a>
 
 Your competitors are a goldmine of information that can inform every aspect of your SEO strategy and help to skyrocket your website’s organic traffic.
 
@@ -74,5 +74,7 @@ We could also use what’s commonly known as the ‘skyscraper’ technique to a
 2. Show it to everyone who links to our competitor’s now inferior content
 3. Ask them to swap out the link in favor of our superior content
 
-<hr>
-<a href="https://cmevo.com/seo-services/" target="_blank"> Seo Services with &#10084; from Cmevo</a>
+
+## 9. <a href="https://ahrefs.com/blog/how-long-does-it-take-to-rank/" target="_blank">How long does it take to rank in Google?</a>
+
+This is a complete analysis of ranking in Google. Only 5.7% of all studied pages ranked in the Top10 search results within 1 year for at least 1 keyword.
