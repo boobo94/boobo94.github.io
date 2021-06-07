@@ -46,6 +46,10 @@ disqus_shortname: boobo94
 # (leave blank to disable txtpen)
 txtpen_sitename:
 
+# Tinyletter Newsletter
+# (leave blank to disable tinyletter)
+tinyletter: boobo94
+
 # Social icons
 github_username: boobo94
 reddit_username:
