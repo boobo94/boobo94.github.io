@@ -49,13 +49,5 @@ tags: contact
 {% endif %}
 
 {% if site.tinyletter %}
-<div class="py2">
-  <h2 class="h2">Newsletter</h2>
-  <form class="form-stacked" action="https://tinyletter.com/{{site.tinyletter}}" method="post" target="popupwindow"
-    onsubmit="window.open('https://tinyletter.com/{{site.tinyletter}}', 'popupwindow', 'scrollbars=yes,width=800,height=600');return true">
-    <input type="text" name="email" id="tlemail" class="field-light" placeholder="{{ site.text.contact.email }}" />
-    <input type="hidden" value="1" name="embed" />
-    <input type="submit" value="Subscribe" class="button button-blue button-big mobile-block" />
-  </form>
-</div>
+  {% include subscribe.html %}
 {% endif %}

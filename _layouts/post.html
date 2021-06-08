@@ -45,6 +45,10 @@ layout: default
   {% include post_footer.html %}
 {% endif %}
 
+{% if site.tinyletter %}
+  {% include subscribe.html %}
+{% endif %}
+
 {% if txtpen.txtpen_sitename %}
   <script src="https://txtpen.com/embed.js?site={{txtpen.txtpen_sitename}}" />
 {% endif %}
