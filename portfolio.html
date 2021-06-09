@@ -7,15 +7,14 @@ permalink: /portfolio/
 <!-- {% assign posts_count = paginator.posts | size %} -->
 
 <div class="portfolio">
+    <h1>Portfolio</h1>
     <div class="posts" id="search-container">
-        <h1>Portfolio</h1>
-        <br>
         {% for post in site.portfolio %}
         <div class="post">
             <a href="{{ post.url | prepend: site.baseurl }}" class="post-link">
                 {% if post.cover %}
                 <span class="cover">
-                    <img src="{{ post.cover }}" />
+                    <img src="{{ post.cover }}" alt="{{ post.title }}"/>
                 </span>
                 {% endif %}
                 <h3 class="post-title">{{ post.title }}</h3>
