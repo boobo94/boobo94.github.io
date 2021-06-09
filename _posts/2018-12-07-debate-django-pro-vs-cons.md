@@ -45,7 +45,7 @@ So he suggested [Django](https://www.djangoproject.com/), which is not bad, but 
 * Django didn't have support for real time web applications;
 * Bad support for [noSQL database](https://en.wikipedia.org/wiki/NoSQL);
 * The code base is huge and newbies might find it difficult to navigate the jargon;
-* For outsource Django is probably not a [good solution](/tips/5-questions-build-custom-alexa-skill//), because is not so simple to find developers.
+* For outsource Django is probably not a [good solution](/tips/5-questions-build-custom-alexa-skill/), because is not so simple to find developers.
 
 ### Sites Using Django
 
