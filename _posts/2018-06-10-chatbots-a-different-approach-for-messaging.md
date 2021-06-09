@@ -1,7 +1,7 @@
 ---
-layout: default
-title: Chatbots a different approach for messaging
-summary: Chatbots a different approach for messaging
+layout: post
+title: "Chatbots a different approach for messaging"
+summary: "Chatbots a different approach for messaging"”
 date: 2018-06-10 00:00:00
 categories: research
 redirect_from: /research/2018/06/10/chatbots-a-different-approach-for-messaging/
