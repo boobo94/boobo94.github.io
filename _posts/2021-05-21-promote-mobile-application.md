@@ -7,6 +7,7 @@ date: 2021-05-21 09:09:09 +0000
 cover: https://cmevo.com/wp-content/uploads/2021/05/promoveaza-aplicatia-mobila.jpg
 canonical_url: https://cmevo.com/promote-mobile-application/
 layout: post
+sitemap: false
 ---
 
 Everyone wants a mobile application lately and most of the time I don’t know what it means to create a mobile application. The hardest part is definitely not finding a team of programmers to technically implement your vision. What is most difficult to achieve, in fact, is promoting the application.

@@ -223,4 +223,5 @@ redirect_from:
 - /old2-route
 layout: post
 canonical_url: https://example.com
+sitemap: false // don't add it to sitemap
 ```
