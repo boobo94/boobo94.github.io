@@ -1,6 +1,6 @@
 ---
-title: Change Heap Size for Elastic Search
-summary: There are two ways to change the heap size in Elasticsearch. The easiest is to set an environment variable called ES_HEAP_SIZE.
+title: "Change Heap Size for Elastic Search"
+summary: "There are two ways to change the heap size in Elasticsearch. The easiest is to set an environment variable called ES_HEAP_SIZE."
 categories: devops
 tags: elasticsearch devops
 date: 2021-03-01 09:09:09 +0000
@@ -31,7 +31,7 @@ sudo vi /etc/elasticsearch/jvm.options
 Generally, setting the ES_HEAP_SIZE environment variable is preferred over setting explicit -Xmx and -Xms values.
 
 Source: <https://www.elastic.co/guide/en/elasticsearch/guide/current/heap-sizing.html>
-See also [Setting JVM options](There are two ways to change the heap size in Elasticsearch. The easiest is to set an environment variable called ES_HEAP_SIZE.)
+See also Setting JVM options. There are two ways to change the heap size in Elasticsearch. The easiest is to set an environment variable called ES_HEAP_SIZE.
 
 
 ## Full disk space problems

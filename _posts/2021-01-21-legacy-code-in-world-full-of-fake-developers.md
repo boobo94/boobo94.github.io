@@ -63,7 +63,7 @@ Some clients, CEOs or whatever is in charge of a project maybe doesn’t want to
 
 If the future plans for the company are to try to spin the ball and all of you know that the ball is very sensitive and can be broken at any moment, maybe it is the time to go away.
 
-If you are that kind of developer who is lives with their work and challenges itself to become better and better, maybe it is the best solution for you to take your backpack and [find another place](/developer-story/i-left-the-company-after-3-years/) where to live.
+If you are that kind of developer who is lives with their work and challenges itself to become better and better, maybe it is the best solution for you to take your backpack and find another place where to live.
 
 This kind of place where the app is not so good and you work with the soul, trying to improve the code, but the client doesn’t care can be very toxic. This can lead you to procrastination and kills your creativity.
 

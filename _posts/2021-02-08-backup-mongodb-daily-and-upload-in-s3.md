@@ -45,7 +45,7 @@ output = json
 region = eu-central-1
 ```
 
-# Backup files
+## Backup files
 
 First, we need to create a folder and within add two files
 

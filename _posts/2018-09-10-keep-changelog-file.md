@@ -26,7 +26,7 @@ A changelog file it's just a history of changes made for a project. It's very us
 
 Personally the most important thing for me it's to keep track of all the changes that I made for a project, specially for webservices, because I need to know what resource I added, changed, removed or if I need fixed a bug or something it's deprecated.
 
-The second reason it's about knowing which are the latest changes [deployed](/ai/5-questions-build-custom-alexa-skill/). Being involved into a big project with multiple developers, branches and features that must be deployed at some points can be hard, because you need to know what was deployed and probably when. I found it very useful to have a header with Unreleased changes.
+The second reason it's about knowing which are the latest changes [deployed](/tips/5-questions-build-custom-alexa-skill//). Being involved into a big project with multiple developers, branches and features that must be deployed at some points can be hard, because you need to know what was deployed and probably when. I found it very useful to have a header with Unreleased changes.
 
 The last reason that I think it's relevant here it's about versions and dates when the deploys were changed. Sometimes we need to know for a specific [version](/tools/mail-server-localhost/) which was the changes and when were deployed.
 

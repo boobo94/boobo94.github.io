@@ -7,7 +7,7 @@ categories: research
 redirect_from: /research/2018/05/28/third-eye-for-blind-poeple-arduino/
 ---
 
-# Senzori ultrasonici - Arduino
+## Senzori ultrasonici - Arduino
 
 ## Pentru depistarea obstacolelor, in supervizarea
 

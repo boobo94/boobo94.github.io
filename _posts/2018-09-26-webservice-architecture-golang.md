@@ -532,7 +532,7 @@ Probably you asked yourself _Whatt?! A public folder inside a webservice ?!_ Yea
 
 ## /utils
 
-Building a big project, sometimes require extra tools or let's say helpers to solve little problems. But these [helpers](/ai/5-questions-build-custom-alexa-skill/) are just small piece of code, so is not needed to create a separated package just for a simple and small piece of code. So yeah, **utils** package make the trick, because you can put here into separated files different code to make for example things like:
+Building a big project, sometimes require extra tools or let's say helpers to solve little problems. But these [helpers](/tips/5-questions-build-custom-alexa-skill//) are just small piece of code, so is not needed to create a separated package just for a simple and small piece of code. So yeah, **utils** package make the trick, because you can put here into separated files different code to make for example things like:
 
 * generate a random token
 
