@@ -1,4 +1,0 @@
----
-category: portfolio
-permalink: "/portfolio"
----
