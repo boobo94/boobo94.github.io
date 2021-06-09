@@ -9,6 +9,7 @@ permalink: /portfolio/
 <div class="portfolio">
     <div class="posts" id="search-container">
         <h1>Portfolio</h1>
+        <br>
         {% for post in site.portfolio %}
         <div class="post">
             <a href="{{ post.url | prepend: site.baseurl }}" class="post-link">
