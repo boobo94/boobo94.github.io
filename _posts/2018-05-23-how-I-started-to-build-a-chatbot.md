@@ -3,11 +3,12 @@ layout: post
 title: How I started to build a chatbot
 summary: "This article it's the first from a future series. Presents the idea behind the scene, how I started to think on it"
 date: 2018-05-23 12:31:19
-categories: tutorial
+categories: tutorials
 redirect_from: 
 - /ai/chatbots/2018/05/23/how-I-started-to-build-a-chatbot/
 - /ai/chatbots/how-I-started-to-build-a-chatbot/
 - /tutorial/chatbots/how-I-started-to-build-a-chatbot/
+- /tutorial/how-I-started-to-build-a-chatbot/
 ---
 
 # So let's begin
