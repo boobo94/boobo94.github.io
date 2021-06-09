@@ -1,5 +1,5 @@
 ---
-title: Devop resources
+title: Devops resources
 summary: This article is a journal about the best resources that I've read about devops. I update constantly the list, so stay ahead and follow me.
 categories: resources devops
 tags: devops
