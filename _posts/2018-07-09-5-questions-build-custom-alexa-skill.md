@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "5 common questions how to build an Amazon Alexa Skills – boobo94" 
+title: "5 common questions how to build an Amazon Alexa Skills" 
 date: 2018-07-09 00:00:00
 summary: "5 common questions how to build an Alexa Skill. Read about intents, utterances, slot types, invocation name. How to run a server locally or why to deploy on AWS Lambda Function over HTTPS servers."
 categories: tips
