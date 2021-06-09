@@ -150,7 +150,7 @@ Probably this is a question that you thought of while reading the previous parag
 
 ## /cmd
 
-I always prefer to put the _main.go_ file in this package, which contains all the sub packages from a project. It's like a wrapper which encapsulate all the submodules, to work all together.
+I always prefer to put the _main.go_ file in this package, which contains all the sub packages from a project. It's like a wrapper which encapsulate all the submodules, to [work](/portfolio) all together.
 
 **Why is name like that ?** It's simple, because _cmd_ is short for command.
 
