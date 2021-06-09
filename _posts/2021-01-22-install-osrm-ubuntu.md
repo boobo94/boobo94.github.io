@@ -8,7 +8,7 @@ tags:
 - osrm
 - map
 date: 2021-01-22 09:09:09 +0000
-cover: http://project-osrm.org/images/osrm_logo.svg
+cover: https://upload.wikimedia.org/wikipedia/en/a/a8/Open_Source_Routing_Machine_logo.png
 ---
 
 What is [OSRM](http://project-osrm.org/)?
