@@ -1,6 +1,6 @@
 ---
 layout: post
-title: How to verify if point of coordinates is inside polygon [Javascript]
+title: JS verify coordinates inside polygon
 categories: research
 summary: Verify if point of coordinates (longitude, latitude) is polygon of coordinates
 tags:

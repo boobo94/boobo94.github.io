@@ -1,5 +1,5 @@
 ---
-title: 3 reasons to keep a changelog for your project [developer tips]
+title: 3 reasons to keep a changelog for your project
 layout: post
 categories: tips
 date: 2018-09-10 19:09:38 +0000

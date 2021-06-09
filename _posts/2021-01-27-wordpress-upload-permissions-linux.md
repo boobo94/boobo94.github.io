@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Unable to create directory wp-content/uploads/ hosted on Linux with Nginx/Apache
+title: Unable to create directory wp-content/uploads
 categories: devops
 summary: This may indicate a permissions problem with your WordPress uploads directory.
 tags:
