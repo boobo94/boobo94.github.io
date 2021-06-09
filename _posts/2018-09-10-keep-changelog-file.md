@@ -14,7 +14,7 @@ tags:
 redirect_from: []
 
 ---
-![](https://keepachangelog.com/assets/images/logo-fe0986a5.png)
+![changelog](https://keepachangelog.com/assets/images/logo-fe0986a5.png)
 
 ## Changelog file, what this means ?
 
