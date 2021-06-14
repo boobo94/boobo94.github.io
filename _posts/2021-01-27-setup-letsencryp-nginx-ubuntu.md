@@ -9,7 +9,7 @@ tags:
 - nginx
 - letsencrypt
 - ssl
-date: 2021-01-27 09:09:09 +0000
+date: 2021-06-14 09:09:09 +0000
 cover: https://cdn-images-1.medium.com/max/1600/1*Cd2NBjQD8Luwbu1Z23n5QQ.png
 ---
 
@@ -53,6 +53,12 @@ When you run the command below, certbot will guide you through the process. Cert
 
 ```sh
 $ sudo certbot --nginx
+```
+
+## Obtain a Certificate for a specific domain or subdomain
+
+```sh
+$ sudo certbot --nginx -d www.example.com
 ```
 
 ## Certificate Renewal Process
