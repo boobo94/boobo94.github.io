@@ -71,4 +71,7 @@ Run the following command to test the automatic renewal process.
 $ sudo certbot renew --dry-run
 ```
 
-!Note: Source post <https://linoxide.com/ubuntu-how-to/setup-nginx-with-lets-encrypt-on-ubuntu-20-04/>
+## Utils
+
+- <a href="https://linoxide.com/ubuntu-how-to/setup-nginx-with-lets-encrypt-on-ubuntu-20-04/" target="_blank">How to Setup Nginx with Let's Encrypt on Ubuntu 20.04</a>
+- <a href="https://haydenjames.io/how-to-set-up-an-nginx-certbot/" target="_blank">How to Set Up an Nginx Certbot</a>
