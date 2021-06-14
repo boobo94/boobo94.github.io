@@ -9,7 +9,7 @@ redirect_from:
     - /ai/alexa-skill/2018/07/09/how-to-build-a-skill-with-amazon-alexa/
     - /ai/2018/07/09/alexa-skill/
     - /ai/5-questions-build-custom-alexa-skill/
-cover: /images/alexa-skill.jpg
+cover: https://cdn.pixabay.com/photo/2020/01/11/18/13/alexa-4758340_1280.jpg
 ---
 
 ## 1. Alexa Skill, where to start from ?

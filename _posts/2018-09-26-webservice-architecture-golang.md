@@ -16,8 +16,7 @@ tags:
 - golang
 - go
 - models
-redirect_from: []
-cover: /images/webservice-software-architecture.jpeg
+cover: https://cdn.pixabay.com/photo/2016/08/05/07/17/laptop-1571702_1280.jpg
 ---
 
 Web service architecture is the first phase before building every project, it's like you prepare to build a house and start by creating the architecture plan.
@@ -28,7 +27,7 @@ In the following lines I'll present a simple, but traditional model of web servi
 
 ## /api
 
-<img src="/images/api.svg" alt="api" />
+<img src="https://cdn.pixabay.com/photo/2014/06/05/17/42/track-362874_1280.jpg" alt="api" style="width: 40%" />
 
 The API package is the folder where all the API endpoints are grouped into sub-packages by the purpose they serve. That means, I prefer to have a special package with it's main scope to solve a specific problem.
 
@@ -570,7 +569,7 @@ Probably your question now it's _"Ok, but how can I keep all dependencies togeth
 
 I prefer [**DEP**](https://github.com/golang/dep), the default one from Golang.
 
-![dep management dependecy tool](https://github.com/golang/dep/raw/master/docs/assets/DigbyShadows.png)
+<img src="https://github.com/golang/dep/raw/master/docs/assets/DigbyShadows.png" alt="dep management dependecy tool" style="width: 40%" />
 
 It can be install simple with brew for MAC
 
