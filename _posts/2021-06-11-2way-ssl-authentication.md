@@ -133,7 +133,7 @@ A challenge password []:SERVER1_PASSWORD
 An optional company name []:
 ```
 
-Now let's sign the certificate with previously generated CA certificate
+### Sign the certificate with previously generated CA certificate
 
 ```sh
 $ openssl x509 -req -days 9999 -in server1-csr.pem -CA ca-crt.pem -CAkey ca-key.pem -CAcreateserial -out server1-crt.pem
@@ -162,6 +162,8 @@ server1-crt.pem: OK
 ## Server 2 Certificate
 
 We do the same thing on the second server.
+
+### Generate the private key for server 2
 
 ```sh
 $ openssl genrsa -out server2-key.pem 4096
