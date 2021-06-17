@@ -83,7 +83,7 @@ Doesn't matter which provider you choose, to get the public certificate you need
 
 ## Server 1 Certificate
 
-Generate the key for server
+### Generate the key for server
 
 ```sh
 $ openssl genrsa -out server1-key.pem 4096
@@ -95,7 +95,7 @@ Generating RSA private key, 4096 bit long modulus
 e is 65537 (0x10001)
 ```
 
-Generate a Server Certificate Signing Request
+### Generate a Server Certificate Signing Request
 
 ```sh
 $ openssl req -new -key server1-key.pem -out server1-csr.pem
@@ -174,7 +174,7 @@ Generating RSA private key, 4096 bit long modulus
 e is 65537 (0x10001)
 ```
 
-Generate a Client Certificate Signing Request
+### Generate Certificate Signing Request
 
 ```sh
 $ openssl req -new -key server2-key.pem -out server2-csr.pem
@@ -202,7 +202,7 @@ A challenge password []:SERVER2_PASSWORD
 An optional company name []:
 ```
 
-Sign the certificate with previously generated CA certificate
+### Sign the certificate with previously generated CA certificate
 
 ```sh
 $ openssl x509 -req -days 9999 -in server2-csr.pem -CA ca-crt.pem -CAkey ca-key.pem -CAcreateserial -out server2-crt.pem
