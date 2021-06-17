@@ -87,6 +87,8 @@ Generate the key for server
 
 ```sh
 $ openssl genrsa -out server1-key.pem 4096
+
+
 Generating RSA private key, 4096 bit long modulus
 .......................................................................................++
 ...........................................................++
@@ -95,8 +97,10 @@ e is 65537 (0x10001)
 
 Generate a Server Certificate Signing Request
 
-```
+```sh
 $ openssl req -new -key server1-key.pem -out server1-csr.pem
+
+
 You are about to be asked to enter information that will be incorporated
 into your certificate request.
 What you are about to enter is what is called a Distinguished Name or a DN.
@@ -133,6 +137,8 @@ Now let's sign the certificate with previously generated CA certificate
 
 ```sh
 $ openssl x509 -req -days 9999 -in server1-csr.pem -CA ca-crt.pem -CAkey ca-key.pem -CAcreateserial -out server1-crt.pem
+
+
 Signature ok
 subject=/C=RO/ST=Romania/L=Bucharest/O=Cmevo Digital SRL/OU=devops/CN=server1-api.cmevo.com/emailAddress=contact@cmevo.com
 Getting CA Private Key
@@ -159,6 +165,9 @@ We do the same thing on the second server.
 
 ```sh
 $ openssl genrsa -out server2-key.pem 4096
+
+
+
 Generating RSA private key, 4096 bit long modulus
 .......................................................................................++
 ..............................................++
@@ -169,6 +178,9 @@ Generate a Client Certificate Signing Request
 
 ```sh
 $ openssl req -new -key server2-key.pem -out server2-csr.pem
+
+
+
 You are about to be asked to enter information that will be incorporated
 into your certificate request.
 What you are about to enter is what is called a Distinguished Name or a DN.
@@ -194,6 +206,9 @@ Sign the certificate with previously generated CA certificate
 
 ```sh
 $ openssl x509 -req -days 9999 -in server2-csr.pem -CA ca-crt.pem -CAkey ca-key.pem -CAcreateserial -out server2-crt.pem
+
+
+
 Signature ok
 subject=/C=RO/ST=Romania/L=Bucharest/O=Cmevo Digital SRL/OU=devops/CN=server2-api.cmevo.com/emailAddress=contact@cmevo.com
 Getting CA Private Key
@@ -204,6 +219,9 @@ Check our certificate
 
 ```sh
 $ openssl verify -CAfile ca-crt.pem server2-crt.pem
+
+
+
 server2-crt.pem: OK
 ```
 
@@ -231,7 +249,6 @@ In this example we have only two servers, but if you have for example another se
 The nginx conf example:
 
 ```conf
-
 server {
     server_name  server1-api.cmevo.com;
     listen 443 ssl;
