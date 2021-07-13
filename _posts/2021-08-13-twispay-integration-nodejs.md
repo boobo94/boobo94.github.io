@@ -15,7 +15,7 @@ _twispay-service.js_
 import axios from 'axios'
 
 const TWISPAY_API_SITE = process.env.NODE_ENV === 'production' ? "https://secure.twispay.com/" : "https://secure-stage.twispay.com/"
-const TWISPAY_PAYMENT_KEY = "TWISPAY_TWISPAY_PAYMENT_KEY"
+const TWISPAY_PRIVATE_KEY = "TWISPAY_TWISPAY_PRIVATE_KEY"
 const TWISPAY_SITE_ID = "TWISPAY_SITE_ID"
 
 const WEBHOOOK_URL =  'https://example.com/hook'
@@ -94,7 +94,7 @@ export async function order (customerId, cardId, amount, orderId, ip, currency) 
     url: `${TWISPAY_API_SITE}/order`,
     params: params,
     headers: {
-      Authorization: `Bearer ${TWISPAY_PAYMENT_KEY}`,
+      Authorization: `Bearer ${TWISPAY_PRIVATE_KEY}`,
       'Content-Type': 'application/x-www-form-urlencoded'
     }
   })
@@ -154,7 +154,7 @@ export function customer (user, amount, orderId, currency) {
 
   // Encode data as base64
   const base64JsonRequest = getBase64JsonRequest(orderData)
-  const base64Checksum = getBase64Checksum(orderData, TWISPAY_PAYMENT_KEY)
+  const base64Checksum = getBase64Checksum(orderData, TWISPAY_PRIVATE_KEY)
   const formData = `<form action="${TWISPAY_API_SITE}" method="post" accept-charset="UTF-8">
             <input type="hidden" name="jsonRequest" value="${base64JsonRequest}">
             <input type="hidden" name="checksum" value="${base64Checksum}">
@@ -177,7 +177,7 @@ export async function refund (transactionId, amount) {
     method: 'DELETE',
     url: `${TWISPAY_API_SITE}/transaction/${parseInt(transactionId)}`,
     headers: {
-      Authorization: `Bearer ${TWISPAY_PAYMENT_KEY}`,
+      Authorization: `Bearer ${TWISPAY_PRIVATE_KEY}`,
       'Content-Type': 'application/x-www-form-urlencoded'
     },
     params: {
@@ -226,7 +226,7 @@ export async function subscription (customerId, cardId, amount, orderId, ip, cur
     url: `${TWISPAY_API_SITE}/order`,
     params: params,
     headers: {
-      Authorization: `Bearer ${TWISPAY_PAYMENT_KEY}`,
+      Authorization: `Bearer ${TWISPAY_PRIVATE_KEY}`,
       'Content-Type': 'application/x-www-form-urlencoded'
     }
   })
@@ -249,7 +249,7 @@ export async function renew (customerId, cardId, amount, orderId, ip, currency, 
     method: 'PUT',
     url: `${TWISPAY_API_SITE}/order/${parseInt(orderId)}`,
     headers: {
-      Authorization: `Bearer ${TWISPAY_PAYMENT_KEY}`,
+      Authorization: `Bearer ${TWISPAY_PRIVATE_KEY}`,
       'Content-Type': 'application/x-www-form-urlencoded'
     },
     params: {
@@ -272,7 +272,7 @@ export async function cancel (orderId, terminateOrder = false) {
     method: 'DELETE',
     url: `${TWISPAY_API_SITE}/order/${parseInt(orderId)}`,
     headers: {
-      Authorization: `Bearer ${TWISPAY_PAYMENT_KEY}`,
+      Authorization: `Bearer ${TWISPAY_PRIVATE_KEY}`,
       'Content-Type': 'application/x-www-form-urlencoded'
     },
     params: {
@@ -291,7 +291,7 @@ And let's have a look at the webhook where the confirmation is sent:
 export async (req, res) => {
   const result = req.body.opensslResult
 
-  const decryptedMessage = TwispayService.decryptIpnResponse(result, TWISPAY_PAYMENT_KEY)
+  const decryptedMessage = TwispayService.decryptIpnResponse(result, TWISPAY_PRIVATE_KEY)
   console.log(decryptedMessage)
 }
 ```
