@@ -15,7 +15,7 @@ _twispay-service.js_
 import axios from 'axios'
 
 const TWISPAY_API_SITE = process.env.NODE_ENV === 'production' ? "https://secure.twispay.com/" : "https://secure-stage.twispay.com/"
-const TWISPAY_PRIVATE_KEY = "TWISPAY_TWISPAY_PRIVATE_KEY"
+const TWISPAY_PRIVATE_KEY = "TWISPAY_PRIVATE_KEY"
 const TWISPAY_SITE_ID = "TWISPAY_SITE_ID"
 
 const WEBHOOOK_URL =  'https://example.com/hook'
@@ -135,9 +135,9 @@ export function customer (user, amount, orderId, currency) {
   const orderData = {
     siteId: parseInt(TWISPAY_SITE_ID),
     customer: {
-      identifier: user._id,
-      firstName: user.first_name,
-      lastName: user.last_name,
+      identifier: user.id,
+      firstName: user.firstName,
+      lastName: user.lastName,
       phone: user.phone,
       email: user.email
     },
