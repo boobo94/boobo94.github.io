@@ -4,7 +4,7 @@ summary: Swap uses hard disk space memory (swap space) to store information from
 categories: devops
 tags: devops ubuntu swap
 date: 2021-02-08 09:09:09 +0000
-cover: https://www.linux-bibel-oesterreich.at/wp-content/uploads/2019/12/swap.png
+cover: https://cdn.pixabay.com/photo/2021/07/09/17/46/digitization-6399666_1280.jpg
 layout: post
 ---
 
@@ -76,3 +76,5 @@ At the end of the file add
 ```
 
 Save and close the file when you are finished.
+
+Picture offered by [Pixabay](https://pixabay.com/images/id-6399666/)
