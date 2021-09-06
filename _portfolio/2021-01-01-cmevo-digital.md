@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Cmevo Digital
+summary: "I'm the father of Cmevo Digital SRL. A company which aims to digitze sucessful businesses."
 cover: https://cmevo.com/wp-content/uploads/2020/08/IMG_30714.png
 ---
 
