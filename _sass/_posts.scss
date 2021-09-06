@@ -87,13 +87,19 @@
     flex-wrap: wrap;
     justify-content: space-evenly;
     align-items: flex-start;
+
     .post {
-        flex: 1 1 30%;
-        padding: 10px;
+        flex: 1 1 50%;
         border-bottom: none;
+
         .post-link {
             text-align: center;
             background-image: none;
+            display: block;
+
+            .cover {
+                max-height: 100px;
+            }
         }
     }
 }
