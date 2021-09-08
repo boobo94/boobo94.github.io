@@ -3,7 +3,7 @@ title: Free templates for startup
 summary: Free templates for startup
 categories: resources
 tags: landingpage website
-date: 2021-09-08 09:09:09 +0000
+date: 2021-09-08 09:09:12 +0000
 cover: https://cdn.pixabay.com/photo/2016/08/27/12/06/website-1624028_1280.png
 layout: post
 ---
