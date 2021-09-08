@@ -9,6 +9,8 @@ layout: post
 
 An SQL Tool Online to draw diagrams.
 
-I drop a demo here [SQL Designer Online](https://ondras.zarovi.cz/sql/demo/). 
+I drop a demo here [SQL Designer Online](https://ondras.zarovi.cz/sql/demo/).
+
 The [Wiki here](https://github.com/ondras/wwwsqldesigner/wiki).
+
 The [Github repository here](https://github.com/ondras/wwwsqldesigner).
