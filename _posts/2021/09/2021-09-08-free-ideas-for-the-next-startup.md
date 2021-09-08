@@ -1,5 +1,5 @@
 ---
-title: Free ideas for the next #startup
+title: Free ideas for the next startup
 summary: I would like to share with you boys some places where you can find ideas, share ideas and why not validate ideas.
 categories: startup
 tags: ideas startup apps
