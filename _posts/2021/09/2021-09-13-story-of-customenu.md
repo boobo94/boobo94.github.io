@@ -14,7 +14,7 @@ I build the Customenu startup and I’ll #buildinpublic, using this thread on Tw
 
 ## What is Customenu?
 
-A digital menu platform for #restaurant.
+[A digital menu platform for #restaurant](https://customenu.ro/en).
 
 Instead of using a boring paper where to check the dishes, you can see a nice representation on your smartphone.
 
