@@ -5,7 +5,7 @@ permalink: /about/
 tags: about
 ---
 
-<img src="{{ site.baseurl }}/images/me.jpg" alt="Bogdan Alexandru Militaru" class="avatar"  style="max-height: 400px;border-radius: 50%;display: block;margin: 0 auto;"/>
+<img src="{{ site.baseurl }}/images/me-02.jpg" alt="Bogdan Alexandru Militaru" class="avatar"  style="max-height: 400px;border-radius: 50%;display: block;margin: 0 auto;"/>
 
 ## Personal Info
 
