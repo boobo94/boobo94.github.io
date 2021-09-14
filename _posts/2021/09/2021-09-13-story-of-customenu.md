@@ -90,4 +90,22 @@ I decided to enroll myself into an incubator for business in HORECA. I had an in
 
 The story is longer, but I would like to refer later in my stories 
 
+## New steps for the second relaunch
 
+17/ I found a thread from @Aazarshad which talks about #AffiliateMarketing. I add it here, because it looks interesting and helpful.
+
+<blockquote class="twitter-tweet"><p lang="en" dir="ltr">Affiliate marketing is an easy &amp; cheap channel to grow ANY business.<br><br>Many startups try it but they struggle to scale.<br><br>Here are 15 tactics that nobody told you about growing an affiliate program:</p>&mdash; Aazar Shad (@Aazarshad) <a href="https://twitter.com/Aazarshad/status/1437400686321307652?ref_src=twsrc%5Etfw">September 13, 2021</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+18/ Being only one person for the moment in this project I switched from Trello to #githubprojects. 
+
+I have 3 repositories and this helps me to stay in one ecosystem. Writing a note and create #issues in the corespondent repositories.
+
+19/ So the user can see home with all categories > subcategories > products.
+
+I think that is too much, the most #restaurants has two categories:
+1. food
+2. drinks
+
+I decided to remove the subcategories. One product linked to a category is enough.
+
+20/ Added preparation time near price and weight seems to be a nice and useful feature
