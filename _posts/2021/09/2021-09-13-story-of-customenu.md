@@ -90,6 +90,8 @@ I decided to enroll myself into an incubator for business in HORECA. I had an in
 
 The story is longer, but I would like to refer later in my stories 
 
+<hr>
+
 ## New steps for the second relaunch
 
 17/ I found a thread from @Aazarshad which talks about #AffiliateMarketing. I add it here, because it looks interesting and helpful.
@@ -109,3 +111,5 @@ I think that is too much, the most #restaurants has two categories:
 I decided to remove the subcategories. One product linked to a category is enough.
 
 20/ Added preparation time near price and weight seems to be a nice and useful feature
+
+21/ Need to find a better #UI for the #customenu #app. Some suggestions where to find nice and clean ideas?
