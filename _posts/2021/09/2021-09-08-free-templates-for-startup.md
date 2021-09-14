@@ -14,4 +14,6 @@ A complete list with free resources to build your next startup's website.
 2. [40 Free HTML landing page templates](https://dev.to/davidepacilio/40-free-html-landing-page-templates-3gfp)
 3. [Static HTML Templates](https://designmodo.com/website-templates/)
 4. [Free template from Inovatik](https://inovatik.com/)
+
+
 PS: List is updated constantly
