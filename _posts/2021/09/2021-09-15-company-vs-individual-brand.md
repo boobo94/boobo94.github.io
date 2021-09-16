@@ -27,3 +27,26 @@ Small businesses may not have the capital available to start multiple brands.
 - each is strong enough to stand on its own without the endorsement of the parent #brand 
 
 3/ A good example is #google which use the brand house: #GooglePlay, #GoogleDrive, etc. But with the time it starts to move the #products under #individualbrand for cars or others. They created #alphabet to remove the confusion with the brand. 
+
+4/ There are many reasons why having two websites is not a great: 
+
+- hard to maintain two #websites.
+- costs more to manage two websites.
+- #SEO for two websites is more expensive and takes more time.
+- Duplicate content can hurt your #ranking.
+
+5/ EA is a #videogame multi-brand #company which use a single #website for its #products.
+
+6/ A single #domain strategy is when you own just one website.
+
+When you concentrate on building a single #website, you’ll usually get better results than spreading it across multiple #sites.
+
+Having a single website will also save you time in the start-up phase.
+
+7/ Offering #products or #services across multiple #websites can make it more challenging for the visitors.
+
+8/ It will cost less to optimize a single site than it would to optimize multiple websites.
+
+9/ Multiple domain strategy means that you own multiple website.
+
+This is a viable option for #companies with diverse #products and #services.
