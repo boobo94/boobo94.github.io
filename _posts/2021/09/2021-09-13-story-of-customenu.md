@@ -113,3 +113,13 @@ I decided to remove the subcategories. One product linked to a category is enoug
 20/ Added preparation time near price and weight seems to be a nice and useful feature
 
 21/ Need to find a better #UI for the #customenu #app. Some suggestions where to find nice and clean ideas?
+
+22/ Search for a #livechat to introduce on the #presentationwebsite, for #wordpresswebsite
+
+24/ I decided to offer #customer #support for those who doesn’t have time to fill the content in the platform.
+
+Discussed with some contractors and get some #offers.
+
+25/ Back to #sales. As the #website is still live, some new customers are coming and fill the contact form.
+
+Let’s go baby!
