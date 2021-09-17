@@ -53,6 +53,6 @@ This is a viable option for #companies with diverse #products and #services.
 
 10/ If you see the #business you’re about to start as a #company that you’d like to #sell, or have someone else take it over and run it, then setup a separate #website..
 
-11/ Found a great example of a company with multiple games, https://panic.com. One page for each product.
+11/ Found a great example of a company with multiple games, <https://panic.com>. One page for each product.
 
-12/ similar example with https://envato.com
+12/ similar example with <https://envato.com>
