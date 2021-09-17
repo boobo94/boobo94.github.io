@@ -123,3 +123,8 @@ Discussed with some contractors and get some #offers.
 25/ Back to #sales. As the #website is still live, some new customers are coming and fill the contact form.
 
 Let’s go baby!
+
+26/ I had a client which requested the offers, which are very well defined on the website. I replied to them, but not feedback. Thinking to follow up.
+
+
+27/ Need to add #FreeTrial. I think 7 days are enough for a #digitalmenu #app. The #restaurants have time to test if this is what they need.
