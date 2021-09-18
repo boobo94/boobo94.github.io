@@ -22,25 +22,25 @@ I consider freecodecamp the most important resource in your beginning. You shoul
 
 ### Courses
 
-- https://www.udemy.com/
-- https://thegymnasium.com/
-- https://alison.com/courses
-- https://www.codecademy.com/catalog
-- https://www.codeabbey.com/index/task_list
-- https://www.edx.org/
-- https://www.udacity.com/
-- https://www.codeavengers.com/profile
-- https://leetcode.com/
-- https://www.coursera.org/
-- https://docs.microsoft.com/en-us/learn/
-- https://thenewboston.com/
+- <https://www.udemy.com/>
+- <https://thegymnasium.com/>
+- <https://alison.com/courses>
+- <https://www.codecademy.com/catalog>
+- <https://www.codeabbey.com/index/task_list>
+- <https://www.edx.org/>
+- <https://www.udacity.com/>
+- <https://www.codeavengers.com>
+- <https://leetcode.com>
+- <https://www.coursera.org>
+- <https://docs.microsoft.com/en-us/learn>
+- <https://thenewboston.com>
 
 ### Comunities
 
-- https://dev.to/
-- https://www.indiehackers.com/
-- https://github.com
-- https://twitter.com
+- <https://dev.to>
+- <https://www.indiehackers.com>
+- <https://github.com>
+- <https://twitter.com>
 
 ## Where to find books?
 
@@ -61,43 +61,43 @@ It depends by your vibe, but sometimes I listen Snoop Dog, Bug Mafia, etc. But m
 
 ### Images
 
-- https://www.pexels.com/
-- https://unsplash.com/
-- https://pixabay.com/
-- https://mixkit.co/
-- https://coverr.co/
+- <https://www.pexels.com>
+- <https://unsplash.com>
+- <https://pixabay.com>
+- <https://mixkit.co>
+- <https://coverr.co>
 
 ### Vectors
 
-- https://www.freepik.com/
-- https://undraw.co/illustrations
-- https://www.vecteezy.com/
-- https://openclipart.org/
+- <https://www.freepik.com/>
+- <https://undraw.co/illustrations>
+- <https://www.vecteezy.com/>
+- <https://openclipart.org/>
 
 ### Icons
 
-- https://fontawesome.com/
-- https://mui.com/components/material-icons/
-- https://icons8.com/animated-icons
-- https://www.freepik.com/
+- <https://fontawesome.com/>
+- <https://mui.com/components/material-icons/>
+- <https://icons8.com/animated-icons>
+- <https://www.freepik.com/>
 
 ### Mockup tools
 
-- https://www.figma.com/
-- https://zeplin.io/
+- <https://www.figma.com/>
+- <https://zeplin.io/>
 
 ### Where to find inspiration
 
-- https://www.awwwards.com/
-- https://dribbble.com/
-- https://www.webdesign-inspiration.com/
+- <https://www.awwwards.com/>
+- <https://dribbble.com/>
+- <https://www.webdesign-inspiration.com/>
 
 ### Where to host your project for free
 
-- https://www.netlify.com/
-- https://www.heroku.com/
-- https://pages.github.com/
-- https://vercel.com/
+- <https://www.netlify.com/>
+- <https://www.heroku.com/>
+- <https://pages.github.com/>
+- <https://vercel.com/>
 
 
 The list is updated constantly, bookmark this into your browser...
