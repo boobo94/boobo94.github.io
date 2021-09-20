@@ -3,7 +3,7 @@ title: Curated list of 25 startup launch platforms
 summary: Do you wanna launch grandiosely your startup? Get a list of platforms where people can discover your project.
 categories: startup
 tags: startup tag2
-date: 2021-07-02 09:09:09 +0000
+date: 2021-09-20 09:09:09 +0000
 cover: https://cdn.pixabay.com/photo/2019/06/13/09/41/business-4271251_1280.png
 layout: post
 ---
