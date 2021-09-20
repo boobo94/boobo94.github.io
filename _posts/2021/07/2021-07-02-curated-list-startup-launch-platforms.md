@@ -66,5 +66,5 @@ layout: post
 
 Source: 
 
-<a href="https://twitter.com/hrishiptweets/status/1409388243620007937" target="_blank">https://twitter.com/hrishiptweets/status/1409388243620007937</a>
-<https://github.com/mmccaff/PlacesToPostYourStartup>
+1. <a href="https://twitter.com/hrishiptweets/status/1409388243620007937" target="_blank">https://twitter.com/hrishiptweets/status/1409388243620007937</a>
+2. <https://github.com/mmccaff/PlacesToPostYourStartup>
