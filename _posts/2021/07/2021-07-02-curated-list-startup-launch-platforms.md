@@ -36,14 +36,6 @@ layout: post
 | <a href="https://sideprojectors.com" target="_blank">Side Projectors</a> | Free | No-follow | 59 | 75-100K | < 30 days |
 | <a href="https://startupbase.io" target="_blank">Startup Base</a> | Free | No-follow | 52 | < 25K | < 30 days |
 | <a href="https://news.ycombinator.com/" target="_blank">HackerNews</a> | Free | - | - | - | - |
-| <a href="https://www.reddit.com/r/Entrepreneur/" target="_blank">r/Entrepreneur</a> | Free | - | - | - | - |
-| <a href="https://www.reddit.com/r/startups/" target="_blank">r/startups</a> | Free | - | - | - | - |
-| <a href="https://www.reddit.com/r/imadethis/" target="_blank">r/imadethis</a> | Free | - | - | - | - |
-| <a href="https://www.reddit.com/r/Saas/" target="_blank">r/Saas</a> | Free | - | - | - | - |
-| <a href="https://www.reddit.com/r/roastmystartup/" target="_blank">r/roastmystartup</a> | Free | - | - | - | - |
-| <a href="https://www.reddit.com/r/smallbusiness/" target="_blank">r/smallbusiness</a> | Free | - | - | - | - |
-| <a href="https://www.reddit.com/r/indiebiz/" target="_blank">r/indiebiz</a> | Free | - | - | - | - |
-| <a href="https://www.reddit.com/r/InternetIsBeautiful/" target="_blank">r/InternetIsBeautiful</a> | Free | - | - | - | - |
 | <a href="https://www.crunchbase.com/" target="_blank">Crunchbase</a> | Free | - | - | - | - |
 | <a href="https://www.indiehackers.com/" target="_blank">Indie Hackers</a> | Free | - | - | - | - |
 | <a href="https://dev.to/" target="_blank">dev.to</a> | Free | - | - | - | - |
@@ -57,6 +49,20 @@ layout: post
 | <a href="https://startupbase.io/" target="_blank">Startupbase</a> | Free | - | - | - | - |
 | <a href="https://startuptracker.io/" target="_blank">Startuptracker</a> | Free | - | - | - | - |
 | <a href="https://make.rs/" target="_blank">Make.rs</a> | Free | - | - | - | - |
+
+## On reddit
+
+| Name | Listing Cost | Link Type | Domain Raiting | Monthly Traffic | Time to be Listed |
+| --- | --- | --- | --- | --- | --- |
+| <a href="https://www.reddit.com/r/Entrepreneur/" target="_blank">r/Entrepreneur</a> | Free | - | - | - | - |
+| <a href="https://www.reddit.com/r/startups/" target="_blank">r/startups</a> | Free | - | - | - | - |
+| <a href="https://www.reddit.com/r/imadethis/" target="_blank">r/imadethis</a> | Free | - | - | - | - |
+| <a href="https://www.reddit.com/r/Saas/" target="_blank">r/Saas</a> | Free | - | - | - | - |
+| <a href="https://www.reddit.com/r/roastmystartup/" target="_blank">r/roastmystartup</a> | Free | - | - | - | - |
+| <a href="https://www.reddit.com/r/smallbusiness/" target="_blank">r/smallbusiness</a> | Free | - | - | - | - |
+| <a href="https://www.reddit.com/r/indiebiz/" target="_blank">r/indiebiz</a> | Free | - | - | - | - |
+| <a href="https://www.reddit.com/r/InternetIsBeautiful/" target="_blank">r/InternetIsBeautiful</a> | Free | - | - | - | - |
+
 
 Source: 
 
