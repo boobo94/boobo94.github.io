@@ -68,3 +68,4 @@ Source:
 
 1. <a href="https://twitter.com/hrishiptweets/status/1409388243620007937" target="_blank">https://twitter.com/hrishiptweets/status/1409388243620007937</a>
 2. <https://github.com/mmccaff/PlacesToPostYourStartup>
+3. <https://www.indiehackers.com/post/relaunch-like-a-pro-100-places-to-launch-relaunch-and-list-your-product-7c67875635>
