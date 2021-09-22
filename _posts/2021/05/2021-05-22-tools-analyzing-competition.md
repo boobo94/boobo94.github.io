@@ -70,4 +70,15 @@ Mention enables brands and agencies to monitor the web, listen to their audience
 
  With Fanpage Karma you have everything you need for professional social media management: analyzing, publishing, communicating, researching, and presenting. Everything in one tool. 
 
+12. https://www.seobility.net/en/seocheck/
+
+13. https://alsoasked.com/
+
+14. https://answerthepublic.com/
+
+15. https://t.co/rEC8rFLzcT
+
+16. http://wordstream.com/
+
+
 Image Source: <a href="https://pixabay.com/images/id-731479/" target="_blank">Pixabay</a>
