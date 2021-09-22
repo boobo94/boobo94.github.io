@@ -77,4 +77,9 @@ We could also use what’s commonly known as the ‘skyscraper’ technique to a
 
 ## 9. <a href="https://ahrefs.com/blog/how-long-does-it-take-to-rank/" target="_blank">How long does it take to rank in Google?</a>
 
+
+Multiple suggestions on this Twitter thread:
+
+<blockquote class="twitter-tweet"><p lang="en" dir="ltr">Want to learn SEO for free over the holidays?<br><br>Check out this 🧵<br><br>👇</p>&mdash; Nat Miletic (@natmiletic) <a href="https://twitter.com/natmiletic/status/1341424785746640896?ref_src=twsrc%5Etfw">December 22, 2020</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
 This is a complete analysis of ranking in Google. Only 5.7% of all studied pages ranked in the Top10 search results within 1 year for at least 1 keyword.
