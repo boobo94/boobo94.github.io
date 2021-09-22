@@ -3,7 +3,7 @@ title:  Tools for Analyzing Your Competition
 summary: Before knowing where your business stands, you should look at the market and your competition. You need to know what marketing tactics and strategies are working for your audience, what traffic the competition has, and how they position.
 categories: startup resources
 tags: startup competition analysis seo
-date: 2021-05-22 09:09:09 +0000
+date: 2021-09-22 09:09:09 +0000
 cover: https://cdn.pixabay.com/photo/2015/04/20/13/41/person-731479_1280.jpg
 layout: post
 ---
