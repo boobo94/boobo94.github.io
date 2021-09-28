@@ -3,7 +3,7 @@ title:  Tools for Analyzing Your Competition
 summary: Before knowing where your business stands, you should look at the market and your competition. You need to know what marketing tactics and strategies are working for your audience, what traffic the competition has, and how they position.
 categories: startup resources
 tags: startup competition analysis seo
-date: 2021-05-22 09:09:09 +0000
+date: 2021-09-22 09:09:09 +0000
 cover: https://cdn.pixabay.com/photo/2015/04/20/13/41/person-731479_1280.jpg
 layout: post
 ---
@@ -69,5 +69,16 @@ Mention enables brands and agencies to monitor the web, listen to their audience
 <h2>11. <a href="https://www.fanpagekarma.com/start" target="_blank">Fanpagekarma</a></h2>
 
  With Fanpage Karma you have everything you need for professional social media management: analyzing, publishing, communicating, researching, and presenting. Everything in one tool. 
+
+12. https://www.seobility.net/en/seocheck/
+
+13. https://alsoasked.com/
+
+14. https://answerthepublic.com/
+
+15. https://t.co/rEC8rFLzcT
+
+16. http://wordstream.com/
+
 
 Image Source: <a href="https://pixabay.com/images/id-731479/" target="_blank">Pixabay</a>
