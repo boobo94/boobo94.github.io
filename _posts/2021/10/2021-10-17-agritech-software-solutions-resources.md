@@ -4,7 +4,7 @@ summary: Good articles about software solutions in agro industry
 categories: research
 tags: agro software
 date: 2021-10-17 09:09:09 +0000
-cover: https://example.com/img.png
+cover: https://cdn.pixabay.com/photo/2018/02/02/15/35/outdoor-3125692_1280.jpg
 layout: post
 ---
 
