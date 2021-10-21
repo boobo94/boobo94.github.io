@@ -4,7 +4,7 @@ summary: The list of books I read. I challenge with myself.
 categories: resources
 tags: books
 date: 2021-10-21 09:09:09 +0000
-cover: https://example.com/img.png
+cover: https://cdn.pixabay.com/photo/2016/03/26/22/21/books-1281581_1280.jpg
 layout: post
 ---
 

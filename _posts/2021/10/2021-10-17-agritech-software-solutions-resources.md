@@ -8,7 +8,8 @@ cover: https://cdn.pixabay.com/photo/2018/02/02/15/35/outdoor-3125692_1280.jpg
 layout: post
 ---
 
-In the last period I investigate more 
+In the last period I investigate more articles in the agriculture area. Below you can find a list of interesting articles about software technologies about precision agriculture, gps solutions in agriculture and others.
+
 1.[Precision Farming: Applying Software to Soils, Sustainably](https://intellias.com/precision-farming-software/)
 
 Precision farming is a new sustainable way to produce high yields at scale without harming the environment
