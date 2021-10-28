@@ -54,7 +54,7 @@ Using php-unserialize library has some drawbacks
 > A less obvious conversion is array('a', 'b') which will be converted to {"0": "a", "1": "b"}. Quite annoying, and it will be fixed if necessary (this means I won't work on this issue unless you really need it, but I agree this is not normal behavior).
 
 
-As mentioned in the beginning of this article, Note that array() will be converted to {} and not []. Having this context you cannot handle array functions, instead manipulate the objects:
+Having this context you cannot handle array functions, instead manipulate the objects:
 
 ```js
 const objectArray = {
