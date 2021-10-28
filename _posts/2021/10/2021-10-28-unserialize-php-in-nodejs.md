@@ -16,6 +16,8 @@ const jsObject = PhpUnserialize.unserialize(serialized);
 console.log(jsObject) // {}
 ```
 
+NPM Library: https://www.npmjs.com/package/php-unserialize
+
 What happens if your serialized string contains special characters ? yeah, it fails!
 
 In order to solve that we can use
@@ -36,3 +38,5 @@ export function unserializePhp(str) {
     .unserialize(convertToUtf8Win1252(str));
 }
 ```
+
+NPM Library: https://www.npmjs.com/package/encoding
