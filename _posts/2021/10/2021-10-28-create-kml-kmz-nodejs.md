@@ -12,7 +12,7 @@ Libraries used:
 
 Create kml file - https://www.npmjs.com/package/@maphubs/tokml
 Create geojson - https://www.npmjs.com/package/geojson
-Create kmz using zip - https://www.npmjs.com/package/jszip
+Create kmz using zip - https://www.npmjs.com/package/archiver
 
 
 ## Create KML File
@@ -48,10 +48,14 @@ Content-type for kml:
 ## Create KMZ File
 
 ```js
-  const zip = new JSZip();
-  zip.file('doc.kml', kmlFile);
+ const archive = archiver('zip', {
+    zlib: { level: 9 }, // Sets the compression level.
+  });
 
-  return zip.generateAsync({ type: 'nodebuffer' });
+  archive.append(Buffer.from(kmlFile), { name: 'file.kml' });
+  // archive.pipe(res); // for expressjs stream
+
+  return archive.finalize();
 ```
 
 Content-type for kml:
