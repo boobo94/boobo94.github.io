@@ -71,7 +71,7 @@
   <meta property="og:url" content="{{ site.url }}{{ page.url }}">
   <meta property="og:site_name" content="{{ site.title | xml_escape }}">
   {% if site.post_preview_image %}
-  <meta property="og:image" content="{{ site.url }}{% if page.cover %}{{ page.cover }}{% else %}/images/b94_logo.png{% endif %}">
+  <meta property="og:image" content="{% if page.cover %}{{ page.cover }}{% else %}{{ site.url }}/images/b94_logo.png{% endif %}">
   {% endif %}
 
   <!-- Twitter Card -->
@@ -84,7 +84,7 @@
   <meta name="twitter:description" content="{% if page.summary %}{{ page.summary }}{% else %}{{ site.description }}{% endif %}" />
   <meta name="twitter:url" content="{{ site.url }}{{ page.url }}" />
   {% if site.post_preview_image %}
-  <meta name="twitter:image" content="{{ site.url }}{% if page.cover %}{{ page.cover }}{% else %}/images/b94_logo.png{% endif %}" />
+  <meta name="twitter:image" content="{% if page.cover %}{{ page.cover }}{% else %}{{ site.url }}/images/b94_logo.png{% endif %}" />
   {% endif %}
 
   <!-- Icons -->
