@@ -1,6 +1,6 @@
 ---
 title: What books to read
-summary: The list of books I read. I challenge with myself.
+summary: The list of books I read. I decided one year ago to challenge myself and read as many books as I can this year. Take a look at this article and find all of them.
 categories: resources
 tags: books
 date: 2021-10-21 09:09:09 +0000

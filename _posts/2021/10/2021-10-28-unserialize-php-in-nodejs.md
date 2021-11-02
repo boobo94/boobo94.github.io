@@ -1,6 +1,6 @@
 ---
 title: Unserialize php in Javascript Nodejs
-summary: Unserialize is an opinionated function from PHP. Here you'll learn how to handle this in Nodejs.
+summary: Unserialize is an opinionated function from PHP. Here you'll learn how to handle this in Nodejs, even if you use a serialized string with special characters.
 categories: tutorials
 tags: nodejs js
 date: 2021-10-28 09:09:09 +0000

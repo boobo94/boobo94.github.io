@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Simple SMTP server for local development usage"
+title: "Simple SMTP server for local development usage. Learn how to configure Nodejs with gmail or integrate a dedicated solution like MailCatcher"
 date:       2018-08-06 22:09:00
 summary: Discover how to set up Gmail smtp server or a simple mail server for local development. 
 categories: tools

@@ -1,6 +1,6 @@
 ---
 title: Hosting providers - free & paid
-summary: A curated list of hosting providers collected over the internet
+summary: A curated list of hosting providers collected over the internet that supports the static site, web app, frontend apps, backend apps for free and paid.
 categories: resources
 tags: hosting resources
 date: 2021-11-01 09:09:09 +0000

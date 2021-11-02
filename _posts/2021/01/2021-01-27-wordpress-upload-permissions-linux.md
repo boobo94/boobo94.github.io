@@ -2,7 +2,7 @@
 layout: post
 title: Unable to create directory wp-content/uploads
 categories: devops
-summary: This may indicate a permissions problem with your WordPress uploads directory.
+summary: This may indicate a permissions problem with your WordPress uploads directory. Firstly please make sure that you have the right permissions on /uploads folder.
 tags:
 - devops
 - ubuntu

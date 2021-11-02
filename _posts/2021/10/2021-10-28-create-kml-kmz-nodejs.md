@@ -1,6 +1,6 @@
 ---
 title: Create kml/kmz files in Nodejs
-summary: This article presents how to create kml or kmz files in Nodejs using JavaScript.
+summary: This article presents how to create kml or kmz files in Nodejs using JavaScript. A simple and fast way of generating kml and kmz files and how to preview them.
 categories: tutorials
 tags: kml kmz js nodejs
 date: 2021-10-28 09:09:09 +0000

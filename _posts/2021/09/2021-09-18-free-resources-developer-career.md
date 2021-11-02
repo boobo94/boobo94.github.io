@@ -1,6 +1,6 @@
 ---
 title: Free resources to start a career as developer
-summary: Curated list with all resources that I personally find interesting to share for developers at the beginning of their career.
+summary: A curated list with all resources that I personally find interesting to share for developers at the beginning of their careers. A list with links, articles, and other resources.
 categories: resources
 tags: developer resources
 date: 2021-09-18 09:09:09 +0000

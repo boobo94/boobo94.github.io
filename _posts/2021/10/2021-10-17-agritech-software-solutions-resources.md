@@ -1,6 +1,6 @@
 ---
 title: Agritech software solutions
-summary: Good articles about software solutions in agro industry
+summary: Below you can find a list of interesting articles about software technologies about precision agriculture, gps solutions in agriculture and others.
 categories: research
 tags: agro software
 date: 2021-10-17 09:09:09 +0000
