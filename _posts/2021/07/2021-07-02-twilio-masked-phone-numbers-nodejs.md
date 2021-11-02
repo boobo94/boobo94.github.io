@@ -8,7 +8,7 @@ cover: https://assets.twilio.com/public_assets/vnv-console-onboarding/1.0.1/mask
 layout: post
 ---
 
-# Twilio Proxy for masked phone numbers in Node.js
+## Twilio Proxy for masked phone numbers in Node.js
 
 Twilio offers a service called [Proxy](https://www.twilio.com/proxy) to allow masked phone numbers. What that means? You know when you call an Uber and the number shown to you is not the phone number of your driver?! Exactly that means *masked phone number*.
 

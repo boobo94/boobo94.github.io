@@ -10,7 +10,7 @@ layout: post
 
 I decided one year ago to challange myself and read as many books as I can this year.
 
-# Past
+## Past
 
 1. ✅ Technology-as-a-Service Playbook: How to Grow a Profitable Subscription Business
 2. ✅ The Complete Guide to Software as a Service: Everything you need to know about SaaS
@@ -28,7 +28,7 @@ I decided one year ago to challange myself and read as many books as I can this 
 14. ✅ Jab, Jab, Jab, Right Hook: How to Tell Your Story in a Noisy Social World
 15. ✅ How any startup can achieve explosive growth traction
 
-# 2021
+## 2021
 
 1. ✅ growth hacking marketing
 2. ✅ running lean
