@@ -1,6 +1,6 @@
 ---
 title: SQL Designer Online
-summary: An SQL Tool Online to draw diagrams.
+summary: SQL Designer allows users to create database designs, which can be saved/loaded and exported to SQL scripts. Various databases and languages are supported. Ability to import existing database design.
 categories: tools
 tags: sql designer online tool
 date: 2021-09-08 09:09:09 +0000

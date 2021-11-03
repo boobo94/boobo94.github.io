@@ -1,6 +1,6 @@
 ---
 title: Free templates for startup
-summary: Free templates for startup
+summary: Free HTML templates for startup or a new project. A complete list with free resources to build your next startup's website and gain the traction to the sky.
 categories: resources
 tags: landingpage website
 date: 2021-09-08 09:09:12 +0000

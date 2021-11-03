@@ -1,6 +1,6 @@
 ---
 title: Company vs. Individual Brand
-summary: Release digital products under company's brand / website or create an individual brand for that product?
+summary: Release digital products under company's brand / website or create an individual brand for that product? Small businesses may not have the capital available to start multiple brands. 
 categories: startup
 tags: brand company
 date: 2021-09-15 09:09:09 +0000

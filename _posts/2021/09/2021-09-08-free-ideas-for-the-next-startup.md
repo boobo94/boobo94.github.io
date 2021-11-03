@@ -1,6 +1,6 @@
 ---
 title: Free ideas for the next startup
-summary: I would like to share with you boys some places where you can find ideas, share ideas and why not validate ideas.
+summary: I would like to share with you boys some places where you can find ideas, share ideas and why not validate ideas. All with a single tool - no coding, no integrations, no hassle.
 categories: startup
 tags: ideas startup apps
 date: 2021-09-08 09:09:09 +0000

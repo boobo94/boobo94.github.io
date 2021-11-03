@@ -1,6 +1,6 @@
 ---
 title: The story of Customenu
-summary: A digital menu platform for restaurant. Here is the story of my new, but old, startup.
+summary: A digital menu platform for restaurant. It was the pandemic situation and in Romania new rules were coming for the restaurants businesses. That was the moment when I decided to start building this project.
 categories: startup
 tags: customenu startup story
 date: 2021-09-13 09:09:09 +0000
