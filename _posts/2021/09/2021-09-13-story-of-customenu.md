@@ -128,3 +128,24 @@ Let’s go baby!
 
 
 27/ Need to add #FreeTrial. I think 7 days are enough for a #digitalmenu #app. The #restaurants have time to test if this is what they need.
+
+
+28/ Hard decision to make
+
+The website is very well indexed on google, with more keywords on the first page.
+
+But no clients.
+
+I don't know if I wanna focus on this project, at this moment.
+
+But another email came this morning, from a client which reached organically.
+
+29/ What is funny?! The domain expires in a month and I don't know if I should keep it or move the project to the recycle bin?
+
+I would like to use the traffic from customenu.ro for cmevo.com, but I don't know if the best option would be to keep the domain and redirect the traffic to cmevo.com or how?
+
+30/ I canceled the Customenu project.
+
+I set the redirect from customenu.ro to cmevo.com.
+
+That's all :D
