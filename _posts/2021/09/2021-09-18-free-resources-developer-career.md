@@ -83,7 +83,7 @@ It depends by your vibe, but sometimes I listen Snoop Dog, Bug Mafia, etc. But m
 
 ### Mockup tools
 
-- [Read the full article - Mockup List Tools](https://boobo94.github.io/tools/mockup-tools/)
+[Read the full article - Mockup List Tools](https://boobo94.github.io/tools/mockup-tools/)
 
 ### Where to find inspiration
 
