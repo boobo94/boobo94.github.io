@@ -8,9 +8,9 @@ cover: https://image.freepik.com/free-vector/tiny-content-writers-creating-web-a
 layout: post
 ---
 
-## 1. <a href="https://ahrefs.com/blog/keyword-traffic-estimation/" target="_blank">Here’s why you can’t blindly trust keyword search volume for traffic estimations</a>
+## 1. <a href="https://learningseo.io/" target="_blank"> Learning SEO – A Roadmap with Free Guides & Tools</a>
 
-The practical application of the keyword search volume metric is quite obvious. We use it to determine how much organic search traffic our page will get if it ranks on the front page of Google for a given keyword. 
+Do you want to start learning or expanding your Search Engine Optimization learning process to become or grow further as an SEO specialist and don’t know how? You’ve come to the right place! Learning SEO features a roadmap to learn SEO with free comprehensive guides, resources and tools. 
 
 ## 2. <a href="https://ahrefs.com/blog/best-keyword-research-tools/" target="_blank">6 Best Keyword Research Tools for SEO</a>
 
@@ -77,6 +77,9 @@ We could also use what’s commonly known as the ‘skyscraper’ technique to a
 
 ## 9. <a href="https://ahrefs.com/blog/how-long-does-it-take-to-rank/" target="_blank">How long does it take to rank in Google?</a>
 
+## 10. <a href="https://ahrefs.com/blog/keyword-traffic-estimation/" target="_blank">Here’s why you can’t blindly trust keyword search volume for traffic estimations</a>
+
+The practical application of the keyword search volume metric is quite obvious. We use it to determine how much organic search traffic our page will get if it ranks on the front page of Google for a given keyword. 
 
 Multiple suggestions on this Twitter thread:
 
