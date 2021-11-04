@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Customenu.ro
-summary: "Digital menu for restaurants (QR Code)"
+summary: "Customenu.ro - Digital menu for restaurants (QR Code)"
 cover: https://customenu.ro/wp-content/uploads/2020/12/cropped-logo.png
 ---
 

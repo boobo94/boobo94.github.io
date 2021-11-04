@@ -1,5 +1,5 @@
 ---
-title: Seo Resources
+title: Seo Resources - Curated list of resources to learn SEO
 summary: This article is a journal about the best resources that I've read about seo. I update constantly the list, so stay ahead and follow me.
 categories: resources
 tags: seo marketing web

@@ -2,7 +2,7 @@
 layout: post
 title: this.$__path is not a function mongoose error
 categories: tips
-summary: Fix mongoose error this.$__path is not a function
+summary: Fix mongoose error this.$__path is not a function. If you face the same issue I suggest you to update to the lastest version. 
 tags:
 - mongoose
 - nodejs

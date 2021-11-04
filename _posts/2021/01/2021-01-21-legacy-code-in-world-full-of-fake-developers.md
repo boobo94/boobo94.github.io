@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Working with legacy code in a world full of fake developers
-summary: Working with legacy code is the hardest part of the entire career of any developer.
+summary: Working with legacy code is the hardest part of the entire career of any developer. I think there is no developer who did not face some.
 categories: abstract
 tags:
 - webdev

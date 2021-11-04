@@ -2,7 +2,7 @@
 layout: post
 title: JS verify coordinates inside polygon
 categories: research
-summary: Verify if point of coordinates (longitude, latitude) is polygon of coordinates
+summary: Verify if point of coordinates (longitude, latitude) is polygon of coordinates. Polygon contains arrays of points.
 tags:
 - geolocation
 - javascript

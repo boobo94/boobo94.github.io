@@ -1,8 +1,8 @@
 ---
 layout: post
 title: How to zip or unzip files in Ubuntu
+summary: Zip or unzip files in Ubuntu, simple steps that you can reproduce. Find a simple way to handle zip files in Linux
 categories: devops
-summary: Zip or unzip files in Ubuntu, simple steps that you can reproduce instantly
 tags:
 - devops
 - ubuntu

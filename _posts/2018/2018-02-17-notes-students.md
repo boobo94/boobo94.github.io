@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Notes Students"
+title: Notes Students - Web application to manage the notes of students
 date: 2021-04-08 12:31:19
 summary: "The application aims to complete needs of students from universities by showing them the scolar results and specific information. The system consists in a client application, a web service and a database server which are interconnected."
 categories: tutorials

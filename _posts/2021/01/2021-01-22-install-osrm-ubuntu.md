@@ -1,8 +1,8 @@
 ---
 layout: post
-title: How to install OSRM backend on Ubuntu Ubuntu 20.04.1 LTS
+title: How to install OSRM backend on Ubuntu 20.04.1 LTS
+summary:  How to install OSRM backend on Ubuntu 20.04.1 LTS. Configure OSRM, grant permissions, and configure Nginx to expose the APIs
 categories: devops
-summary: How to install OSRM backend on Ubuntu Ubuntu 20.04.1 LTS
 tags:
 - devops
 - osrm

@@ -1,6 +1,6 @@
 ---
 title: What VSCode extensions do I use
-summary: A complete list with VSCode extensions that I use daily as for my work environment
+summary: A complete list with VSCode extensions that I use daily for my work environment. Check how to display yours and how to install extensions from command line.
 categories: tips
 tags: vscode settings
 date: 2021-04-26 09:09:09 +0000

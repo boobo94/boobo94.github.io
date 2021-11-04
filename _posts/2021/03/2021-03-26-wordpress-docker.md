@@ -1,6 +1,6 @@
 ---
 title: Wordpress Dockerfile
-summary: Wordpress Dockerfile
+summary: Wordpress Dockerfile is an example that shows you how to use docker with MySQL database, Phpmyadmin and Wordpress
 categories: devops
 tags: devops wordpress dockerfile
 date: 2021-03-26 09:09:09 +0000

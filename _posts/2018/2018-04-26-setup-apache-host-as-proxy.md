@@ -2,7 +2,7 @@
 layout: post
 title: How to setup an Apache Virtualhost as proxy
 date: 2018-04-26 12:31:19 +0000
-summary: How to setup an Apache Virtualhost as proxy
+summary: How to setup an Apache Virtualhost as proxy. Use Apache to set a virtualhost and to use it as proxy, to pass one or more localhosts to internet.
 categories: tutorials
 redirect_from: "/tutorials/2018/04/26/setup-virtualhosts-apache-as-proxy/"
 

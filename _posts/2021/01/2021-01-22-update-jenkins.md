@@ -2,7 +2,7 @@
 layout: post
 title: The easiest way to update Jenkins
 categories: devops
-summary: I’ll show you the easiest way to update Jenkins
+summary: I’ll show you the easiest way to update Jenkins. Not all of us are Devops daily, but sometimes we face this situation so show the next two commands and have fun.
 tags:
 - devops
 - jenkins

@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Chatbots a different approach for messaging
-summary: Chatbots a different approach for messaging
+summary: Chatbots a different approach for messaging. This article shows issues of a new gambler in industry which will change in short time the technology businesses.
 date: 2018-06-10 00:00:00
 categories: research
 redirect_from: /research/2018/06/10/chatbots-a-different-approach-for-messaging/

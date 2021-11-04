@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Install Nginx on Linux with ssl certificate
-summary: Install Nginx on Linux with ssl certificate
+summary: Install Nginx on Linux with ssl certificate. Because all you need is already in place on Digital Ocean, I’ll just attach you some useful materials
 categories: devops
 date: 2021-01-22 09:09:09 +0000
 tags:

@@ -1,6 +1,6 @@
 ---
 title: Security Resources
-summary: Server Security Best Practices
+summary: Server Security Best Practices. Server Security Tips – Secure Your Server with These Best Practices.
 categories: resources
 tags: security resources
 date: 2021-03-21 09:09:09 +0000

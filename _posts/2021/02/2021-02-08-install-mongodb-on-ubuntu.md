@@ -1,6 +1,6 @@
 ---
 title: Install MongoDB on Ubuntu 20.04
-summary: A guide step by step about how to Install MongoDB on Ubuntu 20.04
+summary: A guide step by step about how to Install MongoDB on Ubuntu 20.04. This is just a short note, so it won't take long.
 categories: devops
 tags: devops ubuntu linux mongodb install
 date: 2021-02-08 09:09:09 +0000

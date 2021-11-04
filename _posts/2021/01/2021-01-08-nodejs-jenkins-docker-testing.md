@@ -2,7 +2,7 @@
 layout: post
 title: "NodeJS Tests with microservices, Jenkins and Docker"
 categories: webservice
-summary: How I achieved testing nodejs project
+summary: How I achieved testing nodejs project. Hi, this is my journey trying to add tests for a microservice architectured built with nodejs. I would need to use Jenkins and Docker.
 keywords: ''
 tags:
 - nodejs

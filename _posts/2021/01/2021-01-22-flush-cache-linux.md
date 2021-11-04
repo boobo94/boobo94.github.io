@@ -1,7 +1,7 @@
 ---
 layout: post
 title: How to flush cache in Linux
-summary: Flush cache in linux
+summary: Check the cache in Linux, Flush cache in linux, Clear the cache memory and discover how to automate this with a cronjob
 categories: devops
 date: 2021-01-22 09:09:09 +0000
 tags: 

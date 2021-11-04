@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  Generate SSH key and add it to the ssh-agent
-summary:  Generate SSH key and add it to the ssh-agent
+summary:  Generate SSH key and add it to the ssh-agent. Simple guide to handle ssh keys on your own computer and use the key with ssh-agent.
 categories: devops
 tags:
 - devops
