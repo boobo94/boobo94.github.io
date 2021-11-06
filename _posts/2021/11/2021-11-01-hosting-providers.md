@@ -35,7 +35,7 @@ layout: post
 
 ## Paid providers
 
-1. [AWS](https://aws.amazon.com/)
+1. [AWS](https://aws.amazon.com)
 2. [Linode](https://www.linode.com/)
 3. [Google Cloud Platform](https://console.cloud.google.com)
 4. [Digitalocean](https://www.digitalocean.com)
