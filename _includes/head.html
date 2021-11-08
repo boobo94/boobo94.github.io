@@ -94,13 +94,13 @@
   <!-- Adsense -->
   <script data-ad-client="ca-pub-6420823359318806" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
   {% if site.google_tag_manager %}
-    <script async src="https://www.googletagmanager.com/gtag/js?id={{ site.google_tag_manager }}"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-    
-      gtag('config', '{{ site.google_tag_manager }}');
-    </script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id={{ site.google_tag_manager }}"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+  
+    gtag('config', '{{ site.google_tag_manager }}');
+  </script>
   {% endif %}
 </head>
