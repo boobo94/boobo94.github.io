@@ -1,14 +1,4 @@
 <head>
-  {% if site.google_tag_manager %}
-  <script>(function (w, d, s, l, i) {
-      w[l] = w[l] || []; w[l].push({
-        'gtm.start':
-          new Date().getTime(), event: 'gtm.js'
-      }); var f = d.getElementsByTagName(s)[0],
-        j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
-          'https://www.googletagmanager.com/gtag/js?id=' + i + dl; f.parentNode.insertBefore(j, f);
-    })(window, document, 'script', 'dataLayer', '{{ site.google_tag_manager }}');</script>
-  {% endif %}
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>{% if page.title %}{{ page.title | strip_html }}{% else %}{{ site.title | strip_html }}{% endif %}</title>
@@ -103,4 +93,14 @@
   {% endif %}
   <!-- Adsense -->
   <script data-ad-client="ca-pub-6420823359318806" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  {% if site.google_tag_manager %}
+    <script async src="https://www.googletagmanager.com/gtag/js?id={{ site.google_tag_manager }}"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+    
+      gtag('config', '{{ site.google_tag_manager }}');
+    </script>
+  {% endif %}
 </head>
