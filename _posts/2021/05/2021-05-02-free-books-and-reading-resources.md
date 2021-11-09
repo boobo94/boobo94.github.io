@@ -26,3 +26,4 @@ A complete list with reading resources and free books for either students, devel
 - <https://it-ebooks.info/>
 - <http://www.allitebooks.com/>
 - <https://www.engbookspdf.com/>
+- About programming you can find a lot of free resources on Github [EbookFoundation/free-programming-books](https://github.com/EbookFoundation/free-programming-books)
