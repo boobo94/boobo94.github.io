@@ -62,7 +62,12 @@ layout: post
 | <a href="https://www.reddit.com/r/smallbusiness/" target="_blank">r/smallbusiness</a> | Free | - | - | - | - |
 | <a href="https://www.reddit.com/r/indiebiz/" target="_blank">r/indiebiz</a> | Free | - | - | - | - |
 | <a href="https://www.reddit.com/r/InternetIsBeautiful/" target="_blank">r/InternetIsBeautiful</a> | Free | - | - | - | - |
-
+| <a href="https://www.reddit.com/r/Marketing/" target="_blank">r/Marketing</a> | Free | - | - | - | - |
+| <a href="https://www.reddit.com/r/SideProject/" target="_blank">r/SideProject</a> | Free | - | - | - | - |
+| <a href="https://www.reddit.com/r/thesidehustle/" target="_blank">r/thesidehustle</a> | Free | - | - | - | - |
+| <a href="https://www.reddit.com/r/Sweatystartup/" target="_blank">r/Sweatystartup</a> | Free | - | - | - | - |
+| <a href="https://www.reddit.com/r/EntrepreneurRideAlong/" target="_blank">r/EntrepreneurRideAlong</a> | Free | - | - | - | - |
+| <a href="https://www.reddit.com/r/Startup/" target="_blank">r/Startup</a> | Free | - | - | - | - |
 
 Source: 
 
@@ -70,3 +75,4 @@ Source:
 2. <https://github.com/mmccaff/PlacesToPostYourStartup>
 3. <https://www.indiehackers.com/post/relaunch-like-a-pro-100-places-to-launch-relaunch-and-list-your-product-7c67875635>
 4. [380 more on Startup Listing Tracker Spreadsheet](https://docs.google.com/spreadsheets/d/1eIO-UVni6N0sUT2kPes7y_vowGW541NuA5rGNw5vJWs/htmlview)
+5. <https://twitter.com/AngeZanetti/status/1457720541733957635?s=20>
