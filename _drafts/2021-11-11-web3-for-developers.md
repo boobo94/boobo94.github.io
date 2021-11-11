@@ -32,6 +32,10 @@ DeFi (or “decentralized finance”) is an umbrella term for financial services
 
 These notes are according to [What is Defi](https://www.coinbase.com/learn/crypto-basics/what-is-defi) from Coinbase.
 
+## What is web 3?
+
+## What are dapps?
+
 <hr>
 ## Resources
 - <a href="https://appinventiv.com/guide/blockchain-guide-for-entrepreneurs/" target="_blank">An Entrepreneur’s Handbook to Blockchain</a>
