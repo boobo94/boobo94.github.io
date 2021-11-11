@@ -74,5 +74,6 @@ Source:
 1. <a href="https://twitter.com/hrishiptweets/status/1409388243620007937" target="_blank">https://twitter.com/hrishiptweets/status/1409388243620007937</a>
 2. <https://github.com/mmccaff/PlacesToPostYourStartup>
 3. <https://www.indiehackers.com/post/relaunch-like-a-pro-100-places-to-launch-relaunch-and-list-your-product-7c67875635>
-4. [380 more on Startup Listing Tracker Spreadsheet](https://docs.google.com/spreadsheets/d/1eIO-UVni6N0sUT2kPes7y_vowGW541NuA5rGNw5vJWs/htmlview)
+4. [380 more on Startup Listing Tracker Spreadsheet](https://docs.google.com/spreadsheets/d/1eIO-UVni6N0sUT2kPes7y_vowGW541NuA5rGNw5vJWs/htmlview) offered by [Startup PR Tracker by Merrative](https://merrative.com/)
+5. <https://twitter.com/AngeZanetti/status/1457720541733957635?s=20>
 5. <https://twitter.com/AngeZanetti/status/1457720541733957635?s=20>
