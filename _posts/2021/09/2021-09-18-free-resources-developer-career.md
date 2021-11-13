@@ -46,7 +46,7 @@ I consider freecodecamp the most important resource in your beginning. You shoul
 
 I've wrote an article some time ago [Complete list with reading resources and free books](https://boobo94.github.io/resources/free-books-and-reading-resources/)
 
-## You are thinking beyond of cloud, maybe you're an entreprenuer?
+## You are thinking beyond of cloud, maybe you're an entrepreneur?
 
 - [Free ideas for the next startup](https://boobo94.github.io/startup/free-ideas-for-the-next-startup/)
 - [Curated list of 25 startup launch platforms](https://boobo94.github.io/startup/curated-list-startup-launch-platforms/)
