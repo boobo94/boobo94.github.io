@@ -149,3 +149,19 @@ I would like to use the traffic from customenu.ro for cmevo.com, but I don't kno
 I set the redirect from customenu.ro to cmevo.com.
 
 That's all :D
+
+Today I made a showcase video to present customenu as a product under cmevo umbrella.
+
+How the customenu admin panel works is described in the following video.
+
+I’ve made a tutorial which presents from A to Z how the platform works.
+
+How does the app work? Take a look at this video
+
+Huh, after some hours of work I finished the 3 videos about Customenu:
+
+1. Presentation
+2. How to manage the digital menu
+3. The app demo
+
+More details here: https://cmevo.com/portfolio/digital-menu-for-restaurants-qr-code/
