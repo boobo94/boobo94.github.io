@@ -99,6 +99,11 @@ It depends by your vibe, but sometimes I listen Snoop Dog, Bug Mafia, etc. But m
 - <https://vercel.com/>
 
 
+### Libraries
+
+- <a href="https://barba.js.org" target="_blank">Barba.js</a> - Barba.js is a progressive enhancement library to create fluid and smooth transitions between your website's pages. 
+
+
 The list is updated constantly, bookmark this into your browser...
 
 What is your excuse to not start today?!
