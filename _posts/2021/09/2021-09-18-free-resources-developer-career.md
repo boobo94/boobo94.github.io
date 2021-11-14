@@ -93,10 +93,7 @@ It depends by your vibe, but sometimes I listen Snoop Dog, Bug Mafia, etc. But m
 
 ### Where to host your project for free
 
-- <https://www.netlify.com/>
-- <https://www.heroku.com/>
-- <https://pages.github.com/>
-- <https://vercel.com/>
+I've wrote a full article about <a href="https://boobo94.github.io/resources/hosting-providers/">Hosting providers - free & paid</a>.
 
 
 ### Libraries
