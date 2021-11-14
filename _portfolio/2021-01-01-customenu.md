@@ -2,7 +2,7 @@
 layout: post
 title: Customenu.ro
 summary: "Customenu.ro - Digital menu for restaurants (QR Code)"
-cover: https://customenu.ro/wp-content/uploads/2020/12/cropped-logo.png
+cover: https://cmevo.com/wp-content/uploads/2021/11/meniu-digital-customenu-app-500x361.png
 ---
 
 ## Descriere proiect
@@ -10,8 +10,8 @@ Digital menu for restaurants (QR Code)
 
 It looks like the following
 
-![app](https://customenu.ro/wp-content/uploads/2021/01/customenu-app-1200x867.png)
+![app](https://cmevo.com/wp-content/uploads/2021/11/meniu-digital-customenu-app-500x361.png)
 
 ## Link
 
-<https://customenu.ro>
+<a href="https://cmevo.com/portfolio/digital-menu-for-restaurants-qr-code/" target="_blank">Digital menu for restaurants</a>
