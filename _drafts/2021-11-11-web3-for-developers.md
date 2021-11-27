@@ -50,9 +50,12 @@ As a web3 dev, first you need some basics in blockchain. What is blockchain, how
 
 Would you like to master this subject? Because a great course [Blockchain 101](https://www.udemy.com/course/blockchain-theory-101/learn/lecture/7349892#overview) on udemy.
 
+
+### What is a contract?
+
 ## What is web 3?
 
-## What are dapps?
+## What are dapps (decentralized applications)?
 
 
 Ok, if you don't like to read all this content, probably a full course works better for you. And here Freecodecamp has a great video material. https://youtu.be/M576WGiDBdQ
