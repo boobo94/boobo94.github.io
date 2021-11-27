@@ -41,6 +41,8 @@ Would you like to master this subject? Because a great course [Blockchain 101](h
 
 ## What are dapps?
 
+
+Ok, if you don't like to read all this content, probably a full course works better for you. And here Freecodecamp has a great video material. https://youtu.be/M576WGiDBdQ
 <hr>
 ## Resources
 - <a href="https://appinventiv.com/guide/blockchain-guide-for-entrepreneurs/" target="_blank">An Entrepreneur’s Handbook to Blockchain</a>
