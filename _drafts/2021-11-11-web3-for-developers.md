@@ -36,6 +36,7 @@ These notes are according to [What is Defi](https://www.coinbase.com/learn/crypt
 
 ## What is Blockchain?
 
+Blockchain is like a protocol. For example we have SMTP protocol to send emails. Either you with a gmail and me with yahoo could send emails to each other only by knowing the address. I don't know how yahoo or gmail process my text and send it to the destination. Blockchain is something similar, it helps to handle transactions between parties, by only knowing an address. If I know your address, i can send money to you. The same way you only need to know my address in order to send me money. You heard about Bitcoin right?! Bitcoin is a token, but more exactly is a blockchain app.
 As a web3 dev, first you need some basics in blockchain. What is blockchain, how it works and what is used to.
 Would you like to master this subject? Because a great course [Blockchain 101](https://www.udemy.com/course/blockchain-theory-101/learn/lecture/7349892#overview) on udemy.
 
