@@ -15,7 +15,7 @@ I started this article as a self tutorial in the first place. At the moment of *
 
 ## What is Defi?
 
-Definition
+### Definition
 
 Short for decentralized finance, DeFi is an umbrella term for peer-to-peer financial services on public blockchains, primarily Ethereum.
 
