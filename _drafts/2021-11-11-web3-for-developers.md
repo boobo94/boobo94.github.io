@@ -34,6 +34,11 @@ These notes are according to [What is Defi](https://www.coinbase.com/learn/crypt
 
 ## What is web 3?
 
+## What is Blockchain?
+
+As a web3 dev, first you need some basics in blockchain. What is blockchain, how it works and what is used to.
+Would you like to master this subject? Because a great course [Blockchain 101](https://www.udemy.com/course/blockchain-theory-101/learn/lecture/7349892#overview) on udemy.
+
 ## What are dapps?
 
 <hr>
