@@ -36,8 +36,12 @@ These notes are according to [What is Defi](https://www.coinbase.com/learn/crypt
 
 ## What is Blockchain?
 
-Todo: add definition
+Definition
 
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/Bitcoin_Block_Data.svg/1024px-Bitcoin_Block_Data.svg.png" />
+
+> A blockchain is a growing list of records, called blocks, that are linked together using cryptography.[1][2][3][4] Each block contains a cryptographic hash of the previous block, a timestamp, and transaction data (generally represented as a Merkle tree). The timestamp proves that the transaction data existed when the block was published in order to get into its hash. As blocks each contain information about the block previous to it, they form a chain, with each additional block reinforcing the ones before it. Therefore, blockchains are resistant to modification of their data because once recorded, the data in any given block cannot be altered retroactively without altering all subsequent blocks.
+Source: [Blockchain Wikipedia ](https://en.wikipedia.org/wiki/Blockchain)
 Blockchain is like a protocol. For example we have SMTP protocol to send emails. Either you with a gmail and me with yahoo could send emails to each other only by knowing the address. I don't know how yahoo or gmail process my text and send it to the destination. Blockchain is something similar, it helps to handle transactions between parties, by only knowing an address. If I know your address, i can send money to you. The same way you only need to know my address in order to send me money. You heard about Bitcoin right?! Bitcoin is a token, but more exactly is a blockchain app.
 
 As a web3 dev, first you need some basics in blockchain. What is blockchain, how it works and what is used to.
