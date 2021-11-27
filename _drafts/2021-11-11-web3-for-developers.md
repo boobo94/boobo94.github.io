@@ -22,7 +22,7 @@ Short for decentralized finance, DeFi is an umbrella term for peer-to-peer finan
 
 DeFi (or “decentralized finance”) is an umbrella term for financial services on public blockchains, primarily Ethereum. With DeFi, you can do most of the things that banks support — earn interest, borrow, lend, buy insurance, trade derivatives, trade assets, and more — but it’s faster and doesn’t require paperwork or a third party. 
 
-## What are the benefits?
+### What are the benefits?
 
 - Open: You don’t need to apply for anything or “open” an account. You just get access by creating a wallet.
 - Pseudonymous: You don’t need to provide your name, email address, or any personal information.
@@ -32,11 +32,9 @@ DeFi (or “decentralized finance”) is an umbrella term for financial services
 
 These notes are according to [What is Defi](https://www.coinbase.com/learn/crypto-basics/what-is-defi) from Coinbase.
 
-## What is web 3?
-
 ## What is Blockchain?
 
-Definition
+### Definition
 
 > A blockchain is a growing list of records, called blocks, that are linked together using cryptography.[1][2][3][4] Each block contains a cryptographic hash of the previous block, a timestamp, and transaction data (generally represented as a Merkle tree). The timestamp proves that the transaction data existed when the block was published in order to get into its hash. As blocks each contain information about the block previous to it, they form a chain, with each additional block reinforcing the ones before it. Therefore, blockchains are resistant to modification of their data because once recorded, the data in any given block cannot be altered retroactively without altering all subsequent blocks.
 
@@ -44,11 +42,15 @@ Definition
 
 Source: [Blockchain Wikipedia ](https://en.wikipedia.org/wiki/Blockchain)
 
+### How blockchain works?
+
 Blockchain is a software protocol. For example we have SMTP protocol to send emails. Either you with a gmail and me with yahoo could send emails to each other only by knowing the address. I don't know how yahoo or gmail process my text and send it to the destination. Blockchain is something similar, it helps to handle transactions between parties, by only knowing an address. If I know your address, i can send money to you. The same way you only need to know my address in order to send me money. You heard about Bitcoin right?! Bitcoin is a token, but more exactly is a blockchain app.
 
 As a web3 dev, first you need some basics in blockchain. What is blockchain, how it works and what is used to.
 
 Would you like to master this subject? Because a great course [Blockchain 101](https://www.udemy.com/course/blockchain-theory-101/learn/lecture/7349892#overview) on udemy.
+
+## What is web 3?
 
 ## What are dapps?
 
