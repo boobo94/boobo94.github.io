@@ -62,21 +62,24 @@ The really best resources when we talk about learning programming are from Freec
 
 <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/M576WGiDBdQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-### What is a contract?
-
-<!-- todo: -->
-
 ## What is web 3?
 
 <!-- todo:  -->
 
-## What are dapps (decentralized applications)?
+### What is a Smart Contract?
 
-Are you prefering a video tutorial instead of this long article? (now you probably are asking yourself how is this question added here, after a long long text. yeah someone has to read my article, right?!). Do you know that some people are already sharing their knowledge recording video tutorials for free on youtube?! One of these persons is <a href="https://www.youtube.com/c/naderdabit" targer="_target">Nader Dabit</a>. Go there and learn more about building web3 dapps.
+<!-- todo:  -->
 
 ## What is Solidity?
 
-<!-- todo:  -->
+<!-- todo: -->
+
+## What are dapps (decentralized applications)?
+
+<!-- todo: -->
+
+
+Are you prefering a video tutorial instead of this long article? (now you probably are asking yourself how is this question added here, after a long long text. yeah someone has to read my article, right?!). Do you know that some people are already sharing their knowledge recording video tutorials for free on youtube?! One of these persons is <a href="https://www.youtube.com/c/naderdabit" targer="_target">Nader Dabit</a>. Go there and learn more about building web3 dapps.
 
 
 <hr>
