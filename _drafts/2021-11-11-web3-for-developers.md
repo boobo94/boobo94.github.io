@@ -5,6 +5,8 @@ categories: resources
 tags: web web3 resources tutorials
 date: 2021-11-01 09:09:09 +0000
 cover: https://cdn.pixabay.com/photo/2016/11/05/13/54/travel-1800268_1280.jpg
+# todo: canonical
+# canonical_url: https://cmevo.com/
 layout: post
 ---
 
@@ -17,10 +19,9 @@ I started this article as a self tutorial in the first place. At the moment of *
 
 ### Definition
 
-Short for decentralized finance, DeFi is an umbrella term for peer-to-peer financial services on public blockchains, primarily Ethereum.
+> Short for decentralized finance, DeFi is an umbrella term for peer-to-peer financial services on public blockchains, primarily Ethereum.
 
-
-DeFi (or “decentralized finance”) is an umbrella term for financial services on public blockchains, primarily Ethereum. With DeFi, you can do most of the things that banks support — earn interest, borrow, lend, buy insurance, trade derivatives, trade assets, and more — but it’s faster and doesn’t require paperwork or a third party. 
+1DeFi (or “decentralized finance”) is an umbrella term for financial services on public blockchains, primarily Ethereum. With DeFi, you can do most of the things that banks support — earn interest, borrow, lend, buy insurance, trade derivatives, trade assets, and more — but it’s faster and doesn’t require paperwork or a third party. 
 
 ### What are the benefits?
 
@@ -40,7 +41,7 @@ These notes are according to [What is Defi](https://www.coinbase.com/learn/crypt
 
 <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/Bitcoin_Block_Data.svg/1024px-Bitcoin_Block_Data.svg.png" />
 
-Source: [Blockchain Wikipedia ](https://en.wikipedia.org/wiki/Blockchain)
+Source: <a href="https://en.wikipedia.org/wiki/Blockchain" target="_blank">Blockchain Wikipedia</a>
 
 ### How blockchain works?
 
@@ -48,7 +49,11 @@ Blockchain is a software protocol. For example we have SMTP protocol to send ema
 
 As a web3 dev, first you need some basics in blockchain. What is blockchain, how it works and what is used to.
 
-Would you like to master this subject? Because a great course [Blockchain 101](https://www.udemy.com/course/blockchain-theory-101/learn/lecture/7349892#overview) on udemy.
+Would you like to master this subject? Because what I found very useful is in this free course <a href="https://www.udemy.com/course/blockchain-theory-101/" target="_blank">Blockchain 101</a> from Udemy.
+
+The really best resources when we talk about learning programming are from Freecodecamp. They created a full course Solidity, Blockchain, and Smart Contract Course – Beginner to Expert Python Tutorial, on Youtube. And here we are:
+
+<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/M576WGiDBdQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 
 ### What is a contract?
@@ -63,4 +68,5 @@ Ok, if you don't like to read all this content, probably a full course works bet
 <hr>
 
 ## Resources
+- <a href="https://vitto.cc/web3-and-solidity-smart-contracts-development-roadmap/" target="_blank">Complete Web3.0 and Solidity Development Roadmap 2021</a> posted by Vittorie Rivabella
 - <a href="https://appinventiv.com/guide/blockchain-guide-for-entrepreneurs/" target="_blank">An Entrepreneur’s Handbook to Blockchain</a>
