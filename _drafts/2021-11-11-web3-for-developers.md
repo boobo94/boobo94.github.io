@@ -17,7 +17,7 @@ I started this article as a self tutorial in the first place. At the moment of *
 
 ## What is Defi?
 
-### Definition
+Definition
 
 > Short for decentralized finance, DeFi is an umbrella term for peer-to-peer financial services on public blockchains, primarily Ethereum.
 
@@ -35,7 +35,7 @@ These notes are according to [What is Defi](https://www.coinbase.com/learn/crypt
 
 ## What is Blockchain?
 
-### Definition
+Definition
 
 > A blockchain is a growing list of records, called blocks, that are linked together using cryptography. Each block contains a cryptographic hash of the previous block, a timestamp, and transaction data (generally represented as a Merkle tree). The timestamp proves that the transaction data existed when the block was published in order to get into its hash. As blocks each contain information about the block previous to it, they form a chain, with each additional block reinforcing the ones before it. Therefore, blockchains are resistant to modification of their data because once recorded, the data in any given block cannot be altered retroactively without altering all subsequent blocks.
 
