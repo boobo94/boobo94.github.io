@@ -23,15 +23,14 @@ The web3 is something new, but there is actually the same concept of writing cod
 Should you start learning classic programming? Probably helps you a lot to have a solid background in programming, but literally you can learn it on the way.
 
 
-## What is Defi?
+## What is DeFi?
 
 Definition
 
 > Short for decentralized finance, DeFi is an umbrella term for peer-to-peer financial services on public blockchains, primarily Ethereum.
+> DeFi (or “decentralized finance”) is an umbrella term for financial services on public blockchains, primarily Ethereum. With DeFi, you can do most of the things that banks support — earn interest, borrow, lend, buy insurance, trade derivatives, trade assets, and more — but it’s faster and doesn’t require paperwork or a third party. 
 
-1DeFi (or “decentralized finance”) is an umbrella term for financial services on public blockchains, primarily Ethereum. With DeFi, you can do most of the things that banks support — earn interest, borrow, lend, buy insurance, trade derivatives, trade assets, and more — but it’s faster and doesn’t require paperwork or a third party. 
-
-### What are the benefits?
+### What are the benefits of DeFI?
 
 - Open: You don’t need to apply for anything or “open” an account. You just get access by creating a wallet.
 - Pseudonymous: You don’t need to provide your name, email address, or any personal information.
@@ -39,7 +38,7 @@ Definition
 - Fast: Interest Rates and rewards often update rapidly (as quickly as every 15 seconds), and can be significantly higher than traditional Wall Street.
 - Transparent: Everyone involved can see the full set of transactions (private corporations rarely grant that kind of transparency)
 
-These notes are according to [What is Defi](https://www.coinbase.com/learn/crypto-basics/what-is-defi) from Coinbase.
+These notes are according to [What is DeFi](https://www.coinbase.com/learn/crypto-basics/what-is-defi) from Coinbase.
 
 ## What is Blockchain?
 
@@ -65,11 +64,15 @@ The really best resources when we talk about learning programming are from Freec
 
 ### What is a contract?
 
+<!-- todo: -->
+
 ## What is web 3?
+
+<!-- todo:  -->
 
 ## What are dapps (decentralized applications)?
 
-Do you know that some people are already sharing their knowledge recording video tutorials for free on youtube?! One of these persons is <a href="https://www.youtube.com/c/naderdabit" targer="_target">Nader Dabit</a>. Go there and learn more about building web3 dapps.
+Are you prefering a video tutorial instead of this long article? (now you probably are asking yourself how is this question added here, after a long long text. yeah someone has to read my article, right?!). Do you know that some people are already sharing their knowledge recording video tutorials for free on youtube?! One of these persons is <a href="https://www.youtube.com/c/naderdabit" targer="_target">Nader Dabit</a>. Go there and learn more about building web3 dapps.
 
 
 <hr>
