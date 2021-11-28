@@ -1,5 +1,5 @@
 ---
-title: Web3 for developers
+title: Journey from web2 to web3 for developers
 summary: Web3 for developers - a list with articles, video materials, and resources about how to achieve independence as a developer
 categories: resources
 tags: web web3 resources tutorials
@@ -10,9 +10,17 @@ cover: https://cdn.pixabay.com/photo/2016/11/05/13/54/travel-1800268_1280.jpg
 layout: post
 ---
 
-Web3 for developers - a list with articles, video materials, and resources about how to achieve independence as a developer.
+The journey from web2 to web3 for developers represents my journey from a web developers which was intrigued by the new Era. This articles presents the adventure of joining the web3 area with all the challanges faced. I remember the first days as programmer, the excitment was very strong, but the challanges were overwhelming. This is literally how I feel about this journey from web2 to web3.
 
-I started this article as a self tutorial in the first place. At the moment of **this** line, I know only the term "web3" and nothing more. I would like to know more because everywhere on my Twitter is mentioned that the #web3 is similar to the [www early stage](https://webfoundation.org/about/vision/history-of-the-web/).
+I started this article as a self tutorial in the first place. At the moment of **this** line, I know only the term "web3" and nothing more. I would like to know more because everywhere on my Twitter is mentioned that the #web3 is similar to the <a href="https://webfoundation.org/about/vision/history-of-the-web/" target="_blank">www early stage</a> and back then I was too young, and now the time is perfect.
+
+## What should you know to start learning web3?
+
+While I started this #buildinpublic adventure and sharing the process of writing the article, I got the question "Should I learn programming before web3?". The first time when I got this question I got stuck, what should I reply? Is like something new, but actually is like building a new architecture for a house with the same tools.
+
+The web3 is something new, but there is actually the same concept of writing code behind. You should build using <a href="https://www.freecodecamp.org/news/clean-coding-for-beginners/" target="_blank">clean code</a>. Either you use Javascript, Golang, PHP or Python to write code (these beeing tools from previous example), still use code to produce the result dapp.
+
+Should you start learning classic programming? Probably helps you a lot to have a solid background in programming, but literally you can learn it on the way.
 
 
 ## What is Defi?
