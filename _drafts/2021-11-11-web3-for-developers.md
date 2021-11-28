@@ -70,13 +70,15 @@ The really best resources when we talk about learning programming are from Freec
 
 <!-- todo:  -->
 
-### What is a Smart Contract?
+## Smart Contracts?
 
 <!-- todo:  -->
 
-## What is Solidity?
+### What is Solidity?
 
 <!-- todo: -->
+
+
 
 ## What are dapps (decentralized applications)?
 
