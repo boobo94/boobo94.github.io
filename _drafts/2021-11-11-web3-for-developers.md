@@ -45,9 +45,9 @@ Source: <a href="https://en.wikipedia.org/wiki/Blockchain" target="_blank">Block
 
 ### How blockchain works?
 
-Blockchain is a software protocol. For example we have SMTP protocol to send emails. Either you with a gmail and me with yahoo could send emails to each other only by knowing the address. I don't know how yahoo or gmail process my text and send it to the destination. Blockchain is something similar, it helps to handle transactions between parties, by only knowing an address. If I know your address, i can send money to you. The same way you only need to know my address in order to send me money. You heard about Bitcoin right?! Bitcoin is a token, but more exactly is a blockchain app.
+Blockchain is a software protocol. For example, we have an SMTP protocol to send emails. Either you with a Gmail and me with yahoo could send emails to each other only by knowing the address. I don't know how yahoo or Gmail processes my text and sends it to the destination. Blockchain is something similar, it helps to handle transactions between parties, by only knowing an address. If I know your address, I can send money to you. In the same way, you only need to know my address in order to send me money. You heard about Bitcoin right?! Bitcoin is a token, but more exactly is a blockchain app.
 
-As a web3 dev, first you need some basics in blockchain. What is blockchain, how it works and what is used to.
+As a web3 dev, first, you need some basics in the blockchain. What is blockchain, how it works, and what is used?
 
 Would you like to master this subject? Because what I found very useful is in this free course <a href="https://www.udemy.com/course/blockchain-theory-101/" target="_blank">Blockchain 101</a> from Udemy.
 
@@ -62,7 +62,7 @@ The really best resources when we talk about learning programming are from Freec
 
 ## What are dapps (decentralized applications)?
 
-You know that some people are already sharing their knowledge recording video tutorials for free on youtube?! One of these persons is <a href="https://www.youtube.com/c/naderdabit" targer="_target">Nader Dabit</a>. Go there and learn more about building web3 dapps.
+Do you know that some people are already sharing their knowledge recording video tutorials for free on youtube?! One of these persons is <a href="https://www.youtube.com/c/naderdabit" targer="_target">Nader Dabit</a>. Go there and learn more about building web3 dapps.
 
 
 <hr>
