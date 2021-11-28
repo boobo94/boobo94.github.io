@@ -74,9 +74,16 @@ The really best resources when we talk about learning programming are from Freec
 
 Are you prefering a video tutorial instead of this long article? (now you probably are asking yourself how is this question added here, after a long long text. yeah someone has to read my article, right?!). Do you know that some people are already sharing their knowledge recording video tutorials for free on youtube?! One of these persons is <a href="https://www.youtube.com/c/naderdabit" targer="_target">Nader Dabit</a>. Go there and learn more about building web3 dapps.
 
+## What is Solidity?
+
+<!-- todo:  -->
+
 
 <hr>
 
 ## Resources
+
+Other good resources that inspired me and helped me to write this article can be found below:
+
 - <a href="https://vitto.cc/web3-and-solidity-smart-contracts-development-roadmap/" target="_blank">Complete Web3.0 and Solidity Development Roadmap 2021</a> posted by Vittorie Rivabella
 - <a href="https://appinventiv.com/guide/blockchain-guide-for-entrepreneurs/" target="_blank">An Entrepreneur’s Handbook to Blockchain</a>
