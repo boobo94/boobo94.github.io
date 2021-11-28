@@ -62,8 +62,8 @@ The really best resources when we talk about learning programming are from Freec
 
 ## What are dapps (decentralized applications)?
 
+You know that some people are already sharing their knowledge recording video tutorials for free on youtube?! One of these persons is <a href="https://www.youtube.com/c/naderdabit" targer="_target">Nader Dabit</a>. Go there and learn more about building web3 dapps.
 
-Ok, if you don't like to read all this content, probably a full course works better for you. And here Freecodecamp has a great video material. https://youtu.be/M576WGiDBdQ
 
 <hr>
 
