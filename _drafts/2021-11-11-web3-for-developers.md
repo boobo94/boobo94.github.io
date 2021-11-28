@@ -52,6 +52,8 @@ Source: <a href="https://en.wikipedia.org/wiki/Blockchain" target="_blank">Block
 
 ### How blockchain works?
 
+### what mining means?
+
 Blockchain is a software protocol. For example, we have an SMTP protocol to send emails. Either you with a Gmail and me with yahoo could send emails to each other only by knowing the address. I don't know how yahoo or Gmail processes my text and sends it to the destination. Blockchain is something similar, it helps to handle transactions between parties, by only knowing an address. If I know your address, I can send money to you. In the same way, you only need to know my address in order to send me money. You heard about Bitcoin right?! Bitcoin is a token, but more exactly is a blockchain app.
 
 As a web3 dev, first, you need some basics in the blockchain. What is blockchain, how it works, and what is used?
