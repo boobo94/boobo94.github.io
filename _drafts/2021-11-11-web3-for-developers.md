@@ -1,7 +1,7 @@
 ---
 title: Journey from web2 to web3 for developers
 summary: Web3 for developers - a list with articles, video materials, and resources about how to achieve independence as a developer
-categories: resources
+categories: web3
 tags: web web3 resources tutorials
 date: 2021-11-01 09:09:09 +0000
 cover: https://cdn.pixabay.com/photo/2016/11/05/13/54/travel-1800268_1280.jpg
