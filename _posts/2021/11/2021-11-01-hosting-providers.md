@@ -16,7 +16,7 @@ layout: post
 4. [Firebase](https://firebase.com)
 5. [Surge](https://surge.sh)
 6. [Render](https://render.com)
-7. [Hostman](https://hostman.com) - free for frontend always, pay only for backend apps.
+7. [Hostman](https://hostman.com) - free for frontend always, [pay](https://boobo94.github.io/twispay-integration-nodejs/) only for backend apps.
 8. [Glitch](https://glitch.com)
 9. [Fly](https://fly.io)
 10. [Fleek](https://fleek.co)

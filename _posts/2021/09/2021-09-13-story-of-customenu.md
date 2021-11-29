@@ -112,7 +112,7 @@ I decided to remove the subcategories. One product linked to a category is enoug
 
 20/ Added preparation time near price and weight seems to be a nice and useful feature
 
-21/ Need to find a better #UI for the #customenu #app. Some suggestions where to find nice and clean ideas?
+21/ Need to find a better #UI for the [customenu app](https://boobo94.github.io/portfolio/2021-01-01-customenu/). Some suggestions where to find nice and clean ideas?
 
 22/ Search for a #livechat to introduce on the #presentationwebsite, for #wordpresswebsite
 

@@ -2,7 +2,7 @@
 layout:     post
 title:      "Third eye for blind people"
 date:       2018-05-28 12:31:19
-summary:    "Third eye for blind people"
+summary:    "Aplicatie ce identifica obstacolele cu Arduino, senzori ultrasonici pentru persoane cu dizabilitati de vedere."
 categories: research
 redirect_from: /research/2018/05/28/third-eye-for-blind-poeple-arduino/
 ---

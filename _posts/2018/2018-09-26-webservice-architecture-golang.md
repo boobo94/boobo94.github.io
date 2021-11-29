@@ -124,7 +124,7 @@ Most web services must have at least one authorization method implemented, like:
 * Token Authentication (I prefer this one with JWT — [JSON Web Token](https://jwt.io))
 * OpenID
 
-Personally, I use [JWT](https://jwt.io), because I write web services for our clients ([ATNM](https://www.airtouchmedia.com)), mostly for mobile apps or [CMS](https://en.wikipedia.org/wiki/Content_management_system). If you'd like to read more about the [Web Authentication API](https://developer.mozilla.org/en-US/docs/Web/API/Web_Authentication_API), Mozilla has a great article that explains it very well.
+Personally, I use [JWT](https://jwt.io), because I write web services for our clients ([ATNM](https://www.airtouchmedia.com)), mostly for [mobile apps](https://boobo94.github.io/portfolio/2021-01-01-public-law-mobile-app/) or [CMS](https://en.wikipedia.org/wiki/Content_management_system). If you'd like to read more about the [Web Authentication API](https://developer.mozilla.org/en-US/docs/Web/API/Web_Authentication_API), Mozilla has a great article that explains it very well.
 
 <img src="/images/jwt.png" alt="jwt" />
 
