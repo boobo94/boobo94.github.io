@@ -4,7 +4,7 @@ summary:  Are you a startup founder and are you looking for startup tools like i
 categories: startup
 tags: tools startup
 date: 2021-11-28 09:09:09 +0000
-cover: https://example.com/img.png
+cover: https://cdn.pixabay.com/photo/2016/11/21/13/35/tools-1845426_1280.jpg
 layout: post
 ---
 
