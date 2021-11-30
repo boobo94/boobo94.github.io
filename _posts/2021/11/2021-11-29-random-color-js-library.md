@@ -14,13 +14,13 @@ Why? Because is simple, reusability of code. Code reusability gives you the abil
 
 And here we are, talking about this library <a href="https://github.com/boobo94/random-color" target="_blank">boobo94/random-color</a>
 
-# Install
+## Install
 
 ```sh
 npm i github:boobo94/random-color
 ```
 
-# Usage
+## Usage
 
 ```js
 import RandomColor from 'random-color'
@@ -29,7 +29,7 @@ const newColor =  RandomColor.getColor();
 console.log(newColor) // #44ad3c
 ```
 
-# License
+## License
 
 The MIT License. [Check it here](https://github.com/boobo94/random-color/blob/main/LICENSE)
 
