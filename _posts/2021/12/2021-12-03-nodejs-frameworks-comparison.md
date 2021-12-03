@@ -19,7 +19,10 @@ Looks very solid and easy to build with. But seems that architecture is chaotic 
 ## 2. <a href="https://docs.nestjs.com/" target="_blank">nestjs</a>
 
 A complete framework with rebuild components for plug and play. Comes with built-in features like ORM, request validation, caching, Queues, Loggers, compression. Has an authentication system implemented based on <a href="http://www.passportjs.org/" target="_blank">Passport</a> that permits social login, or with JWT. Besides, it has an authorization system that allows role definitions very simple. It has built-in integration with Graphql, WebSockets. The best part is the microservice architecture support for multiple transport layers. It supports OpenPI and generates a Swagger file. 
+
 But what I think is really cool about Nest is that has CRUD generators, just type a command it creates a complete CRUD (ex: `nest g resource`).
+
+Searching for an admin panel for Nest I found [NestJs Admin](https://nestjs-admin.com/).
 
 ## 3. <a href="https://github.com/simov/express-admin" target="_blank">express admin</a>
 
