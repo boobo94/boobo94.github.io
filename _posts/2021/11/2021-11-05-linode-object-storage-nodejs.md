@@ -4,7 +4,7 @@ summary: Simple use case of Linode Object storage in NodeJS with AWS-SDK for S3.
 categories: tutorials
 tags: tag1 tag2
 date: 2021-11-15 09:09:09 +0000
-cover: https://www.linode.com/wp-content/uploads//2019/06/linode-icon-block-storage-2c.svg
+cover: https://www.linode.com/wp-content/uploads/2019/12/hero-objectstorage-email-2048x1075.png
 layout: post
 ---
 
