@@ -22,7 +22,8 @@ A complete framework with rebuild components for plug and play. Comes with built
 
 But what I think is really cool about Nest is that has CRUD generators, just type a command it creates a complete CRUD (ex: `nest g resource`).
 
-Searching for an admin panel for Nest I found [NestJs Admin](https://nestjs-admin.com/), but the project looks dead, not maintained. Yeah, I searched for more info about this admin, has in mind the same architecture as Django.
+Searching for an admin panel for Nest I found <a href="https://nestjs-admin.com/" target="_blank">NestJs Admin</a>, but the project looks dead, not maintained. Yeah, I searched for more info about this admin, has in mind the same architecture as Django.
+Previously I mentioned Adminbro, they have <a href="https://adminbro.com/module-@admin-bro_nestjs.html" target="_blank">integration with Nestjs</a>, but custom components are written in React.
 
 ## 3. <a href="https://github.com/simov/express-admin" target="_blank">express admin</a>
 
