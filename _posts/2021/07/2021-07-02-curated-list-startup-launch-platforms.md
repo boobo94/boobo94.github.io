@@ -4,7 +4,7 @@ summary: Do you wanna launch grandiosely your startup? Get a list of platforms w
 categories: startup
 tags: startup release
 date: 2021-11-09 09:09:09 +0000
-cover: https://cdn.pixabay.com/photo/2019/06/13/09/41/business-4271251_1280.png
+cover: https://cdn.pixabay.com/photo/2018/04/07/17/26/startup-3299033_1280.jpg
 layout: post
 ---
 
