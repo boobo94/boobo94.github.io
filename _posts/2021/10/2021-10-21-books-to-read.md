@@ -46,6 +46,7 @@ I decided one year ago to challange myself and read as many books as I can this 
 14. ✅ How to built a billion dollar app
 15. ✅ Hooked
 16. ✅ Zero to one
-17. ✅ Company of one by Paul Jarvis 
+17. ✅ Company of one by Paul Jarvis
+18. Lost and founder nu Rând Fishkin
 
 A complete list with reading resources and free books for either students, developers and all types of readers. Read the article [Complete list with reading resources and free books](https://boobo94.github.io/resources/free-books-and-reading-resources/)
