@@ -3,7 +3,7 @@ title: Update nginx version on AMI Linux
 summary: Let's update the nginx version on AMI Linux in few steps. I'll show you how to do it, crash the server and fix it back. 
 categories: devops
 tags: nginx ami linux update
-date: 2021-11-07 09:09:09 +0000
+date: 2021-12-07 09:09:09 +0000
 cover: https://cdn.pixabay.com/photo/2013/11/15/13/57/road-210913_1280.jpg
 layout: post
 ---
