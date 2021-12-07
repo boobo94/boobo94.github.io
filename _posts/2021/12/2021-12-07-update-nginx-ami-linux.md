@@ -103,3 +103,13 @@ nginx version: nginx/1.20.1
 ```
 
 Soo all is good! Have a nice day, fellow!
+
+<hr>
+
+Are you interested by this subject because I've written some article on Nginx topic here:
+
+1. [Setup 2way ssl authentication (mutual authentication) with Nginx](https://boobo94.github.io/webservice/2way-ssl-authentication/)
+2. [How to Setup Nginx with Let's Encrypt on Ubuntu 20.04](https://boobo94.github.io/devops/setup-letsencryp-nginx-ubuntu/)
+3. [https://boobo94.github.io/devops/nginx-configuration-for-node/](https://boobo94.github.io/devops/nginx-configuration-for-node/)
+4. [How to setup LEMP stack for Wordpress](https://boobo94.github.io/devops/setup-lemp-stack-for-wordpress/)
+5. [Install Nginx on Linux with ssl certificate](https://boobo94.github.io/devops/install-nginx-linux-with-ssl/)
