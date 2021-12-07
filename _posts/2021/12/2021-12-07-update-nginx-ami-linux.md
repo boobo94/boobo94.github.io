@@ -1,6 +1,6 @@
 ---
-title: Update nginx version on AMI Linux
-summary: Let's update the nginx version on AMI Linux in few steps. I'll show you how to do it, crash the server and fix it back. 
+title: Update Nginx version on AMI Linux
+summary: Let's update the Nginx version on AMI Linux in few steps. I'll show you how to do it, crash the server and fix it back. 
 categories: devops
 tags: nginx ami linux update
 date: 2021-12-07 09:09:09 +0000
@@ -8,7 +8,7 @@ cover: https://cdn.pixabay.com/photo/2013/11/15/13/57/road-210913_1280.jpg
 layout: post
 ---
 
-Today I decided to show you how to update nginx version on AMI Linux
+Today I decided to show you how to update Nginx version on AMI Linux
 
 
 ## Check current version
@@ -33,7 +33,7 @@ $ sudo service nginx restart
 
 What is the result for me: 
 
-```
+```sh
 $ sudo service nginx status
 Redirecting to /bin/systemctl status nginx.service
 ● nginx.service - The nginx HTTP and reverse proxy server
