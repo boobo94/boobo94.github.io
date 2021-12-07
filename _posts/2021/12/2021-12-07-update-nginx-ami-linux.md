@@ -102,6 +102,25 @@ $ nginx -v
 nginx version: nginx/1.20.1
 ```
 
+## Update nginx to a specific version
+
+Few hors later, after I release the post, I tried this on another server and surprise the latest version found was 1.20. In this case you can install a specific version for Nginx.
+
+Go to <https://centos.pkgs.org/7/nginx-x86_64/nginx-1.20.1-1.el7.ngx.x86_64.rpm.html#download> and download the binary. If you want another version search above the package that you need.
+
+```sh
+wget https://nginx.org/packages/centos/7/x86_64/RPMS/nginx-1.20.1-1.el7.ngx.x86_64.rpm
+```
+
+Now in your folder the file `nginx-1.20.1-1.el7.ngx.x86_64.rpm` was downloaded, please install it as:
+
+```sh
+sudo rpm -Uvh nginx-1.20.1-1.el7.ngx.x86_64.rpm
+sudo yum update nginx
+```
+
+Check Nginx version and don't forget to restart nginx service.
+
 Soo all is good! Have a nice day, fellow!
 
 <hr>
