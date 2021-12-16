@@ -1,6 +1,6 @@
 ---
 title: Archiver reading zip data as a buffer without writing to filesystem
-summary: Zip data from buffer without writing to filesystem with the Node.js module archiver
+summary: Zip data from buffer without writing to filesystem with the Node.js and archiver module. Use a stream and return data as buffer.
 categories: webservice
 tags: nodejs zip
 date: 2021-12-13 09:09:09 +0000
