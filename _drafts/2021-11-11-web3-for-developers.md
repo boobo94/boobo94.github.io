@@ -22,6 +22,7 @@ The web3 is something new, but there is actually the same concept of writing cod
 
 Should you start learning classic programming? Probably helps you a lot to have a solid background in programming, but literally you can learn it on the way.
 
+<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/nHhAEkG1y2U" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 ## What is DeFi?
 
