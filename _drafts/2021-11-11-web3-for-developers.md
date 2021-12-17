@@ -30,7 +30,7 @@ Definition
 > Short for decentralized finance, DeFi is an umbrella term for peer-to-peer financial services on public blockchains, primarily Ethereum.
 > DeFi (or “decentralized finance”) is an umbrella term for financial services on public blockchains, primarily Ethereum. With DeFi, you can do most of the things that banks support — earn interest, borrow, lend, buy insurance, trade derivatives, trade assets, and more — but it’s faster and doesn’t require paperwork or a third party. 
 
-https://youtu.be/17QRFlml4pA
+<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/17QRFlml4pA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 ### What are the benefits of DeFI?
 
@@ -44,7 +44,7 @@ These notes are according to [What is DeFi](https://www.coinbase.com/learn/crypt
 
 ### How to make money with DeFi
 
-https://youtu.be/o9ObYRjpIhs
+<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/o9ObYRjpIhs" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 ## What is Blockchain?
 
@@ -80,7 +80,7 @@ The really best resources when we talk about learning programming are from Freec
 
 What are Smart contracts? Is like a real contract where you define all the rules and if all the rules are accomplished then the rules of contract are applied.
 
-https://youtu.be/pyaIppMhuic
+<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/pyaIppMhuic" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 <!-- todo:  -->
 
