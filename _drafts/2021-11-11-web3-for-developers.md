@@ -97,6 +97,8 @@ What are Smart contracts? Is like a real contract where you define all the rules
 
 <!-- todo: -->
 
+## what are nfts
+
 
 Are you prefering a video tutorial instead of this long article? (now you probably are asking yourself how is this question added here, after a long long text. yeah someone has to read my article, right?!). Do you know that some people are already sharing their knowledge recording video tutorials for free on youtube?! One of these persons is <a href="https://www.youtube.com/c/naderdabit" targer="_target">Nader Dabit</a>. Go there and learn more about building web3 dapps.
 
