@@ -90,6 +90,8 @@ Google Trends is a great free keyword research tool that shows an overview of ho
 
 <h3>16. <a href="https://www.highervisibility.com/free-seo-tools/bulk-keyword-generator/" target="_blank">Bulk keyword generator</a></h3>
 
+A free local SEO keyword tool for small businesses and marketers. Select a business type and city, and it will automatically generate local keywords for your industry that potential customers might use to find you.
+
 <h3>17. <a href="https://ads.google.com/home/tools/keyword-planner/" target="_blank">Google Keyword Planner</a></h3>
 
 Keyword Planner is one of the best and most known free tools for keyword research with some limitations, though.
