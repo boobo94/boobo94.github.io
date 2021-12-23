@@ -10,6 +10,10 @@ layout: post
 
 Before knowing where your business stands, you should look at the market and your competition. You need to know what marketing tactics and strategies are working for your audience, what traffic the competition has, and how they position.
 
+## What is a competitive analysis?
+
+A competitive analysis is a comparison of competitors strategies used to evaluate the strengths and weaknesses. It helps a business determine potential advantages and barriers within a market around a product or service and generally helps brands monitor how direct and indirect competitors are executing tactics like marketing, pricing, and distribution.
+
 ## What tools for anlaysing your competition you can use
 
 <h3>1. <a href="https://moz.com/free-seo-tools" target="_blank">Moz</a></h3>
