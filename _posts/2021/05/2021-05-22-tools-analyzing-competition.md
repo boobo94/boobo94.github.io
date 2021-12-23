@@ -3,8 +3,8 @@ title:  Tools for Analyzing Your Competition
 summary: Before knowing where your business stands, you should look at the market and your competition. You need to know what marketing tactics and strategies are working for your audience, what traffic the competition has, and how they position.
 categories: startup resources
 tags: startup competition analysis seo
-date: 2021-09-22 09:09:09 +0000
-cover: https://cdn.pixabay.com/photo/2015/04/20/13/41/person-731479_1280.jpg
+date: 2021-12-23 09:09:09 +0000
+cover: https://cdn.pixabay.com/photo/2018/03/27/12/16/analytics-3265840_960_720.jpg
 layout: post
 ---
 
@@ -70,17 +70,23 @@ Mention enables brands and agencies to monitor the web, listen to their audience
 
  With Fanpage Karma you have everything you need for professional social media management: analyzing, publishing, communicating, researching, and presenting. Everything in one tool. 
 
-12.<https://www.seobility.net/en/seocheck/>
+<h2>12. <a href="https://alsoasked.com/" target="_blank">Alsoasked</a></h2>
 
-13.<https://alsoasked.com/>
+See the questions people also asked.
 
-14.<https://answerthepublic.com/>
+<h2>13. <a href="https://answerthepublic.com/" target="_blank">Answerthepublic</a></h2>
 
-15.<https://t.co/rEC8rFLzcT>
+Discover what people are asking about…
 
-16.<http://wordstream.com/>
+<h2>14. <a href="https://kwfinder.com" target="_blank">KWFinder</a></h2>
 
-17.<https://www.link-assistant.com/news/free-keyword-research-tools.html>
+Find long tail keywords with low SEO difficulty.
+
+Others:
+
+- <https://www.seobility.net/en/seocheck/>
+- <http://wordstream.com/>
+- <https://www.link-assistant.com/news/free-keyword-research-tools.html>
 
 
 Image Source: <a href="https://pixabay.com/images/id-731479/" target="_blank">Pixabay</a>
