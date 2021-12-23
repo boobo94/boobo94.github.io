@@ -88,7 +88,7 @@ Google Trends is a great free keyword research tool that shows an overview of ho
 
 <h2>16. <a href="https://www.highervisibility.com/free-seo-tools/bulk-keyword-generator/" target="_blank">Bulk keyword generator</a></h2>
 
-<h2>16. <a href="https://ads.google.com/home/tools/keyword-planner/" target="_blank">Google Keyword Planner</a></h2>
+<h2>17. <a href="https://ads.google.com/home/tools/keyword-planner/" target="_blank">Google Keyword Planner</a></h2>
 
 Keyword Planner is one of the best and most known free tools for keyword research with some limitations, though.
 
