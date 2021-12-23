@@ -82,6 +82,16 @@ Discover what people are asking about…
 
 Find long tail keywords with low SEO difficulty.
 
+<h2>15. <a href="https://trends.google.com/" target="_blank">Google Trends</a></h2>
+
+Google Trends is a great free keyword research tool that shows an overview of how a key phrase performs on Google.
+
+<h2>16. <a href="https://www.highervisibility.com/free-seo-tools/bulk-keyword-generator/" target="_blank">Bulk keyword generator</a></h2>
+
+<h2>16. <a href="https://ads.google.com/home/tools/keyword-planner/" target="_blank">Google Keyword Planner</a></h2>
+
+Keyword Planner is one of the best and most known free tools for keyword research with some limitations, though.
+
 Others:
 
 - <https://www.seobility.net/en/seocheck/>
