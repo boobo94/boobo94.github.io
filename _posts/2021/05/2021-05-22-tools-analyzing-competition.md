@@ -109,6 +109,7 @@ Others:
 ## Useful articles how to analyze competition
 
 - <https://www.toptal.com/product-managers/freelance/product-designer-guide-to-competitive-analysis>
+- <https://www.shopify.com/blog/competitive-analysis>
 
 
 Image Source: <a href="https://pixabay.com/images/id-731479/" target="_blank">Pixabay</a>
