@@ -97,11 +97,19 @@ What are Smart contracts? Is like a real contract where you define all the rules
 
 Ethereum contracts are written in a programming language called “Solidity”.
 
+<img src="https://soliditylang.org/images/SolGray.png" alt="what is Solidity>
+
+
 ### 5.3. What are dapps (decentralized applications)
 
 Dapps are decentralized apps. They are like normal apps, and offer similar functions, but the key difference is they are run on a peer-to-peer network, such as a blockchain.
 
+<img src="https://ethereum.org/static/5dea0acbc8484c42006d7bbed32fa019/d1bb0/doge-computer.webp" alt="what are dapps>
+
+
 ### 5.4. What are NFTs (non-fungible token)
+
+<img src="https://cdn.pixabay.com/photo/2021/12/06/14/54/non-fungible-token-6850535_1280.jpg" alt="what are nfts>
 
 NFT stands for non-fungible token. Simply put, it is a digital token that exists on the blockchain to record proof of ownership for the person holding it. Each token is completely unique because it has its own unique metadata which can never be replicated or replaced for another.
 
