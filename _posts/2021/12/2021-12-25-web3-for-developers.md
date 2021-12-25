@@ -3,7 +3,7 @@ title: Journey from web2 to web3 for developers
 summary: Web3 for developers - a list with articles, video materials, and resources about how to achieve independence as a developer
 categories: web3
 tags: web web3 resources tutorials
-date: 2021-11-01 09:09:09 +0000
+date: 2021-12-25 09:09:09 +0000
 cover: https://cdn.pixabay.com/photo/2016/11/05/13/54/travel-1800268_1280.jpg
 # todo: canonical
 # canonical_url: https://cmevo.com/
@@ -57,9 +57,7 @@ Definition
 
 Source: <a href="https://en.wikipedia.org/wiki/Blockchain" target="_blank">Blockchain Wikipedia</a>
 
-### How blockchain works?
-
-### what mining means?
+### What mining means?
 
 Blockchain is a software protocol. For example, we have an SMTP protocol to send emails. Either you with a Gmail and me with yahoo could send emails to each other only by knowing the address. I don't know how yahoo or Gmail processes my text and sends it to the destination. Blockchain is something similar, it helps to handle transactions between parties, by only knowing an address. If I know your address, I can send money to you. In the same way, you only need to know my address in order to send me money. You heard about Bitcoin right?! Bitcoin is a token, but more exactly is a blockchain app.
 
@@ -72,13 +70,20 @@ The really best resources when we talk about learning programming are from Freec
 <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/M576WGiDBdQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 Another course about [blockchain development](https://www.web3.university/) is presented by web3 university. You can find more resources in courses there.
-### what are wallets?
+
+### What are wallets?
+
+Crypto wallets store your private keys, keeping your crypto safe and accessible. They also allow you to send, receive, and spend cryptocurrencies.
+
+ Your holdings live on the blockchain, but can only be accessed using a private key. Your keys prove your ownership of your [digital money](https://www.coinbase.com/learn/crypto-basics/what-is-a-crypto-wallet) and allow you to make transactions. If you lose your private keys, you lose access to your money.
 
 ### How crypto transfer works?
 
+WIP
+
 ## What is web 3?
 
-<!-- todo:  -->
+There are differences between web2 and web3, but decentralization its the maine one. In [web3](https://www.freecodecamp.org/news/what-is-web3/), developers don't usually build and deploy applications that run on a single server or that store their data in a single database (usually hosted on and managed by a single cloud provider).
 
 ## Smart Contracts?
 
@@ -86,23 +91,19 @@ What are Smart contracts? Is like a real contract where you define all the rules
 
 <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/pyaIppMhuic" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-<!-- todo:  -->
-
 ### What is Solidity?
 
-<!-- todo: -->
-
-
+Ethereum contracts are written in a programming language called “Solidity”.
 
 ## What are dapps (decentralized applications)?
 
-<!-- todo: -->
+WIP
 
-## what are nfts
+## What are NFTs
 
+WIP
 
 Are you prefering a video tutorial instead of this long article? (now you probably are asking yourself how is this question added here, after a long long text. yeah someone has to read my article, right?!). Do you know that some people are already sharing their knowledge recording video tutorials for free on youtube?! One of these persons is <a href="https://www.youtube.com/c/naderdabit" targer="_target">Nader Dabit</a>. Go there and learn more about building web3 dapps.
-
 
 <hr>
 
