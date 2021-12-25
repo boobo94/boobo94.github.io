@@ -1,5 +1,5 @@
 ---
-title: Journey from web2 to web3 for developers
+title: Journey of developers from web2 to web3
 summary: Web3 for developers - a list with articles, video materials, and resources about how to achieve independence as a developer
 categories: web3
 tags: web web3 resources tutorials
