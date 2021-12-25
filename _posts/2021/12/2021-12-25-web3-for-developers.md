@@ -14,7 +14,7 @@ The journey from web2 to web3 for developers represents my journey from a web de
 
 I started this article as a self tutorial in the first place. At the moment of **this** line, I know only the term "web3" and nothing more. I would like to know more because everywhere on my Twitter is mentioned that the #web3 is similar to the <a href="https://webfoundation.org/about/vision/history-of-the-web/" target="_blank">www early stage</a> and back then I was too young, and now the time is perfect.
 
-## What should you know to start learning web3?
+## 2. What should you know to start learning web3?
 
 While I started this #buildinpublic adventure and sharing the process of writing the article, I got the question "Should I learn programming before web3?". The first time when I got this question I got stuck, what should I reply? Is like something new, but actually is like building a new architecture for a house with the same tools.
 
@@ -24,7 +24,7 @@ Should you start learning classic programming? Probably helps you a lot to have 
 
 <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/nHhAEkG1y2U" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-## What is DeFi?
+## 3. What is DeFi?
 
 Definition
 
@@ -33,7 +33,7 @@ Definition
 
 <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/17QRFlml4pA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-### What are the benefits of DeFI?
+### 3.1. What are the benefits of DeFI?
 
 - Open: You don’t need to apply for anything or “open” an account. You just get access by creating a wallet.
 - Pseudonymous: You don’t need to provide your name, email address, or any personal information.
@@ -43,11 +43,11 @@ Definition
 
 These notes are according to [What is DeFi](https://www.coinbase.com/learn/crypto-basics/what-is-defi) from Coinbase.
 
-### How to make money with DeFi
+### 3.2. How to make money with DeFi
 
 <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/o9ObYRjpIhs" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-## What is Blockchain?
+## 4. What is Blockchain?
 
 Definition
 
@@ -57,7 +57,7 @@ Definition
 
 Source: <a href="https://en.wikipedia.org/wiki/Blockchain" target="_blank">Blockchain Wikipedia</a>
 
-### What mining means?
+### 4.1. What mining means?
 
 Blockchain is a software protocol. For example, we have an SMTP protocol to send emails. Either you with a Gmail and me with yahoo could send emails to each other only by knowing the address. I don't know how yahoo or Gmail processes my text and sends it to the destination. Blockchain is something similar, it helps to handle transactions between parties, by only knowing an address. If I know your address, I can send money to you. In the same way, you only need to know my address in order to send me money. You heard about Bitcoin right?! Bitcoin is a token, but more exactly is a blockchain app.
 
@@ -71,39 +71,39 @@ The really best resources when we talk about learning programming are from Freec
 
 Another course about [blockchain development](https://www.web3.university/) is presented by web3 university. You can find more resources in courses there.
 
-### What are wallets?
+### 4.2. What are wallets?
 
 Crypto wallets store your private keys, keeping your crypto safe and accessible. They also allow you to send, receive, and spend cryptocurrencies.
 
  Your holdings live on the blockchain, but can only be accessed using a private key. Your keys prove your ownership of your [digital money](https://www.coinbase.com/learn/crypto-basics/what-is-a-crypto-wallet) and allow you to make transactions. If you lose your private keys, you lose access to your money.
 
-### How crypto transfer works?
+### 4.3. How crypto transfer works?
 
 WIP
 
-## What is web 3?
+## 5. What is web 3?
 
 There are differences between web2 and web3, but decentralization its the maine one. In [web3](https://www.freecodecamp.org/news/what-is-web3/), developers don't usually build and deploy applications that run on a single server or that store their data in a single database (usually hosted on and managed by a single cloud provider).
 
-## Smart Contracts?
+Are you prefering a video tutorial instead of this long article? (now you probably are asking yourself how is this question added here, after a long long text. yeah someone has to read my article, right?!). Do you know that some people are already sharing their knowledge recording video tutorials for free on youtube?! One of these persons is <a href="https://www.youtube.com/c/naderdabit" targer="_target">Nader Dabit</a>. Go there and learn more about building web3 dapps.
+
+### 5.1. Smart Contracts?
 
 What are Smart contracts? Is like a real contract where you define all the rules and if all the rules are accomplished then the rules of contract are applied.
 
 <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/pyaIppMhuic" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-### What is Solidity?
+### 5.2. What is Solidity
 
 Ethereum contracts are written in a programming language called “Solidity”.
 
-## What are dapps (decentralized applications)?
+### 5.3. What are dapps (decentralized applications)
 
-WIP
+Dapps are decentralized apps. They are like normal apps, and offer similar functions, but the key difference is they are run on a peer-to-peer network, such as a blockchain.
 
-## What are NFTs
+### 5.4. What are NFTs (non-fungible token)
 
-WIP
-
-Are you prefering a video tutorial instead of this long article? (now you probably are asking yourself how is this question added here, after a long long text. yeah someone has to read my article, right?!). Do you know that some people are already sharing their knowledge recording video tutorials for free on youtube?! One of these persons is <a href="https://www.youtube.com/c/naderdabit" targer="_target">Nader Dabit</a>. Go there and learn more about building web3 dapps.
+NFT stands for non-fungible token. Simply put, it is a digital token that exists on the blockchain to record proof of ownership for the person holding it. Each token is completely unique because it has its own unique metadata which can never be replicated or replaced for another.
 
 <hr>
 
@@ -113,3 +113,4 @@ Other good resources that inspired me and helped me to write this article can be
 
 - <a href="https://vitto.cc/web3-and-solidity-smart-contracts-development-roadmap/" target="_blank">Complete Web3.0 and Solidity Development Roadmap 2021</a> posted by Vittorie Rivabella
 - <a href="https://appinventiv.com/guide/blockchain-guide-for-entrepreneurs/" target="_blank">An Entrepreneur’s Handbook to Blockchain</a>
+- <a href="https://www.freecodecamp.org/news/breaking-into-ethereum-crypto-web3-as-a-developer/" target="_blank">How to Break into Ethereum, Crypto, and Web3 as a Developer</a>
