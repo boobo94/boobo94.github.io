@@ -73,6 +73,7 @@ It depends by your vibe, but sometimes I listen Snoop Dog, Bug Mafia, etc. But m
 - <https://undraw.co/illustrations>
 - <https://www.vecteezy.com/>
 - <https://openclipart.org/>
+- <http://shape.so/>
 
 ### Icons
 
@@ -80,8 +81,12 @@ It depends by your vibe, but sometimes I listen Snoop Dog, Bug Mafia, etc. But m
 - <https://mui.com/components/material-icons/>
 - <https://icons8.com/animated-icons>
 - <https://www.freepik.com/>
+- <http://thenounproject.com/>
+- <http://feathericons.com/>
 
 ### Mockup tools
+
+- <http://angle.sh/> device mock-ups for your apps 
 
 [Read the full article - Mockup List Tools](https://boobo94.github.io/tools/mockup-tools/)
 
@@ -90,6 +95,7 @@ It depends by your vibe, but sometimes I listen Snoop Dog, Bug Mafia, etc. But m
 - <https://www.awwwards.com/>
 - <https://dribbble.com/>
 - <https://www.webdesign-inspiration.com/>
+- <http://checklist.design/> the place where you can find the best design pattern
 
 ### Where to host your project for free
 
