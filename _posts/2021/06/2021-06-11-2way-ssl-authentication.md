@@ -295,3 +295,10 @@ I have two resources that I used for myself at some point and I want to share wi
 
 1. <a href="https://grizzlybit.info/blog/how-to-generate-keys-for-mutual-tls-authentication" target="_blank">How to generate keys for Mutual TLS Authentication</a> 
 2. <a href="https://www.matteomattei.com/client-and-server-ssl-mutual-authentication-with-nodejs/" target="_blank">Client and server SSL mutual authentication with NodeJs</a>
+
+Additional
+
+## How to convert pkcs7 cert to pem
+
+```sh
+openssl pkcs7 -in certificate_file.p7b -print_certs -out cert.pem
