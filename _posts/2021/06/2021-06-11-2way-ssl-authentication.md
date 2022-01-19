@@ -302,3 +302,4 @@ Additional
 
 ```sh
 openssl pkcs7 -in certificate_file.p7b -print_certs -out cert.pem
+```
