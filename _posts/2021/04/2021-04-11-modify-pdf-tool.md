@@ -10,7 +10,7 @@ layout: post
 
 Hei.. today I'll share with you a tool that helped me to modify text in PDF files, but it does more than that. 
 
-In my tasks at <a href="https://boobo94.github.io/portfolio/2021-01-01-cmevo-digital/">cmevo</a> I had to change some text in documents and I tried many tools online and offline, both. But the greatest tool that acomplished my needs is free - Inkscape.
+In my tasks at <a href="https://whyboobo.com/portfolio/2021-01-01-cmevo-digital/">cmevo</a> I had to change some text in documents and I tried many tools online and offline, both. But the greatest tool that acomplished my needs is free - Inkscape.
 
 > What is Inkscape?
 >

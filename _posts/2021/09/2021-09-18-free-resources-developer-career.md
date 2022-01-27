@@ -44,12 +44,12 @@ I consider freecodecamp the most important resource in your beginning. You shoul
 
 ## Where to find books?
 
-I've wrote an article some time ago [Complete list with reading resources and free books](https://boobo94.github.io/resources/free-books-and-reading-resources/)
+I've wrote an article some time ago [Complete list with reading resources and free books](https://whyboobo.com/resources/free-books-and-reading-resources/)
 
 ## You are thinking beyond of cloud, maybe you're an entrepreneur?
 
-- [Free ideas for the next startup](https://boobo94.github.io/startup/free-ideas-for-the-next-startup/)
-- [Curated list of 25 startup launch platforms](https://boobo94.github.io/startup/curated-list-startup-launch-platforms/)
+- [Free ideas for the next startup](https://whyboobo.com/startup/free-ideas-for-the-next-startup/)
+- [Curated list of 25 startup launch platforms](https://whyboobo.com/startup/curated-list-startup-launch-platforms/)
 
 ## What to listen to, when you code?
 
@@ -88,7 +88,7 @@ It depends by your vibe, but sometimes I listen Snoop Dog, Bug Mafia, etc. But m
 
 - <http://angle.sh/> device mock-ups for your apps 
 
-[Read the full article - Mockup List Tools](https://boobo94.github.io/tools/mockup-tools/)
+[Read the full article - Mockup List Tools](https://whyboobo.com/tools/mockup-tools/)
 
 ### Where to find inspiration
 
@@ -99,7 +99,7 @@ It depends by your vibe, but sometimes I listen Snoop Dog, Bug Mafia, etc. But m
 
 ### Where to host your project for free
 
-I've wrote a full article about <a href="https://boobo94.github.io/resources/hosting-providers/">Hosting providers - free & paid</a>.
+I've wrote a full article about <a href="https://whyboobo.com/resources/hosting-providers/">Hosting providers - free & paid</a>.
 
 
 ### Libraries

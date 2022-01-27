@@ -289,7 +289,7 @@ curl --location --request POST 'https://server1-api.cmevo.com' \
 ```
 
 
-For an extra layer of security, you can add as well a payload encryption, check <a href="https://boobo94.github.io/devops/tutorials/asymmetric-encryption-with-nodejs/">Asymmetric encryption (Public-key cryptography) with Node.js</a>
+For an extra layer of security, you can add as well a payload encryption, check <a href="https://whyboobo.com/devops/tutorials/asymmetric-encryption-with-nodejs/">Asymmetric encryption (Public-key cryptography) with Node.js</a>
 
 I have two resources that I used for myself at some point and I want to share with you
 

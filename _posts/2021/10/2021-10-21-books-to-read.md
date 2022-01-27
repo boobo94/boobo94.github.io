@@ -56,4 +56,4 @@ I decided one year ago to challange myself and read as many books as I can this 
 
 WIP
 
-A complete list with reading resources and free books for either students, developers and all types of readers. Read the article [Complete list with reading resources and free books](https://boobo94.github.io/resources/free-books-and-reading-resources/)
+A complete list with reading resources and free books for either students, developers and all types of readers. Read the article [Complete list with reading resources and free books](https://whyboobo.com/resources/free-books-and-reading-resources/)
