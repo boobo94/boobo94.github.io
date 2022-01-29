@@ -51,8 +51,9 @@ I decided one year ago to challange myself and read as many books as I can this 
 
 ## 2022
 
-1. Ego is the enemy by Ryan Holiday
+1. ✅ Ego is the enemy by Ryan Holiday - Is not my style
 2. How to read a book
+3. ✅ Subscribed Why the subscription model will be your company's future and what to do about it by Tien Tzuo and Gabe Weisert
 
 WIP
 
