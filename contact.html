@@ -6,6 +6,10 @@ tags: contact
 ---
 
 <div class="py2">
+  {% if site.show_social_icons %}
+  {% include social_links.html %}
+  {% endif %}
+
   {% if site.ajaxify_contact_form %}
   <form class="form-stacked">
     <label>
