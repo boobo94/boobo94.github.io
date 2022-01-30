@@ -80,11 +80,13 @@
 }
 
 .categories-nav {
-    margin-top: 5px
+    margin-top: 5px;
+    color: #444;
+    font-size: 0.707rem;
 }
 
 .categories-nav span, 
 .site-header .categories-nav a {
-    color: #444;
+    color: #0076df;
     font-size: 0.707rem;
 }
