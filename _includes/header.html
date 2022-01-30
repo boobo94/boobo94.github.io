@@ -6,8 +6,21 @@
         {% include navigation.html %}
       </nav>
       <div class="clearfix"></div>
+      <div class="categories-nav">
+        <span>Category: </span>
+        <a href="{{ site.url }}/abstract">#abstract</a>
+        <a href="{{ site.url }}/devops">#devops</a>
+        <a href="{{ site.url }}/research">#research</a>
+        <a href="{{ site.url }}/resources">#resources</a>
+        <a href="{{ site.url }}/startup">#startup</a>
+        <a href="{{ site.url }}/tips">#tips</a>
+        <a href="{{ site.url }}/tools">#tools</a>
+        <a href="{{ site.url }}/tutorials">#tutorials</a>
+        <a href="{{ site.url }}/web3">#web3</a>
+        <a href="{{ site.url }}/webservice">#webservice</a>
+      </div>
       {% if site.show_social_icons %}
-        {% include social_links.html %}
+      {% include social_links.html %}
       {% endif %}
     </div>
   </div>
