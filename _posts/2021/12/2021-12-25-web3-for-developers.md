@@ -1,12 +1,10 @@
 ---
 title: Journey of developers from web2 to web3
 summary: Web3 for developers - a list with articles, video materials, and resources about how to achieve independence as a developer
-categories: web3
+categories: blockchain
 tags: web web3 resources tutorials
 date: 2021-12-25 09:09:09 +0000
 cover: https://cdn.pixabay.com/photo/2016/11/05/13/54/travel-1800268_1280.jpg
-# todo: canonical
-# canonical_url: https://cmevo.com/
 layout: post
 ---
 

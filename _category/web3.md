@@ -1,4 +1,4 @@
 ---
-category: web3
-permalink: "/web3"
+category: blockchain
+permalink: "/blockchain"
 ---
