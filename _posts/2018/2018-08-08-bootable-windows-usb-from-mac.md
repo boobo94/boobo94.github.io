@@ -18,8 +18,6 @@ For me, two apps, worked very well and I like them very much, because are intuit
 
 I really like this one because the interface it's clean and the design looks more adapted to these days.
 
-![etcher picture](https://etcher.io/static/screenshot.gif)
-
 You can find more info or download it from [here](https://etcher.io/)
 
 ## UNetbootin
