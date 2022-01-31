@@ -51,7 +51,7 @@ Definition
 
 > A blockchain is a growing list of records, called blocks, that are linked together using cryptography. Each block contains a cryptographic hash of the previous block, a timestamp, and transaction data (generally represented as a Merkle tree). The timestamp proves that the transaction data existed when the block was published in order to get into its hash. As blocks each contain information about the block previous to it, they form a chain, with each additional block reinforcing the ones before it. Therefore, blockchains are resistant to modification of their data because once recorded, the data in any given block cannot be altered retroactively without altering all subsequent blocks.
 
-<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/Bitcoin_Block_Data.svg/1024px-Bitcoin_Block_Data.svg.png" />
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/Bitcoin_Block_Data.svg/1024px-Bitcoin_Block_Data.svg.png" alt="What is Blockchain" />
 
 Source: <a href="https://en.wikipedia.org/wiki/Blockchain" target="_blank">Blockchain Wikipedia</a>
 
