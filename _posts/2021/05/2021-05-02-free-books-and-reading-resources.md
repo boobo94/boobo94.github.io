@@ -18,7 +18,6 @@ A complete list with reading resources and free books for either students, devel
 - <http://manybooks.net/>
 - <http://www.openculture.com/free_ebooks>
 - <http://collections.stanford.edu/>
-- <https://www.freeetextbooks.com/>
 - <http://home.earthlink.net/~maywrite/golden.htm>
 - <http://ww17.wocoencuk.com/>
 - <https://www.free-ebooks.net/>
