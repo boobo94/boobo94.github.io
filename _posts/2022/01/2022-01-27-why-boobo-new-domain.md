@@ -1,6 +1,6 @@
 ---
 title: New domain for Why Boobo
-summary: The new domain for Why Boobo. Why Boobo is a changing it's name and what's going on next?
+summary: The new domain for Why Boobo. Why Boobo is changing its name and what's going on next? This is a fresh beginning, but I'll do the same content.
 categories: abstract
 date: 2022-01-27 09:09:09 +0000
 cover: https://cdn.pixabay.com/photo/2016/03/06/05/03/rocks-1239727_1280.jpg
