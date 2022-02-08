@@ -10,32 +10,32 @@ layout: post
 
 Discover multiple ways of connecting your webservice localhost to the internet. Just drop an eye here: simple, clean, fast solutions only.
 
-## <a href="http://localtunnel.me/" target="_blank">Localtunnel</a>
+## 1. <a href="http://localtunnel.me/" target="_blank">Localtunnel</a>
 
 Localtunnel allows you to easily share a web service on your local development machine without messing with DNS and firewall settings.
 
-## How to run localtunnel
+### How to run localtunnel
 
 ```sh
 npm install -g localtunnel
 lt --port 8000
 ```
 
-## <a href="http://localhost.run/" target="_blank">Localhost.run</a>
+## 2. <a href="http://localhost.run/" target="_blank">Localhost.run</a>
 
 Connect a tunnel to your web appplication
 
-## How to run localhost.run
+### How to run localhost.run
 
 ```sh
 $ ssh -R 80:localhost:8000 nokey@localhost.run
 ```
 
-## <a href="https://ngrok.com/" target="_blank">Ngrok</a>
+## 3. <a href="https://ngrok.com/" target="_blank">Ngrok</a>
 
 Public URLs for exposing your local webservice.
 
-## How to run ngrok
+### How to run ngrok
 
 Go and [download](https://ngrok.com/download) ngrok then:
 
