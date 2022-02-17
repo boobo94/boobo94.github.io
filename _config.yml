@@ -47,7 +47,7 @@ txtpen_sitename:
 
 # Tinyletter Newsletter
 # (leave blank to disable tinyletter)
-tinyletter: #boobo94
+tinyletter: boobo94
 
 # Social icons
 github_username: boobo94
