@@ -12,3 +12,5 @@ layout: post
 ---
 
 Demo
+
+Check SEO meta: https://metadescriptiontool.com/
