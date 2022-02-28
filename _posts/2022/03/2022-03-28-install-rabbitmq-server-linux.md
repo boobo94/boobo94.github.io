@@ -8,7 +8,7 @@ cover: https://cdn.pixabay.com/photo/2018/05/12/15/16/picnic-3393609_1280.jpg
 layout: post
 ---
 
-Check SEO meta: https://metadescriptiontool.com/
+How to install rabbitmq-server and erlang in Amazon Linux 2, full tutorial to setup and manage rabbitmq channels and queues. 
 
 
 ## Update the system
