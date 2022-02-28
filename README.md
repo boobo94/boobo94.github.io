@@ -6,7 +6,7 @@ Homepage: https://whyboobo.com/
 
 If you want to subscribe please use the newsletter form on [Contact Page](https://whyboobo.com/contact). As well you can write me an email, on the same page. But if you want to be updated with this blog you can use the :eyes:Watch button of Github.
 
-For any comments regarding posts or others, please feel free to contact me using the contact page or via [DM on :bird: Twitter](https://twitter.com/militaru_bogdan)
+For any comments regarding posts or others, please feel free to contact me using the contact page, via [DM on :bird: Twitter](https://twitter.com/militaru_bogdan) or by [Discussion Section on Github](https://github.com/boobo94/boobo94.github.io/discussions).
 
 ## Page attributes
 
