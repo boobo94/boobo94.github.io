@@ -1,10 +1,10 @@
 ---
-title: How to install rabbitmq-server in Linux
-summary: Summary Draft Template
-categories: category
-tags: tag1 tag2
-date: 2022-01-01 09:09:09 +0000
-cover: https://example.com/img.png
+title: How to install rabbitmq-server and erlang in Linux
+summary: How to install rabbitmq-server and erlang in Amazon Linux 2, full tutorial to setup and manage rabbitmq channels and queues. 
+categories: devops
+tags: rabbitmq linux erlang
+date: 2022-03-01 09:09:09 +0000
+cover: https://cdn.pixabay.com/photo/2018/05/12/15/16/picnic-3393609_1280.jpg
 layout: post
 ---
 
