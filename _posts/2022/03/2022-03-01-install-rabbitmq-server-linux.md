@@ -10,7 +10,6 @@ layout: post
 
 How to install rabbitmq-server and erlang in Amazon Linux 2, full tutorial to setup and manage rabbitmq channels and queues. 
 
-
 ## Update the system
 
 ```sh
