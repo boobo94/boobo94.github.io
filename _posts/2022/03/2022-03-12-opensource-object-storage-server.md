@@ -1,7 +1,7 @@
 ---
 title: Opensource Object Storage with min.io
 summary: Opensource Object Storage with min.io using Docker. An alternative to AWS S3, Linode Storage, Google Storage, Azure Storage.
-categories: resources devops
+categories: resources
 tags: tag1 tag2
 date: 2022-03-12 09:09:09 +0000
 cover: https://cdn.pixabay.com/photo/2014/09/11/22/00/dock-441989_1280.jpg
