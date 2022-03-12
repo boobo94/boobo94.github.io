@@ -1,6 +1,6 @@
 ---
-title: Opensource Object Storage with min.io
-summary: Opensource Object Storage with min.io using Docker. An alternative to AWS S3, Linode Storage, Google Storage, Azure Storage.
+title: Opensource Object Storage with Minio
+summary: Opensource Object Storage with Minio using Docker. An alternative to AWS S3, Linode Storage, Google Storage, Azure Storage.
 categories: resources
 tags: object storage s3 docker
 date: 2022-03-12 09:09:09 +0000
@@ -59,3 +59,72 @@ docker-compose up
 ```
 
 And let's use the Object Storage server by URL:  http://127.0.0.1:9000.
+
+## Configure Nginx with Minio
+
+```conf
+server {
+    listen       9000;
+    listen  [::]:9000;
+    server_name  localhost;
+
+    # To allow special characters in headers
+    ignore_invalid_headers off;
+    # Allow any size file to be uploaded.
+    # Set to a value such as 1000m; to restrict file size to a specific value
+    client_max_body_size 0;
+    # To disable buffering
+    proxy_buffering off;
+
+    location / {
+        proxy_set_header Host $http_host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $scheme;
+
+        proxy_connect_timeout 300;
+        # Default is HTTP/1, keepalive is only enabled in HTTP/1.1
+        proxy_http_version 1.1;
+        proxy_set_header Connection "";
+        chunked_transfer_encoding off;
+
+        proxy_pass http://minio:9000/;
+    }
+}
+
+server {
+    listen       9001;
+    listen  [::]:9001;
+    server_name  localhost;
+
+    # To allow special characters in headers
+    ignore_invalid_headers off;
+    # Allow any size file to be uploaded.
+    # Set to a value such as 1000m; to restrict file size to a specific value
+    client_max_body_size 0;
+    # To disable buffering
+    proxy_buffering off;
+
+    location / {
+        proxy_set_header Host $http_host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $scheme;
+        proxy_set_header X-NginX-Proxy true;
+
+        # This is necessary to pass the correct IP to be hashed
+        real_ip_header X-Real-IP;
+
+        proxy_connect_timeout 300;
+
+        # To support websocket
+        proxy_http_version 1.1;
+        proxy_set_header Upgrade $http_upgrade;
+        proxy_set_header Connection "upgrade";
+
+        chunked_transfer_encoding off;
+
+        proxy_pass http://minio:9001/;
+    }
+}
+```
