@@ -10,7 +10,7 @@ layout: post
 
 LibraPay library for Nodejs - integrate Libra Bank online payment gateway using this library for NodeJs.
 
-This library allows to connect with librapay using nodejs.
+This library allows to connect with librapay using nodejs. The Github repo for this library can be found [here](https://github.com/boobo94/libra-pay).
 
 Official documentation can be found [here](https://www.librapay.ro/documente/LibraPay_implementation_documentation_EN.pdf).
 
