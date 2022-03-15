@@ -70,7 +70,6 @@ export default Router()
   .post(
     'hooks',
     multer().none(),
-    amqpMiddleware,
     (req, res, next) => {
       const response = new libra.handleIPN(req.body)
       if (response === '1') {
