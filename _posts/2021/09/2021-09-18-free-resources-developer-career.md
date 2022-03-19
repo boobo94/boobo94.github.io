@@ -86,6 +86,10 @@ It depends by your vibe, but sometimes I listen Snoop Dog, Bug Mafia, etc. But m
 - <http://thenounproject.com/>
 - <http://feathericons.com/>
 
+### Logos
+
+- <https://www.logotouse.com/>
+
 ### Mockup tools
 
 - <http://angle.sh/> device mock-ups for your apps 
