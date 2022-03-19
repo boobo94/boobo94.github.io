@@ -76,6 +76,7 @@ It depends by your vibe, but sometimes I listen Snoop Dog, Bug Mafia, etc. But m
 - <https://www.vecteezy.com/>
 - <https://openclipart.org/>
 - <http://shape.so/>
+- <https://lottiefiles.com/featured>
 
 ### Icons
 
