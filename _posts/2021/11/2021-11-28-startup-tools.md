@@ -14,3 +14,4 @@ Because I was and still I am in the position where I wanna try new tools and fin
 
 1. <a href="https://free-invoice.co.za/" target="_blank">Create and send professional looking invoices online.</a> from Free Invoice
 2. <a href="https://zipbooks.com/" target="_blank">Simple accounting software that makes you even smarter.</a> from ZipBooks. Is the software that I currently use for my <a href="https://cmevo.com" target="_blank">software company</a> Cmevo Digital.
+3. <a href="https://invoice-generator.com" target="_blank">Simple invoice generator</a> helps you generate invoices very simple, without requiring an account.
