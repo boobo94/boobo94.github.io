@@ -39,7 +39,7 @@ chkconfig rabbitmq-server on
 then
 
 ```sh
-sudo rabbitmq-server start -detached
+sudo rabbitmq-server -detached
 ```
 
 # After installation, restart service
@@ -140,7 +140,7 @@ Try:
 ```sh
 sudo lsof -i :25672
 sudo kill <PID>
-sudo rabbitmq-server
+sudo rabbitmq-server -detached
 ```
 
 Where <PID> is [the process ID](https://stackoverflow.com/questions/63263177/cant-start-rabbitmq-server-after-installation) that is occupying port 25672
