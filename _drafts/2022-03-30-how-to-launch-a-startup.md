@@ -29,6 +29,7 @@ But REMEMBER, your idea don't have to be unique. Competition is good and it help
 
 ## 2. Validate idea
 
+<!-- todo: ideas -->
 - talk to people 100, 1000 people, 10 are not enough
 - try to tell them what's the idea about
 - tell them when the product can be ready and what's the price
@@ -42,9 +43,19 @@ Don'y worry, go after competition and see what they offer.
 
 ### 3.1. Analyze competition
 
-How to launch a startup when you don't know what's the startup, right?! Check what others do and try to do best. But remember, some of their features are already validated by you or by them with a real audience.
+How to launch a startup when you don't know what's the startup, right?! Check what others do and try to do best. But remember, some of their features are already validated by you or by them with a real audience, so you have to build them.
+
+In order to analyze competition you can do it manually using search engines and type down advantages and disadvantages, but except this old fashion way, you should check their online presence and how to do this if now using [Tools for Analyzing Your Competition](https://whyboobo.com/startup/resources/tools-analyzing-competition/). In this article you can find a list of articles about tools and how to use them.
+
+#### Analyze competition - Resources
+
+- <a href="https://www.toptal.com/product-managers/freelance/product-designer-guide-to-competitive-analysis" target="_blank">A Product Designer's Guide to Competitive Analysis</a>
+- <a href="https://www.shopify.com/blog/competitive-analysis" target="_blank">How to Conduct a Competitive Analysis for Your Business (Plus a Free Template)</a>
 
 ### 3.2. MVP (Most Viable Product)
+
+<!-- todo: ideas -->
+- most important features, but if competition offers a lot, your mvp cannot be poor
 
 ## 5. Sell
 

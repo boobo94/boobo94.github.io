@@ -100,16 +100,10 @@ A free local SEO keyword tool for small businesses and marketers. Select a busin
 
 Keyword Planner is one of the best and most known free tools for keyword research with some limitations, though.
 
-Others:
+### Others:
 
 - <https://www.seobility.net/en/seocheck/>
 - <http://wordstream.com/>
 - <https://www.link-assistant.com/news/free-keyword-research-tools.html>
-
-## Useful articles how to analyze competition
-
-- <https://www.toptal.com/product-managers/freelance/product-designer-guide-to-competitive-analysis>
-- <https://www.shopify.com/blog/competitive-analysis>
-
 
 Image Source: <a href="https://pixabay.com/images/id-731479/" target="_blank">Pixabay</a>
