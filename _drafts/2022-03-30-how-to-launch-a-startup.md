@@ -63,6 +63,10 @@ Maybe your niche is not well defined, you don't have competition yet or you don'
 
 You know that social media can be a very powerful strategy? I like to talk with potential customers via Twitter, LinkedIn, even Facebook or Instagram. Is simpler because you're one step ahead against email. It's easier for them to reply there and the discussion can be more informal, doesn't have to stay in the same way as on email.
 
+#### Email
+
+Todo: ideas
+
 ### Who should you talk with
 
 This is a heavy question, because usually we tend to talk with the closest people. In almost every article or book I read it was mentioned to not even thinking to talk with your family or friends. Because they can be subjective and reply based on emotional background. And somehow this is true, unless you build a product or service which targets family or friends, in that case they are your target.
