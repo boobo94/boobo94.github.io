@@ -51,7 +51,11 @@ Talking with potential customers can be benefic from many perspectives: understa
 
 Everywhere can be a customer! What a generic response, right?! It is true, let's dive more in. 
 
-Basically if you don't know exactly where your customer can be found, later we talk [how to analyze competition](#analyze-competition). Your competition is already in front of customers with a product or a service. But don't worry, you don't need to steal the competition's strategy, actually is not quite correct to do that, better analyze them and improve their strategy or product.
+Basically if you don't know exactly where your customer can be found, start watching your competition, later we talk [how to analyze competition](#analyze-competition). Your competition is already in front of customers with a product or a service. But don't worry, you don't need to steal the competition's strategy, actually is not quite correct to do that, better analyze them and improve their strategy or product. 
+
+Start looking at their website, social media, do they manage other channels like Facebook groups, discord servers, newsletter, Telegram groups, Twitter communities, etc? Because yes investigate how people interact with them.
+
+Maybe your niche is not well defined, you don't have competition yet or you don't know where to start from. I suggest to start talking with people that you think might be your customer. It can be chaotic in the beginning but at least you talk with people.
 
 <!-- todo: ideas -->
 - linkedin
@@ -109,6 +113,14 @@ But you know what, is there a simpler solution?! Maybe yes for some of you, you 
 Checking reviews of your competition can be a very good selling pitch for further customers. When they complains about some issues about a product, you take notes and do it in your product. Be cautious, not every feedback have to be implemented, but if many people complains about the same subject and you solve it, then you may get some new clients.
 
 In the same time take in considereation the strong points, what the customers of your competitor mention as very good? You should have it at least at the same quality. As a customer you need to offer me more, because for me is an extra effort to change my current provider, so you need to offer me more value.
+
+### I don't have competition
+
+I doubt!
+
+There are some new fields where your startup can be unique and there's no competition. But for the most of you the competition is there, just try to strive more finding them. Don't stop after the first search on google, try more keywords, use the tools below to generate keyword suggestion and try with many variations. I saw people who say how they build the mvp in 24h, maybe is possible but is not mandatory. Try to learn about the new business you start.
+
+Enough for those who are lazy and just read this material to check it as done, but don't take action. Let's talk about those cases when you don't have competition for real. It can be harder, but not impossible. In this case you need to look around, find similarities with other startups or domains and make analogies with them. Is not 100% accurate, but it may drive you on the right road.
 
 #### Analyze competition - Resources
 
