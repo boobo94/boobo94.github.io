@@ -51,15 +51,17 @@ Talking with potential customers can be benefic from many perspectives: understa
 
 Everywhere can be a customer! What a generic response, right?! It is true, let's dive more in. 
 
+#### Watch your competition audience
+
 Basically if you don't know exactly where your customer can be found, start watching your competition, later we talk [how to analyze competition](#analyze-competition). Your competition is already in front of customers with a product or a service. But don't worry, you don't need to steal the competition's strategy, actually is not quite correct to do that, better analyze them and improve their strategy or product. 
 
 Start looking at their website, social media, do they manage other channels like Facebook groups, discord servers, newsletter, Telegram groups, Twitter communities, etc? Because yes investigate how people interact with them.
 
 Maybe your niche is not well defined, you don't have competition yet or you don't know where to start from. I suggest to start talking with people that you think might be your customer. It can be chaotic in the beginning but at least you talk with people.
 
-<!-- todo: ideas -->
-- linkedin
-- twitter
+#### Use social media
+
+You know that social media can be a very powerful strategy? I like to talk with potential customers via Twitter, LinkedIn, even Facebook or Instagram. Is simpler because you're one step ahead against email. It's easier for them to reply there and the discussion can be more informal, doesn't have to stay in the same way as on email.
 
 ### Who should you talk with
 
@@ -78,6 +80,12 @@ If you choose an audience and discover they are not interested, maybe you did th
 3 people, because 3 is a magic number, at least in a fairy tale. How to launch a startup when you talked with 3 users? That's not exactly a validation, is more a self validation or fear of failure.
 
 Talk with many, a lot, 3 - 5 - 10 are not enough. Talk with 100 or 1000 because you need to learn from them what are their problems. Guaranteed talking with 1000 people you can find some patterns that repeats, they have some similar issues and probably they need something specific that cannot be found at competition. Except that you break the fear and improve your communication skills.
+
+### How to talk with prospects
+
+Be polite, make an introduction about your subject and ask their permission to continue
+
+Todo: continue
 
 ### Pitch the product before is built
 
