@@ -87,9 +87,9 @@ Talk with many, a lot, 3 - 5 - 10 are not enough. Talk with 100 or 1000 because 
 
 ### How to talk with prospects
 
-Be polite, make an introduction about your subject and ask their permission to continue
+Go there, make an intro and offer some context, be honest and tell them the truth. Don't offer all the details from the beginning, just keep the intro short. If they are interested will reply.
 
-Todo: continue
+Start the discussion by telling them who you are and what you need, in a manner that you try to offer them something, try to help them. People tend to discuss more about them, so using this in your favor can make a big difference. Tell them what you want to build and how you can help them. Then ask if they have a moment for a chat/discussion.
 
 ### Pitch the product before is built
 
