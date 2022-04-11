@@ -43,6 +43,8 @@ Your idea may suffer many changes over time. Don't worry, that's normal, you nee
 
 ## Validate idea
 
+![validate idea](https://cdn.pixabay.com/photo/2019/09/29/22/06/light-bulb-4514505_1280.jpg)
+
 The validation of idea is very important because we are subjective with our creations. Not all the time your idea is good. So a cold shower is benefic, and the startup idea validation is exactly that.
 
 Talking with potential customers can be benefic from many perspectives: understand your product/service, understand if your idea is not good enough yet, the customer's needs, what they miss in the current solution.
@@ -65,6 +67,8 @@ Maybe your niche is not well defined, you don't have competition yet or you don'
 
 You know that social media can be a very powerful strategy? I like to talk with potential customers via Twitter, LinkedIn, even Facebook or Instagram. Is simpler because you're one step ahead against email. It's easier for them to reply there and the discussion can be more informal, doesn't have to stay in the same way as on email.
 
+<!-- todo: go deep with each platform: twitter, ig, fb, linkedin, reddit -->
+
 #### Email
 
 ![validate idea with email](https://cdn.pixabay.com/photo/2018/03/22/02/37/email-3249062_1280.png)
@@ -80,6 +84,8 @@ As a recommendation I have few books on the cold call email subject:
 
 ### Who should you talk with
 
+![who should you talk with to launch a startup](https://cdn.pixabay.com/photo/2017/05/04/16/37/meeting-2284501_1280.jpg)
+
 This is a heavy question, because usually we tend to talk with the closest people. In almost every article or book I read it was mentioned to not even thinking to talk with your family or friends. Because they can be subjective and reply based on emotional background. And somehow this is true, unless you build a product or service which targets family or friends, in that case they are your target.
 
 Your target audience is important in the beginning and even later. But try to focus for the first time indentifying the most important customers. The one who is ready to buy imediately. Later, when the startup is well defined, you'll have marketing campaigns, sales people which will find new ways of finding new proespects and customers. Until that time you need to start from somewhere, so keep it low, keep it fast. Remember, your startup values nothing at this moment, you don't have money to spend.
@@ -92,11 +98,15 @@ If you choose an audience and discover they are not interested, maybe you did th
 
 ### How many people should you talk with
 
+![how many people should you talk with to launch a startup](https://cdn.pixabay.com/photo/2016/08/16/09/53/international-conference-1597531_1280.jpg)
+
 3 people, because 3 is a magic number, at least in a fairy tale. How to launch a startup when you talked with 3 users? That's not exactly a validation, is more a self validation or fear of failure.
 
 Talk with many, a lot, 3 - 5 - 10 are not enough. Talk with 100 or 1000 because you need to learn from them what are their problems. Guaranteed talking with 1000 people you can find some patterns that repeats, they have some similar issues and probably they need something specific that cannot be found at competition. Except that you break the fear and improve your communication skills.
 
 ### How to talk with prospects
+
+![how to talk with prospects](https://cdn.pixabay.com/photo/2020/11/08/11/22/man-5723449_1280.jpg)
 
 Go there, make an intro and offer some context, be honest and tell them the truth. Don't offer all the details from the beginning, just keep the intro short. If they are interested will reply.
 
@@ -140,6 +150,8 @@ Checking reviews of your competition can be a very good selling pitch for furthe
 In the same time take in considereation the strong points, what the customers of your competitor mention as very good? You should have it at least at the same quality. As a customer you need to offer me more, because for me is an extra effort to change my current provider, so you need to offer me more value.
 
 ### I don't have competition
+
+![how to launch a startup with no competition](https://cdn.pixabay.com/photo/2021/05/25/09/51/road-6281973_1280.jpg)
 
 I doubt!
 
