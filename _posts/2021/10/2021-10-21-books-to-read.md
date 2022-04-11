@@ -3,7 +3,7 @@ title: What books to read
 summary: The list of books I read. I decided one year ago to challenge myself and read as many books as I can this year. Take a look at this article and find all of them.
 categories: resources
 tags: books
-date: 2022-01-29 09:09:09 +0000
+date: 2022-04-11 09:09:09 +0000
 cover: https://cdn.pixabay.com/photo/2016/03/26/22/21/books-1281581_1280.jpg
 layout: post
 ---
@@ -21,25 +21,24 @@ I decided one year ago to challange myself and read as many books as I can this 
 7. ✅ Crushing It!: How Great Entrepreneurs Build Their Business and Influence-and How You Can, Too
 8. ✅ How to built a billion dollar app
 9. ✅ The Startup Owner's Manual - 6% read, not for me
-10. ✅ Zero to Sold
+10. ✅ Jab, Jab, Jab, Right Hook: How to Tell Your Story in a Noisy Social World
 11. ✅ Grow your business with cold emails
 12. ✅ The Mom Test by Rob Fitzpatrick
 13. ✅ Growth hacking
-14. ✅ Jab, Jab, Jab, Right Hook: How to Tell Your Story in a Noisy Social World
-15. ✅ How any startup can achieve explosive growth traction
+
 
 ## 2021
 
 1. ✅ growth hacking marketing
-2. ✅ running lean
-3. ✅ the mom test
-4. ✅ zero to sold
-5. ✅ saas sales for startup founders
-6. ✅ cold email hacks
-7. ✅ how any startup can achieve explosive customer growth Traction
+2. ✅ running lean by Ash Maurya
+3. ✅ the mom test by Rob Fitzpatrick
+4. ✅ zero to sold by Arvid Kahl
+5. ✅ saas sales for startup founders by Steli Efti
+6. ✅ cold email hacks by Steli Efti
+7. ✅ How any startup can achieve explosive growth traction by Gabriel Weinberg
 8. ✅ it doesn’t have to be crazy at work
 9. ✅ the follow up formula
-10. ✅ The founder’s guide to sales negotiation
+10. ✅ The founder’s guide to sales negotiation by Steli Efti
 11. ✅ 15 thinks successful people know about time management
 12. ✅ Start small, start small: a developer guide to launching a startup
 13. ✅ E myth revisited
@@ -48,12 +47,17 @@ I decided one year ago to challange myself and read as many books as I can this 
 16. ✅ Zero to one
 17. ✅ Company of one by Paul Jarvis
 18. ✅ Lost and founder by Rand Fishkin
+19. ✅ 15 secrets of successful people know about time management by Kevin Kruse
+20. ✅ The follow-up formula by by Steli Efti
 
 ## 2022
 
 1. ✅ Ego is the enemy by Ryan Holiday - Is not my style
-2. How to read a book
+2. ✅ How to read a book
 3. ✅ Subscribed Why the subscription model will be your company's future and what to do about it by Tien Tzuo and Gabe Weisert
+4. ✅ The subscription Boom by Adam Levinter
+5. ✅ Crypto Currencies by Julian Hosp
+6. ✅ It doesn't have to be crazy at work
 
 WIP
 

@@ -61,11 +61,22 @@ Maybe your niche is not well defined, you don't have competition yet or you don'
 
 #### Use social media
 
+![validate idea with social media](https://cdn.pixabay.com/photo/2016/03/03/10/17/social-media-1233873_1280.jpg)
+
 You know that social media can be a very powerful strategy? I like to talk with potential customers via Twitter, LinkedIn, even Facebook or Instagram. Is simpler because you're one step ahead against email. It's easier for them to reply there and the discussion can be more informal, doesn't have to stay in the same way as on email.
 
 #### Email
 
-Todo: ideas
+![validate idea with email](https://cdn.pixabay.com/photo/2018/03/22/02/37/email-3249062_1280.png)
+
+As mentioned before, personally I find it harder to talk with prospects via email. You're a stranger in their inbox and they know it. 
+
+In order to capture their atention try to go straight to the point and keep the email very short. Present yourself or your business (depends who's more relevant) as an introduction and talk what you put on the table, what's their benefit from that discussion and why should reply. Don't talk about you, the introduction was enough, talk about the benefits of your product for their business and how it can be integrated. Try to close the email by having a strong call to action, inviting them on a meeting, a demo or what you need more.
+
+As a recommendation I have few books on the cold call email subject:
+
+1. The follow-up formula by Steli Efti
+2. Cold Email Hacks - How to bet more customers with winning sales emails by Steli Efti
 
 ### Who should you talk with
 
@@ -103,7 +114,7 @@ Start the discussion by telling them who you are and what you need, in a manner 
 
 ### Where to start from
 
-
+<!-- todo: ideas -->
 
 ## Build the product or service
 
@@ -111,8 +122,10 @@ You're good now and probably know how to launch a startup. You have the idea, is
 
 Don'y worry, go after competition and see what they offer.
 
-(#analize-competition)
+(#analyze-competition)
 ## Analyze competition
+
+![analyze competition](https://cdn.pixabay.com/photo/2020/08/09/14/25/business-5475658_1280.jpg)
 
 How to launch a startup when you don't know what's the startup, right?! Check what others do and try to do best. But remember, some of their features are already validated by you or by them with a real audience, so you have to build them.
 
@@ -145,7 +158,14 @@ Enough for those who are lazy and just read this material to check it as done, b
 - most important features, but if competition offers a lot, your mvp cannot be poor
 
 ## Marketing
+
+<!-- todo: ideas -->
+
+
 ## Sell
+
+<!-- todo: ideas -->
+
 
 (#where-to-launch-startups)
 ## Where to launch the startup
@@ -218,3 +238,13 @@ On reddit
 Another resources with more platforms can be found on  <a href="https://github.com/mmccaff/PlacesToPostYourStartup" target="_blank">mmccaff/PlacesToPostYourStartup</a>, <a href="https://www.indiehackers.com/post/relaunch-like-a-pro-100-places-to-launch-relaunch-and-list-your-product-7c67875635" target="_blank"> Relaunch like a pro: 100+ places to launch, relaunch, and list your product</a>.
 
 ## Grow
+
+<!-- todo: ideas -->
+
+## Other resources
+
+I like to read, even if I discovered that books are not always about beletristic and fary tales (as I learned in school). After this discovery I started to read a lot of technical books, because this is what I like more.
+
+[Complete list with reading resources and free books](https://whyboobo.com/resources/free-books-and-reading-resources/) is a list with websites where you can find books and articles for free.
+
+[What books to read](https://whyboobo.com/resources/books-to-read/) is my recommendations for developers and/or entrepreneurs, check it out and see what fits you. Don't forget to [tweet me](https://twitter.com/militaru_bogdan) about them or use the [contact me](https://whyboobo.com/contact/) form.
