@@ -294,6 +294,7 @@ Another resources with more platforms can be found on  <a href="https://github.c
 ## Grow
 
 <!-- todo: ideas -->
+- expose API, CSV or other way to connect your platform with others.
 
 ## Other resources
 
