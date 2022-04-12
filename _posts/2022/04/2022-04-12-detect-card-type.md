@@ -31,6 +31,8 @@ function getCardType (number) {
       return key
     }
   }
+  
+  return 'unknown'
 }
 ```
 
