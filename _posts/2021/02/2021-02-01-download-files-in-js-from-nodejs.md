@@ -56,6 +56,7 @@ const fileLink = document.createElement('a');
 fileLink.href = fileURL;
 const fileName = response.headers['content-disposition'].substring(22, 52);
 fileLink.setAttribute('download', fileName);
+fileLink.setAttribute('target', '_blank');
 document.body.appendChild(fileLink);
 fileLink.click();
 fileLink.remove();
@@ -65,6 +66,16 @@ We need to create an HTML object to be able to download the file:
 
 ```html
 <a href="" download=""></a>
+```
+
+### Another option
+
+Open the blob directly into browser
+
+```js
+const response = await Axios.get('API_URL/download', { responseType: 'blob' });
+const file = window.URL.createObjectURL(new Blob([response.data]));
+window.open(file);
 ```
 
 Firstly, we need to make a request to the server, for that we use Axios. As you can see the URL is `API_URL`, your base URL and `/download` API route, defined above. Need to inform Axios, that the response waited it’s of type `blob`, because the response is not a plain text or JSON. With that response, creates a new object and attach that content on a new `a` HTML tag.
