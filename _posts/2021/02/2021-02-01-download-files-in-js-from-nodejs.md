@@ -3,7 +3,7 @@ title: Download files in Javascript from Node.js server
 summary: How to download files in Javascript, either you use Vue.js, React, Angular, jQuery, or Vanilla JS. On the backend side, we run on Node.js using Express.js.
 categories: webservice
 tags: javascript nodejs expressjs react angular jquery js vue
-date: 2021-02-01 09:09:09 +0000
+date: 2022-04-12 09:09:09 +0000
 cover: https://cdn.pixabay.com/photo/2016/11/30/20/58/programming-1873854_1280.png
 layout: post
 ---
