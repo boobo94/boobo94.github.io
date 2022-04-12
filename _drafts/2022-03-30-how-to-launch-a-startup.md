@@ -132,11 +132,29 @@ See now?! If they did not the minimum effort of searching for an alternative, wo
 
 ### Pitch the product before is built
 
+Previoulsy we talked about telling on short their biggest pain, in order to establish your authority and win their trust. But after they talk about their problems and you find that their issues are solvable with your solution -> go in action. Is the moment when you tell them about your solution by centring the features on their issues, don't talk about 1000 features that you have, because they don't understand them and get bored. Explain how your solution will solved their problem A, B, C. Probably they have some questions and that is good, answer to that, but don't lie, tell the truth always, even if your solution doesn't fit 100% to their problem. Later your lie makes more problems than the income you gain from the sale.
 
+Is your product or MVP ready yet? Hope not, because in this phase you should focus on discovering their problem and after these discussions you can switch and adapt the initial idea. But if you already have something built, that's it, is fine.
+
+Tell the customer if your solution is not built yet and when you estimate to be launched. They shouldn't care, stay chill, they need the solution, remember?! Is not a problem to tell them that you're currently working on it and soon will be ready.
+
+You shouldn't sell from the first meeting, make sure that they feel comfortable, because is important to establish some trust between client and you. Later you have time to sell, now just validate. Now is the time to ask them about pricing, based on their pain level how much would they pay for your solution. Here you can offer them some context and guide them if you for example plan to use a specific pricing model.
+
+Questions as the following may help them to reply with your expected answer:
+
+> How much would you pay per day/month/year/user?
+
+If they don't like the direction of your question for sure will reply
+
+> I would like to pay 10$ every time when I use the service, but not ready for a subscription.
+
+And this is an option too, because they can offer you a different vision. If many people goes the discussion in that direction, probably you need to switch the pricing model.
+
+Don't force to get an answer from them with any price. If they stay closed to "I don't know", try to offer them some ranges that you already have in mind based on your product or that you saw at competition.
+
+Is the moment to tell them what is your opinion regarding the price.
 
 <!-- todo: ideas -->
-- try to tell them what's the idea about
-- tell them when the product can be ready and what's the price
 - ask what they need immediatly to sign with you
 - offer discount if they buy early (50-70% lifetime or it depends), if they ask about guarantee you can tell them is like a risk for a future investment, but offer them full refund if they're not satisfied with the final product after release.
 - read The mom test
@@ -192,11 +210,15 @@ Enough for those who are lazy and just read this material to check it as done, b
 ## Marketing
 
 <!-- todo: ideas -->
+- website/landing page
+- seo
+- social media
 
 
 ## Sell
 
 <!-- todo: ideas -->
+- how / where / what channels
 
 
 (#where-to-launch-startups)
