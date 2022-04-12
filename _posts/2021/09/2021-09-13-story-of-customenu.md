@@ -4,7 +4,7 @@ summary: A digital menu platform for restaurant. It was the pandemic situation a
 categories: startup
 tags: customenu startup story
 date: 2021-09-13 09:09:09 +0000
-cover: https://customenu.ro/wp-content/uploads/2021/01/customenu-app-1200x867.png
+cover: https://cmevo.com/wp-content/uploads/2021/11/meniu-digital-customenu-app-500x361.png
 layout: post
 ---
 
@@ -14,7 +14,7 @@ I build the Customenu startup and I’ll #buildinpublic, using this thread on Tw
 
 ## What is Customenu?
 
-[A digital menu platform for #restaurant](https://customenu.ro/en).
+[A digital menu platform for #restaurant](https://cmevo.com/portfolio/digital-menu-for-restaurants-qr-code/).
 
 Instead of using a boring paper where to check the dishes, you can see a nice representation on your smartphone.
 
@@ -142,11 +142,11 @@ But another email came this morning, from a client which reached organically.
 
 29/ What is funny?! The domain expires in a month and I don't know if I should keep it or move the project to the recycle bin?
 
-I would like to use the traffic from customenu.ro for cmevo.com, but I don't know if the best option would be to keep the domain and redirect the traffic to cmevo.com or how?
+I would like to use the traffic from customenu for cmevo.com, but I don't know if the best option would be to keep the domain and redirect the traffic to cmevo.com or how?
 
 30/ I canceled the Customenu project.
 
-I set the redirect from customenu.ro to cmevo.com.
+I set the redirect from customenu to cmevo.com.
 
 That's all :D
 

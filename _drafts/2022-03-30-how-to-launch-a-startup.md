@@ -104,7 +104,7 @@ If you choose an audience and discover they are not interested, maybe you did th
 
 Talk with many, a lot, 3 - 5 - 10 are not enough. Talk with 100 or 1000 because you need to learn from them what are their problems. Guaranteed talking with 1000 people you can find some patterns that repeats, they have some similar issues and probably they need something specific that cannot be found at competition. Except that you break the fear and improve your communication skills.
 
-### How to talk with prospects
+### What to talk with prospects
 
 ![how to talk with prospects](https://cdn.pixabay.com/photo/2020/11/08/11/22/man-5723449_1280.jpg)
 
@@ -112,7 +112,27 @@ Go there, make an intro and offer some context, be honest and tell them the trut
 
 Start the discussion by telling them who you are and what you need, in a manner that you try to offer them something, try to help them. People tend to discuss more about them, so using this in your favor can make a big difference. Tell them what you want to build and how you can help them. Then ask if they have a moment for a chat/discussion.
 
+Tell them about what you already know as being their biggest pain and how your solution solves that. After you gain the trust, ask them what other problems they face and how they currently handle. Take notes, these can be your next features. Pay attention at the solution they use currently and ask why they choose it, if they tried something else or not.
+
+Did they searched for a similar solution with yours or not? Try to find the impostor pretending to have an issue. We as persons tend to complain, some of us more than others, so take care when a customer lies about his issues. You can identify if the biggest pain is as big by asking how he solve it right now, how hard is to solve it and what he did to find a better solution. You know that people say:
+
+> if I would have an app that do this for me, that would be great, now I only use Excel"
+
+then you ask 
+
+> did you searched for any tool that may help you, any app?
+
+Take in consideration their response, because this is a red flag. If they never tried to find an alternative for Excel, that means they don't need it, the issue is not so big for them.
+
+I'll give you a story. Once I tried to build a management app for freelancer personal trainers who helps them to manage bookings of the clients, the progress of client and many more. I talked with personal trainers on Linkedin and ask them about this issue and the most of them answered either the gym offer them this tool or they use the classic agenda taking notes on paper.Some of them answered before that a mobile app would be very helpful, but when I asked about the current solution and if they searched an alternative the answer was exactly this
+
+> no, I did not. I take notes in my agenda, I'm used to.
+
+See now?! If they did not the minimum effort of searching for an alternative, would they pay for yours? I agree that maybe your solution is unique, but did they at least search for, a simple search o Google can be a good sign.
+
 ### Pitch the product before is built
+
+
 
 <!-- todo: ideas -->
 - try to tell them what's the idea about
@@ -260,3 +280,7 @@ I like to read, even if I discovered that books are not always about beletristic
 [Complete list with reading resources and free books](https://whyboobo.com/resources/free-books-and-reading-resources/) is a list with websites where you can find books and articles for free.
 
 [What books to read](https://whyboobo.com/resources/books-to-read/) is my recommendations for developers and/or entrepreneurs, check it out and see what fits you. Don't forget to [tweet me](https://twitter.com/militaru_bogdan) about them or use the [contact me](https://whyboobo.com/contact/) form.
+
+Some times ago I tried to launch a project, a digital menu for restaurants and I wrote about [The story of Customenu](https://whyboobo.com/startup/story-of-customenu/), is a good story about failing with a startup.
+
+![]( https://cmevo.com/wp-content/uploads/2021/11/meniu-digital-customenu-app-500x361.png)
