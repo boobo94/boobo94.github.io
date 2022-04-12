@@ -104,7 +104,7 @@ If you choose an audience and discover they are not interested, maybe you did th
 
 Talk with many, a lot, 3 - 5 - 10 are not enough. Talk with 100 or 1000 because you need to learn from them what are their problems. Guaranteed talking with 1000 people you can find some patterns that repeats, they have some similar issues and probably they need something specific that cannot be found at competition. Except that you break the fear and improve your communication skills.
 
-### What to talk with prospects
+### What to talk about with prospects
 
 ![how to talk with prospects](https://cdn.pixabay.com/photo/2020/11/08/11/22/man-5723449_1280.jpg)
 
@@ -171,7 +171,7 @@ You're good now and probably know how to launch a startup. You have the idea, is
 Don'y worry, go after competition and see what they offer.
 
 (#analyze-competition)
-## Analyze competition
+## Analyze the competition
 
 ![analyze competition](https://cdn.pixabay.com/photo/2020/08/09/14/25/business-5475658_1280.jpg)
 
@@ -197,7 +197,7 @@ There are some new fields where your startup can be unique and there's no compet
 
 Enough for those who are lazy and just read this material to check it as done, but don't take action. Let's talk about those cases when you don't have competition for real. It can be harder, but not impossible. In this case you need to look around, find similarities with other startups or domains and make analogies with them. Is not 100% accurate, but it may drive you on the right road.
 
-#### Analyze competition - Resources
+### Analyze the competition - Resources
 
 - <a href="https://www.toptal.com/product-managers/freelance/product-designer-guide-to-competitive-analysis" target="_blank">A Product Designer's Guide to Competitive Analysis</a>
 - <a href="https://www.shopify.com/blog/competitive-analysis" target="_blank">How to Conduct a Competitive Analysis for Your Business (Plus a Free Template)</a>
@@ -213,9 +213,10 @@ Enough for those who are lazy and just read this material to check it as done, b
 - website/landing page
 - seo
 - social media
+- organic
 
 
-## Sell
+## Sales
 
 <!-- todo: ideas -->
 - how / where / what channels
@@ -291,7 +292,7 @@ On reddit
 
 Another resources with more platforms can be found on  <a href="https://github.com/mmccaff/PlacesToPostYourStartup" target="_blank">mmccaff/PlacesToPostYourStartup</a>, <a href="https://www.indiehackers.com/post/relaunch-like-a-pro-100-places-to-launch-relaunch-and-list-your-product-7c67875635" target="_blank"> Relaunch like a pro: 100+ places to launch, relaunch, and list your product</a>.
 
-## Grow
+## Growth
 
 <!-- todo: ideas -->
 - expose API, CSV or other way to connect your platform with others.
