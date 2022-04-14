@@ -1,6 +1,6 @@
 ---
 title: Antiatomic bunker list in Romania
-summary: I created an antiatomic bunker list in Romania shared on github repo in csv and json format
+summary: I created an antiatomic bunker list in Romania shared on GitHub repo in CSV and JSON format. Check this out and build your next app using it.
 categories: resources
 tags: github repo
 date: 2022-03-11 09:09:09 +0000

@@ -4,7 +4,7 @@ summary: Full list of categories and subcategories for ads websites in the Roman
 categories: resources
 tags: sql csv
 date: 2022-02-23 09:09:09 +0000
-cover: https://pbs.twimg.com/card_img/1496551569839505411/tKgYj1G-?format=jpg&name=medium
+cover: https://cdn.pixabay.com/photo/2015/03/17/02/01/cubes-677092_960_720.png
 layout: post
 ---
 

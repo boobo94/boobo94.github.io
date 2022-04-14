@@ -42,7 +42,7 @@ then
 sudo rabbitmq-server -detached
 ```
 
-# After installation, restart service
+## After installation, restart service
 
 ```sh
 sudo systemctl restart rabbitmq-server

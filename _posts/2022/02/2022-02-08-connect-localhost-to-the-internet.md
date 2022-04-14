@@ -1,6 +1,6 @@
 ---
 title: Connect localhost to the internet
-summary: How to connect your localhost to the internet using a third party tool for development
+summary: How to connect your localhost to the internet using a third party tool for development. Just drop an eye here simple, clean, fast solutions only.
 categories: webservice
 tags: localhost port
 date: 2022-02-08 09:09:09 +0000

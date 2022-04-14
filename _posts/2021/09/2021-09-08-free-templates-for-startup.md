@@ -19,8 +19,6 @@ A complete list with free resources to build your next startup's website.
 7. [Colorlib](https://colorlib.com/wp/templates/)
 8. [Templatemo](https://templatemo.com/)
 9. [Onepage](https://onepagelove.com/templates)
-10. [Cruip](https://cruip.com/free-templates])
-11. [StyleShout](https://www.styleshout.com/free-templates])
 12. [Startbootstrap](https://startbootstrap.com/)
 13. [ZeroTheme](https://www.zerotheme.com/)
 14. [Html5xcss3](https://www.html5xcss3.com/)

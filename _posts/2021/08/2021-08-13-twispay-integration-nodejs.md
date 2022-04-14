@@ -3,7 +3,7 @@ title: Twispay Payment Provider integration in Nodejs
 summary: Fully example of Twispay payment provider in Nodejs. A service to create a new customer, new order, subscription, renew a subscription or refund a payment.
 tags: payment nodejs
 date: 2021-08-13 09:09:09 +0000
-cover: https://twispay.github.io/siteID&apiKey.gif
+cover: https://www.twispay.com/static/3a9e1a9375b8c73a1751ac3c920c403b/58556/product-hero.webp
 layout: post
 ---
 
