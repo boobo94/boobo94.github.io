@@ -2,7 +2,7 @@
 title: Google kills projects that made millions in revenue per year
 summary: Google kills projects that made millions in revenue per year. Just watch their graveyard and do it your own. What better validation do you expect.
 categories: startup
-tags: startup idea
+tags: idea
 date: 2022-04-19 09:09:09 +0000
 cover: https://cdn.pixabay.com/photo/2015/11/13/20/15/light-bulb-1042480_1280.jpg
 layout: post
