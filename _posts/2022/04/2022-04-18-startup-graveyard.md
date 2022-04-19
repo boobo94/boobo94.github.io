@@ -14,7 +14,7 @@ Startup graveyard is a series of killed projects that made millions in revenue p
 
 Just watch their graveyard and do it your own. What better validation do you expect.
 
-I was reading a [post on HN](https://www.indiehackers.com/post/indie-hacker-opportunities-in-googles-graveyard-3af4fcb8f7) about this subject and it looks so inspirational to me. That's why I decided to go deeper and share this.
+I was reading a [post on IH](https://www.indiehackers.com/post/indie-hacker-opportunities-in-googles-graveyard-3af4fcb8f7) about this subject and it looks so inspirational to me. That's why I decided to go deeper and share this.
 
 Isn't insane that they kill a valuable project? I mean producing millions is something. That is true, they pump some money to arrive at that stage, but still.
 
