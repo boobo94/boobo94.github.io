@@ -22,6 +22,6 @@ Is anyone already did this? Who tried to replicate the buried project of Google 
 
 Where you can find these projects?
 
-https://killedbygoogle.com
+<https://killedbygoogle.com>
 
 I'll go deeper into this subject and try to find something interesting. What about you?! Did you find something relevant?
