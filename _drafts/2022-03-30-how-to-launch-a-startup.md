@@ -205,7 +205,23 @@ Talk with them about your main questions, but try to find the best way of asking
 
 [Skip the story](#mvp)
 
-Recently I started to document for the next project that I would like to build. Is a SaaS solution for farming leases management. And I started to find competition. The first step was accomplished easier, by searching online. I found a list with 4-5 competitions and I decided to go deeper. Some details are already presented on their website, but for some reason not everything is online, for some of them. What would you do in this situation? Go further and find their clients or go directly to them and talk. 
+Recently I started to document myself for the next project that I would like to build. Is a SaaS solution for farming leases management. And I started to find competition. The first step was accomplished easier, by searching them online. I found a list with 4-5 competitors and I decided to go deeper. Some details are already presented on their website, but for some reason, not everything is online (I suspect they think that they can hide, Mr. Sherlock is in action.. no way for you to escape).
+
+What would you do in this situation? Go further and find their clients to talk about them or go directly to them and talk. I decided to go after them and ask for pricing. Check the website, find the email: "that's it, just an email away from the pricing".
+
+And I started
+
+> Hi, I'm a client who wants to try your services. I want to ask how much you charge for your software. At your disposal...
+
+The reply came:
+
+> Sure sir, can we have a phone call to talk more about our offer.
+
+I send them an email because my discussion had to be written because in that way I can search about their question and simulate the best client, but on the phone call, I may fake it wrong.
+
+I had the phone call and they asked me for details about my farm, the area, the company name, and what field size I lease. And 0 responses for any of these, but I cannot look stupid, right?! So I had to invent something and I told to the lady that I'm the nephew and my uncle has the farm and I need to find all the details and come back.
+
+After this discussion, I understood a valuable lesson. Be prepared all the time, try to be one step ahead of your competition.
 
 ### Analyze the competition - Resources
 
