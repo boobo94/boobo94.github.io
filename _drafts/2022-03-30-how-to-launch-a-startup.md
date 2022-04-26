@@ -205,6 +205,10 @@ Talk with them about your main questions, but try to find the best way of asking
 
 [Skip the story](#mvp)
 
+#### How I've been caught by competition trying to find their pricing
+
+![pricing of competition](https://cdn.pixabay.com/photo/2017/03/01/09/10/animals-2107902_960_720.jpg)
+
 Recently I started to document myself for the next project that I would like to build. Is a SaaS solution for farming leases management. And I started to find competition. The first step was accomplished easier, by searching them online. I found a list with 4-5 competitors and I decided to go deeper. Some details are already presented on their website, but for some reason, not everything is online (I suspect they think that they can hide, Mr. Sherlock is in action.. no way for you to escape).
 
 What would you do in this situation? Go further and find their clients to talk about them or go directly to them and talk. I decided to go after them and ask for pricing. Check the website, find the email: "that's it, just an email away from the pricing".
