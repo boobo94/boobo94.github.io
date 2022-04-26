@@ -197,11 +197,22 @@ There are some new fields where your startup can be unique and there's no compet
 
 Enough for those who are lazy and just read this material to check it as done, but don't take action. Let's talk about those cases when you don't have competition for real. It can be harder, but not impossible. In this case you need to look around, find similarities with other startups or domains and make analogies with them. Is not 100% accurate, but it may drive you on the right road.
 
+### Talk directly with competition 
+
+As you saw, there are indirect methods to check competition using online tools or offline tools, but sometimes you can go directly to the competition and ask. I know what you're thinking, why now and why would they answer? They don't! But you don't go to them and talk as you do it with your friends, find a context and pretend to be one of their client, maybe you already are and it can be better.
+
+Talk with them about your main questions, but try to find the best way of asking this. I have to tell you a story about how I failed once by checking the pricing of my competitors.
+
+[Skip the story](#mvp)
+
+Recently I started to document for the next project that I would like to build. Is a SaaS solution for farming leases management. And I started to find competition. The first step was accomplished easier, by searching online. I found a list with 4-5 competitions and I decided to go deeper. Some details are already presented on their website, but for some reason not everything is online, for some of them. What would you do in this situation? Go further and find their clients or go directly to them and talk. 
+
 ### Analyze the competition - Resources
 
 - <a href="https://www.toptal.com/product-managers/freelance/product-designer-guide-to-competitive-analysis" target="_blank">A Product Designer's Guide to Competitive Analysis</a>
 - <a href="https://www.shopify.com/blog/competitive-analysis" target="_blank">How to Conduct a Competitive Analysis for Your Business (Plus a Free Template)</a>
 
+(#mvp)
 ## MVP (Most Viable Product)
 
 <!-- todo: ideas -->
