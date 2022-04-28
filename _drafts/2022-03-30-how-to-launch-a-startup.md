@@ -227,6 +227,10 @@ I had the phone call and they asked me for details about my farm, the area, the 
 
 After this discussion, I understood a valuable lesson. Be prepared all the time, try to be one step ahead of your competition.
 
+#### Inspect freelancing platforms
+
+<!-- todo: inspect platforms as upwork and check competition -->
+
 ### Analyze the competition - Resources
 
 - <a href="https://www.toptal.com/product-managers/freelance/product-designer-guide-to-competitive-analysis" target="_blank">A Product Designer's Guide to Competitive Analysis</a>
