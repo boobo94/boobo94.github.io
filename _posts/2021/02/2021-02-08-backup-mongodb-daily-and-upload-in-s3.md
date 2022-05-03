@@ -78,6 +78,39 @@ rm -rf $backup_name
 rm $backup_name.tar.gz
 ```
 
+## Export multiple databases with mongodump
+
+But what happens when you need to export multiple databases. The script above it works without any issue, but the real deal goes out when you need to exclude collections with multiple export.
+
+Here is the script
+
+```sh
+DB_BACKUP_PATH=~/db_backups-`date +%Y-%m-%d-%H%M`
+
+MONGO_HOST=localhost
+MONGO_PORT=27017
+MONGO_USER=<ADMIN_USER>
+MONGO_PASSWORD=<YOUR_PASSWORD>
+
+MONGO_AUTH_STRING="--host $MONGO_HOST --port $MONGO_PORT --authenticationDatabase admin -u $MONGO_USER -p $MONGO_PASSWORD"
+
+dbs=`mongo $MONGO_AUTH_STRING --quiet --eval "db.getMongo().getDBNames()" | tr -d '"' | tr -d '",' | tr -d "[" | tr -d "]"`
+for db in $dbs; do
+    echo "Dumping database: $db"
+
+    db_export_string="--db=${db}"
+    if [ $db == "DATABASE_NAME" ]; then # add the name of your database
+        db_export_string+=" --excludeCollection=COLLECTION_NAME" # add the collection name that you want to be excluded
+    fi
+    mongodump $MONGO_AUTH_STRING $db_export_string --out $DB_BACKUP_PATH
+done
+
+tar czf $DB_BACKUP_PATH.tar.gz $DB_BACKUP_PATH
+aws s3 cp $backup_name.tar.gz s3://YOUR_PATH_HERE
+rm -rf $DB_BACKUP_PATH
+rm $DB_BACKUP_PATH.tar.gz
+```
+
 The second file needs to upload the logs to S3
 
 ```sh
