@@ -154,15 +154,25 @@ Don't force to get an answer from them with any price. If they stay closed to "I
 
 Is the moment to tell them what is your opinion regarding the price.
 
-<!-- todo: ideas -->
-- ask what they need immediatly to sign with you
-- offer discount if they buy early (50-70% lifetime or it depends), if they ask about guarantee you can tell them is like a risk for a future investment, but offer them full refund if they're not satisfied with the final product after release.
-- read The mom test
-- build a LP with buy now button
+### Sell right now
+
+Wait, what?!
+
+Sure is too soon and we have a dedicated chapter for this, but I'm not kidding. Is the right moment to test your salesman skills and ask the client if he is ready to buy it right now. And how much he can pay for it. See his reaction and be careful what's the reply. They may not agree, even if they saw nothing only stories from someone who interview him, but try to discover if he's available to pay something for the solution. Is a good exercise for your, but more than that you can see how critical is their problem. If many prospects are ready to pay you upfront, that is for sure a very solid project to build.
+
+How to deal with the situation if they reject?
+
+They may not be ready to buy it, but at least try to offer them a discount and see if this work. You can promise them a 10% discount for X months if they give you some money upfront. Or you can offer them something related to the product for life. Be ingenious and discover what works best for you and your product. Be generous, because it may help you on the long run.
+
+If they still reject your offer, take your las shoot. Ask them what they need to sign right away? Here's the moment where you get him, it's the show time. If he is afraid of something, it must say it. Is the moment when he should talk about what is afraid and when you need to understand what are you deal with. This moment can be an important lesson for you because what your prospects are telling you right now, may be the headers for your website. 
+
+Is the client asking about the guarantee for the upfront payment? Don't panic, you can tell them is like a risk for a future investment, but offer them full refund if they're not satisfied with the product after release. In this way they can feel safe. If they don't need the product, for sure doesn't bother to give you money, just to get it back later.
 
 ### Where to start from
 
 <!-- todo: ideas -->
+
+- build a LP with buy now button
 
 ## Build the product or service
 
