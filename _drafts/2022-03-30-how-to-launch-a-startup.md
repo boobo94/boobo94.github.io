@@ -250,6 +250,10 @@ After this discussion, I understood a valuable lesson. Be prepared all the time,
 - social media
 - organic
 
+## Pricing model
+
+<!-- todo: ideas -->
+
 
 ## Sales
 
