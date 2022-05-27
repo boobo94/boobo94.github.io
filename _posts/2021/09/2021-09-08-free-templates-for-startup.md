@@ -13,6 +13,7 @@ A complete list with free resources to build your next startup's website.
 1. The Best Landing Page Examples from [Lapa](https://www.lapa.ninja/)
 2. [40 Free HTML landing page templates](https://dev.to/davidepacilio/40-free-html-landing-page-templates-3gfp)
 3. [Static HTML Templates](https://designmodo.com/website-templates/)
+4. <https://github.com/uisual/freebies>
 5. [Made with Vuejs](https://madewithvuejs.com/vue-material-admin) admin panels 
 6. [html5up](https://html5up.net/)
 7. [Colorlib](https://colorlib.com/wp/templates/)
@@ -24,5 +25,7 @@ A complete list with free resources to build your next startup's website.
 15. [Graphberry](https://www.graphberry.com/)
 16. [Tooplate](https://www.tooplate.com/)
 17. [UIdeck](https://uideck.com/)
+18. <https://github.com/bedimcode?tab=repositories>
+19. [Github "website template" topic](https://github.com/topics/website-template)
 
 PS: List is updated constantly
