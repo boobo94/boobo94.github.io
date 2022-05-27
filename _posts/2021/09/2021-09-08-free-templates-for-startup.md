@@ -3,7 +3,7 @@ title: Free templates for startup
 summary: Free HTML templates for startup or a new project. A complete list with free resources to build your next startup's website and gain the traction to the sky.
 categories: resources
 tags: landingpage website
-date: 2022-02-27 09:09:12 +0000
+date: 2022-05-27 09:09:12 +0000
 cover: https://cdn.pixabay.com/photo/2016/08/27/12/06/website-1624028_1280.png
 layout: post
 ---
@@ -27,5 +27,6 @@ A complete list with free resources to build your next startup's website.
 17. [UIdeck](https://uideck.com/)
 18. <https://github.com/bedimcode?tab=repositories>
 19. [Github "website template" topic](https://github.com/topics/website-template)
+20. <https://github.com/topics/landingpage?o=desc&s=updated>
 
 PS: List is updated constantly
