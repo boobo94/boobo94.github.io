@@ -16,6 +16,8 @@ I would like to share with you boys some places where you can find ideas, share 
 4. [Plygrnd](https://plygrnd.xyz/)
 5. [I wish there was app](https://iwishtherewas.app/)
 6. [Gummy Search](https://gummysearch.com/)
+7. [Ideazed](https://ideazed.com/)
+8. [Request for startup](https://requestforstartup.co/)
 
 
 The Fastest Way To Validate Your Business Idea
