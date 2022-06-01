@@ -14,6 +14,9 @@ I would like to share with you boys some places where you can find ideas, share 
 2. [needgap](https://needgap.com/)
 3. [Kern.al](https://kern.al/)
 4. [Plygrnd](https://plygrnd.xyz/)
+5. [I wish there was app](https://iwishtherewas.app/)
+6. [Gummy Search](https://gummysearch.com/)
+
 
 The Fastest Way To Validate Your Business Idea
 Create a landing page for your idea and start collecting sign-ups in minutes. All with a single tool - no coding, no integrations, no hassle.
