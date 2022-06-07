@@ -23,14 +23,16 @@ I bought 4GB more and with 8GB of RAM, I said that's it.
 Then I saw a lot of tutorials with developers on a mac computer and I thought: hmm I need that type of computer to be a good developer.
 
 Meantime I got a new job with a 2012 Macbook pro upgraded to 16GB of ram. That was awesome. 
+
 But it was almost 2017 and I had a 5-year-old laptop and I thought that I need an upgrade. I bought a 2015 mid MacBook pro with 16GB of ram, and an i5, it was awesome. 
+
 But at work, things go slow so I decided to use my own laptop for work. After almost one year the company decided to buy me a new 2019 MacBook pro i7, with 16GB of ram. Super cool spaceship and I left the company after 6 months. 
+
 After all, I was a better programmer and in 2020 I decided to buy myself a gift for my birthday, a Macbook PRO 2020, i9, 32GB RAM, and a real rocket. 
 But you know what?
 
 I'm a better programmer not because of my laptop power, but because of my skills. I can still code on my first computer and do a great job because it wasn't it, I was the one who needed an upgrade. 
 
- 
 So if you think you need the latest MacBook pro to be a real pro. No that's false.
 
 Improve yourself! 
