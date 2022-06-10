@@ -262,8 +262,24 @@ After this discussion, I understood a valuable lesson. Be prepared all the time,
 
 ## Pricing model
 
-<!-- todo: ideas -->
+Pricing is a very important part of your project. Is more important than it looks like, because with a wrong [pricing](https://www.indiehackers.com/post/how-to-decide-pricing-for-your-new-saas-project-6e9081928e), your product can go wrong. Even if the price is low or high.
+If you don't have competition to compare your product with, then try to experiment, check how many money do your solution save or make to the client and try to find the value. If you have competition you can start from there. The price can be adjusted over time, and I really recommend to do it.
 
+### Freemium plan
+
+A freemium plan is not required, but it may helps. Users can test your product and find it valuable. If they're small it can use it for some time, and aquire it when they grow.
+
+Remember you offer it for free to promote the product, don't offer too less, but try to keep the best shoot for the paid plans. If you offer too much, there may not be enough interest in paying. But if you offer too less, the free plan can become useless and no one wants to try it.
+
+### What not to do when decide pricing
+
+Don't make the pricing hard to understand. When you start the pricing list, you tend to please every people, add a lot of features in the list. That's definitely wrong! Put in the feature list only the most valuable features, that really solve a pain. And the price, keep it simple, don't try to satisfy every person and have too many plans. Keep the pricing plans as simple as you can.
+
+The low price with high value is a red flag and people will stay away. Once I tried to help the restaurants, in the Covid pandemic period, I choose a very low price, and the people were not interested. Until one moment when I client told me that something is strange, and double check if there are no extra taxes because the price is too low. At that point I understood if the price is too low, clients will see it as a warning.
+
+The product must makes money for the client. Even if you save money, time or produce money, it have to bring value on the table.
+
+Use the right price, don't keep the price low just because you're not enterprise.
 
 ## Sales
 
