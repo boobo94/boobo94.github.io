@@ -12,4 +12,12 @@ How to detect the browser language in javascript in just a line of code. The met
 
 ```js
 const language = navigator.language || navigator.userLanguage;
+// en-US
+```
+
+If you need only the two letters:
+
+```js
+const language = (navigator.language || navigator.userLanguage).substr(0, 2)
+// en
 ```
