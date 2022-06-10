@@ -281,6 +281,10 @@ The product must makes money for the client. Even if you save money, time or pro
 
 Use the right price, don't keep the price low just because you're not enterprise.
 
+### Resources
+
+1. [SaaS Taxes Guide: Everything you need to know to handle taxes efficiently.](https://www.pricewell.io/blog/saas-tax-stripe/)
+
 ## Sales
 
 <!-- todo: ideas -->
