@@ -123,3 +123,4 @@ services:
 networks:
   my-network:
     driver: bridge
+```
