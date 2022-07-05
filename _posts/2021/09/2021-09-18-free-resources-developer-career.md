@@ -78,6 +78,24 @@ It depends by your vibe, but sometimes I listen Snoop Dog, Bug Mafia, etc. But m
 - <http://shape.so/>
 - <https://lottiefiles.com/featured>
 
+### illustrations
+
+- <drawkit.io>
+- <undraw.co>
+- <iradesign.io>
+- <icons8.com>
+- <blush.design>
+- <storyset.com>
+- <pixeltrue.com>
+- <manypixels.co>
+- <illustrations.co>
+- <illustratious.com>
+- <iconscout.com>
+- <isometric.online>
+- <humaaans.com>
+- <openpeeps.com>
+- <themeisle.com/illustrations/>
+
 ### Icons
 
 - <https://fontawesome.com/>
