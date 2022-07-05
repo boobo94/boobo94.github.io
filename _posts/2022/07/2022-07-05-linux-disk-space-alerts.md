@@ -65,7 +65,7 @@ crontab -e
 and at the end of the file enter
 
 ```sh
-0 6 * * * /home/ubuntu/check_disk.sh
+0 6 * * * /bin/bash /home/ubuntu/check_disk.sh
 ```
 
 !!! Use your full path the the file
