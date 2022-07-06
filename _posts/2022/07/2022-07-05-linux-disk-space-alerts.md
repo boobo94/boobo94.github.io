@@ -50,6 +50,8 @@ fi
 
 # Make the script executable
 
+Be sure that you have permissions to at least 755 set.
+
 ```sh
 sudo chmod +x /home/ubuntu/check-disk.sh
 ```
