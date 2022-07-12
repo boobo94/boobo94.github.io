@@ -80,21 +80,21 @@ It depends by your vibe, but sometimes I listen Snoop Dog, Bug Mafia, etc. But m
 
 ### illustrations
 
-- <drawkit.io>
-- <undraw.co>
-- <iradesign.io>
-- <icons8.com>
-- <blush.design>
-- <storyset.com>
-- <pixeltrue.com>
-- <manypixels.co>
-- <illustrations.co>
-- <illustratious.com>
-- <iconscout.com>
-- <isometric.online>
-- <humaaans.com>
-- <openpeeps.com>
-- <themeisle.com/illustrations/>
+- <https://drawkit.io>
+- <https://undraw.co>
+- <https://iradesign.io>
+- <https://icons8.com>
+- <https://blush.design>
+- <https://storyset.com>
+- <https://pixeltrue.com>
+- <https://manypixels.co>
+- <https://illustrations.co>
+- <https://illustratious.com>
+- <https://iconscout.com>
+- <https://isometric.online>
+- <https://humaaans.com>
+- <https://openpeeps.com>
+- <https://themeisle.com/illustrations/>
 
 ### Icons
 
