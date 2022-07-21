@@ -290,6 +290,10 @@ Use the right price, don't keep the price low just because you're not enterprise
 <!-- todo: ideas -->
 - how / where / what channels
 
+## Resources
+
+- <https://linktr.ee/alex.berman>
+
 
 (#where-to-launch-startups)
 ## Where to launch the startup
