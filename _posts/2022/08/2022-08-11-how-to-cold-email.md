@@ -3,7 +3,7 @@ title: How to cold email
 summary: How to cold email - a practical guide about how to use cold email in your activity as a CEO of a software agency or startup owner.
 categories: startup
 tags: email
-date: 2022-08-12 09:09:09 +0000
+date: 2022-08-11 09:09:09 +0000
 cover: https://cdn.pixabay.com/photo/2016/05/07/16/52/sea-1377712_1280.jpg
 layout: post
 ---
