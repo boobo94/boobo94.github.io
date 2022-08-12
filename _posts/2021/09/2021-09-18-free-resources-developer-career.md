@@ -49,8 +49,8 @@ I've wrote an article some time ago [Complete list with reading resources and fr
 
 ## You are thinking beyond of cloud, maybe you're an entrepreneur?
 
-- [Free ideas for the next startup](https://whyboobo.com/startup/free-ideas-for-the-next-startup/)
-- [Curated list of 25 startup launch platforms](https://whyboobo.com/startup/curated-list-startup-launch-platforms/)
+- [Free ideas for the next startup](https://whyboobo.com/startup/how-to-launch-a-startup/)
+- [Curated list of 25 startup launch platforms](https://whyboobo.com/startup/how-to-launch-a-startup/)
 
 ## What to listen to, when you code?
 

@@ -3,24 +3,17 @@ title: How to launch a startup
 summary: Are you curious how to launch a startup in the fast and effective way? Here's not the answer, but you can understand how to achieve it
 categories: startup
 tags: launch
-date: 2022-03-30 09:09:09 +0000
+date: 2022-08-12 09:09:09 +0000
 cover: https://cdn.pixabay.com/photo/2021/10/26/19/44/field-6745014_1280.jpg
-redirect_from: 
-# todo: remove this article
+redirect_from:
 - /startup/curated-list-startup-launch-platforms/
 - /startup/free-ideas-for-the-next-startup/
 layout: post
 ---
 
-<!-- todo: remove this before release -->
-Check SEO meta: https://metadescriptiontool.com/
-
-
-
-
 I launched few projects, but every time I felt like I'm not able to do it and probably never finish it. I learnt a lot from books or from online articles, but all the time the phrases were repeted over and over with the same content.
 
-As all my blog posts, I'll be straight to the point, because this article is not only for you, but is for me too. Is a way of taking notes while I'm learning and in the moment I write these lines the learning process is still active.
+As all my blog posts, I'll be straight to the point, because this article is not only for you, but i§s for me too. Is a way of taking notes while I'm learning and in the moment I write these lines the learning process is still active.
 
 So how to launch a startup, line by line.
 
@@ -239,7 +232,7 @@ After this discussion, I understood a valuable lesson. Be prepared all the time,
 
 #### Inspect freelancing platforms
 
-<!-- todo: inspect platforms as upwork and check competition -->
+If you don't have time, don't worry, there's always a plan B. You can ask someone to do it for you, for free or paid. You can search for a Virtual Assistant on freelancing websites like Fiverr or Upwork. You can establish all the details and they will do exactly the task you asked for.
 
 ### Analyze the competition - Resources
 
