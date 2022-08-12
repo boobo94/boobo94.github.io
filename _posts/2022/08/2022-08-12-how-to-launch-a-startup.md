@@ -173,7 +173,7 @@ You're good now and probably know how to launch a startup. You have the idea, is
 
 Don'y worry, go after competition and see what they offer.
 
-(#analyze-competition)
+<span id="analyze-competition"></span>
 ## Analyze the competition
 
 ![analyze competition](https://cdn.pixabay.com/photo/2020/08/09/14/25/business-5475658_1280.jpg)
@@ -239,7 +239,7 @@ If you don't have time, don't worry, there's always a plan B. You can ask someon
 - <a href="https://www.toptal.com/product-managers/freelance/product-designer-guide-to-competitive-analysis" target="_blank">A Product Designer's Guide to Competitive Analysis</a>
 - <a href="https://www.shopify.com/blog/competitive-analysis" target="_blank">How to Conduct a Competitive Analysis for Your Business (Plus a Free Template)</a>
 
-(#mvp)
+<span id="mvp"></span>
 ## MVP (Most Viable Product)
 
 <!-- todo: ideas -->
@@ -288,7 +288,7 @@ Use the right price, don't keep the price low just because you're not enterprise
 - <https://linktr.ee/alex.berman>
 
 
-(#where-to-launch-startups)
+<span id="where-to-launch-startups"></span>
 ## Where to launch the startup
 
 ![where to launch the startup](https://cdn.pixabay.com/photo/2018/04/07/17/26/startup-3299033_1280.jpg)
