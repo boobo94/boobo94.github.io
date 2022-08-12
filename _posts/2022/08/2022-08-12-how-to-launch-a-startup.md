@@ -163,9 +163,7 @@ Is the client asking about the guarantee for the upfront payment? Don't panic, y
 
 ### Where to start from
 
-<!-- todo: ideas -->
-
-- build a LP with buy now button
+You can simply start with a landing page, and there are a lot of free resources that may help you to create one. Place a fake pay now button and see how many people are ready to buy your product. Ok after the people click on that button you can open a popup or redirect to another page where you tell them that the product is not ready and you may ask their email to put it on a waiting list.
 
 ## Build the product or service
 
@@ -242,16 +240,16 @@ If you don't have time, don't worry, there's always a plan B. You can ask someon
 <span id="mvp"></span>
 ## MVP (Most Viable Product)
 
-<!-- todo: ideas -->
-- most important features, but if competition offers a lot, your mvp cannot be poor
+// todo: ideas
+// - most important features, but if competition offers a lot, your mvp cannot be poor
 
 ## Marketing
 
-<!-- todo: ideas -->
-- website/landing page
-- seo
-- social media
-- organic
+// todo: ideas
+// - website/landing page
+// - seo
+// - social media
+// - organic
 
 ## Pricing model
 
@@ -280,12 +278,12 @@ Use the right price, don't keep the price low just because you're not enterprise
 
 ## Sales
 
-<!-- todo: ideas -->
+// todo: ideas
 - how / where / what channels
 
-## Resources
+### Resources
 
-- <https://linktr.ee/alex.berman>
+- Alex Berman <a href="https://linktr.ee/alex.berman" target="_blank">recommended tools</a>, the author of The cold Email Manifesto book
 
 
 <span id="where-to-launch-startups"></span>
@@ -360,8 +358,11 @@ Another resources with more platforms can be found on  <a href="https://github.c
 
 ## Growth
 
-<!-- todo: ideas -->
-- expose API, CSV or other way to connect your platform with others.
+The best way to grow your product is to help others to connect with. So if your product is a software solution, be sure to expose some APIs and let others to build other featureas for their software by connecting with yours.
+
+Let people export the data, either by APIs or at least some CSV.
+
+You cannot imagine how smart people can be and how that can help you to grow.
 
 ## Other resources
 
