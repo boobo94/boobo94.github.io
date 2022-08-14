@@ -256,11 +256,35 @@ If you don't have time, don't worry, there's always a plan B. You can ask someon
 Pricing is a very important part of your project. Is more important than it looks like, because with a wrong [pricing](https://www.indiehackers.com/post/how-to-decide-pricing-for-your-new-saas-project-6e9081928e), your product can go wrong. Even if the price is low or high.
 If you don't have competition to compare your product with, then try to experiment, check how many money do your solution save or make to the client and try to find the value. If you have competition you can start from there. The price can be adjusted over time, and I really recommend to do it.
 
-### Freemium plan
+### Freemium Pricing
 
 A freemium plan is not required, but it may helps. Users can test your product and find it valuable. If they're small it can use it for some time, and aquire it when they grow.
 
 Remember you offer it for free to promote the product, don't offer too less, but try to keep the best shoot for the paid plans. If you offer too much, there may not be enough interest in paying. But if you offer too less, the free plan can become useless and no one wants to try it.
+
+### Flat Pricing
+
+Is a type of subscription pricing where the customer pays a price per month/year for access to the software. 
+The main advantage is that it is predictable and easy to budget for.
+The main disadvantage is that it does not account for usage, so customers who use the software lite may feel like they are overpaying.
+
+### Tier-Based Pricing
+
+Are those in which the price of the software is based on the level of service or features that the customer requires. This can be a per-user, per-month price, or a price based on the features that the customer requires.
+
+### User-Based Pricing
+
+The SaaS user-based pricing model is a pricing model in which the price of a software application is based on the number of users that will be using the application.
+
+The main advantage of the SaaS user-based pricing model is that it allows software companies to price their applications based on the value that they provide to their users.
+
+### Usage-Based Pricing
+
+You charge your customers based on how much they use your product.
+
+### Lifetime Subscription
+
+The customer pays a one-time fee for access to the software for an unlimited period.
 
 ### What not to do when decide pricing
 
