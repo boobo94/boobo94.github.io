@@ -3,7 +3,7 @@ title: How to launch a startup
 summary: Are you curious how to launch a startup in the fast and effective way? Here's not the answer, but you can understand how to achieve it
 categories: startup
 tags: launch
-date: 2022-08-12 09:09:09 +0000
+date: 2022-08-14 09:09:09 +0000
 cover: https://cdn.pixabay.com/photo/2021/10/26/19/44/field-6745014_1280.jpg
 redirect_from:
 - /startup/curated-list-startup-launch-platforms/
