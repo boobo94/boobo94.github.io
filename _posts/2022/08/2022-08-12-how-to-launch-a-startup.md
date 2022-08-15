@@ -1,5 +1,5 @@
 ---
-title: How to launch a startup
+title: How to launch a 6 figures startup with 0$ investment
 summary: Are you curious how to launch a startup in the fast and effective way? Here's not the answer, but you can understand how to achieve it
 categories: startup
 tags: launch
