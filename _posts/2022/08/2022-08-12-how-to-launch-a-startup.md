@@ -19,33 +19,32 @@ So how to launch a startup, line by line?!
 
 Content Table
 
-1. [Find your idea](#find-idea)
+1. [Find your idea](#find-your-idea)
 2. [Validate idea](#validate-idea)
-2.1. [Where to find prospects](#where-find-prospects)
-2.1.1. [Watch your competition audience](#watch-your-competition-audience)
-2.1.2. [Use social media](#use-social-media)
-2.1.3. [Email](#email)
-2.2. [Who should you talk with](#who-should-you-talk-with)
-2.3. How many people should you talk with
-2.4. What to talk about with prospects
-2.5. Pitch the product before is built
-2.6. Sell right now
-3. Build the product or service
-4. Analyze the competition
-4.1. Check reviews of competition
-4.2. I don’t have competition
-4.3. Talk directly with competition
-4.3.1. How I've been caught by competition trying to find their pricing
-4.3.2. Inspect freelancing platforms
-4.4. Analyze the competition - Resources
-5. MVP (Most Viable Product)
-6. Marketing
-7. Pricing model
-8. Sales
-9. Where to launch the startup
-10. Growth
+    2.1. [Where to find prospects](#where-to-find-prospects)
+        2.1.1. [Watch your competition audience](#watch-your-competition-audience)
+        2.1.2. [Use social media](#use-social-media)
+        2.1.3. [Email](#email)
+    2.2. [Who should you talk with](#who-should-you-talk-with)
+    2.3. [How many people should you talk with](#how-many-people-should-you-talk-with)
+    2.4. [What to talk about with prospects](#what-to-talk-about-with-prospects)
+    2.5. [Pitch the product before is built](#pitch-the-product-before-is-built)
+    2.6. [Sell right now](#sell-right-now)
+3. [Build the product or service](#build-the-product-or-service)
+4. [Analyze the competition](#analyze-the-competition)
+    4.1. [Check reviews of competition](#check-reviews-of-competition)
+    4.2. [I don’t have competition](#i-dont-have-competition)
+    4.3. [Talk directly with competition](#talk-directly-with-competition)
+        4.3.1. [How I've been caught by competition trying to find their pricing](#how-ive-been-caught-by-competition-trying-to-find-their-pricing)
+        4.3.2. [Inspect freelancing platforms](#inspect-freelancing-platforms)
+    4.4. [Analyze the competition - Resources](#analyze-the-competition)
+5. [MVP (Most Viable Product)](#mvp-most-viable-product)
+6. [Marketing](#marketing)
+7. [Pricing model](#pricing-model)
+8. [Sales](#sales)
+9. [Where to launch the startup](#where-to-launch-the-startup)
+10. [Growth](#growth)
 
-<span id="find-idea"></span>
 ## Find your idea
 
 ![find your idea for startup](https://cdn.pixabay.com/photo/2017/02/13/08/54/brain-2062057_1280.jpg)
@@ -63,7 +62,6 @@ By time to time I am curious what others wants to build and some of the websites
 
 Your idea may suffer many changes over time. Don't worry, that's normal, you need to adapt and switch fast in order to stay upfront.
 
-<span id="validate-idea"></span>
 ## Validate idea
 
 ![validate idea](https://cdn.pixabay.com/photo/2019/09/29/22/06/light-bulb-4514505_1280.jpg)
@@ -72,12 +70,10 @@ The validation of idea is very important because we are subjective with our crea
 
 Talking with potential customers can be benefic from many perspectives: understand your product/service, understand if your idea is not good enough yet, the customer's needs, what they miss in the current solution.
 
-<span id="where-find-prospects"></span>
 ### Where to find prospects
 
 Everywhere can be a customer! What a generic response, right?! It is true, let's dive more in. 
 
-<span id="watch-competition"></span>
 #### Watch your competition audience
 
 Basically if you don't know exactly where your customer can be found, start watching your competition, later we talk [how to analyze competition](#analyze-competition). Your competition is already in front of customers with a product or a service. But don't worry, you don't need to steal the competition's strategy, actually is not quite correct to do that, better analyze them and improve their strategy or product. 
@@ -86,7 +82,6 @@ Start looking at their website, social media, do they manage other channels like
 
 Maybe your niche is not well defined, you don't have competition yet or you don't know where to start from. I suggest to start talking with people that you think might be your customer. It can be chaotic in the beginning but at least you talk with people.
 
-<span id="use-social-media"></span>
 #### Use social media
 
 ![validate idea with social media](https://cdn.pixabay.com/photo/2016/03/03/10/17/social-media-1233873_1280.jpg)
@@ -95,7 +90,6 @@ You know that social media can be a very powerful strategy? I like to talk with 
 
 <!-- todo: go deep with each platform: twitter, ig, fb, linkedin, reddit -->
 
-<span id="email"></span>
 #### Email
 
 ![validate idea with email](https://cdn.pixabay.com/photo/2018/03/22/02/37/email-3249062_1280.png)
