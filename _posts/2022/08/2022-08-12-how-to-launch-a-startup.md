@@ -284,6 +284,8 @@ If you don't have time, don't worry, there's always a plan B. You can ask someon
 Pricing is a very important part of your project. Is more important than it looks like, because with a wrong [pricing](https://www.indiehackers.com/post/how-to-decide-pricing-for-your-new-saas-project-6e9081928e), your product can go wrong. Even if the price is low or high.
 If you don't have competition to compare your product with, then try to experiment, check how many money do your solution save or make to the client and try to find the value. If you have competition you can start from there. The price can be adjusted over time, and I really recommend to do it.
 
+Below I would like to share with you some informations about pricing models and how you can achieve a <a href="https://www.devtoagency.com/recurring-revenue/" target="_blank">recurring revenue model</a>.
+
 ### Freemium Pricing
 
 A freemium plan is not required, but it may helps. Users can test your product and find it valuable. If they're small it can use it for some time, and aquire it when they grow.
