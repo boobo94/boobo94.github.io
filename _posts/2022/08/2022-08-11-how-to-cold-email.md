@@ -38,3 +38,7 @@ Fake email messages are a problem these days. You can use a free email validatio
 - <a href="https://www.zerobounce.net/" target="_blank">Zerobounce</a>
 - <a href="https://emailverifier.com/" target="_blank">Email Verifier</a>
 - <a href="https://clearout.io/" target="_blank">Clearout</a>
+
+## How to check the spammyness level of your email
+
+To check the spamyness level of your email I prefer to use a free tool called <a href="https://www.mail-tester.com/" target="_blank">Mail Tester</a>
