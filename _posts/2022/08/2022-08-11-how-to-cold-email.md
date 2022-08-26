@@ -42,3 +42,7 @@ Fake email messages are a problem these days. You can use a free email validatio
 ## How to check the spammyness level of your email
 
 To check the spamyness level of your email I prefer to use a free tool called <a href="https://www.mail-tester.com/" target="_blank">Mail Tester</a>
+
+## Finding prospects
+
+1. <a href="https://chrome.google.com/webstore/detail/leadgibbon-email-finder/adeogdcibcngnkofabmpicgohlpcopmg" target="_blank">LeadGibbon Email Finder</a> chrome extension
