@@ -104,6 +104,7 @@ It depends by your vibe, but sometimes I listen Snoop Dog, Bug Mafia, etc. But m
 - <https://www.freepik.com/>
 - <http://thenounproject.com/>
 - <http://feathericons.com/>
+- <https://icons.download/>
 
 ### Logos
 
