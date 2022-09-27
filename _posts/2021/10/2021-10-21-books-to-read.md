@@ -75,6 +75,9 @@ I decided one year ago to challange myself and read as many books as I can this 
 1. Software Company: Advice on how to start, grow and exit a software company By David Cornwall
 2. The 60-Minute Tech Startup By Ramesh Donta
 3. How to Nail Product Positioning so Customers Get It, Buy It, Love It
+4. Small Business For Dummies
+5. How to Launch a Brand (2nd Edition): Your Step-by-Step Guide to Crafting a Brand: From Positioning to Naming And Brand Identity
+
 
 WIP
 
