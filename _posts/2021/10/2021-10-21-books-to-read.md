@@ -58,6 +58,23 @@ I decided one year ago to challange myself and read as many books as I can this 
 4. ✅ The subscription Boom by Adam Levinter
 5. ✅ Crypto Currencies by Julian Hosp
 6. ✅ It doesn't have to be crazy at work
+7. ✅ Your NexT 5 moves. Master the art of business by Patrick Bet-David
+8. ✅ Developer marketing does not exits by Adam Divander
+9. ✅ Company of one by Paul Jarvis
+10. ✅ Start small stay small, a developer guide to launch a startup
+11. ✅ The automatic customer by John Warillow
+12. ✅ Lost and founder
+13. ✅ The forever transaction by Robbie Kelemen Baxter
+14. ✅ From impossible to inevitable by Aaron Ross
+15. ✅ Cold email manifesto by Alex Berman
+16. ✅ 12 months to $1 million by Ryan Daniel Moran
+17. ✅ The 1 page marketing plan by Allan Dib
+
+## 2023
+
+1. Software Company: Advice on how to start, grow and exit a software company By David Cornwall
+2. The 60-Minute Tech Startup By Ramesh Donta
+3. How to Nail Product Positioning so Customers Get It, Buy It, Love It
 
 WIP
 
