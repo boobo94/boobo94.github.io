@@ -8,10 +8,6 @@ cover: https://cdn.pixabay.com/photo/2018/05/11/12/59/phishing-3390518_1280.jpg
 layout: post
 ---
 
-Demo
-
-Check SEO meta: https://metadescriptiontool.com/
-
 First of all, if you have access to your Jenkins server the credentials are stored at:
 
 ```sh
