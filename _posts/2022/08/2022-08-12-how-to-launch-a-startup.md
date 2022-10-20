@@ -3,11 +3,13 @@ title: How to launch a 6 figures startup with 0$ investment
 summary: Are you curious how to launch a startup in the fast and effective way? Here's not the answer, but you can understand how to achieve it
 categories: startup
 tags: launch
-date: 2022-08-14 09:09:09 +0000
+date: 2022-09-20 09:09:09 +0000
 cover: https://cdn.pixabay.com/photo/2021/10/26/19/44/field-6745014_1280.jpg
 redirect_from:
 - /startup/curated-list-startup-launch-platforms/
 - /startup/free-ideas-for-the-next-startup/
+- /startup/google-graveyard-projects/
+- /startup/startup-graveyard/
 layout: post
 ---
 
@@ -20,6 +22,7 @@ So how to launch a startup, line by line?!
 ## Table of Content
 
 1. [Find your idea](#find-your-idea)
+    1. [Startup graveyard](#startup-graveyard)
 2. [Validate idea](#validate-idea)
     1. [Where to find prospects](#where-to-find-prospects)
         1. [Watch your competition audience](#watch-your-competition-audience)
@@ -55,10 +58,33 @@ But REMEMBER, your idea don't have to be unique. Competition is good and it help
 
 By time to time I am curious what others wants to build and some of the websites that I check are these:
 
-- <a href="(https://www.indiehackers.com/group/ideas-and-validation" target="_blank">Ideas and Validation Group from IH</a> 
-- <a href="(https://needgap.com" target="_blank">needgap</a> 
+- <a href="https://www.indiehackers.com/group/ideas-and-validation" target="_blank">Ideas and Validation Group from IH</a> 
+- <a href="https://needgap.com" target="_blank">needgap</a> 
 - <a href="https://kern.al" target="_blank">Kern.al</a> 
 - <a href="https://plygrnd.xyz" target="_blank">Plygrnd</a>
+
+### Startup graveyard 
+
+Startup graveyard is a series of killed projects that made millions in revenue per year.
+
+
+Just watch their graveyard and do it your own. What better validation do you expect.
+
+I was reading a [post on IH](https://www.indiehackers.com/post/indie-hacker-opportunities-in-googles-graveyard-3af4fcb8f7) about this subject and it looks so inspirational to me. That's why I decided to go deeper and share this.
+
+Isn't insane that they kill a valuable project? I mean producing millions is something. That is true, they pump some money to arrive at that stage, but still.
+
+You're not Google, building a pre-validated product, which already had customers can be something and can change your life for sure. I must admit, I want such a product and such a market and such a revenue.
+
+Is anyone already did this? Who tried to replicate the buried project of Google and work on it.
+
+## Where you can find these projects?
+
+1. [Startup Cemetery](https://www.failory.com/cemetery)
+2. [Google Cemetery](https://killedbygoogle.com)
+3. [Amazon Cemetery](https://www.failory.com/amazon)
+
+Did you find something relevant? Tell me via <a href="https://twitter.com/militaru_bogdan" target="_blank">twitter</a>
 
 Your idea may suffer many changes over time. Don't worry, that's normal, you need to adapt and switch fast in order to stay upfront.
 
@@ -429,3 +455,7 @@ I like to read, even if I discovered that books are not always about beletristic
 Some times ago I tried to launch a project, a digital menu for restaurants and I wrote about [The story of Customenu](https://whyboobo.com/startup/story-of-customenu/), is a good story about failing with a startup.
 
 ![]( https://cmevo.com/wp-content/uploads/2021/11/meniu-digital-customenu-app-500x361.png)
+
+## Contribute
+
+Would you like to contribute on this article, please open a PR on <a href="https://github.com/boobo94/boobo94.github.io/pulls" target="_blank">Github</a> or DM via <a href="https://twitter.com/militaru_bogdan" target="_blank">twitter</a> or <a href="https://www.linkedin.com/in/bogdan-alexandru-militaru/" target="_blank">LinkedIn</a>.
