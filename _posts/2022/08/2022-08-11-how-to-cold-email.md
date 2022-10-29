@@ -46,3 +46,11 @@ To check the spamyness level of your email I prefer to use a free tool called <a
 ## Finding prospects
 
 1. <a href="https://chrome.google.com/webstore/detail/leadgibbon-email-finder/adeogdcibcngnkofabmpicgohlpcopmg" target="_blank">LeadGibbon Email Finder</a> chrome extension
+
+## how you find what doesn't work?
+
+1. Send emails
+2. Bounce rate high? get better leads
+3. Open rate low? Change subject
+4. No responses? Rewrite email
+5. Negative responses? Change offer
