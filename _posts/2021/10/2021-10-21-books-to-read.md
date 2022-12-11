@@ -74,9 +74,19 @@ I decided one year ago to challange myself and read as many books as I can this 
 
 1. Software Company: Advice on how to start, grow and exit a software company By David Cornwall
 2. The 60-Minute Tech Startup By Ramesh Donta
-3. How to Nail Product Positioning so Customers Get It, Buy It, Love It
+3. Obviously Awesome: How to Nail Product Positioning so Customers Get It, Buy It, Love It by April Dunford
 4. Small Business For Dummies
-5. How to Launch a Brand (2nd Edition): Your Step-by-Step Guide to Crafting a Brand: From Positioning to Naming And Brand Identity
+5. ✅ How to Launch a Brand (2nd Edition): Your Step-by-Step Guide to Crafting a Brand: From Positioning to Naming And Brand Identity
+6. ✅ The agency Grow Build Repeat by Luca Senatore
+7. ✅ The Ultimate Linkedin Sales Guide by Fabian Geyrhalter
+8. Hangry: A Startup Journey Hardcover by Mike Evans 
+9. Consulting Success: The Proven Guide to Start, Run and Grow a Successful Consulting Business Paperback by Michael Zipursky
+10. Productize: The Ultimate Guide to Turning Professional Services into Scalable Products Paperback by Eisha Armstrong
+11. How Clients Buy: A Practical Guide to Business Development for Consulting and Professional Services by Tom McMakin, Doug Fletcher
+12. The Seven Figure Agency Roadmap: How to Build a Million Dollar Digital Marketing Agency Paperback by Josh Nelson
+
+
+
 
 
 WIP
