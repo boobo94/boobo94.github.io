@@ -4,7 +4,7 @@ summary: How to loop over directories in bash and execute multiple commands
 categories: devops
 tags: bash linux
 date: 2022-12-14 09:09:09 +0000
-cover: https://cdn.pixabay.com/photo/2022/10/10/18/00/cosmetics-7512332_1280.jpg
+cover: https://cdn.pixabay.com/photo/2017/06/26/23/04/bible-2445540_1280.png
 layout: post
 ---
 
