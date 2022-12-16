@@ -3,7 +3,7 @@ title: How to generate referral codes in javascript
 summary: How to generate referral codes in javascript very fast with less code
 categories: tips
 tags: js referral
-date: 2022-01-01 09:09:09 +0000
+date: 2022-12-16 09:09:09 +0000
 cover: https://cdn.pixabay.com/photo/2022/12/13/20/36/carousel-7654138_1280.jpg
 layout: post
 ---
