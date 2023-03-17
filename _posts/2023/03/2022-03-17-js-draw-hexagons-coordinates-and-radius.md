@@ -1,9 +1,9 @@
 ---
 title: Generate hexagons in JS based on center coordinates and radius
 summary: How to generate hexagons in javascript based on the center point coordinates and radius length
-categories: category
-tags: tag1 tag2
-date: 2022-01-01 09:09:09 +0000
+categories: tutorials
+tags: js map hexagon coordinates
+date: 2023-03-17 09:09:09 +0000
 cover: https://cdn.pixabay.com/photo/2021/07/12/15/22/hexagon-6406639_1280.jpg
 layout: post
 ---
