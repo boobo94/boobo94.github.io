@@ -3,7 +3,7 @@ title: Managerflota idea validation
 summary: Managerflota idea validation thread. Manage the car hailing business in one web app.
 categories: startup
 tags: idea validation business
-date: 2022-03-25 09:09:09 +0000
+date: 2023-03-25 09:09:09 +0000
 cover: https://cmevo.com/wp-content/uploads/2023/03/manager-flota-afaceri-transport-alternativ.png
 layout: post
 ---
