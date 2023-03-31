@@ -59,8 +59,14 @@ But the public info cannot be downloaded.
 
 I can do manual work, and yes I don’t do it, because I’m an engineer and I want an automated way to handle it.
 
-So I used webscraper .io, spend 1-2h to figure out how to figure out how to configure it with the website, but I succeed.
+So I used https://webscraper.io/, spend 1-2h to figure out how to configure it with the website, but I succeed.
 Now I have all the details about companies. Open the spreadsheet, sort descending by number of drivers and let’s go!
+
+I used the following sitemap to scrape the website:
+
+```json
+{"_id":"arr-transport-alternativ","startUrl":["https://licente.arr.ro/alternativ?page=[1-341]"],"selectors":[{"id":"clickable-row","parentSelectors":["_root","clickable-row"],"paginationType":"auto","selector":".clickable-row","type":"SelectorPagination"},{"id":"company-name","parentSelectors":["clickable-row"],"type":"SelectorText","selector":".row .container h3","multiple":false,"regex":""},{"id":"cui","parentSelectors":["clickable-row"],"type":"SelectorText","selector":".card-block > li:nth-of-type(1)","multiple":false,"regex":""},{"id":"county","parentSelectors":["clickable-row"],"type":"SelectorText","selector":"li.list-group-item:nth-of-type(2)","multiple":false,"regex":""},{"id":"locality","parentSelectors":["clickable-row"],"type":"SelectorText","selector":"li:nth-of-type(3)","multiple":false,"regex":""},{"id":"address","parentSelectors":["clickable-row"],"type":"SelectorText","selector":"li:nth-of-type(4)","multiple":false,"regex":""},{"id":"phone","parentSelectors":["clickable-row"],"type":"SelectorText","selector":"li:nth-of-type(5)","multiple":false,"regex":""},{"id":"license","parentSelectors":["clickable-row"],"type":"SelectorText","selector":".list-group-item a","multiple":false,"regex":""},{"id":"drivers-nr","parentSelectors":["clickable-row"],"type":"SelectorText","selector":"h5 b","multiple":false,"regex":""}]}
+```
 
 Prepared the message that will be sent to each fleet.
 I don’t want to call each one because is very time consuming, sms is not an option. But people use WhatsApp a lot here, so guess what I did?!
@@ -75,7 +81,6 @@ All I have to do is to click on each link and then the WhatsApp will automatical
 
 I just have to press the “send” button
 
-WIP 🚧
 How I organized to send messages.
 
 Create the excel, put all the api messages in trellis checklist.
