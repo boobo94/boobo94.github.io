@@ -21,8 +21,9 @@ I consider freecodecamp the most important resource in your beginning. You shoul
 
 ## Online Tools
 
-- SQL diagrams https://sql.toad.cz/?
-- Diagrams https://draw.io
+- SQL diagrams <https://sql.toad.cz/>
+- Diagrams <https://draw.io>
+- Discover what technology uses a website <http://builtwith.com/>
 
 ### Courses
 
