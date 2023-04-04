@@ -19,6 +19,10 @@ I consider freecodecamp the most important resource in your beginning. You shoul
 
 - [A lot of reads on different topics](https://medium.com)
 
+## Online Tools
+
+- SQL diagrams https://sql.toad.cz/?
+- Diagrams https://draw.io
 
 ### Courses
 
@@ -127,8 +131,6 @@ It depends by your vibe, but sometimes I listen Snoop Dog, Bug Mafia, etc. But m
 ### Where to host your project for free
 
 I've wrote a full article about <a href="https://whyboobo.com/resources/hosting-providers/">Hosting providers - free & paid</a>.
-
-###
 
 
 ### Libraries
