@@ -1,8 +1,8 @@
 ---
-title: Mockup List Tools
+title: Mockup List of Tools
 summary: A complete list of mockup resources for your next project or startup. From free to paid plans, discover the greatest apps to build your assets.
 categories: tools
-tags: mockup tag2
+tags: mockup tools
 date: 2021-10-17 09:09:09 +0000
 cover: https://cdn.pixabay.com/photo/2015/05/28/14/53/ux-788002_1280.jpg
 layout: post

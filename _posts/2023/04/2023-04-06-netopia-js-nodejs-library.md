@@ -4,7 +4,7 @@ summary: Unofficial library of Netopia to integrate with Nodejs
 categories: tools
 tags: netopia library package js nodejs
 date: 2023-04-06 09:09:09 +0000
-cover: https://netopia-payments.com/core/assets/5993428bab/images/logo.svg
+cover: https://netopia-payments.com/storage/2018/04/logo-sizes.png
 layout: post
 ---
 

@@ -64,9 +64,13 @@ It depends by your vibe, but sometimes I listen Snoop Dog, Bug Mafia, etc. But m
 - [StudyMD Youtube Channel](https://www.youtube.com/channel/UC5CRP-6oxYenIgBj17CkBZg)
 
 
-## Discover [free assets and images list](https://whyboobo.com/resources/free-assets-and-images)
+## Assets and images for free
 
-## Discover - [Mockup List Tools](https://whyboobo.com/tools/mockup-tools/)
+ Discover [free assets and images list](https://whyboobo.com/resources/free-assets-and-images)
+
+## Mockup List of Tools
+
+Discover - [Mockup List of Tools](https://whyboobo.com/tools/mockup-tools/)
 
 ### Where to find inspiration
 
