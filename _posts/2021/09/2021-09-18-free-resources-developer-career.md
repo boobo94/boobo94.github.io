@@ -63,64 +63,10 @@ It depends by your vibe, but sometimes I listen Snoop Dog, Bug Mafia, etc. But m
 
 - [StudyMD Youtube Channel](https://www.youtube.com/channel/UC5CRP-6oxYenIgBj17CkBZg)
 
-## Where to find free assets
 
-### Images
+## Discover [free assets and images list](https://whyboobo.com/resources/free-assets-and-images)
 
-- <https://www.pexels.com>
-- <https://unsplash.com>
-- <https://pixabay.com>
-- <https://mixkit.co>
-- <https://coverr.co>
-
-### Vectors
-
-- <https://www.freepik.com/>
-- <https://undraw.co/illustrations>
-- [Illustrations iradesign](https://iradesign.io/)
-- <https://www.vecteezy.com/>
-- <https://openclipart.org/>
-- <http://shape.so/>
-- <https://lottiefiles.com/featured>
-
-### illustrations
-
-- <https://drawkit.io>
-- <https://undraw.co>
-- <https://iradesign.io>
-- <https://icons8.com>
-- <https://blush.design>
-- <https://storyset.com>
-- <https://pixeltrue.com>
-- <https://manypixels.co>
-- <https://illustrations.co>
-- <https://illustratious.com>
-- <https://iconscout.com>
-- <https://isometric.online>
-- <https://humaaans.com>
-- <https://openpeeps.com>
-- <https://themeisle.com/illustrations/>
-- <https://www.illustrationlink.com/>
-
-### Icons
-
-- <https://fontawesome.com/>
-- <https://mui.com/components/material-icons/>
-- <https://icons8.com/animated-icons>
-- <https://www.freepik.com/>
-- <http://thenounproject.com/>
-- <http://feathericons.com/>
-- <https://icons.download/>
-
-### Logos
-
-- <https://www.logotouse.com/>
-
-### Mockup tools
-
-- <http://angle.sh/> device mock-ups for your apps 
-
-[Read the full article - Mockup List Tools](https://whyboobo.com/tools/mockup-tools/)
+## Discover - [Mockup List Tools](https://whyboobo.com/tools/mockup-tools/)
 
 ### Where to find inspiration
 

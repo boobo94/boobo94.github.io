@@ -1,5 +1,5 @@
 ---
-title: Where to find free assets and images
+title: Where to find free assets and images list
 summary: Find a multitude of places with free assets and images for your project
 categories: resources
 tags: images assets
@@ -63,4 +63,4 @@ Find a multitude of places with free assets and images for your project
 
 ### Mockup tools
 
-[Read the full article - Mockup List Tools](https://whyboobo.com/tools/mockup-tools/)
+Read the full article - [Mockup List Tools](https://whyboobo.com/tools/mockup-tools/)

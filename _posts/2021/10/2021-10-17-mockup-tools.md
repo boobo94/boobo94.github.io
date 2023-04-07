@@ -26,4 +26,4 @@ A complete list of mockup resources for your next project or startup. From free 
 15. [Brandbird](https://www.brandbird.app/) - not exactly a mockup, but it helps you to convert a website picture into a nice to share image
 16. [Angle](https://angle.sh/)
 
-<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/GqQxqDTVnZc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+Discover [free assets and images list](https://whyboobo.com/resources/free-assets-and-images)
