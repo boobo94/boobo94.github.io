@@ -444,6 +444,8 @@ Let people export the data, either by APIs or at least some CSV.
 
 You cannot imagine how smart people can be and how that can help you to grow.
 
+If grow enough, sell your business using <a href="https://acquire.com/" targt="_blank">Acquire.com</a>
+
 ## Other resources
 
 I like to read, even if I discovered that books are not always about beletristic and fary tales (as I learned in school). After this discovery I started to read a lot of technical books, because this is what I like more.
