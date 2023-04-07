@@ -38,6 +38,8 @@ Fake email messages are a problem these days. You can use a free email validatio
 - <a href="https://www.zerobounce.net/" target="_blank">Zerobounce</a>
 - <a href="https://emailverifier.com/" target="_blank">Email Verifier</a>
 - <a href="https://clearout.io/" target="_blank">Clearout</a>
+- <a href="https://toolbox.googleapps.com/apps/checkmx/" target="_blank">Google Toolbox Check MX</a>
+
 
 ## How to check the spammyness level of your email
 
@@ -47,10 +49,12 @@ To check the spamyness level of your email I prefer to use a free tool called <a
 
 1. <a href="https://chrome.google.com/webstore/detail/leadgibbon-email-finder/adeogdcibcngnkofabmpicgohlpcopmg" target="_blank">LeadGibbon Email Finder</a> chrome extension
 
-## how you find what doesn't work?
+## How you find what doesn't work?
 
 1. Send emails
 2. Bounce rate high? get better leads
 3. Open rate low? Change subject
 4. No responses? Rewrite email
 5. Negative responses? Change offer
+
+
