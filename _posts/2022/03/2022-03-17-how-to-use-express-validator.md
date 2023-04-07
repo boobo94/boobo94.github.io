@@ -1,10 +1,12 @@
 ---
 title: How to use express validator?
 summary: How to use express validator through full examples. I found express validator very powerful, but having a poor documentation.
-categories: webservice
+categories: tutorials
 tags: express nodejs validator
 date: 2022-03-17 09:09:09 +0000
 cover: https://cdn.pixabay.com/photo/2022/03/01/02/51/galaxy-7040416_1280.png
+redirect_from:
+- /webservice/how-to-use-express-validator/
 layout: post
 ---
 
