@@ -28,3 +28,14 @@ A complete list with reading resources and free books for either students, devel
 - <https://3lib.net/>
 - <https://mega.nz/folder/gboAFRpQ#2D68ehaG1J03AOQ04EllKg/folder/MXRBjYAR> Books and audiobooks
 - About programming you can find a lot of free resources on Github [EbookFoundation/free-programming-books](https://github.com/EbookFoundation/free-programming-books)
+
+## Search engines for academic resources, books and articles
+
+- <https://refseek.com> is a search engine for academic resources. More than a billion sources
+- <https://worldcat.org> search the content of 20,000 global libraries.
+- <https://link.springer.com> access to more than 10 million scientific documents: books, articles,
+- <https://bioline.org.br> is a library of published bioscientific journals
+- <http://repec.org> Volunteers from 102 countries collected nearly 4 million publications
+- <https://science.gov> is a U.S. government search engine for more than 2200 scientific sites.
+- <https://pdfdrive.com> is the largest website for free download of PDF books. Claim more than 225 million titles.
+- <https://base-search.net> is one of the most powerful search engines for academic research texts. More than 100 million scientific articles, 70% of which are free
