@@ -160,3 +160,83 @@ Even one of them shared with me their Excel, to present how they automated the c
 Another great discovery was that a few of them had the idea of building this app, for internal use or exactly the same product I want to build.
 
 Is this proper validation? 
+
+I coopted a friend to start developing this project.
+
+new repo in @GitHub 
+
+stack:
+
+- nestjs
+- vuejs
+- docker
+setup the codebase for both front and backend + preparing this as a boilerplate for future projects
+
+@NestJS can be so fun. Is anyone using it?
+folder structure
+
+I used a monorepo structure for the project
+
+Is so comfortable to work in that same workspace for the system. 
+
+<img src="https://pbs.twimg.com/media/FspbeyNWcAEXads.png" alt="manager flota idea validation">
+
+For the backend, I structured the project as in the picture above.
+
+by default, Nestjs use a module folder structure, but adding a subfolder "modules" and "common" make it much easier to keep the code clean. 
+
+<img src="https://pbs.twimg.com/media/Fspb8M9WYAMDteN.png" alt="manager flota idea validation">
+
+
+setup the authentication + authorization 
+
+I need a multi-tenant mechanism, achieved using Nestsjs guards 
+
+<img src="https://pbs.twimg.com/media/FspdwpzWYAQly61.png" alt="manager flota idea validation">
+
+It took me less than 6h to do setup the base for the frontend and setup the most of the backend, except the reports module.
+
+Is this MVP or what?
+The first meeting finished this evening and we decided what fields have to be calculated for the reports of the company and of the driver.
+
+One more step 
+
+<img src="https://pbs.twimg.com/media/Fs-prtDXwAQPBNZ.jpg" alt="manager flota idea validation">
+
+
+Implemented report module for managerflota
+
+guard to authorize requests of companies only to their reports, get all reports with pagination, get detailed reports 
+
+<img src="https://pbs.twimg.com/media/FtD3V9cXgAEjbS8.jpg" alt="manager flota idea validation">
+
+only three things remained:
+1. Import & aggregates the CSV from providers (bolt, Uber, etc)
+2. Subscriptions
+3. Finish the UI Admin
+
+Won't lie, thinking to open source Manager Flota. 
+
+And no, is not written in Romanian, is in English.
+
+What should I do?!
+
+Implemented report upload API by a provider. 
+
+And working on the CSV parser. 
+
+<img src="https://pbs.twimg.com/media/FtIpIMRWIAMMAhp.png" alt="manager flota idea validation">
+
+Implemented the csv parser, parse the Uber and bolt reports and interfaces.
+
+Preparing the reports to be saved in the db. 
+
+<img src="https://pbs.twimg.com/media/FtS7zXiWAAAvJ5q.jpg" alt="manager flota idea validation">
+
+
+Finished the implementation to calculate the reports per company
+
+Next: reports per driver 
+
+
+<img src="https://pbs.twimg.com/media/FtYjXBzXsAEVNDQ.jpg" alt="manager flota idea validation">
