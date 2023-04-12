@@ -70,7 +70,7 @@ It depends by your vibe, but sometimes I listen Snoop Dog, Bug Mafia, etc. But m
 
 ## Mockup List of Tools
 
-Discover - [Mockup List of Tools](https://whyboobo.com/tools/mockup-tools/)
+Discover - [Mockup List of Tools](https://whyboobo.com/resources/mockup-tools/)
 
 ### Where to find inspiration
 
