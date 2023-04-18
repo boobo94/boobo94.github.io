@@ -240,3 +240,41 @@ Next: reports per driver
 
 
 <img src="https://pbs.twimg.com/media/FtYjXBzXsAEVNDQ.jpg" alt="manager flota idea validation">
+
+Refactored the ridesharing report module in a better file structured Image
+
+<img src="https://pbs.twimg.com/media/FtniZ9mX0AEbi7h.png" alt="manager flota idea validation">
+
+
+I have an unsolicited feature (bug) in my code.
+
+Should I fix it?
+figure out that food delivery business is identical business model with the ridesharing.
+
+So now there’s more market share 🤩
+
+But for the moment I focus only on the ridesharing part.
+Would you choose a local online payment provider vs Stripe for a local service?
+
+Advantages
+- small commission
+- sustain local businesses
+- non vat invoice
+
+Disadvantages
+- hard tech integration
+- long registration process
+What to choose between single domain strategy vs multiple domain strategy?
+
+1/ managerflota .something
+2/ managerflota.cmevo .com?
+
+We finished
+- the parsers for Bolt and Uber;
+- the generated reports per company and per driver
+
+<img src="https://pbs.twimg.com/media/Ft_Nn4qWwAAUUOy.jpg" alt="manager flota idea validation">
+
+Building the product under the same brand as my software agency (Cmevo) can be a good strategy to grow them side by side, but the audience is not the same. And in this case, using managerflota.cmevo.com, doesn't necessary bring a +.
+
+The domain is longer, so harder to remember.
