@@ -62,6 +62,8 @@ By time to time I am curious what others wants to build and some of the websites
 - <a href="https://needgap.com" target="_blank">needgap</a> 
 - <a href="https://kern.al" target="_blank">Kern.al</a> 
 - <a href="https://plygrnd.xyz" target="_blank">Plygrnd</a>
+- <a href="https://www.motioninvest.com" target="_blank">Motion Invest</a>
+- <a href="https://flippa.com" target="_blank">Flippa</a>
 
 ### Startup graveyard 
 
