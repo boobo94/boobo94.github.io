@@ -28,5 +28,6 @@ A complete list with free resources to build your next startup's website.
 18. <https://github.com/bedimcode?tab=repositories>
 19. [Github "website template" topic](https://github.com/topics/website-template)
 20. <https://github.com/topics/landingpage?o=desc&s=updated>
+21. [HTML Rev](https://htmlrev.com/)
 
 PS: List is updated constantly
