@@ -43,6 +43,7 @@ So how to launch a startup, line by line?!
     4. [Analyze the competition - Resources](#analyze-the-competition)
 5. [MVP (Most Viable Product)](#mvp-most-viable-product)
 6. [Marketing](#marketing)
+    1. [Build your Website](#build-your-website)
 7. [Pricing model](#pricing-model)
 8. [Sales](#sales)
 9. [Where to launch the startup](#where-to-launch-the-startup)
@@ -97,6 +98,8 @@ Your idea may suffer many changes over time. Don't worry, that's normal, you nee
 The validation of idea is very important because we are subjective with our creations. Not all the time your idea is good. So a cold shower is benefic, and the startup idea validation is exactly that.
 
 Talking with potential customers can be benefic from many perspectives: understand your product/service, understand if your idea is not good enough yet, the customer's needs, what they miss in the current solution.
+
+Here's a story how I've built [Manager flota](https://whyboobo.com/startup/manager-flota-idea-validation/).
 
 ### Where to find prospects
 
@@ -296,12 +299,21 @@ If you don't have time, don't worry, there's always a plan B. You can ask someon
 <span id="mvp"></span>
 ## MVP (Most Viable Product)
 
-// todo: ideas
-// - most important features, but if competition offers a lot, your mvp cannot be poor
+The MVP must be only VIABLE. No, you don't need 100 features, no payments, no auto-emails & stuff. Keep it simple!
+
+<!-- todo: ideas -->
+<!-- - most important features, but if competition offers a lot, your mvp cannot be poor -->
 
 ## Marketing
 
-// todo: ideas
+<!-- todo: ideas -->
+
+### Build your website
+
+You need an website for your business.
+
+[Resources to generate free legal pages for your website](https://whyboobo.com/resources/generate-website-legal-pages/)
+
 // - website/landing page
 // - seo
 // - social media
@@ -360,8 +372,8 @@ Use the right price, don't keep the price low just because you're not enterprise
 
 ## Sales
 
-// todo: ideas
-- how / where / what channels
+<!-- // todo: ideas -->
+<!-- - how / where / what channels -->
 
 ### Resources
 
