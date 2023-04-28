@@ -25,7 +25,7 @@ YOUR CONTENT HERE
 -----END OPENSSH PRIVATE KEY-----"
 ```
 
-# Vuejs app
+## Vuejs app
 
 ```docker
 

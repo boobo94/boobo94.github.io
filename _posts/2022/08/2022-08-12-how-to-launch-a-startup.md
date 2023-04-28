@@ -409,7 +409,7 @@ Do you wanna launch grandiosely your startup? Get a list of platforms where peop
 | <a href="https://saashub.com" target="_blank">SaaSHub</a> | Do-follow | 55 | 1M | < 7 days |
 | <a href="https://betafy.co" target="_blank">Betafy</a> | Do-follow | 30 | < 25K | < 7 days |
 | <a href="https://thestartuppitch.com" target="_blank">The Startup Pitch</a> | Do-follow | 40 | < 25K | 1-2 days |
-| <a href="https://launched.io" target="_blank">Launched</a> | Do-follow | 24 | < 25K | < 7 days |
+| <a href="https://launched.io/" target="_blank">Launched</a> | Do-follow | 24 | < 25K | < 7 days |
 | <a href="https://saasworthy.com" target="_blank">SaaSworthy</a> | No Link | 69 | 200-250K | NA |
 | <a href="https://startupranking.com" target="_blank">Startup Ranking</a> | No-follow | 56 | 150-200K | < 90 days |
 | <a href="https://webwiki.com<" target="_blank">Webwiki</a> | No-follow | 74 | 50-75 days | < 7 days |

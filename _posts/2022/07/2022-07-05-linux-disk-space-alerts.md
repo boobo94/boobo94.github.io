@@ -48,7 +48,7 @@ Please clean up some space.\" " \
 fi
 ```
 
-# Make the script executable
+## Make the script executable
 
 Be sure that you have permissions to at least 755 set.
 
@@ -58,7 +58,7 @@ sudo chmod +x /home/ubuntu/check-disk.sh
 
 !!! Use your full path the the file
 
-# Automate the script
+## Automate the script
 
 ```sh
 crontab -e

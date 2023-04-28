@@ -48,7 +48,7 @@ NETOPIA_CURRENCY=RON
 
 To get the settings of account [login into Netopia](https://admin.mobilpay.ro/ro/login).
 
-# Usage
+## Usage
 
 ## Import
 
@@ -350,11 +350,11 @@ const response = await Netopia.deleteCard(
 Install Wizdler browser extension and check https://secure.mobilpay.ro/api/payment2/?wsdl
 There you'll find all methods available.
 
-# Testing
+## Testing
 
 You can find a [simple payment example](https://github.com/mobilpay/Node.js) and [Netopia's Github](https://github.com/mobilpay/).
 
-## Cards
+### Cards
 
 9900004810225098 - card accepted, CVV = 111
 
