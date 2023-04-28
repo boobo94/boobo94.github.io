@@ -506,7 +506,7 @@ I like to read, even if I discovered that books are not always about beletristic
 
 Some times ago I tried to launch a project, a digital menu for restaurants and I wrote about [The story of Customenu](https://whyboobo.com/startup/story-of-customenu/), is a good story about failing with a startup.
 
-![]( https://cmevo.com/wp-content/uploads/2021/11/meniu-digital-customenu-app-500x361.png)
+![]( https://cmevo.com/wp-content/uploads/2022/08/meniu-digital-customenu-thumb.png)
 
 ## Contribute
 

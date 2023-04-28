@@ -4,7 +4,7 @@ summary: A digital menu platform for restaurant. It was the pandemic situation a
 categories: startup
 tags: customenu startup story
 date: 2021-09-13 09:09:09 +0000
-cover: https://cmevo.com/wp-content/uploads/2021/11/meniu-digital-customenu-app-500x361.png
+cover: https://cmevo.com/wp-content/uploads/2022/08/meniu-digital-customenu-thumb.png
 layout: post
 ---
 
