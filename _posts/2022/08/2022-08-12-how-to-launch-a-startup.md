@@ -34,6 +34,7 @@ So how to launch a startup, line by line?!
     5. [Pitch the product before is built](#pitch-the-product-before-is-built)
     6. [Sell right now](#sell-right-now)
 3. [Build the product or service](#build-the-product-or-service)
+    1. SaaS business model
 4. [Analyze the competition](#analyze-the-competition)
     1. [Check reviews of competition](#check-reviews-of-competition)
     2. [I don’t have competition](#i-dont-have-competition)
@@ -230,6 +231,10 @@ You're good now and probably know how to launch a startup. You have the idea, is
 
 Don'y worry, go after competition and see what they offer.
 
+Todo: saas
+
+https://www.indiehackers.com/post/acquisition-channel-of-the-week-seo-with-a-twist-0ce625ddb0
+
 <span id="analyze-competition"></span>
 ## Analyze the competition
 
@@ -307,6 +312,10 @@ The MVP must be only VIABLE. No, you don't need 100 features, no payments, no au
 ## Marketing
 
 <!-- todo: ideas -->
+
+https://www.indiehackers.com/post/11-marketing-channels-that-consistently-work-for-founders-8992a89a03
+
+https://www.indiehackers.com/post/acquisition-channel-of-the-week-seo-with-a-twist-0ce625ddb0
 
 ### Build your website
 
