@@ -45,6 +45,14 @@ So how to launch a startup, line by line?!
 5. [MVP (Most Viable Product)](#mvp-most-viable-product)
 6. [Marketing](#marketing)
     1. [Build your Website](#build-your-website)
+    2. [SEO](#seo)
+    3. [Product Launch Platforms](#product-launch-platforms)
+    4. [Marketplaces](#marketplaces)
+    5. [subReddits](#subreddits)
+    6. [Cold Email Outreach](#cold-email-outreach)
+    7. [Hacker News](#hacker-news)
+    8. [Software Directories](#software-directories)
+    9. [Freelancing Marketplaces](#freelancing-marketplaces)
 7. [Pricing model](#pricing-model)
 8. [Sales](#sales)
 9. [Where to launch the startup](#where-to-launch-the-startup)
@@ -307,6 +315,16 @@ The MVP must be only VIABLE. No, you don't need 100 features, no payments, no au
 
 ## Marketing
 
+If you build something without marketing in ahead, you'll most probably encounter difficulties selling that.
+
+### Build your website
+
+You need an website for your business. so better start building it right now.
+
+Don't build something very complex, because at this stage you don't need to. Just present the business and ship it.
+
+Don't have the skills to [create your website](https://cmevo.com/showcase-website-design/)? Because I may help you, my agency is building startups and can help you to create your website, app or the whole idea.
+
 ### SEO
 
 SEO is a pretty hard aquisition channel, and it usually takes months to start seeing decent traffic on Google.
@@ -341,14 +359,6 @@ If you're a founder in a B2B niche, this is a channel worth considering.
 ### Freelancing Marketplaces
 
 UpWork, Freelancers, Fiverr. You might think these are marketplaces that only serve service providers. But you may think at them as aquisition channels.
-
-### Build your website
-
-You need an website for your business. so better start building it right now.
-
-Don't build something very complex, because at this stage you don't need to. Just present the business and ship it.
-
-Don't have the skills to [create your website](https://cmevo.com/showcase-website-design/)? Because I may help you, my agency is building startups and can help you to create your website, app or the whole idea.
 
 [Resources to generate free legal pages for your website](https://whyboobo.com/resources/generate-website-legal-pages/)
 
