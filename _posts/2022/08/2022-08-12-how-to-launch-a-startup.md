@@ -231,10 +231,6 @@ You're good now and probably know how to launch a startup. You have the idea, is
 
 Don'y worry, go after competition and see what they offer.
 
-Todo: saas
-
-https://www.indiehackers.com/post/acquisition-channel-of-the-week-seo-with-a-twist-0ce625ddb0
-
 <span id="analyze-competition"></span>
 ## Analyze the competition
 
@@ -311,22 +307,50 @@ The MVP must be only VIABLE. No, you don't need 100 features, no payments, no au
 
 ## Marketing
 
-<!-- todo: ideas -->
+### SEO
 
-https://www.indiehackers.com/post/11-marketing-channels-that-consistently-work-for-founders-8992a89a03
+SEO is a pretty hard aquisition channel, and it usually takes months to start seeing decent traffic on Google.
 
-https://www.indiehackers.com/post/acquisition-channel-of-the-week-seo-with-a-twist-0ce625ddb0
+### Product Launch Platforms
+
+These platforms has a lot of traffic per months, so they can be a great place to start with. It may give you good exposure in the beginning.
+
+### Marketplaces
+
+Many platforms like Shopify, Slack and Salesforce have their own app stores. A surprising amount of founders had success being listed on them.
+
+### subReddits
+
+There are 100k+ active communities on Reddit. One or not more than one is related to your niche.
+
+### Cold Email Outreach
+
+This is simply reaching out to people you don't know yet via email and making them aware of your product or service.
+
+Cold email is a channel which is easy to get started with, but hard to master.
+
+### Hacker News
+A good number of founders who were interviewed in Indie Hackers targeted other technical people on Hacker News.
+
+### Software Directories
+
+These sites are like traffic brokers. They buy traffic from Google AdWords, drive it to their pages, and then charge you per click/impression/lead.
+
+If you're a founder in a B2B niche, this is a channel worth considering. 
+
+### Freelancing Marketplaces
+
+UpWork, Freelancers, Fiverr. You might think these are marketplaces that only serve service providers. But you may think at them as aquisition channels.
 
 ### Build your website
 
-You need an website for your business.
+You need an website for your business. so better start building it right now.
+
+Don't build something very complex, because at this stage you don't need to. Just present the business and ship it.
+
+Don't have the skills to [create your website](https://cmevo.com/showcase-website-design/)? Because I may help you, my agency is building startups and can help you to create your website, app or the whole idea.
 
 [Resources to generate free legal pages for your website](https://whyboobo.com/resources/generate-website-legal-pages/)
-
-// - website/landing page
-// - seo
-// - social media
-// - organic
 
 ## Pricing model
 
