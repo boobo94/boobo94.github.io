@@ -57,6 +57,10 @@ So how to launch a startup, line by line?!
 7. [Pricing model](#pricing-model)
 8. [Sales](#sales)
 10. [Growth](#growth)
+    1. [Customer Retention](#customer-retention)
+    2. [Customer Loyalty Program Software](#customer-loyalty-program-software)
+    3. [Gamification Software](#gamification-software)
+    4. [Personalization Software](#personalization-software)
 
 ## Find your idea
 
@@ -72,13 +76,14 @@ By time to time I am curious what others wants to build and some of the websites
 - <a href="https://needgap.com" target="_blank">needgap</a> 
 - <a href="https://kern.al" target="_blank">Kern.al</a> 
 - <a href="https://plygrnd.xyz" target="_blank">Plygrnd</a>
-- <a href="https://www.motioninvest.com" target="_blank">Motion Invest</a>
-- <a href="https://flippa.com" target="_blank">Flippa</a>
+- <a href="https://nugget.one/ideas" target="_blank">Nugget.one</a>
+- <a href="https://microsaasidea.substack.com/" target="_blank">Microsaasidea</a>
+- <a href="https://www.softwareideas.io/" target="_blank">Softwareideas</a>
+- 
 
 ### Startup graveyard 
 
 Startup graveyard is a series of killed projects that made millions in revenue per year.
-
 
 Just watch their graveyard and do it your own. What better validation do you expect.
 
@@ -90,7 +95,7 @@ You're not Google, building a pre-validated product, which already had customers
 
 Is anyone already did this? Who tried to replicate the buried project of Google and work on it.
 
-## Where you can find these projects?
+Where you can find these projects?
 
 1. [Startup Cemetery](https://www.failory.com/cemetery)
 2. [Google Cemetery](https://killedbygoogle.com)
@@ -99,6 +104,14 @@ Is anyone already did this? Who tried to replicate the buried project of Google 
 Did you find something relevant? Tell me via <a href="https://twitter.com/militaru_bogdan" target="_blank">twitter</a>
 
 Your idea may suffer many changes over time. Don't worry, that's normal, you need to adapt and switch fast in order to stay upfront.
+
+### Business Marketplaces
+
+There are certains places where people can buy & sell businesses. If none of the previous ideas doesn't work for you, maybe you can try to buy one and improve it. But where you can find these products?
+
+- <a href="https://flippa.com" target="_blank">Flippa</a>
+- <a href="https://www.motioninvest.com" target="_blank">Motion Invest</a>
+- <a href="https://rocketgems.com/blog/saas-marketplaces/" target="_blank">List with SaaS Marketplaces</a>
 
 ## Validate idea
 
@@ -546,9 +559,38 @@ You cannot imagine how smart people can be and how that can help you to grow.
 
 If grow enough, sell your business using <a href="https://acquire.com/" targt="_blank">Acquire.com</a>
 
-Todo: growth hacking
+### Customer Retention
 
-https://www.indiehackers.com/post/10-growth-hacking-strategies-every-startup-should-know-89110b87a3
+Customer retention is a strategy to <a href="https://churnfree.com/blog/customer-retention-tool/" target="_blank">keep your customers loyal</a> to your brand over time.
+
+### Customer Loyalty Program Software
+
+A customer loyalty program is one of the best user engagement tools to encourage customers to continue with yourcompany by offering them incentives for their loyalty. These incentives can be in the form of points, rewards, or exclusive benefits only available to program members.
+
+By offering these rewards, companies can create a sense of appreciation and recognition for their customers, making them feel valued and important. This can lead to increased customer satisfaction and a greater likelihood of repeat business.
+
+In addition to rewarding loyalty, companies can use their loyalty programs to encourage other profitable actions, such as leaving reviews, referring friends, and sharing on social media. Companies can increase customer engagement and brand loyalty by incentivizing these behaviors.
+
+### Gamification Software
+
+Gamification is using game-like elements such as points or competition to encourage customers to take specific actions. This technique can improve the customer experience and the overall buying process.
+
+Gamification software, known as the best customer engagement tool for building strategies, often includes leaderboards, quizzes, badges, and rewards. Customers can see how they rank compared to others and benefit from loyalty programs that award points or other incentives.
+
+Examples of gamification include earning points for certain purchases, creating store credits or currencies, awarding badges to top users or brand advocates, offering giveaways for completing referral actions and featuring countdowns for sales or giveaways.
+
+### Personalization Software
+
+Personalization is a customer engagement tool to build a strategy that involves tailoring experiences to the individual customer, using data to create customized recommendations and promotions. This approach can increase customer retention by making customers feel valued and understood.
+
+Personalization can be applied at various customer journey stages and used by both small and large businesses. One of the most common and effective ways to personalize customer interactions is through email marketing.
+
+
+
+
+
+
+
 
 ## Other resources
 
