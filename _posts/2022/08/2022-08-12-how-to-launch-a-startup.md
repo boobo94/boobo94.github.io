@@ -363,7 +363,7 @@ Do you wanna launch grandiosely your startup? Get a list of platforms where peop
 | Name | Link Type | Domain Raiting | Monthly Traffic | Time to be Listed |
 | --- | --- | --- | --- | --- |
 | <a href="https://www.producthunt.com" target="_blank">Product Hunt</a> | Do-follow | 90 | 4-5M | Immediate/Flexible |
-| <a href="https://news.ycombinator.com/" target="_blank">HackerNews</a> | - | 90 | - | - |
+| <a href="https://news.ycombinator.com/" target="_blank">HackerNews</a> | Do-follow | 90 | - | - |
 | <a href="https://www.crunchbase.com/" target="_blank">Crunchbase</a> | - | 90 | - | - |
 | <a href="https://www.capterra.com/" target="_blank">Capterra</a> | - | 90 | - | - |
 | <a href="https://angel.co/" target="_blank">AngelList</a> | - | 90 | - | - |
