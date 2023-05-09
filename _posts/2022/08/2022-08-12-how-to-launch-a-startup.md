@@ -48,15 +48,15 @@ So how to launch a startup, line by line?!
     2. [Build your Website](#build-your-website)
     3. [SEO](#seo)
     4. [Product Launch Platforms](#product-launch-platforms)
-    5. [Marketplaces](#marketplaces)
-    6. [subReddits](#subreddits)
-    7. [Cold Email Outreach](#cold-email-outreach)
-    8. [Hacker News](#hacker-news)
-    9. [Software Directories](#software-directories)
-    10. [Freelancing Marketplaces](#freelancing-marketplaces)
+        1. [Platforms to launch the startup](#platforms-to-launch-the-startup)
+    6. [Marketplaces](#marketplaces)
+    7. [subReddits](#subreddits)
+    8. [Cold Email Outreach](#cold-email-outreach)
+    9. [Hacker News](#hacker-news)
+    10. [Software Directories](#software-directories)
+    11. [Freelancing Marketplaces](#freelancing-marketplaces)
 7. [Pricing model](#pricing-model)
 8. [Sales](#sales)
-9. [Where to launch the startup](#where-to-launch-the-startup)
 10. [Growth](#growth)
 
 ## Find your idea
@@ -342,98 +342,7 @@ SEO is a pretty hard aquisition channel, and it usually takes months to start se
 
 These platforms has a lot of traffic per months, so they can be a great place to start with. It may give you good exposure in the beginning.
 
-### Marketplaces
-
-Many platforms like Shopify, Slack and Salesforce have their own app stores. A surprising amount of founders had success being listed on them.
-
-### subReddits
-
-There are 100k+ active communities on Reddit. One or not more than one is related to your niche.
-
-### Cold Email Outreach
-
-This is simply reaching out to people you don't know yet via email and making them aware of your product or service.
-
-Cold email is a channel which is easy to get started with, but hard to master.
-
-### Hacker News
-A good number of founders who were interviewed in Indie Hackers targeted other technical people on Hacker News.
-
-### Software Directories
-
-These sites are like traffic brokers. They buy traffic from Google AdWords, drive it to their pages, and then charge you per click/impression/lead.
-
-If you're a founder in a B2B niche, this is a channel worth considering. 
-
-### Freelancing Marketplaces
-
-UpWork, Freelancers, Fiverr. You might think these are marketplaces that only serve service providers. But you may think at them as aquisition channels.
-
-[Resources to generate free legal pages for your website](https://whyboobo.com/resources/generate-website-legal-pages/)
-
-## Pricing model
-
-Pricing is a very important part of your project. Is more important than it looks like, because with a wrong [pricing](https://www.indiehackers.com/post/how-to-decide-pricing-for-your-new-saas-project-6e9081928e), your product can go wrong. Even if the price is low or high.
-If you don't have competition to compare your product with, then try to experiment, check how many money do your solution save or make to the client and try to find the value. If you have competition you can start from there. The price can be adjusted over time, and I really recommend to do it.
-
-Below I would like to share with you some informations about pricing models and how you can achieve a <a href="https://www.devtoagency.com/recurring-revenue/" target="_blank">recurring revenue model</a>.
-
-### Freemium Pricing
-
-A freemium plan is not required, but it may helps. Users can test your product and find it valuable. If they're small it can use it for some time, and aquire it when they grow.
-
-Remember you offer it for free to promote the product, don't offer too less, but try to keep the best shoot for the paid plans. If you offer too much, there may not be enough interest in paying. But if you offer too less, the free plan can become useless and no one wants to try it.
-
-### Flat Pricing
-
-Is a type of subscription pricing where the customer pays a price per month/year for access to the software. 
-The main advantage is that it is predictable and easy to budget for.
-The main disadvantage is that it does not account for usage, so customers who use the software lite may feel like they are overpaying.
-
-### Tier-Based Pricing
-
-Are those in which the price of the software is based on the level of service or features that the customer requires. This can be a per-user, per-month price, or a price based on the features that the customer requires.
-
-### User-Based Pricing
-
-The SaaS user-based pricing model is a pricing model in which the price of a software application is based on the number of users that will be using the application.
-
-The main advantage of the SaaS user-based pricing model is that it allows software companies to price their applications based on the value that they provide to their users.
-
-### Usage-Based Pricing
-
-You charge your customers based on how much they use your product.
-
-### Lifetime Subscription
-
-The customer pays a one-time fee for access to the software for an unlimited period.
-
-### What not to do when decide pricing
-
-Don't make the pricing hard to understand. When you start the pricing list, you tend to please every people, add a lot of features in the list. That's definitely wrong! Put in the feature list only the most valuable features, that really solve a pain. And the price, keep it simple, don't try to satisfy every person and have too many plans. Keep the pricing plans as simple as you can.
-
-The low price with high value is a red flag and people will stay away. Once I tried to help the restaurants, in the Covid pandemic period, I choose a very low price, and the people were not interested. Until one moment when I client told me that something is strange, and double check if there are no extra taxes because the price is too low. At that point I understood if the price is too low, clients will see it as a warning.
-
-The product must makes money for the client. Even if you save money, time or produce money, it have to bring value on the table.
-
-Use the right price, don't keep the price low just because you're not enterprise.
-
-### Resources
-
-1. [SaaS Taxes Guide: Everything you need to know to handle taxes efficiently.](https://www.pricewell.io/blog/saas-tax-stripe/)
-
-## Sales
-
-<!-- // todo: ideas -->
-<!-- - how / where / what channels -->
-
-### Resources
-
-- Alex Berman <a href="https://linktr.ee/alex.berman" target="_blank">recommended tools</a>, the author of The cold Email Manifesto book
-
-
-<span id="where-to-launch-startups"></span>
-## Where to launch the startup
+#### Platforms to launch the startup
 
 ![where to launch the startup](https://cdn.pixabay.com/photo/2018/04/07/17/26/startup-3299033_1280.jpg)
 
@@ -537,6 +446,96 @@ On reddit
 Another resources with more platforms can be found on  <a href="https://github.com/mmccaff/PlacesToPostYourStartup" target="_blank">mmccaff/PlacesToPostYourStartup</a>, <a href="https://www.indiehackers.com/post/relaunch-like-a-pro-100-places-to-launch-relaunch-and-list-your-product-7c67875635" target="_blank"> Relaunch like a pro: 100+ places to launch, relaunch, and list your product</a>.
 
 Would you like to add your website on this list? Please write me.
+
+
+### Marketplaces
+
+Many platforms like Shopify, Slack and Salesforce have their own app stores. A surprising amount of founders had success being listed on them.
+
+### subReddits
+
+There are 100k+ active communities on Reddit. One or not more than one is related to your niche.
+
+### Cold Email Outreach
+
+This is simply reaching out to people you don't know yet via email and making them aware of your product or service.
+
+Cold email is a channel which is easy to get started with, but hard to master.
+
+### Hacker News
+A good number of founders who were interviewed in Indie Hackers targeted other technical people on Hacker News.
+
+### Software Directories
+
+These sites are like traffic brokers. They buy traffic from Google AdWords, drive it to their pages, and then charge you per click/impression/lead.
+
+If you're a founder in a B2B niche, this is a channel worth considering. 
+
+### Freelancing Marketplaces
+
+UpWork, Freelancers, Fiverr. You might think these are marketplaces that only serve service providers. But you may think at them as aquisition channels.
+
+[Resources to generate free legal pages for your website](https://whyboobo.com/resources/generate-website-legal-pages/)
+
+## Pricing model
+
+Pricing is a very important part of your project. Is more important than it looks like, because with a wrong [pricing](https://www.indiehackers.com/post/how-to-decide-pricing-for-your-new-saas-project-6e9081928e), your product can go wrong. Even if the price is low or high.
+If you don't have competition to compare your product with, then try to experiment, check how many money do your solution save or make to the client and try to find the value. If you have competition you can start from there. The price can be adjusted over time, and I really recommend to do it.
+
+Below I would like to share with you some informations about pricing models and how you can achieve a <a href="https://www.devtoagency.com/recurring-revenue/" target="_blank">recurring revenue model</a>.
+
+### Freemium Pricing
+
+A freemium plan is not required, but it may helps. Users can test your product and find it valuable. If they're small it can use it for some time, and aquire it when they grow.
+
+Remember you offer it for free to promote the product, don't offer too less, but try to keep the best shoot for the paid plans. If you offer too much, there may not be enough interest in paying. But if you offer too less, the free plan can become useless and no one wants to try it.
+
+### Flat Pricing
+
+Is a type of subscription pricing where the customer pays a price per month/year for access to the software. 
+The main advantage is that it is predictable and easy to budget for.
+The main disadvantage is that it does not account for usage, so customers who use the software lite may feel like they are overpaying.
+
+### Tier-Based Pricing
+
+Are those in which the price of the software is based on the level of service or features that the customer requires. This can be a per-user, per-month price, or a price based on the features that the customer requires.
+
+### User-Based Pricing
+
+The SaaS user-based pricing model is a pricing model in which the price of a software application is based on the number of users that will be using the application.
+
+The main advantage of the SaaS user-based pricing model is that it allows software companies to price their applications based on the value that they provide to their users.
+
+### Usage-Based Pricing
+
+You charge your customers based on how much they use your product.
+
+### Lifetime Subscription
+
+The customer pays a one-time fee for access to the software for an unlimited period.
+
+### What not to do when decide pricing
+
+Don't make the pricing hard to understand. When you start the pricing list, you tend to please every people, add a lot of features in the list. That's definitely wrong! Put in the feature list only the most valuable features, that really solve a pain. And the price, keep it simple, don't try to satisfy every person and have too many plans. Keep the pricing plans as simple as you can.
+
+The low price with high value is a red flag and people will stay away. Once I tried to help the restaurants, in the Covid pandemic period, I choose a very low price, and the people were not interested. Until one moment when I client told me that something is strange, and double check if there are no extra taxes because the price is too low. At that point I understood if the price is too low, clients will see it as a warning.
+
+The product must makes money for the client. Even if you save money, time or produce money, it have to bring value on the table.
+
+Use the right price, don't keep the price low just because you're not enterprise.
+
+### Resources
+
+1. [SaaS Taxes Guide: Everything you need to know to handle taxes efficiently.](https://www.pricewell.io/blog/saas-tax-stripe/)
+
+## Sales
+
+<!-- // todo: ideas -->
+<!-- - how / where / what channels -->
+
+### Resources
+
+- Alex Berman <a href="https://linktr.ee/alex.berman" target="_blank">recommended tools</a>, the author of The cold Email Manifesto book
 
 ## Growth
 
