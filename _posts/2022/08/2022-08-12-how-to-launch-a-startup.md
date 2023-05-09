@@ -317,6 +317,14 @@ The MVP must be only VIABLE. No, you don't need 100 features, no payments, no au
 
 If you build something without marketing in ahead, you'll most probably encounter difficulties selling that.
 
+### Customer acquisition cost (CAC)
+
+CAC is the cost of convincing a potential customer to buy a product or service, offering clear understanding on how much costs to acquire a new customer. This index can help businesses determine the effectiveness of their sales and marketing efforts.
+
+By comparing CAC to the average lifetime value of a customer, companies can also determine if their customer acquisition efforts are profitable.
+
+The cost per customer acquisition (CAC) metric is important for both businesses and investors. For early-stage people in business, helps to evaluate the scalability of a new businesses operating in the internet space. By comparing the aquisition cost and the revenue generated, investors can make a clue about the company’s profitability.
+
 ### Build your website
 
 You need an website for your business. so better start building it right now.
