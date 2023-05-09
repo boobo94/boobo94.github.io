@@ -34,7 +34,6 @@ So how to launch a startup, line by line?!
     5. [Pitch the product before is built](#pitch-the-product-before-is-built)
     6. [Sell right now](#sell-right-now)
 3. [Build the product or service](#build-the-product-or-service)
-    1. SaaS business model
 4. [Analyze the competition](#analyze-the-competition)
     1. [Check reviews of competition](#check-reviews-of-competition)
     2. [I don’t have competition](#i-dont-have-competition)
@@ -44,7 +43,7 @@ So how to launch a startup, line by line?!
     4. [Analyze the competition - Resources](#analyze-the-competition)
 5. [MVP (Most Viable Product)](#mvp-most-viable-product)
 6. [Marketing](#marketing)
-    1. [Customer acquisition cost (CAC)](#customer-aquisition-cost-cac)
+    1. [Customer acquisition cost (CAC)](#customer-acquisition-cost-cac)
     2. [Build your Website](#build-your-website)
     3. [SEO](#seo)
     4. [Product Launch Platforms](#product-launch-platforms)
