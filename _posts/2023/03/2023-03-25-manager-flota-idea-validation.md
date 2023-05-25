@@ -278,3 +278,252 @@ We finished
 Building the product under the same brand as my software agency (Cmevo) can be a good strategy to grow them side by side, but the audience is not the same. And in this case, using managerflota.cmevo.com, doesn't necessary bring a +.
 
 The domain is longer, so harder to remember.
+
+Just bought the domain managerflota.ro for this new SaaS.
+
+<img src="https://pbs.twimg.com/media/Ft_UjCSWIAEF72I.jpg" alt="manager flota idea validation">
+
+The Projects management tool of Github is great.
+
+Help us to keep the project on track and easy manage it. 
+
+<img src="https://pbs.twimg.com/media/Ft_V829X0AEqlEU.jpg" alt="manager flota idea validation">
+
+Update managerflota #buildinpublic
+
+- Implement a guard to check if the company has a subscription
+- use subscription guard to restrict access to the reports API
+- implement CRUD APIs for subscriptions
+- implement CRUD APIs for products
+In the beginning the subscription has only one product attached, but in the future will be more so the db architecture
+
+Subscription - products many:many
+subscription - payments 1:n 
+
+<img src="https://pbs.twimg.com/media/FuBXpJyWAAs754V.jpg" alt="manager flota idea validation">
+
+Today I had a phone call with another local payment provider in Romania.
+
+Waiting for their approval and probably we'll go together. They don have any SDK for programming languages, but connect via REST API and offer decent documentation.
+I finished all the details with the payment provider for managerflota .ro and hopefully, the implementation will be ready in a few days.
+
+meantime we're working on the web app
+Decided to implement the CSV export for the reports, and here we are.
+
+Don't worry about those decimals, it's just #javascript #buildinpublic hehe 
+
+<img src="https://pbs.twimg.com/media/FuQeCkUWIBEqcMf.jpg" alt="manager flota idea validation">
+
+Implementing the payment provider for the new SaaS is such a joy
+
+nestjs + typescript + axios + sequelize :D pretty 
+
+<img src="https://pbs.twimg.com/media/FuV_itLXgAIGauF.jpg" alt="manager flota idea validation">
+
+ I had a long Saturday night finishing the payment integration in Managerflota .ro.
+
+The feeling was like a hackathon, staying late until 3:30 in the morning, just to deliver one feature.
+
+It was not needed, but I felt like enjoying the process so much.
+Searching on the internet to see if there are other countries where ride-hailing works under this type of business (Ride-hailing company -> fleet -> driver/courier) and it looks like there are multiple countries in Eastern Europe.
+
+That means more market.
+The next big thing for Managerflota .ro is to create a stunning website.
+
+What's the best solution for you?
+The website is ready for managerflota. ro
+
+here's a sneak peek
+
+Some suggestions?!
+
+used a template from @luciantartea
+
+<img src="https://pbs.twimg.com/media/FuooOceX0AEyJT8.jpg" alt="manager flota idea validation">
+
+New logo :D for managerflota .ro
+
+What do you think? 
+
+<img src="https://pbs.twimg.com/media/Fuoox6nXgAAqUqa.png" alt="manager flota idea validation">
+
+Full joy to create legal pages for you SaaS
+
+How do you feel writing Terms & Conditions? 
+
+<img src="https://pbs.twimg.com/media/FutS7Q8XwAAu15_.jpg" alt="manager flota idea validation">
+
+ This week I finished the website for managerflota and I’m trying to finish the web panel asap.
+
+I had less time to work on it, being only a side project.
+
+But I’m committed to release it until the end of the next week.
+I have the tendency to implement a feature in its final shape, but I force myself to deliver only the minimum required at the current stage.
+
+Later I can get feedback from customers and do it how they need. 
+
+<video src="https://video.twimg.com/tweet_video/Fu3tLVtWwAI45Dg.mp4">
+
+The first sneak peek from the managerflota .ro web platform for car-hailing fleet managers
+
+Implemented:
+- card preview
+- products list
+- subscriptions list
+- payments list
+- download invoice
+
+Almost there. 
+
+<img src="https://pbs.twimg.com/media/Fu5uzziX0AEmNe-.jpg" alt="manager flota idea validation">
+
+managerflota.ro is released in beta.
+
+It took me some time to make some small improvements, but my first customer is testing. I offered him an extended trial for consultation and feedback.
+
+Hope to migrate the payment gateway to prod soon (still in sandbox) #buildinpublic
+
+I applied a lot of small improvements today to Manager Flota
+
+- refactored the report system
+- changed the Uber parser
+- show more reports data on the UI
+- reorganize the UI
+- retested everything
+
+Can’t wait to how early adopters sees it
+
+Any advice how to approach first users?
+In the past week, I prepared all the details for managerflota.ro
+
+- bug & fixies
+- export reports
+- export salary slips
+- show more details in the UI
+- improve the UI
+- improve SEO of the website
+
+Still waiting for the payment provider to validate the contract. 
+
+<img src="https://pbs.twimg.com/media/FvoVdqmX0AAHOj1.jpg" alt="manager flota idea validation">
+
+<img src="https://pbs.twimg.com/media/FvoVdqiWIBMDWEc.jpg" alt="manager flota idea validation">
+
+After talking with my first customer, I decided to create a "how to section" on the website.
+
+They had some questions and is much easier for me and effective for customers to check how the calculus are made and how they can handle different operations. 
+
+<img src="https://pbs.twimg.com/media/FvoVdqiWIBMDWEc.jpg" alt="manager flota idea validation">
+
+<video src="https://video.twimg.com/tweet_video/FvoXRTwX0AAEWZN.mp4">
+
+ Great news for managerflota, because I just signed the contract for the payment provider.
+
+These local payment provider are doesn’t have a flow less process as Stripe.
+
+Waiting the production credentials
+
+#managerflota #buildinpublic
+I created a gif that shows how easy you can import the provider’s report in Manager Flota.
+
+It took me 2-3s to calculate reversing for 200 drivers. Usually the fleet manager spends between 1-8h per week to do them.
+
+#managerflota #buildinpublic
+
+<video src="https://video.twimg.com/tweet_video/FvssCEiaEAIOe5G.mp4">
+
+According to Romanian & European laws every website has to show the online dispute’s authority banners, somewhere.
+
+<img src="https://pbs.twimg.com/media/FvssYyOaAAA_43W.jpg" alt="manager flota idea validation">
+
+ The managerflota .Ro website was indexed by Google after a few days.
+
+Already on 16th position for 2 top keywords.
+
+Any advice?
+
+#managerflota #buildinpublic
+The great news: the payment gateway is in production mode
+
+The bad news: the payment cannot be made successfully
+
+The joy of launching software platforms
+
+#buildinpublic #managerflota
+The problem seems to be that my sales manager added to my account only the domain managerflota .ro, but I'm sending the request from a subdomain of this domain.
+
+Now I'm waiting... is a mess 😅
+
+The payment provider had to press 1 button and I waited for almost 24h, nothing yet, after that 1 week validation...
+
+So I just try to work with local environment to sustain ourselves, but I cannot start selling ...
+
+6th position on google for the main keyword for managerflota in one week
+
+that's awesome ... preparing a small video demo to help clients more and keep them longer on the website
+
+<img src="https://pbs.twimg.com/media/Fv1iekeXgAIjzMR.jpg" alt="manager flota idea validation">
+
+took 24h+ for payment provider to press a checkbox
+
+so tomorrow I can contact potential customers in mass to see if they want to buy.
+
+officially we support payments on managerflota.ro
+
+Most probably I need to increase prices at some point, but how can I do that without upsetting customers?
+
+So I decided to show the current price as discounted. In that way, they can feel better and can understand that's a real deal currently.
+
+<img src="https://pbs.twimg.com/media/Fv7WFZhWIAE3uGJ.jpg" alt="manager flota idea validation">
+
+ Today I started to outreach potential customers for Manager Flota.
+
+Prepared a FB ads campaign to target them.
+
+Created a new article explaining how the calculus is made mathematically by the platform (in case they need to understand or double-check)
+
+#buildinpublic #managerflota
+We have 9 companies registered from the last week, and all are in Trial mode.
+
+A few of them started to onboard their drivers in the app, to make the calculus later.
+
+I keep in touch with customers and help them if needed.
+
+#buildinpublic #managerflota
+Move fast and build fast the product
+
+3 hours ago discussed with another client who requested a way to filter the drivers with negative balances or those with 0 balances from the report.
+
+Now implemented! hehe!!!
+
+<img src="https://pbs.twimg.com/media/FwMVkO0WIAE84-_.jpg" alt="manager flota idea validation">
+
+We added one new provider for ManagerFlota today, Splash
+
+We have one more remaining, and we support all of them in Romania.
+
+Mwhaha ... is such a joy to build your own product.
+
+<img src="https://pbs.twimg.com/media/FwQEfg-XwAMMsZE.jpg" alt="manager flota idea validation">
+
+ I haven't posted anything about Manager Flota, so here's the update:
+
+- first paying customer
+- many people already in 14days trial
+- a lot of improvements and extra features added as feedback from existing customers
+- created a blog on the website
+
+#buildinpublic #managerflota
+What is funny about doing marketing content for Manager Flota is that the main keywords are easy to index. I really like to create a blog post and in one week be on the first page of Google.
+
+#buildinpublic #managerflota
+
+<img src="https://pbs.twimg.com/media/Fwf603eXwAIzacv.jpg" alt="manager flota idea validation">
+<img src="https://pbs.twimg.com/media/Fwf603nWIAEnhwH.jpg" alt="manager flota idea validation">
+<img src="https://pbs.twimg.com/media/Fwf603iWIAUlSiN.jpg" alt="manager flota idea validation">
+
+ That moment when your project managerflota.ro gets a 100 score from @ahrefs and you know it pays for the whole morning spent.
+
+Can't wait to see the stats for the next week, after fixing all the issues.
+
+<img src="https://pbs.twimg.com/media/Fwkbz5AWIAAH2P0.jpg" alt="manager flota idea validation">
