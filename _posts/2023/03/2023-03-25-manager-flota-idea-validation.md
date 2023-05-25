@@ -362,7 +362,9 @@ I have the tendency to implement a feature in its final shape, but I force mysel
 
 Later I can get feedback from customers and do it how they need. 
 
-<video src="https://video.twimg.com/tweet_video/Fu3tLVtWwAI45Dg.mp4">
+<video>
+<source src="https://video.twimg.com/tweet_video/Fu3tLVtWwAI45Dg.mp4">
+</video>
 
 The first sneak peek from the managerflota .ro web platform for car-hailing fleet managers
 
@@ -415,7 +417,9 @@ They had some questions and is much easier for me and effective for customers to
 
 <img src="https://pbs.twimg.com/media/FvoVdqiWIBMDWEc.jpg" alt="manager flota idea validation">
 
-<video src="https://video.twimg.com/tweet_video/FvoXRTwX0AAEWZN.mp4">
+<video>
+<source src="https://video.twimg.com/tweet_video/FvoXRTwX0AAEWZN.mp4">
+</video>
 
  Great news for managerflota, because I just signed the contract for the payment provider.
 
@@ -430,7 +434,9 @@ It took me 2-3s to calculate reversing for 200 drivers. Usually the fleet manage
 
 #managerflota #buildinpublic
 
-<video src="https://video.twimg.com/tweet_video/FvssCEiaEAIOe5G.mp4">
+<video>
+<source src="https://video.twimg.com/tweet_video/FvssCEiaEAIOe5G.mp4">
+</video>
 
 According to Romanian & European laws every website has to show the online dispute’s authority banners, somewhere.
 
