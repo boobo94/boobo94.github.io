@@ -3,28 +3,53 @@ title: What books to read
 summary: The list of books I read. I decided one year ago to challenge myself and read as many books as I can this year. Take a look at this article and find all of them.
 categories: resources
 tags: books
-date: 2022-04-11 09:09:09 +0000
+date: 2023-04-11 09:09:09 +0000
 cover: https://cdn.pixabay.com/photo/2016/03/26/22/21/books-1281581_1280.jpg
 layout: post
 ---
 
 I decided one year ago to challange myself and read as many books as I can this year.
 
-## Past
+## 2023
 
-1. ✅ Technology-as-a-Service Playbook: How to Grow a Profitable Subscription Business
-2. ✅ The Complete Guide to Software as a Service: Everything you need to know about SaaS
-3. ✅ Blueprints for a SaaS Sales Organization: How to Design, Build and Scale a Customer-Centric Sales Organization (Sales Blueprints)
-4. ✅ Lean startup
-5. ✅ Running Lean: Iterate from Plan A to a Plan That Works (Lean (O'Reilly))
-6. ✅ The 100$ Start-Up
-7. ✅ Crushing It!: How Great Entrepreneurs Build Their Business and Influence-and How You Can, Too
-8. ✅ How to built a billion dollar app
-9. ✅ The Startup Owner's Manual - 6% read, not for me
-10. ✅ Jab, Jab, Jab, Right Hook: How to Tell Your Story in a Noisy Social World
-11. ✅ Grow your business with cold emails
-12. ✅ The Mom Test by Rob Fitzpatrick
-13. ✅ Growth hacking
+| Name | Author |
+| --- | --- |
+| Software Company: Advice on how to start, grow and exit a software company | David Cornwall |
+| The 60-Minute Tech Startup | Ramesh Donta |
+| Obviously Awesome: How to Nail Product Positioning so Customers Get It, Buy It, Love It | April Dunford |
+| Small Business For Dummies | |
+| ✅ How to Launch a Brand (2nd Edition): Your Step-by-Step Guide to Crafting a Brand: From Positioning to Naming And Brand Identity | |
+| ✅ The agency Grow Build Repeat | Luca Senatore |
+| ✅ The Ultimate Linkedin Sales Guide | Fabian Geyrhalter |
+| Hangry: A Startup Journey Hardcover | Mike Evans  |
+| Consulting Success: The Proven Guide to Start, Run and Grow a Successful Consulting Business Paperback | Michael Zipursky |
+| Productize: The Ultimate Guide to Turning Professional Services into Scalable Products Paperback | Eisha Armstrong |
+| How Clients Buy: A Practical Guide to Business Development for Consulting and Professional Services | Tom McMakin, Doug Fletcher |
+| ✅ The Seven Figure Agency Roadmap: How to Build a Million Dollar Digital Marketing Agency Paperback | Josh Nelson |
+| Million Dollar Consulting | Allan Weis |
+| Startup at the end | Matt Wallaert |
+| The millionaire Fastline | MJ Demarco |
+| Profit First | Mike Michalowicz |
+
+## 2022
+
+1. ✅ Ego is the enemy by Ryan Holiday - Is not my style
+2. ✅ How to read a book
+3. ✅ Subscribed Why the subscription model will be your company's future and what to do about it by Tien Tzuo and Gabe Weisert
+4. ✅ The subscription Boom by Adam Levinter
+5. ✅ Crypto Currencies by Julian Hosp
+6. ✅ It doesn't have to be crazy at work
+7. ✅ Your NexT 5 moves. Master the art of business by Patrick Bet-David
+8. ✅ Developer marketing does not exits by Adam Divander
+9. ✅ Company of one by Paul Jarvis
+10. ✅ Start small stay small, a developer guide to launch a startup
+11. ✅ The automatic customer by John Warillow
+12. ✅ Lost and founder
+13. ✅ The forever transaction by Robbie Kelemen Baxter
+14. ✅ From impossible to inevitable by Aaron Ross
+15. ✅ Cold email manifesto by Alex Berman
+16. ✅ 12 months to $1 million by Ryan Daniel Moran
+17. ✅ The 1 page marketing plan by Allan Dib
 
 
 ## 2021
@@ -50,44 +75,21 @@ I decided one year ago to challange myself and read as many books as I can this 
 19. ✅ 15 secrets of successful people know about time management by Kevin Kruse
 20. ✅ The follow-up formula by by Steli Efti
 
-## 2022
+## Past
 
-1. ✅ Ego is the enemy by Ryan Holiday - Is not my style
-2. ✅ How to read a book
-3. ✅ Subscribed Why the subscription model will be your company's future and what to do about it by Tien Tzuo and Gabe Weisert
-4. ✅ The subscription Boom by Adam Levinter
-5. ✅ Crypto Currencies by Julian Hosp
-6. ✅ It doesn't have to be crazy at work
-7. ✅ Your NexT 5 moves. Master the art of business by Patrick Bet-David
-8. ✅ Developer marketing does not exits by Adam Divander
-9. ✅ Company of one by Paul Jarvis
-10. ✅ Start small stay small, a developer guide to launch a startup
-11. ✅ The automatic customer by John Warillow
-12. ✅ Lost and founder
-13. ✅ The forever transaction by Robbie Kelemen Baxter
-14. ✅ From impossible to inevitable by Aaron Ross
-15. ✅ Cold email manifesto by Alex Berman
-16. ✅ 12 months to $1 million by Ryan Daniel Moran
-17. ✅ The 1 page marketing plan by Allan Dib
-
-## 2023
-
-1. Software Company: Advice on how to start, grow and exit a software company By David Cornwall
-2. The 60-Minute Tech Startup By Ramesh Donta
-3. Obviously Awesome: How to Nail Product Positioning so Customers Get It, Buy It, Love It by April Dunford
-4. Small Business For Dummies
-5. ✅ How to Launch a Brand (2nd Edition): Your Step-by-Step Guide to Crafting a Brand: From Positioning to Naming And Brand Identity
-6. ✅ The agency Grow Build Repeat by Luca Senatore
-7. ✅ The Ultimate Linkedin Sales Guide by Fabian Geyrhalter
-8. Hangry: A Startup Journey Hardcover by Mike Evans 
-9. Consulting Success: The Proven Guide to Start, Run and Grow a Successful Consulting Business Paperback by Michael Zipursky
-10. Productize: The Ultimate Guide to Turning Professional Services into Scalable Products Paperback by Eisha Armstrong
-11. How Clients Buy: A Practical Guide to Business Development for Consulting and Professional Services by Tom McMakin, Doug Fletcher
-12. The Seven Figure Agency Roadmap: How to Build a Million Dollar Digital Marketing Agency Paperback by Josh Nelson
-
-
-
-
+1. ✅ Technology-as-a-Service Playbook: How to Grow a Profitable Subscription Business
+2. ✅ The Complete Guide to Software as a Service: Everything you need to know about SaaS
+3. ✅ Blueprints for a SaaS Sales Organization: How to Design, Build and Scale a Customer-Centric Sales Organization (Sales Blueprints)
+4. ✅ Lean startup
+5. ✅ Running Lean: Iterate from Plan A to a Plan That Works (Lean (O'Reilly))
+6. ✅ The 100$ Start-Up
+7. ✅ Crushing It!: How Great Entrepreneurs Build Their Business and Influence-and How You Can, Too
+8. ✅ How to built a billion dollar app
+9. ✅ The Startup Owner's Manual - 6% read, not for me
+10. ✅ Jab, Jab, Jab, Right Hook: How to Tell Your Story in a Noisy Social World
+11. ✅ Grow your business with cold emails
+12. ✅ The Mom Test by Rob Fitzpatrick
+13. ✅ Growth hacking
 
 WIP
 
