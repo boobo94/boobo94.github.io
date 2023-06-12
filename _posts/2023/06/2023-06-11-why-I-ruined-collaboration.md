@@ -3,7 +3,7 @@ title: Why I ruined a collaboration
 summary: I ruined a collaboration at my agency Cmevo Digital to stay away from a bad client.
 categories: abstract
 tags: agency project
-date: 2023-06-12 09:09:09 +0000
+date: 2023-06-11 09:09:09 +0000
 cover: https://cdn.pixabay.com/photo/2017/01/09/12/49/mistake-1966448_1280.jpg
 layout: post
 ---

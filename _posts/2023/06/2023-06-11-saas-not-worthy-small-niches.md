@@ -3,7 +3,7 @@ title: SaaS is not worthy of small niches
 summary: SaaS platforms are hard when you build for a small niche. We debate a case study how I decided to left a good idea behind.
 categories: abstract
 tags: saas startup
-date: 2023-06-12 09:09:09 +0000
+date: 2023-06-11 09:09:09 +0000
 cover: https://cdn.pixabay.com/photo/2016/10/10/14/44/train-1728537_1280.jpg
 layout: post
 ---
