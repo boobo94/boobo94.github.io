@@ -29,3 +29,21 @@ In this article, we delve into the captivating landscape of Romanian startups, u
 | <https://thinkout.io/ro/> | ThinkOut is the solution that helps entrepreneurs analyze and forecast receipts and payments based on bank history. |
 | <https://niftylearning.io/> | At Nifty, we believe tedious L&D admin work should be a thing of the past. That’s why we’re setting a new LMS standard – Nifty is user-friendly, intuitive, and it works for you, not against you.  |
 | <https://easy-sales.com/ro> | Stay ahead of competition with our automated selling solution |
+| <https://www.sypher.eu/> | Information Security & Privacy Management Integrated Software |
+
+https://vatis.tech/
+Vatis Tech’s Speech-to-Text APIs are trusted and successfully used by companies of every size from multiple domains.
+
+https://hyperhuman.cc/
+Automate the video production process with AI and deliver personalized, engaging content.
+
+https://ecotree.ro/
+Prima platformă digitală de management al deșeurilor din România
+
+https://flaminjoy.com/
+Shorten the path from SKU discovery to buy
+UGC platform that provides proven growth in CTR & sales
+
+https://questoapp.com/
+Questo is a platform for real-world city exploration games written and designed by professional content creators, companies and amateur storytellers around the world.
+
