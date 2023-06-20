@@ -1,14 +1,14 @@
 ---
 title: Get official stats resources
-summary: Summary Draft Template
+summary: This is a short lists of stats made be trusted institution or authorities or business inteligence companies.
 categories: resources
 tags: resources startup
 date: 2023-06-19 09:09:09 +0000
-cover: https://example.com/img.png
+cover: https://cdn.pixabay.com/photo/2017/09/25/17/10/chart-2785864_960_720.jpg
 layout: post
 ---
 
-This is a short lists of public stats made be trusted institution or authorities.
+This is a short lists of stats made be trusted institution or authorities or business inteligence companies.
 
 ## Public Stats From Romania
 
@@ -22,7 +22,7 @@ This is a short lists of public stats made be trusted institution or authorities
 - [Unlock research](https://unlockers.ro/)
 - [MKOR](https://mkor.ro/studii-proprii/)
 
-## Stats from international business intelicence companies
+## Stats from international business inteligence companies
 
 - [IPSOS](https://www.ipsos.com/ro-ro/news-and-polls/overview)
 - [GFK](https://www.gfk.com/insights?content_type1=content_typeReports&ct=true&countries17=countriesRomania&countries10=countriesGlobal)
