@@ -8,7 +8,7 @@ cover: https://managerflota.ro/images/manager-flota-dashboard.webp
 layout: post
 ---
 
-Manager Flota is growing, slowly, but surely, I hope. 2 or 3 weeks ago we started an FB campaign targeting fleet managers. The results impressed with the results. But nothing goes perfectly every day, and here we need to embrace the problem and fix it.
+Manager Flota is growing, slowly, but surely, I hope. 2 or 3 weeks ago we started an FB campaign targeting fleet managers. The results impressed me. But nothing goes perfectly every day, and here we need to embrace the problem and fix it.
 
 People see the ad, start a trial and that’s it. It’s true that most of the clients who came from FB ads are small fleets, under 5-10 drivers. Our solution works great for them too. But bigger fleets have bigger pains and have more interest in using our app.
 
