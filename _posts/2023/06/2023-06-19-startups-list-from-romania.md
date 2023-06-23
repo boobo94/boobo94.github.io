@@ -36,3 +36,12 @@ In this article, we delve into the captivating landscape of Romanian startups, u
 | <https://flaminjoy.com/> | Shorten the path from SKU discovery to buy UGC platform that provides proven growth in CTR & sales | eCommerce |
 | <https://questoapp.com/> | Questo is a platform for real-world city exploration games written and designed by professional content creators, companies and amateur storytellers around the world. | Travel |
 
+
+https://liteapp.co/
+
+https://expertsport.club/
+Platformă cloud pentru managementul cluburilor sportive
+
+
+https://drivegrade.eu/
+DriveGrade este noul standard în evaluarea comportamentului rutier. 
