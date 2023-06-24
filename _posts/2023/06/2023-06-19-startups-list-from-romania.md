@@ -35,13 +35,8 @@ In this article, we delve into the captivating landscape of Romanian startups, u
 | <https://ecotree.ro/> | Prima platformă digitală de management al deșeurilor din România | Green |
 | <https://flaminjoy.com/> | Shorten the path from SKU discovery to buy UGC platform that provides proven growth in CTR & sales | eCommerce |
 | <https://questoapp.com/> | Questo is a platform for real-world city exploration games written and designed by professional content creators, companies and amateur storytellers around the world. | Travel |
+| https://liteapp.co/
+| <https://expertsport.club/> | Sports club management platform | Sport |
+| <https://drivegrade.eu/> | Evaluate the drivers behaviour. | Auto |
+| <https://www.kidsfinancesolutions.com/> | The fully interactive app that teaches your kids finance. | Finance, Kids |
 
-
-https://liteapp.co/
-
-https://expertsport.club/
-Platformă cloud pentru managementul cluburilor sportive
-
-
-https://drivegrade.eu/
-DriveGrade este noul standard în evaluarea comportamentului rutier. 
