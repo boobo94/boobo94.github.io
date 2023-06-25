@@ -18,6 +18,7 @@ In this article, we delve into the captivating landscape of Romanian startups, u
 | --- | --- | --- |
 | <https://www.tinyerp.app/ro/> | Intuitive and elegant CRM interface for small and medium businesses. | CRM |
 | <https://xtrainer.fit/> | Individuals can easily browse through profiles, compare services, and make informed decisions. | Fitness, Health |
+| <https://managerflota.ro/> | Simplify your alternative transport fleet management. Manage weekly payments, drivers, cars and reports simply and quickly. | Transport |
 | <https://www.dogoapp.ro/> | Walk your dog, mobile app | Tech, Life |
 | <https://www.blume.ro/> | We reduce accidents at pedestrian crossings | Tech |
 | <https://cleanvoice.ai/> | Cleanvoice is an artificial intelligence which removes filler sounds, stuttering and mouth sounds from your podcast or audio recording | AI, Audio |
@@ -35,7 +36,7 @@ In this article, we delve into the captivating landscape of Romanian startups, u
 | <https://ecotree.ro/> | Prima platformă digitală de management al deșeurilor din România | Green |
 | <https://flaminjoy.com/> | Shorten the path from SKU discovery to buy UGC platform that provides proven growth in CTR & sales | eCommerce |
 | <https://questoapp.com/> | Questo is a platform for real-world city exploration games written and designed by professional content creators, companies and amateur storytellers around the world. | Travel |
-| https://liteapp.co/ | Booking services | Booking |
+| <https://liteapp.co/> | Booking services | Booking |
 | <https://expertsport.club/> | Sports club management platform | Sport |
 | <https://drivegrade.eu/> | Evaluate the drivers behaviour. | Auto |
 | <https://www.kidsfinancesolutions.com/> | The fully interactive app that teaches your kids finance. | Finance, Kids |
