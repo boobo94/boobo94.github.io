@@ -39,4 +39,10 @@ In this article, we delve into the captivating landscape of Romanian startups, u
 | <https://expertsport.club/> | Sports club management platform | Sport |
 | <https://drivegrade.eu/> | Evaluate the drivers behaviour. | Auto |
 | <https://www.kidsfinancesolutions.com/> | The fully interactive app that teaches your kids finance. | Finance, Kids |
-
+| <https://www.agricloud.ro/en/home/> | AgriCloud monitors crops, vineyards, orchards and animal farms using IoT technology. | Agro, Tech |
+| <https://apiarybook.com/> | Our solutions have been developed to address the challenges of modern beekeeping and support communication across the board between beekeepers, beekeeping associations, farmers, universities, researchers and local authorities. | Agro, Tech |
+| <https://www.cbnagro.tech/> | CBNagro.tech is a IoT product that mixes hardware with software in order to help silo and warehouses owners get more profitable, avoiding silage and quality loss of their products | Agro, Tech |
+| <https://ogor.ro/> | OGOR is a monitoring tool that helps farmers control the status of their crop and understand the consequences of their agricultural practices, based on historical and up-to-date vegetation maps, processed from Copernicus satellite data. | Agro, Tech |
+| <https://bonapp.eco/> | bonapp.eco helps businesses reduce food waste, by connecting users with local retailers, including grocery stores, restaurants, shops, gas stations, bakeries, coffee shops, hotels, etc. Through the app, users can purchase products approaching their expiration date, at a 40% to 80% discount. | Agro, Tech |
+| <https://dahnapp.com/> | Dahna is a diet application that helps you keep your heart healthy every day and reduces the risk of cardiovascular disease created with the expertise of cardiologists and advised by a nutritionist | Agro, Tech |
+| <https://www.fimon.ro/> | Fimon is a precision farming startup, which helps farmers with disease, pest and weather alerts on their mobile phones for an increased crop health | Agro, Tech |
