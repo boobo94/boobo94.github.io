@@ -64,7 +64,7 @@ AnswerThePublic listens into autocomplete data from search engines like Google t
 
 The ad library provides advertising transparency by offering a comprehensive, searchable collection of all ads currently running from across Facebook apps and services, including Instagram.
 
-<h3>9. <a href="https://adstransparency.google.com/">Google Ads Transparency</a></h3>
+<h3>9. <a href="https://adstransparency.google.com/" target="_blank">Google Ads Transparency</a></h3>
 
 The Ads Transparency Center is a searchable hub of all ads served from verified advertisers.
 
