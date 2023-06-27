@@ -64,41 +64,47 @@ AnswerThePublic listens into autocomplete data from search engines like Google t
 
 The ad library provides advertising transparency by offering a comprehensive, searchable collection of all ads currently running from across Facebook apps and services, including Instagram.
 
-<h3>9. <a href="https://www.spyfu.com/" target="_blank">Spyfu</a></h3>
+<h3>9. <a href="https://adstransparency.google.com/">Google Ads Transparency</a></h3>
+
+The Ads Transparency Center is a searchable hub of all ads served from verified advertisers.
+
+<h3>10. <a href="https://ads.google.com/home/tools/keyword-planner/" target="_blank">Google Keyword Planner</a></h3>
+
+Keyword Planner is one of the best and most known free tools for keyword research with some limitations, though.
+
+
+<h3>11. <a href="https://www.spyfu.com/" target="_blank">Spyfu</a></h3>
 
 Spyfu offers similar data to Semrush.
 
-<h3>10. <a href="https://mention.com/" target="_blank">Mention</a></h3>
+<h3>12. <a href="https://mention.com/" target="_blank">Mention</a></h3>
 
 Mention enables brands and agencies to monitor the web, listen to their audience, and manage social media. With Mention, you can monitor Internet content about your brand on forums, blogs, videos, images, etc. It's not free, only a trial.
 
-<h3>11. <a href="https://www.fanpagekarma.com/start" target="_blank">Fanpagekarma</a></h3>
+<h3>13. <a href="https://www.fanpagekarma.com/start" target="_blank">Fanpagekarma</a></h3>
 
  With Fanpage Karma you have everything you need for professional social media management: analyzing, publishing, communicating, researching, and presenting. Everything in one tool. 
 
-<h3>12. <a href="https://alsoasked.com/" target="_blank">Alsoasked</a></h3>
+<h3>14. <a href="https://alsoasked.com/" target="_blank">Alsoasked</a></h3>
 
 See the questions people also asked.
 
-<h3>13. <a href="https://answerthepublic.com/" target="_blank">Answerthepublic</a></h3>
+<h3>15. <a href="https://answerthepublic.com/" target="_blank">Answerthepublic</a></h3>
 
 Discover what people are asking about…
 
-<h3>14. <a href="https://kwfinder.com" target="_blank">KWFinder</a></h3>
+<h3>16. <a href="https://kwfinder.com" target="_blank">KWFinder</a></h3>
 
 Find long tail keywords with low SEO difficulty.
 
-<h3>15. <a href="https://trends.google.com/" target="_blank">Google Trends</a></h3>
+<h3>17. <a href="https://trends.google.com/" target="_blank">Google Trends</a></h3>
 
 Google Trends is a great free keyword research tool that shows an overview of how a key phrase performs on Google.
 
-<h3>16. <a href="https://www.highervisibility.com/free-seo-tools/bulk-keyword-generator/" target="_blank">Bulk keyword generator</a></h3>
+<h3>18. <a href="https://www.highervisibility.com/free-seo-tools/bulk-keyword-generator/" target="_blank">Bulk keyword generator</a></h3>
 
 A free local SEO keyword tool for small businesses and marketers. Select a business type and city, and it will automatically generate local keywords for your industry that potential customers might use to find you.
 
-<h3>17. <a href="https://ads.google.com/home/tools/keyword-planner/" target="_blank">Google Keyword Planner</a></h3>
-
-Keyword Planner is one of the best and most known free tools for keyword research with some limitations, though.
 
 ### Others:
 
