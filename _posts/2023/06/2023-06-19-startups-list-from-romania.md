@@ -48,6 +48,7 @@ In this article, we delve into the captivating landscape of Romanian startups, u
 | <https://dahnapp.com> | Dahna is a diet application that helps you keep your heart healthy every day and reduces the risk of cardiovascular disease created with the expertise of cardiologists and advised by a nutritionist | Agro, Tech |
 | <https://fimon.ro> | Fimon is a precision farming startup, which helps farmers with disease, pest and weather alerts on their mobile phones for an increased crop health | Agro, Tech |
 | <https://jogga.app> | Our goal is to bring players together to create unique experiences and new friends | Sport |
-
+| <https://travlocals.com/> | Choose the most spectacular accommodations in Romania | Travel |
+| <https://www.fieldos.co/> | FieldOS is an intuitive, one stop shop Asset Operations Management solution that embeds all the flows your Maintenance & Reliability teams need: job management, real time communication and many more. | Business |
 
 
