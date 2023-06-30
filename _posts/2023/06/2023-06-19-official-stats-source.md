@@ -8,7 +8,7 @@ cover: https://cdn.pixabay.com/photo/2017/09/25/17/10/chart-2785864_960_720.jpg
 layout: post
 ---
 
-This is a short lists of stats made be trusted institution or authorities or business inteligence companies.
+This is a short lists of stats created by trusted institution or authorities or business inteligence companies.
 
 ## Public Stats From Romania
 
