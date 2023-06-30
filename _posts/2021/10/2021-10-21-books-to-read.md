@@ -51,43 +51,39 @@ I decided one year ago to challange myself and read as many books as I can this 
 
 
 ## 2021
-
-1. ✅ growth hacking marketing
-2. ✅ running lean by Ash Maurya
-3. ✅ the mom test by Rob Fitzpatrick
-4. ✅ zero to sold by Arvid Kahl
-5. ✅ saas sales for startup founders by Steli Efti
-6. ✅ cold email hacks by Steli Efti
-7. ✅ How any startup can achieve explosive growth traction by Gabriel Weinberg
-8. ✅ it doesn’t have to be crazy at work
-9. ✅ the follow up formula
-10. ✅ The founder’s guide to sales negotiation by Steli Efti
-11. ✅ 15 thinks successful people know about time management
-12. ✅ Start small, start small: a developer guide to launching a startup
-13. ✅ E myth revisited
-14. ✅ How to built a billion dollar app
-15. ✅ Hooked
-16. ✅ Zero to one
-17. ✅ Company of one by Paul Jarvis
-18. ✅ Lost and founder by Rand Fishkin
-19. ✅ 15 secrets of successful people know about time management by Kevin Kruse
-20. ✅ The follow-up formula by by Steli Efti
-
-## Past
-
-1. ✅ Technology-as-a-Service Playbook: How to Grow a Profitable Subscription Business
-2. ✅ The Complete Guide to Software as a Service: Everything you need to know about SaaS
-3. ✅ Blueprints for a SaaS Sales Organization: How to Design, Build and Scale a Customer-Centric Sales Organization (Sales Blueprints)
-4. ✅ Lean startup
-5. ✅ Running Lean: Iterate from Plan A to a Plan That Works (Lean (O'Reilly))
-6. ✅ The 100$ Start-Up
-7. ✅ Crushing It!: How Great Entrepreneurs Build Their Business and Influence-and How You Can, Too
-8. ✅ How to built a billion dollar app
-9. ✅ The Startup Owner's Manual - 6% read, not for me
-10. ✅ Jab, Jab, Jab, Right Hook: How to Tell Your Story in a Noisy Social World
-11. ✅ Grow your business with cold emails
-12. ✅ The Mom Test by Rob Fitzpatrick
-13. ✅ Growth hacking
+| ✅ growth hacking marketing | |
+| ✅ running lean | Ash Maurya |
+| ✅ the mom test | Rob Fitzpatrick |
+| ✅ zero to sold | Arvid Kahl |
+| ✅ saas sales for startup founders | Steli Efti |
+| ✅ cold email hacks | Steli Efti |
+| ✅ How any startup can achieve explosive growth traction | Gabriel Weinberg |
+| ✅ it doesn’t have to be crazy at work | |
+| ✅ the follow up formula | |
+| ✅ The founder’s guide to sales negotiation | Steli Efti
+| ✅ 15 thinks successful people know about time management | |
+| ✅ Start small, start small: a developer guide to launching a startup | |
+| ✅ E myth revisited | |
+| ✅ How to built a billion dollar app | |
+| ✅ Hooked | |
+| ✅ Zero to one | |
+| ✅ Company of one | Paul Jarvis |
+| ✅ Lost and founder | Rand Fishkin |
+| ✅ 15 secrets of successful people know about time management | Kevin Kruse |
+| ✅ The follow-up formula | Steli Efti |
+| ✅ Technology-as-a-Service Playbook: How to Grow a Profitable Subscription Business | |
+| ✅ The Complete Guide to Software as a Service: Everything you need to know about SaaS | |
+| ✅ Blueprints for a SaaS Sales Organization: How to Design, Build and Scale a Customer-Centric Sales Organization (Sales Blueprints) | |
+| ✅ Lean startup | |
+| ✅ Running Lean: Iterate from Plan A to a Plan That Works (Lean (O'Reilly)) | |
+| ✅ The 100$ Start-Up | |
+| ✅ Crushing It!: How Great Entrepreneurs Build Their Business and Influence-and How You Can, Too | |
+| ✅ How to built a billion dollar app | |
+| ✅ The Startup Owner's Manual - 6% read, not for me | |
+| ✅ Jab, Jab, Jab, Right Hook: How to Tell Your Story in a Noisy Social World | |
+| ✅ Grow your business with cold emails | |
+| ✅ The Mom Test | Rob Fitzpatrick |
+| ✅ Growth hacking | |
 
 WIP
 
