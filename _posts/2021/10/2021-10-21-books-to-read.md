@@ -31,26 +31,23 @@ I decided one year ago to challange myself and read as many books as I can this 
 | The millionaire Fastline | MJ Demarco |
 | Profit First | Mike Michalowicz |
 | How to start a succesful creative agency | Andy Strote |
-
-## 2022
-
-1. ✅ Ego is the enemy by Ryan Holiday - Is not my style
-2. ✅ How to read a book
-3. ✅ Subscribed Why the subscription model will be your company's future and what to do about it by Tien Tzuo and Gabe Weisert
-4. ✅ The subscription Boom by Adam Levinter
-5. ✅ Crypto Currencies by Julian Hosp
-6. ✅ It doesn't have to be crazy at work
-7. ✅ Your NexT 5 moves. Master the art of business by Patrick Bet-David
-8. ✅ Developer marketing does not exits by Adam Divander
-9. ✅ Company of one by Paul Jarvis
-10. ✅ Start small stay small, a developer guide to launch a startup
-11. ✅ The automatic customer by John Warillow
-12. ✅ Lost and founder
-13. ✅ The forever transaction by Robbie Kelemen Baxter
-14. ✅ From impossible to inevitable by Aaron Ross
-15. ✅ Cold email manifesto by Alex Berman
-16. ✅ 12 months to $1 million by Ryan Daniel Moran
-17. ✅ The 1 page marketing plan by Allan Dib
+| ✅ Ego is the enemy | Ryan Holiday |
+| ✅ How to read a book | |
+| ✅ Subscribed Why the subscription model will be your company's future and what to do about it  | Tien Tzuo and Gabe Weisert |
+| ✅ The subscription Boom | Adam Levinter |
+| ✅ Crypto Currencies | Julian Hosp |
+| ✅ It doesn't have to be crazy at work| |
+| ✅ Your NexT 5 moves. Master the art of business | Patrick Bet-David |
+| ✅ Developer marketing does not exits | Adam Divander |
+| ✅ Company of one | Paul Jarvis |
+| ✅ Start small stay small, a developer guide to launch a startup | |
+| ✅ The automatic customer | John Warillow |
+| ✅ Lost and founder| |
+| ✅ The forever transaction | Robbie Kelemen Baxter |
+| ✅ From impossible to inevitable | Aaron Ross |
+| ✅ Cold email manifesto | Alex Berman |
+| ✅ 12 months to $1 million | Ryan Daniel Moran |
+| ✅ The 1 page marketing plan | Allan Dib |
 
 
 ## 2021
