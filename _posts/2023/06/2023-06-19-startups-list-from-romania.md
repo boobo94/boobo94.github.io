@@ -50,5 +50,8 @@ In this article, we delve into the captivating landscape of Romanian startups, u
 | <https://jogga.app> | Our goal is to bring players together to create unique experiences and new friends | Sport |
 | <https://travlocals.com/> | Choose the most spectacular accommodations in Romania | Travel |
 | <https://www.fieldos.co/> | FieldOS is an intuitive, one stop shop Asset Operations Management solution that embeds all the flows your Maintenance & Reliability teams need: job management, real time communication and many more. | Business |
+| <https://profluo.com/home> | Read and post invoices in great detail, using Artificial Intelligence. | Business, Documents |
+
+
 
 
