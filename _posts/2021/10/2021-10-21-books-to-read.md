@@ -48,9 +48,6 @@ I decided one year ago to challange myself and read as many books as I can this 
 | ✅ Cold email manifesto | Alex Berman |
 | ✅ 12 months to $1 million | Ryan Daniel Moran |
 | ✅ The 1 page marketing plan | Allan Dib |
-
-
-## 2021
 | ✅ growth hacking marketing | |
 | ✅ running lean | Ash Maurya |
 | ✅ the mom test | Rob Fitzpatrick |
