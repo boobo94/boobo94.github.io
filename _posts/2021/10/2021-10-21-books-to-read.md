@@ -30,6 +30,7 @@ I decided one year ago to challange myself and read as many books as I can this 
 | Startup at the end | Matt Wallaert |
 | The millionaire Fastline | MJ Demarco |
 | Profit First | Mike Michalowicz |
+| How to start a succesful creative agency | Andy Strote |
 
 ## 2022
 
