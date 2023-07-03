@@ -111,5 +111,6 @@ A free local SEO keyword tool for small businesses and marketers. Select a busin
 - <https://www.seobility.net/en/seocheck/>
 - <http://wordstream.com/>
 - <https://www.link-assistant.com/news/free-keyword-research-tools.html>
+- <https://backlinko.com/best-free-seo-tools>
 
 Image Source: <a href="https://pixabay.com/images/id-731479/" target="_blank">Pixabay</a>
