@@ -19,4 +19,8 @@ Discover a comprehensive collection of valuable resources to master the art of S
 
 - <a href="https://neilpatel.com/blog/how-saas-marketing-is-different/" target="_blank">How SaaS Marketing is Different from Every Other Type of Marketing</a> 
 - <a href="https://www.linkedin.com/pulse/17-free-resources-i-used-teach-myself-saas-you-can-too-srivastav/" target="_blank"> 17 Free Resources I used to teach myself SaaS. And you can too. </a> 
+- <a href="https://www.kracov.co/writing/funnel-metrics-for-saas-marketers" target="_blank">Funnel Metrics for SaaS Marketers</a> 
+- <a href="https://www.farsiight.com/resources/google-ads-for-saas/" target="_blank">The Most Comprehensive Guide to Google Ads Marketing for SaaS</a>
+- <a href="http://saasmarketingstrategy.blogspot.com/" target="_blank">Practical Advice on SaaS Marketing</a>
+- <a href="https://backlinko.com/saas-seo" target="_blank">SEO for SaaS: The Complete Guide</a>
 - <a href="URL" target="_blank">TITLE</a> 
