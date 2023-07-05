@@ -85,7 +85,7 @@ Do you wanna launch grandiosely your startup? Get a list of platforms where peop
 | <a href="https://startup88.com/" target="_blank">Tech^Map</a> | - | 25 | - | - |
 | <a href="https://startupcollections.com/" target="_blank">Startup Collections</a> | - | 23 | - | - |
 | <a href="https://apprater.net/" target="_blank">App Rater</a> | - | - | - | - |
-| <a href="https://businesstoolvault.com/submit-tool" target="_blank">Business ToolVault</a> | - | - | - | - |
+| <a href="https://businesstoolvault.com/submit-tool" target="_blank">Business ToolVault</a> | - | 0 | < 1000 | 1-3 days |
 
 On reddit
 
