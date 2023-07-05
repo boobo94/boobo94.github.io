@@ -10,7 +10,7 @@ layout: post
 
 Do you wanna launch grandiosely your startup? Get a list of platforms where people can discover your project and can push your project directly to the sky.
 
-| Name | Link Type | Domain Raiting | Monthly Traffic | Time to be Listed |
+| Name | Link Type | Domain Rating | Monthly Traffic | Time to be Listed |
 | --- | --- | --- | --- | --- |
 | <a href="https://www.producthunt.com" target="_blank">Product Hunt</a> | Do-follow | 90 | 4-5M | Immediate/Flexible |
 | <a href="https://news.ycombinator.com/" target="_blank">HackerNews</a> | Do-follow | 90 | - | - |
@@ -85,6 +85,7 @@ Do you wanna launch grandiosely your startup? Get a list of platforms where peop
 | <a href="https://startup88.com/" target="_blank">Tech^Map</a> | - | 25 | - | - |
 | <a href="https://startupcollections.com/" target="_blank">Startup Collections</a> | - | 23 | - | - |
 | <a href="https://apprater.net/" target="_blank">App Rater</a> | - | - | - | - |
+| <a href="https://businesstoolvault.com/submit-tool" target="_blank">Business ToolVault</a> | - | - | - | - |
 
 On reddit
 
