@@ -23,4 +23,6 @@ Discover a comprehensive collection of valuable resources to master the art of S
 - <a href="https://www.farsiight.com/resources/google-ads-for-saas/" target="_blank">The Most Comprehensive Guide to Google Ads Marketing for SaaS</a>
 - <a href="http://saasmarketingstrategy.blogspot.com/" target="_blank">Practical Advice on SaaS Marketing</a>
 - <a href="https://backlinko.com/saas-seo" target="_blank">SEO for SaaS: The Complete Guide</a>
+- <a href="https://www.indiehackers.com/post/the-ultimate-guide-to-saas-pricing-7962e070de" target="_blank">The ultimate guide
+to SaaS pricing</a>
 - <a href="URL" target="_blank">TITLE</a> 
