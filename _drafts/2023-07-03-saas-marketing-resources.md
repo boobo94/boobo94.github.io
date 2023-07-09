@@ -25,4 +25,6 @@ Discover a comprehensive collection of valuable resources to master the art of S
 - <a href="https://backlinko.com/saas-seo" target="_blank">SEO for SaaS: The Complete Guide</a>
 - <a href="https://www.indiehackers.com/post/the-ultimate-guide-to-saas-pricing-7962e070de" target="_blank">The ultimate guide
 to SaaS pricing</a>
+- <a href="https://www.saaswrites.com/" target="_blank">A Marketing Hub for Tech Companies</a> 
+- <a href="URL" target="_blank">TITLE</a>
 - <a href="URL" target="_blank">TITLE</a> 
