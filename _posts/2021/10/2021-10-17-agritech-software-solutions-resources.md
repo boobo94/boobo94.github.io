@@ -29,3 +29,7 @@ No petrol, no driving. Stay atop your fuel usage patterns with integrated fuel m
 5.[GPS Agriculture: Common Practice or a Launchpad for Innovation?](https://intellias.com/gps-agriculture/)
 
 Discover how to create value for the savviest farmers with agriculture GPS solutions
+
+6. https://agrixp.com
+
+7. https://geoportal.ancpi.ro/portal/home/
