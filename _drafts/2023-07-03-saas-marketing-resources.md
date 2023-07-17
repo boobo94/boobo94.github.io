@@ -8,11 +8,6 @@ cover: https://cdn.pixabay.com/photo/2016/04/20/08/21/entrepreneur-1340649_1280.
 layout: post
 ---
 
-//todo: remove these
-Demo
-
-Check SEO meta: https://metadescriptiontool.com/
-
 Discover a comprehensive collection of valuable resources to master the art of SaaS marketing. Explore expert tips, insightful guides, and industry-leading courses that empower you to drive growth and maximize customer acquisition in the dynamic world of Software-as-a-Service (SaaS) marketing.
 
 ## Blog Posts
