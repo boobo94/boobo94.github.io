@@ -8,6 +8,4 @@ cover: https://example.com/img.png
 layout: post
 ---
 
-1. <a href="https://driverjs.com/" target="_blank">DriverJS</a>
-
-Product tours, highlights, contextual help and more.
+1. <a href="https://driverjs.com/" target="_blank">DriverJS</a> Product tours, highlights, contextual help and more.
