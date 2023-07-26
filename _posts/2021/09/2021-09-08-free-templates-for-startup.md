@@ -29,5 +29,6 @@ A complete list with free resources to build your next startup's website.
 19. [Github "website template" topic](https://github.com/topics/website-template)
 20. <https://github.com/topics/landingpage?o=desc&s=updated>
 21. [HTML Rev](https://htmlrev.com/)
+22. [Clio WordPress Templates](https://cliowebsites.com/free-elementor-themes/)
 
 PS: List is updated constantly
