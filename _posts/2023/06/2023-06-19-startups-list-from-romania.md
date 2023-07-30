@@ -53,5 +53,9 @@ In this article, we delve into the captivating landscape of Romanian startups, u
 | <https://profluo.com/home> | Read and post invoices in great detail, using Artificial Intelligence. | Business, Documents |
 
 
-
+OxidOS
+Synaptiq
+AIDE
+Rayscape
+Veridion
 
