@@ -51,11 +51,12 @@ In this article, we delve into the captivating landscape of Romanian startups, u
 | <https://travlocals.com/> | Choose the most spectacular accommodations in Romania | Travel |
 | <https://www.fieldos.co/> | FieldOS is an intuitive, one stop shop Asset Operations Management solution that embeds all the flows your Maintenance & Reliability teams need: job management, real time communication and many more. | Business |
 | <https://profluo.com/home> | Read and post invoices in great detail, using Artificial Intelligence. | Business, Documents |
+| <https://oxidos.io/> | Welcome to OxidOS Automotive. Rust-based secure ecosystem for safety critical automotive ECUs. | Automotive |
+| <https://synaptiq.io/> | Our revolutionary software is a tool that separates cancerous tumours and organs at risk with the help of Artificial Intelligence. | AI, e-health |
+| <https://www.aide.health/> | Aide is a digital health platform that helps patients and their clinicians better understand and manage chronic disease. | AI, e-health |
+| <https://rayscape.ai/> | We augment radiologists analyzing X-rays and CTs by tapping into 15,000,000 medical images of experience. | AI, e-health |
+| <https://veridion.com/> | Find any company by any criteria: products, materials, certifications and more. | AI, Business |
 
 
-OxidOS
-Synaptiq
-AIDE
-Rayscape
-Veridion
+
 
