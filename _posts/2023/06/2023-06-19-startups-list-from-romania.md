@@ -56,7 +56,9 @@ In this article, we delve into the captivating landscape of Romanian startups, u
 | <https://www.aide.health/> | Aide is a digital health platform that helps patients and their clinicians better understand and manage chronic disease. | AI, e-health |
 | <https://rayscape.ai/> | We augment radiologists analyzing X-rays and CTs by tapping into 15,000,000 medical images of experience. | AI, e-health |
 | <https://veridion.com/> | Find any company by any criteria: products, materials, certifications and more. | AI, Business |
-
+| <https://global.yload.eu/> | All your work in one place: logistics, carriers, shippers, suppliers and customers | AI, Logistics |
+| <https://cargobuddy.ro/> | Optimize your cost, save time and send a cargo anywhere and anytime. Our mission is to get every cargo to its destination. | Logistics |
+| <https://cargoplanning.com/> | CargoPlanning - A platform dedicated to production companies for transport process management | Logisitics, Management |
 
 
 
