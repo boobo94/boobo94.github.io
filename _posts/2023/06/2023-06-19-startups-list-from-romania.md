@@ -14,55 +14,6 @@ In recent years, this picturesque country has witnessed a remarkable surge in en
 
 In this article, we delve into the captivating landscape of Romanian startups, unveiling a curated list of standout companies that are making waves, transforming industries, and shaping the future. Get ready to discover the rising stars of Romania's startup world.
 
-| URL | Description | Category | 
-| --- | --- | --- |
-| <https://tinyerp.app> | Intuitive and elegant CRM interface for small and medium businesses. | CRM |
-| <https://xtrainer.fit> | Individuals can easily browse through profiles, compare services, and make informed decisions. | Fitness, Health |
-| <https://managerflota.ro> | Simplify your alternative transport fleet management. Manage weekly payments, drivers, cars and reports simply and quickly. | Transport |
-| <https://dogoapp.ro> | Walk your dog, mobile app | Tech, Life |
-| <https://blume.ro> | We reduce accidents at pedestrian crossings | Tech |
-| <https://cleanvoice.ai> | Cleanvoice is an artificial intelligence which removes filler sounds, stuttering and mouth sounds from your podcast or audio recording | AI, Audio |
-| <https://iflows.com> | Discover the platform that will help your business on all levels: organization, production, sales, marketing and finance. Organize your employees better and forget about financial losses caused by lost time or random processes. | Business |
-| <https://tootor.ro> | The first platform in Romania where you can do meditations and courses online, quickly, simply and efficiently. | e-learning |
-| <https://aqurate.ai> | AI-driven personalization tools to boost your eCommerce shop. Connect your shop with Aqurate and get the most out of each website visitor. Boost your conversions, AOV, and customer retention through personalized product recommendations and behavioral segmentation. | AI, eCommerce |
-| <https://bitpoke.io> | We are making cloud-native technology accessible in the WordPress world. Everyone should have access to modern WebOps infrastructure. | Tech |
-| <https://blugento.ro> | Build your online store with Blugento, simple and fast. | eCommerce |
-| <https://thinkout.io> | ThinkOut is the solution that helps entrepreneurs analyze and forecast receipts and payments based on bank history. | Payments, Finance |
-| <https://niftylearning.io> | At Nifty, we believe tedious L&D admin work should be a thing of the past. That’s why we’re setting a new LMS standard – Nifty is user-friendly, intuitive, and it works for you, not against you.  | Tech, Cloud |
-| <https://easy-sales.com> | Stay ahead of competition with our automated selling solution | eCommerce |
-| <https://sypher.eu> | Information Security & Privacy Management Integrated Software | Security, Privacy |
-| <https://vatis.tech> | Vatis Tech’s Speech-to-Text APIs are trusted and successfully used by companies of every size from multiple domains. | Speech-to-Text
-| <https://hyperhuman.cc> | Automate the video production process with AI and deliver personalized, engaging content. | video, AI |
-| <https://ecotree.ro> | Prima platformă digitală de management al deșeurilor din România | Green |
-| <https://flaminjoy.com> | Shorten the path from SKU discovery to buy UGC platform that provides proven growth in CTR & sales | eCommerce |
-| <https://questoapp.com> | Questo is a platform for real-world city exploration games written and designed by professional content creators, companies and amateur storytellers around the world. | Travel |
-| <https://liteapp.co> | Booking services | Booking |
-| <https://expertsport.club> | Sports club management platform | Sport |
-| <https://drivegrade.eu> | Evaluate the drivers behaviour. | Auto |
-| <https://kidsfinancesolutions.com> | The fully interactive app that teaches your kids finance. | Finance, Kids |
-| <https://agricloud.ro> | AgriCloud monitors crops, vineyards, orchards and animal farms using IoT technology. | Agro, Tech |
-| <https://apiarybook.com> | Our solutions have been developed to address the challenges of modern beekeeping and support communication across the board between beekeepers, beekeeping associations, farmers, universities, researchers and local authorities. | Agro, Tech |
-| <https://cbnagro.tech> | CBNagro.tech is a IoT product that mixes hardware with software in order to help silo and warehouses owners get more profitable, avoiding silage and quality loss of their products | Agro, Tech |
-| <https://ogor.ro> | OGOR is a monitoring tool that helps farmers control the status of their crop and understand the consequences of their agricultural practices, based on historical and up-to-date vegetation maps, processed from Copernicus satellite data. | Agro, Tech |
-| <https://bonapp.eco> | bonapp.eco helps businesses reduce food waste, by connecting users with local retailers, including grocery stores, restaurants, shops, gas stations, bakeries, coffee shops, hotels, etc. Through the app, users can purchase products approaching their expiration date, at a 40% to 80% discount. | Agro, Tech |
-| <https://dahnapp.com> | Dahna is a diet application that helps you keep your heart healthy every day and reduces the risk of cardiovascular disease created with the expertise of cardiologists and advised by a nutritionist | Agro, Tech |
-| <https://fimon.ro> | Fimon is a precision farming startup, which helps farmers with disease, pest and weather alerts on their mobile phones for an increased crop health | Agro, Tech |
-| <https://jogga.app> | Our goal is to bring players together to create unique experiences and new friends | Sport |
-| <https://travlocals.com/> | Choose the most spectacular accommodations in Romania | Travel |
-| <https://www.fieldos.co/> | FieldOS is an intuitive, one stop shop Asset Operations Management solution that embeds all the flows your Maintenance & Reliability teams need: job management, real time communication and many more. | Business |
-| <https://profluo.com/home> | Read and post invoices in great detail, using Artificial Intelligence. | Business, Documents |
-| <https://oxidos.io/> | Welcome to OxidOS Automotive. Rust-based secure ecosystem for safety critical automotive ECUs. | Automotive |
-| <https://synaptiq.io/> | Our revolutionary software is a tool that separates cancerous tumours and organs at risk with the help of Artificial Intelligence. | AI, e-health |
-| <https://www.aide.health/> | Aide is a digital health platform that helps patients and their clinicians better understand and manage chronic disease. | AI, e-health |
-| <https://rayscape.ai/> | We augment radiologists analyzing X-rays and CTs by tapping into 15,000,000 medical images of experience. | AI, e-health |
-| <https://veridion.com/> | Find any company by any criteria: products, materials, certifications and more. | AI, Business |
-| <https://global.yload.eu/> | All your work in one place: logistics, carriers, shippers, suppliers and customers | AI, Logistics |
-| <https://cargobuddy.ro/> | Optimize your cost, save time and send a cargo anywhere and anytime. Our mission is to get every cargo to its destination. | Logistics |
-| <https://cargoplanning.com/> | CargoPlanning - A platform dedicated to production companies for transport process management | Logisitics, Management |
-
-
----
-
 <h2>Categories:</h2>
 <div id="categories"></div>
 
@@ -70,44 +21,445 @@ In this article, we delve into the captivating landscape of Romanian startups, u
 <div id="startup-list"></div>
 
 <script>
-  const startupList = {
-    //  {
-    //     name: "",
-    //     url: "",
-    //     description: "",
-    //     category: "",
-    //     key: ""
-    //  },
-
-    CRM: [
-      {
-        name: "tinyerp",
-        url: "https://tinyerp.app",
-        description:
-          "Intuitive and elegant CRM interface for small and medium businesses.",
-        category: "CRM",
-      },
+  const startupList = 
+{
+    "CRM": [
+        {
+            "name": "Tiny ERP",
+            "url": "https://tinyerp.app",
+            "description": "Intuitive and elegant CRM interface for small and medium businesses.",
+            "category": "CRM"
+        }
     ],
-    Automotive: [
-      {
-        name: "Manager Flota",
-        url: "https://managerflota.ro",
-        description:
-          "Simplify your alternative transport fleet management. Manage weekly payments, drivers, cars and reports simply and quickly.",
-        category: "Transport",
-      },
+   
+    "Health": [
+        {
+            "name": "Xtrainer",
+            "url": "https://xtrainer.fit",
+            "description": "Individuals can easily browse through profiles, compare services, and make informed decisions.",
+            "category": "Health, Fitness"
+        }
     ],
-
-    "A B C": [
-      {
-        name: "Manager Flota",
-        url: "https://managerflota.ro",
-        description:
-          "Simplify your alternative transport fleet management. Manage weekly payments, drivers, cars and reports simply and quickly.",
-        category: "Transport",
-      },
+    "Transport": [
+        {
+            "name": "Manager Flota",
+            "url": "https://managerflota.ro",
+            "description": "Simplify your alternative transport fleet management. Manage weekly payments, drivers, cars and reports simply and quickly.",
+            "category": "Transport"
+        }
     ],
-  };
+    "Tech": [
+        {
+            "name": "Dogo App",
+            "url": "https://dogoapp.ro",
+            "description": "Walk your dog, mobile app",
+            "category": "Tech"
+        },
+        {
+            "name": "Blume",
+            "url": "https://blume.ro",
+            "description": "We reduce accidents at pedestrian crossings",
+            "category": "Tech"
+        },
+        {
+            "name": "Bit Poke",
+            "url": "https://bitpoke.io",
+            "description": "We are making cloud-native technology accessible in the WordPress world. Everyone should have access to modern WebOps infrastructure.",
+            "category": "Tech"
+        },
+        {
+            "name": "Niftylearning",
+            "url": "https://niftylearning.io",
+            "description": "At Nifty, we believe tedious L&D admin work should be a thing of the past. That’s why we’re setting a new LMS standard – Nifty is user-friendly, intuitive, and it works for you, not against you. ",
+            "category": "Tech"
+        },
+        {
+            "name": "Agricloud",
+            "url": "https://agricloud.ro",
+            "description": "AgriCloud monitors crops, vineyards, orchards and animal farms using IoT technology.",
+            "category": "Tech"
+        },
+        {
+            "name": "Apiarybook",
+            "url": "https://apiarybook.com",
+            "description": "Our solutions have been developed to address the challenges of modern beekeeping and support communication across the board between beekeepers, beekeeping associations, farmers, universities, researchers and local authorities.",
+            "category": "Tech"
+        },
+        {
+            "name": "Cbnagro",
+            "url": "https://cbnagro.tech",
+            "description": "CBNagro.tech is a IoT product that mixes hardware with software in order to help silo and warehouses owners get more profitable, avoiding silage and quality loss of their products",
+            "category": "Tech"
+        },
+        {
+            "name": "httpsogorro",
+            "url": "https://ogor.ro",
+            "description": "OGOR is a monitoring tool that helps farmers control the status of their crop and understand the consequences of their agricultural practices, based on historical and up-to-date vegetation maps, processed from Copernicus satellite data.",
+            "category": "Tech"
+        },
+        {
+            "name": "httpsbonappeco",
+            "url": "https://bonapp.eco",
+            "description": "bonapp.eco helps businesses reduce food waste, by connecting users with local retailers, including grocery stores, restaurants, shops, gas stations, bakeries, coffee shops, hotels, etc. Through the app, users can purchase products approaching their expiration date, at a 40% to 80% discount.",
+            "category": "Tech"
+        },
+        {
+            "name": "httpsdahnappcom",
+            "url": "https://dahnapp.com",
+            "description": "Dahna is a diet application that helps you keep your heart healthy every day and reduces the risk of cardiovascular disease created with the expertise of cardiologists and advised by a nutritionist",
+            "category": "Tech"
+        },
+        {
+            "name": "httpsfimonro",
+            "url": "https://fimon.ro",
+            "description": "Fimon is a precision farming startup, which helps farmers with disease, pest and weather alerts on their mobile phones for an increased crop health",
+            "category": "Tech"
+        }
+    ],
+    "Life": [
+        {
+            "name": "httpsdogoappro",
+            "url": "https://dogoapp.ro",
+            "description": "Walk your dog, mobile app",
+            "category": "Life"
+        }
+    ],
+    "AI": [
+        {
+            "name": "httpscleanvoiceai",
+            "url": "https://cleanvoice.ai",
+            "description": "Cleanvoice is an artificial intelligence which removes filler sounds, stuttering and mouth sounds from your podcast or audio recording",
+            "category": "AI"
+        },
+      
+        {
+            "name": "httpshyperhumancc",
+            "url": "https://hyperhuman.cc",
+            "description": "Automate the video production process with AI and deliver personalized, engaging content.",
+            "category": "AI"
+        },
+        {
+            "name": "httpssynaptiqio",
+            "url": "https://synaptiq.io/",
+            "description": "Our revolutionary software is a tool that separates cancerous tumours and organs at risk with the help of Artificial Intelligence.",
+            "category": "AI"
+        },
+        {
+            "name": "httpswwwaidehealth",
+            "url": "https://www.aide.health/",
+            "description": "Aide is a digital health platform that helps patients and their clinicians better understand and manage chronic disease.",
+            "category": "AI"
+        },
+        {
+            "name": "httpsrayscapeai",
+            "url": "https://rayscape.ai/",
+            "description": "We augment radiologists analyzing X-rays and CTs by tapping into 15,000,000 medical images of experience.",
+            "category": "AI"
+        },
+        {
+            "name": "httpsveridioncom",
+            "url": "https://veridion.com/",
+            "description": "Find any company by any criteria: products, materials, certifications and more.",
+            "category": "AI"
+        },
+        {
+            "name": "httpsglobalyloadeu",
+            "url": "https://global.yload.eu/",
+            "description": "All your work in one place: logistics, carriers, shippers, suppliers and customers",
+            "category": "AI"
+        }
+    ],
+    "Audio": [
+        {
+            "name": "Cleanvoice",
+            "url": "https://cleanvoice.ai",
+            "description": "Cleanvoice is an artificial intelligence which removes filler sounds, stuttering and mouth sounds from your podcast or audio recording",
+            "category": "Audio, AI"
+        }
+    ],
+    "Business": [
+        {
+            "name": "iflows",
+            "url": "https://iflows.com",
+            "description": "Discover the platform that will help your business on all levels: organization, production, sales, marketing and finance. Organize your employees better and forget about financial losses caused by lost time or random processes.",
+            "category": "Business"
+        },
+        {
+            "name": "httpswwwfieldosco",
+            "url": "https://www.fieldos.co/",
+            "description": "FieldOS is an intuitive, one stop shop Asset Operations Management solution that embeds all the flows your Maintenance & Reliability teams need: job management, real time communication and many more.",
+            "category": "Business"
+        },
+        {
+            "name": "httpsprofluocomhome",
+            "url": "https://profluo.com/home",
+            "description": "Read and post invoices in great detail, using Artificial Intelligence.",
+            "category": "Business"
+        },
+        {
+            "name": "httpsveridioncom",
+            "url": "https://veridion.com/",
+            "description": "Find any company by any criteria: products, materials, certifications and more.",
+            "category": "Business"
+        }
+    ],
+    "E-learning": [
+        {
+            "name": "Tootor",
+            "url": "https://tootor.ro",
+            "description": "The first platform in Romania where you can do meditations and courses online, quickly, simply and efficiently.",
+            "category": "E-learning"
+        }
+    ],
+    "Ecommerce": [
+        {
+            "name": "Aqurate",
+            "url": "https://aqurate.ai",
+            "description": "AI-driven personalization tools to boost your eCommerce shop. Connect your shop with Aqurate and get the most out of each website visitor. Boost your conversions, AOV, and customer retention through personalized product recommendations and behavioral segmentation.",
+            "category": "Ecommerce, AI"
+        },
+        {
+            "name": "Blugento",
+            "url": "https://blugento.ro",
+            "description": "Build your online store with Blugento, simple and fast.",
+            "category": "Ecommerce"
+        },
+        {
+            "name": "httpseasysalescom",
+            "url": "https://easy-sales.com",
+            "description": "Stay ahead of competition with our automated selling solution",
+            "category": "Ecommerce"
+        },
+        {
+            "name": "httpsflaminjoycom",
+            "url": "https://flaminjoy.com",
+            "description": "Shorten the path from SKU discovery to buy UGC platform that provides proven growth in CTR & sales",
+            "category": "Ecommerce"
+        }
+    ],
+    "Payments": [
+        {
+            "name": "httpsthinkoutio",
+            "url": "https://thinkout.io",
+            "description": "ThinkOut is the solution that helps entrepreneurs analyze and forecast receipts and payments based on bank history.",
+            "category": "Payments"
+        }
+    ],
+    "Finance": [
+        {
+            "name": "httpsthinkoutio",
+            "url": "https://thinkout.io",
+            "description": "ThinkOut is the solution that helps entrepreneurs analyze and forecast receipts and payments based on bank history.",
+            "category": "Finance"
+        },
+        {
+            "name": "httpskidsfinancesolutionscom",
+            "url": "https://kidsfinancesolutions.com",
+            "description": "The fully interactive app that teaches your kids finance.",
+            "category": "Finance"
+        }
+    ],
+    "Cloud": [
+        {
+            "name": "httpsniftylearningio",
+            "url": "https://niftylearning.io",
+            "description": "At Nifty, we believe tedious L&D admin work should be a thing of the past. That’s why we’re setting a new LMS standard – Nifty is user-friendly, intuitive, and it works for you, not against you. ",
+            "category": "Cloud"
+        }
+    ],
+    "Security": [
+        {
+            "name": "httpssyphereu",
+            "url": "https://sypher.eu",
+            "description": "Information Security & Privacy Management Integrated Software",
+            "category": "Security"
+        }
+    ],
+    "Privacy": [
+        {
+            "name": "httpssyphereu",
+            "url": "https://sypher.eu",
+            "description": "Information Security & Privacy Management Integrated Software",
+            "category": "Privacy"
+        }
+    ],
+    "Video": [
+        {
+            "name": "httpshyperhumancc",
+            "url": "https://hyperhuman.cc",
+            "description": "Automate the video production process with AI and deliver personalized, engaging content.",
+            "category": "Video"
+        }
+    ],
+    "Green": [
+        {
+            "name": "httpsecotreero",
+            "url": "https://ecotree.ro",
+            "description": "Prima platformă digitală de management al deșeurilor din România",
+            "category": "Green"
+        }
+    ],
+    "Travel": [
+        {
+            "name": "httpsquestoappcom",
+            "url": "https://questoapp.com",
+            "description": "Questo is a platform for real-world city exploration games written and designed by professional content creators, companies and amateur storytellers around the world.",
+            "category": "Travel"
+        },
+        {
+            "name": "httpstravlocalscom",
+            "url": "https://travlocals.com/",
+            "description": "Choose the most spectacular accommodations in Romania",
+            "category": "Travel"
+        }
+    ],
+    "Booking": [
+        {
+            "name": "httpsliteappco",
+            "url": "https://liteapp.co",
+            "description": "Booking services",
+            "category": "Booking"
+        }
+    ],
+    "Sport": [
+        {
+            "name": "httpsexpertsportclub",
+            "url": "https://expertsport.club",
+            "description": "Sports club management platform",
+            "category": "Sport"
+        },
+        {
+            "name": "httpsjoggaapp",
+            "url": "https://jogga.app",
+            "description": "Our goal is to bring players together to create unique experiences and new friends",
+            "category": "Sport"
+        }
+    ],
+    "Auto": [
+        {
+            "name": "httpsdrivegradeeu",
+            "url": "https://drivegrade.eu",
+            "description": "Evaluate the drivers behaviour.",
+            "category": "Auto"
+        }
+    ],
+    "Kids": [
+        {
+            "name": "httpskidsfinancesolutionscom",
+            "url": "https://kidsfinancesolutions.com",
+            "description": "The fully interactive app that teaches your kids finance.",
+            "category": "Kids"
+        }
+    ],
+    "Agro": [
+        {
+            "name": "httpsagricloudro",
+            "url": "https://agricloud.ro",
+            "description": "AgriCloud monitors crops, vineyards, orchards and animal farms using IoT technology.",
+            "category": "Agro"
+        },
+        {
+            "name": "httpsapiarybookcom",
+            "url": "https://apiarybook.com",
+            "description": "Our solutions have been developed to address the challenges of modern beekeeping and support communication across the board between beekeepers, beekeeping associations, farmers, universities, researchers and local authorities.",
+            "category": "Agro"
+        },
+        {
+            "name": "httpscbnagrotech",
+            "url": "https://cbnagro.tech",
+            "description": "CBNagro.tech is a IoT product that mixes hardware with software in order to help silo and warehouses owners get more profitable, avoiding silage and quality loss of their products",
+            "category": "Agro"
+        },
+        {
+            "name": "httpsogorro",
+            "url": "https://ogor.ro",
+            "description": "OGOR is a monitoring tool that helps farmers control the status of their crop and understand the consequences of their agricultural practices, based on historical and up-to-date vegetation maps, processed from Copernicus satellite data.",
+            "category": "Agro"
+        },
+        {
+            "name": "httpsbonappeco",
+            "url": "https://bonapp.eco",
+            "description": "bonapp.eco helps businesses reduce food waste, by connecting users with local retailers, including grocery stores, restaurants, shops, gas stations, bakeries, coffee shops, hotels, etc. Through the app, users can purchase products approaching their expiration date, at a 40% to 80% discount.",
+            "category": "Agro"
+        },
+        {
+            "name": "httpsdahnappcom",
+            "url": "https://dahnapp.com",
+            "description": "Dahna is a diet application that helps you keep your heart healthy every day and reduces the risk of cardiovascular disease created with the expertise of cardiologists and advised by a nutritionist",
+            "category": "Agro"
+        },
+        {
+            "name": "httpsfimonro",
+            "url": "https://fimon.ro",
+            "description": "Fimon is a precision farming startup, which helps farmers with disease, pest and weather alerts on their mobile phones for an increased crop health",
+            "category": "Agro"
+        }
+    ],
+    "Documents": [
+        {
+            "name": "httpsprofluocomhome",
+            "url": "https://profluo.com/home",
+            "description": "Read and post invoices in great detail, using Artificial Intelligence.",
+            "category": "Documents"
+        }
+    ],
+    "Automotive": [
+        {
+            "name": "httpsoxidosio",
+            "url": "https://oxidos.io/",
+            "description": "Welcome to OxidOS Automotive. Rust-based secure ecosystem for safety critical automotive ECUs.",
+            "category": "Automotive"
+        }
+    ],
+    "E-health": [
+        {
+            "name": "httpssynaptiqio",
+            "url": "https://synaptiq.io/",
+            "description": "Our revolutionary software is a tool that separates cancerous tumours and organs at risk with the help of Artificial Intelligence.",
+            "category": "E-health"
+        },
+        {
+            "name": "httpswwwaidehealth",
+            "url": "https://www.aide.health/",
+            "description": "Aide is a digital health platform that helps patients and their clinicians better understand and manage chronic disease.",
+            "category": "E-health"
+        },
+        {
+            "name": "httpsrayscapeai",
+            "url": "https://rayscape.ai/",
+            "description": "We augment radiologists analyzing X-rays and CTs by tapping into 15,000,000 medical images of experience.",
+            "category": "E-health"
+        }
+    ],
+    "Logistics": [
+        {
+            "name": "httpsglobalyloadeu",
+            "url": "https://global.yload.eu/",
+            "description": "All your work in one place: logistics, carriers, shippers, suppliers and customers",
+            "category": "Logistics"
+        },
+        {
+            "name": "httpscargobuddyro",
+            "url": "https://cargobuddy.ro/",
+            "description": "Optimize your cost, save time and send a cargo anywhere and anytime. Our mission is to get every cargo to its destination.",
+            "category": "Logistics"
+        },
+          {
+            "name": "httpscargoplanningcom",
+            "url": "https://cargoplanning.com/",
+            "description": "CargoPlanning - A platform dedicated to production companies for transport process management",
+            "category": "Logisitics"
+        }
+    ],
+    "Management": [
+        {
+            "name": "httpscargoplanningcom",
+            "url": "https://cargoplanning.com/",
+            "description": "CargoPlanning - A platform dedicated to production companies for transport process management",
+            "category": "Management"
+        }
+    ]
+}
 
   // loop over startupList object and add them to the div element with startup-list id
   Object.keys(startupList).forEach((key) => {
