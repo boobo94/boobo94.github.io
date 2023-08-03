@@ -351,9 +351,8 @@ In this article, we delve into the captivating landscape of Romanian startups, u
                       .map(
                         (startup) => `
                             <li>
-                              <a href="${startup.url}" target="_blank">${startup.name}</a>
+                              <p><a href="${startup.url}" target="_blank">${startup.name}</a> | Category: ${startup.category}</p>
                               <p>${startup.description}</p>
-                              <p> Category: ${startup.category}</p>
                             </li>
                         `
                       )
