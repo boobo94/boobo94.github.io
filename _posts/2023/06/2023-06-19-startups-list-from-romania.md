@@ -61,4 +61,94 @@ In this article, we delve into the captivating landscape of Romanian startups, u
 | <https://cargoplanning.com/> | CargoPlanning - A platform dedicated to production companies for transport process management | Logisitics, Management |
 
 
+---
 
+<h2>Categories:</h2>
+<div id="categories"></div>
+
+<h2>Startup List</h2>
+<div id="startup-list"></div>
+
+<script>
+  const startupList = {
+    //  {
+    //     name: "",
+    //     url: "",
+    //     description: "",
+    //     category: "",
+    //     key: ""
+    //  },
+
+    CRM: [
+      {
+        name: "tinyerp",
+        url: "https://tinyerp.app",
+        description:
+          "Intuitive and elegant CRM interface for small and medium businesses.",
+        category: "CRM",
+      },
+    ],
+    Automotive: [
+      {
+        name: "Manager Flota",
+        url: "https://managerflota.ro",
+        description:
+          "Simplify your alternative transport fleet management. Manage weekly payments, drivers, cars and reports simply and quickly.",
+        category: "Transport",
+      },
+    ],
+
+    "A B C": [
+      {
+        name: "Manager Flota",
+        url: "https://managerflota.ro",
+        description:
+          "Simplify your alternative transport fleet management. Manage weekly payments, drivers, cars and reports simply and quickly.",
+        category: "Transport",
+      },
+    ],
+  };
+
+  // loop over startupList object and add them to the div element with startup-list id
+  Object.keys(startupList).forEach((key) => {
+    document.getElementById("categories").innerHTML += `
+            <div class="category" style="display: inline-block;">
+                <a href="#${key}">${key}</a> |
+            </div>
+        `;
+
+    document.getElementById("startup-list").innerHTML += `
+            <div id="${key}">
+                <h3>${key}</h3>
+                <ul>
+                    ${startupList[key]
+                      .map(
+                        (startup) => `
+                            <li>
+                              <a href="${startup.url}" target="_blank">${startup.name}</a>
+                              <p>${startup.description}</p>
+                              <p> Category: ${startup.category}</p>
+                            </li>
+                        `
+                      )
+                      .join("")}
+                </ul>
+            </div>
+
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            
+        `;
+  });
+</script>
