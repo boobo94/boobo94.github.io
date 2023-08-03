@@ -15,7 +15,7 @@ In recent years, this picturesque country has witnessed a remarkable surge in en
 In this article, we delve into the captivating landscape of Romanian startups, unveiling a curated list of standout companies that are making waves, transforming industries, and shaping the future. Get ready to discover the rising stars of Romania's startup world.
 
 <h2>Categories:</h2>
-<div id="categories" style="position: -webkit-sticky; position: sticky; top: 0; background-color: white;"></div>
+<div id="categories" style="position: -webkit-sticky; position: sticky; top: 0; background-color: white; border-bottom: 1px solid #f2f2f2;"></div>
 
 <h2>Startup List</h2>
 <div id="startup-list"></div>
