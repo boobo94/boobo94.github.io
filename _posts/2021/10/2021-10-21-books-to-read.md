@@ -62,7 +62,7 @@ I decided one year ago to challange myself and read as many books as I can this 
 | ✅ Start small, start small: a developer guide to launching a startup | |
 | ✅ E myth revisited | |
 | ✅ How to built a billion dollar app | |
-| ✅ Hooked | |
+| ✅ Hooked | Nir Eyal |
 | ✅ Zero to one | |
 | ✅ Company of one | Paul Jarvis |
 | ✅ Lost and founder | Rand Fishkin |
@@ -81,6 +81,29 @@ I decided one year ago to challange myself and read as many books as I can this 
 | ✅ Grow your business with cold emails | |
 | ✅ The Mom Test | Rob Fitzpatrick |
 | ✅ Growth hacking | |
+| Applying Behavioral Science to the Private Sector | Dr Helena Rubinstein |
+| The Behavior Business | Richard Chataway |
+| Ripple | Jez Groom |
+| Behavioral Insights | Michael Hallsworth |
+| Actionable Gamification | Yu-kai Chou |
+| The Behavior Change Wheel | Susan Michie & Robert West |
+| Design for How People Think | John Whalen |
+| Design for Behavior Change | Stephen Wendel |
+| Start at the Why | Matt Wallaert |
+| Engaged | Amy Bucher |
+| How to Read a Paper | Trish Greenhalgh |
+| Jobs to Be Done: Theory to Practice | Tony Ulwick |
+| The Jobs to be Done Playbook | Jim Kalbach |
+| Self Determination Theory | Ryan & Deci |
+| Thinking in Systems | Donella Meadows |
+| The Invincible Company + Testing Business Ideas | Alexander Osterwalder & David Bland |
+| Winning at New Products | Dr. Robert G. Cooper |
+| The Experience Centric Organization | Simon Clatworthy |
+| This is Service Design Doing | Marc Stickdorn, Adam StJohn Lawrence, and Markus Edgar Hormeß |
+| Continuous Discovery Habits | Teresa Torres |
+| The Service Innovation Handbook | Lucy Kimbell |
+
+
 
 WIP
 
