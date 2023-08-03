@@ -358,21 +358,6 @@ In this article, we delve into the captivating landscape of Romanian startups, u
                       .join("")}
                 </ul>
             </div>
-
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            
         `;
   });
 </script>
