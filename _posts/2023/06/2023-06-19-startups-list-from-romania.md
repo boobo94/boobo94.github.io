@@ -31,8 +31,7 @@ In this article, we delve into the captivating landscape of Romanian startups, u
             "category": "CRM"
         }
     ],
-   
-    "Health": [
+    "Fitness": [
         {
             "name": "Xtrainer",
             "url": "https://xtrainer.fit",
@@ -53,7 +52,7 @@ In this article, we delve into the captivating landscape of Romanian startups, u
             "name": "Dogo App",
             "url": "https://dogoapp.ro",
             "description": "Walk your dog, mobile app",
-            "category": "Tech"
+            "category": "Tech, Life"
         },
         {
             "name": "Blume",
@@ -67,62 +66,6 @@ In this article, we delve into the captivating landscape of Romanian startups, u
             "description": "We are making cloud-native technology accessible in the WordPress world. Everyone should have access to modern WebOps infrastructure.",
             "category": "Tech"
         },
-        {
-            "name": "Niftylearning",
-            "url": "https://niftylearning.io",
-            "description": "At Nifty, we believe tedious L&D admin work should be a thing of the past. That’s why we’re setting a new LMS standard – Nifty is user-friendly, intuitive, and it works for you, not against you. ",
-            "category": "Tech"
-        },
-        {
-            "name": "Agricloud",
-            "url": "https://agricloud.ro",
-            "description": "AgriCloud monitors crops, vineyards, orchards and animal farms using IoT technology.",
-            "category": "Tech"
-        },
-        {
-            "name": "Apiarybook",
-            "url": "https://apiarybook.com",
-            "description": "Our solutions have been developed to address the challenges of modern beekeeping and support communication across the board between beekeepers, beekeeping associations, farmers, universities, researchers and local authorities.",
-            "category": "Tech"
-        },
-        {
-            "name": "Cbnagro",
-            "url": "https://cbnagro.tech",
-            "description": "CBNagro.tech is a IoT product that mixes hardware with software in order to help silo and warehouses owners get more profitable, avoiding silage and quality loss of their products",
-            "category": "Tech"
-        },
-        {
-            "name": "httpsogorro",
-            "url": "https://ogor.ro",
-            "description": "OGOR is a monitoring tool that helps farmers control the status of their crop and understand the consequences of their agricultural practices, based on historical and up-to-date vegetation maps, processed from Copernicus satellite data.",
-            "category": "Tech"
-        },
-        {
-            "name": "httpsbonappeco",
-            "url": "https://bonapp.eco",
-            "description": "bonapp.eco helps businesses reduce food waste, by connecting users with local retailers, including grocery stores, restaurants, shops, gas stations, bakeries, coffee shops, hotels, etc. Through the app, users can purchase products approaching their expiration date, at a 40% to 80% discount.",
-            "category": "Tech"
-        },
-        {
-            "name": "httpsdahnappcom",
-            "url": "https://dahnapp.com",
-            "description": "Dahna is a diet application that helps you keep your heart healthy every day and reduces the risk of cardiovascular disease created with the expertise of cardiologists and advised by a nutritionist",
-            "category": "Tech"
-        },
-        {
-            "name": "httpsfimonro",
-            "url": "https://fimon.ro",
-            "description": "Fimon is a precision farming startup, which helps farmers with disease, pest and weather alerts on their mobile phones for an increased crop health",
-            "category": "Tech"
-        }
-    ],
-    "Life": [
-        {
-            "name": "httpsdogoappro",
-            "url": "https://dogoapp.ro",
-            "description": "Walk your dog, mobile app",
-            "category": "Life"
-        }
     ],
     "AI": [
         {
@@ -131,43 +74,6 @@ In this article, we delve into the captivating landscape of Romanian startups, u
             "description": "Cleanvoice is an artificial intelligence which removes filler sounds, stuttering and mouth sounds from your podcast or audio recording",
             "category": "AI"
         },
-      
-        {
-            "name": "httpshyperhumancc",
-            "url": "https://hyperhuman.cc",
-            "description": "Automate the video production process with AI and deliver personalized, engaging content.",
-            "category": "AI"
-        },
-        {
-            "name": "httpssynaptiqio",
-            "url": "https://synaptiq.io/",
-            "description": "Our revolutionary software is a tool that separates cancerous tumours and organs at risk with the help of Artificial Intelligence.",
-            "category": "AI"
-        },
-        {
-            "name": "httpswwwaidehealth",
-            "url": "https://www.aide.health/",
-            "description": "Aide is a digital health platform that helps patients and their clinicians better understand and manage chronic disease.",
-            "category": "AI"
-        },
-        {
-            "name": "httpsrayscapeai",
-            "url": "https://rayscape.ai/",
-            "description": "We augment radiologists analyzing X-rays and CTs by tapping into 15,000,000 medical images of experience.",
-            "category": "AI"
-        },
-        {
-            "name": "httpsveridioncom",
-            "url": "https://veridion.com/",
-            "description": "Find any company by any criteria: products, materials, certifications and more.",
-            "category": "AI"
-        },
-        {
-            "name": "httpsglobalyloadeu",
-            "url": "https://global.yload.eu/",
-            "description": "All your work in one place: logistics, carriers, shippers, suppliers and customers",
-            "category": "AI"
-        }
     ],
     "Audio": [
         {
@@ -185,22 +91,22 @@ In this article, we delve into the captivating landscape of Romanian startups, u
             "category": "Business"
         },
         {
-            "name": "httpswwwfieldosco",
+            "name": "Fieldos",
             "url": "https://www.fieldos.co/",
             "description": "FieldOS is an intuitive, one stop shop Asset Operations Management solution that embeds all the flows your Maintenance & Reliability teams need: job management, real time communication and many more.",
             "category": "Business"
         },
         {
-            "name": "httpsprofluocomhome",
+            "name": "Profluo",
             "url": "https://profluo.com/home",
             "description": "Read and post invoices in great detail, using Artificial Intelligence.",
-            "category": "Business"
+            "category": "Business, Documents"
         },
         {
-            "name": "httpsveridioncom",
+            "name": "Veridion",
             "url": "https://veridion.com/",
             "description": "Find any company by any criteria: products, materials, certifications and more.",
-            "category": "Business"
+            "category": "Business, AI"
         }
     ],
     "E-learning": [
@@ -225,43 +131,29 @@ In this article, we delve into the captivating landscape of Romanian startups, u
             "category": "Ecommerce"
         },
         {
-            "name": "httpseasysalescom",
+            "name": "Easy Sales",
             "url": "https://easy-sales.com",
             "description": "Stay ahead of competition with our automated selling solution",
             "category": "Ecommerce"
         },
         {
-            "name": "httpsflaminjoycom",
+            "name": "Flaminjoy",
             "url": "https://flaminjoy.com",
             "description": "Shorten the path from SKU discovery to buy UGC platform that provides proven growth in CTR & sales",
             "category": "Ecommerce"
         }
     ],
-    "Payments": [
-        {
-            "name": "httpsthinkoutio",
-            "url": "https://thinkout.io",
-            "description": "ThinkOut is the solution that helps entrepreneurs analyze and forecast receipts and payments based on bank history.",
-            "category": "Payments"
-        }
-    ],
     "Finance": [
         {
-            "name": "httpsthinkoutio",
+            "name": "Thinkout",
             "url": "https://thinkout.io",
             "description": "ThinkOut is the solution that helps entrepreneurs analyze and forecast receipts and payments based on bank history.",
-            "category": "Finance"
+            "category": "Finance, Payments"
         },
-        {
-            "name": "httpskidsfinancesolutionscom",
-            "url": "https://kidsfinancesolutions.com",
-            "description": "The fully interactive app that teaches your kids finance.",
-            "category": "Finance"
-        }
     ],
     "Cloud": [
         {
-            "name": "httpsniftylearningio",
+            "name": "niftylearning",
             "url": "https://niftylearning.io",
             "description": "At Nifty, we believe tedious L&D admin work should be a thing of the past. That’s why we’re setting a new LMS standard – Nifty is user-friendly, intuitive, and it works for you, not against you. ",
             "category": "Cloud"
@@ -269,31 +161,26 @@ In this article, we delve into the captivating landscape of Romanian startups, u
     ],
     "Security": [
         {
-            "name": "httpssyphereu",
+            "name": "Sypher",
             "url": "https://sypher.eu",
             "description": "Information Security & Privacy Management Integrated Software",
-            "category": "Security"
+            "category": "Security, Privacy"
         }
     ],
     "Privacy": [
-        {
-            "name": "httpssyphereu",
-            "url": "https://sypher.eu",
-            "description": "Information Security & Privacy Management Integrated Software",
-            "category": "Privacy"
-        }
+
     ],
     "Video": [
         {
             "name": "httpshyperhumancc",
             "url": "https://hyperhuman.cc",
             "description": "Automate the video production process with AI and deliver personalized, engaging content.",
-            "category": "Video"
+            "category": "Video, AI"
         }
     ],
     "Green": [
         {
-            "name": "httpsecotreero",
+            "name": "Ecotree",
             "url": "https://ecotree.ro",
             "description": "Prima platformă digitală de management al deșeurilor din România",
             "category": "Green"
@@ -301,13 +188,13 @@ In this article, we delve into the captivating landscape of Romanian startups, u
     ],
     "Travel": [
         {
-            "name": "httpsquestoappcom",
+            "name": "Questo app",
             "url": "https://questoapp.com",
             "description": "Questo is a platform for real-world city exploration games written and designed by professional content creators, companies and amateur storytellers around the world.",
             "category": "Travel"
         },
         {
-            "name": "httpstravlocalscom",
+            "name": "Travlocals",
             "url": "https://travlocals.com/",
             "description": "Choose the most spectacular accommodations in Romania",
             "category": "Travel"
@@ -315,7 +202,7 @@ In this article, we delve into the captivating landscape of Romanian startups, u
     ],
     "Booking": [
         {
-            "name": "httpsliteappco",
+            "name": "Liteapp",
             "url": "https://liteapp.co",
             "description": "Booking services",
             "category": "Booking"
@@ -323,13 +210,13 @@ In this article, we delve into the captivating landscape of Romanian startups, u
     ],
     "Sport": [
         {
-            "name": "httpsexpertsportclub",
+            "name": "Expertsport",
             "url": "https://expertsport.club",
             "description": "Sports club management platform",
             "category": "Sport"
         },
         {
-            "name": "httpsjoggaapp",
+            "name": "Jogga App",
             "url": "https://jogga.app",
             "description": "Our goal is to bring players together to create unique experiences and new friends",
             "category": "Sport"
@@ -337,7 +224,7 @@ In this article, we delve into the captivating landscape of Romanian startups, u
     ],
     "Auto": [
         {
-            "name": "httpsdrivegradeeu",
+            "name": "Drivegrade",
             "url": "https://drivegrade.eu",
             "description": "Evaluate the drivers behaviour.",
             "category": "Auto"
@@ -345,67 +232,59 @@ In this article, we delve into the captivating landscape of Romanian startups, u
     ],
     "Kids": [
         {
-            "name": "httpskidsfinancesolutionscom",
+            "name": "Kids Finance Solutions",
             "url": "https://kidsfinancesolutions.com",
             "description": "The fully interactive app that teaches your kids finance.",
-            "category": "Kids"
+            "category": "Kids, Finance"
         }
     ],
-    "Agro": [
+    "AgriTech": [
         {
-            "name": "httpsagricloudro",
+            "name": "Agricloud",
             "url": "https://agricloud.ro",
             "description": "AgriCloud monitors crops, vineyards, orchards and animal farms using IoT technology.",
             "category": "Agro"
         },
         {
-            "name": "httpsapiarybookcom",
+            "name": "Apiarybook",
             "url": "https://apiarybook.com",
             "description": "Our solutions have been developed to address the challenges of modern beekeeping and support communication across the board between beekeepers, beekeeping associations, farmers, universities, researchers and local authorities.",
             "category": "Agro"
         },
         {
-            "name": "httpscbnagrotech",
+            "name": "CBNagro.tech",
             "url": "https://cbnagro.tech",
             "description": "CBNagro.tech is a IoT product that mixes hardware with software in order to help silo and warehouses owners get more profitable, avoiding silage and quality loss of their products",
             "category": "Agro"
         },
         {
-            "name": "httpsogorro",
+            "name": "Ogor.ro",
             "url": "https://ogor.ro",
             "description": "OGOR is a monitoring tool that helps farmers control the status of their crop and understand the consequences of their agricultural practices, based on historical and up-to-date vegetation maps, processed from Copernicus satellite data.",
             "category": "Agro"
         },
         {
-            "name": "httpsbonappeco",
+            "name": "Bonapp.eco",
             "url": "https://bonapp.eco",
             "description": "bonapp.eco helps businesses reduce food waste, by connecting users with local retailers, including grocery stores, restaurants, shops, gas stations, bakeries, coffee shops, hotels, etc. Through the app, users can purchase products approaching their expiration date, at a 40% to 80% discount.",
             "category": "Agro"
         },
         {
-            "name": "httpsdahnappcom",
+            "name": "Dahnapp",
             "url": "https://dahnapp.com",
             "description": "Dahna is a diet application that helps you keep your heart healthy every day and reduces the risk of cardiovascular disease created with the expertise of cardiologists and advised by a nutritionist",
             "category": "Agro"
         },
         {
-            "name": "httpsfimonro",
+            "name": "Fimon",
             "url": "https://fimon.ro",
             "description": "Fimon is a precision farming startup, which helps farmers with disease, pest and weather alerts on their mobile phones for an increased crop health",
             "category": "Agro"
         }
     ],
-    "Documents": [
-        {
-            "name": "httpsprofluocomhome",
-            "url": "https://profluo.com/home",
-            "description": "Read and post invoices in great detail, using Artificial Intelligence.",
-            "category": "Documents"
-        }
-    ],
     "Automotive": [
         {
-            "name": "httpsoxidosio",
+            "name": "Oxid OS",
             "url": "https://oxidos.io/",
             "description": "Welcome to OxidOS Automotive. Rust-based secure ecosystem for safety critical automotive ECUs.",
             "category": "Automotive"
@@ -416,49 +295,42 @@ In this article, we delve into the captivating landscape of Romanian startups, u
             "name": "httpssynaptiqio",
             "url": "https://synaptiq.io/",
             "description": "Our revolutionary software is a tool that separates cancerous tumours and organs at risk with the help of Artificial Intelligence.",
-            "category": "E-health"
+            "category": "E-health, AI"
         },
         {
-            "name": "httpswwwaidehealth",
+            "name": "AIDE Health",
             "url": "https://www.aide.health/",
             "description": "Aide is a digital health platform that helps patients and their clinicians better understand and manage chronic disease.",
-            "category": "E-health"
+            "category": "E-health, AI"
         },
         {
-            "name": "httpsrayscapeai",
+            "name": "Rayscape",
             "url": "https://rayscape.ai/",
             "description": "We augment radiologists analyzing X-rays and CTs by tapping into 15,000,000 medical images of experience.",
-            "category": "E-health"
+            "category": "E-health, AI"
         }
     ],
     "Logistics": [
         {
-            "name": "httpsglobalyloadeu",
+            "name": "Yload",
             "url": "https://global.yload.eu/",
             "description": "All your work in one place: logistics, carriers, shippers, suppliers and customers",
-            "category": "Logistics"
+            "category": "Logistics, AI"
         },
         {
-            "name": "httpscargobuddyro",
+            "name": "Cargobuddy",
             "url": "https://cargobuddy.ro/",
             "description": "Optimize your cost, save time and send a cargo anywhere and anytime. Our mission is to get every cargo to its destination.",
             "category": "Logistics"
         },
           {
-            "name": "httpscargoplanningcom",
+            "name": "Cargo Planning",
             "url": "https://cargoplanning.com/",
             "description": "CargoPlanning - A platform dedicated to production companies for transport process management",
-            "category": "Logisitics"
+            "category": "Logistics, Management"
         }
     ],
-    "Management": [
-        {
-            "name": "httpscargoplanningcom",
-            "url": "https://cargoplanning.com/",
-            "description": "CargoPlanning - A platform dedicated to production companies for transport process management",
-            "category": "Management"
-        }
-    ]
+   
 }
 
   // loop over startupList object and add them to the div element with startup-list id
