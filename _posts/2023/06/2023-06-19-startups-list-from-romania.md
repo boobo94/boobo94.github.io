@@ -14,7 +14,7 @@ In recent years, this picturesque country has witnessed a remarkable surge in en
 
 In this article, we delve into the captivating landscape of Romanian startups, unveiling a curated list of standout companies that are making waves, transforming industries, and shaping the future. Get ready to discover the rising stars of Romania's startup world.
 
-<div style="position: -webkit-sticky; position: sticky; top: 0;">
+<div style="position: -webkit-sticky; position: sticky; top: 0; background-color: white;">
     <h2>Categories:</h2>
     <div id="categories"></div>
 </div>
@@ -168,9 +168,6 @@ In this article, we delve into the captivating landscape of Romanian startups, u
             "description": "Information Security & Privacy Management Integrated Software",
             "category": "Security, Privacy"
         }
-    ],
-    "Privacy": [
-
     ],
     "Video": [
         {
