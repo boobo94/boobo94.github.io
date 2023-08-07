@@ -23,216 +23,13 @@ In this article, we delve into the captivating landscape of Romanian startups, u
 <script>
   const startupList = 
 {
-    "CRM": [
+
+    "Advertisment" : [
         {
-            "name": "Tiny ERP",
-            "url": "https://tinyerp.app",
-            "description": "Intuitive and elegant CRM interface for small and medium businesses.",
-            "category": "CRM"
-        }
-    ],
-    "Fitness": [
-        {
-            "name": "Xtrainer",
-            "url": "https://xtrainer.fit",
-            "description": "Individuals can easily browse through profiles, compare services, and make informed decisions.",
-            "category": "Health, Fitness"
-        }
-    ],
-    "Transport": [
-        {
-            "name": "Manager Flota",
-            "url": "https://managerflota.ro",
-            "description": "Simplify your alternative transport fleet management. Manage weekly payments, drivers, cars and reports simply and quickly.",
-            "category": "Transport"
-        }
-    ],
-    "Tech": [
-        {
-            "name": "Dogo App",
-            "url": "https://dogoapp.ro",
-            "description": "Walk your dog, mobile app",
-            "category": "Tech, Life"
-        },
-        {
-            "name": "Blume",
-            "url": "https://blume.ro",
-            "description": "We reduce accidents at pedestrian crossings",
-            "category": "Tech"
-        },
-        {
-            "name": "Bit Poke",
-            "url": "https://bitpoke.io",
-            "description": "We are making cloud-native technology accessible in the WordPress world. Everyone should have access to modern WebOps infrastructure.",
-            "category": "Tech"
-        },
-    ],
-    "AI": [
-        {
-            "name": "httpscleanvoiceai",
-            "url": "https://cleanvoice.ai",
-            "description": "Cleanvoice is an artificial intelligence which removes filler sounds, stuttering and mouth sounds from your podcast or audio recording",
-            "category": "AI"
-        },
-    ],
-    "Audio": [
-        {
-            "name": "Cleanvoice",
-            "url": "https://cleanvoice.ai",
-            "description": "Cleanvoice is an artificial intelligence which removes filler sounds, stuttering and mouth sounds from your podcast or audio recording",
-            "category": "Audio, AI"
-        }
-    ],
-    "Business": [
-        {
-            "name": "iflows",
-            "url": "https://iflows.com",
-            "description": "Discover the platform that will help your business on all levels: organization, production, sales, marketing and finance. Organize your employees better and forget about financial losses caused by lost time or random processes.",
-            "category": "Business"
-        },
-        {
-            "name": "Fieldos",
-            "url": "https://www.fieldos.co/",
-            "description": "FieldOS is an intuitive, one stop shop Asset Operations Management solution that embeds all the flows your Maintenance & Reliability teams need: job management, real time communication and many more.",
-            "category": "Business"
-        },
-        {
-            "name": "Profluo",
-            "url": "https://profluo.com/home",
-            "description": "Read and post invoices in great detail, using Artificial Intelligence.",
-            "category": "Business, Documents"
-        },
-        {
-            "name": "Veridion",
-            "url": "https://veridion.com/",
-            "description": "Find any company by any criteria: products, materials, certifications and more.",
-            "category": "Business, AI"
-        }
-    ],
-    "E-learning": [
-        {
-            "name": "Tootor",
-            "url": "https://tootor.ro",
-            "description": "The first platform in Romania where you can do meditations and courses online, quickly, simply and efficiently.",
-            "category": "E-learning"
-        }
-    ],
-    "Ecommerce": [
-        {
-            "name": "Aqurate",
-            "url": "https://aqurate.ai",
-            "description": "AI-driven personalization tools to boost your eCommerce shop. Connect your shop with Aqurate and get the most out of each website visitor. Boost your conversions, AOV, and customer retention through personalized product recommendations and behavioral segmentation.",
-            "category": "Ecommerce, AI"
-        },
-        {
-            "name": "Blugento",
-            "url": "https://blugento.ro",
-            "description": "Build your online store with Blugento, simple and fast.",
-            "category": "Ecommerce"
-        },
-        {
-            "name": "Easy Sales",
-            "url": "https://easy-sales.com",
-            "description": "Stay ahead of competition with our automated selling solution",
-            "category": "Ecommerce"
-        },
-        {
-            "name": "Flaminjoy",
-            "url": "https://flaminjoy.com",
-            "description": "Shorten the path from SKU discovery to buy UGC platform that provides proven growth in CTR & sales",
-            "category": "Ecommerce"
-        }
-    ],
-    "Finance": [
-        {
-            "name": "Thinkout",
-            "url": "https://thinkout.io",
-            "description": "ThinkOut is the solution that helps entrepreneurs analyze and forecast receipts and payments based on bank history.",
-            "category": "Finance, Payments"
-        },
-    ],
-    "Cloud": [
-        {
-            "name": "niftylearning",
-            "url": "https://niftylearning.io",
-            "description": "At Nifty, we believe tedious L&D admin work should be a thing of the past. That’s why we’re setting a new LMS standard – Nifty is user-friendly, intuitive, and it works for you, not against you. ",
-            "category": "Cloud"
-        }
-    ],
-    "Security": [
-        {
-            "name": "Sypher",
-            "url": "https://sypher.eu",
-            "description": "Information Security & Privacy Management Integrated Software",
-            "category": "Security, Privacy"
-        }
-    ],
-    "Video": [
-        {
-            "name": "httpshyperhumancc",
-            "url": "https://hyperhuman.cc",
-            "description": "Automate the video production process with AI and deliver personalized, engaging content.",
-            "category": "Video, AI"
-        }
-    ],
-    "Green": [
-        {
-            "name": "Ecotree",
-            "url": "https://ecotree.ro",
-            "description": "Prima platformă digitală de management al deșeurilor din România",
-            "category": "Green"
-        }
-    ],
-    "Travel": [
-        {
-            "name": "Questo app",
-            "url": "https://questoapp.com",
-            "description": "Questo is a platform for real-world city exploration games written and designed by professional content creators, companies and amateur storytellers around the world.",
-            "category": "Travel"
-        },
-        {
-            "name": "Travlocals",
-            "url": "https://travlocals.com/",
-            "description": "Choose the most spectacular accommodations in Romania",
-            "category": "Travel"
-        }
-    ],
-    "Booking": [
-        {
-            "name": "Liteapp",
-            "url": "https://liteapp.co",
-            "description": "Booking services",
-            "category": "Booking"
-        }
-    ],
-    "Sport": [
-        {
-            "name": "Expertsport",
-            "url": "https://expertsport.club",
-            "description": "Sports club management platform",
-            "category": "Sport"
-        },
-        {
-            "name": "Jogga App",
-            "url": "https://jogga.app",
-            "description": "Our goal is to bring players together to create unique experiences and new friends",
-            "category": "Sport"
-        }
-    ],
-    "Auto": [
-        {
-            "name": "Drivegrade",
-            "url": "https://drivegrade.eu",
-            "description": "Evaluate the drivers behaviour.",
-            "category": "Auto"
-        }
-    ],
-    "Kids": [
-        {
-            "name": "Kids Finance Solutions",
-            "url": "https://kidsfinancesolutions.com",
-            "description": "The fully interactive app that teaches your kids finance.",
-            "category": "Kids, Finance"
+            "name": "Bumper CLub",
+            "url": "https://bumper.club/",
+            "description": "Earn money by adding stickers on your car.",
+            "category": "Ads"
         }
     ],
     "AgriTech": [
@@ -279,12 +76,110 @@ In this article, we delve into the captivating landscape of Romanian startups, u
             "category": "Agro"
         }
     ],
-    "Automotive": [
+    "AI": [
+        {
+            "name": "httpscleanvoiceai",
+            "url": "https://cleanvoice.ai",
+            "description": "Cleanvoice is an artificial intelligence which removes filler sounds, stuttering and mouth sounds from your podcast or audio recording",
+            "category": "AI"
+        },
+    ],
+    "Audio": [
+        {
+            "name": "Cleanvoice",
+            "url": "https://cleanvoice.ai",
+            "description": "Cleanvoice is an artificial intelligence which removes filler sounds, stuttering and mouth sounds from your podcast or audio recording",
+            "category": "Audio, AI"
+        }
+    ],
+    "Auto": [
+        {
+            "name": "Drivegrade",
+            "url": "https://drivegrade.eu",
+            "description": "Evaluate the drivers behaviour.",
+            "category": "Auto"
+        },
         {
             "name": "Oxid OS",
             "url": "https://oxidos.io/",
             "description": "Welcome to OxidOS Automotive. Rust-based secure ecosystem for safety critical automotive ECUs.",
             "category": "Automotive"
+        }
+    ],
+    "Booking": [
+        {
+            "name": "Liteapp",
+            "url": "https://liteapp.co",
+            "description": "Booking services",
+            "category": "Booking"
+        }
+    ],
+    "Business": [
+        {
+            "name": "iflows",
+            "url": "https://iflows.com",
+            "description": "Discover the platform that will help your business on all levels: organization, production, sales, marketing and finance. Organize your employees better and forget about financial losses caused by lost time or random processes.",
+            "category": "Business"
+        },
+        {
+            "name": "Fieldos",
+            "url": "https://www.fieldos.co/",
+            "description": "FieldOS is an intuitive, one stop shop Asset Operations Management solution that embeds all the flows your Maintenance & Reliability teams need: job management, real time communication and many more.",
+            "category": "Business"
+        },
+        {
+            "name": "Profluo",
+            "url": "https://profluo.com/home",
+            "description": "Read and post invoices in great detail, using Artificial Intelligence.",
+            "category": "Business, Documents"
+        },
+        {
+            "name": "Veridion",
+            "url": "https://veridion.com/",
+            "description": "Find any company by any criteria: products, materials, certifications and more.",
+            "category": "Business, AI"
+        }
+    ],
+    "Cloud": [
+        {
+            "name": "niftylearning",
+            "url": "https://niftylearning.io",
+            "description": "At Nifty, we believe tedious L&D admin work should be a thing of the past. That’s why we’re setting a new LMS standard – Nifty is user-friendly, intuitive, and it works for you, not against you. ",
+            "category": "Cloud"
+        }
+    ],
+    "CRM": [
+        {
+            "name": "Tiny ERP",
+            "url": "https://tinyerp.app",
+            "description": "Intuitive and elegant CRM interface for small and medium businesses.",
+            "category": "CRM"
+        }
+    ],
+    "Ecommerce": [
+        {
+            "name": "Aqurate",
+            "url": "https://aqurate.ai",
+            "description": "AI-driven personalization tools to boost your eCommerce shop. Connect your shop with Aqurate and get the most out of each website visitor. Boost your conversions, AOV, and customer retention through personalized product recommendations and behavioral segmentation.",
+            "category": "Ecommerce, AI"
+        },
+        {
+            "name": "Blugento",
+            "url": "https://blugento.ro",
+            "description": "Build your online store with Blugento, simple and fast.",
+            "category": "Ecommerce"
+        },
+        {
+            "name": "Easy Sales",
+            "url": "https://easy-sales.com",
+            "description": "Stay ahead of competition with our automated selling solution",
+            "category": "Ecommerce"
+        },
+        {
+            "name": "Flaminjoy",
+            "url": "https://flaminjoy.com",
+            "description": "Shorten the path from SKU discovery to buy UGC platform that provides proven growth in CTR & sales",
+            "category": "Ecommerce"
         }
     ],
     "E-health": [
@@ -307,6 +202,46 @@ In this article, we delve into the captivating landscape of Romanian startups, u
             "category": "E-health, AI"
         }
     ],
+    "E-learning": [
+        {
+            "name": "Tootor",
+            "url": "https://tootor.ro",
+            "description": "The first platform in Romania where you can do meditations and courses online, quickly, simply and efficiently.",
+            "category": "E-learning"
+        }
+    ],
+    "Finance": [
+        {
+            "name": "Thinkout",
+            "url": "https://thinkout.io",
+            "description": "ThinkOut is the solution that helps entrepreneurs analyze and forecast receipts and payments based on bank history.",
+            "category": "Finance, Payments"
+        },
+    ],
+    "Fitness": [
+        {
+            "name": "Xtrainer",
+            "url": "https://xtrainer.fit",
+            "description": "Individuals can easily browse through profiles, compare services, and make informed decisions.",
+            "category": "Health, Fitness"
+        }
+    ],
+    "Green": [
+        {
+            "name": "Ecotree",
+            "url": "https://ecotree.ro",
+            "description": "Prima platformă digitală de management al deșeurilor din România",
+            "category": "Green"
+        }
+    ],
+    "Kids": [
+        {
+            "name": "Kids Finance Solutions",
+            "url": "https://kidsfinancesolutions.com",
+            "description": "The fully interactive app that teaches your kids finance.",
+            "category": "Kids, Finance"
+        }
+    ],
     "Logistics": [
         {
             "name": "Yload",
@@ -327,7 +262,78 @@ In this article, we delve into the captivating landscape of Romanian startups, u
             "category": "Logistics, Management"
         }
     ],
-   
+    "Security": [
+        {
+            "name": "Sypher",
+            "url": "https://sypher.eu",
+            "description": "Information Security & Privacy Management Integrated Software",
+            "category": "Security, Privacy"
+        }
+    ],
+    "Sport": [
+        {
+            "name": "Expertsport",
+            "url": "https://expertsport.club",
+            "description": "Sports club management platform",
+            "category": "Sport"
+        },
+        {
+            "name": "Jogga App",
+            "url": "https://jogga.app",
+            "description": "Our goal is to bring players together to create unique experiences and new friends",
+            "category": "Sport"
+        }
+    ],
+    "Tech": [
+        {
+            "name": "Dogo App",
+            "url": "https://dogoapp.ro",
+            "description": "Walk your dog, mobile app",
+            "category": "Tech, Life"
+        },
+        {
+            "name": "Blume",
+            "url": "https://blume.ro",
+            "description": "We reduce accidents at pedestrian crossings",
+            "category": "Tech"
+        },
+        {
+            "name": "Bit Poke",
+            "url": "https://bitpoke.io",
+            "description": "We are making cloud-native technology accessible in the WordPress world. Everyone should have access to modern WebOps infrastructure.",
+            "category": "Tech"
+        },
+    ],
+    "Transport": [
+        {
+            "name": "Manager Flota",
+            "url": "https://managerflota.ro",
+            "description": "Simplify your alternative transport fleet management. Manage weekly payments, drivers, cars and reports simply and quickly.",
+            "category": "Transport"
+        }
+    ],
+    "Travel": [
+        {
+            "name": "Questo app",
+            "url": "https://questoapp.com",
+            "description": "Questo is a platform for real-world city exploration games written and designed by professional content creators, companies and amateur storytellers around the world.",
+            "category": "Travel"
+        },
+        {
+            "name": "Travlocals",
+            "url": "https://travlocals.com/",
+            "description": "Choose the most spectacular accommodations in Romania",
+            "category": "Travel"
+        }
+    ],
+    "Video": [
+        {
+            "name": "httpshyperhumancc",
+            "url": "https://hyperhuman.cc",
+            "description": "Automate the video production process with AI and deliver personalized, engaging content.",
+            "category": "Video, AI"
+        }
+    ],  
 }
 
   // loop over startupList object and add them to the div element with startup-list id
