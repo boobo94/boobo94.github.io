@@ -250,6 +250,13 @@ In this article, we delve into the captivating landscape of Romanian startups, u
             "category": "Logistics, AI"
         },
         {
+            "name": "Pacofer",
+            "url": "https://pacofer.ro/",
+            "description": "Send a package
+or you can take one to your destination.",
+            "category": "Logistics"
+        },
+        {
             "name": "Cargobuddy",
             "url": "https://cargobuddy.ro/",
             "description": "Optimize your cost, save time and send a cargo anywhere and anytime. Our mission is to get every cargo to its destination.",
