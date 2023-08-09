@@ -12,13 +12,13 @@ In order to make a query based on _id, comparing dates, you can use `$convert` f
 
 Example:
 
-```mongodb
+```js
 $convert: { input: "$_id", to: "date" } 
 ```
 
 To query dates comparing between start and end time:
 
-```mongodb
+```js
 db.collection.find({
   "$expr":{
     "$and":[
@@ -31,7 +31,7 @@ db.collection.find({
 
 The shorthand version using `$toDate` function helps you achieve the same result:
 
-```mongodb
+```js
 db.collection.find({
   "$expr":{
     "$and":[
@@ -42,7 +42,7 @@ db.collection.find({
 })
 ```
 
-
+---
 
 [Source](https://stackoverflow.com/a/51165575/4471897)
 
