@@ -252,8 +252,7 @@ In this article, we delve into the captivating landscape of Romanian startups, u
         {
             "name": "Pacofer",
             "url": "https://pacofer.ro/",
-            "description": "Send a package
-or you can take one to your destination.",
+            "description": "Send a package or you can take one to your destination.",
             "category": "Logistics"
         },
         {
