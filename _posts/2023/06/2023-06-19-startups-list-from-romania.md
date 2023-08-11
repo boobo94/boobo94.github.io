@@ -208,6 +208,12 @@ In this article, we delve into the captivating landscape of Romanian startups, u
             "url": "https://tootor.ro",
             "description": "The first platform in Romania where you can do meditations and courses online, quickly, simply and efficiently.",
             "category": "E-learning"
+        },
+        {
+            "name": "Adservio",
+            "url": "https://www.adservio.ro/ro",
+            "description": "Adservio is an online education management platform for public & private schools and kindergartens.",
+            "category": "E-learning"
         }
     ],
     "Finance": [
@@ -295,6 +301,12 @@ In this article, we delve into the captivating landscape of Romanian startups, u
             "name": "Dogo App",
             "url": "https://dogoapp.ro",
             "description": "Walk your dog, mobile app",
+            "category": "Tech, Life"
+        },
+        {
+            "name": "Caretopets",
+            "url": "https://www.caretopets.com/ro",
+            "description": "Romanian's No 1 pet sitting platform",
             "category": "Tech, Life"
         },
         {
