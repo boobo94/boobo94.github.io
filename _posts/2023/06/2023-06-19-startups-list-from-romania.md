@@ -282,6 +282,14 @@ In this article, we delve into the captivating landscape of Romanian startups, u
             "category": "Security, Privacy"
         }
     ],
+    "Services": [
+        {
+            "name": "Fieldvibe",
+            "url": "https://www.fieldvibe.com/",
+            "description": "Streamline your work with a simple job scheduling app. Forget your paper agenda or Calendar app and start scheduling your jobs better. HVAC, Plumbing, Electrical, Handyman, Lawn care, Cleaning and more.",
+            "category": "Services, Schedule"
+        }
+    ],
     "Sport": [
         {
             "name": "Expertsport",
@@ -351,7 +359,7 @@ In this article, we delve into the captivating landscape of Romanian startups, u
             "description": "Automate the video production process with AI and deliver personalized, engaging content.",
             "category": "Video, AI"
         }
-    ],  
+    ],
 }
 
   // loop over startupList object and add them to the div element with startup-list id
