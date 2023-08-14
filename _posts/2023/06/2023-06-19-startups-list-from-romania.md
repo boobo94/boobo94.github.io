@@ -76,14 +76,6 @@ In this article, we delve into the captivating landscape of Romanian startups, u
             "category": "Agro"
         }
     ],
-    "AI": [
-        {
-            "name": "httpscleanvoiceai",
-            "url": "https://cleanvoice.ai",
-            "description": "Cleanvoice is an artificial intelligence which removes filler sounds, stuttering and mouth sounds from your podcast or audio recording",
-            "category": "AI"
-        },
-    ],
     "Audio": [
         {
             "name": "Cleanvoice",
@@ -140,20 +132,20 @@ In this article, we delve into the captivating landscape of Romanian startups, u
             "category": "Business, AI"
         }
     ],
-    "Cloud": [
-        {
-            "name": "niftylearning",
-            "url": "https://niftylearning.io",
-            "description": "At Nifty, we believe tedious L&D admin work should be a thing of the past. That’s why we’re setting a new LMS standard – Nifty is user-friendly, intuitive, and it works for you, not against you. ",
-            "category": "Cloud"
-        }
-    ],
     "CRM": [
         {
             "name": "Tiny ERP",
             "url": "https://tinyerp.app",
             "description": "Intuitive and elegant CRM interface for small and medium businesses.",
             "category": "CRM"
+        }
+    ],
+    "Docs": [
+        {
+            "name": "Typeless",
+            "url": "https://www.typeless.ai/",
+            "description": "Our solutions help you reduce manual work drastically. We develop digital solutions which integrate perfect with your business.",
+            "category": "Docs, Digitization, AI"
         }
     ],
     "Ecommerce": [
@@ -184,7 +176,7 @@ In this article, we delve into the captivating landscape of Romanian startups, u
     ],
     "E-health": [
         {
-            "name": "httpssynaptiqio",
+            "name": "Synaptiq",
             "url": "https://synaptiq.io/",
             "description": "Our revolutionary software is a tool that separates cancerous tumours and organs at risk with the help of Artificial Intelligence.",
             "category": "E-health, AI"
@@ -200,7 +192,7 @@ In this article, we delve into the captivating landscape of Romanian startups, u
             "url": "https://rayscape.ai/",
             "description": "We augment radiologists analyzing X-rays and CTs by tapping into 15,000,000 medical images of experience.",
             "category": "E-health, AI"
-        }
+        },
     ],
     "E-learning": [
         {
@@ -213,6 +205,12 @@ In this article, we delve into the captivating landscape of Romanian startups, u
             "name": "Adservio",
             "url": "https://www.adservio.ro/ro",
             "description": "Adservio is an online education management platform for public & private schools and kindergartens.",
+            "category": "E-learning"
+        },
+        {
+            "name": "Niftylearning",
+            "url": "https://niftylearning.io",
+            "description": "At Nifty, we believe tedious L&D admin work should be a thing of the past. That’s why we’re setting a new LMS standard – Nifty is user-friendly, intuitive, and it works for you, not against you. ",
             "category": "E-learning"
         }
     ],
@@ -274,6 +272,20 @@ In this article, we delve into the captivating landscape of Romanian startups, u
             "category": "Logistics, Management"
         }
     ],
+    "Pets": [
+        {
+            "name": "Dogo App",
+            "url": "https://dogoapp.ro",
+            "description": "Walk your dog, mobile app",
+            "category": "Pets, Life"
+        },
+        {
+            "name": "Caretopets",
+            "url": "https://www.caretopets.com/ro",
+            "description": "Romanian's No 1 pet sitting platform",
+            "category": "Pets, Life"
+        },
+    ],
     "Security": [
         {
             "name": "Sypher",
@@ -287,7 +299,7 @@ In this article, we delve into the captivating landscape of Romanian startups, u
             "name": "Fieldvibe",
             "url": "https://www.fieldvibe.com/",
             "description": "Streamline your work with a simple job scheduling app. Forget your paper agenda or Calendar app and start scheduling your jobs better. HVAC, Plumbing, Electrical, Handyman, Lawn care, Cleaning and more.",
-            "category": "Services, Schedule"
+            "category": "Services, Booking"
         }
     ],
     "Sport": [
@@ -306,18 +318,6 @@ In this article, we delve into the captivating landscape of Romanian startups, u
     ],
     "Tech": [
         {
-            "name": "Dogo App",
-            "url": "https://dogoapp.ro",
-            "description": "Walk your dog, mobile app",
-            "category": "Tech, Life"
-        },
-        {
-            "name": "Caretopets",
-            "url": "https://www.caretopets.com/ro",
-            "description": "Romanian's No 1 pet sitting platform",
-            "category": "Tech, Life"
-        },
-        {
             "name": "Blume",
             "url": "https://blume.ro",
             "description": "We reduce accidents at pedestrian crossings",
@@ -335,7 +335,7 @@ In this article, we delve into the captivating landscape of Romanian startups, u
             "name": "Manager Flota",
             "url": "https://managerflota.ro",
             "description": "Simplify your alternative transport fleet management. Manage weekly payments, drivers, cars and reports simply and quickly.",
-            "category": "Transport"
+            "category": "Transport, Ridesharing"
         }
     ],
     "Travel": [
@@ -354,7 +354,7 @@ In this article, we delve into the captivating landscape of Romanian startups, u
     ],
     "Video": [
         {
-            "name": "httpshyperhumancc",
+            "name": "Hyperhuman",
             "url": "https://hyperhuman.cc",
             "description": "Automate the video production process with AI and deliver personalized, engaging content.",
             "category": "Video, AI"
