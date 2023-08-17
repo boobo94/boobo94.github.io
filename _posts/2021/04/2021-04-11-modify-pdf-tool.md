@@ -19,3 +19,5 @@ In my tasks at <a href="https://whyboobo.com/portfolio/2021-01-01-cmevo-digital/
 The tool is very nice, simple but very powerfull. If you wanna try it link below, don't forget is free, but a donation will be much appreciated.
 
 <a href="https://inkscape.org/support-us/donate/"><img title="Support the Inkscape Project and Donate" src="https://media.inkscape.org/media/cms_page_media/608/donate-button-180.png" alt="Medium banner says Support Inkscape" /></a>
+
+Another simple tool, available online is [pdftool.org](https://www.pdftool.org/en). You can modify, rotate, split, merge and more, all online.
