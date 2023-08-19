@@ -104,7 +104,19 @@ In this article, we delve into the captivating landscape of Romanian startups, u
             "url": "https://liteapp.co",
             "description": "Booking services",
             "category": "Booking"
-        }
+        },
+        {
+            "name": "Docbook",
+            "url": "http://www.docbook.ro/",
+            "description": "Aims to offer a modern solution to make appointments to the desired doctor",
+            "category": "Booking"
+        },
+        {
+            "name": "ProZi",
+            "url": "http://prozi.ro",
+            "description": "An online scheduling application for beauty saloons and dentists",
+            "category": "Booking"
+        },
     ],
     "Business": [
         {
@@ -138,6 +150,12 @@ In this article, we delve into the captivating landscape of Romanian startups, u
             "url": "https://tinyerp.app",
             "description": "Intuitive and elegant CRM interface for small and medium businesses.",
             "category": "CRM"
+        },
+        {
+            "name": "REBS",
+            "url": "http://www.crmrebs.ro",
+            "description": "CRM REBS is a software crafted for real estate agencies.",
+            "category": "CRM"
         }
     ],
     "Docs": [
@@ -146,6 +164,12 @@ In this article, we delve into the captivating landscape of Romanian startups, u
             "url": "https://www.typeless.ai/",
             "description": "Our solutions help you reduce manual work drastically. We develop digital solutions which integrate perfect with your business.",
             "category": "Docs, Digitization, AI"
+        },
+        {
+            "name": "Profluo",
+            "url": "https://www.typeless.ai/",
+            "description": "Profluo is the fastest-learning intelligent document processing platform.",
+            "category": "Docs, Digitization, OCR"
         }
     ],
     "Ecommerce": [
@@ -192,6 +216,12 @@ In this article, we delve into the captivating landscape of Romanian startups, u
             "url": "https://rayscape.ai/",
             "description": "We augment radiologists analyzing X-rays and CTs by tapping into 15,000,000 medical images of experience.",
             "category": "E-health, AI"
+        },
+         {
+            "name": "miioSMILE",
+            "url": "http://www.miiosmile.app/",
+            "description": "help you get the productivity you need, by easing the process of case documentation and the interaction between yourself and the specialists you work with.",
+            "category": "E-health, Management"
         },
     ],
     "E-learning": [
@@ -300,6 +330,20 @@ In this article, we delve into the captivating landscape of Romanian startups, u
             "url": "https://www.fieldvibe.com/",
             "description": "Streamline your work with a simple job scheduling app. Forget your paper agenda or Calendar app and start scheduling your jobs better. HVAC, Plumbing, Electrical, Handyman, Lawn care, Cleaning and more.",
             "category": "Services, Booking"
+        },
+        {
+            "name": "ialoc",
+            "url": "https://www.ialoc.ro",
+            "description": "ialoc.ro is the right way to book a table at restaurant",
+            "category": "Services, Booking"
+        }
+    ],
+    "Social-Media": [
+        {
+            "name": "Planable",
+            "url": "http://planable.io",
+            "description": "Planable is a tool that speeds up the way social media campaigns are managed and makes planning, visualizing and approving social media posts easy and fun.",
+            "category": "Social Media, Planning, Management"
         }
     ],
     "Sport": [
@@ -313,6 +357,12 @@ In this article, we delve into the captivating landscape of Romanian startups, u
             "name": "Jogga App",
             "url": "https://jogga.app",
             "description": "Our goal is to bring players together to create unique experiences and new friends",
+            "category": "Sport"
+        },
+         {
+            "name": "RezervaTeren",
+            "url": "http://rezervateren.ro",
+            "description": "Website for online booking for sports in Romania",
             "category": "Sport"
         }
     ],
