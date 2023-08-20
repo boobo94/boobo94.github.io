@@ -3,7 +3,7 @@ title: Seo Resources - Curated list of resources to learn SEO
 summary: This article is a journal about the best resources that I've read about seo. I update constantly the list, so stay ahead and follow me.
 categories: resources
 tags: seo marketing web
-date: 2021-06-07 09:09:09 +0000
+date: 2023-08-20 09:09:09 +0000
 cover: https://image.freepik.com/free-vector/tiny-content-writers-creating-web-articles-flat-illustration_74855-15537.jpg
 layout: post
 ---
@@ -86,3 +86,26 @@ Multiple suggestions on this Twitter thread:
 <blockquote class="twitter-tweet"><p lang="en" dir="ltr">Want to learn SEO for free over the holidays?<br><br>Check out this 🧵<br><br>👇</p>&mdash; Nat Miletic (@natmiletic) <a href="https://twitter.com/natmiletic/status/1341424785746640896?ref_src=twsrc%5Etfw">December 22, 2020</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
 This is a complete analysis of ranking in Google. Only 5.7% of all studied pages ranked in the Top10 search results within 1 year for at least 1 keyword.
+
+## 11. <a href="https://www.brightlocal.com/free-local-seo-tools/" target="_blank">Brightlocal - Free Local SEO Tools</a>
+
+ Powerful free tools for your local search marketing needs 
+
+ 1. Local Listings Health Scanner - Find out the health of your business listings
+
+Perform a completely free scan across 15 of the most powerful sites to find your business Listing Health Score. This tool also uncovers listing omissions and inaccuracies, and importantly, gives you a way to fix them.
+
+2. <a href="https://www.brightlocal.com/local-search-results-checker/" target="_blank">Local Search Results Checker</a> - See Google search results from any location
+
+Just imagine if you could perform a Google search and see the localized results in real time, from any location. Good news: Local Search Results Checker does just that! Quickly and easily view Google or Google Maps search results, from any town or city, worldwide.
+
+3. Local RankFlux - Be alerted to fluctuations in the local algorithm
+
+Be the first to know about any changes to Google’s local search algorithm by signing up to our daily, weekly or ‘urgent only’ Local RankFlux alerts. This tool also allows you to filter and see local ranking fluctuations over time, by industry.
+
+
+4. Google Review Link and Place ID Generator - The super-simple way to help grow reviews
+
+The perfect tool to quickly grab the correct Google review links for your business. Want to grow your customer reviews? Simply copy the ‘Get More Reviews’ URL and include it in your post-sale communications. And, uncover the Place ID, Ludocid, and FID codes Google uses to identify your business.
+
+
