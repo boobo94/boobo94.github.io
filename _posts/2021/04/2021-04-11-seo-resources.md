@@ -1,10 +1,10 @@
 ---
-title: Seo Resources - Curated list of resources to learn SEO
-summary: This article is a journal about the best resources that I've read about seo. I update constantly the list, so stay ahead and follow me.
+title: "Curated SEO Resources: Essential Tools and Tips"
+summary: Discover a handpicked selection of indispensable SEO resources, including tools and tips, to optimize your website's performance.
 categories: resources
 tags: seo marketing web
 date: 2023-08-20 09:09:09 +0000
-cover: https://image.freepik.com/free-vector/tiny-content-writers-creating-web-articles-flat-illustration_74855-15537.jpg
+cover: https://cdn.pixabay.com/photo/2016/03/09/13/58/online-marketing-1246457_1280.jpg
 layout: post
 ---
 
