@@ -109,3 +109,6 @@ Be the first to know about any changes to Google’s local search algorithm by s
 The perfect tool to quickly grab the correct Google review links for your business. Want to grow your customer reviews? Simply copy the ‘Get More Reviews’ URL and include it in your post-sale communications. And, uncover the Place ID, Ludocid, and FID codes Google uses to identify your business.
 
 
+Other mentiones or sources:
+
+- https://twitter.com/boringmarketer/status/1692546517704282223?s=46
