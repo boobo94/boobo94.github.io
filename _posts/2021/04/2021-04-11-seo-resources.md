@@ -8,6 +8,8 @@ cover: https://cdn.pixabay.com/photo/2016/03/09/13/58/online-marketing-1246457_1
 layout: post
 ---
 
+Discover a handpicked selection of indispensable SEO resources, including tools and tips, to optimize your website's performance.
+
 ## 1. <a href="https://learningseo.io/" target="_blank"> Learning SEO – A Roadmap with Free Guides & Tools</a>
 
 Do you want to start learning or expanding your Search Engine Optimization learning process to become or grow further as an SEO specialist and don’t know how? You’ve come to the right place! Learning SEO features a roadmap to learn SEO with free comprehensive guides, resources and tools. 
