@@ -3,7 +3,7 @@ title:  Tools for Analyzing Your Competition
 summary: Before knowing where your business stands, you should look at the market and your competition. You need to know what marketing tactics and strategies are working for your audience, what traffic the competition has, and how they position.
 categories: startup resources
 tags: startup competition analysis seo
-date: 2021-12-23 09:09:09 +0000
+date: 2023-08-29 09:09:09 +0000
 cover: https://cdn.pixabay.com/photo/2018/03/27/12/16/analytics-3265840_960_720.jpg
 layout: post
 ---
@@ -105,6 +105,10 @@ Google Trends is a great free keyword research tool that shows an overview of ho
 
 A free local SEO keyword tool for small businesses and marketers. Select a business type and city, and it will automatically generate local keywords for your industry that potential customers might use to find you.
 
+<h3>19. <a href="https://www.brightlocal.com/free-local-seo-tools/" target="_blank">Brightlocal - Free Local SEO Tools</a></h3>
+
+Powerful free tools for your local search marketing needs 
+
 
 ### Others:
 
@@ -112,5 +116,6 @@ A free local SEO keyword tool for small businesses and marketers. Select a busin
 - <http://wordstream.com/>
 - <https://www.link-assistant.com/news/free-keyword-research-tools.html>
 - <https://backlinko.com/best-free-seo-tools>
+- more here https://twitter.com/boringmarketer/status/1692546517704282223?s=46
 
 Image Source: <a href="https://pixabay.com/images/id-731479/" target="_blank">Pixabay</a>
