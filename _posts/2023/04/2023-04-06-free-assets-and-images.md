@@ -56,6 +56,7 @@ Find a multitude of places with free assets and images for your project
 - <http://thenounproject.com/>
 - <http://feathericons.com/>
 - <https://icons.download/>
+- <https://iconmonstr.com>
 
 ### Logos
 
