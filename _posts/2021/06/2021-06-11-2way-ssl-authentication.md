@@ -1,11 +1,13 @@
 ---
 title: Setup 2way ssl authentication (mutual authentication) with Nginx
 summary: This article presents you a simple way of configuring 2 way ssl or mutual authentication between two servers with Nginx.
-categories: webservice
+categories: devops
 tags: webservice nginx devops
 date: 2021-06-16 09:09:09 +0000
 cover: https://cdn.pixabay.com/photo/2017/10/30/18/44/hacking-2903156_1280.jpg
 layout: post
+redirect_from:
+- /webservice/2way-ssl-authentication/
 ---
 
 

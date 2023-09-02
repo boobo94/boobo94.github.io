@@ -127,7 +127,7 @@ Soo all is good! Have a nice day, fellow!
 
 Are you interested by this subject because I've written some article on Nginx topic here:
 
-1. [Setup 2way ssl authentication (mutual authentication) with Nginx](https://whyboobo.com/webservice/2way-ssl-authentication/)
+1. [Setup 2way ssl authentication (mutual authentication) with Nginx](https://whyboobo.com/devops/2way-ssl-authentication/)
 2. [How to Setup Nginx with Let's Encrypt on Ubuntu 20.04](https://whyboobo.com/devops/setup-letsencryp-nginx-ubuntu/)
 3. [https://whyboobo.com/devops/nginx-configuration-for-node/](https://whyboobo.com/devops/nginx-configuration-for-node/)
 4. [How to setup LEMP stack for Wordpress](https://whyboobo.com/devops/setup-lemp-stack-for-wordpress/)
