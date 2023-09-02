@@ -1,11 +1,13 @@
 ---
 title: Connect localhost to the internet
 summary: How to connect your localhost to the internet using a third party tool for development. Just drop an eye here simple, clean, fast solutions only.
-categories: webservice
+categories: devops
 tags: localhost port
 date: 2022-02-08 09:09:09 +0000
 cover: https://cdn.pixabay.com/photo/2018/03/15/16/11/background-3228704_1280.jpg
 layout: post
+redirect_from:
+- /webservice/connect-localhost-to-the-internet/
 ---
 
 Discover multiple ways of connecting your webservice localhost to the internet. Just drop an eye here: simple, clean, fast solutions only.

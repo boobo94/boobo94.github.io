@@ -208,7 +208,7 @@ import { urlencoded } from 'express';
 
 ### Use IPN webhook from localhost
 
-In order to connect Netopia with your local API, you need to expose your server running locally to the internat. To do that you can simply use SSH tunneling. [Connect localhost to the internet](https://whyboobo.com/webservice/connect-localhost-to-the-internet/) is an article which describes how to do that.
+In order to connect Netopia with your local API, you need to expose your server running locally to the internat. To do that you can simply use SSH tunneling. [Connect localhost to the internet](https://whyboobo.com/devops/connect-localhost-to-the-internet/) is an article which describes how to do that.
 
 
 If you're hurry use localhost.run, [documentation here](https://localhost.run/docs/) by simply:

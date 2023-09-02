@@ -1,11 +1,13 @@
 ---
 title: Archiver reading zip data as a buffer without writing to filesystem
 summary: Zip data from buffer without writing to filesystem with the Node.js and archiver module. Use a stream and return data as buffer.
-categories: webservice
+categories: tutorials
 tags: nodejs zip
 date: 2021-12-13 09:09:09 +0000
 cover: https://cdn.pixabay.com/photo/2017/11/15/23/04/zip-2952852_1280.png
 layout: post
+redirect_from:
+- /webservice/archiver-nodejs-read-buffer/
 ---
 
 Zip data from buffer without writing to filesystem with the Node.js module archiver. All the examples offered in the description of [Archiver NPM Module](https://www.npmjs.com/package/archiver) explains how to create a Zip writing to a file. But if you need to write to a stream and return that stream as a buffer, here is an example.
