@@ -1,11 +1,13 @@
 ---
 title: Journey of developers from web2 to web3
 summary: Web3 for developers - a list with articles, video materials, and resources about how to achieve independence as a developer
-categories: blockchain
+categories: research
 tags: web web3 resources tutorials
 date: 2021-12-25 09:09:09 +0000
 cover: https://cdn.pixabay.com/photo/2016/11/05/13/54/travel-1800268_1280.jpg
 layout: post
+redirect_from:
+- /blockchain/web3-for-developers/
 ---
 
 The journey from web2 to web3 for developers represents my journey from a web developers which was intrigued by the new Era. This articles presents the adventure of joining the web3 area with all the challanges faced. I remember the first days as programmer, the excitment was very strong, but the challanges were overwhelming. This is literally how I feel about this journey from web2 to web3.

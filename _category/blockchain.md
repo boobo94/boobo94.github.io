@@ -1,4 +1,0 @@
----
-category: blockchain
-permalink: "/blockchain"
----
