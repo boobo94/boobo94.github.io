@@ -84,5 +84,5 @@ volumes:
 
 Related articles:
 
-- [NodeJS Tests with microservices, Jenkins and Docker](/nodejs-jenkins-docker-testing)
+- [NodeJS Tests with microservices, Jenkins and Docker](/tutorials/nodejs-jenkins-docker-testing/)
 - [Wordpress Dockerfile](/wordpress-docker)

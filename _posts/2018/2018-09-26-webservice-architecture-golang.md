@@ -1,7 +1,7 @@
 ---
 title: Web Service Architecture for Golang Developers
 layout: post
-categories: webservice
+categories: tutorials
 date: 2018-09-26 19:07:54 +0000
 summary: The web service architecture it's one of the most important part from your
   project. Learn how to create APIs, take care of security, interact with the database,
@@ -17,6 +17,8 @@ tags:
 - go
 - models
 cover: https://cdn.pixabay.com/photo/2016/08/05/07/17/laptop-1571702_1280.jpg
+redirect_from:
+- /webservice/webservice-architecture-golang/
 ---
 
 Web service architecture is the first phase before building every project, it's like you prepare to build a house and start by creating the architecture plan.
