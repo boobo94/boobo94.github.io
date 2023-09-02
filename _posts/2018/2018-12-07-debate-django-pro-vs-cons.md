@@ -28,7 +28,7 @@ So he suggested [Django](https://www.djangoproject.com/), which is not bad, but 
 * Everything is deployed together;
 * Because is old there is a good part, people contribute for community;
 * It fits perfectly for big teams because all the developers have like a single way to write code, because that’s in fact Django;
-* With Django, comes a lot of 3rd party modules, a great [REST framework](/webservice/webservice-architecture-golang/). Works with dozens of additional features that significantly help with user authentication, site maps, content administration, RSS and many others. 
+* With Django, comes a lot of 3rd party modules, a great [REST framework](/tutorials/webservice-architecture-golang/). Works with dozens of additional features that significantly help with user authentication, site maps, content administration, RSS and many others. 
 * It’s good for small to medium projects;
 * Speed: Django was designed to help developers create an application as quickly as possible. This includes the formation of ideas, the development and release of the project, where Django saves time and resources at each of these stages. Thus, it can be called the ideal solution for developers for whom the question of deadline is in priority;
 * Security: By working in Django, you get protection from security-related errors. I mean such common mistakes as SQL injections, cross-site forgery, clickjacking and cross-site scripting. To effectively use logins and passwords, the user authentication system is the key;

@@ -8,6 +8,7 @@ tags:
 - productivity
 - learning
 date: 2021-01-13 09:09:09 +0000
+cover: https://cdn.pixabay.com/photo/2018/01/04/07/59/salt-harvesting-3060093_1280.jpg
 ---
 
 The work environment is your second home, or maybe even better is your first home. If you have a 9-5 job, probably you spend most of your day time inside your work environment. I assume that every one of us wants a clean, cozy and hospitable home. Exactly the same is with the work environment.
