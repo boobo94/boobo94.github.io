@@ -12,6 +12,8 @@ Automate WhatsApp with ease using Whatsapp-web.js, a NodeJS client library that 
 
 A WhatsApp client library for NodeJS that connects through the WhatsApp Web browser app whatsapp-web.js - <https://wwebjs.dev>, with the [Github repository](https://github.com/pedroslopez/whatsapp-web.js)
 
+For this project I have set a Github repository [@boobo94/whatsapp-sender](https://github.com/boobo94/whatsapp-sender).
+
 ## How to setup the project
 
 ```sh
