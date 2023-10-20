@@ -157,7 +157,7 @@ function sendMessages(client, data) {
 ```
 
 As you can see in function definition it has two params:
-- `client`` - the whatsapp client created above
+- `client` - the whatsapp client created above
 - `data` - where are stored the contacts and the message
 
 The object looks like below and it's stored in `data.js` file, imported in `index.js`.
