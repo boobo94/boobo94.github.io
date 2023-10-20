@@ -36,7 +36,7 @@ then should look like:
   "license": "ISC",
   "dependencies": {
     "qrcode-terminal": "^0.12.0",
-    "whatsapp-web.js": "^1.22.1"
+    "whatsapp-web.js": "^1.22.2-alpha.4"
   }
 }
 
