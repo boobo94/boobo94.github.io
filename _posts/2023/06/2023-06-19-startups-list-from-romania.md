@@ -96,6 +96,12 @@ In this article, we delve into the captivating landscape of Romanian startups, u
             "url": "https://oxidos.io/",
             "description": "Welcome to OxidOS Automotive. Rust-based secure ecosystem for safety critical automotive ECUs.",
             "category": "Automotive"
+        },
+        {
+            "name": "Autopia",
+            "url": "https://autopia.ro/?lang=ro",
+            "description": "Car repairs made easy and transparent. Easy online booking system, upfront pricing, we pick up your car so you don't have to lose time.",
+            "category": "Auto, Logistics, Management"
         }
     ],
     "Booking": [
@@ -295,12 +301,12 @@ In this article, we delve into the captivating landscape of Romanian startups, u
             "description": "Optimize your cost, save time and send a cargo anywhere and anytime. Our mission is to get every cargo to its destination.",
             "category": "Logistics"
         },
-          {
+        {
             "name": "Cargo Planning",
             "url": "https://cargoplanning.com/",
             "description": "CargoPlanning - A platform dedicated to production companies for transport process management",
             "category": "Logistics, Management"
-        }
+        },
     ],
     "Pets": [
         {
@@ -336,6 +342,12 @@ In this article, we delve into the captivating landscape of Romanian startups, u
             "url": "https://www.ialoc.ro",
             "description": "ialoc.ro is the right way to book a table at restaurant",
             "category": "Services, Booking"
+        },
+        {
+            "name": "BiliPay",
+            "url": "https://bilipay.co/en/homepage/",
+            "description": "Accelerate your business with the fastest payment solution. Save time, turn tables quicker and offer an amazing payment experience to your guests.",
+            "category": "Restaurants, Services, Booking"
         }
     ],
     "Social-Media": [
