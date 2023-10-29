@@ -77,7 +77,7 @@ By time to time I am curious what others wants to build and some of the websites
 - <a href="https://nugget.one/ideas" target="_blank">Nugget.one</a>
 - <a href="https://microsaasidea.substack.com/" target="_blank">Microsaasidea</a>
 - <a href="https://www.softwareideas.io/" target="_blank">Softwareideas</a>
-- 
+- <a href="https://founderpal.ai/business-ideas-generator" target="_blank">Founder Pal AI business idea generstor</a>
 
 ### Startup graveyard 
 
@@ -225,6 +225,8 @@ And this is an option too, because they can offer you a different vision. If man
 Don't force to get an answer from them with any price. If they stay closed to "I don't know", try to offer them some ranges that you already have in mind based on your product or that you saw at competition.
 
 Is the moment to tell them what is your opinion regarding the price.
+
+If you don't know who's your client, it may help to create an user persona. I found <a href="https://founderpal.ai/user-persona-generator">an User Persona Generator with AI</a> that may help.
 
 ### Sell right now
 
