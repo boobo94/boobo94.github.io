@@ -28,7 +28,7 @@ Find a multitude of places with free assets and images for your project
 - <http://shape.so/>
 - <https://lottiefiles.com/featured>
 
-### illustrations
+### Illustrations
 
 - <https://drawkit.io>
 - <https://undraw.co>
@@ -65,3 +65,7 @@ Find a multitude of places with free assets and images for your project
 ### Mockup tools
 
 Read the full article - [Mockup List Tools](https://whyboobo.com/tools/mockup-tools/)
+
+### Generate logos with AI
+
+- <https://hotpot.ai/art-generator>
