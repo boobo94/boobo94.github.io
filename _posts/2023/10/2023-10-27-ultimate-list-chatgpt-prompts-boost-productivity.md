@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Supercharge Your Productivity: Unveiling the Top ChatGPT Prompts for Technical People and Startup Founders"
+title: "Top ChatGPT Prompts for Technical People and Startup Founders"
 summary: "Discover the ultimate list of ChatGPT prompts designed specifically for technical people and startup founders. Enhance your AI interactions and boost productivity with these powerful prompts. Revolutionize the way you work and stay ahead of the competition. Read now!"
 categories: resources
 tags: ai chatgpt
