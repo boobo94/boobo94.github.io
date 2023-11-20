@@ -10,6 +10,12 @@ cover: https://cdn.pixabay.com/photo/2023/10/30/05/02/ai-generated-8351760_1280.
 
 Explore the top-notch AI art tools that are completely free and perfect for unleashing your creativity in your upcoming masterpiece.
 
+## Text
+
+1. <a href="https://chat.openai.com/" target="_blank">ChatGPT</a>
+2. <a href="https://www.perplexity.ai/" target="_blank">perplexity</a>
+3. <a href="https://claude.ai/onboarding" target="_blank">Claude</a>
+4. <a href="https://copilot.microsoft.com/" target="_blank">Microsoft Copilot</a>
 
 ## Generate Images or Videos with AI
 
@@ -29,6 +35,5 @@ Explore the top-notch AI art tools that are completely free and perfect for unle
 ## Create Websites with AI
 
 1. Permar: Generate optimized landing pages with a simple prompt.
-
 
 Other places to discover AI tools: <a href="https://whattheai.tech" target="_blank">WhatTheAI</a>
