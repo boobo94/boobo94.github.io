@@ -31,7 +31,7 @@ Explore the top-notch AI art tools that are completely free and perfect for unle
 10. DeepAI: It offers a text-to-image generator that produces fine results with the right prompts.
 11. Microsoft Designer: Create amazing designs and images with lightning speed.
 12. Rask AI: Translate videos into 60+ different languages.
-13. meta imagine AI https://imagine.meta.com/unavailable/
+13. Meta imagine AI https://imagine.meta.com/unavailable/
 
 ## Create Websites with AI
 
