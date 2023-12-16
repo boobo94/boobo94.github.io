@@ -13,9 +13,9 @@ Explore the top-notch AI art tools that are completely free and perfect for unle
 ## Text
 
 1. <a href="https://chat.openai.com/" target="_blank">ChatGPT</a>
-2. <a href="https://www.perplexity.ai/" target="_blank">perplexity</a>
-3. <a href="https://claude.ai/onboarding" target="_blank">Claude</a>
-4. <a href="https://copilot.microsoft.com/" target="_blank">Microsoft Copilot</a>
+2. <a href="https://copilot.microsoft.com/" target="_blank">Microsoft Copilot</a>
+3. <a href="https://www.perplexity.ai/" target="_blank">perplexity</a>
+4. <a href="https://claude.ai/onboarding" target="_blank">Claude</a>
 
 ## Generate Images or Videos with AI
 
@@ -31,7 +31,7 @@ Explore the top-notch AI art tools that are completely free and perfect for unle
 10. DeepAI: It offers a text-to-image generator that produces fine results with the right prompts.
 11. Microsoft Designer: Create amazing designs and images with lightning speed.
 12. Rask AI: Translate videos into 60+ different languages.
-13. Meta imagine AI https://imagine.meta.com/unavailable/
+13. Meta imagine AI <a href="https://imagine.meta.com/" target="_blank">Imagine Meta</a>
 
 ## Create Websites with AI
 
