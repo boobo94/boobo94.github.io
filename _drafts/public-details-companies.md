@@ -16,3 +16,4 @@ So, without further ado, let's dive into the world of company directories!
 2. <a href="https://targetare.ro" target="_blank">Targetare</a>
 3. <a href="https://risco.ro" target="_blank">Risco</a>
 4. <a href="https://termene.ro" target="_blank">Termene</a>
+5. <a href="https://portal.onrc.ro/ONRCPortalWeb/appmanager/myONRC/recom" target="_blank">RECOM</a> - search company, check the name, tax id, address, status, owner name
