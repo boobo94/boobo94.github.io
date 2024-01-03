@@ -7,9 +7,8 @@ date: 2021-06-16 09:09:09 +0000
 cover: https://cdn.pixabay.com/photo/2017/10/30/18/44/hacking-2903156_1280.jpg
 layout: post
 redirect_from:
-- /webservice/2way-ssl-authentication/
+  - /webservice/2way-ssl-authentication/
 ---
-
 
 ## Pre-Requisites
 
@@ -20,14 +19,15 @@ openssl version -a
 ```
 
 To setup 2-way ssl (mutual authentication) you need:
+
 - Certificate Authority (CA)
 - Server 1 Certificate
 - Server 2 Certificate
 
-
 ## Certificate Authority (CA)
 
 What is [certificate authority](https://en.wikipedia.org/wiki/Certificate_authority)?
+
 > In cryptography, a certificate authority or certification authority (CA) is an entity that issues digital certificates. A digital certificate certifies the ownership of a public key by the named subject of the certificate. This allows others (relying parties) to rely upon signatures or on assertions made about the private key that corresponds to the certified public key.
 
 Having this mentioned, we need an authority which validates our certificates. Here are two options, to grant yourself the authority and self-sign certificates or use a trusted authority. In the following lines I'll describe the process of signing the certificate
@@ -229,7 +229,6 @@ $ openssl verify -CAfile ca-crt.pem server2-crt.pem
 server2-crt.pem: OK
 ```
 
-
 ## Nginx configuration
 
 Oh, we're almost there boys. Let's configure finally the nginx.
@@ -240,7 +239,7 @@ We need to create the certificate bundle. But if you buy one, you'll receive thi
 cat server1-crt.pem ca-crt.pem server1-key.pem > ssl-bundle.pem
 ```
 
-Except that we need to create another file **client.certs.pem**. So this file will contains all the clients which connects secure to our serve. 
+Except that we need to create another file **client.certs.pem**. So this file will contains all the clients which connects secure to our serve.
 
 ```sh
 cat server2-crt.pem ca-crt.pem > client.certs.pem
@@ -284,19 +283,18 @@ server {
 ## How works mutual authentication?
 
 Let's make an example request from server 2 to server 1
+
 ```curl
 curl --location --request POST 'https://server1-api.cmevo.com' \
 --header 'Content-Type: application/json' \
 --cert server2-crt.pem --key server2-key.pem
 ```
 
-
 For an extra layer of security, you can add as well a payload encryption, check <a href="https://whyboobo.com/devops/tutorials/asymmetric-encryption-with-nodejs/">Asymmetric encryption (Public-key cryptography) with Node.js</a>
 
 I have two resources that I used for myself at some point and I want to share with you
 
-1. <a href="https://grizzlybit.info/blog/how-to-generate-keys-for-mutual-tls-authentication" target="_blank">How to generate keys for Mutual TLS Authentication</a> 
-2. <a href="https://www.matteomattei.com/client-and-server-ssl-mutual-authentication-with-nodejs/" target="_blank">Client and server SSL mutual authentication with NodeJs</a>
+1. <a href="https://www.matteomattei.com/client-and-server-ssl-mutual-authentication-with-nodejs/" target="_blank">Client and server SSL mutual authentication with NodeJs</a>
 
 Additional
 

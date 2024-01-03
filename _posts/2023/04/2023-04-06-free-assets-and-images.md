@@ -38,7 +38,6 @@ Find a multitude of places with free assets and images for your project
 - <https://storyset.com>
 - <https://pixeltrue.com>
 - <https://manypixels.co>
-- <https://illustrations.co>
 - <https://illustratious.com>
 - <https://iconscout.com>
 - <https://isometric.online>

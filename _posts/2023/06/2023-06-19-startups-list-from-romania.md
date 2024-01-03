@@ -309,12 +309,7 @@ In this article, we delve into the captivating landscape of Romanian startups, u
         },
     ],
     "Pets": [
-        {
-            "name": "Dogo App",
-            "url": "https://dogoapp.ro",
-            "description": "Walk your dog, mobile app",
-            "category": "Pets, Life"
-        },
+    
         {
             "name": "Caretopets",
             "url": "https://www.caretopets.com/ro",

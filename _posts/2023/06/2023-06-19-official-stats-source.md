@@ -28,7 +28,6 @@ This is a short lists of stats created by trusted institution or authorities or 
 - [IPSOS](https://www.ipsos.com/ro-ro/news-and-polls/overview)
 - [GFK](https://www.gfk.com/insights?content_type1=content_typeReports&ct=true&countries17=countriesRomania&countries10=countriesGlobal)
 - [Nielsen](https://www.nielsen.com/eu/en/insights/)
-- [Wunderman Thompson Intelligence](https://intelligence.wundermanthompson.com/,%20McKinsey%20https://www.mckinsey.com/featured-insights)
 - [The Economist](https://www.eiu.com/n/content/the-eiu-update/)
 - [Bloomberg](https://www.bloomberg.com/europe)
 - [Forrester](https://www.forrester.com/search?N=10001&range=504005&sort=3&searchRefinement=reports)
