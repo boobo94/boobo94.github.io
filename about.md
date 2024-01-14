@@ -19,7 +19,6 @@ Hei you can find me with this avatar in the most communities on the web.
 ## Portfolio
 
 <div class="portfolio">
-    <h1>Portfolio</h1>
     <div class="posts" id="search-container">
         {% for post in site.portfolio %}
         <div class="post">
