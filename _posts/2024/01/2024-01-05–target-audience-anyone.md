@@ -1,4 +1,12 @@
-
+---
+layout: post
+title: The One Word That Can Ruin Your SaaS Business - Anyone
+summary: Summary Draft Template
+categories: startup
+tags: saas business
+date: 2024-01-05 09:09:09 +0000
+cover: https://cdn.pixabay.com/photo/2017/11/05/19/41/stadium-2921657_1280.jpg
+---
 
 The One Word That Can Ruin Your SaaS Business: Anyone
 
@@ -6,7 +14,7 @@ As a #SaaS founder, you probably know how important it is to have a clear and sp
 
 But do you know what word can sabotage your efforts to find and attract your ideal customers?
 
-#Anyone.
+Anyone.
 
 Yes, anyone.
 
@@ -73,3 +81,5 @@ Not by targeting anyone, but by targeting someone.
 Your ideal customer.
 
 Do you agree or disagree with me? Let me know in the comments below.
+
+Image by <a href="https://pixabay.com/users/tama66-1032521/?utm_source=link-attribution&utm_medium=referral&utm_campaign=image&utm_content=2921657">Peter H</a> from <a href="https://pixabay.com//?utm_source=link-attribution&utm_medium=referral&utm_campaign=image&utm_content=2921657">Pixabay</a>

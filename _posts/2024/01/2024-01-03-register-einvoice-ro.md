@@ -1,19 +1,14 @@
 ---
 layout: post
-title: Draft Template
-summary: Summary Draft Template
-categories: category
-tags: tag1 tag2
+title: How I got my digital certificate connected it with ANAF
+summary: How I got my digital certificate from certSIGN and connected it with ANAF
+categories: abstract
+tags: invoice tag2
 date: 2024-01-03 09:09:09 +0000
 cover: https://media.licdn.com/dms/image/D4D22AQG603cZ3NfLbg/feedshare-shrink_800/0/1703786964714?e=1707955200&v=beta&t=_u6y-360_-ArrpL2zhJMihjfF3qSMW6jMKJK9N_5y5o
-# redirect_from: 
-# - /old1-route
-# - /old2-route
-# canonical_url: https://example.com
-# sitemap: false // don't add it to sitemap
 ---
 
-How I got my digital certificate from certSIGN  and connected it with ANAF
+How I got my digital certificate from certSIGN and connected it with ANAF
 
 Getting a digital certificate from Certsign and connecting it with ANAF was a challenging tasks I had to do. It took me almost a month, two trials, and a lot of patience to complete it. But I did it, and I want to share my experience with you.
 
