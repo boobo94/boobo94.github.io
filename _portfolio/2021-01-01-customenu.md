@@ -5,12 +5,28 @@ summary: "Customenu is a Digital menu for restaurants based on QR codes which co
 cover: https://cmevo.com/wp-content/uploads/2022/08/meniu-digital-customenu-thumb.png
 ---
 
-## Descriere proiect
-Digital menu for restaurants (QR Code)
+Let your restaurant, coffee shop, or sweets shop visitors scan a QR code and see your menu with their phones.
 
-It looks like the following
+💸 You cut costs
+Paper menus become unusable in a few months. Their price is higher than Customenu.
 
-![app](https://cmevo.com/wp-content/uploads/2022/08/meniu-digital-customenu-thumb.png)
+📵 No apps installed
+Customenu opens in the browser.
+
+⏰ Fast order
+Are you losing customers? With a digital menu, the QR code is already on the table.
+
+📈 Grow the business
+The ease of finding the dishes makes the difference between ordering one or more products.
+
+📲 Real-time updates
+Change the dishes, and these changes are immediately visible on the customers' phones.
+
+🌐 Multilanguage
+Translate products and categories into 184 languages at no extra cost.
+
+I've made this project open-source @ https://github.com/boobo94/customenu
+
 
 ## Link
 
