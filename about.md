@@ -30,7 +30,7 @@ Hei you can find me with this avatar in the most communities on the web.
                 {% endif %}
                 <h3 class="post-title">{{ post.title }}</h3>
             </a>
-            <span class="post-summary">{{ post.summary }}</span>
+            <p class="post-summary">{{ post.summary }}</p>
         </div>
         {% endfor %}
     </div>
