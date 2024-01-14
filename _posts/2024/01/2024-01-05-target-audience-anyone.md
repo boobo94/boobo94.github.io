@@ -1,6 +1,6 @@
 ---
 layout: post
-title: The One Word That Can Ruin Your SaaS Business - Anyone
+title: The One Word That Can Ruin Your SaaS Business Anyone
 summary: As a SaaS founder, you probably know how important it is to have a clear and specific target market for your product.
 categories: startup
 tags: saas business
