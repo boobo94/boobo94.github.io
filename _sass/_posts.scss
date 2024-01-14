@@ -86,7 +86,7 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: space-evenly;
-    align-items: flex-start;
+    align-items: first baseline;
 
     .post {
         flex: 1 1 50%;
