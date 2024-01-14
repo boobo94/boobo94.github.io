@@ -8,11 +8,9 @@ tags: about
 
 ## Who am I?
 
-I'm the one who I wanna be.
+Tech Startup Founder | Software Engineer | Building SaaS for Ridesharing Fleets and Loyalty System App for Coffee Shops | Helping Businesses Grow
 
 ## How I look like
-
-Hei you can find me with this avatar in the most communities on the web.
 
 <img src="{{ site.baseurl }}/images/me-02.jpg" alt="Bogdan Alexandru Militaru" class="avatar"  style="max-height: 400px;border-radius: 50%;display: block;margin: 0 auto;"/>
 
