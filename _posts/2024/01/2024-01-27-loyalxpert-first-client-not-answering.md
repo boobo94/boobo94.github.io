@@ -1,6 +1,6 @@
 ---
 layout: post
-title: The first client is not answering anymore
+title: The first client of LoyalXpert is not answering anymore
 summary: Trying to implement LoyalXpert app, I lost my first customer, he's not answering anymore
 categories: startup
 tags: loyalxpert saas
