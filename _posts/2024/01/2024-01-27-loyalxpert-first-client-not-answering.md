@@ -5,7 +5,7 @@ summary: Trying to implement LoyalXpert app, I lost my first customer, he's not 
 categories: startup
 tags: loyalxpert saas
 date: 2024-01-27 09:09:09 +0000
-cover: https://pixabay.com/get/g16a2c228dddf026e98b643741873cbddb56d3f9fac2ecdcf6e85440a6de37b6174c9b68b184b3f11d31b55053ab4b9637a5bbf21bc76b9d38615c8c6845970a49851e4a7af225061f4ef9e02e03e5a47_1280.jpg
+cover: https://cdn.pixabay.com/photo/2016/05/24/18/49/suitcase-1412996_1280.jpg
 ---
 
 I want to share with you a recent experience I had as a SaaS founder trying to implement my loyalty system app, LoyalXpert, in the market.
