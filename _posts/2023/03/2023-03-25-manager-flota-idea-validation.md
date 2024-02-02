@@ -36,7 +36,7 @@ https://cmevo.com/ro/manager-flota-pentru-transport-alternativ/
 For easier understanding of the platform, created some mock-ups using diagrams.net
 
 The flow of the app is complete. This helped me to understand what is the initial proposal and get some initial screens of the app (presented in the landing page as well)
-http://diagrams.net
+https://diagrams.net
 Next I need to contact potential customers.
 
 Where can I find them?

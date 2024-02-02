@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Cmevo Digital
+title: Cmevo Digital - Software Agency
 summary: "Software Engineer and CEO @ Cmevo Digital SRL. A company which aims to digitize sucessful businesses in the digital era."
 cover: https://cmevo.com/wp-content/uploads/2021/11/cmevo-logo-black-100x25.png
 ---

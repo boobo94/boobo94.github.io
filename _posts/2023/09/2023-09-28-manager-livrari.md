@@ -1,5 +1,5 @@
 ---
-title: Navigating the Food Delivery Fleet Management Landscape with ManagerLivrari
+title: Food Delivery Fleet Management with ManagerLivrari
 summary: "Discover Manager Livrari: Your all-in-one solution for streamlining food delivery fleet management. Automate calculations, generate weekly reports, and optimize your operations with ease."
 categories: startup
 tags: food delivery

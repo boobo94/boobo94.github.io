@@ -390,7 +390,7 @@ la dispozitie de dezvoltator Arduino IDE. [4]
 2. Youtube - <https://youtu.be/_xjXieP_hY>
 3. <https://create.arduino.cc/projecthub/muhammedazhar/third-eye-for-the-blind-8c246d?ref=tag&ref_id=sensor&offset=>
 4. <https://www.robofun.ro/arduino-pro-mini-328-5v-16mhz.html>
-5. <http://www.senzori-ultrasonici.ro/principiul-ultrasonic>
-6. <http://www.electromatic.ro/component/content/article/>
+5. <https://www.senzori-ultrasonici.ro/principiul-ultrasonic>
+6. <https://www.electromatic.ro/component/content/article/>
 
 

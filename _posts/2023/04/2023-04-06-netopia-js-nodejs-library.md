@@ -12,7 +12,7 @@ Check the nodejs library module I wrote for the integration with Netopia Payment
 
 You can find the repository on Github [boobo94/netopia-js](https://github.com/boobo94/netopia-js)
 
-# Initial setup
+## Initial setup
 
 Copy the package to modules/netopia and install dependencies
 

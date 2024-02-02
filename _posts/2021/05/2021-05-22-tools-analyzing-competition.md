@@ -113,7 +113,7 @@ Powerful free tools for your local search marketing needs
 ### Others:
 
 - <https://www.seobility.net/en/seocheck/>
-- <http://wordstream.com/>
+- <https://wordstream.com/>
 - <https://www.link-assistant.com/news/free-keyword-research-tools.html>
 - <https://backlinko.com/best-free-seo-tools>
 - more here https://twitter.com/boringmarketer/status/1692546517704282223?s=46

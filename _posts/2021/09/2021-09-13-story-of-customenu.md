@@ -14,7 +14,7 @@ I build the Customenu startup and I’ll #buildinpublic, using this thread on Tw
 
 ## What is Customenu?
 
-[A digital menu platform for #restaurant](https://cmevo.com/portfolio/digital-menu-for-restaurants-qr-code/).
+[A digital menu platform for #restaurant](https://cmevo.com/customenu-digital-menu-for-restaurants/).
 
 Instead of using a boring paper where to check the dishes, you can see a nice representation on your smartphone.
 
@@ -164,4 +164,4 @@ Huh, after some hours of work I finished the 3 videos about Customenu:
 2. How to manage the digital menu
 3. The app demo
 
-More details here: https://cmevo.com/portfolio/digital-menu-for-restaurants-qr-code/
+More details here: https://cmevo.com/customenu-digital-menu-for-restaurants/

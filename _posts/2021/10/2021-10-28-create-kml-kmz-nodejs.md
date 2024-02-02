@@ -71,4 +71,4 @@ Content-type for kml:
 
 ## How to vizualize kml or kmz files ?
 
-I found an online tool [KML Viewer](http://kmlviewer.nsspot.net/) that do a great job.
+I found an online tool [KML Viewer](https://kmlviewer.nsspot.net/) that do a great job.

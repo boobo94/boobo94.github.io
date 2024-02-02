@@ -35,7 +35,7 @@ export async function uploadFileToObjectStorage(base64Data, path, fileName, file
     ContentType: `${fileType}/${extension}`,
   };
 
-  // see: http://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/S3.html#upload-property
+  // see: https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/S3.html#upload-property
   const { Location } = await s3Client.upload(params).promise();
   return Location;
 }

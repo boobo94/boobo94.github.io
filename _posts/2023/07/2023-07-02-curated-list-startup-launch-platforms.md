@@ -16,11 +16,11 @@ Do you wanna launch grandiosely your startup? Get a list of platforms where peop
 | <a href="https://news.ycombinator.com/" target="_blank">HackerNews</a>                     | Do-follow | 90            | -               | -                  |
 | <a href="https://www.crunchbase.com/" target="_blank">Crunchbase</a>                       | -         | 90            | -               | -                  |
 | <a href="https://www.capterra.com/" target="_blank">Capterra</a>                           | -         | 90            | -               | -                  |
-| <a href="https://angel.co/" target="_blank">AngelList</a>                                  | -         | 90            | -               | -                  |
+| <a href="https://wellfound.com/" target="_blank">AngelList</a>                                  | -         | 90            | -               | -                  |
 | <a href="https://dev.to/" target="_blank">dev.to</a>                                       | -         | 89            | -               | -                  |
 | <a href="https://remote.tools" target="_blank">Remote Tools</a>                            | Do-follow | 54            | 200-250K        | < 5 days           |
 | <a href="https://betalist.com" target="_blank">BetaList</a>                                | Do-follow | 72            | 150-200K        | < 30 days          |
-| <a href="https://betapage.co" target="_blank">BetaPage</a>                                 | No-follow | 79            | < 25K           | < 30-35 days       |
+| <a href="https://pitchwall.co" target="_blank">BetaPage</a>                                 | No-follow | 79            | < 25K           | < 30-35 days       |
 | <a href="https://alternativeto.net" target="_blank">AlternativeTo</a>                      | No-follow | 79            | 5-5.5M          | NA                 |
 | <a href="https://startupstash.com" target="_blank">Startup Stash</a>                       | Do-follow | 61            | 150-200K        | NA                 |
 | <a href="https://launchingnext.com" target="_blank">Launching Next</a>                     | No-follow | 47            | < 25K           | < 7 days           |
@@ -28,7 +28,7 @@ Do you wanna launch grandiosely your startup? Get a list of platforms where peop
 | <a href="https://appszoom.com" target="_blank">AppsZoom</a>                                | No Link   | 69            | 40-50K          | < 7 days           |
 | <a href="https://getapp.com" target="_blank">GetApp</a>                                    | No-follow | 81            | 150-200K        | < 7 days           |
 | <a href="https://tackshare.io" target="_blank">StackShare</a>                              | No-follow | 79            | 100-150K        | NA                 |
-| <a href="https://eu-startups.com" target="_blank">EU Startups</a>                          | No Link   | 75            | 350-400K        | NA                 |
+| <a href="https://www.eu-startups.com/" target="_blank">EU Startups</a>                          | No Link   | 75            | 350-400K        | NA                 |
 | <a href="https://saashub.com" target="_blank">SaaSHub</a>                                  | Do-follow | 55            | 1M              | < 7 days           |
 | <a href="https://betafy.co" target="_blank">Betafy</a>                                     | Do-follow | 30            | < 25K           | < 7 days           |
 | <a href="https://thestartuppitch.com" target="_blank">The Startup Pitch</a>                | Do-follow | 40            | < 25K           | 1-2 days           |
@@ -61,7 +61,7 @@ Do you wanna launch grandiosely your startup? Get a list of platforms where peop
 | <a href="https://land-book.com/" target="_blank">Land-book</a>                             | -         | 67            | -               | -                  |
 | <a href="https://www.startupranking.com/" target="_blank">Startup Ranking</a>              | -         | 67            | -               | -                  |
 | <a href="https://alltopstartups.com/" target="_blank">AllTopStartups</a>                   | -         | 64            | -               | -                  |
-| <a href="https://ebool.com/" target="_blank">eBool</a>                                     | -         | 62            | -               | -                  |
+| <a href="https://www.ebool.com/" target="_blank">eBool</a>                                     | -         | 62            | -               | -                  |
 | <a href="https://www.snapmunk.com/" target="_blank">SnapMunk</a>                           | -         | 58            | -               | -                  |
 | <a href="https://startupbeat.com/" target="_blank">Startup Beat</a>                        | -         | 56            | -               | -                  |
 | <a href="https://getmakerlog.com" target="_blank">Makerlog</a>                             | -         | 56            | -               | -                  |

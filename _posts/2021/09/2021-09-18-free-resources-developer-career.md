@@ -22,8 +22,8 @@ I consider freecodecamp the most important resource in your beginning. You shoul
 ## Online Tools
 
 - SQL diagrams <https://sql.toad.cz/>
-- Diagrams <https://draw.io>
-- Discover what technology uses a website <http://builtwith.com/>
+- Diagrams <https://app.diagrams.net>
+- Discover what technology uses a website <https://builtwith.com/>
 - Responsive preview of multiple sizes once <https://responsively.app/>
 
 ### Courses
@@ -78,7 +78,7 @@ Discover - [Mockup List of Tools](https://whyboobo.com/resources/mockup-tools/)
 - <https://www.awwwards.com/>
 - <https://dribbble.com/>
 - <https://www.webdesign-inspiration.com/>
-- <http://checklist.design/> the place where you can find the best design pattern
+- <https://checklist.design/> the place where you can find the best design pattern
 
 ### Where to host your project for free
 

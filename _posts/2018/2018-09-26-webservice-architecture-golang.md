@@ -342,7 +342,7 @@ This can be simply called in _main.go_ like below:
 
 ### /db/models
 
-> [Models](http://gorm.io/docs/models.html) are usually just normal Golang structs, basic Go types, or pointers of them.
+> [Models](https://gorm.io/docs/models.html) are usually just normal Golang structs, basic Go types, or pointers of them.
 
 As you can see I put in the auto migration function 4 models Account, PersonalInfo, Category and Subcategory. I like to define each model into a different file, choosing an intuitive name like _account.go_, _personalInfo.go_, _category.go_ and _subcategory.go_.
 

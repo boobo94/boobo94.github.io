@@ -62,4 +62,4 @@ volumes:
   db_data:
 ```
 
-Official [documentation](https://docs.docker.com/compose/wordpress/)
+Official [documentation](https://docs.docker.com/samples/wordpress/)

@@ -1,6 +1,6 @@
 ---
 layout: post
-title: ManagerFlota.ro
+title: ManagerFlota.ro - alternative transport fleet management platform
 summary: "Manager Flota is the first alternative transport fleet management platform"
 cover: https://managerflota.ro/images/manager-flota-thumbnail-46162416.webp
 ---

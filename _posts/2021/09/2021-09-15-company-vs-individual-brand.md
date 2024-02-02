@@ -55,4 +55,4 @@ This is a viable option for #companies with diverse #products and #services.
 
 11/ Found a great example of a company with multiple games, <https://panic.com>. One page for each product.
 
-12/ similar example with <https://envato.com>
+12/ similar example with <https://www.envato.com>

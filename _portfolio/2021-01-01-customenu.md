@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Customenu
+title: Customenu - Digital Menu App for Restaurants
 summary: "Customenu is a Digital menu for restaurants based on QR codes which converts old menus on paper in a digital application"
 cover: https://cmevo.com/wp-content/uploads/2022/08/meniu-digital-customenu-thumb.png
 ---
@@ -30,4 +30,4 @@ I've made this project open-source @ https://github.com/boobo94/customenu
 
 ## Link
 
-<a href="https://cmevo.com/portfolio/digital-menu-for-restaurants-qr-code/" target="_blank">Digital menu for restaurants</a>
+<a href="https://cmevo.com/customenu-digital-menu-for-restaurants/" target="_blank">Digital menu for restaurants</a>

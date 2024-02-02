@@ -12,7 +12,7 @@ redirect_from:
 
 Discover multiple ways of connecting your webservice localhost to the internet. Just drop an eye here: simple, clean, fast solutions only.
 
-## 1. <a href="http://localtunnel.me/" target="_blank">Localtunnel</a>
+## 1. <a href="https://localtunnel.me/" target="_blank">Localtunnel</a>
 
 Localtunnel allows you to easily share a web service on your local development machine without messing with DNS and firewall settings.
 
@@ -23,7 +23,7 @@ npm install -g localtunnel
 lt --port 8000
 ```
 
-## 2. <a href="http://localhost.run/" target="_blank">Localhost.run</a>
+## 2. <a href="https://localhost.run/" target="_blank">Localhost.run</a>
 
 Connect a tunnel to your web appplication
 

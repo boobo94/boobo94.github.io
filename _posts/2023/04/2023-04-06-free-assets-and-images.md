@@ -25,7 +25,7 @@ Find a multitude of places with free assets and images for your project
 - [Illustrations iradesign](https://iradesign.io/)
 - <https://www.vecteezy.com/>
 - <https://openclipart.org/>
-- <http://shape.so/>
+- <https://shape.so/>
 - <https://lottiefiles.com/featured>
 
 ### Illustrations
@@ -52,8 +52,8 @@ Find a multitude of places with free assets and images for your project
 - <https://mui.com/components/material-icons/>
 - <https://icons8.com/animated-icons>
 - <https://www.freepik.com/>
-- <http://thenounproject.com/>
-- <http://feathericons.com/>
+- <https://thenounproject.com/>
+- <https://feathericons.com/>
 - <https://icons.download/>
 - <https://iconmonstr.com>
 

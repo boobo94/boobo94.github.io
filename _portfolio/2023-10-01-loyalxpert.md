@@ -1,6 +1,6 @@
 ---
 layout: post
-title: LoyalXpert
+title: LoyalXpert - loyalty system app
 summary: "Loyalxpert is a user-friendly digital loyalty system app that helps businesses to retain their customers by offering rewards and incentives."
 cover: https://www.loyalxpert.com/wp-content/uploads/2023/11/cropped-logo-loyalxpert.png
 ---

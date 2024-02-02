@@ -40,7 +40,7 @@ Nginx is the web server powering one-third of all websites in the world. Detecti
 This post focuses on the ngx_http_limit_req_module, which provides you with the limit_req_zone and limit_req directives. It also provides the limit_req_status and limit_req_level. Together these allow you to control the HTTP response status code for rejected requests, and how these rejections are logged.
 
 
-### 3. <a href="https://www.nginx.com/blog/rate-limiting-nginx" target="_blank">Rate Limiting with NGINX and NGINX Plus</a>
+### 3. <a href="https://www.nginx.com/blog/rate-limiting-nginx/" target="_blank">Rate Limiting with NGINX and NGINX Plus</a>
 
 One of the most useful, but often misunderstood and misconfigured, features of NGINX is rate limiting. It allows you to limit the amount of HTTP requests a user can make in a given period of time. A request can be as simple as a GET request for the homepage of a website or a POST request on a log‑in form.
 

@@ -113,13 +113,13 @@ In this article, we delve into the captivating landscape of Romanian startups, u
         },
         {
             "name": "Docbook",
-            "url": "http://www.docbook.ro/",
+            "url": "https://www.docbook.ro",
             "description": "Aims to offer a modern solution to make appointments to the desired doctor",
             "category": "Booking"
         },
         {
             "name": "ProZi",
-            "url": "http://prozi.ro",
+            "url": "https://prozi.ro",
             "description": "An online scheduling application for beauty saloons and dentists",
             "category": "Booking"
         },
@@ -145,7 +145,7 @@ In this article, we delve into the captivating landscape of Romanian startups, u
         },
         {
             "name": "Veridion",
-            "url": "https://veridion.com/",
+            "url": "https://veridion.com",
             "description": "Find any company by any criteria: products, materials, certifications and more.",
             "category": "Business, AI"
         }
@@ -159,7 +159,7 @@ In this article, we delve into the captivating landscape of Romanian startups, u
         },
         {
             "name": "REBS",
-            "url": "http://www.crmrebs.ro",
+            "url": "https://www.crmrebs.ro",
             "description": "CRM REBS is a software crafted for real estate agencies.",
             "category": "CRM"
         }
@@ -225,7 +225,7 @@ In this article, we delve into the captivating landscape of Romanian startups, u
         },
          {
             "name": "miioSMILE",
-            "url": "http://www.miiosmile.app/",
+            "url": "https://miiosmile.com",
             "description": "help you get the productivity you need, by easing the process of case documentation and the interaction between yourself and the specialists you work with.",
             "category": "E-health, Management"
         },
@@ -348,7 +348,7 @@ In this article, we delve into the captivating landscape of Romanian startups, u
     "Social-Media": [
         {
             "name": "Planable",
-            "url": "http://planable.io",
+            "url": "https://planable.io",
             "description": "Planable is a tool that speeds up the way social media campaigns are managed and makes planning, visualizing and approving social media posts easy and fun.",
             "category": "Social Media, Planning, Management"
         }
@@ -368,7 +368,7 @@ In this article, we delve into the captivating landscape of Romanian startups, u
         },
          {
             "name": "RezervaTeren",
-            "url": "http://rezervateren.ro",
+            "url": "https://rezervateren.ro",
             "description": "Website for online booking for sports in Romania",
             "category": "Sport"
         }

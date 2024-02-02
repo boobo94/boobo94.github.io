@@ -18,7 +18,7 @@ For me, two apps, worked very well and I like them very much, because are intuit
 
 I really like this one because the interface it's clean and the design looks more adapted to these days.
 
-You can find more info or download it from [here](https://etcher.io/)
+You can find more info or download it from [here](https://etcher.balena.io/)
 
 ## UNetbootin
 
@@ -26,5 +26,5 @@ The graphic interface it's not so clean, but you can make a real deal with this 
 
 <img src="https://unetbootin.github.io/screenshot4.jpg" alt="unetbootin" style="display: block; margin: 0 auto;">
 
-For more details about this tool or download links please check [this](http://unetbootin.github.io/)
+For more details about this tool or download links please check [this](https://unetbootin.github.io/)
 

@@ -23,7 +23,7 @@ So I was there with the wather wetting my body and having the opportune time for
 
 I finish my bath and I put my pants back in bed, so guess what.. I couldn't sleep, because I had a lot of great ideas and my mind was shotted with many and many things.
 
-The second they I did a short research in the area and I discovers some great platforms that are already doing this like [wit.ai](http://wit.ai){:target="_blank"}, [api.ai](http://api.ai){:target="_blank"}, [IBM Watson](https://www.ibm.com/watson/){:target="_blank"}, [Microsoft Luis](https://www.luis.ai/){:target="_blank"}, all these info can be found in details on [this article](https://medium.com/@abraham.kang/understanding-the-differences-between-alexa-api-ai-wit-ai-and-luis-cortana-2404ece0977c){:target="_blank"}
+The second they I did a short research in the area and I discovers some great platforms that are already doing this like [wit.ai](https://wit.ai){:target="_blank"}, [api.ai](https://api.ai){:target="_blank"}, [IBM Watson](https://www.ibm.com/watson){:target="_blank"}, [Microsoft Luis](https://www.luis.ai/){:target="_blank"}, all these info can be found in details on [this article](https://medium.com/@abraham.kang/understanding-the-differences-between-alexa-api-ai-wit-ai-and-luis-cortana-2404ece0977c){:target="_blank"}
 
 ## End of first story
 

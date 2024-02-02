@@ -10,7 +10,6 @@ layout: post
 
 Are you looking for a tool to test your website performance? Neither I, but actually I'll share with you a few of them.
 
-1.<a href="https://webtric.co" target="_blank">Webtric</a>
 
 A website performance monitoring tool that helps you monitor unlimited websites.
 

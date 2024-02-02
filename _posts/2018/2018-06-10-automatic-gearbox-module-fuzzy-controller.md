@@ -29,4 +29,4 @@ Sistemul isi propune realizarea unui modul electronic, pentru schimbarea automat
 
     Se va utiliza un Controller cu logica Fuzzy care sa reactioneze conform variabilelor de intrare viteza, turatie si mod de condus, astfel incat sa gestioneze schimbarea treptei de viteze in mod automat. 
 
-Intregul articol poate fi citit si descarcat [aici](http://libgen.io/book/index.php?md5=6C1FF04E74F0AC17DB2E1A130291BDF8).
+Intregul articol poate fi citit si descarcat [aici](https://libgen.io/book/index.php?md5=6C1FF04E74F0AC17DB2E1A130291BDF8).

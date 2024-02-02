@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "SaaS vs. Software Agency: Choosing the Right Business Model for Your Startup"
+title: "SaaS vs. Software Agency"
 summary: Discover the key differences between SaaS and Software Agencies to make informed business decisions and stay ahead in the competitive market.
 categories: startup
 tags: saas agency software business

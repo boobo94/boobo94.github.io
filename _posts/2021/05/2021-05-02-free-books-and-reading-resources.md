@@ -10,20 +10,20 @@ layout: post
 
 A complete list with reading resources and free books for either students, developers and all types of readers:
 
-- <http://gen.lib.rus.ec/>
+- <https://gen.lib.rus.ec/>
 - <https://ebooks.adelaide.edu.au/meta/titles/A.html>
 - <https://www.reddit.com/r/freeEBOOKS/wiki/febooks>
 - <https://www.kobo.com/us/en/p/free-ebooks>
 - <https://www.smashwords.com/>
-- <http://manybooks.net/>
-- <http://www.openculture.com/free_ebooks>
-- <http://collections.stanford.edu/>
-- <http://home.earthlink.net/~maywrite/golden.htm>
-- <http://ww17.wocoencuk.com/>
+- <https://manybooks.net/>
+- <https://www.openculture.com/free_ebooks>
+- <https://collections.stanford.edu/>
+- <https://home.earthlink.net/~maywrite/golden.htm>
+- <https://ww17.wocoencuk.com/>
 - <https://www.free-ebooks.net/>
-- <http://www.getfreeebooks.com/>
+- <https://www.getfreeebooks.com/>
 - <https://it-ebooks.info/>
-- <http://www.allitebooks.com/>
+- <https://www.allitebooks.com/>
 - <https://www.engbookspdf.com/>
 - <https://3lib.net/>
 - <https://mega.nz/folder/gboAFRpQ#2D68ehaG1J03AOQ04EllKg/folder/MXRBjYAR> Books and audiobooks
@@ -35,7 +35,7 @@ A complete list with reading resources and free books for either students, devel
 - <https://worldcat.org> search the content of 20,000 global libraries.
 - <https://link.springer.com> access to more than 10 million scientific documents: books, articles,
 - <https://bioline.org.br> is a library of published bioscientific journals
-- <http://repec.org> Volunteers from 102 countries collected nearly 4 million publications
+- <https://repec.org> Volunteers from 102 countries collected nearly 4 million publications
 - <https://science.gov> is a U.S. government search engine for more than 2200 scientific sites.
 - <https://pdfdrive.com> is the largest website for free download of PDF books. Claim more than 225 million titles.
 - <https://base-search.net> is one of the most powerful search engines for academic research texts. More than 100 million scientific articles, 70% of which are free

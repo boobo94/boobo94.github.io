@@ -7,7 +7,7 @@ cover: https://www.twispay.com/static/3a9e1a9375b8c73a1751ac3c920c403b/58556/pro
 layout: post
 ---
 
-I created a simple service file to create a new customer, new order, subscription, renew a subscription or refund a payment. Check the [official documentation](https://twispay.github.io/) or the [API](http://docs.twispay.com/)
+I created a simple service file to create a new customer, new order, subscription, renew a subscription or refund a payment. Check the [official documentation](https://twispay.github.io/) or the [API](https://docs.twispay.com/)
 
 _twispay-service.js_
 

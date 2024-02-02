@@ -11,12 +11,12 @@ date: 2021-01-22 09:09:09 +0000
 cover: https://upload.wikimedia.org/wikipedia/en/a/a8/Open_Source_Routing_Machine_logo.png
 ---
 
-What is [OSRM](http://project-osrm.org/)?
+What is [OSRM](https://project-osrm.org/)?
 
 > The Open Source Routing Machine or OSRM is a C++ implementation of a high-performance routing engine for shortest paths in road networks. Licensed under the permissive 2-clause BSD license, OSRM is a free network service. OSRM supports Linux, FreeBSD, Windows, and Mac OS X platform.
 
 
-Tutorial used from [Digital Ocean](https://www.digitalocean.com/community/tutorials/how-to-set-up-an-osrm-server-on-ubuntu-14-04) using [Geofabrik Map](http://download.geofabrik.de).
+Tutorial used from [Digital Ocean](https://www.digitalocean.com/community/tutorials/how-to-set-up-an-osrm-server-on-ubuntu-14-04) using [Geofabrik Map](https://download.geofabrik.de).
 
 Before digging into, you can check [Initial Server Setup with Ubuntu 14.04](https://www.digitalocean.com/community/tutorials/initial-server-setup-with-ubuntu-14-04). I added 4GB swap memory using [this tutorial](https://www.digitalocean.com/community/tutorials/how-to-add-swap-on-ubuntu-14-04).
 
@@ -161,5 +161,5 @@ Test the api
 curl "http://your_IP_or_DNS/route/v1/driving/route/v1/driving/source_longitude,source_latitude;destination_longitude,destination_latitude?steps=true&alternatives=true&geometries=geojson"
 ```
 
-Official documentation from OSRM API can be found [here](http://project-osrm.org/docs/v5.23.0/api/#)
+Official documentation from OSRM API can be found [here](https://project-osrm.org/docs/v5.23.0/api/#)
 

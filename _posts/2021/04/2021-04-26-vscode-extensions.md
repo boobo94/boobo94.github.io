@@ -58,7 +58,7 @@ code --install-extension dbaeumer.vscode-eslint
 
 ### <a href="https://marketplace.visualstudio.com/items?itemName=rangav.vscode-thunder-client" target="_blank">Thunder Client for VS Code</a>
 
-<a href="https://www.thunderclient.io/" target="_blank">Thunder Client</a> is Hand-crafted lightweight Rest Client for Testing APIs. <a href="https://github.com/rangav/thunder-client-support" target="_blank">The official documentation</a> explains all the features and limitations.
+Thunder Client is Hand-crafted lightweight Rest Client for Testing APIs. <a href="https://github.com/rangav/thunder-client-support" target="_blank">The official documentation</a> explains all the features and limitations.
 
 Install:
 
