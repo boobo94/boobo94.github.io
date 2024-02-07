@@ -78,6 +78,7 @@ By time to time I am curious what others wants to build and some of the websites
 - <a href="https://microsaasidea.substack.com/" target="_blank">Microsaasidea</a>
 - <a href="https://www.softwareideas.io/" target="_blank">Softwareideas</a>
 - <a href="https://founderpal.ai/business-ideas-generator" target="_blank">Founder Pal AI business idea generstor</a>
+- <a href="https://getlatka.com/saas-companies" target="_blank">Getlatka</a>
 
 ### Startup graveyard 
 
@@ -480,13 +481,6 @@ Examples of gamification include earning points for certain purchases, creating 
 Personalization is a customer engagement tool to build a strategy that involves tailoring experiences to the individual customer, using data to create customized recommendations and promotions. This approach can increase customer retention by making customers feel valued and understood.
 
 Personalization can be applied at various customer journey stages and used by both small and large businesses. One of the most common and effective ways to personalize customer interactions is through email marketing.
-
-
-
-
-
-
-
 
 ## Other resources
 
