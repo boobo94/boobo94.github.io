@@ -1,6 +1,6 @@
 ---
 layout: page
-title: About me - Who is Boobo and Why
+title: About me
 permalink: /about/
 tags: about
 ---
