@@ -5,7 +5,7 @@ summary: As an app founder in the ridesharing and food delivery industry, I foun
 categories: startup
 tags: managerflota
 date: 2024-03-21 09:09:09 +0000
-# cover: https://example.com/img.png
+cover: https://managerflota.ro/images/manager-flota-sincronizare-efactura.png
 ---
 
 Last week was a whirlwind of invoices, data wrangling, and frustration. As an app founder in the ridesharing and food delivery industry, I found myself knee-deep in invoice reports from companies like Bolt, Uber, Glovo, and Bolt Food. My mission? To process these invoices and sync them seamlessly through our partner, Manager Flota's, e-invoice system. Little did I know that this seemingly straightforward task would lead me down a rabbit hole of perplexing export formats, unresponsive customer service, and a dash of sheer madness.
