@@ -39,3 +39,8 @@ A complete list with reading resources and free books for either students, devel
 - <https://science.gov> is a U.S. government search engine for more than 2200 scientific sites.
 - <https://pdfdrive.com> is the largest website for free download of PDF books. Claim more than 225 million titles.
 - <https://base-search.net> is one of the most powerful search engines for academic research texts. More than 100 million scientific articles, 70% of which are free
+
+## Paywall remover
+
+- <https://freedium.cfd> medium paywall remover
+- <https://www.removepaywall.com/>
