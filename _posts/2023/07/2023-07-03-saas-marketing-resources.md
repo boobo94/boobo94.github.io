@@ -21,3 +21,10 @@ Discover a comprehensive collection of valuable resources to master the art of S
 - <a href="https://www.indiehackers.com/post/the-ultimate-guide-to-saas-pricing-7962e070de" target="_blank">The ultimate guide
 to SaaS pricing</a>
 - <a href="https://www.saaswrites.com/" target="_blank">A Marketing Hub for Tech Companies</a>
+
+
+## Tutorials
+
+Making Facebook Ads proftiable for your SaaS
+
+<iframe src="https://www.youtube.com/embed/i8gBhEtNFRY" width="560" height="315" title="A YouTube video" frameborder="0" allowfullscreen></iframe>
