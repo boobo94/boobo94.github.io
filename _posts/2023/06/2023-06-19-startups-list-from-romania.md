@@ -139,7 +139,7 @@ In this article, we delve into the captivating landscape of Romanian startups, u
         },
         {
             "name": "Profluo",
-            "url": "https://profluo.com/home",
+            "url": "https://profluo.com",
             "description": "Read and post invoices in great detail, using Artificial Intelligence.",
             "category": "Business, Documents"
         },
@@ -172,10 +172,10 @@ In this article, we delve into the captivating landscape of Romanian startups, u
             "category": "Docs, Digitization, AI"
         },
         {
-            "name": "Profluo",
-            "url": "https://www.typeless.ai/",
-            "description": "Profluo is the fastest-learning intelligent document processing platform.",
-            "category": "Docs, Digitization, OCR"
+            "name": "Gestiofunerar",
+            "url": "",
+            "description": "Aplicatie de gestiune pentru companiile care presteaza servicii funerare.",
+            "category": "CRM, Digitization, Management"
         }
     ],
     "Ecommerce": [
