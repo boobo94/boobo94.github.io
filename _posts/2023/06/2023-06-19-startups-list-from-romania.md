@@ -173,7 +173,7 @@ In this article, we delve into the captivating landscape of Romanian startups, u
         },
         {
             "name": "Gestiofunerar",
-            "url": "",
+            "url": "https://gestiofunerar.ro",
             "description": "Aplicatie de gestiune pentru companiile care presteaza servicii funerare.",
             "category": "CRM, Digitization, Management"
         }
