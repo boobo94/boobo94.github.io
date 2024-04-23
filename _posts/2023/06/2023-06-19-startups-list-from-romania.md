@@ -162,6 +162,12 @@ In this article, we delve into the captivating landscape of Romanian startups, u
             "url": "https://www.crmrebs.ro",
             "description": "CRM REBS is a software crafted for real estate agencies.",
             "category": "CRM"
+        },
+        {
+            "name": "Gestiofunerar",
+            "url": "https://gestiofunerar.ro",
+            "description": "Aplicatie de gestiune pentru companiile care presteaza servicii funerare.",
+            "category": "CRM, Digitization, Management"
         }
     ],
     "Docs": [
@@ -171,12 +177,6 @@ In this article, we delve into the captivating landscape of Romanian startups, u
             "description": "Our solutions help you reduce manual work drastically. We develop digital solutions which integrate perfect with your business.",
             "category": "Docs, Digitization, AI"
         },
-        {
-            "name": "Gestiofunerar",
-            "url": "https://gestiofunerar.ro",
-            "description": "Aplicatie de gestiune pentru companiile care presteaza servicii funerare.",
-            "category": "CRM, Digitization, Management"
-        }
     ],
     "Ecommerce": [
         {
