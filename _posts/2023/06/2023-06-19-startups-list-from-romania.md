@@ -343,6 +343,12 @@ In this article, we delve into the captivating landscape of Romanian startups, u
             "url": "https://gestiofunerar.ro",
             "description": "Aplicatie de gestiune pentru companiile care presteaza servicii funerare.",
             "category": "Funeral, Management"
+        },
+        {
+            "name": "LoyalXpert",
+            "url": "https://www.loyalxpert.com",
+            "description": "Aplicația de fidelizare a clienților. Crește loialitatea clienților prin stimularea achizițiilor repetate!",
+            "category": "Loyalty Program"
         }
     ],
     "Social-Media": [
