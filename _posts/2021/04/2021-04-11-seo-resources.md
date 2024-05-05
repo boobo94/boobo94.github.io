@@ -3,7 +3,7 @@ title: "Curated SEO Resources: Essential Tools and Tips"
 summary: Discover a handpicked selection of indispensable SEO resources, including tools and tips, to optimize your website's performance.
 categories: resources
 tags: seo marketing web
-date: 2021-08-20 09:09:09 +0000
+date: 2024-05-05 09:09:09 +0000
 cover: https://cdn.pixabay.com/photo/2016/03/09/13/58/online-marketing-1246457_1280.jpg
 layout: post
 ---
@@ -88,3 +88,14 @@ Multiple suggestions on this Twitter thread:
 <blockquote class="twitter-tweet"><p lang="en" dir="ltr">Want to learn SEO for free over the holidays?<br><br>Check out this 🧵<br><br>👇</p>&mdash; Nat Miletic (@natmiletic) <a href="https://twitter.com/natmiletic/status/1341424785746640896?ref_src=twsrc%5Etfw">December 22, 2020</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
 This is a complete analysis of ranking in Google. Only 5.7% of all studied pages ranked in the Top10 search results within 1 year for at least 1 keyword.
+
+## 11. <a href="https://backlinko.com/google-search-console" target="_blank">GOOGLE SEARCH CONSOLE:
+The Definitive Guide</a>
+
+This guide has everything you need to know about the Google Search Console (GSC).
+
+If you’re new to SEO, I’ll show you how to get started with the GSC.
+
+And if you’re an SEO pro? I’ll reveal advanced tips, tactics and strategies that you can use to get higher rankings.
+
+If you want to get the most out of the Search Console, you’ll love this guide.
