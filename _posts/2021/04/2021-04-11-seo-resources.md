@@ -89,8 +89,7 @@ Multiple suggestions on this Twitter thread:
 
 This is a complete analysis of ranking in Google. Only 5.7% of all studied pages ranked in the Top10 search results within 1 year for at least 1 keyword.
 
-## 11. <a href="https://backlinko.com/google-search-console" target="_blank">GOOGLE SEARCH CONSOLE:
-The Definitive Guide</a>
+## 11. <a href="https://backlinko.com/google-search-console" target="_blank">GOOGLE SEARCH CONSOLE: The Definitive Guide</a>
 
 This guide has everything you need to know about the Google Search Console (GSC).
 
