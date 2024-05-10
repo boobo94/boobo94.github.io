@@ -1,18 +1,18 @@
 ---
 layout: post
-title: Tiktok Ads Strategy from a SaaS founder
+title: TikTok Ads Strategy from a SaaS founder
 summary: Here's a short tutorial from my disrupting strategy of doing Tiktok Ads as a SaaS Founder
 categories: startup
 tags: saas tiktok ads
 date: 2024-05-10 09:09:09 +0000
-cover: https://example.com/img.png
+cover: https://copilot.microsoft.com/images/create/tiktok-ads-strategy-thumbnail-from-a-saas-founder-/1-663e7386e8f34793975a4689dc7ef20a?id=rUtRl3CHx%2bkFnEMd78Nyog%3d%3d&view=detailv2&idpp=genimg&idpclose=1&thId=OIG1.sGUky.3a012Ess9NN72F&FORM=SYDBIC
 ---
 
 Requirements:
 
 - the video will be filmed as a selfie where I, the founder talk about the product
 - it should look like a regular Tiktok, not an ad. but it should interrupt the user from scrolling and stay on the video
-- make a cut every 2 seconds 
+- cut every 2 seconds 
 - switch the shoot/cut every two seconds, like move around
 - add some personality within... at each 10-12 seconds, add a cut with some crazy sounds like beeps or something disruptive. The sound is max 1s long
 - do something strange with the sound like whispering
