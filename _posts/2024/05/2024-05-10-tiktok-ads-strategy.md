@@ -5,7 +5,7 @@ summary: Here's a short tutorial from my disrupting strategy of doing Tiktok Ads
 categories: startup
 tags: saas tiktok ads
 date: 2024-05-10 09:09:09 +0000
-cover: https://copilot.microsoft.com/images/create/tiktok-ads-strategy-thumbnail-from-a-saas-founder-/1-663e7386e8f34793975a4689dc7ef20a?id=rUtRl3CHx%2bkFnEMd78Nyog%3d%3d&view=detailv2&idpp=genimg&idpclose=1&thId=OIG1.sGUky.3a012Ess9NN72F&FORM=SYDBIC
+cover: https://tse4.mm.bing.net/th/id/OIG1.sGUky.3a012Ess9NN72F?pid=ImgGn
 ---
 
 Requirements:
