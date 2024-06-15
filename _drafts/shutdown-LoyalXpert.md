@@ -1,4 +1,16 @@
+---
+layout: post
+title: My cat ruin my SaaS LoyalXpert
+summary: After half year, LoyalXpert, the loyalty system builder for coffee shop oweners is shutdown
+categories: startup
+tags: loyalxpert startup fail
+date: 2024-07-01 09:09:09 +0000
+cover: https://example.com/img.png
+---
 
+Demo
+
+Check SEO meta: https://metadescriptiontool.com/
 
 My cat broke my business, by closing the server of my SaaS app LoyalXpert and you can see it in the video
 
