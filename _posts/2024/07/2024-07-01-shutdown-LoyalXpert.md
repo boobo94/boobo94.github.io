@@ -5,14 +5,12 @@ summary: After half year, LoyalXpert, the loyalty system builder for coffee shop
 categories: startup
 tags: loyalxpert startup fail
 date: 2024-07-01 09:09:09 +0000
-cover: https://example.com/img.png
+cover: https://cmevo.com/wp-content/uploads/2024/03/showcase-app.png
 ---
 
-Demo
+My cat broke my business, by closing the server of my SaaS app LoyalXpert and you can see it in the video:
 
-Check SEO meta: https://metadescriptiontool.com/
-
-My cat broke my business, by closing the server of my SaaS app LoyalXpert and you can see it in the video
+<iframe src="https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7204359571031617536" height="2024" width="504" frameborder="0" allowfullscreen="" title="Anunț înglobat"></iframe>
 
 Starting with November I developed the app LoyalXpert. A loyalty system app that digitizes the loyalty of small businesses.
 
