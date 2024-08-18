@@ -1,19 +1,20 @@
 ---
 layout: post
 title: this.$__path is not a function mongoose error
-categories: tips
-summary: Fix mongoose error this.$__path is not a function. If you face the same issue I suggest you to update to the lastest version. 
+categories: tutorials
+summary: Fix mongoose error this.$__path is not a function. If you face the same issue I suggest you to update to the lastest version.
 tags:
-- mongoose
-- nodejs
-- mongodb
+  - mongoose
+  - nodejs
+  - mongodb
 date: 2021-01-11 09:09:09 +0000
-
+redirect_from:
+  - /tips/mongoose-error-path/
 ---
 
-Currently I faced a strange error with mongoose "this.$__path is not a function", described [here](https://github.com/pinojs/pino-pretty/issues/109). If you face the same issue I suggest you to [update mongoose](https://www.npmjs.com/package/mongoose) to the lastest version. 
+Currently I faced a strange error with mongoose "this.$\_\_path is not a function", described [here](https://github.com/pinojs/pino-pretty/issues/109). If you face the same issue I suggest you to [update mongoose](https://www.npmjs.com/package/mongoose) to the lastest version.
 
-Run 
+Run
 
 ```sh
 $ npm update mongoose

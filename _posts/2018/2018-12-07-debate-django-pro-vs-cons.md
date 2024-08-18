@@ -1,7 +1,7 @@
 ---
 title: Debate Django [Pro vs. Cons]
 layout: post
-categories: tips
+categories: research
 date: 2018-12-07 11:56:51 +0000
 summary:
   Discover the usage of Django and learn if the framework is suitable for your

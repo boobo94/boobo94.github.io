@@ -1,22 +1,23 @@
 ---
 layout: post
-title: "5 common questions how to build an Amazon Alexa Skills" 
+title: "5 common questions how to build an Amazon Alexa Skills"
 date: 2018-07-09 00:00:00
 summary: "5 common questions how to build an Alexa Skill. Read about intents, utterances, slot types, invocation name. How to run a server locally or why to deploy on AWS Lambda Function over HTTPS servers."
-categories: tips
+categories: research
 tags: ai alexa-skill
-redirect_from: 
-    - /ai/alexa-skill/2018/07/09/how-to-build-a-skill-with-amazon-alexa/
-    - /ai/2018/07/09/alexa-skill/
-    - /ai/5-questions-build-custom-alexa-skill/
+redirect_from:
+  - /ai/alexa-skill/2018/07/09/how-to-build-a-skill-with-amazon-alexa/
+  - /ai/2018/07/09/alexa-skill/
+  - /ai/5-questions-build-custom-alexa-skill/
+  - /tips/5-questions-build-custom-alexa-skill/
 cover: https://cdn.pixabay.com/photo/2020/01/11/18/13/alexa-4758340_1280.jpg
 ---
 
 ## 1. Alexa Skill, where to start from ?
 
-The idea of this article it's to help you to develop a skill from scratch or based on a starter pack, this is an example [alexa-skill-starter-pack-typescript](https://github.com/boobo94/alexa-skill-starter-pack-typescript) from my github account. I dont' want to discuss too much about this starter pack, because you can find more details how to use it or where to start from in the [README.md](https://github.com/boobo94/alexa-skill-starter-pack-typescript/blob/master/README.md). So if you want to learn more about how to build alexa skill, keep reading. 
+The idea of this article it's to help you to develop a skill from scratch or based on a starter pack, this is an example [alexa-skill-starter-pack-typescript](https://github.com/boobo94/alexa-skill-starter-pack-typescript) from my github account. I dont' want to discuss too much about this starter pack, because you can find more details how to use it or where to start from in the [README.md](https://github.com/boobo94/alexa-skill-starter-pack-typescript/blob/master/README.md). So if you want to learn more about how to build alexa skill, keep reading.
 
-Recently, I started a new project, for the Spanish market. At this moment the market it's in the beginning phase, I'll probably disclosure more details in the future posts, but for the moment it's not very important. . Don't 
+Recently, I started a new project, for the Spanish market. At this moment the market it's in the beginning phase, I'll probably disclosure more details in the future posts, but for the moment it's not very important. . Don't
 
 When I recently started the research, I had few questions about we will learn below:
 
@@ -129,21 +130,21 @@ Depends by your skill, but probably the most of you can use Lambda Function.
 
 #### Why to choose Lambda:
 
-* you don't need to administrate any resource
-* don't need SSL certificate
-* don't need to verify where requests come from
-* AWS Lambda run only when a request comes
-* First 1M requests per month are free. [Read more about pricing](https://aws.amazon.com/lambda/pricing/)
+- you don't need to administrate any resource
+- don't need SSL certificate
+- don't need to verify where requests come from
+- AWS Lambda run only when a request comes
+- First 1M requests per month are free. [Read more about pricing](https://aws.amazon.com/lambda/pricing/)
 
 Read [here](https://developer.amazon.com/docs/custom-skills/host-a-custom-skill-as-an-aws-lambda-function.html#about-lambda-functions-and-custom-skills) more about connecting Alexa with AWS Lambda or [here](https://developer.amazon.com/docs/custom-skills/host-a-custom-skill-as-an-aws-lambda-function.html#create-a-lambda-function-for-an-alexa-skill) to create a Lambda for Alexa.
 
 #### Requirements for HTTPS Web Service:
 
-* The service must be Internet-accessible.
-* The service must adhere to the [Alexa Skills Kit interface](https://developer.amazon.com/docs/custom-skills/request-and-response-json-reference.html).
-* The service must support HTTP over SSL/TLS, leveraging an Amazon-trusted certificate.
-* The service must accept requests on port 443.
-* The service must validate that incoming requests are coming from Alexa.
+- The service must be Internet-accessible.
+- The service must adhere to the [Alexa Skills Kit interface](https://developer.amazon.com/docs/custom-skills/request-and-response-json-reference.html).
+- The service must support HTTP over SSL/TLS, leveraging an Amazon-trusted certificate.
+- The service must accept requests on port 443.
+- The service must validate that incoming requests are coming from Alexa.
 
 If you want to read more about configurations and requirements check [here](https://developer.amazon.com/docs/custom-skills/host-a-custom-skill-as-a-web-service.html).
 
