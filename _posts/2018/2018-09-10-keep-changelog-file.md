@@ -1,19 +1,21 @@
 ---
 title: 3 reasons to keep a changelog for your project
 layout: post
-categories: tips
+categories: abstract
 date: 2018-09-10 19:09:38 +0000
-summary: A changelog file it's just a history of changes made for a project. It's
+summary:
+  A changelog file it's just a history of changes made for a project. It's
   very useful to keep track of everything into a single place and to summarize some
   features than to look throw all the commits from git repository.
-keywords: ''
+keywords: ""
 tags:
-- tips
-- changelog
-- projects
-redirect_from: []
-
+  - tips
+  - changelog
+  - projects
+redirect_from:
+  - /tips/keep-changelog-file/
 ---
+
 ![changelog](https://keepachangelog.com/assets/images/logo-fe0986a5.png)
 
 ## Changelog file, what this means ?
@@ -36,10 +38,10 @@ When I searched for this question I got the best answer for me [here](https://ke
 
 ### Most common types of changes
 
-* `Added` for new features.
-* `Changed` for changes in existing functionality.
-* `Deprecated` for soon-to-be removed features.
-* `Removed` for now removed features.
-* `Fixed` for any bug fixes.
-* `Security` in case of vulnerabilities.
-* `Unreleased` for undeployed.
+- `Added` for new features.
+- `Changed` for changes in existing functionality.
+- `Deprecated` for soon-to-be removed features.
+- `Removed` for now removed features.
+- `Fixed` for any bug fixes.
+- `Security` in case of vulnerabilities.
+- `Unreleased` for undeployed.

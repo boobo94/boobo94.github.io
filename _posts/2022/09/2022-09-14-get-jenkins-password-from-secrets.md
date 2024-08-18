@@ -1,13 +1,14 @@
 ---
 title: Get your Jenkins Passwords from secrets
 summary: How to get your Jenkins passwords from your secrets credentials. Follow this simple tutoriale and find your password or ssh private key.
-categories: tips
+categories: tutorials
 tags: jenkins password credentials secrets ssh private key
 date: 2022-09-14 09:09:09 +0000
 cover: https://cdn.pixabay.com/photo/2018/05/11/12/59/phishing-3390518_1280.jpg
 layout: post
 redirect_from:
-- /category/get-jenkins-password-from-secrets/
+  - /category/get-jenkins-password-from-secrets/
+  - /tips/get-jenkins-password-from-secrets/
 ---
 
 First of all, if you have access to your Jenkins server the credentials are stored at:

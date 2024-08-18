@@ -1,11 +1,13 @@
 ---
 title: What VSCode extensions do I use
 summary: A complete list with VSCode extensions that I use daily for my work environment. Check how to display yours and how to install extensions from command line.
-categories: tips
+categories: resources
 tags: vscode settings
 date: 2021-12-13 09:09:09 +0000
 cover: https://code.visualstudio.com/assets/home/home-screenshot-mac-lg-2x.png
 layout: post
+redirect_from:
+  - /tips/vscode-extensions/
 ---
 
 ## Display all extensions installed
@@ -15,7 +17,6 @@ $ code --list-extensions | xargs -L 1 echo code --install-extension
 ```
 
 ## List with my VSCode extensions
-
 
 ```sh
 code --install-extension aeschli.vscode-css-formatter
