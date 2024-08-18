@@ -4,5 +4,6 @@ summary: "Learn from expert tutorials and enhance your skills in various fields.
 category: tutorials
 permalink: "/tutorials"
 redirect_from:
-- /webservice
+  - /webservice
+  - /tips
 ---
