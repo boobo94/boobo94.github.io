@@ -1,5 +1,5 @@
 ---
-title:  Tools for Analyzing Your Competition
+title: Tools for Analyzing Your Competition
 summary: Before knowing where your business stands, you should look at the market and your competition. You need to know what marketing tactics and strategies are working for your audience, what traffic the competition has, and how they position.
 categories: startup resources
 tags: startup competition analysis seo
@@ -23,7 +23,7 @@ A competitive analysis is a comparison of competitors strategies used to evaluat
 - MozBar: Examine and analyze important search, social, and page metrics of any site you visit right in your Chrome browser.
 - My Online Presence: See how your location appears on local search engines and directories, and how it can improve with Moz Local.
 - Free Domain Analysis: Enter any site and see instant SEO metrics like top pages, ranking keywords, competitive analysis, and more.
-- MozCast: MozCast reports on "weather patterns" of the Google algorithm to help you track day-to-day changes. 
+- MozCast: MozCast reports on "weather patterns" of the Google algorithm to help you track day-to-day changes.
 
 <h3>2. <a href="https://ahrefs.com/" target="_blank">ahrefs</a></h3>
 
@@ -43,7 +43,7 @@ Is a free tool. It stands out for providing you with information about traffic o
 - Unveil your competitors’ marketing strategy and tactics
 - Discover how to reach more prospects while spending less
 - Build your most effective social media strategy
-        
+
 <h3>5. <a href="https://neilpatel.com/ubersuggest/" target="_blank">Ubersuggest</a></h3>
 
 - Domain Overview
@@ -72,7 +72,6 @@ The Ads Transparency Center is a searchable hub of all ads served from verified 
 
 Keyword Planner is one of the best and most known free tools for keyword research with some limitations, though.
 
-
 <h3>11. <a href="https://www.spyfu.com/" target="_blank">Spyfu</a></h3>
 
 Spyfu offers similar data to Semrush.
@@ -83,7 +82,7 @@ Mention enables brands and agencies to monitor the web, listen to their audience
 
 <h3>13. <a href="https://www.fanpagekarma.com/start" target="_blank">Fanpagekarma</a></h3>
 
- With Fanpage Karma you have everything you need for professional social media management: analyzing, publishing, communicating, researching, and presenting. Everything in one tool. 
+With Fanpage Karma you have everything you need for professional social media management: analyzing, publishing, communicating, researching, and presenting. Everything in one tool.
 
 <h3>14. <a href="https://alsoasked.com/" target="_blank">Alsoasked</a></h3>
 
@@ -107,8 +106,7 @@ A free local SEO keyword tool for small businesses and marketers. Select a busin
 
 <h3>19. <a href="https://www.brightlocal.com/free-local-seo-tools/" target="_blank">Brightlocal - Free Local SEO Tools</a></h3>
 
-Powerful free tools for your local search marketing needs 
-
+Powerful free tools for your local search marketing needs
 
 ### Others:
 
@@ -116,6 +114,6 @@ Powerful free tools for your local search marketing needs
 - <https://wordstream.com/>
 - <https://www.link-assistant.com/news/free-keyword-research-tools.html>
 - <https://backlinko.com/best-free-seo-tools>
-- more here https://twitter.com/boringmarketer/status/1692546517704282223?s=46
+- more here <https://twitter.com/boringmarketer/status/1692546517704282223>
 
 Image Source: <a href="https://pixabay.com/images/id-731479/" target="_blank">Pixabay</a>

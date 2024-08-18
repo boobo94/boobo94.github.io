@@ -1,5 +1,5 @@
 ---
-title: Resources to generate free legal pages for your website
+title: Generate free legal pages for your website
 summary: Are you looking for resources to generate free legal pages for your website
 categories: resources
 tags: legal website
