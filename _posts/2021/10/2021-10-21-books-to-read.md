@@ -4,7 +4,7 @@ summary: The list of books I read. I decided one year ago to challenge myself an
 categories: resources
 tags: books
 date: 2023-04-11 09:09:09 +0000
-cover: https://cdn.pixabay.com/photo/2016/03/26/22/21/books-1281581_1280.jpg
+cover: https://img.freepik.com/free-photo/open-book-with-white-background_23-2148882765.jpg
 layout: post
 ---
 
@@ -16,7 +16,7 @@ I decided one year ago to challange myself and read as many books as I can this 
 | --- | --- |
 | ✅ How to launch a brand | Fabian Geyrhalter |
 | ✅ Invisible Selling Machine | Ryan Deiss |
-| Million dollar weekend: The surprisingly simple way to launch a 7 figure business in 48 hours | Noah Kagan |
+| ✅ Million dollar weekend: The surprisingly simple way to launch a 7 figure business in 48 hours | Noah Kagan |
 | Million Dollar Consulting | Allan Weis |
 | Startup at the end | Matt Wallaert |
 | The millionaire Fastline | MJ Demarco |

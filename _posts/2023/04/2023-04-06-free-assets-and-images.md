@@ -43,7 +43,6 @@ Find a multitude of places with free assets and images for your project
 - <https://isometric.online>
 - <https://humaaans.com>
 - <https://openpeeps.com>
-- <https://themeisle.com/illustrations/>
 - <https://www.illustrationlink.com/>
 
 ### Icons
