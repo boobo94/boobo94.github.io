@@ -11,4 +11,6 @@ cover: https://www.kali.org/images/kali-dragon-icon.svg
 1. Go to <https://www.kali.org/get-kali/#kali-installer-images> and select **Apple Sillicon(ARM64)** and then download the **Recommended** installer.
 2. Follow these steps one by one <https://www.kali.org/docs/virtualization/install-utm-guest-vm/> and install Kali Linux.
 
+Don't forget to unmount the iso file.
+
 Enjoy!
