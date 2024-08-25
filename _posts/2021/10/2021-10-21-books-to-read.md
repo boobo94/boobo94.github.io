@@ -21,8 +21,6 @@ I decided one year ago to challange myself and read as many books as I can this 
 | ✅ Profit First | Mike Michalowicz |
 | ✅ How to start a successful creative agency | Andy Strote |
 | ✅ $100 Startup Reinvent the way you make a living, do what you love, and create a new feature | Chris Guillebeau |
-| Million Dollar Consulting | Allan Weis |
-| Startup at the end | Matt Wallaert |
 | The millionaire Fastline | MJ Demarco |
 | Applying Behavioral Science to the Private Sector | Dr Helena Rubinstein |
 | The Behavior Business | Richard Chataway |
