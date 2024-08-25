@@ -10,7 +10,7 @@ layout: post
 
 A complete list with reading resources and free books for either students, developers and all types of readers:
 
-- <https://gen.lib.rus.ec/>
+- <http://libgen.li>
 - <https://ebooks.adelaide.edu.au/meta/titles/A.html>
 - <https://www.reddit.com/r/freeEBOOKS/wiki/febooks>
 - <https://www.kobo.com/us/en/p/free-ebooks>
