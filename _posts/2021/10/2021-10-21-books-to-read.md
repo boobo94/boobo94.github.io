@@ -22,12 +22,7 @@ I decided one year ago to challange myself and read as many books as I can this 
 | ✅ How to start a successful creative agency | Andy Strote |
 | ✅ $100 Startup Reinvent the way you make a living, do what you love, and create a new feature | Chris Guillebeau |
 | The millionaire Fastline | MJ Demarco |
-| Applying Behavioral Science to the Private Sector | Dr Helena Rubinstein |
-| The Behavior Business | Richard Chataway |
-| Ripple | Jez Groom |
-| Behavioral Insights | Michael Hallsworth |
 | Actionable Gamification | Yu-kai Chou |
-| The Behavior Change Wheel | Susan Michie & Robert West |
 | Design for How People Think | John Whalen |
 | Design for Behavior Change | Stephen Wendel |
 | Start at the Why | Matt Wallaert |
