@@ -302,14 +302,21 @@ In this article, we delve into the captivating landscape of Romanian startups, u
             "category": "Logistics, Management"
         },
     ],
-    "Pets": [
-    
+    "Pets": [  
         {
             "name": "Caretopets",
             "url": "https://www.caretopets.com/ro",
             "description": "Romanian's No 1 pet sitting platform",
             "category": "Pets, Life"
         },
+    ],
+    "Real-Estate": [
+        {
+            "name": "Santiere Digitale",
+            "url": "https://santier.io/",
+            "description": "Optimize procurement management on your construction sites. Digitize procurement processes and simply and easily keep track of sites, employees and all materials used.",
+            "category": "Real Estate, CRM"
+        }
     ],
     "Security": [
         {
