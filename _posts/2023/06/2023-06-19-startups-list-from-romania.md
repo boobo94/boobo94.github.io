@@ -171,6 +171,18 @@ In this article, we delve into the captivating landscape of Romanian startups, u
             "description": "Our solutions help you reduce manual work drastically. We develop digital solutions which integrate perfect with your business.",
             "category": "Docs, Digitization, AI"
         },
+        {
+            "name": "Aprobare Facturi",
+            "url": "https://www.aprobare-facturi.ro",
+            "description": "We automate approval flows, digitize notices and ensure prices are correct.",
+            "category": "Docs, Invoices"
+        },
+        {
+            "name": "eContracte",
+            "url": "https://econtracte.ro",
+            "description": "Create and sign any contract online in just 1 minute Service contract, Lease contract, Collaboration contract then send it to sign.",
+            "category": "Docs"
+        },
     ],
     "Ecommerce": [
         {
@@ -266,7 +278,13 @@ In this article, we delve into the captivating landscape of Romanian startups, u
             "url": "https://ecotree.ro",
             "description": "Prima platformă digitală de management al deșeurilor din România",
             "category": "Green"
-        }
+        },
+        {
+            "name": "Reverse PET",
+            "url": "https://reversepet.com/",
+            "description": "Recycle and earn with Reverse PET",
+            "category": "Green, SGR"
+        },
     ],
     "Kids": [
         {
@@ -406,7 +424,13 @@ In this article, we delve into the captivating landscape of Romanian startups, u
             "url": "https://managerflota.ro",
             "description": "Simplify your alternative transport fleet management. Manage weekly payments, drivers, cars and reports simply and quickly.",
             "category": "Transport, Ridesharing"
-        }
+        },
+        {
+            "name": "Caut Curier",
+            "url": "https://cautcurier.ro",
+            "description": "We deliver urgently to customers and your business partners with the same sense of responsibility with which you would do it too",
+            "category": "Delivery, Courier"
+        },
     ],
     "Travel": [
         {
