@@ -45,3 +45,5 @@ A complete list with reading resources and free books for either students, devel
 - <https://freedium.cfd> medium paywall remover
 - <https://www.removepaywall.com/>
 - <https://paywallreader.com>
+- <https://byebyepaywall.com/en/>
+- <https://www.smry.ai/>
