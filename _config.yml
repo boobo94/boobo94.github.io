@@ -146,7 +146,7 @@ defaults:
       layout: "category"
   -
     scope:
-      path: "/tags/:tag/"
+      path: ""
       type: tag
     values:
       layout: "tag"
