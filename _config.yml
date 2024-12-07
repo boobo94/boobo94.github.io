@@ -144,3 +144,9 @@ defaults:
       type: category
     values:
       layout: "category"
+  -
+    scope:
+      path: "/tags/:tag/"
+      type: tag
+    values:
+      layout: "tag"
