@@ -1,6 +1,6 @@
 ---
 title: "JS"
 summary: "JS description"
-category: js
+tag: js
 permalink: "/js"
 ---
