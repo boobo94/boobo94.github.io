@@ -137,6 +137,10 @@ collections:
     output: true
     permalink: /portfolio/:path/
 
+  tags:
+    output: true
+    permalink: /tags/:name/
+
 defaults:
   -
     scope:
