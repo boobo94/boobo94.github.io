@@ -139,7 +139,7 @@ collections:
 
   tags:
     output: true
-    permalink: /tags/:name/
+    permalink: /tags/:path/
 
 defaults:
   -
