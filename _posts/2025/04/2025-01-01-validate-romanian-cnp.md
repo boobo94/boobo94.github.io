@@ -5,7 +5,7 @@ summary: How to validate the Romanian CNP with a JS function
 categories: tools
 tags: js validation
 date: 2025-04-13 09:09:09 +0000
-cover: https://example.com/img.png
+cover: https://cdn.pixabay.com/photo/2017/08/18/00/40/successful-2653403_1280.jpg
 ---
 
 <h2>Validare CNP (Cod Numeric Personal)</h2>
