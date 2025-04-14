@@ -123,6 +123,13 @@ In this article, we delve into the captivating landscape of Romanian startups, u
             "description": "An online scheduling application for beauty saloons and dentists",
             "category": "Booking"
         },
+      
+        {
+            "name": "MyRentals",
+            "url": "https://www.myrentals.ro/",
+            "description": "Platform for management of rent a car bookings or for short time rental properties.",
+            "category": "Real Estate, Car Rentals, CRM"
+        }
     ],
     "Business": [
         {
