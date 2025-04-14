@@ -10,6 +10,11 @@ cover: https://cdn.pixabay.com/photo/2012/10/29/15/36/ball-63527_1280.jpg
 
 CIF is the tax identification code is a numeric code that constitutes the unique identification code for a trader. It is also known as the fiscal code or unique identification code. Until January 1, 2007, it was called the Unique Registration Code (CUI).
 
+<h2>Validate Romanian CIF</h2>
+<input type="text" id="cifInput" placeholder="Enter CIF (e.g. RO1234567)" />
+<button onclick="validateCIF()">Check</button>
+<div id="result"></div>
+
 According to Law No. 359 of September 8, 2004, regarding the simplification of formalities for the registration in the trade register of natural persons, family associations, and legal entities, their tax registration, as well as the authorization for the operation of legal entities:
 The request for tax registration of a trader is made by submitting the registration application to the single office within the trade register office near the court, and the assignment of the unique registration code by the Ministry of Public Finance is conditioned by the acceptance of the registration application in the trade register by the delegated judge.
 
@@ -73,3 +78,52 @@ function checkCIF(cif) {
 Useful resources:
 - <a href="www.validari.ro/cui.html" target="_blank">Official documentation</a>
 - <a href="https://gabrielsolomon.ro/validare-cuicif-folosind-php/" target="_blank">How to validate the cif using PHP</a>
+
+
+<script>
+function checkCIF(cif) {
+  cif = cif.toUpperCase().replace("RO", "");
+
+  if (isNaN(cif)) return false;
+  if (cif.length > 10) return false;
+
+  let cifra_control = parseInt(cif.slice(-1));
+  cif = cif.slice(0, -1);
+
+  while (cif.length != 9) {
+    cif = "0" + cif;
+  }
+
+  let suma =
+    cif[0] * 7 +
+    cif[1] * 5 +
+    cif[2] * 3 +
+    cif[3] * 2 +
+    cif[4] * 1 +
+    cif[5] * 7 +
+    cif[6] * 5 +
+    cif[7] * 3 +
+    cif[8] * 2;
+  suma = suma * 10;
+
+  let rest = suma % 11;
+  if (rest === 10) rest = 0;
+
+  return rest === cifra_control;
+}
+
+function validateCIF() {
+  const input = document.getElementById("cifInput").value.trim();
+  const isValid = checkCIF(input);
+  const resultDiv = document.getElementById("result");
+
+  if (isValid) {
+    resultDiv.innerHTML = "✅ CIF is valid!";
+    resultDiv.className = "success";
+  } else {
+    resultDiv.innerHTML = "❌ Invalid CIF. Please check the number.";
+    resultDiv.className = "error";
+  }
+}
+
+</script>
