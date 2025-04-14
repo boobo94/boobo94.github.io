@@ -35,10 +35,6 @@ The fiscal attribute attached to the unique registration code is an alphanumeric
 
 4. For a valid CIF, the verification digit must match the control digit of the initial CIF code.
 
-Here you go — the same structured explanation converted to **Markdown**:
-
----
-
 ### 📊 CIF Structure and Validation Process
 
 #### ✅ Format:
@@ -100,10 +96,6 @@ Assume CIF: `1234567891`
 Validation using reversed key:
 Sum of products → *10 → %11 → Compare with control digit
 ```
-
----
-
-Let me know if you want an alternate example or a simpler summary version.
 
 ```js
 /**
