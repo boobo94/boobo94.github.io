@@ -152,7 +152,7 @@ Useful resources:
 <style>
 #result {
     margin-top: 15px;
-    margin-bottom: 20px;
+    margin-bottom: 50px;
     font-size: 18px;
     font-weight: bold;
 }
