@@ -131,7 +131,6 @@ function validateCNP() {
 ```
 
 <style>
-    body { font-family: Arial, sans-serif; padding: 40px; }
     input, button { font-size: 16px; padding: 8px; }
     #result { margin-top: 15px; font-weight: bold; font-size: 18px; }
     .valid { color: green; }
