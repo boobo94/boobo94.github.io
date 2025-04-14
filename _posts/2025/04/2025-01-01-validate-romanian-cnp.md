@@ -2,8 +2,8 @@
 layout: post
 title: Validate Romanian CNP
 summary: How to validate the Romanian CNP with a JS function
-categories: category
-tags: tag1 tag2
+categories: tools
+tags: js validation
 date: 2025-04-13 09:09:09 +0000
 cover: https://example.com/img.png
 ---
