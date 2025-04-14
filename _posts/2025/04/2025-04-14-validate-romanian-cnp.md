@@ -8,7 +8,7 @@ date: 2025-04-13 09:09:09 +0000
 cover: https://cdn.pixabay.com/photo/2017/08/18/00/40/successful-2653403_1280.jpg
 ---
 
-<h2>Validare CNP (Cod Numeric Personal)</h2>
+<h2>Validate CNP (Cod Numeric Personal)</h2>
 <input type="text" id="cnpInput" placeholder="Introduceți CNP-ul" maxlength="13" />
 <button onclick="validateCNP()">Verifică</button>
 
