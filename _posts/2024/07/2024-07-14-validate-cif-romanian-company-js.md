@@ -5,12 +5,13 @@ summary: Validate CIF for Romanian companies in JS. Easily verify company inform
 categories: tools
 tags: cif js romanian romania company
 date: 2025-04-13 09:09:09 +0000
-cover: https://cdn.pixabay.com/photo/2012/10/29/15/36/ball-63527_1280.jpg
+cover: https://cdn.pixabay.com/photo/2022/09/24/16/27/audit-7476720_1280.png
 ---
 
 CIF is the tax identification code is a numeric code that constitutes the unique identification code for a trader. It is also known as the fiscal code or unique identification code. Until January 1, 2007, it was called the Unique Registration Code (CUI).
 
 <h2>Validate Romanian CIF</h2>
+
 <input type="text" id="cifInput" placeholder="Enter CIF (e.g. RO1234567)" />
 <button onclick="validateCIF()">Check</button>
 <div id="result"></div>
@@ -24,18 +25,6 @@ The request for tax registration of a trader is made by submitting the registrat
 
 The fiscal attribute attached to the unique registration code is an alphanumeric code representing the category of taxpayers for taxes and duties to the state budget. If the fiscal attribute has the value "RO," it certifies that the legal entity has been registered with the tax authority as a VAT payer¹.
 
-The CIF is made from:
-
-<blockquote>
-[ ZZZZZZZZZ ] |C|
-
-| ____________ |_|
-
-| Number.......... | control digit (max 9 chars) |
-</blockquote>
-
-
-
 ## The algorithm who checks the validity of CIF or CUI
 
 1. Check if the code complies with the CIF code format: maximum length of 10 digits and only numeric characters. Use testing key "753217532" to validate the CIF code.
@@ -45,6 +34,76 @@ The CIF is made from:
 3. Add all the products obtained, multiply the sum by 10, and divide the result by 11. The obtained digit after the MODULO 11 operation is the verification digit. If the remainder is 10, the verification digit is 0.
 
 4. For a valid CIF, the verification digit must match the control digit of the initial CIF code.
+
+Here you go — the same structured explanation converted to **Markdown**:
+
+---
+
+### 📊 CIF Structure and Validation Process
+
+#### ✅ Format:
+
+A CIF (Cod de Identificare Fiscală) must be:
+
+- **Maximum 10 digits**
+- **Numeric only**
+- Structure:
+  ```
+  [ Base Number (up to 9 digits) ] + [ Control Digit ]
+  ```
+
+---
+
+### 🔍 Example Breakdown:
+
+Assume CIF: `1234567891`  
+**Testing Key**: `753217532` (used for validation)
+
+#### Step 1: Split the CIF
+
+| CIF Digits | 1   | 2   | 3   | 4   | 5   | 6   | 7   | 8   | 9   | 1   |
+| ---------- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| Role       | B   | B   | B   | B   | B   | B   | B   | B   | B   | C   |
+
+- **B = Base digits** (9 digits, left-padded with 0 if shorter)
+- **C = Control digit** (last digit)
+
+---
+
+#### Step 2: Multiply reversed base with reversed key
+
+| Position (reversed)        | 9   | 8   | 7   | 6   | 5   | 4   | 3   | 2   | 1   |
+| -------------------------- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| CIF Base Digits (reversed) | 9   | 8   | 7   | 6   | 5   | 4   | 3   | 2   | 1   |
+| Testing Key (reversed)     | 2   | 3   | 5   | 7   | 1   | 2   | 3   | 5   | 7   |
+| Product                    | 18  | 24  | 35  | 42  | 5   | 8   | 9   | 10  | 7   |
+
+- **Sum**: `18 + 24 + 35 + 42 + 5 + 8 + 9 + 10 + 7 = 158`
+- Multiply sum by 10: `158 * 10 = 1580`
+- Modulo 11: `1580 % 11 = 7` → **Expected control digit**
+
+---
+
+#### Step 3: Compare with actual control digit
+
+| Actual Control Digit | Expected (Calculated) |
+| -------------------- | --------------------- |
+| 1                    | 7 ❌ Invalid CIF      |
+
+---
+
+### ✅ Visual Summary
+
+```
+[ Base: 123456789 ] + [ Control: 1 ]
+            ⇩
+Validation using reversed key:
+Sum of products → *10 → %11 → Compare with control digit
+```
+
+---
+
+Let me know if you want an alternate example or a simpler summary version.
 
 ```js
 /**
@@ -90,6 +149,20 @@ Useful resources:
 - <a href="www.validari.ro/cui.html" target="_blank">Official documentation</a>
 - <a href="https://gabrielsolomon.ro/validare-cuicif-folosind-php/" target="_blank">How to validate the cif using PHP</a>
 
+<style>
+#result {
+    margin-top: 15px;
+    margin-bottom: 20px;
+    font-size: 18px;
+    font-weight: bold;
+}
+.success {
+    color: green;
+}
+.error {
+    color: red;
+}
+</style>
 <script>
 function checkCIF(cif) {
   cif = cif.toUpperCase().replace("RO", "");
