@@ -4,7 +4,7 @@ title: Validating CIF for Romanian Company in JS
 summary: Validate CIF for Romanian companies in JS. Easily verify company information with our user-friendly tool. Ensure accuracy and reliability.
 categories: tools
 tags: cif js romanian romania company
-date: 2024-07-14 09:09:09 +0000
+date: 2025-04-13 09:09:09 +0000
 cover: https://cdn.pixabay.com/photo/2012/10/29/15/36/ball-63527_1280.jpg
 ---
 
@@ -18,20 +18,22 @@ CIF is the tax identification code is a numeric code that constitutes the unique
 According to Law No. 359 of September 8, 2004, regarding the simplification of formalities for the registration in the trade register of natural persons, family associations, and legal entities, their tax registration, as well as the authorization for the operation of legal entities:
 The request for tax registration of a trader is made by submitting the registration application to the single office within the trade register office near the court, and the assignment of the unique registration code by the Ministry of Public Finance is conditioned by the acceptance of the registration application in the trade register by the delegated judge.
 
-* For family associations, as well as for legal entities provided for in Article 2, the structure of the unique registration code is determined by the Ministry of Public Finance, the Ministry of Labor, Social Solidarity and Family, the Ministry of Health, the Ministry of Administration and Interior, and the Ministry of Justice.
+- For family associations, as well as for legal entities provided for in Article 2, the structure of the unique registration code is determined by the Ministry of Public Finance, the Ministry of Labor, Social Solidarity and Family, the Ministry of Health, the Ministry of Administration and Interior, and the Ministry of Justice.
 
-* For individuals, the unique registration code coincides with the personal numeric code assigned by the Ministry of Administration and Interior or, as the case may be, with the tax identification number assigned by the Ministry of Public Finance.
+- For individuals, the unique registration code coincides with the personal numeric code assigned by the Ministry of Administration and Interior or, as the case may be, with the tax identification number assigned by the Ministry of Public Finance.
 
 The fiscal attribute attached to the unique registration code is an alphanumeric code representing the category of taxpayers for taxes and duties to the state budget. If the fiscal attribute has the value "RO," it certifies that the legal entity has been registered with the tax authority as a VAT payer¹.
 
-
 The CIF is made from:
 
+<blockquote>
 [ ZZZZZZZZZ ] |C|
-|___________  |_|
 
-Number        | control digit
-(max 9 chars)
+| ____________ |_|
+
+| Number.......... | control digit (max 9 chars) |
+</blockquote>
+
 
 
 ## The algorithm who checks the validity of CIF or CUI
@@ -47,38 +49,46 @@ Number        | control digit
 ```js
 /**
  * @param {string} cif
- * @returns {boolean} 
+ * @returns {boolean}
  */
 function checkCIF(cif) {
-   // sanitize cif by removing the RO prefix in case does it exist
-   cif = cif.toUpperCase().replace("RO", '');
+  // sanitize cif by removing the RO prefix in case does it exist
+  cif = cif.toUpperCase().replace("RO", "");
 
-    if (isNaN(cif)) return false;
-    if (cif.length > 10) return false;
+  if (isNaN(cif)) return false;
+  if (cif.length > 10) return false;
 
-    let cifra_control = cif.slice(-1);
-    cif = cif.slice(0, -1);
+  let cifra_control = cif.slice(-1);
+  cif = cif.slice(0, -1);
 
-    while (cif.length != 9) {
-        cif = '0' + cif;
-    }
+  while (cif.length != 9) {
+    cif = "0" + cif;
+  }
 
-    let suma = cif[0] * 7 + cif[1] * 5 + cif[2] * 3 + cif[3] * 2 + cif[4] * 1 + cif[5] * 7 + cif[6] * 5 + cif[7] * 3 + cif[8] * 2;
-    suma = suma * 10;
-    
-    let rest = suma % 11;
+  let suma =
+    cif[0] * 7 +
+    cif[1] * 5 +
+    cif[2] * 3 +
+    cif[3] * 2 +
+    cif[4] * 1 +
+    cif[5] * 7 +
+    cif[6] * 5 +
+    cif[7] * 3 +
+    cif[8] * 2;
+  suma = suma * 10;
 
-    if (rest === 10) rest = 0;
+  let rest = suma % 11;
 
-    return rest === cifra_control;
+  if (rest === 10) rest = 0;
+
+  return rest === cifra_control;
 }
 ```
 
-
 Useful resources:
+
 - <a href="www.validari.ro/cui.html" target="_blank">Official documentation</a>
 - <a href="https://gabrielsolomon.ro/validare-cuicif-folosind-php/" target="_blank">How to validate the cif using PHP</a>
-
 
 <script>
 function checkCIF(cif) {
