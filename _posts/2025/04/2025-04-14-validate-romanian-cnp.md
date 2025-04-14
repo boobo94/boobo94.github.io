@@ -99,10 +99,9 @@ function validateCNP() {
   const cnp = document.getElementById("cnpInput").value.trim();
   const result = document.getElementById("result");
 
+  // CNP should have exactly 13 digits
   if (!/^\d{13}$/.test(cnp)) {
-    result.textContent = "❌ CNP should have exactly 13 digits.";
-    result.className = "invalid";
-    return;
+    return false;
   }
 
   const controlKey = "279146358279";
@@ -115,21 +114,19 @@ function validateCNP() {
   let remainder = sum % 11;
   let controlDigit = remainder === 10 ? 1 : remainder;
 
+  // CNP invalid (control digit is incorect)
   if (parseInt(cnp[12]) !== controlDigit) {
-    result.textContent = "❌ CNP invalid (control digit is incorect).";
     result.className = "invalid";
-    return;
+    return false;
   }
 
   const sex = parseInt(cnp[0]);
+  // CNP invalid (first digit is invalid)
   if (![1, 2, 3, 4, 5, 6, 7, 8, 9].includes(sex)) {
-    result.textContent = "❌ CNP invalid (first digit is invalid).";
-    result.className = "invalid";
-    return;
+    return false;
   }
 
-  result.textContent = "✅ CNP valid!";
-  result.className = "valid";
+  return true;
 }
 ```
 
