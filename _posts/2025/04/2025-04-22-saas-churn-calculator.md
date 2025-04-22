@@ -5,7 +5,7 @@ summary: Calculate your SaaS churn rate, revenue leakage, and projected annual l
 categories: tools
 tags: saas churn calculator
 date: 2025-04-22 09:09:09 +0000
-cover: https://example.com/img.png
+cover: 
 # redirect_from:
 # - /old1-route
 # - /old2-route
