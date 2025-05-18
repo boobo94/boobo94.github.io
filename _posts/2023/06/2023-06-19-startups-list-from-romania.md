@@ -292,6 +292,12 @@ In this article, we delve into the captivating landscape of Romanian startups, u
             "description": "Recycle and earn with Reverse PET",
             "category": "Green, SGR"
         },
+        {
+            "name": "Surubel Collect",
+            "url": "https://surubelcollect.ro",
+            "description": "Şurubel is the first digital platform in Romania that allows you to hand over WEEE (waste electrical and household appliances) without stress, without costs and without roads.",
+            "category": "Recycling, Electronics"
+        },
     ],
     "Kids": [
         {
