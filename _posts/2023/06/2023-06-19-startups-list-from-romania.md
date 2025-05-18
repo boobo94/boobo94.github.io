@@ -341,6 +341,12 @@ In this article, we delve into the captivating landscape of Romanian startups, u
             "url": "https://santier.io/",
             "description": "Optimize procurement management on your construction sites. Digitize procurement processes and simply and easily keep track of sites, employees and all materials used.",
             "category": "Real Estate, CRM"
+        },
+        {
+            "name": "PotParca",
+            "url": "https://potparca.ro/",
+            "description": "Rent your private parking spot in the app, like Airbnb, but for parking.",
+            "category": "Parking, Rentals"
         }
     ],
     "Security": [
