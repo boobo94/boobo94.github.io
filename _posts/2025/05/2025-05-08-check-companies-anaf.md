@@ -82,3 +82,5 @@ date: 2025-05-07 09:09:09 +0000
         });
     }
 </script>
+
+<a href="https://cors-anywhere.herokuapp.com/" target="_blank">Pre-authorize CORS Anywhere</a>
