@@ -9,8 +9,6 @@ date: 2025-05-07 09:09:09 +0000
 ---
 
 <h2>Check TVA Status</h2>
-
-<h2>Check TVA Status</h2>
 <textarea
   id="cuiInput"
   rows="5"
@@ -20,7 +18,6 @@ date: 2025-05-07 09:09:09 +0000
 <br /><br />
 
 <button onclick="checkTva()">Check</button>
-<br /><br />
 
 <div id="responseTable"></div>
 <pre id="responseRaw"></pre>
@@ -28,7 +25,11 @@ date: 2025-05-07 09:09:09 +0000
 <script>
   function checkTva() {
     const input = document.getElementById("cuiInput").value;
-    const taxIds = input.split("\n").map((line) => line.trim()).filter(Boolean);
+    const taxIds = input
+      .split("\n")
+      .map((line) => line.trim())
+      .filter(Boolean);
+
     const today = new Date().toISOString().split("T")[0];
 
     const requestBody = taxIds.map((cui) => ({
@@ -51,13 +52,23 @@ date: 2025-05-07 09:09:09 +0000
         document.getElementById("responseRaw").textContent = JSON.stringify(data, null, 2);
       })
       .catch((error) => {
-        document.getElementById("responseTable").innerHTML = "<pre>Error: " + error + "</pre>";
+        document.getElementById("responseTable").innerHTML =
+          "<pre>Error: " + error + "</pre>";
       });
+  }
+
+  function cleanDenumire(denumire) {
+    return denumire
+      .replace(/S\.R\.L\./g, "SRL")
+      .replace(/S\.R\.L/g, "SRL")
+      .replace(/PERSOANĂ FIZICĂ AUTORIZATĂ/g, "PFA")
+      .replace(/\./g, "");
   }
 
   function renderTable(results) {
     if (!results.length) {
-      document.getElementById("responseTable").innerHTML = "<p>No data found.</p>";
+      document.getElementById("responseTable").innerHTML =
+        "<p>No data found.</p>";
       return;
     }
 
@@ -80,10 +91,12 @@ date: 2025-05-07 09:09:09 +0000
       const tva = item.inregistrare_scop_Tva;
       const perioadaTVA = tva.perioade_TVA?.[0]?.data_inceput_ScpTVA || "-";
 
+      const denumireCurata = cleanDenumire(general.denumire);
+
       table += `
         <tr>
           <td>${general.cui}</td>
-          <td>${general.denumire}</td>
+          <td>${denumireCurata}</td>
           <td>${general.adresa}</td>
           <td>${tva.scpTVA ? "DA" : "NU"}</td>
           <td>${perioadaTVA}</td>
@@ -91,7 +104,7 @@ date: 2025-05-07 09:09:09 +0000
       `;
     });
 
-    table += "</tbody></table>";
+    table += `</tbody></table>`;
     document.getElementById("responseTable").innerHTML = table;
   }
 </script>
