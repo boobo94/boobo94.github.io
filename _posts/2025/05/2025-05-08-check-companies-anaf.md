@@ -65,6 +65,13 @@ date: 2025-05-07 09:09:09 +0000
       .replace(/\./g, "");
   }
 
+  function copyToClipboard(text) {
+    navigator.clipboard.writeText(text).then(
+      () => alert("Copied: " + text),
+      () => alert("Failed to copy")
+    );
+  }
+
   function renderTable(results) {
     if (!results.length) {
       document.getElementById("responseTable").innerHTML =
@@ -95,9 +102,15 @@ date: 2025-05-07 09:09:09 +0000
 
       table += `
         <tr>
-          <td>${general.cui}</td>
-          <td>${denumireCurata}</td>
-          <td>${general.adresa}</td>
+          <td>
+            ${general.cui} <button onclick="copyToClipboard('${general.cui}')">📋</button>
+          </td>
+          <td>
+            ${denumireCurata} <button onclick="copyToClipboard('${denumireCurata.replace(/'/g, "\\'")}')">📋</button>
+          </td>
+          <td>
+            ${general.adresa} <button onclick="copyToClipboard('${general.adresa.replace(/'/g, "\\'")}')">📋</button>
+          </td>
           <td>${tva.scpTVA ? "DA" : "NU"}</td>
           <td>${perioadaTVA}</td>
         </tr>
