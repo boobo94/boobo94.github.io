@@ -82,10 +82,11 @@ date: 2025-05-07 09:09:09 +0000
       <table border="1" cellspacing="0" cellpadding="5">
         <thead>
           <tr>
-            <th>CUI</th>
-            <th>Denumire</th>
-            <th>Adresa</th>
-            <th>TVA</th>
+            <th>CIF</th>
+            <th>Name</th>
+            <th>Address</th>
+            <th>VAT</th>
+            <th>Phone</th>
           </tr>
         </thead>
         <tbody>
@@ -108,6 +109,9 @@ date: 2025-05-07 09:09:09 +0000
             ${general.adresa} <button onclick="copyToClipboard('${general.adresa.replace(/'/g, "\\'")}')">📋</button>
           </td>
           <td>${tva.scpTVA ? "DA" : "NU"}</td>
+          <td>
+            ${general.telefon} <button onclick="copyToClipboard('${general.telefon.replace(/'/g, "\\'")}')">📋</button>
+          </td>
         </tr>
       `;
     });
