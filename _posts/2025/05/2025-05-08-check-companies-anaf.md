@@ -87,7 +87,6 @@ date: 2025-05-07 09:09:09 +0000
             <th>Denumire</th>
             <th>Adresa</th>
             <th>TVA</th>
-            <th>Data inregistrare TVA</th>
           </tr>
         </thead>
         <tbody>
