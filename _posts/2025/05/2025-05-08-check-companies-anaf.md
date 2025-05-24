@@ -66,10 +66,7 @@ date: 2025-05-07 09:09:09 +0000
   }
 
   function copyToClipboard(text) {
-    navigator.clipboard.writeText(text).then(
-      () => alert("Copied: " + text),
-      () => alert("Failed to copy")
-    );
+    navigator.clipboard.writeText(text);
   }
 
   function renderTable(results) {
