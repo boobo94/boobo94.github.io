@@ -61,6 +61,7 @@ date: 2025-05-07 09:09:09 +0000
     return denumire
       .replace(/S\.R\.L\./g, "SRL")
       .replace(/S\.R\.L/g, "SRL")
+      .replace(/SOCIETATE CU RASPUNDERE LIMITATĂ/g, "SRL")
       .replace(/PERSOANĂ FIZICĂ AUTORIZATĂ/g, "PFA")
       .replace(/ÎNTREPRINDERE INDIVIDUALĂ/g, "II")
       .replace(/\./g, "");
