@@ -96,9 +96,7 @@ date: 2025-05-07 09:09:09 +0000
     results.forEach((item) => {
       const general = item.date_generale;
       const tva = item.inregistrare_scop_Tva;
-      const perioadaTVA = tva.perioade_TVA?.[0]?.data_inceput_ScpTVA || "-";
-
-      const denumireCurata = cleanDenumire(general.denumire);
+      const sanitizedCompanyName = cleanDenumire(general.denumire);
 
       table += `
         <tr>
@@ -106,13 +104,12 @@ date: 2025-05-07 09:09:09 +0000
             ${general.cui} <button onclick="copyToClipboard('${general.cui}')">📋</button>
           </td>
           <td>
-            ${denumireCurata} <button onclick="copyToClipboard('${denumireCurata.replace(/'/g, "\\'")}')">📋</button>
+            ${sanitizedCompanyName} <button onclick="copyToClipboard('${sanitizedCompanyName.replace(/'/g, "\\'")}')">📋</button>
           </td>
           <td>
             ${general.adresa} <button onclick="copyToClipboard('${general.adresa.replace(/'/g, "\\'")}')">📋</button>
           </td>
           <td>${tva.scpTVA ? "DA" : "NU"}</td>
-          <td>${perioadaTVA}</td>
         </tr>
       `;
     });
