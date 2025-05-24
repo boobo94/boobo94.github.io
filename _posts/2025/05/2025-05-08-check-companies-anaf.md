@@ -62,6 +62,7 @@ date: 2025-05-07 09:09:09 +0000
       .replace(/S\.R\.L\./g, "SRL")
       .replace(/S\.R\.L/g, "SRL")
       .replace(/PERSOANĂ FIZICĂ AUTORIZATĂ/g, "PFA")
+      .replace(/ÎNTREPRINDERE INDIVIDUALĂ/g, "II")
       .replace(/\./g, "");
   }
 
