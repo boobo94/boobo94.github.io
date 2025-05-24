@@ -9,6 +9,19 @@ date: 2025-05-07 09:09:09 +0000
 ---
 
 <h2>Check TVA Status</h2>
+
+<h2>Check TVA Status</h2>
+<textarea
+  id="cuiInput"
+  rows="5"
+  cols="40"
+  placeholder="Enter CUI values, one per line"
+></textarea>
+<br /><br />
+
+<button onclick="checkTva()">Check</button>
+<br /><br />
+
 <div id="responseTable"></div>
 <pre id="responseRaw"></pre>
 
