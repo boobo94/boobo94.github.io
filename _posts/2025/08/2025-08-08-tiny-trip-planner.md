@@ -95,8 +95,7 @@ cover: https://example.com/img.png
     .split { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
     @media (max-width: 1000px) { .wrap { grid-template-columns: 1fr; } .split { grid-template-columns: 1fr; } }
   </style>
-</head>
-<body>
+
   <header>
     <h1>Tiny Trip Planner</h1>
     <span class="muted">Local-only • OpenStreetMap</span>
