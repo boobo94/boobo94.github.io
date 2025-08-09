@@ -79,6 +79,7 @@ By time to time I am curious what others wants to build and some of the websites
 - <a href="https://www.softwareideas.io/" target="_blank">Softwareideas</a>
 - <a href="https://founderpal.ai/business-ideas-generator" target="_blank">Founder Pal AI business idea generstor</a>
 - <a href="https://getlatka.com/saas-companies" target="_blank">Getlatka</a>
+- <a href="https://www.ideabrowser.com/database" target="_blank">IdeaBrowser</a>
 
 ### Startup graveyard 
 
