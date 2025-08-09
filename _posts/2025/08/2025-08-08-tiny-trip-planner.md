@@ -8,12 +8,7 @@ date: 2025-08-08 09:09:09 +0000
 cover: https://example.com/img.png
 ---
 
-<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8" />
-  <title>Tiny Trip Planner</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
   <!-- Leaflet (OpenStreetMap) -->
   <link
     rel="stylesheet"
@@ -622,5 +617,3 @@ cover: https://example.com/img.png
   }
   init();
   </script>
-</body>
-</html>
