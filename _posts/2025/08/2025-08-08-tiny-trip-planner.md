@@ -1,619 +1,552 @@
 ---
 layout: post
 title: Tiny Trip Planner
-summary: Summary Draft Template
+summary: This is your tiny trip planner fully GDPR compliant, the data are stored only on your device.
 categories: tools
 tags: js trip app
 date: 2025-08-08 09:09:09 +0000
 cover: https://example.com/img.png
 ---
 
+<!-- Tiny Trip Planner (scoped widget) -->
+<link
+  rel="stylesheet"
+  href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+  integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+  crossorigin=""
+/>
+<script
+  src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+  integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+  crossorigin=""
+></script>
 
-  <!-- Leaflet (OpenStreetMap) -->
-  <link
-    rel="stylesheet"
-    href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
-    integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
-    crossorigin=""
-  />
-  <script
-    src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
-    integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
-    crossorigin=""
-  ></script>
-  <style>
-    :root {
-      --bg: #0f1220;
-      --panel: #161A2B;
-      --panel-2: #1B2138;
-      --text: #E8ECF1;
-      --muted: #A7B0C0;
-      --accent: #6EE7B7;
-      --danger: #f87171;
-      --border: #27304a;
-    }
-    * { box-sizing: border-box; }
-    body {
-      margin: 0;
-      color: var(--text);
-      font-family: system-ui, -apple-system, Segoe UI, Roboto, Inter, "Helvetica Neue", Arial, sans-serif;
-    }
-    header {
-      padding: 14px 16px; border-bottom: 1px solid var(--border); background: var(--panel);
-      display: flex; align-items: center; gap: 12px; position: sticky; top: 0; z-index: 10;
-    }
-    header h1 { font-size: 18px; margin: 0; font-weight: 600; letter-spacing: 0.2px; }
-    .wrap {
-      display: grid; grid-template-columns: 320px 1fr; min-height: calc(100vh - 56px);
-    }
-    aside {
-      border-right: 1px solid var(--border); background: var(--panel); padding: 12px;
-    }
-    main { padding: 16px; background: linear-gradient(180deg, var(--panel-2), var(--bg)); }
-    .card {
-      background: var(--panel-2); border: 1px solid var(--border); border-radius: 10px;
-      padding: 12px;
-    }
-    .section-title {
-      font-size: 13px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.08em; margin: 8px 0 6px;
-    }
-    .row { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
-    .col { display: flex; flex-direction: column; gap: 6px; }
-    input[type="text"], textarea {
-      width: 100%; background: #111426; color: var(--text); border: 1px solid var(--border);
-      border-radius: 8px; padding: 10px; outline: none; font: inherit;
-    }
-    textarea { min-height: 80px; resize: vertical; }
-    .btn {
-      background: #1f2542; color: var(--text); border: 1px solid var(--border);
-      padding: 9px 12px; border-radius: 8px; cursor: pointer; font: inherit;
-    }
-    .btn:hover { filter: brightness(1.1); }
-    .btn.primary { background: #26305b; border-color: #2f3a6e; }
-    .btn.accent { background: #123c33; border-color: #104235; color: var(--accent); }
-    .btn.danger { background: #3a1416; border-color: #4a1d20; color: #ffb4b4; }
-    .muted { color: var(--muted); font-size: 13px; }
-    ul.list { list-style: none; padding: 0; margin: 0; display: grid; gap: 8px; }
-    .list-item {
-      border: 1px solid var(--border); border-radius: 8px; padding: 10px; background: #13182b;
-      display: grid; gap: 6px;
-    }
-    .list-item .title { font-weight: 600; }
-    .kbd { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: 12px; padding: 1px 6px; border: 1px solid var(--border); border-radius: 6px; background: #0d1020; color: var(--muted); }
-    .spacer { height: 8px; }
-    .map-container { width: 100%; height: 300px; border-radius: 10px; overflow: hidden; border: 1px solid var(--border); }
-    .modal {
-      position: fixed; inset: 0; background: rgba(0,0,0,0.5); display: none; align-items: center; justify-content: center; z-index: 50;
-    }
-    .modal.active { display: flex; }
-    .modal-card {
-      width: min(900px, 92vw); background: var(--panel); border: 1px solid var(--border); border-radius: 12px; padding: 12px;
-    }
-    .modal-header { display: flex; justify-content: space-between; align-items: center; }
-    .modal-title { margin: 0; font-size: 16px; }
-    .trip-row { display: grid; grid-template-columns: 1fr auto; gap: 6px; align-items: center; }
-    .tiny { font-size: 12px; color: var(--muted); }
-    .split { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
-    @media (max-width: 1000px) { .wrap { grid-template-columns: 1fr; } .split { grid-template-columns: 1fr; } }
-  </style>
-
-  <header>
-    <h1>Tiny Trip Planner</h1>
-    <span class="muted">Local-only • OpenStreetMap</span>
-  </header>
-
-  <div class="wrap">
-    <aside>
-      <div class="card">
-        <div class="section-title">Create trip</div>
-        <div class="row">
-          <input id="newTripName" type="text" placeholder="Trip name (e.g., Athens 5 days)" />
-          <button id="addTripBtn" class="btn accent">Add Trip</button>
-        </div>
-        <div class="spacer"></div>
-        <div class="section-title">Your trips</div>
-        <ul id="tripList" class="list"></ul>
+<div class="ttp" id="ttp-root">
+  <div class="ttp-wrap">
+    <aside class="ttp-aside ttp-card">
+      <div class="ttp-section-title">Create trip</div>
+      <div class="ttp-row">
+        <input class="ttp-input" id="ttp-newTripName" type="text" placeholder="Trip name (e.g., Athens – 5 days)" />
+        <button class="ttp-btn ttp-accent" id="ttp-addTripBtn">Add Trip</button>
       </div>
+
+      <div class="ttp-spacer"></div>
+      <div class="ttp-section-title">Your trips</div>
+      <ul id="ttp-tripList" class="ttp-list"></ul>
     </aside>
 
-    <main>
-      <div id="emptyState" class="card" style="display:none;">
-        <div class="section-title">No trip selected</div>
-        <p class="muted">Create a trip on the left, or select an existing one to add itineraries.</p>
+    <main class="ttp-main">
+      <div id="ttp-emptyState" class="ttp-card" style="display:none;">
+        <div class="ttp-section-title">No trip selected</div>
+        <p class="ttp-muted">Create a trip or open one to add places.</p>
       </div>
 
-      <div id="tripView" class="card" style="display:none;">
-        <div class="row" style="justify-content: space-between; align-items:center;">
+      <div id="ttp-tripView" class="ttp-card" style="display:none;">
+        <div class="ttp-row ttp-space-between">
           <div>
-            <div class="section-title">Trip</div>
-            <div class="row" style="align-items:center; gap:12px;">
-              <input id="tripNameInput" type="text" placeholder="Trip name" />
-              <span id="tripIdBadge" class="kbd"></span>
+            <div class="ttp-section-title">Trip</div>
+            <div class="ttp-row ttp-align-center ttp-gap-12">
+              <input class="ttp-input" id="ttp-tripNameInput" type="text" placeholder="Trip name" />
+              <span id="ttp-tripIdBadge" class="ttp-kbd"></span>
             </div>
-            <div class="tiny">Tip: Use multiple itineraries per day (e.g., “Day 1 – City Walk”, “Day 2 AM – Brunch”, “Day 2 PM – Museum”).</div>
+            <div class="ttp-tiny">Tip: Break a day into multiple <em>places</em> (AM, PM, etc.).</div>
           </div>
-          <div class="row">
-            <button id="saveTripBtn" class="btn primary">Save Trip Name</button>
-            <button id="deleteTripBtn" class="btn danger">Delete Trip</button>
+          <div class="ttp-row">
+            <button id="ttp-saveTripBtn" class="ttp-btn ttp-primary">Save Trip Name</button>
+            <button id="ttp-deleteTripBtn" class="ttp-btn ttp-danger">Delete Trip</button>
           </div>
         </div>
 
-        <div class="spacer"></div>
-        <div class="split">
-          <div class="col">
-            <div class="section-title">Add itinerary</div>
-            <input id="itinName" type="text" placeholder="Itinerary name (e.g., Day 1 – Old Town)" />
-            <textarea id="itinNotes" placeholder="Short notes (what to do, timings, etc.)"></textarea>
-            <input id="itinLocation" type="text" placeholder="Location: lat,lng • Google Maps URL • or place text" />
-            <div class="row">
-              <button id="parseLocationBtn" class="btn">Parse/Geocode</button>
-              <span id="parseStatus" class="muted"></span>
+        <div class="ttp-spacer"></div>
+
+        <div class="ttp-grid">
+          <div class="ttp-col">
+            <div class="ttp-section-title">Add place</div>
+            <input class="ttp-input" id="ttp-placeName" type="text" placeholder="Place name (auto-filled from Maps URL)" />
+            <textarea class="ttp-textarea" id="ttp-placeNotes" placeholder="Short notes (what to do, timings, etc.)"></textarea>
+            <div class="ttp-row ttp-wrap">
+              <input class="ttp-input" id="ttp-placeLocation" type="text" placeholder="lat,lng • Google Maps URL • or place text" />
+              <button id="ttp-pasteBtn" class="ttp-btn" title="Paste from clipboard">Paste</button>
+              <button id="ttp-parseLocationBtn" class="ttp-btn">Parse/Geocode</button>
+              <span id="ttp-parseStatus" class="ttp-muted"></span>
             </div>
-            <div id="previewMap" class="map-container" style="display:none;"></div>
-            <div class="row" style="justify-content:flex-end;">
-              <button id="addItinBtn" class="btn accent">Add Itinerary</button>
+            <div id="ttp-previewMap" class="ttp-map" style="display:none;"></div>
+            <div class="ttp-row ttp-right">
+              <button id="ttp-addPlaceBtn" class="ttp-btn ttp-accent">Add Place</button>
             </div>
           </div>
 
-          <div class="col">
-            <div class="section-title">Itineraries</div>
-            <ul id="itinList" class="list"></ul>
+          <div class="ttp-col">
+            <div class="ttp-section-title">Places</div>
+            <ul id="ttp-placeList" class="ttp-list"></ul>
           </div>
         </div>
       </div>
     </main>
+
   </div>
 
   <!-- Map Modal -->
-  <div id="mapModal" class="modal" aria-hidden="true">
-    <div class="modal-card">
-      <div class="modal-header">
-        <h3 id="mapModalTitle" class="modal-title">Itinerary Map</h3>
-        <button id="closeModalBtn" class="btn">Close</button>
+  <div id="ttp-mapModal" class="ttp-modal" aria-hidden="true">
+    <div class="ttp-modal-card">
+      <div class="ttp-modal-header">
+        <h3 id="ttp-mapModalTitle" class="ttp-modal-title">Place Map</h3>
+        <button id="ttp-closeModalBtn" class="ttp-btn">Close</button>
       </div>
-      <div class="spacer"></div>
-      <div id="modalMap" class="map-container"></div>
+      <div class="ttp-spacer"></div>
+      <div id="ttp-modalMap" class="ttp-map"></div>
     </div>
   </div>
+</div>
 
-  <script>
-  // -----------------------------
-  // Storage & State
-  // -----------------------------
-  const LS_KEY = 'tiny_trip_planner_v1';
-  const db = {
-    trips: [],
-    lastTripId: 0,
-    lastItinId: 0
+<style>
+  /* ---------- SCOPED STYLES ---------- */
+  .ttp { --bg:#0f1220; --panel:#161A2B; --panel2:#1B2138; --text:#E8ECF1; --muted:#A7B0C0; --accent:#6EE7B7; --danger:#f87171; --border:#27304a; }
+  .ttp * { box-sizing:border-box; }
+  .ttp .ttp-wrap { display:grid; grid-template-columns:320px 1fr; gap:0; }
+  .ttp .ttp-aside { border-right:1px solid var(--border); background:var(--panel); padding:12px; }
+  .ttp .ttp-main { padding:16px; background: linear-gradient(180deg, var(--panel2), var(--bg)); }
+  .ttp .ttp-card { background:var(--panel2); border:1px solid var(--border); border-radius:10px; padding:12px; color:var(--text); }
+  .ttp .ttp-section-title { font-size:13px; color:var(--muted); text-transform:uppercase; letter-spacing:.08em; margin:8px 0 6px; }
+  .ttp .ttp-row { display:flex; gap:8px; align-items:center; }
+  .ttp .ttp-gap-12 { gap:12px; }
+  .ttp .ttp-space-between { justify-content:space-between; }
+  .ttp .ttp-right { justify-content:flex-end; }
+  .ttp .ttp-align-center { align-items:center; }
+  .ttp .ttp-wrap { flex-wrap:wrap; }
+  .ttp .ttp-col { display:flex; flex-direction:column; gap:6px; }
+  .ttp .ttp-input, .ttp .ttp-textarea {
+    width:100%; background:#111426; color:var(--text); border:1px solid var(--border);
+    border-radius:8px; padding:10px; outline:none; font:inherit;
+  }
+  .ttp .ttp-textarea { min-height:80px; resize:vertical; }
+  .ttp .ttp-btn { background:#1f2542; color:var(--text); border:1px solid var(--border); padding:9px 12px; border-radius:8px; cursor:pointer; font:inherit; }
+  .ttp .ttp-btn:hover { filter:brightness(1.1); }
+  .ttp .ttp-primary { background:#26305b; border-color:#2f3a6e; }
+  .ttp .ttp-accent { background:#123c33; border-color:#104235; color:var(--accent); }
+  .ttp .ttp-danger { background:#3a1416; border-color:#4a1d20; color:#ffb4b4; }
+  .ttp .ttp-muted { color:var(--muted); font-size:13px; }
+  .ttp .ttp-tiny { font-size:12px; color:var(--muted); }
+  .ttp .ttp-list { list-style:none; padding:0; margin:0; display:grid; gap:8px; }
+  .ttp .ttp-list-item { border:1px solid var(--border); border-radius:8px; padding:10px; background:#13182b; display:grid; gap:6px; }
+  .ttp .ttp-title { font-weight:600; }
+  .ttp .ttp-kbd { font-family:ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size:12px; padding:1px 6px; border:1px solid var(--border); border-radius:6px; background:#0d1020; color:var(--muted); }
+  .ttp .ttp-spacer { height:8px; }
+  .ttp .ttp-map { width:100%; height:300px; border-radius:10px; overflow:hidden; border:1px solid var(--border); }
+  .ttp .ttp-modal { position:fixed; inset:0; background:rgba(0,0,0,.5); display:none; align-items:center; justify-content:center; z-index:9999; }
+  .ttp .ttp-modal.active { display:flex; }
+  .ttp .ttp-modal-card { width:min(900px,92vw); background:var(--panel); border:1px solid var(--border); border-radius:12px; padding:12px; }
+  .ttp .ttp-modal-header { display:flex; justify-content:space-between; align-items:center; }
+  .ttp .ttp-modal-title { margin:0; font-size:16px; color:var(--text); }
+  .ttp .ttp-grid { display:grid; grid-template-columns:1fr 1fr; gap:12px; }
+  @media (max-width: 1000px){ .ttp .ttp-wrap { grid-template-columns:1fr; } .ttp .ttp-grid { grid-template-columns:1fr; } }
+</style>
+
+<script>
+(function(){
+  // ---------- Storage ----------
+  const LS_KEY = 'tiny_trip_planner_v2'; // new key due to renaming itineraries -> places
+  const db = { trips: [], lastTripId: 0, lastPlaceId: 0 };
+  const root = document.getElementById('ttp-root');
+
+  function loadDB(){ try{ const raw=localStorage.getItem(LS_KEY); if(raw) Object.assign(db, JSON.parse(raw)); }catch(e){ console.warn('DB load failed', e); } }
+  function saveDB(){ localStorage.setItem(LS_KEY, JSON.stringify(db)); }
+  function nextTripId(){ db.lastTripId+=1; saveDB(); return db.lastTripId; }
+  function nextPlaceId(){ db.lastPlaceId+=1; saveDB(); return db.lastPlaceId; }
+
+  // ---------- Helpers ----------
+  function getEl(id){ return root.querySelector('#'+id); }
+  const els = {
+    newTripName: getEl('ttp-newTripName'),
+    addTripBtn: getEl('ttp-addTripBtn'),
+    tripList: getEl('ttp-tripList'),
+    emptyState: getEl('ttp-emptyState'),
+    tripView: getEl('ttp-tripView'),
+    tripNameInput: getEl('ttp-tripNameInput'),
+    tripIdBadge: getEl('ttp-tripIdBadge'),
+    saveTripBtn: getEl('ttp-saveTripBtn'),
+    deleteTripBtn: getEl('ttp-deleteTripBtn'),
+    placeName: getEl('ttp-placeName'),
+    placeNotes: getEl('ttp-placeNotes'),
+    placeLocation: getEl('ttp-placeLocation'),
+    pasteBtn: getEl('ttp-pasteBtn'),
+    parseLocationBtn: getEl('ttp-parseLocationBtn'),
+    parseStatus: getEl('ttp-parseStatus'),
+    previewMap: getEl('ttp-previewMap'),
+    addPlaceBtn: getEl('ttp-addPlaceBtn'),
+    placeList: getEl('ttp-placeList'),
+    mapModal: getEl('ttp-mapModal'),
+    closeModalBtn: getEl('ttp-closeModalBtn'),
+    modalMap: getEl('ttp-modalMap'),
+    mapModalTitle: getEl('ttp-mapModalTitle'),
   };
-  function loadDB() {
-    try {
-      const raw = localStorage.getItem(LS_KEY);
-      if (raw) Object.assign(db, JSON.parse(raw));
-    } catch(e) {
-      console.warn('Failed to load DB', e);
-    }
+
+  function addTrip(name){
+    const t = { id: nextTripId(), name: name || `Trip ${db.lastTripId}`, createdAt: Date.now(), places: [] };
+    db.trips.push(t); saveDB(); return t;
   }
-  function saveDB() {
-    localStorage.setItem(LS_KEY, JSON.stringify(db));
+  function getTrip(id){ return db.trips.find(t=>t.id===id); }
+  function updateTripName(id, name){ const t=getTrip(id); if(t){ t.name=name; saveDB(); } }
+  function deleteTrip(id){ const i=db.trips.findIndex(t=>t.id===id); if(i>-1){ db.trips.splice(i,1); saveDB(); } }
+
+  function addPlace(tripId, {name, notes, lat, lng, locationInput}){
+    const t=getTrip(tripId); if(!t) return;
+    t.places.push({ id: nextPlaceId(), name: name || `Place ${db.lastPlaceId}`, notes: notes||'', lat, lng, locationInput: locationInput||'', createdAt: Date.now() });
+    saveDB();
+  }
+  function updatePlace(tripId, placeId, patch){
+    const t=getTrip(tripId); if(!t) return;
+    const p=t.places.find(x=>x.id===placeId);
+    if(p){ Object.assign(p, patch); saveDB(); }
+  }
+  function deletePlace(tripId, placeId){
+    const t=getTrip(tripId); if(!t) return;
+    const i=t.places.findIndex(x=>x.id===placeId);
+    if(i>-1){ t.places.splice(i,1); saveDB(); }
   }
 
-  // -----------------------------
-  // Utilities
-  // -----------------------------
-  function nextTripId(){ db.lastTripId += 1; saveDB(); return db.lastTripId; }
-  function nextItinId(){ db.lastItinId += 1; saveDB(); return db.lastItinId; }
+  function formatLatLng(lat,lng){ return `${Number(lat).toFixed(6)}, ${Number(lng).toFixed(6)}`; }
+  function escapeHtml(s){ return String(s||'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c])); }
+  function escapeAttr(s){ return escapeHtml(s).replace(/"/g,'&quot;'); }
 
-  function formatLatLng(lat, lng) {
-    return `${Number(lat).toFixed(6)}, ${Number(lng).toFixed(6)}`;
-  }
-
-  // Extract coords from Google Maps URLs:
-  // Supports:
-  //  - https://www.google.com/maps/place/.../@LAT,LNG,15z
-  //  - https://www.google.com/maps?q=LAT,LNG
-  //  - https://maps.app.goo.gl/... (will often redirect, but may contain !3dLAT!4dLNG)
-  function coordsFromGoogleUrl(input) {
-    try {
+  // ---------- Google URL parsers ----------
+  function coordsFromGoogleUrl(input){
+    try{
       const u = new URL(input);
       const href = u.href;
 
       // @lat,lng,zoom
-      const atMatch = href.match(/@(-?\d+\.\d+),\s*(-?\d+\.\d+)/);
-      if (atMatch) {
-        return { lat: parseFloat(atMatch[1]), lng: parseFloat(atMatch[2]) };
-      }
+      const at = href.match(/@(-?\d+\.\d+),\s*(-?\d+\.\d+)/);
+      if(at) return {lat:parseFloat(at[1]), lng:parseFloat(at[2])};
 
       // q=lat,lng or ll=lat,lng
       const q = u.searchParams.get('q') || u.searchParams.get('ll');
-      if (q) {
+      if(q){
         const m = q.match(/(-?\d+(\.\d+)?)\s*,\s*(-?\d+(\.\d+)?)/);
-        if (m) return { lat: parseFloat(m[1]), lng: parseFloat(m[3]) };
+        if(m) return {lat:parseFloat(m[1]), lng:parseFloat(m[3])};
       }
 
-      // !3dLAT!4dLNG pattern
+      // !3dLAT!4dLNG
       const bang = href.match(/!3d(-?\d+\.\d+)!4d(-?\d+\.\d+)/);
-      if (bang) {
-        return { lat: parseFloat(bang[1]), lng: parseFloat(bang[2]) };
-      }
-    } catch (_) {
-      // not a valid URL
-    }
+      if(bang) return {lat:parseFloat(bang[1]), lng:parseFloat(bang[2])};
+    }catch(e){}
     return null;
   }
 
-  // Try to parse input:
-  // - direct "lat,lng"
-  // - google maps url
-  // - otherwise geocode with Nominatim (free)
-  async function parseLocation(input) {
-    input = (input || '').trim();
+  function nameFromGoogleUrl(input){
+    try{
+      const u = new URL(input);
 
-    // 1) direct lat,lng
-    const ll = input.match(/^(-?\d+(\.\d+)?)\s*,\s*(-?\d+(\.\d+)?)$/);
-    if (ll) {
-      return { lat: parseFloat(ll[1]), lng: parseFloat(ll[3]), source: 'latlng' };
-    }
-
-    // 2) Google Maps URL
-    if (input.includes('google.com/maps') || input.includes('goo.gl/maps') || input.includes('maps.app.goo.gl')) {
-      const c = coordsFromGoogleUrl(input);
-      if (c) return { ...c, source: 'google' };
-      // If we couldn't extract numeric coords, fall back to geocoding the path text
-    }
-
-    // 3) Nominatim geocoding (OpenStreetMap, free; respect fair use)
-    // NOTE: rate limits apply; this is for light personal use.
-    const url = `https://nominatim.openstreetmap.org/search?format=jsonv2&q=${encodeURIComponent(input)}&limit=1`;
-    const res = await fetch(url, {
-      headers: {
-        // Nominatim recommends identifying your app via User-Agent; browser sets one.
-        // Add a referer-like hint via this custom header in case some proxies strip referer.
-        'Accept': 'application/json'
+      // 1) /maps/place/<NAME>/...
+      const path = u.pathname || '';
+      const placeIdx = path.indexOf('/place/');
+      if(placeIdx !== -1){
+        const after = path.slice(placeIdx + 7); // skip '/place/'
+        const seg = after.split('/')[0]; // first segment is encoded name
+        // decode '+' as spaces and percent-decoding
+        const plusFixed = seg.replace(/\+/g,' ');
+        let decoded = decodeURIComponent(plusFixed);
+        // Normalize: backtick to apostrophe (Google sometimes uses U+0060)
+        decoded = decoded.replace(/`/g, "'");
+        // Trim and collapse spaces
+        decoded = decoded.replace(/\s+/g,' ').trim();
+        if(decoded) return decoded;
       }
-    });
-    if (!res.ok) throw new Error('Geocoding failed');
+
+      // 2) fallback: q parameter sometimes contains name (when not coords)
+      const q = u.searchParams.get('q');
+      if(q && !/^-?\d+(\.\d+)?\s*,\s*-?\d+(\.\d+)?$/.test(q)){
+        const plusFixed = q.replace(/\+/g,' ');
+        let decoded = decodeURIComponent(plusFixed).replace(/`/g,"'").replace(/\s+/g,' ').trim();
+        if(decoded) return decoded;
+      }
+    }catch(e){}
+    return '';
+  }
+
+  // ---------- Geocoding ----------
+  async function parseLocation(input){
+    input = (input||'').trim();
+
+    // lat,lng
+    const m = input.match(/^(-?\d+(\.\d+)?)\s*,\s*(-?\d+(\.\d+)?)$/);
+    if(m) return {lat:parseFloat(m[1]), lng:parseFloat(m[3]), source:'latlng'};
+
+    // Google Maps URL
+    if (/(google\.com\/maps|goo\.gl\/maps|maps\.app\.goo\.gl)/.test(input)){
+      const c = coordsFromGoogleUrl(input);
+      if(c) return {...c, source:'google'};
+    }
+
+    // Nominatim (free)
+    const url = `https://nominatim.openstreetmap.org/search?format=jsonv2&q=${encodeURIComponent(input)}&limit=1`;
+    const res = await fetch(url, { headers:{'Accept':'application/json'} });
+    if(!res.ok) throw new Error('Geocoding failed');
     const j = await res.json();
-    if (Array.isArray(j) && j.length > 0) {
-      const hit = j[0];
-      return { lat: parseFloat(hit.lat), lng: parseFloat(hit.lon), source: 'nominatim' };
+    if(Array.isArray(j) && j.length>0){
+      const hit=j[0];
+      return {lat:parseFloat(hit.lat), lng:parseFloat(hit.lon), source:'nominatim'};
     }
     throw new Error('No results for that place');
   }
 
-  // -----------------------------
-  // Minimal “store” helpers
-  // -----------------------------
-  function addTrip(name) {
-    const t = { id: nextTripId(), name: name || `Trip ${db.lastTripId}`, createdAt: Date.now(), itineraries: [] };
-    db.trips.push(t);
-    saveDB();
-    return t;
-  }
-  function getTrip(id) { return db.trips.find(t => t.id === id); }
-  function deleteTrip(id) {
-    const idx = db.trips.findIndex(t => t.id === id);
-    if (idx !== -1) db.trips.splice(idx, 1);
-    saveDB();
-  }
-  function updateTripName(id, name) {
-    const t = getTrip(id); if (t) { t.name = name; saveDB(); }
-  }
-  function addItinerary(tripId, { name, notes, lat, lng, locationInput }) {
-    const t = getTrip(tripId); if (!t) return;
-    t.itineraries.push({
-      id: nextItinId(),
-      name: name || `Itin ${db.lastItinId}`,
-      notes: notes || '',
-      lat, lng,
-      locationInput: locationInput || '',
-      createdAt: Date.now()
-    });
-    saveDB();
-  }
-  function updateItinerary(tripId, itinId, patch) {
-    const t = getTrip(tripId); if (!t) return;
-    const it = t.itineraries.find(i => i.id === itinId);
-    if (it) { Object.assign(it, patch); saveDB(); }
-  }
-  function deleteItinerary(tripId, itinId) {
-    const t = getTrip(tripId); if (!t) return;
-    const idx = t.itineraries.findIndex(i => i.id === itinId);
-    if (idx !== -1) { t.itineraries.splice(idx, 1); saveDB(); }
-  }
-
-  // -----------------------------
-  // UI wiring
-  // -----------------------------
+  // ---------- UI / Maps ----------
   let currentTripId = null;
-  let previewLeaflet = null;
+  let previewMap = null;
 
-  const els = {
-    newTripName: document.getElementById('newTripName'),
-    addTripBtn: document.getElementById('addTripBtn'),
-    tripList: document.getElementById('tripList'),
-    emptyState: document.getElementById('emptyState'),
-    tripView: document.getElementById('tripView'),
-    tripNameInput: document.getElementById('tripNameInput'),
-    tripIdBadge: document.getElementById('tripIdBadge'),
-    saveTripBtn: document.getElementById('saveTripBtn'),
-    deleteTripBtn: document.getElementById('deleteTripBtn'),
-    itinName: document.getElementById('itinName'),
-    itinNotes: document.getElementById('itinNotes'),
-    itinLocation: document.getElementById('itinLocation'),
-    parseLocationBtn: document.getElementById('parseLocationBtn'),
-    parseStatus: document.getElementById('parseStatus'),
-    previewMap: document.getElementById('previewMap'),
-    addItinBtn: document.getElementById('addItinBtn'),
-    itinList: document.getElementById('itinList'),
-    // modal
-    mapModal: document.getElementById('mapModal'),
-    closeModalBtn: document.getElementById('closeModalBtn'),
-    modalMap: document.getElementById('modalMap'),
-    mapModalTitle: document.getElementById('mapModalTitle'),
-  };
+  function showMap(el, lat, lng){
+    el.style.display='block';
+    el.innerHTML='';
+    const map = L.map(el).setView([lat,lng], 14);
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      maxZoom:19, attribution:'&copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors'
+    }).addTo(map);
+    L.marker([lat,lng]).addTo(map);
+    setTimeout(()=>map.invalidateSize(), 100);
+    return map;
+  }
 
-  function renderTrips() {
-    els.tripList.innerHTML = '';
-    const sorted = [...db.trips].sort((a,b) => b.createdAt - a.createdAt);
-    for (const t of sorted) {
-      const li = document.createElement('li');
-      li.className = 'list-item';
-      const selected = t.id === currentTripId;
+  function setStatus(msg, isErr=false){
+    els.parseStatus.textContent = msg || '';
+    els.parseStatus.style.color = isErr ? 'var(--danger)' : 'var(--muted)';
+  }
+
+  function renderTrips(){
+    els.tripList.innerHTML='';
+    const sorted=[...db.trips].sort((a,b)=>b.createdAt-a.createdAt);
+    for(const t of sorted){
+      const li=document.createElement('li');
+      li.className='ttp-list-item';
+      const selected = t.id===currentTripId;
       li.innerHTML = `
-        <div class="trip-row">
+        <div class="ttp-row ttp-space-between">
           <div>
-            <div class="title">${escapeHtml(t.name)}</div>
-            <div class="tiny">#${t.id} • ${t.itineraries.length} itineraries</div>
+            <div class="ttp-title">${escapeHtml(t.name)}</div>
+            <div class="ttp-tiny">#${t.id} • ${t.places.length} places</div>
           </div>
-          <button class="btn ${selected ? 'accent' : ''}" data-trip="${t.id}">
-            ${selected ? 'Selected' : 'Open'}
+          <button class="ttp-btn ${selected?'ttp-accent':''}" data-trip="${t.id}">
+            ${selected?'Selected':'Open'}
           </button>
         </div>
       `;
-      li.querySelector('button').addEventListener('click', () => openTrip(t.id));
+      li.querySelector('button').addEventListener('click',()=>openTrip(t.id));
       els.tripList.appendChild(li);
     }
   }
 
-  function openTrip(id) {
-    currentTripId = id;
-    const t = getTrip(id);
-    if (!t) return;
-    els.emptyState.style.display = 'none';
-    els.tripView.style.display = 'block';
-    els.tripNameInput.value = t.name;
-    els.tripIdBadge.textContent = `Trip #${t.id}`;
+  function openTrip(id){
+    currentTripId=id;
+    const t=getTrip(id); if(!t) return;
+    els.emptyState.style.display='none';
+    els.tripView.style.display='block';
+    els.tripNameInput.value=t.name;
+    els.tripIdBadge.textContent=`Trip #${t.id}`;
     renderTrips();
-    renderItineraries();
+    renderPlaces();
   }
 
-  function renderItineraries() {
-    const t = getTrip(currentTripId);
-    els.itinList.innerHTML = '';
-    if (!t) return;
-    const its = [...t.itineraries].sort((a,b)=>a.createdAt - b.createdAt);
-    for (const it of its) {
-      const li = document.createElement('li');
-      li.className = 'list-item';
-      li.innerHTML = `
-        <div class="title">${escapeHtml(it.name)}</div>
-        <div class="tiny">#${it.id} • ${formatLatLng(it.lat, it.lng)}</div>
-        <div class="muted">${escapeHtml(it.notes || '')}</div>
-        <div class="row" style="justify-content:flex-end; gap:6px;">
-          <button class="btn" data-view="${it.id}">View Map</button>
-          <button class="btn primary" data-edit="${it.id}">Edit</button>
-          <button class="btn danger" data-del="${it.id}">Delete</button>
+  function renderPlaces(){
+    const t=getTrip(currentTripId);
+    if(!t) return;
+    els.placeList.innerHTML='';
+    const places=[...t.places].sort((a,b)=>a.createdAt-b.createdAt);
+    for(const p of places){
+      const li=document.createElement('li');
+      li.className='ttp-list-item';
+      li.innerHTML=`
+        <div class="ttp-title">${escapeHtml(p.name)}</div>
+        <div class="ttp-tiny">#${p.id} • ${formatLatLng(p.lat,p.lng)}</div>
+        <div class="ttp-muted">${escapeHtml(p.notes||'')}</div>
+        <div class="ttp-row" style="justify-content:flex-end; gap:6px;">
+          <button class="ttp-btn" data-view="${p.id}">View Map</button>
+          <button class="ttp-btn ttp-primary" data-edit="${p.id}">Edit</button>
+          <button class="ttp-btn ttp-danger" data-del="${p.id}">Delete</button>
         </div>
       `;
-      li.querySelector('[data-view]').addEventListener('click', () => openMapModal(it));
-      li.querySelector('[data-del]').addEventListener('click', () => {
-        if (confirm('Delete this itinerary?')) {
-          deleteItinerary(t.id, it.id);
-          renderItineraries();
-          renderTrips();
-        }
+      li.querySelector('[data-view]').addEventListener('click',()=>openMapModal(p));
+      li.querySelector('[data-del]').addEventListener('click',()=>{
+        if(confirm('Delete this place?')){ deletePlace(t.id, p.id); renderPlaces(); renderTrips(); }
       });
-      li.querySelector('[data-edit]').addEventListener('click', () => editItineraryInline(t.id, it));
-      els.itinList.appendChild(li);
+      li.querySelector('[data-edit]').addEventListener('click',()=>editPlaceInline(t.id,p));
+      els.placeList.appendChild(li);
     }
   }
 
-  function editItineraryInline(tripId, it) {
-    const container = document.createElement('div');
-    container.className = 'list-item';
-    container.innerHTML = `
-      <div class="title">Edit: ${escapeHtml(it.name)}</div>
-      <div class="row">
-        <input type="text" id="eName" value="${escapeAttr(it.name)}" placeholder="Itinerary name" />
+  function editPlaceInline(tripId, p){
+    const container=document.createElement('div');
+    container.className='ttp-list-item';
+    container.innerHTML=`
+      <div class="ttp-title">Edit: ${escapeHtml(p.name)}</div>
+      <div class="ttp-row"><input class="ttp-input" id="eName" value="${escapeAttr(p.name)}" placeholder="Place name"/></div>
+      <div class="ttp-row"><textarea class="ttp-textarea" id="eNotes" placeholder="Notes">${escapeHtml(p.notes||'')}</textarea></div>
+      <div class="ttp-row ttp-wrap">
+        <input class="ttp-input" id="eLoc" value="${escapeAttr(p.locationInput || formatLatLng(p.lat,p.lng))}" placeholder="Location (lat,lng / GMaps URL / place text)" />
+        <button class="ttp-btn" id="ePaste">Paste</button>
+        <button class="ttp-btn" id="eParse">Parse/Geocode</button>
       </div>
-      <div class="row">
-        <textarea id="eNotes" placeholder="Notes">${escapeHtml(it.notes || '')}</textarea>
-      </div>
-      <div class="row">
-        <input type="text" id="eLoc" value="${escapeAttr(it.locationInput || formatLatLng(it.lat, it.lng))}" placeholder="Location (lat,lng / GMaps URL / place text)" />
-        <button class="btn" id="eParse">Parse/Geocode</button>
-      </div>
-      <div id="eStatus" class="muted"></div>
-      <div id="eMap" class="map-container" style="display:none;"></div>
-      <div class="row" style="justify-content:flex-end;">
-        <button class="btn primary" id="eSave">Save</button>
-        <button class="btn" id="eCancel">Cancel</button>
+      <div id="eStatus" class="ttp-muted"></div>
+      <div id="eMap" class="ttp-map" style="display:none;"></div>
+      <div class="ttp-row ttp-right">
+        <button class="ttp-btn ttp-primary" id="eSave">Save</button>
+        <button class="ttp-btn" id="eCancel">Cancel</button>
       </div>
     `;
-    // Replace list with editor at the top
-    els.itinList.prepend(container);
+    els.placeList.prepend(container);
 
-    let editMap = null;
-    let newCoords = { lat: it.lat, lng: it.lng };
+    let newCoords = {lat:p.lat, lng:p.lng};
 
-    container.querySelector('#eParse').addEventListener('click', async () => {
-      const input = container.querySelector('#eLoc').value.trim();
-      setStatus(container.querySelector('#eStatus'), 'Parsing…');
-      try {
-        const res = await parseLocation(input);
-        newCoords = { lat: res.lat, lng: res.lng };
-        setStatus(container.querySelector('#eStatus'), `OK (${res.source}) → ${formatLatLng(res.lat, res.lng)}`);
-        showMap(container.querySelector('#eMap'), res.lat, res.lng, m => editMap = m);
-      } catch (e) {
-        setStatus(container.querySelector('#eStatus'), `Error: ${e.message}`, true);
+    async function doParse(inputEl, statusEl, mapEl){
+      setStatusInline(statusEl, 'Parsing…');
+      try{
+        const input = inputEl.value.trim();
+        const coords = await parseLocation(input);
+        newCoords = {lat:coords.lat, lng:coords.lng};
+        setStatusInline(statusEl, `OK (${coords.source}) → ${formatLatLng(coords.lat,coords.lng)}`);
+        showMap(mapEl, coords.lat, coords.lng);
+        mapEl.style.display='block';
+        // Autofill name from Google URL when empty or looks generic
+        if (/(google\.com\/maps|goo\.gl\/maps|maps\.app\.goo\.gl)/.test(input)) {
+          const nm = nameFromGoogleUrl(input);
+          const nameEl = container.querySelector('#eName');
+          if(nm && (!nameEl.value || /^Place \d+$/.test(nameEl.value))) nameEl.value = nm;
+        }
+      }catch(e){
+        setStatusInline(statusEl, `Error: ${e.message}`, true);
       }
-    });
+    }
+    function setStatusInline(el,msg,isErr=false){ el.textContent=msg; el.style.color=isErr?'var(--danger)':'var(--muted)'; }
 
-    container.querySelector('#eSave').addEventListener('click', () => {
-      const name = container.querySelector('#eName').value.trim();
+    container.querySelector('#eParse').addEventListener('click',()=>doParse(container.querySelector('#eLoc'), container.querySelector('#eStatus'), container.querySelector('#eMap')));
+    container.querySelector('#ePaste').addEventListener('click', async ()=>{
+      try{
+        const txt = await navigator.clipboard.readText();
+        container.querySelector('#eLoc').value = txt;
+        // also try to fill name immediately
+        const nm = nameFromGoogleUrl(txt);
+        if(nm && !container.querySelector('#eName').value) container.querySelector('#eName').value = nm;
+      }catch(e){ setStatusInline(container.querySelector('#eStatus'), 'Clipboard read failed (HTTPS required).', true); }
+    });
+    container.querySelector('#eSave').addEventListener('click',()=>{
+      const name = container.querySelector('#eName').value.trim() || p.name;
       const notes = container.querySelector('#eNotes').value;
       const locationInput = container.querySelector('#eLoc').value.trim();
-      updateItinerary(tripId, it.id, {
-        name: name || it.name,
-        notes,
-        lat: newCoords.lat,
-        lng: newCoords.lng,
-        locationInput
-      });
-      renderItineraries();
+      updatePlace(tripId, p.id, { name, notes, lat:newCoords.lat, lng:newCoords.lng, locationInput });
+      renderPlaces();
     });
-    container.querySelector('#eCancel').addEventListener('click', () => {
-      renderItineraries();
-    });
+    container.querySelector('#eCancel').addEventListener('click',()=>renderPlaces());
 
-    // Preload map
-    showMap(container.querySelector('#eMap'), it.lat, it.lng, m => editMap = m);
+    // preload map
+    showMap(container.querySelector('#eMap'), p.lat, p.lng);
+    container.querySelector('#eMap').style.display='block';
   }
 
-  function setStatus(el, msg, isError=false) {
-    el.textContent = msg;
-    el.style.color = isError ? 'var(--danger)' : 'var(--muted)';
-  }
-
-  // Map helpers
-  function showMap(el, lat, lng, onReady) {
-    el.style.display = 'block';
-    // Reset container
-    el.innerHTML = '';
-    const map = L.map(el).setView([lat, lng], 14);
-    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-      maxZoom: 19,
-      attribution: '&copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors'
-    }).addTo(map);
-    L.marker([lat, lng]).addTo(map);
-    setTimeout(()=> map.invalidateSize(), 100); // fix hidden container sizing
-    if (onReady) onReady(map);
-    return map;
-  }
-
-  // Modal map
-  let modalMapInstance = null;
-  function openMapModal(it) {
-    els.mapModalTitle.textContent = `${it.name} — ${formatLatLng(it.lat, it.lng)}`;
+  // ---------- Modal ----------
+  let modalMap = null;
+  function openMapModal(p){
+    els.mapModalTitle.textContent = `${p.name} — ${formatLatLng(p.lat,p.lng)}`;
     els.mapModal.classList.add('active');
-    if (modalMapInstance) { modalMapInstance.remove(); modalMapInstance = null; }
-    modalMapInstance = showMap(els.modalMap, it.lat, it.lng);
-    els.mapModal.setAttribute('aria-hidden', 'false');
+    els.mapModal.setAttribute('aria-hidden','false');
+    els.modalMap.innerHTML='';
+    modalMap = showMap(els.modalMap, p.lat, p.lng);
   }
-  function closeMapModal() {
+  function closeMapModal(){
     els.mapModal.classList.remove('active');
-    els.mapModal.setAttribute('aria-hidden', 'true');
+    els.mapModal.setAttribute('aria-hidden','true');
   }
 
-  // -----------------------------
-  // Event listeners
-  // -----------------------------
-  els.addTripBtn.addEventListener('click', () => {
+  // ---------- Events ----------
+  els.addTripBtn.addEventListener('click', ()=>{
     const name = els.newTripName.value.trim();
     const t = addTrip(name);
-    els.newTripName.value = '';
-    renderTrips();
-    openTrip(t.id);
+    els.newTripName.value='';
+    renderTrips(); openTrip(t.id);
   });
 
-  els.saveTripBtn.addEventListener('click', () => {
+  els.saveTripBtn.addEventListener('click', ()=>{
     const name = els.tripNameInput.value.trim();
-    if (currentTripId && name) { updateTripName(currentTripId, name); renderTrips(); }
+    if(currentTripId && name) { updateTripName(currentTripId, name); renderTrips(); }
   });
 
-  els.deleteTripBtn.addEventListener('click', () => {
-    if (!currentTripId) return;
-    const t = getTrip(currentTripId);
-    if (!t) return;
-    if (confirm(`Delete "${t.name}" and all its itineraries?`)) {
+  els.deleteTripBtn.addEventListener('click', ()=>{
+    if(!currentTripId) return;
+    const t=getTrip(currentTripId); if(!t) return;
+    if(confirm(`Delete "${t.name}" and all its places?`)){
       deleteTrip(currentTripId);
-      currentTripId = null;
-      els.tripView.style.display = 'none';
-      els.emptyState.style.display = 'block';
+      currentTripId=null;
+      els.tripView.style.display='none';
+      els.emptyState.style.display='block';
       renderTrips();
     }
   });
 
-  els.parseLocationBtn.addEventListener('click', async () => {
-    const input = els.itinLocation.value.trim();
-    if (!input) return;
-    els.parseStatus.textContent = 'Parsing…';
-    els.parseStatus.style.color = 'var(--muted)';
-    try {
-      const res = await parseLocation(input);
-      els.parseStatus.textContent = `OK (${res.source}) → ${formatLatLng(res.lat, res.lng)}`;
-      els.parseStatus.style.color = 'var(--muted)';
-      if (previewLeaflet && previewLeaflet.remove) previewLeaflet.remove();
-      previewLeaflet = showMap(els.previewMap, res.lat, res.lng);
-      els.previewMap.style.display = 'block';
-      // store temp on element dataset
-      els.previewMap.dataset.lat = res.lat;
-      els.previewMap.dataset.lng = res.lng;
-    } catch (e) {
-      els.parseStatus.textContent = `Error: ${e.message}`;
-      els.parseStatus.style.color = 'var(--danger)';
+  els.pasteBtn.addEventListener('click', async ()=>{
+    try{
+      const txt = await navigator.clipboard.readText();
+      els.placeLocation.value = txt;
+      // Try to auto-fill name from Google URL
+      const nm = nameFromGoogleUrl(txt);
+      if(nm && !els.placeName.value) els.placeName.value = nm;
+    }catch(e){
+      setStatus('Clipboard read failed (site must be HTTPS).', true);
     }
   });
 
-  els.addItinBtn.addEventListener('click', () => {
-    if (!currentTripId) return;
-    const name = els.itinName.value.trim();
-    const notes = els.itinNotes.value;
-    const locInput = els.itinLocation.value.trim();
+  els.parseLocationBtn.addEventListener('click', async ()=>{
+    const input = els.placeLocation.value.trim();
+    if(!input) return;
+    setStatus('Parsing…');
+    try{
+      const r = await parseLocation(input);
+      setStatus(`OK (${r.source}) → ${formatLatLng(r.lat,r.lng)}`);
+      previewMap && previewMap.remove && previewMap.remove();
+      previewMap = showMap(els.previewMap, r.lat, r.lng);
+      els.previewMap.style.display='block';
+      els.previewMap.dataset.lat = r.lat;
+      els.previewMap.dataset.lng = r.lng;
+
+      // auto-fill name when Maps URL and empty name
+      if (/(google\.com\/maps|goo\.gl\/maps|maps\.app\.goo\.gl)/.test(input)){
+        const nm = nameFromGoogleUrl(input);
+        if(nm && !els.placeName.value) els.placeName.value = nm;
+      }
+    }catch(e){
+      setStatus(`Error: ${e.message}`, true);
+    }
+  });
+
+  els.addPlaceBtn.addEventListener('click', ()=>{
+    if(!currentTripId) return;
+    const name = els.placeName.value.trim();
+    const notes = els.placeNotes.value;
+    const locInput = els.placeLocation.value.trim();
     const lat = parseFloat(els.previewMap.dataset.lat);
     const lng = parseFloat(els.previewMap.dataset.lng);
-    if (!isFinite(lat) || !isFinite(lng)) {
+    if(!isFinite(lat) || !isFinite(lng)){
       alert('Please Parse/Geocode the location first.');
       return;
     }
-    addItinerary(currentTripId, { name, notes, lat, lng, locationInput: locInput });
-    // reset form (keep notes optional)
-    els.itinName.value = '';
-    els.itinNotes.value = '';
-    els.itinLocation.value = '';
-    els.previewMap.style.display = 'none';
-    els.previewMap.dataset.lat = '';
-    els.previewMap.dataset.lng = '';
-    if (previewLeaflet && previewLeaflet.remove) previewLeaflet.remove();
-    previewLeaflet = null;
-    renderItineraries();
-    renderTrips();
+    addPlace(currentTripId, { name, notes, lat, lng, locationInput: locInput });
+    // reset
+    els.placeName.value=''; els.placeNotes.value=''; els.placeLocation.value='';
+    els.previewMap.style.display='none'; els.previewMap.dataset.lat=''; els.previewMap.dataset.lng='';
+    previewMap && previewMap.remove && previewMap.remove(); previewMap=null;
+    renderPlaces(); renderTrips();
   });
 
   els.closeModalBtn.addEventListener('click', closeMapModal);
-  els.mapModal.addEventListener('click', (e) => {
-    if (e.target === els.mapModal) closeMapModal();
-  });
+  els.mapModal.addEventListener('click', (e)=>{ if(e.target===els.mapModal) closeMapModal(); });
 
-  // -----------------------------
-  // Bootstrap
-  // -----------------------------
-  function escapeHtml(s) {
-    return String(s || '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-  }
-  function escapeAttr(s){ return escapeHtml(s).replace(/"/g, '&quot;'); }
-
-  function init() {
+  // ---------- Init ----------
+  function init(){
     loadDB();
     renderTrips();
-    if (db.trips.length === 0) {
-      els.emptyState.style.display = 'block';
-    } else {
-      // Open the most recent trip by default
-      const latest = [...db.trips].sort((a,b)=>b.createdAt - a.createdAt)[0];
+    if(db.trips.length===0){
+      els.emptyState.style.display='block';
+    }else{
+      const latest=[...db.trips].sort((a,b)=>b.createdAt-a.createdAt)[0];
       openTrip(latest.id);
     }
   }
   init();
-  </script>
+})();
+</script>
