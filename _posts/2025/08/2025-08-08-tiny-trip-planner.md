@@ -8,7 +8,7 @@ date: 2025-08-08 09:09:09 +0000
 cover: https://images.pexels.com/photos/12932264/pexels-photo-12932264.jpeg
 ---
 
-<!-- Tiny Trip Planner (scoped widget) -->
+<!-- Tiny Trip Planner (scoped widget) — visited + drag&drop -->
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
 
@@ -50,7 +50,7 @@ cover: https://images.pexels.com/photos/12932264/pexels-photo-12932264.jpeg
 
       <!-- All places map -->
       <div>
-        <div class="ttp-section-title">Trip map (all places)</div>
+        <div class="ttp-section-title">Trip map (all places in order)</div>
         <div id="ttp-allMap" class="ttp-map"></div>
       </div>
 
@@ -68,13 +68,18 @@ cover: https://images.pexels.com/photos/12932264/pexels-photo-12932264.jpeg
           <input class="ttp-input" id="ttp-placeName" type="text" placeholder="Place name (auto from Maps URL)" />
           <textarea class="ttp-textarea" id="ttp-placeNotes" placeholder="Short notes (what to do, timings, etc.)"></textarea>
 
+          <label class="ttp-check">
+            <input type="checkbox" id="ttp-placeVisited" />
+            <span>Visited</span>
+          </label>
+
           <div class="ttp-row ttp-right">
             <button id="ttp-addPlaceBtn" class="ttp-btn ttp-accent">Add Place</button>
           </div>
         </div>
 
         <div class="ttp-col">
-          <div class="ttp-section-title">Places</div>
+          <div class="ttp-section-title">Places (drag to reorder)</div>
           <ul id="ttp-placeList" class="ttp-list"></ul>
         </div>
       </div>
@@ -88,9 +93,9 @@ cover: https://images.pexels.com/photos/12932264/pexels-photo-12932264.jpeg
   .ttp * { box-sizing:border-box; }
   .ttp .ttp-main { color:var(--text); }
   .ttp .ttp-card { background:var(--panel2); border:1px solid var(--border); border-radius:12px; padding:12px; }
-  .ttp .ttp-edit-card { border-radius:16px; } /* rounder edit block */
+  .ttp .ttp-edit-card { border-radius:16px; }
   .ttp .ttp-topbar { background:var(--panel); border:1px solid var(--border); }
-  .ttp .ttp-gap { height:16px; } /* space between navbar and edit block */
+  .ttp .ttp-gap { height:16px; }
   .ttp .ttp-section-title { font-size:13px; color:var(--muted); text-transform:uppercase; letter-spacing:.08em; margin:4px 0 8px; }
   .ttp .ttp-row { display:flex; gap:8px; align-items:center; }
   .ttp .ttp-space-between { justify-content:space-between; }
@@ -113,17 +118,30 @@ cover: https://images.pexels.com/photos/12932264/pexels-photo-12932264.jpeg
   .ttp .ttp-spacer { height:8px; }
   .ttp .ttp-map { width:100%; height:300px; border-radius:12px; overflow:hidden; border:1px solid var(--border); }
   .ttp .ttp-list { list-style:none; padding:0; margin:0; display:grid; gap:8px; }
-  .ttp .ttp-list-item { border:1px solid var(--border); border-radius:10px; padding:10px; background:#13182b; display:grid; gap:6px; }
+  .ttp .ttp-list-item {
+    border:1px solid var(--border); border-radius:10px; padding:10px; background:#13182b; display:grid; gap:6px;
+  }
   .ttp .ttp-title { font-weight:600; color:var(--text); }
   .ttp .ttp-topbar-list { display:flex; gap:8px; flex-wrap:wrap; margin-top:10px; }
   .ttp .ttp-topbar-list .ttp-tripBtn { background:#13182b; border:1px solid var(--border); color:var(--text); padding:8px 10px; border-radius:10px; cursor:pointer; }
   .ttp .ttp-tripBtn.ttp-active { background:#123c33; border-color:#104235; color:var(--accent); }
+
+  /* visited styling */
+  .ttp .ttp-place-visited .ttp-title { text-decoration: line-through; opacity: .75; }
+  .ttp .ttp-chip { font-size:12px; padding:2px 6px; border:1px solid var(--border); border-radius:999px; color:var(--muted); }
+  .ttp .ttp-chip.visited { color:#a3e7c9; border-color:#225a4a; background:#0e2c25; }
+
+  /* drag handle */
+  .ttp .ttp-handle { cursor:grab; user-select:none; font-weight:700; padding:0 6px; }
+  .ttp .ttp-dragging { opacity:.6; }
+  .ttp .ttp-drop-target { outline: 2px dashed var(--accent); border-radius:10px; }
+  .ttp .ttp-check { display:flex; align-items:center; gap:8px; font-size:14px; color:var(--muted); }
 </style>
 
 <script>
 (function(){
   // ---------- Storage ----------
-  const LS_KEY = 'tiny_trip_planner_v3';
+  const LS_KEY = 'tiny_trip_planner_v4';
   const db = { trips: [], lastTripId: 0, lastPlaceId: 0 };
   const root = document.getElementById('ttp-root');
 
@@ -148,6 +166,7 @@ cover: https://images.pexels.com/photos/12932264/pexels-photo-12932264.jpeg
     placeLocation: getEl('ttp-placeLocation'),
     placeName: getEl('ttp-placeName'),
     placeNotes: getEl('ttp-placeNotes'),
+    placeVisited: getEl('ttp-placeVisited'),
     parseStatus: getEl('ttp-parseStatus'),
     previewMap: getEl('ttp-previewMap'),
     addPlaceBtn: getEl('ttp-addPlaceBtn'),
@@ -163,9 +182,17 @@ cover: https://images.pexels.com/photos/12932264/pexels-photo-12932264.jpeg
   function updateTripName(id, name){ const t=getTrip(id); if(t){ t.name=name; saveDB(); } }
   function deleteTrip(id){ const i=db.trips.findIndex(t=>t.id===id); if(i>-1){ db.trips.splice(i,1); saveDB(); } }
 
-  function addPlace(tripId, {name, notes, lat, lng, locationInput}){
+  function addPlace(tripId, {name, notes, lat, lng, locationInput, visited}){
     const t=getTrip(tripId); if(!t) return;
-    t.places.push({ id: nextPlaceId(), name: name || `Place ${db.lastPlaceId}`, notes: notes||'', lat, lng, locationInput: locationInput||'', createdAt: Date.now() });
+    t.places.push({
+      id: nextPlaceId(),
+      name: name || `Place ${db.lastPlaceId}`,
+      notes: notes||'',
+      lat, lng,
+      locationInput: locationInput||'',
+      visited: !!visited,
+      createdAt: Date.now()
+    });
     saveDB();
   }
   function updatePlace(tripId, placeId, patch){
@@ -177,6 +204,13 @@ cover: https://images.pexels.com/photos/12932264/pexels-photo-12932264.jpeg
     const t=getTrip(tripId); if(!t) return;
     const i=t.places.findIndex(x=>x.id===placeId);
     if(i>-1){ t.places.splice(i,1); saveDB(); }
+  }
+  function movePlace(tripId, fromIdx, toIdx){
+    const t=getTrip(tripId); if(!t) return;
+    if(fromIdx===toIdx || fromIdx<0 || toIdx<0 || fromIdx>=t.places.length || toIdx>t.places.length) return;
+    const [item] = t.places.splice(fromIdx,1);
+    t.places.splice(toIdx,0,item);
+    saveDB();
   }
 
   function formatLatLng(lat,lng){ return `${Number(lat).toFixed(6)}, ${Number(lng).toFixed(6)}`; }
@@ -200,7 +234,6 @@ cover: https://images.pexels.com/photos/12932264/pexels-photo-12932264.jpeg
     }catch(e){}
     return null;
   }
-
   function nameFromGoogleUrl(input){
     try{
       const u = new URL(input);
@@ -237,18 +270,12 @@ cover: https://images.pexels.com/photos/12932264/pexels-photo-12932264.jpeg
 
   async function parseLocation(input){
     input = (input||'').trim();
-
-    // 1) direct lat,lng
     const m = input.match(/^(-?\d+(\.\d+)?)\s*,\s*(-?\d+(\.\d+)?)$/);
     if(m) return {lat:parseFloat(m[1]), lng:parseFloat(m[3]), source:'latlng'};
-
-    // 2) Google Maps URL
     if (/(google\.com\/maps|goo\.gl\/maps|maps\.app\.goo\.gl)/.test(input)){
       const c = coordsFromGoogleUrl(input);
       if(c) return {...c, source:'google'};
     }
-
-    // 3) Nominatim (OpenStreetMap, free)
     const url = `https://nominatim.openstreetmap.org/search?format=jsonv2&q=${encodeURIComponent(input)}&limit=1`;
     const res = await fetch(url, { headers:{'Accept':'application/json'} });
     if(!res.ok) throw new Error('Geocoding failed');
@@ -260,11 +287,7 @@ cover: https://images.pexels.com/photos/12932264/pexels-photo-12932264.jpeg
     throw new Error('No results for that place');
   }
 
-  // Debounce utility
-  function debounce(fn, delay){
-    let t; return (...args)=>{ clearTimeout(t); t=setTimeout(()=>fn(...args), delay); };
-  }
-
+  function debounce(fn, delay){ let t; return (...a)=>{ clearTimeout(t); t=setTimeout(()=>fn(...a), delay); }; }
   const autoParse = debounce(async ()=>{
     const input = els.placeLocation.value.trim();
     if(!input){ els.previewMap.style.display='none'; setStatus(''); return; }
@@ -277,8 +300,6 @@ cover: https://images.pexels.com/photos/12932264/pexels-photo-12932264.jpeg
       els.previewMap.style.display='block';
       els.previewMap.dataset.lat = res.lat;
       els.previewMap.dataset.lng = res.lng;
-
-      // if Google URL, try auto-fill name (when empty)
       if (/(google\.com\/maps|goo\.gl\/maps|maps\.app\.goo\.gl)/.test(input)){
         const nm = nameFromGoogleUrl(input);
         if(nm && !els.placeName.value) els.placeName.value = nm;
@@ -303,8 +324,6 @@ cover: https://images.pexels.com/photos/12932264/pexels-photo-12932264.jpeg
 
   function renderAllPlacesMap(){
     const t=getTrip(currentTripId); if(!t) return;
-
-    // init map once
     if(!allMapLeaflet){
       allMapLeaflet = L.map(els.allMap).setView([0,0], 2);
       L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -312,17 +331,17 @@ cover: https://images.pexels.com/photos/12932264/pexels-photo-12932264.jpeg
       }).addTo(allMapLeaflet);
       setTimeout(()=>allMapLeaflet.invalidateSize(), 100);
     }
-
-    // clear markers/polyline
+    // clear
     allMapMarkers.forEach(m=>allMapLeaflet.removeLayer(m));
     allMapMarkers = [];
     if(allMapPolyline){ allMapLeaflet.removeLayer(allMapPolyline); allMapPolyline=null; }
 
-    const sorted = [...t.places].sort((a,b)=>a.createdAt-b.createdAt);
+    const ordered = [...t.places]; // already in user order
     const latlngs = [];
 
-    for(const p of sorted){
-      const marker = L.marker([p.lat, p.lng]).addTo(allMapLeaflet).bindPopup(`<strong>${escapeHtml(p.name)}</strong><br/>${formatLatLng(p.lat,p.lng)}`);
+    for(const p of ordered){
+      const marker = L.marker([p.lat, p.lng]).addTo(allMapLeaflet)
+        .bindPopup(`<strong>${escapeHtml(p.name)}</strong>${p.visited ? ' <span style="opacity:.7;">(visited)</span>' : ''}<br/>${formatLatLng(p.lat,p.lng)}`);
       allMapMarkers.push(marker);
       latlngs.push([p.lat, p.lng]);
     }
@@ -340,8 +359,6 @@ cover: https://images.pexels.com/photos/12932264/pexels-photo-12932264.jpeg
   }
 
   // ---------- UI ----------
-  let currentTripIdLocal = null;
-
   function renderTrips(){
     els.tripList.innerHTML='';
     const sorted=[...db.trips].sort((a,b)=>b.createdAt-a.createdAt);
@@ -370,41 +387,72 @@ cover: https://images.pexels.com/photos/12932264/pexels-photo-12932264.jpeg
     const t=getTrip(currentTripId);
     if(!t) return;
     els.placeList.innerHTML='';
-    const places=[...t.places].sort((a,b)=>a.createdAt-b.createdAt);
-    for(const p of places){
+    // Places are kept in current array order (drag & drop mutates it)
+    t.places.forEach((p, idx)=>{
       const li=document.createElement('li');
-      li.className='ttp-list-item';
+      li.className='ttp-list-item' + (p.visited ? ' ttp-place-visited' : '');
+      li.setAttribute('draggable','true');
+      li.dataset.index = idx;
+
       li.innerHTML=`
-        <div class="ttp-title">${escapeHtml(p.name)}</div>
-        <div class="ttp-muted">#${p.id} • ${formatLatLng(p.lat,p.lng)}</div>
-        <div class="ttp-muted">${escapeHtml(p.notes||'')}</div>
-        <div class="ttp-row" style="justify-content:flex-end; gap:6px;">
-          <button class="ttp-btn" data-view="${p.id}">View</button>
-          <button class="ttp-btn ttp-primary" data-edit="${p.id}">Edit</button>
-          <button class="ttp-btn ttp-danger" data-del="${p.id}">Delete</button>
+        <div class="ttp-row ttp-space-between">
+          <div class="ttp-row" style="gap:6px;">
+            <span class="ttp-handle" title="Drag">⋮⋮</span>
+            <div>
+              <div class="ttp-title">${escapeHtml(p.name)}</div>
+              <div class="ttp-muted">#${p.id} • ${formatLatLng(p.lat,p.lng)}</div>
+              <div class="ttp-muted">${escapeHtml(p.notes||'')}</div>
+            </div>
+          </div>
+          <div class="ttp-row">
+            <span class="ttp-chip ${p.visited ? 'visited':''}">${p.visited ? 'Visited' : 'Not visited'}</span>
+            <label class="ttp-check">
+              <input type="checkbox" ${p.visited?'checked':''} data-toggle="${p.id}" />
+              <span>Mark</span>
+            </label>
+            <button class="ttp-btn ttp-primary" data-edit="${p.id}">Edit</button>
+            <button class="ttp-btn ttp-danger" data-del="${p.id}">Delete</button>
+          </div>
         </div>
       `;
-      li.querySelector('[data-view]').addEventListener('click',()=>viewPlace(p));
+
+      // visited toggle
+      li.querySelector(`[data-toggle="${p.id}"]`).addEventListener('change',(e)=>{
+        updatePlace(t.id, p.id, { visited: e.target.checked });
+        renderPlaces();
+        renderAllPlacesMap();
+      });
+
+      // delete
       li.querySelector('[data-del]').addEventListener('click',()=>{
         if(confirm('Delete this place?')){ deletePlace(t.id, p.id); renderPlaces(); renderTrips(); renderAllPlacesMap(); }
       });
-      li.querySelector('[data-edit]').addEventListener('click',()=>editPlaceInline(t.id,p));
-      els.placeList.appendChild(li);
-    }
-  }
 
-  function viewPlace(p){
-    // Center main “all places” map on this marker & open popup
-    if(allMapLeaflet){
-      allMapLeaflet.setView([p.lat,p.lng], 15);
-      // open the corresponding popup (simple approach: open nearest marker)
-      let nearest=null, min=Infinity;
-      for(const m of allMapMarkers){
-        const d = allMapLeaflet.distance(m.getLatLng(), L.latLng(p.lat,p.lng));
-        if(d<min){ min=d; nearest=m; }
-      }
-      nearest && nearest.openPopup();
-    }
+      // edit inline
+      li.querySelector('[data-edit]').addEventListener('click',()=>editPlaceInline(t.id,p));
+
+      // drag & drop events
+      li.addEventListener('dragstart', (ev)=>{
+        ev.dataTransfer.setData('text/plain', String(idx));
+        li.classList.add('ttp-dragging');
+      });
+      li.addEventListener('dragend', ()=> li.classList.remove('ttp-dragging'));
+      li.addEventListener('dragover', (ev)=>{ ev.preventDefault(); li.classList.add('ttp-drop-target'); });
+      li.addEventListener('dragleave', ()=> li.classList.remove('ttp-drop-target'));
+      li.addEventListener('drop', (ev)=>{
+        ev.preventDefault();
+        li.classList.remove('ttp-drop-target');
+        const from = parseInt(ev.dataTransfer.getData('text/plain'),10);
+        const to = parseInt(li.dataset.index,10);
+        if(Number.isInteger(from) && Number.isInteger(to)){
+          movePlace(t.id, from, to + (from < to ? 1 : 0)); // insert after when dragging downward
+          renderPlaces();
+          renderAllPlacesMap();
+        }
+      });
+
+      els.placeList.appendChild(li);
+    });
   }
 
   function editPlaceInline(tripId, p){
@@ -421,6 +469,11 @@ cover: https://images.pexels.com/photos/12932264/pexels-photo-12932264.jpeg
       <input class="ttp-input" id="eName" value="${escapeAttr(p.name)}" placeholder="Place name"/>
       <textarea class="ttp-textarea" id="eNotes" placeholder="Notes">${escapeHtml(p.notes||'')}</textarea>
 
+      <label class="ttp-check">
+        <input type="checkbox" id="eVisited" ${p.visited?'checked':''} />
+        <span>Visited</span>
+      </label>
+
       <div class="ttp-row ttp-right">
         <button class="ttp-btn ttp-primary" id="eSave">Save</button>
         <button class="ttp-btn" id="eCancel">Cancel</button>
@@ -432,6 +485,7 @@ cover: https://images.pexels.com/photos/12932264/pexels-photo-12932264.jpeg
 
     const eLoc = container.querySelector('#eLoc');
     const eName = container.querySelector('#eName');
+    const eVisited = container.querySelector('#eVisited');
     const eStatus = container.querySelector('#eStatus');
     const eMap = container.querySelector('#eMap');
 
@@ -464,7 +518,8 @@ cover: https://images.pexels.com/photos/12932264/pexels-photo-12932264.jpeg
       const name = eName.value.trim() || p.name;
       const notes = container.querySelector('#eNotes').value;
       const locationInput = eLoc.value.trim();
-      updatePlace(tripId, p.id, { name, notes, lat:newCoords.lat, lng:newCoords.lng, locationInput });
+      const visited = !!eVisited.checked;
+      updatePlace(tripId, p.id, { name, notes, lat:newCoords.lat, lng:newCoords.lng, locationInput, visited });
       renderPlaces();
       renderAllPlacesMap();
     });
@@ -506,13 +561,14 @@ cover: https://images.pexels.com/photos/12932264/pexels-photo-12932264.jpeg
     const locInput = els.placeLocation.value.trim();
     const lat = parseFloat(els.previewMap.dataset.lat);
     const lng = parseFloat(els.previewMap.dataset.lng);
+    const visited = !!els.placeVisited.checked;
     if(!isFinite(lat) || !isFinite(lng)){
       alert('Type a location (URL / text / lat,lng) and wait for it to resolve first.');
       return;
     }
-    addPlace(currentTripId, { name, notes, lat, lng, locationInput: locInput });
+    addPlace(currentTripId, { name, notes, lat, lng, locationInput: locInput, visited });
     // reset
-    els.placeName.value=''; els.placeNotes.value=''; els.placeLocation.value='';
+    els.placeName.value=''; els.placeNotes.value=''; els.placeLocation.value=''; els.placeVisited.checked=false;
     els.previewMap.style.display='none'; els.previewMap.dataset.lat=''; els.previewMap.dataset.lng='';
     if(previewLeaflet && previewLeaflet.remove) previewLeaflet.remove(); previewLeaflet=null;
     renderPlaces(); renderTrips(); renderAllPlacesMap();
