@@ -8,9 +8,9 @@ date: 2025-08-08 09:09:09 +0000
 cover: https://images.pexels.com/photos/12932264/pexels-photo-12932264.jpeg
 ---
 
-<!-- Tiny Trip Planner (scoped widget) — pin markers + clickable visited chip + map filters -->
-<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
-<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+<!-- Tiny Trip Planner (scoped widget) — default Leaflet pins + visited chip + filters + drag/drop -->
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin></script>
 
 <div class="ttp" id="ttp-root">
   <!-- Top nav -->
@@ -155,21 +155,13 @@ cover: https://images.pexels.com/photos/12932264/pexels-photo-12932264.jpeg
   .ttp .ttp-chip-btn.visited { color:#a3e7c9; border-color:#225a4a; background:#0e2c25; }
   .ttp .ttp-chip-icon { font-size:14px; line-height:1; }
   .ttp .ttp-place-visited .ttp-title { text-decoration: line-through; opacity:.75; }
-
-  /* CSS pin markers for Leaflet DivIcon */
-  .ttp .ttp-pin { position: relative; width:24px; height:24px; border-radius:50%;
-    border:2px solid rgba(0,0,0,.25); box-shadow: 0 1px 3px rgba(0,0,0,.35); }
-  .ttp .ttp-pin::after{ content:""; position:absolute; left:50%; transform:translateX(-50%) rotate(45deg);
-    bottom:-7px; width:14px; height:14px; background:inherit; border-left:2px solid rgba(0,0,0,.25);
-    border-bottom:2px solid rgba(0,0,0,.25); border-radius:0 0 2px 0; }
-  .ttp .ttp-pin-blue { background:#3498db; }
-  .ttp .ttp-pin-green { background:#2ecc71; }
+  .ttp .ttp-check { display:flex; align-items:center; gap:8px; font-size:14px; color:var(--muted); }
 </style>
 
 <script>
 (function(){
   // ---------- Storage ----------
-  const LS_KEY = 'tiny_trip_planner_v7';
+  const LS_KEY = 'tiny_trip_planner_v8';
   const db = { trips: [], lastTripId: 0, lastPlaceId: 0 };
   const root = document.getElementById('ttp-root');
 
@@ -245,7 +237,7 @@ cover: https://images.pexels.com/photos/12932264/pexels-photo-12932264.jpeg
   }
 
   function formatLatLng(lat,lng){ return `${Number(lat).toFixed(6)}, ${Number(lng).toFixed(6)}`; }
-  function escapeHtml(s){ return String(s||'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c])); }
+  function escapeHtml(s){ return String(s||'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&gt;','>':'&gt;','"':'&quot;'}[c])); }
   function escapeAttr(s){ return escapeHtml(s).replace(/"/g,'&quot;'); }
 
   // ---------- Google URL parsers ----------
@@ -341,12 +333,21 @@ cover: https://images.pexels.com/photos/12932264/pexels-photo-12932264.jpeg
     }
   }, 400);
 
-  // ---------- Map helpers ----------
-  const pinIcon = (visited)=> L.divIcon({
-    className: 'ttp-pin ' + (visited ? 'ttp-pin-green' : 'ttp-pin-blue'),
-    iconSize: [24,36], iconAnchor:[12,36], popupAnchor:[0,-28]
+  // ---------- Default Leaflet pin icons (blue/green) ----------
+  const defaultShadowUrl = 'https://unpkg.com/leaflet@1.9.4/dist/images/marker-shadow.png';
+  const visitedIcon = new L.Icon({
+    iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-green.png',
+    shadowUrl: defaultShadowUrl,
+    iconSize: [25,41], iconAnchor: [12,41], popupAnchor: [1,-34], shadowSize: [41,41]
   });
+  const unvisitedIcon = new L.Icon({
+    iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-blue.png',
+    shadowUrl: defaultShadowUrl,
+    iconSize: [25,41], iconAnchor: [12,41], popupAnchor: [1,-34], shadowSize: [41,41]
+  });
+  function pinIcon(visited){ return visited ? visitedIcon : unvisitedIcon; }
 
+  // ---------- Map helpers ----------
   function showSinglePin(el, lat, lng, visited){
     el.innerHTML='';
     const map = L.map(el).setView([lat,lng], 14);
@@ -375,10 +376,8 @@ cover: https://images.pexels.com/photos/12932264/pexels-photo-12932264.jpeg
     const showVisited = els.filterVisited.checked;
     const showUnvisited = els.filterUnvisited.checked;
 
-    // filter for map, but keep trip order
     const ordered = getTrip(currentTripId).places.slice();
     const visible = ordered.filter(p => (p.visited && showVisited) || (!p.visited && showUnvisited));
-
     const latlngs = [];
 
     for(const p of visible){
@@ -455,9 +454,8 @@ cover: https://images.pexels.com/photos/12932264/pexels-photo-12932264.jpeg
       `;
 
       // clickable visited chip
-      li.querySelector(`[data-chip="${p.id}"]`).addEventListener('click', (e)=>{
-        const newVal = !p.visited;
-        updatePlace(t.id, p.id, { visited: newVal });
+      li.querySelector(`[data-chip="${p.id}"]`).addEventListener('click', ()=>{
+        updatePlace(t.id, p.id, { visited: !p.visited });
         renderPlaces();
         renderAllPlacesMap();
       });
@@ -470,7 +468,7 @@ cover: https://images.pexels.com/photos/12932264/pexels-photo-12932264.jpeg
       // edit inline
       li.querySelector('[data-edit]').addEventListener('click',()=>editPlaceInline(t.id,p));
 
-      // drag & drop — start from handle, drop on list items
+      // drag & drop — handle initiates drag, items accept drop
       const handle = li.querySelector(`[data-handle="${idx}"]`);
       handle.addEventListener('dragstart', (ev)=>{
         ev.dataTransfer.setData('text/plain', String(idx));
@@ -533,8 +531,7 @@ cover: https://images.pexels.com/photos/12932264/pexels-photo-12932264.jpeg
         const res = await parseLocation(input);
         newCoords = {lat:res.lat, lng:res.lng};
         setStatusInline(`OK (${res.source}) → ${formatLatLng(res.lat,res.lng)}`);
-        // show pin preview (blue, not-visited assumption)
-        showSinglePin(eMap, res.lat, res.lng, false); eMap.style.display='block';
+        showSinglePin(eMap, res.lat, res.lng, p.visited); eMap.style.display='block';
         if (/(google\.com\/maps|goo\.gl\/maps|maps\.app\.goo\.gl)/.test(input)){
           const nm = nameFromGoogleUrl(input);
           if(nm && (!eName.value || /^Place \d+$/.test(eName.value))) eName.value = nm;
@@ -613,23 +610,15 @@ cover: https://images.pexels.com/photos/12932264/pexels-photo-12932264.jpeg
   els.filterUnvisited.addEventListener('change', renderAllPlacesMap);
 
   // ---------- Init ----------
-  function renderTrips(){ /* filled later by openTrip as needed */ }
   function init(){
     loadDB();
     // render trips
-    els.tripList.innerHTML='';
-    const sorted=[...db.trips].sort((a,b)=>b.createdAt-a.createdAt);
-    for(const t of sorted){
-      const btn=document.createElement('button');
-      btn.className='ttp-tripBtn';
-      btn.textContent = `${t.name} (#${t.id})`;
-      btn.addEventListener('click',()=>openTrip(t.id));
-      els.tripList.appendChild(btn);
-    }
+    renderTrips();
     if(db.trips.length===0){
       els.emptyState.style.display='block';
     }else{
-      openTrip(sorted[0].id);
+      const latest=[...db.trips].sort((a,b)=>b.createdAt-a.createdAt)[0];
+      openTrip(latest.id);
     }
   }
   init();
