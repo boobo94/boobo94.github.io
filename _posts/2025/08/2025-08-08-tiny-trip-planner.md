@@ -5,7 +5,7 @@ summary: This is your tiny trip planner fully GDPR compliant, the data are store
 categories: tools
 tags: js trip app
 date: 2025-08-08 09:09:09 +0000
-cover: https://images.pexels.com/photos/3769146/pexels-photo-3769146.jpeg
+cover: https://images.pexels.com/photos/12932264/pexels-photo-12932264.jpeg
 ---
 
 <!-- Tiny Trip Planner (scoped widget) -->
