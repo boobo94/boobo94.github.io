@@ -23,7 +23,6 @@ cover: https://example.com/img.png
     }
 </style>
 
-<h1>Internet Speed Test</h1>
 <button id="test" onclick="startTest()">Start Test</button>
 
 <div id="result"></div>
