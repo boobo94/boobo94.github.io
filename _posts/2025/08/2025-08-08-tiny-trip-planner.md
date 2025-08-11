@@ -8,12 +8,12 @@ date: 2025-08-08 09:09:09 +0000
 cover: https://images.pexels.com/photos/12932264/pexels-photo-12932264.jpeg
 ---
 
-<!-- Tiny Trip Planner (scoped widget) — visited + drag&drop -->
+<!-- Tiny Trip Planner (scoped widget) — actions grid + colored markers -->
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
 
 <div class="ttp" id="ttp-root">
-  <!-- Trips navbar (top) -->
+  <!-- Top nav -->
   <div class="ttp-topbar ttp-card">
     <div class="ttp-row ttp-wrap">
       <input class="ttp-input" id="ttp-newTripName" type="text" placeholder="Trip name (e.g., Athens – 5 days)" />
@@ -24,7 +24,7 @@ cover: https://images.pexels.com/photos/12932264/pexels-photo-12932264.jpeg
 
   <div class="ttp-gap"></div>
 
-  <!-- Trip content (bottom) -->
+  <!-- Content -->
   <div class="ttp-main">
     <div id="ttp-emptyState" class="ttp-card" style="display:none;">
       <div class="ttp-section-title">No trip selected</div>
@@ -50,7 +50,7 @@ cover: https://images.pexels.com/photos/12932264/pexels-photo-12932264.jpeg
 
       <!-- All places map -->
       <div>
-        <div class="ttp-section-title">Trip map (all places in order)</div>
+        <div class="ttp-section-title">Trip map (visited = green, not visited = blue)</div>
         <div id="ttp-allMap" class="ttp-map"></div>
       </div>
 
@@ -118,30 +118,30 @@ cover: https://images.pexels.com/photos/12932264/pexels-photo-12932264.jpeg
   .ttp .ttp-spacer { height:8px; }
   .ttp .ttp-map { width:100%; height:300px; border-radius:12px; overflow:hidden; border:1px solid var(--border); }
   .ttp .ttp-list { list-style:none; padding:0; margin:0; display:grid; gap:8px; }
-  .ttp .ttp-list-item {
-    border:1px solid var(--border); border-radius:10px; padding:10px; background:#13182b; display:grid; gap:6px;
-  }
+  .ttp .ttp-list-item { border:1px solid var(--border); border-radius:10px; padding:10px; background:#13182b; display:grid; gap:8px; }
   .ttp .ttp-title { font-weight:600; color:var(--text); }
+
+  /* chip + visited state */
+  .ttp .ttp-chip { font-size:12px; padding:2px 6px; border:1px solid var(--border); border-radius:999px; color:var(--muted); }
+  .ttp .ttp-chip.visited { color:#a3e7c9; border-color:#225a4a; background:#0e2c25; }
+  .ttp .ttp-place-visited .ttp-title { text-decoration: line-through; opacity:.75; }
+
+  /* actions grid */
+  .ttp .ttp-actions { display:grid; grid-template-columns:1fr 1fr; gap:8px; }
+  .ttp .ttp-handle-btn { cursor:grab; }
+  .ttp .ttp-dragging { opacity:.6; }
+  .ttp .ttp-drop-target { outline:2px dashed var(--accent); border-radius:10px; }
+
   .ttp .ttp-topbar-list { display:flex; gap:8px; flex-wrap:wrap; margin-top:10px; }
   .ttp .ttp-topbar-list .ttp-tripBtn { background:#13182b; border:1px solid var(--border); color:var(--text); padding:8px 10px; border-radius:10px; cursor:pointer; }
   .ttp .ttp-tripBtn.ttp-active { background:#123c33; border-color:#104235; color:var(--accent); }
-
-  /* visited styling */
-  .ttp .ttp-place-visited .ttp-title { text-decoration: line-through; opacity: .75; }
-  .ttp .ttp-chip { font-size:12px; padding:2px 6px; border:1px solid var(--border); border-radius:999px; color:var(--muted); }
-  .ttp .ttp-chip.visited { color:#a3e7c9; border-color:#225a4a; background:#0e2c25; }
-
-  /* drag handle */
-  .ttp .ttp-handle { cursor:grab; user-select:none; font-weight:700; padding:0 6px; }
-  .ttp .ttp-dragging { opacity:.6; }
-  .ttp .ttp-drop-target { outline: 2px dashed var(--accent); border-radius:10px; }
   .ttp .ttp-check { display:flex; align-items:center; gap:8px; font-size:14px; color:var(--muted); }
 </style>
 
 <script>
 (function(){
   // ---------- Storage ----------
-  const LS_KEY = 'tiny_trip_planner_v4';
+  const LS_KEY = 'tiny_trip_planner_v5';
   const db = { trips: [], lastTripId: 0, lastPlaceId: 0 };
   const root = document.getElementById('ttp-root');
 
@@ -322,6 +322,8 @@ cover: https://images.pexels.com/photos/12932264/pexels-photo-12932264.jpeg
     return map;
   }
 
+  function markerColorFor(visited){ return visited ? '#2ecc71' : '#3498db'; } // green / blue
+
   function renderAllPlacesMap(){
     const t=getTrip(currentTripId); if(!t) return;
     if(!allMapLeaflet){
@@ -336,14 +338,21 @@ cover: https://images.pexels.com/photos/12932264/pexels-photo-12932264.jpeg
     allMapMarkers = [];
     if(allMapPolyline){ allMapLeaflet.removeLayer(allMapPolyline); allMapPolyline=null; }
 
-    const ordered = [...t.places]; // already in user order
+    const ordered = [...t.places];
     const latlngs = [];
 
     for(const p of ordered){
-      const marker = L.marker([p.lat, p.lng]).addTo(allMapLeaflet)
-        .bindPopup(`<strong>${escapeHtml(p.name)}</strong>${p.visited ? ' <span style="opacity:.7;">(visited)</span>' : ''}<br/>${formatLatLng(p.lat,p.lng)}`);
-      allMapMarkers.push(marker);
-      latlngs.push([p.lat, p.lng]);
+      const latlng = [p.lat, p.lng];
+      const cm = L.circleMarker(latlng, {
+        radius: 7,
+        weight: 2,
+        color: markerColorFor(p.visited),
+        fillColor: markerColorFor(p.visited),
+        fillOpacity: 0.8
+      }).addTo(allMapLeaflet);
+      cm.bindPopup(`<strong>${escapeHtml(p.name)}</strong>${p.visited ? ' <span style="opacity:.7;">(visited)</span>' : ''}<br/>${formatLatLng(p.lat,p.lng)}`);
+      allMapMarkers.push(cm);
+      latlngs.push(latlng);
     }
 
     if(latlngs.length >= 2){
@@ -387,32 +396,32 @@ cover: https://images.pexels.com/photos/12932264/pexels-photo-12932264.jpeg
     const t=getTrip(currentTripId);
     if(!t) return;
     els.placeList.innerHTML='';
-    // Places are kept in current array order (drag & drop mutates it)
+
     t.places.forEach((p, idx)=>{
       const li=document.createElement('li');
       li.className='ttp-list-item' + (p.visited ? ' ttp-place-visited' : '');
-      li.setAttribute('draggable','true');
       li.dataset.index = idx;
 
       li.innerHTML=`
-        <div class="ttp-row ttp-space-between">
-          <div class="ttp-row" style="gap:6px;">
-            <span class="ttp-handle" title="Drag">⋮⋮</span>
-            <div>
-              <div class="ttp-title">${escapeHtml(p.name)}</div>
-              <div class="ttp-muted">#${p.id} • ${formatLatLng(p.lat,p.lng)}</div>
-              <div class="ttp-muted">${escapeHtml(p.notes||'')}</div>
-            </div>
-          </div>
-          <div class="ttp-row">
-            <span class="ttp-chip ${p.visited ? 'visited':''}">${p.visited ? 'Visited' : 'Not visited'}</span>
-            <label class="ttp-check">
-              <input type="checkbox" ${p.visited?'checked':''} data-toggle="${p.id}" />
-              <span>Mark</span>
-            </label>
-            <button class="ttp-btn ttp-primary" data-edit="${p.id}">Edit</button>
-            <button class="ttp-btn ttp-danger" data-del="${p.id}">Delete</button>
-          </div>
+        <div>
+          <div class="ttp-title">${escapeHtml(p.name)}</div>
+          <div class="ttp-muted">#${p.id} • ${formatLatLng(p.lat,p.lng)}</div>
+          <div class="ttp-muted">${escapeHtml(p.notes||'')}</div>
+        </div>
+
+        <div class="ttp-actions">
+          <button class="ttp-btn ttp-primary" data-edit="${p.id}">✏️ Edit</button>
+          <button class="ttp-btn ttp-danger" data-del="${p.id}">🗑️ Delete</button>
+
+          <button class="ttp-btn ttp-handle-btn" draggable="true" data-handle="${idx}" title="Drag to reorder">↕️ Reorder</button>
+          <label class="ttp-check" style="justify-content:flex-start;">
+            <input type="checkbox" ${p.visited?'checked':''} data-toggle="${p.id}" />
+            <span>Visited</span>
+          </label>
+        </div>
+
+        <div class="ttp-row" style="justify-content:flex-end;">
+          <span class="ttp-chip ${p.visited ? 'visited':''}">${p.visited ? 'Visited' : 'Not visited'}</span>
         </div>
       `;
 
@@ -431,12 +440,13 @@ cover: https://images.pexels.com/photos/12932264/pexels-photo-12932264.jpeg
       // edit inline
       li.querySelector('[data-edit]').addEventListener('click',()=>editPlaceInline(t.id,p));
 
-      // drag & drop events
-      li.addEventListener('dragstart', (ev)=>{
+      // drag & drop — start from handle, drop on list items
+      const handle = li.querySelector(`[data-handle="${idx}"]`);
+      handle.addEventListener('dragstart', (ev)=>{
         ev.dataTransfer.setData('text/plain', String(idx));
         li.classList.add('ttp-dragging');
       });
-      li.addEventListener('dragend', ()=> li.classList.remove('ttp-dragging'));
+      handle.addEventListener('dragend', ()=> li.classList.remove('ttp-dragging'));
       li.addEventListener('dragover', (ev)=>{ ev.preventDefault(); li.classList.add('ttp-drop-target'); });
       li.addEventListener('dragleave', ()=> li.classList.remove('ttp-drop-target'));
       li.addEventListener('drop', (ev)=>{
@@ -445,7 +455,7 @@ cover: https://images.pexels.com/photos/12932264/pexels-photo-12932264.jpeg
         const from = parseInt(ev.dataTransfer.getData('text/plain'),10);
         const to = parseInt(li.dataset.index,10);
         if(Number.isInteger(from) && Number.isInteger(to)){
-          movePlace(t.id, from, to + (from < to ? 1 : 0)); // insert after when dragging downward
+          movePlace(t.id, from, to + (from < to ? 1 : 0));
           renderPlaces();
           renderAllPlacesMap();
         }
@@ -511,7 +521,6 @@ cover: https://images.pexels.com/photos/12932264/pexels-photo-12932264.jpeg
     }, 400);
 
     eLoc.addEventListener('input', doAuto);
-    // initial map
     showMap(eMap, p.lat, p.lng); eMap.style.display='block';
 
     container.querySelector('#eSave').addEventListener('click',()=>{
