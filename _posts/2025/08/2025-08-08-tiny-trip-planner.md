@@ -8,15 +8,15 @@ date: 2025-08-08 09:09:09 +0000
 cover: https://images.pexels.com/photos/12932264/pexels-photo-12932264.jpeg
 ---
 
-<!-- Tiny Trip Planner (scoped widget) — actions grid + colored markers -->
-<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+<!-- Tiny Trip Planner (scoped widget) — pin markers + clickable visited chip + map filters -->
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
 
 <div class="ttp" id="ttp-root">
   <!-- Top nav -->
   <div class="ttp-topbar ttp-card">
     <div class="ttp-row ttp-wrap">
-      <input class="ttp-input" id="ttp-newTripName" type="text" placeholder="Trip name (e.g., Athens – 5 days)" />
+      <input class="ttp-input" id="ttp-newTripName" type="text" placeholder="Trip name (e.g., Athens – 5 days)">
       <button class="ttp-btn ttp-accent" id="ttp-addTripBtn">Add Trip</button>
     </div>
     <div class="ttp-topbar-list" id="ttp-tripList"></div>
@@ -36,7 +36,7 @@ cover: https://images.pexels.com/photos/12932264/pexels-photo-12932264.jpeg
         <div>
           <div class="ttp-section-title">Trip</div>
           <div class="ttp-row ttp-align-center ttp-gap-12">
-            <input class="ttp-input" id="ttp-tripNameInput" type="text" placeholder="Trip name" />
+            <input class="ttp-input" id="ttp-tripNameInput" type="text" placeholder="Trip name">
             <span id="ttp-tripIdBadge" class="ttp-kbd"></span>
           </div>
         </div>
@@ -48,9 +48,21 @@ cover: https://images.pexels.com/photos/12932264/pexels-photo-12932264.jpeg
 
       <div class="ttp-spacer"></div>
 
+      <!-- Map filters -->
+      <div class="ttp-row ttp-wrap">
+        <label class="ttp-check">
+          <input type="checkbox" id="ttp-filterVisited" checked>
+          <span>Show visited</span>
+        </label>
+        <label class="ttp-check">
+          <input type="checkbox" id="ttp-filterUnvisited" checked>
+          <span>Show unvisited</span>
+        </label>
+      </div>
+
       <!-- All places map -->
       <div>
-        <div class="ttp-section-title">Trip map (visited = green, not visited = blue)</div>
+        <div class="ttp-section-title">Trip map (Visited = green pin, Not visited = blue pin)</div>
         <div id="ttp-allMap" class="ttp-map"></div>
       </div>
 
@@ -61,15 +73,15 @@ cover: https://images.pexels.com/photos/12932264/pexels-photo-12932264.jpeg
           <div class="ttp-section-title">Add place</div>
 
           <!-- Location first; auto-parse on input -->
-          <input class="ttp-input" id="ttp-placeLocation" type="text" placeholder="Location (lat,lng • Google Maps URL • or place text)" />
+          <input class="ttp-input" id="ttp-placeLocation" type="text" placeholder="Location (lat,lng • Google Maps URL • or place text)">
           <div id="ttp-parseStatus" class="ttp-muted"></div>
           <div id="ttp-previewMap" class="ttp-map" style="display:none;"></div>
 
-          <input class="ttp-input" id="ttp-placeName" type="text" placeholder="Place name (auto from Maps URL)" />
+          <input class="ttp-input" id="ttp-placeName" type="text" placeholder="Place name (auto from Maps URL)">
           <textarea class="ttp-textarea" id="ttp-placeNotes" placeholder="Short notes (what to do, timings, etc.)"></textarea>
 
           <label class="ttp-check">
-            <input type="checkbox" id="ttp-placeVisited" />
+            <input type="checkbox" id="ttp-placeVisited">
             <span>Visited</span>
           </label>
 
@@ -121,11 +133,6 @@ cover: https://images.pexels.com/photos/12932264/pexels-photo-12932264.jpeg
   .ttp .ttp-list-item { border:1px solid var(--border); border-radius:10px; padding:10px; background:#13182b; display:grid; gap:8px; }
   .ttp .ttp-title { font-weight:600; color:var(--text); }
 
-  /* chip + visited state */
-  .ttp .ttp-chip { font-size:12px; padding:2px 6px; border:1px solid var(--border); border-radius:999px; color:var(--muted); }
-  .ttp .ttp-chip.visited { color:#a3e7c9; border-color:#225a4a; background:#0e2c25; }
-  .ttp .ttp-place-visited .ttp-title { text-decoration: line-through; opacity:.75; }
-
   /* actions grid */
   .ttp .ttp-actions { display:grid; grid-template-columns:1fr 1fr; gap:8px; }
   .ttp .ttp-handle-btn { cursor:grab; }
@@ -135,13 +142,34 @@ cover: https://images.pexels.com/photos/12932264/pexels-photo-12932264.jpeg
   .ttp .ttp-topbar-list { display:flex; gap:8px; flex-wrap:wrap; margin-top:10px; }
   .ttp .ttp-topbar-list .ttp-tripBtn { background:#13182b; border:1px solid var(--border); color:var(--text); padding:8px 10px; border-radius:10px; cursor:pointer; }
   .ttp .ttp-tripBtn.ttp-active { background:#123c33; border-color:#104235; color:var(--accent); }
-  .ttp .ttp-check { display:flex; align-items:center; gap:8px; font-size:14px; color:var(--muted); }
+
+  /* clickable visited chip */
+  .ttp .ttp-chip-btn {
+    display:inline-flex; align-items:center; gap:6px;
+    font-size:12px; padding:6px 10px; border-radius:999px; border:1px solid var(--border);
+    background:#0d1020; color:var(--muted); cursor:pointer; user-select:none;
+    justify-content:center; text-align:center;
+  }
+  .ttp .ttp-chip-btn:hover { filter:brightness(1.1); }
+  .ttp .ttp-chip-btn:active { transform: translateY(1px); }
+  .ttp .ttp-chip-btn.visited { color:#a3e7c9; border-color:#225a4a; background:#0e2c25; }
+  .ttp .ttp-chip-icon { font-size:14px; line-height:1; }
+  .ttp .ttp-place-visited .ttp-title { text-decoration: line-through; opacity:.75; }
+
+  /* CSS pin markers for Leaflet DivIcon */
+  .ttp .ttp-pin { position: relative; width:24px; height:24px; border-radius:50%;
+    border:2px solid rgba(0,0,0,.25); box-shadow: 0 1px 3px rgba(0,0,0,.35); }
+  .ttp .ttp-pin::after{ content:""; position:absolute; left:50%; transform:translateX(-50%) rotate(45deg);
+    bottom:-7px; width:14px; height:14px; background:inherit; border-left:2px solid rgba(0,0,0,.25);
+    border-bottom:2px solid rgba(0,0,0,.25); border-radius:0 0 2px 0; }
+  .ttp .ttp-pin-blue { background:#3498db; }
+  .ttp .ttp-pin-green { background:#2ecc71; }
 </style>
 
 <script>
 (function(){
   // ---------- Storage ----------
-  const LS_KEY = 'tiny_trip_planner_v5';
+  const LS_KEY = 'tiny_trip_planner_v7';
   const db = { trips: [], lastTripId: 0, lastPlaceId: 0 };
   const root = document.getElementById('ttp-root');
 
@@ -171,7 +199,10 @@ cover: https://images.pexels.com/photos/12932264/pexels-photo-12932264.jpeg
     previewMap: getEl('ttp-previewMap'),
     addPlaceBtn: getEl('ttp-addPlaceBtn'),
     placeList: getEl('ttp-placeList'),
+
     allMap: getEl('ttp-allMap'),
+    filterVisited: getEl('ttp-filterVisited'),
+    filterUnvisited: getEl('ttp-filterUnvisited'),
   };
 
   function addTrip(name){
@@ -296,7 +327,7 @@ cover: https://images.pexels.com/photos/12932264/pexels-photo-12932264.jpeg
       const res = await parseLocation(input);
       setStatus(`OK (${res.source}) → ${formatLatLng(res.lat,res.lng)}`);
       if(previewLeaflet && previewLeaflet.remove) previewLeaflet.remove();
-      previewLeaflet = showMap(els.previewMap, res.lat, res.lng);
+      previewLeaflet = showSinglePin(els.previewMap, res.lat, res.lng, false);
       els.previewMap.style.display='block';
       els.previewMap.dataset.lat = res.lat;
       els.previewMap.dataset.lng = res.lng;
@@ -310,19 +341,22 @@ cover: https://images.pexels.com/photos/12932264/pexels-photo-12932264.jpeg
     }
   }, 400);
 
-  // ---------- Maps ----------
-  function showMap(el, lat, lng){
+  // ---------- Map helpers ----------
+  const pinIcon = (visited)=> L.divIcon({
+    className: 'ttp-pin ' + (visited ? 'ttp-pin-green' : 'ttp-pin-blue'),
+    iconSize: [24,36], iconAnchor:[12,36], popupAnchor:[0,-28]
+  });
+
+  function showSinglePin(el, lat, lng, visited){
     el.innerHTML='';
     const map = L.map(el).setView([lat,lng], 14);
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
       maxZoom:19, attribution:'&copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors'
     }).addTo(map);
-    L.marker([lat,lng]).addTo(map);
-    setTimeout(()=>map.invalidateSize(), 100);
+    L.marker([lat,lng], { icon: pinIcon(visited) }).addTo(map);
+    setTimeout(()=>map.invalidateSize(),100);
     return map;
   }
-
-  function markerColorFor(visited){ return visited ? '#2ecc71' : '#3498db'; } // green / blue
 
   function renderAllPlacesMap(){
     const t=getTrip(currentTripId); if(!t) return;
@@ -338,21 +372,21 @@ cover: https://images.pexels.com/photos/12932264/pexels-photo-12932264.jpeg
     allMapMarkers = [];
     if(allMapPolyline){ allMapLeaflet.removeLayer(allMapPolyline); allMapPolyline=null; }
 
-    const ordered = [...t.places];
+    const showVisited = els.filterVisited.checked;
+    const showUnvisited = els.filterUnvisited.checked;
+
+    // filter for map, but keep trip order
+    const ordered = getTrip(currentTripId).places.slice();
+    const visible = ordered.filter(p => (p.visited && showVisited) || (!p.visited && showUnvisited));
+
     const latlngs = [];
 
-    for(const p of ordered){
-      const latlng = [p.lat, p.lng];
-      const cm = L.circleMarker(latlng, {
-        radius: 7,
-        weight: 2,
-        color: markerColorFor(p.visited),
-        fillColor: markerColorFor(p.visited),
-        fillOpacity: 0.8
-      }).addTo(allMapLeaflet);
-      cm.bindPopup(`<strong>${escapeHtml(p.name)}</strong>${p.visited ? ' <span style="opacity:.7;">(visited)</span>' : ''}<br/>${formatLatLng(p.lat,p.lng)}`);
-      allMapMarkers.push(cm);
-      latlngs.push(latlng);
+    for(const p of visible){
+      const marker = L.marker([p.lat,p.lng], { icon: pinIcon(p.visited) })
+        .addTo(allMapLeaflet)
+        .bindPopup(`<strong>${escapeHtml(p.name)}</strong>${p.visited ? ' <span style="opacity:.7;">(visited)</span>' : ''}<br/>${formatLatLng(p.lat,p.lng)}`);
+      allMapMarkers.push(marker);
+      latlngs.push([p.lat, p.lng]);
     }
 
     if(latlngs.length >= 2){
@@ -360,8 +394,7 @@ cover: https://images.pexels.com/photos/12932264/pexels-photo-12932264.jpeg
     }
 
     if(latlngs.length){
-      const bounds = L.latLngBounds(latlngs);
-      allMapLeaflet.fitBounds(bounds, { padding:[20,20] });
+      allMapLeaflet.fitBounds(L.latLngBounds(latlngs), { padding:[20,20] });
     }else{
       allMapLeaflet.setView([0,0], 2);
     }
@@ -414,20 +447,17 @@ cover: https://images.pexels.com/photos/12932264/pexels-photo-12932264.jpeg
           <button class="ttp-btn ttp-danger" data-del="${p.id}">🗑️ Delete</button>
 
           <button class="ttp-btn ttp-handle-btn" draggable="true" data-handle="${idx}" title="Drag to reorder">↕️ Reorder</button>
-          <label class="ttp-check" style="justify-content:flex-start;">
-            <input type="checkbox" ${p.visited?'checked':''} data-toggle="${p.id}" />
-            <span>Visited</span>
-          </label>
-        </div>
-
-        <div class="ttp-row" style="justify-content:flex-end;">
-          <span class="ttp-chip ${p.visited ? 'visited':''}">${p.visited ? 'Visited' : 'Not visited'}</span>
+          <button class="ttp-chip-btn ${p.visited ? 'visited':''}" data-chip="${p.id}" aria-pressed="${p.visited ? 'true':'false'}" title="Toggle visited">
+            <span class="ttp-chip-icon">${p.visited ? '✅' : '🗺️'}</span>
+            <span>${p.visited ? 'Visited' : 'Mark visited'}</span>
+          </button>
         </div>
       `;
 
-      // visited toggle
-      li.querySelector(`[data-toggle="${p.id}"]`).addEventListener('change',(e)=>{
-        updatePlace(t.id, p.id, { visited: e.target.checked });
+      // clickable visited chip
+      li.querySelector(`[data-chip="${p.id}"]`).addEventListener('click', (e)=>{
+        const newVal = !p.visited;
+        updatePlace(t.id, p.id, { visited: newVal });
         renderPlaces();
         renderAllPlacesMap();
       });
@@ -472,17 +502,12 @@ cover: https://images.pexels.com/photos/12932264/pexels-photo-12932264.jpeg
       <div class="ttp-title">Edit: ${escapeHtml(p.name)}</div>
 
       <!-- Location first; auto parse -->
-      <input class="ttp-input" id="eLoc" value="${escapeAttr(p.locationInput || formatLatLng(p.lat,p.lng))}" placeholder="Location (lat,lng / GMaps URL / place text)" />
+      <input class="ttp-input" id="eLoc" value="${escapeAttr(p.locationInput || formatLatLng(p.lat,p.lng))}" placeholder="Location (lat,lng / GMaps URL / place text)">
       <div id="eStatus" class="ttp-muted"></div>
       <div id="eMap" class="ttp-map" style="display:none;"></div>
 
-      <input class="ttp-input" id="eName" value="${escapeAttr(p.name)}" placeholder="Place name"/>
+      <input class="ttp-input" id="eName" value="${escapeAttr(p.name)}" placeholder="Place name">
       <textarea class="ttp-textarea" id="eNotes" placeholder="Notes">${escapeHtml(p.notes||'')}</textarea>
-
-      <label class="ttp-check">
-        <input type="checkbox" id="eVisited" ${p.visited?'checked':''} />
-        <span>Visited</span>
-      </label>
 
       <div class="ttp-row ttp-right">
         <button class="ttp-btn ttp-primary" id="eSave">Save</button>
@@ -495,7 +520,6 @@ cover: https://images.pexels.com/photos/12932264/pexels-photo-12932264.jpeg
 
     const eLoc = container.querySelector('#eLoc');
     const eName = container.querySelector('#eName');
-    const eVisited = container.querySelector('#eVisited');
     const eStatus = container.querySelector('#eStatus');
     const eMap = container.querySelector('#eMap');
 
@@ -509,7 +533,8 @@ cover: https://images.pexels.com/photos/12932264/pexels-photo-12932264.jpeg
         const res = await parseLocation(input);
         newCoords = {lat:res.lat, lng:res.lng};
         setStatusInline(`OK (${res.source}) → ${formatLatLng(res.lat,res.lng)}`);
-        showMap(eMap, res.lat, res.lng); eMap.style.display='block';
+        // show pin preview (blue, not-visited assumption)
+        showSinglePin(eMap, res.lat, res.lng, false); eMap.style.display='block';
         if (/(google\.com\/maps|goo\.gl\/maps|maps\.app\.goo\.gl)/.test(input)){
           const nm = nameFromGoogleUrl(input);
           if(nm && (!eName.value || /^Place \d+$/.test(eName.value))) eName.value = nm;
@@ -521,14 +546,14 @@ cover: https://images.pexels.com/photos/12932264/pexels-photo-12932264.jpeg
     }, 400);
 
     eLoc.addEventListener('input', doAuto);
-    showMap(eMap, p.lat, p.lng); eMap.style.display='block';
+    // initial map
+    showSinglePin(eMap, p.lat, p.lng, p.visited); eMap.style.display='block';
 
     container.querySelector('#eSave').addEventListener('click',()=>{
       const name = eName.value.trim() || p.name;
       const notes = container.querySelector('#eNotes').value;
       const locationInput = eLoc.value.trim();
-      const visited = !!eVisited.checked;
-      updatePlace(tripId, p.id, { name, notes, lat:newCoords.lat, lng:newCoords.lng, locationInput, visited });
+      updatePlace(tripId, p.id, { name, notes, lat:newCoords.lat, lng:newCoords.lng, locationInput });
       renderPlaces();
       renderAllPlacesMap();
     });
@@ -583,15 +608,28 @@ cover: https://images.pexels.com/photos/12932264/pexels-photo-12932264.jpeg
     renderPlaces(); renderTrips(); renderAllPlacesMap();
   });
 
+  // Map filters
+  els.filterVisited.addEventListener('change', renderAllPlacesMap);
+  els.filterUnvisited.addEventListener('change', renderAllPlacesMap);
+
   // ---------- Init ----------
+  function renderTrips(){ /* filled later by openTrip as needed */ }
   function init(){
     loadDB();
-    renderTrips();
+    // render trips
+    els.tripList.innerHTML='';
+    const sorted=[...db.trips].sort((a,b)=>b.createdAt-a.createdAt);
+    for(const t of sorted){
+      const btn=document.createElement('button');
+      btn.className='ttp-tripBtn';
+      btn.textContent = `${t.name} (#${t.id})`;
+      btn.addEventListener('click',()=>openTrip(t.id));
+      els.tripList.appendChild(btn);
+    }
     if(db.trips.length===0){
       els.emptyState.style.display='block';
     }else{
-      const latest=[...db.trips].sort((a,b)=>b.createdAt-a.createdAt)[0];
-      openTrip(latest.id);
+      openTrip(sorted[0].id);
     }
   }
   init();
