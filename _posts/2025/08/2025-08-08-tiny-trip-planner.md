@@ -8,7 +8,7 @@ date: 2025-08-08 09:09:09 +0000
 cover: /images/logo-trip-planner.png
 ---
 
-<!-- Tiny Trip Planner -->
+<!-- Tiny Trip Planner — revert to simple full re-render: all pins + polyline every update -->
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin>
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin></script>
 
@@ -81,7 +81,7 @@ cover: /images/logo-trip-planner.png
         <div class="ttp-col">
           <div class="ttp-section-title">Add place</div>
 
-          <!-- Location first; auto-parse on input (no preview map) -->
+          <!-- Location first; auto-parse on input (no per-place preview map) -->
           <input class="ttp-input" id="ttp-placeLocation" type="text" placeholder="Location (lat,lng • Google Maps URL • or place text)">
           <div id="ttp-parseStatus" class="ttp-muted"></div>
 
@@ -256,34 +256,20 @@ cover: /images/logo-trip-planner.png
   }
   function escapeAttr(s){ return escapeHtml(s).replace(/"/g,'&quot;'); }
 
-  // ---------- Google URL helpers (desktop + mobile short links) ----------
-  // Robust short-link expansion:
-  // 1) try fetch follow (best case)
-  // 2) fallback: image redirect trick reads final URL via currentSrc
-  async function expandShortGoogleUrlMaybe(input){
-    let url = input;
+  // ---------- Google URL helpers (short links supported) ----------
+  async function resolveShortMapUrl(input){
     try{
-      const u = new URL(input);
-      if(!/(maps\.app\.goo\.gl|goo\.gl\/maps)/.test(u.host)) return input;
-
-      // Attempt 1: fetch follow (may be blocked by CORS)
-      try{
-        const res = await fetch(u.href, { redirect:'follow' });
-        if (res && res.url && res.url !== u.href) return res.url;
-      }catch(_e){ /* ignore */ }
-
-      // Attempt 2: image redirect trick
-      url = await new Promise(resolve=>{
-        const img = new Image();
-        let done = false;
-        const finish = ()=>{ if(done) return; done=true; resolve(img.currentSrc || input); };
-        img.onload = finish; img.onerror = finish;
-        img.referrerPolicy = 'no-referrer';
-        img.src = input;
-        setTimeout(finish, 2500); // fallback after 2.5s
-      });
-      return url || input;
-    }catch(e){ return input; }
+      const res = await fetch(input, { redirect:'follow' });
+      if(res && res.url && res.url !== input) return res.url;
+    }catch(_e){}
+    // fallback: text mirror that returns HTML (no CORS headers needed)
+    const mirror = `https://r.jina.ai/http/${input.replace(/^https:/,'http:')}`;
+    try{
+      const txt = await fetch(mirror).then(r=>r.text());
+      const m = txt.match(/https?:\/\/(?:www\.)?google\.com\/maps[^\s"'<>]+/i);
+      if(m && m[0]) return m[0];
+    }catch(_e){}
+    return input;
   }
   function coordsFromGoogleUrl(input){
     try{
@@ -325,12 +311,20 @@ cover: /images/logo-trip-planner.png
 
   // ---------- Geocoding (auto, debounced) ----------
   let currentTripId = null;
-  let allMapLeaflet = null;
-  let allMapMarkers = [];
-  let allMapPolyline = null;
-
-  // store pending coords from "Add place" parser (since we removed the preview map)
   let pendingLoc = null; // {lat, lng}
+
+  let map = null;
+  let currentMarkers = [];
+  let currentPolyline = null;
+
+  function ensureMap(){
+    if(map) return;
+    map = L.map(els.allMap).setView([0,0], 2);
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      maxZoom:19, attribution:'&copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors'
+    }).addTo(map);
+    setTimeout(()=>map.invalidateSize(),100);
+  }
 
   function setStatus(msg, isErr=false){
     els.parseStatus.textContent = msg || '';
@@ -339,23 +333,17 @@ cover: /images/logo-trip-planner.png
 
   async function parseLocation(input){
     input = (input||'').trim();
-
-    // expand short mobile links *first*
     if (/(maps\.app\.goo\.gl|goo\.gl\/maps)/.test(input)) {
-      input = await expandShortGoogleUrlMaybe(input);
+      input = await resolveShortMapUrl(input);
     }
-
-    // 1) direct lat,lng
     const m = input.match(/^(-?\d+(\.\d+)?)\s*,\s*(-?\d+(\.\d+)?)$/);
     if(m) return {lat:parseFloat(m[1]), lng:parseFloat(m[3]), source:'latlng', expanded: input};
 
-    // 2) Google Maps URL (desktop-style)
     if (/(google\.com\/maps|maps\.app\.goo\.gl|goo\.gl\/maps)/.test(input)){
       const c = coordsFromGoogleUrl(input);
       if(c) return {...c, source:'google', expanded: input};
     }
 
-    // 3) Nominatim (OpenStreetMap)
     const url = `https://nominatim.openstreetmap.org/search?format=jsonv2&q=${encodeURIComponent(input)}&limit=1`;
     const res = await fetch(url, { headers:{'Accept':'application/json'} });
     if(!res.ok) throw new Error('Geocoding failed');
@@ -373,13 +361,10 @@ cover: /images/logo-trip-planner.png
     if(!raw){ setStatus(''); pendingLoc = null; return; }
     try{
       setStatus('Finding location…');
-      // Expand early so we can also extract the name from the expanded URL reliably
-      const maybeExpanded = /(maps\.app\.goo\.gl|goo\.gl\/maps)/.test(raw) ? await expandShortGoogleUrlMaybe(raw) : raw;
+      const maybeExpanded = /(maps\.app\.goo\.gl|goo\.gl\/maps)/.test(raw) ? await resolveShortMapUrl(raw) : raw;
       const res = await parseLocation(maybeExpanded);
       pendingLoc = { lat: res.lat, lng: res.lng };
       setStatus(`OK (${res.source}) → ${formatLatLng(res.lat,res.lng)}`);
-
-      // Auto-fill name from expanded GMaps URL
       if (/(google\.com\/maps|maps\.app\.goo\.gl|goo\.gl\/maps)/.test(maybeExpanded)){
         const nm = nameFromGoogleUrl(maybeExpanded);
         if(nm && !els.placeName.value) els.placeName.value = nm;
@@ -388,9 +373,9 @@ cover: /images/logo-trip-planner.png
       setStatus(`Error: ${e.message}`, true);
       pendingLoc = null;
     }
-  }, 350);
+  }, 300);
 
-  // ---------- Default Leaflet pin icons (blue/green + highlight yellow) ----------
+  // ---------- Default Leaflet pin icons (blue/green) ----------
   const shadowUrl = 'https://unpkg.com/leaflet@1.9.4/dist/images/marker-shadow.png';
   const icon = (url)=> new L.Icon({
     iconUrl: url, shadowUrl: shadowUrl,
@@ -398,55 +383,42 @@ cover: /images/logo-trip-planner.png
   });
   const visitedIcon   = icon('https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-green.png');
   const unvisitedIcon = icon('https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-blue.png');
-  const highlightIcon = icon('https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-yellow.png');
   function pinIcon(visited){ return visited ? visitedIcon : unvisitedIcon; }
 
-  // ---------- Map helpers ----------
-  function renderAllPlacesMap(){
+  // ---------- Map render (simple & robust) ----------
+  function renderMap(){
     const t=getTrip(currentTripId); if(!t) return;
-    if(!allMapLeaflet){
-      allMapLeaflet = L.map(els.allMap).setView([0,0], 2);
-      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-        maxZoom:19, attribution:'&copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors'
-      }).addTo(allMapLeaflet);
-      setTimeout(()=>allMapLeaflet.invalidateSize(), 100);
-    }
-    // clear app-managed layers
-    allMapMarkers.forEach(m=>allMapLeaflet.removeLayer(m));
-    allMapMarkers = [];
-    if(allMapPolyline){ allMapLeaflet.removeLayer(allMapPolyline); allMapPolyline=null; }
+    ensureMap();
+
+    // clear markers & polyline we own
+    currentMarkers.forEach(m=>map.removeLayer(m));
+    currentMarkers = [];
+    if(currentPolyline){ map.removeLayer(currentPolyline); currentPolyline=null; }
 
     const showVisited = els.filterVisited.checked;
     const showUnvisited = els.filterUnvisited.checked;
 
-    const ordered = getTrip(currentTripId).places.slice();
-    const visible = ordered.filter(p => (p.visited && showVisited) || (!p.visited && showUnvisited));
+    // visible places in trip order
+    const visible = t.places.filter(p => (p.visited && showVisited) || (!p.visited && showUnvisited));
     const latlngs = [];
 
     for(const p of visible){
-      const marker = L.marker([p.lat,p.lng], { icon: pinIcon(p.visited) })
-        .addTo(allMapLeaflet)
+      const mk = L.marker([p.lat,p.lng], { icon: pinIcon(p.visited) })
+        .addTo(map)
         .bindPopup(`<strong>${escapeHtml(p.name)}</strong>${p.visited ? ' <span style="opacity:.7;">(visited)</span>' : ''}<br/>${formatLatLng(p.lat,p.lng)}`);
-      allMapMarkers.push(marker);
-      latlngs.push([p.lat, p.lng]);
+      currentMarkers.push(mk);
+      latlngs.push([p.lat,p.lng]);
     }
 
     if(latlngs.length >= 2){
-      allMapPolyline = L.polyline(latlngs, { weight:3 }).addTo(allMapLeaflet);
+      currentPolyline = L.polyline(latlngs, { weight:3 }).addTo(map);
     }
 
     if(latlngs.length){
-      allMapLeaflet.fitBounds(L.latLngBounds(latlngs), { padding:[20,20] });
+      map.fitBounds(L.latLngBounds(latlngs), { padding:[20,20] });
     }else{
-      allMapLeaflet.setView([0,0], 2);
+      map.setView([0,0], 2);
     }
-  }
-
-  // Temporary highlight pin when adding a place
-  function flashHighlight(lat, lng){
-    if(!allMapLeaflet) return;
-    const temp = L.marker([lat,lng], { icon: highlightIcon, zIndexOffset: 1000 }).addTo(allMapLeaflet);
-    setTimeout(()=>{ try{ allMapLeaflet.removeLayer(temp); }catch(e){} }, 1500);
   }
 
   // ---------- UI ----------
@@ -471,7 +443,7 @@ cover: /images/logo-trip-planner.png
     els.tripIdBadge.textContent=`Trip #${t.id}`;
     renderTrips();
     renderPlaces();
-    renderAllPlacesMap();
+    renderMap();
   }
 
   function renderPlaces(){
@@ -503,22 +475,21 @@ cover: /images/logo-trip-planner.png
         </div>
       `;
 
-      // clickable visited chip
+      // toggle visited
       li.querySelector(`[data-chip="${p.id}"]`).addEventListener('click', ()=>{
         updatePlace(t.id, p.id, { visited: !p.visited });
-        renderPlaces();
-        renderAllPlacesMap();
+        renderPlaces(); renderMap();
       });
 
       // delete
       li.querySelector('[data-del]').addEventListener('click',()=>{
-        if(confirm('Delete this place?')){ deletePlace(t.id, p.id); renderPlaces(); renderTrips(); renderAllPlacesMap(); }
+        if(confirm('Delete this place?')){ deletePlace(t.id, p.id); renderPlaces(); renderTrips(); renderMap(); }
       });
 
-      // edit inline (no per-item map; status only)
+      // edit inline (no per-item map)
       li.querySelector('[data-edit]').addEventListener('click',()=>editPlaceInline(t.id,p));
 
-      // drag & drop — handle initiates drag, items accept drop
+      // drag & drop
       const handle = li.querySelector(`[data-handle="${idx}"]`);
       handle.addEventListener('dragstart', (ev)=>{
         ev.dataTransfer.setData('text/plain', String(idx));
@@ -534,8 +505,7 @@ cover: /images/logo-trip-planner.png
         const to = parseInt(li.dataset.index,10);
         if(Number.isInteger(from) && Number.isInteger(to)){
           movePlace(t.id, from, to + (from < to ? 1 : 0));
-          renderPlaces();
-          renderAllPlacesMap();
+          renderPlaces(); renderMap();
         }
       });
 
@@ -549,7 +519,6 @@ cover: /images/logo-trip-planner.png
     container.innerHTML=`
       <div class="ttp-title">Edit: ${escapeHtml(p.name)}</div>
 
-      <!-- Location first; auto parse (no map) -->
       <input class="ttp-input" id="eLoc" value="${escapeAttr(p.locationInput || formatLatLng(p.lat,p.lng))}" placeholder="Location (lat,lng / GMaps URL / place text)">
       <div id="eStatus" class="ttp-muted"></div>
 
@@ -576,7 +545,7 @@ cover: /images/logo-trip-planner.png
       if(!inputRaw){ setStatusInline(''); return; }
       try{
         setStatusInline('Finding location…');
-        const maybeExpanded = /(maps\.app\.goo\.gl|goo\.gl\/maps)/.test(inputRaw) ? await expandShortGoogleUrlMaybe(inputRaw) : inputRaw;
+        const maybeExpanded = /(maps\.app\.goo\.gl|goo\.gl\/maps)/.test(inputRaw) ? await resolveShortMapUrl(inputRaw) : inputRaw;
         const res = await parseLocation(maybeExpanded);
         newCoords = {lat:res.lat, lng:res.lng};
         setStatusInline(`OK (${res.source}) → ${formatLatLng(res.lat,res.lng)}`);
@@ -587,7 +556,7 @@ cover: /images/logo-trip-planner.png
       }catch(err){
         setStatusInline(`Error: ${err.message}`, true);
       }
-    }, 350);
+    }, 300);
 
     eLoc.addEventListener('input', doAuto);
 
@@ -596,8 +565,7 @@ cover: /images/logo-trip-planner.png
       const notes = container.querySelector('#eNotes').value;
       const locationInput = eLoc.value.trim();
       updatePlace(tripId, p.id, { name, notes, lat:newCoords.lat, lng:newCoords.lng, locationInput });
-      renderPlaces();
-      renderAllPlacesMap();
+      renderPlaces(); renderMap();
     });
     container.querySelector('#eCancel').addEventListener('click',()=>renderPlaces());
   }
@@ -726,18 +694,17 @@ cover: /images/logo-trip-planner.png
 
     addPlace(currentTripId, { name, notes, lat, lng, locationInput: locInput, visited });
 
-    // reset form + pending coords
+    // reset form
     els.placeName.value=''; els.placeNotes.value=''; els.placeLocation.value=''; els.placeVisited.checked=false;
     pendingLoc = null; setStatus('');
 
-    // refresh UI and map, then temporarily highlight the just-added spot
-    renderPlaces(); renderTrips(); renderAllPlacesMap();
-    flashHighlight(lat, lng);
+    // re-render everything → all pins + polyline
+    renderPlaces(); renderTrips(); renderMap();
   });
 
   // Map filters
-  els.filterVisited.addEventListener('change', renderAllPlacesMap);
-  els.filterUnvisited.addEventListener('change', renderAllPlacesMap);
+  els.filterVisited.addEventListener('change', renderMap);
+  els.filterUnvisited.addEventListener('change', renderMap);
 
   // ---------- Init ----------
   function init(){
