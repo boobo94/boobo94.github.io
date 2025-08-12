@@ -8,7 +8,7 @@ date: 2025-08-08 09:09:09 +0000
 cover: /images/logo-trip-planner.png
 ---
 
-<!-- Tiny Trip Planner (scoped widget) — default Leaflet pins + visited chip + filters + drag/drop -->
+<!-- Tiny Trip Planner (scoped widget) — mobile GMaps links + highlight new pin + autosave trip name + default pins -->
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin>
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin></script>
 
@@ -39,10 +39,10 @@ cover: /images/logo-trip-planner.png
             <input class="ttp-input" id="ttp-tripNameInput" type="text" placeholder="Trip name">
             <span id="ttp-tripIdBadge" class="ttp-kbd"></span>
           </div>
+          <div class="ttp-tiny">Name auto-saves as you type.</div>
         </div>
         <div class="ttp-row">
-          <button id="ttp-saveTripBtn" class="ttp-btn ttp-primary">Save Trip Name</button>
-          <button id="ttp-deleteTripBtn" class="ttp-btn ttp-danger">Delete Trip</button>
+          <button id="ttp-deleteTripBtn" class="ttp-btn ttp-danger">🗑️ Delete Trip</button>
         </div>
       </div>
 
@@ -128,6 +128,8 @@ cover: /images/logo-trip-planner.png
   .ttp .ttp-danger { background:#3a1416; border-color:#4a1d20; color:#ffb4b4; }
   .ttp .ttp-muted { color:var(--muted); font-size:13px; }
   .ttp .ttp-kbd { font-family:ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size:12px; padding:1px 6px; border:1px solid var(--border); border-radius:6px; background:#0d1020; color:var(--muted); }
+  .ttp .ttp-tiny { font-size:12px; color:var(--muted); }
+
   .ttp .ttp-spacer { height:8px; }
   .ttp .ttp-map { width:100%; height:300px; border-radius:12px; overflow:hidden; border:1px solid var(--border); }
   .ttp .ttp-list { list-style:none; padding:0; margin:0; display:grid; gap:8px; }
@@ -162,7 +164,7 @@ cover: /images/logo-trip-planner.png
 <script>
 (function(){
   // ---------- Storage ----------
-  const LS_KEY = 'tiny_trip_planner';
+  const LS_KEY = 'tiny_trip_planner_v9';
   const db = { trips: [], lastTripId: 0, lastPlaceId: 0 };
   const root = document.getElementById('ttp-root');
 
@@ -181,7 +183,6 @@ cover: /images/logo-trip-planner.png
     tripView: getEl('ttp-tripView'),
     tripNameInput: getEl('ttp-tripNameInput'),
     tripIdBadge: getEl('ttp-tripIdBadge'),
-    saveTripBtn: getEl('ttp-saveTripBtn'),
     deleteTripBtn: getEl('ttp-deleteTripBtn'),
 
     placeLocation: getEl('ttp-placeLocation'),
@@ -238,10 +239,21 @@ cover: /images/logo-trip-planner.png
   }
 
   function formatLatLng(lat,lng){ return `${Number(lat).toFixed(6)}, ${Number(lng).toFixed(6)}`; }
-  function escapeHtml(s){ return String(s||'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&gt;','>':'&gt;','"':'&quot;'}[c])); }
+  function escapeHtml(s){ return String(s||'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c])); }
   function escapeAttr(s){ return escapeHtml(s).replace(/"/g,'&quot;'); }
 
-  // ---------- Google URL parsers ----------
+  // ---------- Google URL helpers (desktop + mobile short links) ----------
+  async function expandShortGoogleUrlMaybe(input){
+    try{
+      const u = new URL(input);
+      if(/(maps\.app\.goo\.gl|goo\.gl\/maps)/.test(u.host)){
+        // Follow redirects; response.url should have the expanded target
+        const res = await fetch(u.href, { redirect:'follow', mode:'cors' });
+        if(res && res.url && res.url !== u.href) return res.url;
+      }
+    }catch(e){}
+    return input; // fallback to original
+  }
   function coordsFromGoogleUrl(input){
     try{
       const u = new URL(input);
@@ -294,12 +306,23 @@ cover: /images/logo-trip-planner.png
 
   async function parseLocation(input){
     input = (input||'').trim();
+
+    // Try to expand mobile short links first (no-op if not short)
+    if (/(maps\.app\.goo\.gl|goo\.gl\/maps)/.test(input)) {
+      input = await expandShortGoogleUrlMaybe(input);
+    }
+
+    // 1) direct lat,lng
     const m = input.match(/^(-?\d+(\.\d+)?)\s*,\s*(-?\d+(\.\d+)?)$/);
     if(m) return {lat:parseFloat(m[1]), lng:parseFloat(m[3]), source:'latlng'};
-    if (/(google\.com\/maps|goo\.gl\/maps|maps\.app\.goo\.gl)/.test(input)){
+
+    // 2) Google Maps URL (desktop-style)
+    if (/(google\.com\/maps|maps\.app\.goo\.gl|goo\.gl\/maps)/.test(input)){
       const c = coordsFromGoogleUrl(input);
       if(c) return {...c, source:'google'};
     }
+
+    // 3) Nominatim (OpenStreetMap, free)
     const url = `https://nominatim.openstreetmap.org/search?format=jsonv2&q=${encodeURIComponent(input)}&limit=1`;
     const res = await fetch(url, { headers:{'Accept':'application/json'} });
     if(!res.ok) throw new Error('Geocoding failed');
@@ -324,7 +347,9 @@ cover: /images/logo-trip-planner.png
       els.previewMap.style.display='block';
       els.previewMap.dataset.lat = res.lat;
       els.previewMap.dataset.lng = res.lng;
-      if (/(google\.com\/maps|goo\.gl\/maps|maps\.app\.goo\.gl)/.test(input)){
+
+      // auto-fill name (after expansion) if it's a GMaps URL
+      if (/(google\.com\/maps|maps\.app\.goo\.gl|goo\.gl\/maps)/.test(input)){
         const nm = nameFromGoogleUrl(input);
         if(nm && !els.placeName.value) els.placeName.value = nm;
       }
@@ -334,18 +359,15 @@ cover: /images/logo-trip-planner.png
     }
   }, 400);
 
-  // ---------- Default Leaflet pin icons (blue/green) ----------
-  const defaultShadowUrl = 'https://unpkg.com/leaflet@1.9.4/dist/images/marker-shadow.png';
-  const visitedIcon = new L.Icon({
-    iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-green.png',
-    shadowUrl: defaultShadowUrl,
+  // ---------- Default Leaflet pin icons (blue/green + highlight yellow) ----------
+  const shadowUrl = 'https://unpkg.com/leaflet@1.9.4/dist/images/marker-shadow.png';
+  const icon = (url)=> new L.Icon({
+    iconUrl: url, shadowUrl: shadowUrl,
     iconSize: [25,41], iconAnchor: [12,41], popupAnchor: [1,-34], shadowSize: [41,41]
   });
-  const unvisitedIcon = new L.Icon({
-    iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-blue.png',
-    shadowUrl: defaultShadowUrl,
-    iconSize: [25,41], iconAnchor: [12,41], popupAnchor: [1,-34], shadowSize: [41,41]
-  });
+  const visitedIcon   = icon('https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-green.png');
+  const unvisitedIcon = icon('https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-blue.png');
+  const highlightIcon = icon('https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-yellow.png');
   function pinIcon(visited){ return visited ? visitedIcon : unvisitedIcon; }
 
   // ---------- Map helpers ----------
@@ -398,6 +420,13 @@ cover: /images/logo-trip-planner.png
     }else{
       allMapLeaflet.setView([0,0], 2);
     }
+  }
+
+  // Temporary highlight pin when adding a place
+  function flashHighlight(lat, lng){
+    if(!allMapLeaflet) return;
+    const m = L.marker([lat,lng], { icon: highlightIcon, zIndexOffset: 1000 }).addTo(allMapLeaflet);
+    setTimeout(()=>{ allMapLeaflet.removeLayer(m); }, 1500);
   }
 
   // ---------- UI ----------
@@ -525,15 +554,17 @@ cover: /images/logo-trip-planner.png
     function setStatusInline(msg,isErr=false){ eStatus.textContent=msg||''; eStatus.style.color=isErr?'var(--danger)':'var(--muted)'; }
 
     const doAuto = debounce(async ()=>{
-      const input = eLoc.value.trim();
-      if(!input){ eMap.style.display='none'; setStatusInline(''); return; }
+      const inputRaw = eLoc.value.trim();
+      if(!inputRaw){ eMap.style.display='none'; setStatusInline(''); return; }
       try{
         setStatusInline('Finding location…');
+        let input = inputRaw;
+        if (/(maps\.app\.goo\.gl|goo\.gl\/maps)/.test(input)) input = await expandShortGoogleUrlMaybe(input);
         const res = await parseLocation(input);
         newCoords = {lat:res.lat, lng:res.lng};
         setStatusInline(`OK (${res.source}) → ${formatLatLng(res.lat,res.lng)}`);
         showSinglePin(eMap, res.lat, res.lng, p.visited); eMap.style.display='block';
-        if (/(google\.com\/maps|goo\.gl\/maps|maps\.app\.goo\.gl)/.test(input)){
+        if (/(google\.com\/maps|maps\.app\.goo\.gl|goo\.gl\/maps)/.test(input)){
           const nm = nameFromGoogleUrl(input);
           if(nm && (!eName.value || /^Place \d+$/.test(eName.value))) eName.value = nm;
         }
@@ -566,10 +597,14 @@ cover: /images/logo-trip-planner.png
     renderTrips(); openTrip(t.id);
   });
 
-  els.saveTripBtn.addEventListener('click', ()=>{
-    const name = els.tripNameInput.value.trim();
-    if(currentTripId && name) { updateTripName(currentTripId, name); renderTrips(); }
-  });
+  // Autosave trip name on input (debounced)
+  els.tripNameInput.addEventListener('input', debounce(()=>{
+    if(currentTripId){
+      const name = els.tripNameInput.value.trim();
+      updateTripName(currentTripId, name || `Trip ${currentTripId}`);
+      renderTrips();
+    }
+  }, 300));
 
   els.deleteTripBtn.addEventListener('click', ()=>{
     if(!currentTripId) return;
@@ -599,11 +634,14 @@ cover: /images/logo-trip-planner.png
       return;
     }
     addPlace(currentTripId, { name, notes, lat, lng, locationInput: locInput, visited });
-    // reset
+    // reset the add form
     els.placeName.value=''; els.placeNotes.value=''; els.placeLocation.value=''; els.placeVisited.checked=false;
     els.previewMap.style.display='none'; els.previewMap.dataset.lat=''; els.previewMap.dataset.lng='';
     if(previewLeaflet && previewLeaflet.remove) previewLeaflet.remove(); previewLeaflet=null;
+
+    // refresh UI and map, then temporarily highlight the just-added spot
     renderPlaces(); renderTrips(); renderAllPlacesMap();
+    flashHighlight(lat, lng);
   });
 
   // Map filters
@@ -613,7 +651,6 @@ cover: /images/logo-trip-planner.png
   // ---------- Init ----------
   function init(){
     loadDB();
-    // render trips
     renderTrips();
     if(db.trips.length===0){
       els.emptyState.style.display='block';
