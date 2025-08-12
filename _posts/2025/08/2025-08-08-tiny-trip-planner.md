@@ -8,7 +8,7 @@ date: 2025-08-08 09:09:09 +0000
 cover: /images/logo-trip-planner.png
 ---
 
-<!-- Tiny Trip Planner (scoped widget) — import/export + default Leaflet pins + highlight + autosave -->
+<!-- Tiny Trip Planner -->
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin>
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin></script>
 
@@ -81,10 +81,9 @@ cover: /images/logo-trip-planner.png
         <div class="ttp-col">
           <div class="ttp-section-title">Add place</div>
 
-          <!-- Location first; auto-parse on input -->
+          <!-- Location first; auto-parse on input (no preview map) -->
           <input class="ttp-input" id="ttp-placeLocation" type="text" placeholder="Location (lat,lng • Google Maps URL • or place text)">
           <div id="ttp-parseStatus" class="ttp-muted"></div>
-          <div id="ttp-previewMap" class="ttp-map" style="display:none;"></div>
 
           <input class="ttp-input" id="ttp-placeName" type="text" placeholder="Place name (auto from Maps URL)">
           <textarea class="ttp-textarea" id="ttp-placeNotes" placeholder="Short notes (what to do, timings, etc.)"></textarea>
@@ -173,7 +172,7 @@ cover: /images/logo-trip-planner.png
 <script>
 (function(){
   // ---------- Storage ----------
-  const LS_KEY = 'tiny_trip_planner_v10';
+  const LS_KEY = 'tiny_trip_planner';
   const db = { trips: [], lastTripId: 0, lastPlaceId: 0 };
   const root = document.getElementById('ttp-root');
 
@@ -200,7 +199,6 @@ cover: /images/logo-trip-planner.png
     placeNotes: getEl('ttp-placeNotes'),
     placeVisited: getEl('ttp-placeVisited'),
     parseStatus: getEl('ttp-parseStatus'),
-    previewMap: getEl('ttp-previewMap'),
     addPlaceBtn: getEl('ttp-addPlaceBtn'),
     placeList: getEl('ttp-placeList'),
 
@@ -253,19 +251,39 @@ cover: /images/logo-trip-planner.png
   }
 
   function formatLatLng(lat,lng){ return `${Number(lat).toFixed(6)}, ${Number(lng).toFixed(6)}`; }
-  function escapeHtml(s){ return String(s||'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c])); }
+  function escapeHtml(s){
+    return String(s||'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+  }
   function escapeAttr(s){ return escapeHtml(s).replace(/"/g,'&quot;'); }
 
   // ---------- Google URL helpers (desktop + mobile short links) ----------
+  // Robust short-link expansion:
+  // 1) try fetch follow (best case)
+  // 2) fallback: image redirect trick reads final URL via currentSrc
   async function expandShortGoogleUrlMaybe(input){
+    let url = input;
     try{
       const u = new URL(input);
-      if(/(maps\.app\.goo\.gl|goo\.gl\/maps)/.test(u.host)){
-        const res = await fetch(u.href, { redirect:'follow', mode:'cors' });
-        if(res && res.url && res.url !== u.href) return res.url;
-      }
-    }catch(e){}
-    return input;
+      if(!/(maps\.app\.goo\.gl|goo\.gl\/maps)/.test(u.host)) return input;
+
+      // Attempt 1: fetch follow (may be blocked by CORS)
+      try{
+        const res = await fetch(u.href, { redirect:'follow' });
+        if (res && res.url && res.url !== u.href) return res.url;
+      }catch(_e){ /* ignore */ }
+
+      // Attempt 2: image redirect trick
+      url = await new Promise(resolve=>{
+        const img = new Image();
+        let done = false;
+        const finish = ()=>{ if(done) return; done=true; resolve(img.currentSrc || input); };
+        img.onload = finish; img.onerror = finish;
+        img.referrerPolicy = 'no-referrer';
+        img.src = input;
+        setTimeout(finish, 2500); // fallback after 2.5s
+      });
+      return url || input;
+    }catch(e){ return input; }
   }
   function coordsFromGoogleUrl(input){
     try{
@@ -307,10 +325,12 @@ cover: /images/logo-trip-planner.png
 
   // ---------- Geocoding (auto, debounced) ----------
   let currentTripId = null;
-  let previewLeaflet = null;
   let allMapLeaflet = null;
   let allMapMarkers = [];
   let allMapPolyline = null;
+
+  // store pending coords from "Add place" parser (since we removed the preview map)
+  let pendingLoc = null; // {lat, lng}
 
   function setStatus(msg, isErr=false){
     els.parseStatus.textContent = msg || '';
@@ -320,52 +340,55 @@ cover: /images/logo-trip-planner.png
   async function parseLocation(input){
     input = (input||'').trim();
 
+    // expand short mobile links *first*
     if (/(maps\.app\.goo\.gl|goo\.gl\/maps)/.test(input)) {
       input = await expandShortGoogleUrlMaybe(input);
     }
 
+    // 1) direct lat,lng
     const m = input.match(/^(-?\d+(\.\d+)?)\s*,\s*(-?\d+(\.\d+)?)$/);
-    if(m) return {lat:parseFloat(m[1]), lng:parseFloat(m[3]), source:'latlng'};
+    if(m) return {lat:parseFloat(m[1]), lng:parseFloat(m[3]), source:'latlng', expanded: input};
 
+    // 2) Google Maps URL (desktop-style)
     if (/(google\.com\/maps|maps\.app\.goo\.gl|goo\.gl\/maps)/.test(input)){
       const c = coordsFromGoogleUrl(input);
-      if(c) return {...c, source:'google'};
+      if(c) return {...c, source:'google', expanded: input};
     }
 
+    // 3) Nominatim (OpenStreetMap)
     const url = `https://nominatim.openstreetmap.org/search?format=jsonv2&q=${encodeURIComponent(input)}&limit=1`;
     const res = await fetch(url, { headers:{'Accept':'application/json'} });
     if(!res.ok) throw new Error('Geocoding failed');
     const j = await res.json();
     if(Array.isArray(j) && j.length>0){
       const hit=j[0];
-      return {lat:parseFloat(hit.lat), lng:parseFloat(hit.lon), source:'nominatim'};
+      return {lat:parseFloat(hit.lat), lng:parseFloat(hit.lon), source:'nominatim', expanded: input};
     }
     throw new Error('No results for that place');
   }
 
   function debounce(fn, delay){ let t; return (...a)=>{ clearTimeout(t); t=setTimeout(()=>fn(...a), delay); }; }
   const autoParse = debounce(async ()=>{
-    const input = els.placeLocation.value.trim();
-    if(!input){ els.previewMap.style.display='none'; setStatus(''); return; }
+    const raw = els.placeLocation.value.trim();
+    if(!raw){ setStatus(''); pendingLoc = null; return; }
     try{
       setStatus('Finding location…');
-      const res = await parseLocation(input);
+      // Expand early so we can also extract the name from the expanded URL reliably
+      const maybeExpanded = /(maps\.app\.goo\.gl|goo\.gl\/maps)/.test(raw) ? await expandShortGoogleUrlMaybe(raw) : raw;
+      const res = await parseLocation(maybeExpanded);
+      pendingLoc = { lat: res.lat, lng: res.lng };
       setStatus(`OK (${res.source}) → ${formatLatLng(res.lat,res.lng)}`);
-      if(previewLeaflet && previewLeaflet.remove) previewLeaflet.remove();
-      previewLeaflet = showSinglePin(els.previewMap, res.lat, res.lng, false);
-      els.previewMap.style.display='block';
-      els.previewMap.dataset.lat = res.lat;
-      els.previewMap.dataset.lng = res.lng;
 
-      if (/(google\.com\/maps|maps\.app\.goo\.gl|goo\.gl\/maps)/.test(input)){
-        const nm = nameFromGoogleUrl(input);
+      // Auto-fill name from expanded GMaps URL
+      if (/(google\.com\/maps|maps\.app\.goo\.gl|goo\.gl\/maps)/.test(maybeExpanded)){
+        const nm = nameFromGoogleUrl(maybeExpanded);
         if(nm && !els.placeName.value) els.placeName.value = nm;
       }
     }catch(e){
       setStatus(`Error: ${e.message}`, true);
-      els.previewMap.style.display='none';
+      pendingLoc = null;
     }
-  }, 400);
+  }, 350);
 
   // ---------- Default Leaflet pin icons (blue/green + highlight yellow) ----------
   const shadowUrl = 'https://unpkg.com/leaflet@1.9.4/dist/images/marker-shadow.png';
@@ -379,17 +402,6 @@ cover: /images/logo-trip-planner.png
   function pinIcon(visited){ return visited ? visitedIcon : unvisitedIcon; }
 
   // ---------- Map helpers ----------
-  function showSinglePin(el, lat, lng, visited){
-    el.innerHTML='';
-    const map = L.map(el).setView([lat,lng], 14);
-    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-      maxZoom:19, attribution:'&copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors'
-    }).addTo(map);
-    L.marker([lat,lng], { icon: pinIcon(visited) }).addTo(map);
-    setTimeout(()=>map.invalidateSize(),100);
-    return map;
-  }
-
   function renderAllPlacesMap(){
     const t=getTrip(currentTripId); if(!t) return;
     if(!allMapLeaflet){
@@ -399,7 +411,7 @@ cover: /images/logo-trip-planner.png
       }).addTo(allMapLeaflet);
       setTimeout(()=>allMapLeaflet.invalidateSize(), 100);
     }
-    // clear
+    // clear app-managed layers
     allMapMarkers.forEach(m=>allMapLeaflet.removeLayer(m));
     allMapMarkers = [];
     if(allMapPolyline){ allMapLeaflet.removeLayer(allMapPolyline); allMapPolyline=null; }
@@ -433,8 +445,8 @@ cover: /images/logo-trip-planner.png
   // Temporary highlight pin when adding a place
   function flashHighlight(lat, lng){
     if(!allMapLeaflet) return;
-    const m = L.marker([lat,lng], { icon: highlightIcon, zIndexOffset: 1000 }).addTo(allMapLeaflet);
-    setTimeout(()=>{ allMapLeaflet.removeLayer(m); }, 1500);
+    const temp = L.marker([lat,lng], { icon: highlightIcon, zIndexOffset: 1000 }).addTo(allMapLeaflet);
+    setTimeout(()=>{ try{ allMapLeaflet.removeLayer(temp); }catch(e){} }, 1500);
   }
 
   // ---------- UI ----------
@@ -503,7 +515,7 @@ cover: /images/logo-trip-planner.png
         if(confirm('Delete this place?')){ deletePlace(t.id, p.id); renderPlaces(); renderTrips(); renderAllPlacesMap(); }
       });
 
-      // edit inline
+      // edit inline (no per-item map; status only)
       li.querySelector('[data-edit]').addEventListener('click',()=>editPlaceInline(t.id,p));
 
       // drag & drop — handle initiates drag, items accept drop
@@ -537,10 +549,9 @@ cover: /images/logo-trip-planner.png
     container.innerHTML=`
       <div class="ttp-title">Edit: ${escapeHtml(p.name)}</div>
 
-      <!-- Location first; auto parse -->
+      <!-- Location first; auto parse (no map) -->
       <input class="ttp-input" id="eLoc" value="${escapeAttr(p.locationInput || formatLatLng(p.lat,p.lng))}" placeholder="Location (lat,lng / GMaps URL / place text)">
       <div id="eStatus" class="ttp-muted"></div>
-      <div id="eMap" class="ttp-map" style="display:none;"></div>
 
       <input class="ttp-input" id="eName" value="${escapeAttr(p.name)}" placeholder="Place name">
       <textarea class="ttp-textarea" id="eNotes" placeholder="Notes">${escapeHtml(p.notes||'')}</textarea>
@@ -557,33 +568,28 @@ cover: /images/logo-trip-planner.png
     const eLoc = container.querySelector('#eLoc');
     const eName = container.querySelector('#eName');
     const eStatus = container.querySelector('#eStatus');
-    const eMap = container.querySelector('#eMap');
 
     function setStatusInline(msg,isErr=false){ eStatus.textContent=msg||''; eStatus.style.color=isErr?'var(--danger)':'var(--muted)'; }
 
     const doAuto = debounce(async ()=>{
       const inputRaw = eLoc.value.trim();
-      if(!inputRaw){ eMap.style.display='none'; setStatusInline(''); return; }
+      if(!inputRaw){ setStatusInline(''); return; }
       try{
         setStatusInline('Finding location…');
-        let input = inputRaw;
-        if (/(maps\.app\.goo\.gl|goo\.gl\/maps)/.test(input)) input = await expandShortGoogleUrlMaybe(input);
-        const res = await parseLocation(input);
+        const maybeExpanded = /(maps\.app\.goo\.gl|goo\.gl\/maps)/.test(inputRaw) ? await expandShortGoogleUrlMaybe(inputRaw) : inputRaw;
+        const res = await parseLocation(maybeExpanded);
         newCoords = {lat:res.lat, lng:res.lng};
         setStatusInline(`OK (${res.source}) → ${formatLatLng(res.lat,res.lng)}`);
-        showSinglePin(eMap, res.lat, res.lng, p.visited); eMap.style.display='block';
-        if (/(google\.com\/maps|maps\.app\.goo\.gl|goo\.gl\/maps)/.test(input)){
-          const nm = nameFromGoogleUrl(input);
+        if (/(google\.com\/maps|maps\.app\.goo\.gl|goo\.gl\/maps)/.test(maybeExpanded)){
+          const nm = nameFromGoogleUrl(maybeExpanded);
           if(nm && (!eName.value || /^Place \d+$/.test(eName.value))) eName.value = nm;
         }
       }catch(err){
         setStatusInline(`Error: ${err.message}`, true);
-        eMap.style.display='none';
       }
-    }, 400);
+    }, 350);
 
     eLoc.addEventListener('input', doAuto);
-    showSinglePin(eMap, p.lat, p.lng, p.visited); eMap.style.display='block';
 
     container.querySelector('#eSave').addEventListener('click',()=>{
       const name = eName.value.trim() || p.name;
@@ -605,6 +611,7 @@ cover: /images/logo-trip-planner.png
     setTimeout(()=>{ document.body.removeChild(a); URL.revokeObjectURL(url); }, 0);
   }
   function timestamp(){ const d=new Date(); return d.toISOString().replace(/[:.]/g,'-'); }
+  function slug(s){ return String(s||'trip').toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-+|-+$/g,'').slice(0,40); }
 
   function exportAll(){
     const payload = { version: 1, exportedAt: new Date().toISOString(), data: db };
@@ -615,24 +622,18 @@ cover: /images/logo-trip-planner.png
     const payload = { version: 1, exportedAt: new Date().toISOString(), data: { trip: t } };
     download(`trip-${t.id}-${slug(t.name)}-${timestamp()}.json`, JSON.stringify(payload, null, 2));
   }
-  function slug(s){ return String(s||'trip').toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-+|-+$/g,'').slice(0,40); }
-
   async function importMerge(obj){
-    // Accept shapes:
-    // {data:{trips:[...], lastTripId?, lastPlaceId?}}  OR  {data:{trip:{...}}}  OR  raw {trips:[...]}  OR raw trip
     const data = obj?.data ?? obj;
     if(!data){ alert('Invalid file: missing data'); return; }
 
-    // Normalize to array of trips
     let trips = [];
-    if(Array.isArray(data.trips)){ trips = data.trips; }
-    else if(data.trip){ trips = [data.trip]; }
-    else if(Array.isArray(obj)){ trips = obj; }
-    else if(data.name && Array.isArray(data.places)){ trips = [data]; }
+    if(Array.isArray(data.trips)) trips = data.trips;
+    else if(data.trip) trips = [data.trip];
+    else if(Array.isArray(obj)) trips = obj;
+    else if(data.name && Array.isArray(data.places)) trips = [data];
 
     if(!Array.isArray(trips) || trips.length===0){ alert('No trips found to import'); return; }
 
-    // Merge: re-ID everything to avoid collisions
     const addedTripIds = [];
     for(const incoming of trips){
       const newTrip = {
@@ -641,7 +642,6 @@ cover: /images/logo-trip-planner.png
         createdAt: Date.now(),
         places: []
       };
-      // places
       const places = Array.isArray(incoming.places) ? incoming.places : [];
       for(const p of places){
         newTrip.places.push({
@@ -660,7 +660,6 @@ cover: /images/logo-trip-planner.png
     }
     saveDB();
     renderTrips();
-    // open the last imported trip
     if(addedTripIds.length){ openTrip(addedTripIds[addedTripIds.length-1]); }
     alert(`Imported ${addedTripIds.length} trip(s).`);
   }
@@ -721,18 +720,15 @@ cover: /images/logo-trip-planner.png
     const name = els.placeName.value.trim();
     const notes = els.placeNotes.value;
     const locInput = els.placeLocation.value.trim();
-    const lat = parseFloat(els.previewMap.dataset.lat);
-    const lng = parseFloat(els.previewMap.dataset.lng);
+    if(!pendingLoc){ alert('Type a location (URL / text / lat,lng) and wait for it to resolve first.'); return; }
+    const {lat, lng} = pendingLoc;
     const visited = !!els.placeVisited.checked;
-    if(!isFinite(lat) || !isFinite(lng)){
-      alert('Type a location (URL / text / lat,lng) and wait for it to resolve first.');
-      return;
-    }
+
     addPlace(currentTripId, { name, notes, lat, lng, locationInput: locInput, visited });
-    // reset the add form
+
+    // reset form + pending coords
     els.placeName.value=''; els.placeNotes.value=''; els.placeLocation.value=''; els.placeVisited.checked=false;
-    els.previewMap.style.display='none'; els.previewMap.dataset.lat=''; els.previewMap.dataset.lng='';
-    if(previewLeaflet && previewLeaflet.remove) previewLeaflet.remove(); previewLeaflet=null;
+    pendingLoc = null; setStatus('');
 
     // refresh UI and map, then temporarily highlight the just-added spot
     renderPlaces(); renderTrips(); renderAllPlacesMap();
