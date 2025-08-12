@@ -8,7 +8,7 @@ date: 2025-08-08 09:09:09 +0000
 cover: /images/logo-trip-planner.png
 ---
 
-<!-- Tiny Trip Planner — final clean build (no short links, fixed map variable) -->
+<!-- Tiny Trip Planner — final build (Open in Google Maps button, no short-links, fixed map vars) -->
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin>
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin></script>
 
@@ -27,7 +27,6 @@ cover: /images/logo-trip-planner.png
       <button class="ttp-btn" id="ttp-exportAllBtn">⤴️ Export All</button>
     </div>
     <div class="ttp-topbar-list" id="ttp-tripList"></div>
-
   </div>
 
   <div class="ttp-gap"></div>
@@ -105,7 +104,6 @@ cover: /images/logo-trip-planner.png
         </div>
       </div>
     </div>
-
   </div>
 </div>
 
@@ -173,7 +171,7 @@ cover: /images/logo-trip-planner.png
 <script>
 (function(){
   // ---------- Storage ----------
-  const LS_KEY = 'tiny_trip_planner';
+  const LS_KEY = 'tiny_trip_planner_v14';
   const db = { trips: [], lastTripId: 0, lastPlaceId: 0 };
   const root = document.getElementById('ttp-root');
 
@@ -257,6 +255,11 @@ cover: /images/logo-trip-planner.png
     return String(s||'').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
   }
   function escapeAttr(s){ return escapeHtml(s).replace(/"/g,'&quot;'); }
+  function isFullGmapsUrl(str){ return /https?:\/\/(www\.)?google\.com\/maps\//i.test(str||''); }
+  function buildGmapsUrlFromLatLng(lat,lng,name){
+    const base=`https://www.google.com/maps?q=${encodeURIComponent(lat+','+lng)}`;
+    return name ? `${base}(${encodeURIComponent(name)})` : base;
+  }
 
   // ---------- Google Maps desktop URL parsing only ----------
   function coordsFromGoogleUrl(input){
@@ -301,7 +304,7 @@ cover: /images/logo-trip-planner.png
   let currentTripId = null;
   let previewLeaflet = null;
 
-  // SINGLE declarations here (prevents redeclaration errors)
+  // SINGLE declarations (avoid redeclarations)
   let allMapLeaflet = null;
   let allMapMarkers = [];
   let allMapPolyline = null;
@@ -324,10 +327,10 @@ cover: /images/logo-trip-planner.png
     if(m) return {lat:parseFloat(m[1]), lng:parseFloat(m[3]), source:'latlng'};
 
     // 2) full google.com/maps URL
-    if (/https?:\/\/(www\.)?google\.com\/maps\//i.test(input)){
+    if (isFullGmapsUrl(input)){
       const c = coordsFromGoogleUrl(input);
       if(c) return {...c, source:'google'};
-      // will fall through to OSM otherwise
+      // else fall through to OSM
     }
 
     // 3) OSM Nominatim text search (free)
@@ -357,7 +360,7 @@ cover: /images/logo-trip-planner.png
       els.previewMap.dataset.lng = res.lng;
 
       // auto name only for full google.com/maps URLs
-      if (/https?:\/\/(www\.)?google\.com\/maps\//i.test(input)){
+      if (isFullGmapsUrl(input)){
         const nm = nameFromGoogleUrl(input);
         if(nm && !els.placeName.value) els.placeName.value = nm;
       }
@@ -463,6 +466,11 @@ cover: /images/logo-trip-planner.png
     renderAllPlacesMap();
   }
 
+  function googleLinkForPlace(p){
+    if (isFullGmapsUrl(p.locationInput)) return p.locationInput;
+    return buildGmapsUrlFromLatLng(p.lat, p.lng, p.name);
+  }
+
   function renderPlaces(){
     const t=getTrip(currentTripId);
     if(!t) return;
@@ -481,6 +489,7 @@ cover: /images/logo-trip-planner.png
         </div>
 
         <div class="ttp-actions">
+          <button class="ttp-btn ttp-accent" data-open="${p.id}" title="Open in Google Maps">📍 Open</button>
           <button class="ttp-btn ttp-primary" data-edit="${p.id}">✏️ Edit</button>
           <button class="ttp-btn ttp-danger" data-del="${p.id}">🗑️ Delete</button>
 
@@ -491,6 +500,12 @@ cover: /images/logo-trip-planner.png
           </button>
         </div>
       `;
+
+      // open in Google Maps
+      li.querySelector(`[data-open="${p.id}"]`).addEventListener('click', ()=>{
+        const url = googleLinkForPlace(p);
+        window.open(url, '_blank', 'noopener,noreferrer');
+      });
 
       // clickable visited chip
       li.querySelector(`[data-chip="${p.id}"]`).addEventListener('click', ()=>{
@@ -571,7 +586,7 @@ cover: /images/logo-trip-planner.png
         newCoords = {lat:res.lat, lng:res.lng};
         setStatusInline(`OK (${res.source}) → ${formatLatLng(res.lat,res.lng)}`);
         showSinglePin(eMap, res.lat, res.lng, p.visited); eMap.style.display='block';
-        if (/https?:\/\/(www\.)?google\.com\/maps\//i.test(input)){
+        if (isFullGmapsUrl(input)){
           const nm = nameFromGoogleUrl(input);
           if(nm && (!eName.value || /^Place \d+$/.test(eName.value))) eName.value = nm;
         }
