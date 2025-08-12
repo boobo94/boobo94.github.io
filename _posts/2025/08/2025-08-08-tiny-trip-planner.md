@@ -8,7 +8,7 @@ date: 2025-08-08 09:09:09 +0000
 cover: /images/logo-trip-planner.png
 ---
 
-<!-- Tiny Trip Planner — reorganized buttons (Edit, Delete, Open Map, Mark Visited, Reorder) -->
+<!-- Tiny Trip Planner — stable storage key + flat 'Mark visited' button -->
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin>
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin></script>
 
@@ -152,26 +152,12 @@ cover: /images/logo-trip-planner.png
   .ttp .ttp-topbar-list { display:flex; gap:8px; flex-wrap:wrap; margin-top:10px; }
   .ttp .ttp-topbar-list .ttp-tripBtn { background:#13182b; border:1px solid var(--border); color:var(--text); padding:8px 10px; border-radius:10px; cursor:pointer; }
   .ttp .ttp-tripBtn.ttp-active { background:#123c33; border-color:#104235; color:var(--accent); }
-
-  /* clickable visited chip */
-  .ttp .ttp-chip-btn {
-    display:inline-flex; align-items:center; gap:6px;
-    font-size:12px; padding:6px 10px; border-radius:999px; border:1px solid var(--border);
-    background:#0d1020; color:var(--muted); cursor:pointer; user-select:none;
-    justify-content:center; text-align:center;
-  }
-  .ttp .ttp-chip-btn:hover { filter:brightness(1.1); }
-  .ttp .ttp-chip-btn:active { transform: translateY(1px); }
-  .ttp .ttp-chip-btn.visited { color:#a3e7c9; border-color:#225a4a; background:#0e2c25; }
-  .ttp .ttp-chip-icon { font-size:14px; line-height:1; }
-  .ttp .ttp-place-visited .ttp-title { text-decoration: line-through; opacity:.75; }
-  .ttp .ttp-check { display:flex; align-items:center; gap:8px; font-size:14px; color:var(--muted); }
 </style>
 
 <script>
 (function(){
   // ---------- Storage ----------
-  const LS_KEY = 'tiny_trip_planner';
+  const LS_KEY = 'tiny_trip_planner'; // stable key (no versioning)
   const db = { trips: [], lastTripId: 0, lastPlaceId: 0 };
   const root = document.getElementById('ttp-root');
 
@@ -487,14 +473,13 @@ cover: /images/logo-trip-planner.png
         </div>
 
         <div class="ttp-actions">
-          <!-- Order: Edit, Delete, Open Map, Visited chip, Reorder -->
+          <!-- Order: Edit, Delete, Open Map, Mark visited, Reorder -->
           <button class="ttp-btn ttp-primary" data-edit="${p.id}">✏️ Edit</button>
           <button class="ttp-btn ttp-danger" data-del="${p.id}">🗑️ Delete</button>
           <button class="ttp-btn ttp-accent" data-open="${p.id}" title="Open in Google Maps">📍 Open Map</button>
 
-          <button class="ttp-chip-btn ${p.visited ? 'visited':''}" data-chip="${p.id}" aria-pressed="${p.visited ? 'true':'false'}" title="Toggle visited">
-            <span class="ttp-chip-icon">${p.visited ? '✅' : '🗺️'}</span>
-            <span>${p.visited ? 'Visited' : 'Mark visited'}</span>
+          <button class="ttp-btn ${p.visited ? 'ttp-accent' : ''}" data-visit="${p.id}" aria-pressed="${p.visited ? 'true':'false'}" title="Toggle visited">
+            ${p.visited ? '✅ Visited' : '🗺️ Mark visited'}
           </button>
 
           <button class="ttp-btn ttp-handle-btn" draggable="true" data-handle="${idx}" title="Drag to reorder">↕️ Reorder</button>
@@ -507,8 +492,8 @@ cover: /images/logo-trip-planner.png
         window.open(url, '_blank', 'noopener,noreferrer');
       });
 
-      // Visited chip
-      li.querySelector(`[data-chip="${p.id}"]`).addEventListener('click', ()=>{
+      // Toggle visited (flat button)
+      li.querySelector(`[data-visit="${p.id}"]`).addEventListener('click', ()=>{
         updatePlace(t.id, p.id, { visited: !p.visited });
         renderPlaces();
         renderAllPlacesMap();
