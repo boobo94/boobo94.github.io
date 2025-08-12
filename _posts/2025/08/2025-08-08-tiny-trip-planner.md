@@ -157,7 +157,7 @@ cover: /images/logo-trip-planner.png
 
 <script>
 (function(){
-  const LS_KEY = 'tiny_trip_planner_v12';
+  const LS_KEY = 'tiny_trip_planner';
   const db = { trips: [], lastTripId: 0, lastPlaceId: 0 };
   const root = document.getElementById('ttp-root');
 
