@@ -8,7 +8,7 @@ date: 2025-08-08 09:09:09 +0000
 cover: /images/logo-trip-planner.png
 ---
 
-<!-- Tiny Trip Planner (scoped widget) — mobile GMaps links + highlight new pin + autosave trip name + default pins -->
+<!-- Tiny Trip Planner (scoped widget) — import/export + default Leaflet pins + highlight + autosave -->
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin>
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin></script>
 
@@ -18,8 +18,16 @@ cover: /images/logo-trip-planner.png
     <div class="ttp-row ttp-wrap">
       <input class="ttp-input" id="ttp-newTripName" type="text" placeholder="Trip name (e.g., Athens – 5 days)">
       <button class="ttp-btn ttp-accent" id="ttp-addTripBtn">Add Trip</button>
+
+      <span style="flex:1"></span>
+
+      <!-- Import / Export controls -->
+      <input id="ttp-importFile" type="file" accept="application/json,.json" style="display:none;">
+      <button class="ttp-btn" id="ttp-importBtn">⤵️ Import (merge)</button>
+      <button class="ttp-btn" id="ttp-exportAllBtn">⤴️ Export All</button>
     </div>
     <div class="ttp-topbar-list" id="ttp-tripList"></div>
+
   </div>
 
   <div class="ttp-gap"></div>
@@ -42,6 +50,7 @@ cover: /images/logo-trip-planner.png
           <div class="ttp-tiny">Name auto-saves as you type.</div>
         </div>
         <div class="ttp-row">
+          <button id="ttp-exportTripBtn" class="ttp-btn">⤴️ Export Trip</button>
           <button id="ttp-deleteTripBtn" class="ttp-btn ttp-danger">🗑️ Delete Trip</button>
         </div>
       </div>
@@ -164,7 +173,7 @@ cover: /images/logo-trip-planner.png
 <script>
 (function(){
   // ---------- Storage ----------
-  const LS_KEY = 'tiny_trip_planner_v9';
+  const LS_KEY = 'tiny_trip_planner_v10';
   const db = { trips: [], lastTripId: 0, lastPlaceId: 0 };
   const root = document.getElementById('ttp-root');
 
@@ -184,6 +193,7 @@ cover: /images/logo-trip-planner.png
     tripNameInput: getEl('ttp-tripNameInput'),
     tripIdBadge: getEl('ttp-tripIdBadge'),
     deleteTripBtn: getEl('ttp-deleteTripBtn'),
+    exportTripBtn: getEl('ttp-exportTripBtn'),
 
     placeLocation: getEl('ttp-placeLocation'),
     placeName: getEl('ttp-placeName'),
@@ -197,6 +207,10 @@ cover: /images/logo-trip-planner.png
     allMap: getEl('ttp-allMap'),
     filterVisited: getEl('ttp-filterVisited'),
     filterUnvisited: getEl('ttp-filterUnvisited'),
+
+    importBtn: getEl('ttp-importBtn'),
+    importFile: getEl('ttp-importFile'),
+    exportAllBtn: getEl('ttp-exportAllBtn'),
   };
 
   function addTrip(name){
@@ -247,12 +261,11 @@ cover: /images/logo-trip-planner.png
     try{
       const u = new URL(input);
       if(/(maps\.app\.goo\.gl|goo\.gl\/maps)/.test(u.host)){
-        // Follow redirects; response.url should have the expanded target
         const res = await fetch(u.href, { redirect:'follow', mode:'cors' });
         if(res && res.url && res.url !== u.href) return res.url;
       }
     }catch(e){}
-    return input; // fallback to original
+    return input;
   }
   function coordsFromGoogleUrl(input){
     try{
@@ -307,22 +320,18 @@ cover: /images/logo-trip-planner.png
   async function parseLocation(input){
     input = (input||'').trim();
 
-    // Try to expand mobile short links first (no-op if not short)
     if (/(maps\.app\.goo\.gl|goo\.gl\/maps)/.test(input)) {
       input = await expandShortGoogleUrlMaybe(input);
     }
 
-    // 1) direct lat,lng
     const m = input.match(/^(-?\d+(\.\d+)?)\s*,\s*(-?\d+(\.\d+)?)$/);
     if(m) return {lat:parseFloat(m[1]), lng:parseFloat(m[3]), source:'latlng'};
 
-    // 2) Google Maps URL (desktop-style)
     if (/(google\.com\/maps|maps\.app\.goo\.gl|goo\.gl\/maps)/.test(input)){
       const c = coordsFromGoogleUrl(input);
       if(c) return {...c, source:'google'};
     }
 
-    // 3) Nominatim (OpenStreetMap, free)
     const url = `https://nominatim.openstreetmap.org/search?format=jsonv2&q=${encodeURIComponent(input)}&limit=1`;
     const res = await fetch(url, { headers:{'Accept':'application/json'} });
     if(!res.ok) throw new Error('Geocoding failed');
@@ -348,7 +357,6 @@ cover: /images/logo-trip-planner.png
       els.previewMap.dataset.lat = res.lat;
       els.previewMap.dataset.lng = res.lng;
 
-      // auto-fill name (after expansion) if it's a GMaps URL
       if (/(google\.com\/maps|maps\.app\.goo\.gl|goo\.gl\/maps)/.test(input)){
         const nm = nameFromGoogleUrl(input);
         if(nm && !els.placeName.value) els.placeName.value = nm;
@@ -575,7 +583,6 @@ cover: /images/logo-trip-planner.png
     }, 400);
 
     eLoc.addEventListener('input', doAuto);
-    // initial map
     showSinglePin(eMap, p.lat, p.lng, p.visited); eMap.style.display='block';
 
     container.querySelector('#eSave').addEventListener('click',()=>{
@@ -587,6 +594,75 @@ cover: /images/logo-trip-planner.png
       renderAllPlacesMap();
     });
     container.querySelector('#eCancel').addEventListener('click',()=>renderPlaces());
+  }
+
+  // ---------- Import / Export ----------
+  function download(filename, text){
+    const blob = new Blob([text], {type:'application/json'});
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href=url; a.download=filename; document.body.appendChild(a); a.click();
+    setTimeout(()=>{ document.body.removeChild(a); URL.revokeObjectURL(url); }, 0);
+  }
+  function timestamp(){ const d=new Date(); return d.toISOString().replace(/[:.]/g,'-'); }
+
+  function exportAll(){
+    const payload = { version: 1, exportedAt: new Date().toISOString(), data: db };
+    download(`trip-planner-all-${timestamp()}.json`, JSON.stringify(payload, null, 2));
+  }
+  function exportTrip(id){
+    const t=getTrip(id); if(!t){ alert('No trip selected'); return; }
+    const payload = { version: 1, exportedAt: new Date().toISOString(), data: { trip: t } };
+    download(`trip-${t.id}-${slug(t.name)}-${timestamp()}.json`, JSON.stringify(payload, null, 2));
+  }
+  function slug(s){ return String(s||'trip').toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-+|-+$/g,'').slice(0,40); }
+
+  async function importMerge(obj){
+    // Accept shapes:
+    // {data:{trips:[...], lastTripId?, lastPlaceId?}}  OR  {data:{trip:{...}}}  OR  raw {trips:[...]}  OR raw trip
+    const data = obj?.data ?? obj;
+    if(!data){ alert('Invalid file: missing data'); return; }
+
+    // Normalize to array of trips
+    let trips = [];
+    if(Array.isArray(data.trips)){ trips = data.trips; }
+    else if(data.trip){ trips = [data.trip]; }
+    else if(Array.isArray(obj)){ trips = obj; }
+    else if(data.name && Array.isArray(data.places)){ trips = [data]; }
+
+    if(!Array.isArray(trips) || trips.length===0){ alert('No trips found to import'); return; }
+
+    // Merge: re-ID everything to avoid collisions
+    const addedTripIds = [];
+    for(const incoming of trips){
+      const newTrip = {
+        id: nextTripId(),
+        name: incoming.name || `Imported Trip ${db.lastTripId}`,
+        createdAt: Date.now(),
+        places: []
+      };
+      // places
+      const places = Array.isArray(incoming.places) ? incoming.places : [];
+      for(const p of places){
+        newTrip.places.push({
+          id: nextPlaceId(),
+          name: p.name || `Imported Place ${db.lastPlaceId}`,
+          notes: p.notes || '',
+          lat: Number(p.lat) || 0,
+          lng: Number(p.lng) || 0,
+          locationInput: p.locationInput || '',
+          visited: !!p.visited,
+          createdAt: Date.now()
+        });
+      }
+      db.trips.push(newTrip);
+      addedTripIds.push(newTrip.id);
+    }
+    saveDB();
+    renderTrips();
+    // open the last imported trip
+    if(addedTripIds.length){ openTrip(addedTripIds[addedTripIds.length-1]); }
+    alert(`Imported ${addedTripIds.length} trip(s).`);
   }
 
   // ---------- Events ----------
@@ -615,6 +691,25 @@ cover: /images/logo-trip-planner.png
       els.tripView.style.display='none';
       els.emptyState.style.display='block';
       renderTrips();
+    }
+  });
+
+  // Import / Export buttons
+  els.exportAllBtn.addEventListener('click', exportAll);
+  els.exportTripBtn.addEventListener('click', ()=> currentTripId ? exportTrip(currentTripId) : alert('Open a trip first'));
+  els.importBtn.addEventListener('click', ()=> els.importFile.click());
+  els.importFile.addEventListener('change', async (e)=>{
+    const file = e.target.files?.[0];
+    if(!file) return;
+    try{
+      const text = await file.text();
+      const json = JSON.parse(text);
+      await importMerge(json);
+    }catch(err){
+      console.error(err);
+      alert('Could not import this file. Make sure it is a JSON export from this app.');
+    }finally{
+      e.target.value = '';
     }
   });
 
