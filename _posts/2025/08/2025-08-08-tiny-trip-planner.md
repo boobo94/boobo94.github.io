@@ -8,7 +8,7 @@ date: 2025-08-08 09:09:09 +0000
 cover: /images/logo-trip-planner.png
 ---
 
-<!-- Tiny Trip Planner — revert to simple full re-render: all pins + polyline every update -->
+<!-- Tiny Trip Planner — mobile short GMaps fix + everything else -->
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin>
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin></script>
 
@@ -81,9 +81,10 @@ cover: /images/logo-trip-planner.png
         <div class="ttp-col">
           <div class="ttp-section-title">Add place</div>
 
-          <!-- Location first; auto-parse on input (no per-place preview map) -->
+          <!-- Location first; auto-parse on input -->
           <input class="ttp-input" id="ttp-placeLocation" type="text" placeholder="Location (lat,lng • Google Maps URL • or place text)">
           <div id="ttp-parseStatus" class="ttp-muted"></div>
+          <div id="ttp-previewMap" class="ttp-map" style="display:none;"></div>
 
           <input class="ttp-input" id="ttp-placeName" type="text" placeholder="Place name (auto from Maps URL)">
           <textarea class="ttp-textarea" id="ttp-placeNotes" placeholder="Short notes (what to do, timings, etc.)"></textarea>
@@ -199,6 +200,7 @@ cover: /images/logo-trip-planner.png
     placeNotes: getEl('ttp-placeNotes'),
     placeVisited: getEl('ttp-placeVisited'),
     parseStatus: getEl('ttp-parseStatus'),
+    previewMap: getEl('ttp-previewMap'),
     addPlaceBtn: getEl('ttp-addPlaceBtn'),
     placeList: getEl('ttp-placeList'),
 
@@ -252,24 +254,39 @@ cover: /images/logo-trip-planner.png
 
   function formatLatLng(lat,lng){ return `${Number(lat).toFixed(6)}, ${Number(lng).toFixed(6)}`; }
   function escapeHtml(s){
-    return String(s||'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+    return String(s||'').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
   }
   function escapeAttr(s){ return escapeHtml(s).replace(/"/g,'&quot;'); }
 
-  // ---------- Google URL helpers (short links supported) ----------
-  async function resolveShortMapUrl(input){
+  // ---------- Google URL helpers (desktop + mobile short links) ----------
+  async function expandShortGoogleUrlMaybe(input){
+    // Accept maps.app.goo.gl or goo.gl/maps short links and try to resolve to a long google.com/maps URL
     try{
-      const res = await fetch(input, { redirect:'follow' });
-      if(res && res.url && res.url !== input) return res.url;
-    }catch(_e){}
-    // fallback: text mirror that returns HTML (no CORS headers needed)
-    const mirror = `https://r.jina.ai/http/${input.replace(/^https:/,'http:')}`;
-    try{
-      const txt = await fetch(mirror).then(r=>r.text());
-      const m = txt.match(/https?:\/\/(?:www\.)?google\.com\/maps[^\s"'<>]+/i);
-      if(m && m[0]) return m[0];
-    }catch(_e){}
-    return input;
+      const u = new URL(input);
+      if(!/(maps\.app\.goo\.gl|goo\.gl\/maps)/.test(u.host)) return input;
+
+      // 1) Try no-cors fetch; response.url often contains the final redirected URL
+      try{
+        const res = await fetch(u.href, { mode:'no-cors', redirect:'follow', cache:'no-cache' });
+        if(res && res.url && res.url !== u.href && /google\.com\/maps/.test(res.url)){
+          return res.url;
+        }
+      }catch(_e){ /* ignore and try fallback */ }
+
+      // 2) Fallback: fetch via a CORS-friendly mirror (read-only) and scrape the long URL
+      try{
+        const mirror = 'https://r.jina.ai/' + u.href; // returns HTML/text with permissive CORS
+        const text = await fetch(mirror).then(r=>r.text());
+        // Find the first google.com/maps URL in the text
+        const m = text.match(/https?:\/\/(?:www\.)?google\.com\/maps[^\s"'<>)]*/);
+        if(m && m[0]) return m[0];
+      }catch(_e){ /* ignore */ }
+
+      // If all else fails, return original; upstream CORS might block us
+      return input;
+    }catch(_err){
+      return input;
+    }
   }
   function coordsFromGoogleUrl(input){
     try{
@@ -311,20 +328,10 @@ cover: /images/logo-trip-planner.png
 
   // ---------- Geocoding (auto, debounced) ----------
   let currentTripId = null;
-  let pendingLoc = null; // {lat, lng}
-
-  let map = null;
-  let currentMarkers = [];
-  let currentPolyline = null;
-
-  function ensureMap(){
-    if(map) return;
-    map = L.map(els.allMap).setView([0,0], 2);
-    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-      maxZoom:19, attribution:'&copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors'
-    }).addTo(map);
-    setTimeout(()=>map.invalidateSize(),100);
-  }
+  let previewLeaflet = null;
+  let allMapLeaflet = null;
+  let allMapMarkers = [];
+  let allMapPolyline = null;
 
   function setStatus(msg, isErr=false){
     els.parseStatus.textContent = msg || '';
@@ -333,15 +340,17 @@ cover: /images/logo-trip-planner.png
 
   async function parseLocation(input){
     input = (input||'').trim();
+
     if (/(maps\.app\.goo\.gl|goo\.gl\/maps)/.test(input)) {
-      input = await resolveShortMapUrl(input);
+      input = await expandShortGoogleUrlMaybe(input);
     }
+
     const m = input.match(/^(-?\d+(\.\d+)?)\s*,\s*(-?\d+(\.\d+)?)$/);
-    if(m) return {lat:parseFloat(m[1]), lng:parseFloat(m[3]), source:'latlng', expanded: input};
+    if(m) return {lat:parseFloat(m[1]), lng:parseFloat(m[3]), source:'latlng'};
 
     if (/(google\.com\/maps|maps\.app\.goo\.gl|goo\.gl\/maps)/.test(input)){
       const c = coordsFromGoogleUrl(input);
-      if(c) return {...c, source:'google', expanded: input};
+      if(c) return {...c, source:'google'};
     }
 
     const url = `https://nominatim.openstreetmap.org/search?format=jsonv2&q=${encodeURIComponent(input)}&limit=1`;
@@ -350,32 +359,39 @@ cover: /images/logo-trip-planner.png
     const j = await res.json();
     if(Array.isArray(j) && j.length>0){
       const hit=j[0];
-      return {lat:parseFloat(hit.lat), lng:parseFloat(hit.lon), source:'nominatim', expanded: input};
+      return {lat:parseFloat(hit.lat), lng:parseFloat(hit.lon), source:'nominatim'};
     }
     throw new Error('No results for that place');
   }
 
   function debounce(fn, delay){ let t; return (...a)=>{ clearTimeout(t); t=setTimeout(()=>fn(...a), delay); }; }
   const autoParse = debounce(async ()=>{
-    const raw = els.placeLocation.value.trim();
-    if(!raw){ setStatus(''); pendingLoc = null; return; }
+    const input = els.placeLocation.value.trim();
+    if(!input){ els.previewMap.style.display='none'; setStatus(''); return; }
     try{
       setStatus('Finding location…');
-      const maybeExpanded = /(maps\.app\.goo\.gl|goo\.gl\/maps)/.test(raw) ? await resolveShortMapUrl(raw) : raw;
-      const res = await parseLocation(maybeExpanded);
-      pendingLoc = { lat: res.lat, lng: res.lng };
+      const res = await parseLocation(input);
       setStatus(`OK (${res.source}) → ${formatLatLng(res.lat,res.lng)}`);
-      if (/(google\.com\/maps|maps\.app\.goo\.gl|goo\.gl\/maps)/.test(maybeExpanded)){
-        const nm = nameFromGoogleUrl(maybeExpanded);
+      if(previewLeaflet && previewLeaflet.remove) previewLeaflet.remove();
+      previewLeaflet = showSinglePin(els.previewMap, res.lat, res.lng, false);
+      els.previewMap.style.display='block';
+      els.previewMap.dataset.lat = res.lat;
+      els.previewMap.dataset.lng = res.lng;
+
+      // auto-name if URL
+      const raw = els.placeLocation.value.trim();
+      if (/(google\.com\/maps|maps\.app\.goo\.gl|goo\.gl\/maps)/.test(raw)){
+        const expanded = await expandShortGoogleUrlMaybe(raw);
+        const nm = nameFromGoogleUrl(expanded);
         if(nm && !els.placeName.value) els.placeName.value = nm;
       }
     }catch(e){
       setStatus(`Error: ${e.message}`, true);
-      pendingLoc = null;
+      els.previewMap.style.display='none';
     }
-  }, 300);
+  }, 400);
 
-  // ---------- Default Leaflet pin icons (blue/green) ----------
+  // ---------- Default Leaflet pin icons (blue/green + highlight yellow) ----------
   const shadowUrl = 'https://unpkg.com/leaflet@1.9.4/dist/images/marker-shadow.png';
   const icon = (url)=> new L.Icon({
     iconUrl: url, shadowUrl: shadowUrl,
@@ -383,42 +399,66 @@ cover: /images/logo-trip-planner.png
   });
   const visitedIcon   = icon('https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-green.png');
   const unvisitedIcon = icon('https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-blue.png');
+  const highlightIcon = icon('https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-yellow.png');
   function pinIcon(visited){ return visited ? visitedIcon : unvisitedIcon; }
 
-  // ---------- Map render (simple & robust) ----------
-  function renderMap(){
-    const t=getTrip(currentTripId); if(!t) return;
-    ensureMap();
+  // ---------- Map helpers ----------
+  function showSinglePin(el, lat, lng, visited){
+    el.innerHTML='';
+    const map = L.map(el).setView([lat,lng], 14);
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      maxZoom:19, attribution:'&copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors'
+    }).addTo(map);
+    L.marker([lat,lng], { icon: pinIcon(visited) }).addTo(map);
+    setTimeout(()=>map.invalidateSize(),100);
+    return map;
+  }
 
-    // clear markers & polyline we own
-    currentMarkers.forEach(m=>map.removeLayer(m));
-    currentMarkers = [];
-    if(currentPolyline){ map.removeLayer(currentPolyline); currentPolyline=null; }
+  function renderAllPlacesMap(){
+    const t=getTrip(currentTripId); if(!t) return;
+    if(!allMapLeaflet){
+      allMapLeaflet = L.map(els.allMap).setView([0,0], 2);
+      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        maxZoom:19, attribution:'&copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors'
+      }).addTo(allMapLeaflet);
+      setTimeout(()=>allMapLeaflet.invalidateSize(), 100);
+    }
+    // clear
+    allMapMarkers.forEach(m=>allMapLeaflet.removeLayer(m));
+    allMapMarkers = [];
+    if(allMapPolyline){ allMapLeaflet.removeLayer(allMapPolyline); allMapPolyline=null; }
 
     const showVisited = els.filterVisited.checked;
     const showUnvisited = els.filterUnvisited.checked;
 
-    // visible places in trip order
-    const visible = t.places.filter(p => (p.visited && showVisited) || (!p.visited && showUnvisited));
+    const ordered = getTrip(currentTripId).places.slice();
+    const visible = ordered.filter(p => (p.visited && showVisited) || (!p.visited && showUnvisited));
     const latlngs = [];
 
     for(const p of visible){
-      const mk = L.marker([p.lat,p.lng], { icon: pinIcon(p.visited) })
-        .addTo(map)
+      const marker = L.marker([p.lat,p.lng], { icon: pinIcon(p.visited) })
+        .addTo(allMapLeaflet)
         .bindPopup(`<strong>${escapeHtml(p.name)}</strong>${p.visited ? ' <span style="opacity:.7;">(visited)</span>' : ''}<br/>${formatLatLng(p.lat,p.lng)}`);
-      currentMarkers.push(mk);
-      latlngs.push([p.lat,p.lng]);
+      allMapMarkers.push(marker);
+      latlngs.push([p.lat, p.lng]);
     }
 
     if(latlngs.length >= 2){
-      currentPolyline = L.polyline(latlngs, { weight:3 }).addTo(map);
+      allMapPolyline = L.polyline(latlngs, { weight:3 }).addTo(allMapLeaflet);
     }
 
     if(latlngs.length){
-      map.fitBounds(L.latLngBounds(latlngs), { padding:[20,20] });
+      allMapLeaflet.fitBounds(L.latLngBounds(latlngs), { padding:[20,20] });
     }else{
-      map.setView([0,0], 2);
+      allMapLeaflet.setView([0,0], 2);
     }
+  }
+
+  // Temporary highlight pin when adding a place
+  function flashHighlight(lat, lng){
+    if(!allMapLeaflet) return;
+    const m = L.marker([lat,lng], { icon: highlightIcon, zIndexOffset: 1000 }).addTo(allMapLeaflet);
+    setTimeout(()=>{ allMapLeaflet.removeLayer(m); }, 1500);
   }
 
   // ---------- UI ----------
@@ -443,7 +483,7 @@ cover: /images/logo-trip-planner.png
     els.tripIdBadge.textContent=`Trip #${t.id}`;
     renderTrips();
     renderPlaces();
-    renderMap();
+    renderAllPlacesMap();
   }
 
   function renderPlaces(){
@@ -475,21 +515,22 @@ cover: /images/logo-trip-planner.png
         </div>
       `;
 
-      // toggle visited
+      // clickable visited chip
       li.querySelector(`[data-chip="${p.id}"]`).addEventListener('click', ()=>{
         updatePlace(t.id, p.id, { visited: !p.visited });
-        renderPlaces(); renderMap();
+        renderPlaces();
+        renderAllPlacesMap();
       });
 
       // delete
       li.querySelector('[data-del]').addEventListener('click',()=>{
-        if(confirm('Delete this place?')){ deletePlace(t.id, p.id); renderPlaces(); renderTrips(); renderMap(); }
+        if(confirm('Delete this place?')){ deletePlace(t.id, p.id); renderPlaces(); renderTrips(); renderAllPlacesMap(); }
       });
 
-      // edit inline (no per-item map)
+      // edit inline
       li.querySelector('[data-edit]').addEventListener('click',()=>editPlaceInline(t.id,p));
 
-      // drag & drop
+      // drag & drop — handle initiates drag, items accept drop
       const handle = li.querySelector(`[data-handle="${idx}"]`);
       handle.addEventListener('dragstart', (ev)=>{
         ev.dataTransfer.setData('text/plain', String(idx));
@@ -505,7 +546,8 @@ cover: /images/logo-trip-planner.png
         const to = parseInt(li.dataset.index,10);
         if(Number.isInteger(from) && Number.isInteger(to)){
           movePlace(t.id, from, to + (from < to ? 1 : 0));
-          renderPlaces(); renderMap();
+          renderPlaces();
+          renderAllPlacesMap();
         }
       });
 
@@ -519,8 +561,10 @@ cover: /images/logo-trip-planner.png
     container.innerHTML=`
       <div class="ttp-title">Edit: ${escapeHtml(p.name)}</div>
 
+      <!-- Location first; auto parse -->
       <input class="ttp-input" id="eLoc" value="${escapeAttr(p.locationInput || formatLatLng(p.lat,p.lng))}" placeholder="Location (lat,lng / GMaps URL / place text)">
       <div id="eStatus" class="ttp-muted"></div>
+      <div id="eMap" class="ttp-map" style="display:none;"></div>
 
       <input class="ttp-input" id="eName" value="${escapeAttr(p.name)}" placeholder="Place name">
       <textarea class="ttp-textarea" id="eNotes" placeholder="Notes">${escapeHtml(p.notes||'')}</textarea>
@@ -537,35 +581,41 @@ cover: /images/logo-trip-planner.png
     const eLoc = container.querySelector('#eLoc');
     const eName = container.querySelector('#eName');
     const eStatus = container.querySelector('#eStatus');
+    const eMap = container.querySelector('#eMap');
 
     function setStatusInline(msg,isErr=false){ eStatus.textContent=msg||''; eStatus.style.color=isErr?'var(--danger)':'var(--muted)'; }
 
     const doAuto = debounce(async ()=>{
       const inputRaw = eLoc.value.trim();
-      if(!inputRaw){ setStatusInline(''); return; }
+      if(!inputRaw){ eMap.style.display='none'; setStatusInline(''); return; }
       try{
         setStatusInline('Finding location…');
-        const maybeExpanded = /(maps\.app\.goo\.gl|goo\.gl\/maps)/.test(inputRaw) ? await resolveShortMapUrl(inputRaw) : inputRaw;
-        const res = await parseLocation(maybeExpanded);
+        let input = inputRaw;
+        if (/(maps\.app\.goo\.gl|goo\.gl\/maps)/.test(input)) input = await expandShortGoogleUrlMaybe(input);
+        const res = await parseLocation(input);
         newCoords = {lat:res.lat, lng:res.lng};
         setStatusInline(`OK (${res.source}) → ${formatLatLng(res.lat,res.lng)}`);
-        if (/(google\.com\/maps|maps\.app\.goo\.gl|goo\.gl\/maps)/.test(maybeExpanded)){
-          const nm = nameFromGoogleUrl(maybeExpanded);
+        showSinglePin(eMap, res.lat, res.lng, p.visited); eMap.style.display='block';
+        if (/(google\.com\/maps|maps\.app\.goo\.gl|goo\.gl\/maps)/.test(input)){
+          const nm = nameFromGoogleUrl(input);
           if(nm && (!eName.value || /^Place \d+$/.test(eName.value))) eName.value = nm;
         }
       }catch(err){
         setStatusInline(`Error: ${err.message}`, true);
+        eMap.style.display='none';
       }
-    }, 300);
+    }, 400);
 
     eLoc.addEventListener('input', doAuto);
+    showSinglePin(eMap, p.lat, p.lng, p.visited); eMap.style.display='block';
 
     container.querySelector('#eSave').addEventListener('click',()=>{
       const name = eName.value.trim() || p.name;
       const notes = container.querySelector('#eNotes').value;
       const locationInput = eLoc.value.trim();
       updatePlace(tripId, p.id, { name, notes, lat:newCoords.lat, lng:newCoords.lng, locationInput });
-      renderPlaces(); renderMap();
+      renderPlaces();
+      renderAllPlacesMap();
     });
     container.querySelector('#eCancel').addEventListener('click',()=>renderPlaces());
   }
@@ -579,7 +629,6 @@ cover: /images/logo-trip-planner.png
     setTimeout(()=>{ document.body.removeChild(a); URL.revokeObjectURL(url); }, 0);
   }
   function timestamp(){ const d=new Date(); return d.toISOString().replace(/[:.]/g,'-'); }
-  function slug(s){ return String(s||'trip').toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-+|-+$/g,'').slice(0,40); }
 
   function exportAll(){
     const payload = { version: 1, exportedAt: new Date().toISOString(), data: db };
@@ -590,15 +639,17 @@ cover: /images/logo-trip-planner.png
     const payload = { version: 1, exportedAt: new Date().toISOString(), data: { trip: t } };
     download(`trip-${t.id}-${slug(t.name)}-${timestamp()}.json`, JSON.stringify(payload, null, 2));
   }
+  function slug(s){ return String(s||'trip').toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-+|-+$/g,'').slice(0,40); }
+
   async function importMerge(obj){
     const data = obj?.data ?? obj;
     if(!data){ alert('Invalid file: missing data'); return; }
 
     let trips = [];
-    if(Array.isArray(data.trips)) trips = data.trips;
-    else if(data.trip) trips = [data.trip];
-    else if(Array.isArray(obj)) trips = obj;
-    else if(data.name && Array.isArray(data.places)) trips = [data];
+    if(Array.isArray(data.trips)){ trips = data.trips; }
+    else if(data.trip){ trips = [data.trip]; }
+    else if(Array.isArray(obj)){ trips = obj; }
+    else if(data.name && Array.isArray(data.places)){ trips = [data]; }
 
     if(!Array.isArray(trips) || trips.length===0){ alert('No trips found to import'); return; }
 
@@ -683,28 +734,34 @@ cover: /images/logo-trip-planner.png
   // Auto-parse while typing in "Add place"
   els.placeLocation.addEventListener('input', autoParse);
 
-  els.addPlaceBtn.addEventListener('click', ()=>{
+  els.addPlaceBtn.addEventListener('click', async ()=>{
     if(!currentTripId) return;
     const name = els.placeName.value.trim();
     const notes = els.placeNotes.value;
-    const locInput = els.placeLocation.value.trim();
-    if(!pendingLoc){ alert('Type a location (URL / text / lat,lng) and wait for it to resolve first.'); return; }
-    const {lat, lng} = pendingLoc;
+    let locInput = els.placeLocation.value.trim();
+    if (/(maps\.app\.goo\.gl|goo\.gl\/maps)/.test(locInput)) locInput = await expandShortGoogleUrlMaybe(locInput);
+    const lat = parseFloat(els.previewMap.dataset.lat);
+    const lng = parseFloat(els.previewMap.dataset.lng);
     const visited = !!els.placeVisited.checked;
-
+    if(!isFinite(lat) || !isFinite(lng)){
+      alert('Type a location (URL / text / lat,lng) and wait for it to resolve first.');
+      return;
+    }
     addPlace(currentTripId, { name, notes, lat, lng, locationInput: locInput, visited });
 
-    // reset form
+    // reset the add form
     els.placeName.value=''; els.placeNotes.value=''; els.placeLocation.value=''; els.placeVisited.checked=false;
-    pendingLoc = null; setStatus('');
+    els.previewMap.style.display='none'; els.previewMap.dataset.lat=''; els.previewMap.dataset.lng='';
+    if(previewLeaflet && previewLeaflet.remove) previewLeaflet.remove(); previewLeaflet=null;
 
-    // re-render everything → all pins + polyline
-    renderPlaces(); renderTrips(); renderMap();
+    // refresh UI and map, then temporarily highlight the just-added spot
+    renderPlaces(); renderTrips(); renderAllPlacesMap();
+    flashHighlight(lat, lng);
   });
 
   // Map filters
-  els.filterVisited.addEventListener('change', renderMap);
-  els.filterUnvisited.addEventListener('change', renderMap);
+  els.filterVisited.addEventListener('change', renderAllPlacesMap);
+  els.filterUnvisited.addEventListener('change', renderAllPlacesMap);
 
   // ---------- Init ----------
   function init(){
