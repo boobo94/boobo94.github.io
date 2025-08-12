@@ -96,6 +96,7 @@ cover: https://images.pexels.com/photos/12932264/pexels-photo-12932264.jpeg
         </div>
       </div>
     </div>
+
   </div>
 </div>
 
@@ -161,7 +162,7 @@ cover: https://images.pexels.com/photos/12932264/pexels-photo-12932264.jpeg
 <script>
 (function(){
   // ---------- Storage ----------
-  const LS_KEY = 'tiny_trip_planner_v8';
+  const LS_KEY = 'tiny_trip_planner';
   const db = { trips: [], lastTripId: 0, lastPlaceId: 0 };
   const root = document.getElementById('ttp-root');
 
