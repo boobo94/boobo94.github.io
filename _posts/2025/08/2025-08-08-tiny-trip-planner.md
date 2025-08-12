@@ -8,7 +8,7 @@ date: 2025-08-08 09:09:09 +0000
 cover: /images/logo-trip-planner.png
 ---
 
-<!-- Tiny Trip Planner — final build (Open in Google Maps button, no short-links, fixed map vars) -->
+<!-- Tiny Trip Planner — reorganized buttons (Edit, Delete, Open Map, Mark Visited, Reorder) -->
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin>
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin></script>
 
@@ -171,7 +171,7 @@ cover: /images/logo-trip-planner.png
 <script>
 (function(){
   // ---------- Storage ----------
-  const LS_KEY = 'tiny_trip_planner';
+  const LS_KEY = 'tiny_trip_planner_v15';
   const db = { trips: [], lastTripId: 0, lastPlaceId: 0 };
   const root = document.getElementById('ttp-root');
 
@@ -251,9 +251,7 @@ cover: /images/logo-trip-planner.png
   }
 
   function formatLatLng(lat,lng){ return `${Number(lat).toFixed(6)}, ${Number(lng).toFixed(6)}`; }
-  function escapeHtml(s){
-    return String(s||'').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
-  }
+  function escapeHtml(s){ return String(s||'').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c])); }
   function escapeAttr(s){ return escapeHtml(s).replace(/"/g,'&quot;'); }
   function isFullGmapsUrl(str){ return /https?:\/\/(www\.)?google\.com\/maps\//i.test(str||''); }
   function buildGmapsUrlFromLatLng(lat,lng,name){
@@ -489,40 +487,42 @@ cover: /images/logo-trip-planner.png
         </div>
 
         <div class="ttp-actions">
-          <button class="ttp-btn ttp-accent" data-open="${p.id}" title="Open in Google Maps">📍 Open</button>
+          <!-- Order: Edit, Delete, Open Map, Visited chip, Reorder -->
           <button class="ttp-btn ttp-primary" data-edit="${p.id}">✏️ Edit</button>
           <button class="ttp-btn ttp-danger" data-del="${p.id}">🗑️ Delete</button>
+          <button class="ttp-btn ttp-accent" data-open="${p.id}" title="Open in Google Maps">📍 Open Map</button>
 
-          <button class="ttp-btn ttp-handle-btn" draggable="true" data-handle="${idx}" title="Drag to reorder">↕️ Reorder</button>
           <button class="ttp-chip-btn ${p.visited ? 'visited':''}" data-chip="${p.id}" aria-pressed="${p.visited ? 'true':'false'}" title="Toggle visited">
             <span class="ttp-chip-icon">${p.visited ? '✅' : '🗺️'}</span>
             <span>${p.visited ? 'Visited' : 'Mark visited'}</span>
           </button>
+
+          <button class="ttp-btn ttp-handle-btn" draggable="true" data-handle="${idx}" title="Drag to reorder">↕️ Reorder</button>
         </div>
       `;
 
-      // open in Google Maps
+      // Open in Google Maps
       li.querySelector(`[data-open="${p.id}"]`).addEventListener('click', ()=>{
         const url = googleLinkForPlace(p);
         window.open(url, '_blank', 'noopener,noreferrer');
       });
 
-      // clickable visited chip
+      // Visited chip
       li.querySelector(`[data-chip="${p.id}"]`).addEventListener('click', ()=>{
         updatePlace(t.id, p.id, { visited: !p.visited });
         renderPlaces();
         renderAllPlacesMap();
       });
 
-      // delete
+      // Delete
       li.querySelector('[data-del]').addEventListener('click',()=>{
         if(confirm('Delete this place?')){ deletePlace(t.id, p.id); renderPlaces(); renderTrips(); renderAllPlacesMap(); }
       });
 
-      // edit inline
+      // Edit inline
       li.querySelector('[data-edit]').addEventListener('click',()=>editPlaceInline(t.id,p));
 
-      // drag & drop — handle initiates drag, items accept drop
+      // Drag & drop — handle initiates drag, items accept drop
       const handle = li.querySelector(`[data-handle="${idx}"]`);
       handle.addEventListener('dragstart', (ev)=>{
         ev.dataTransfer.setData('text/plain', String(idx));
