@@ -8,7 +8,7 @@ date: 2025-08-08 09:09:09 +0000
 cover: /images/logo-trip-planner.png
 ---
 
-<!-- Tiny Trip Planner — stable storage key + flat 'Mark visited' button -->
+<!-- Tiny Trip Planner — with Predefined Trips + Autocomplete -->
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin>
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin></script>
 
@@ -31,11 +31,23 @@ cover: /images/logo-trip-planner.png
 
   <div class="ttp-gap"></div>
 
+  <!-- Predefined Trips Search -->
+  <div class="ttp-card">
+    <div class="ttp-section-title">Predefined trips</div>
+    <div class="ttp-col" style="position:relative;">
+      <input class="ttp-input" id="ttp-predefSearch" type="text" placeholder="Search (e.g., Paris, Tokyo, Bucharest)…">
+      <div id="ttp-predefResults" class="ttp-predef-results" style="display:none;"></div>
+      <div class="ttp-tiny ttp-muted">Type to search curated templates. Click to add as a new trip or merge places into the current trip.</div>
+    </div>
+  </div>
+
+  <div class="ttp-gap"></div>
+
   <!-- Content -->
   <div class="ttp-main">
     <div id="ttp-emptyState" class="ttp-card" style="display:none;">
       <div class="ttp-section-title">No trip selected</div>
-      <p class="ttp-muted">Create a trip or open one to add places.</p>
+      <p class="ttp-muted">Create a trip, open one, or use a predefined template.</p>
     </div>
 
     <div id="ttp-tripView" class="ttp-card ttp-edit-card" style="display:none;">
@@ -127,7 +139,7 @@ cover: /images/logo-trip-planner.png
     width:100%; background:#111426; color:var(--text); border:1px solid var(--border);
     border-radius:10px; padding:10px; outline:none; font:inherit;
   }
-  .ttp .ttp-textarea { min-height:80px; resize:vertical; }
+  .ttp .ttp-textarea { min_height:80px; resize:vertical; }
   .ttp .ttp-btn { background:#1f2542; color:var(--text); border:1px solid var(--border); padding:9px 12px; border-radius:10px; cursor:pointer; font:inherit; }
   .ttp .ttp-btn:hover { filter:brightness(1.1); }
   .ttp .ttp-primary { background:#26305b; border-color:#2f3a6e; }
@@ -152,12 +164,23 @@ cover: /images/logo-trip-planner.png
   .ttp .ttp-topbar-list { display:flex; gap:8px; flex-wrap:wrap; margin-top:10px; }
   .ttp .ttp-topbar-list .ttp-tripBtn { background:#13182b; border:1px solid var(--border); color:var(--text); padding:8px 10px; border-radius:10px; cursor:pointer; }
   .ttp .ttp-tripBtn.ttp-active { background:#123c33; border-color:#104235; color:var(--accent); }
+
+  /* Predefined trips dropdown */
+  .ttp .ttp-predef-results {
+    position:absolute; top:40px; left:0; right:0;
+    background:#0f1428; border:1px solid var(--border); border-radius:10px;
+    display:grid; gap:8px; padding:8px; z-index:20; max-height:300px; overflow:auto;
+  }
+  .ttp .ttp-predef-item { display:flex; flex-direction:column; gap:6px; border:1px solid var(--border); background:#121934; border-radius:8px; padding:8px; }
+  .ttp .ttp-predef-title { font-weight:600; color:var(--text); }
+  .ttp .ttp-predef-tags { font-size:12px; color:var(--muted); }
+  .ttp .ttp-predef-actions { display:flex; gap:8px; }
 </style>
 
 <script>
 (function(){
   // ---------- Storage ----------
-  const LS_KEY = 'tiny_trip_planner'; // stable key (no versioning)
+  const LS_KEY = 'tiny_trip_planner'; // stable key
   const db = { trips: [], lastTripId: 0, lastPlaceId: 0 };
   const root = document.getElementById('ttp-root');
 
@@ -165,6 +188,55 @@ cover: /images/logo-trip-planner.png
   function saveDB(){ localStorage.setItem(LS_KEY, JSON.stringify(db)); }
   function nextTripId(){ db.lastTripId+=1; saveDB(); return db.lastTripId; }
   function nextPlaceId(){ db.lastPlaceId+=1; saveDB(); return db.lastPlaceId; }
+
+  // ---------- Predefined Trips (sample dataset) ----------
+  // Feel free to extend with your own! (name, tags[], places[{name,lat,lng,notes?}])
+  const PREDEFINED_TRIPS = [
+    {
+      id:'paris-2d',
+      name:'Paris Highlights (2 days)',
+      tags:['paris','france','europe','museum','landmarks'],
+      places:[
+        { name:'Eiffel Tower', lat:48.858370, lng:2.294481, notes:'Great views. Pre-book tickets.' },
+        { name:'Louvre Museum', lat:48.860611, lng:2.337644, notes:'Mona Lisa time.' },
+        { name:'Notre-Dame (outside)', lat:48.852968, lng:2.349902, notes:'Walk the Seine.' },
+        { name:'Montmartre & Sacré-Cœur', lat:48.886705, lng:2.343104, notes:'Sunset on the steps.' },
+      ]
+    },
+    {
+      id:'tokyo-food',
+      name:'Tokyo Food Crawl',
+      tags:['tokyo','japan','food','markets','ramen'],
+      places:[
+        { name:'Tsukiji Outer Market', lat:35.665486, lng:139.770666, notes:'Fresh sushi breakfast.' },
+        { name:'Ameya-Yokochō (Ueno)', lat:35.711246, lng:139.773719, notes:'Street eats + snacks.' },
+        { name:'Ichiran Ramen Shibuya', lat:35.659022, lng:139.700475, notes:'Famous solo booths.' },
+        { name:'Memory Lane (Omoide Yokochō)', lat:35.691340, lng:139.700531, notes:'Yakitori alley.' },
+      ]
+    },
+    {
+      id:'bucharest-day',
+      name:'Bucharest City Day',
+      tags:['bucharest','romania','old town','architecture'],
+      places:[
+        { name:'Old Town (Centrul Vechi)', lat:44.431220, lng:26.098839, notes:'Walk Lipscani streets.' },
+        { name:'Romanian Athenaeum', lat:44.441334, lng:26.097317, notes:'Concert hall & photos.' },
+        { name:'Palace of Parliament', lat:44.427539, lng:26.087536, notes:'Huge building tour.' },
+        { name:'Herastrau Park', lat:44.476365, lng:26.080838, notes:'Relax by the lake.' },
+      ]
+    },
+    {
+      id:'nyc-1d',
+      name:'NYC One-Day Blitz',
+      tags:['new york','usa','city','iconic'],
+      places:[
+        { name:'Times Square', lat:40.758000, lng:-73.985500, notes:'Quick photo stop.' },
+        { name:'Central Park (The Mall)', lat:40.773628, lng:-73.972533, notes:'Stroll through.' },
+        { name:'Top of the Rock', lat:40.759101, lng:-73.979583, notes:'City view.' },
+        { name:'Brooklyn Bridge', lat:40.706086, lng:-73.996864, notes:'Walk at sunset.' },
+      ]
+    }
+  ];
 
   // ---------- Helpers ----------
   function getEl(id){ return root.querySelector('#'+id); }
@@ -195,6 +267,9 @@ cover: /images/logo-trip-planner.png
     importBtn: getEl('ttp-importBtn'),
     importFile: getEl('ttp-importFile'),
     exportAllBtn: getEl('ttp-exportAllBtn'),
+
+    predefSearch: getEl('ttp-predefSearch'),
+    predefResults: getEl('ttp-predefResults'),
   };
 
   function addTrip(name){
@@ -492,7 +567,7 @@ cover: /images/logo-trip-planner.png
         window.open(url, '_blank', 'noopener,noreferrer');
       });
 
-      // Toggle visited (flat button)
+      // Toggle visited
       li.querySelector(`[data-visit="${p.id}"]`).addEventListener('click', ()=>{
         updatePlace(t.id, p.id, { visited: !p.visited });
         renderPlaces();
@@ -659,7 +734,95 @@ cover: /images/logo-trip-planner.png
     alert(`Imported ${addedTripIds.length} trip(s).`);
   }
 
+  // ---------- Predefined search logic ----------
+  function searchPredefs(q){
+    q = (q||'').trim().toLowerCase();
+    if(!q) return [];
+    const words = q.split(/\s+/).filter(Boolean);
+    const scored = PREDEFINED_TRIPS.map(t=>{
+      const hay = (t.name + ' ' + (t.tags||[]).join(' ')).toLowerCase();
+      const score = words.reduce((s,w)=> s + (hay.includes(w) ? 1 : 0), 0);
+      return { trip:t, score };
+    }).filter(x=>x.score>0);
+    scored.sort((a,b)=> b.score - a.score || a.trip.name.localeCompare(b.trip.name));
+    return scored.slice(0,8).map(x=>x.trip);
+  }
+
+  function renderPredefResults(){
+    const q = els.predefSearch.value;
+    const results = searchPredefs(q);
+    const box = els.predefResults;
+    if(results.length === 0){ box.style.display='none'; box.innerHTML=''; return; }
+    box.innerHTML='';
+    results.forEach(tpl=>{
+      const item = document.createElement('div');
+      item.className='ttp-predef-item';
+      item.innerHTML = `
+        <div class="ttp-predef-title">${escapeHtml(tpl.name)}</div>
+        <div class="ttp-predef-tags">Tags: ${(tpl.tags||[]).map(t=>`<span>#${escapeHtml(t)}</span>`).join(' ')}</div>
+        <div class="ttp-predef-actions">
+          <button class="ttp-btn ttp-accent" data-add="${tpl.id}">➕ Add as New Trip</button>
+          <button class="ttp-btn" data-merge="${tpl.id}">➕ Add Places to Current</button>
+        </div>
+      `;
+      item.querySelector(`[data-add="${tpl.id}"]`).addEventListener('click', ()=>{
+        const newTrip = {
+          id: nextTripId(),
+          name: tpl.name,
+          createdAt: Date.now(),
+          places: []
+        };
+        (tpl.places||[]).forEach(p=>{
+          newTrip.places.push({
+            id: nextPlaceId(),
+            name: p.name,
+            notes: p.notes || '',
+            lat: Number(p.lat),
+            lng: Number(p.lng),
+            locationInput: '',
+            visited: !!p.visited,
+            createdAt: Date.now()
+          });
+        });
+        db.trips.push(newTrip); saveDB();
+        els.predefResults.style.display='none';
+        els.predefSearch.blur();
+        renderTrips(); openTrip(newTrip.id);
+      });
+      item.querySelector(`[data-merge="${tpl.id}"]`).addEventListener('click', ()=>{
+        if(!currentTripId){ alert('Open or create a trip first to merge places.'); return; }
+        const t = getTrip(currentTripId);
+        (tpl.places||[]).forEach(p=>{
+          t.places.push({
+            id: nextPlaceId(),
+            name: p.name,
+            notes: p.notes || '',
+            lat: Number(p.lat),
+            lng: Number(p.lng),
+            locationInput: '',
+            visited: !!p.visited,
+            createdAt: Date.now()
+          });
+        });
+        saveDB();
+        els.predefResults.style.display='none';
+        renderPlaces(); renderAllPlacesMap();
+      });
+      box.appendChild(item);
+    });
+    box.style.display='grid';
+  }
+
+  // hide results when clicking outside
+  document.addEventListener('click', (e)=>{
+    if(!els.predefResults.contains(e.target) && e.target !== els.predefSearch){
+      els.predefResults.style.display='none';
+    }
+  });
+
   // ---------- Events ----------
+  els.predefSearch.addEventListener('input', debounce(renderPredefResults, 150));
+
   els.addTripBtn.addEventListener('click', ()=>{
     const name = els.newTripName.value.trim();
     const t = addTrip(name);
@@ -739,8 +902,7 @@ cover: /images/logo-trip-planner.png
   els.filterUnvisited.addEventListener('change', renderAllPlacesMap);
 
   // ---------- Init ----------
-  function init(){
-    loadDB();
+  function renderInitial(){
     renderTrips();
     if(db.trips.length===0){
       els.emptyState.style.display='block';
@@ -748,6 +910,11 @@ cover: /images/logo-trip-planner.png
       const latest=[...db.trips].sort((a,b)=>b.createdAt-a.createdAt)[0];
       openTrip(latest.id);
     }
+  }
+
+  function init(){
+    loadDB();
+    renderInitial();
   }
   init();
 })();
