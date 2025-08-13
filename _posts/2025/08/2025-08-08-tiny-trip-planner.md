@@ -8,7 +8,7 @@ date: 2025-08-08 09:09:09 +0000
 cover: /images/logo-trip-planner.png
 ---
 
-<!-- Tiny Trip Planner — Integrated Trip Starter + Non-overlapping Predefined Search -->
+<!-- Tiny Trip Planner — Integrated Starter, No Overlap, Fixed currentTripId -->
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin>
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin></script>
 
@@ -32,7 +32,7 @@ cover: /images/logo-trip-planner.png
       <div class="ttp-col">
         <label class="ttp-muted">Search predefined trips</label>
         <input class="ttp-input" id="ttp-predefSearch" type="text" placeholder="Search templates (e.g., Paris, Tokyo, Bucharest)">
-        <!-- Results live here; non-absolute so it doesn't overlap content -->
+        <!-- Results live here; in-flow so it doesn't overlap content -->
         <div id="ttp-predefResults" class="ttp-predef-results" style="display:none;"></div>
         <div class="ttp-tiny ttp-muted">Select a template to add as a new trip or merge into the current one.</div>
       </div>
@@ -356,10 +356,10 @@ cover: /images/logo-trip-planner.png
   }
 
   // ---------- Geocoding (auto, debounced) ----------
-  let currentTripId = null;
+  let currentTripId = null; // <— declared ONCE here
   let previewLeaflet = null;
 
-  // SINGLE declarations (avoid redeclarations)
+  // SINGLE map vars
   let allMapLeaflet = null;
   let allMapMarkers = [];
   let allMapPolyline = null;
@@ -467,8 +467,9 @@ cover: /images/logo-trip-planner.png
     const showVisited = els.filterVisited.checked;
     const showUnvisited = els.filterUnvisited.checked;
 
-    const ordered = getTrip(currentTripId).places.slice();
-    const visible = ordered.filter(p => (p.visited && showVisited) || (!p.visited && showUnvisited));
+    const visible = getTrip(currentTripId).places
+      .filter(p => (p.visited && showVisited) || (!p.visited && showUnvisited));
+
     const latlngs = [];
 
     for(const p of visible){
@@ -906,7 +907,6 @@ cover: /images/logo-trip-planner.png
   els.filterUnvisited.addEventListener('change', renderAllPlacesMap);
 
   // ---------- Init ----------
-  let currentTripId = null;
   function init(){
     loadDB();
     renderTrips();
