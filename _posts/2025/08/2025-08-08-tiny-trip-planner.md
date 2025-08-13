@@ -8,37 +8,47 @@ date: 2025-08-08 09:09:09 +0000
 cover: /images/logo-trip-planner.png
 ---
 
-<!-- Tiny Trip Planner — with Predefined Trips + Autocomplete -->
+<!-- Tiny Trip Planner — Integrated Trip Starter + Non-overlapping Predefined Search -->
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin>
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin></script>
 
 <div class="ttp" id="ttp-root">
-  <!-- Top nav -->
-  <div class="ttp-topbar ttp-card">
-    <div class="ttp-row ttp-wrap">
-      <input class="ttp-input" id="ttp-newTripName" type="text" placeholder="Trip name (e.g., Athens – 5 days)">
-      <button class="ttp-btn ttp-accent" id="ttp-addTripBtn">Add Trip</button>
+  <!-- Trip Starter (Create & Predefined in ONE card) -->
+  <div class="ttp-starter ttp-card">
+    <div class="ttp-section-title">Trip starter</div>
 
-      <span style="flex:1"></span>
+    <div class="ttp-starter-grid">
+      <!-- Create new trip -->
+      <div class="ttp-col">
+        <label class="ttp-muted">Create new trip</label>
+        <div class="ttp-row">
+          <input class="ttp-input" id="ttp-newTripName" type="text" placeholder="Trip name (e.g., Paris in 2 days)">
+          <button class="ttp-btn ttp-accent" id="ttp-addTripBtn">Add Trip</button>
+        </div>
+        <div class="ttp-tiny ttp-muted">Tip: You can also press Enter to create a trip with the typed name.</div>
+      </div>
 
-      <!-- Import / Export controls -->
-      <input id="ttp-importFile" type="file" accept="application/json,.json" style="display:none;">
-      <button class="ttp-btn" id="ttp-importBtn">⤵️ Import (merge)</button>
-      <button class="ttp-btn" id="ttp-exportAllBtn">⤴️ Export All</button>
+      <!-- Search predefined trips -->
+      <div class="ttp-col">
+        <label class="ttp-muted">Search predefined trips</label>
+        <input class="ttp-input" id="ttp-predefSearch" type="text" placeholder="Search templates (e.g., Paris, Tokyo, Bucharest)">
+        <!-- Results live here; non-absolute so it doesn't overlap content -->
+        <div id="ttp-predefResults" class="ttp-predef-results" style="display:none;"></div>
+        <div class="ttp-tiny ttp-muted">Select a template to add as a new trip or merge into the current one.</div>
+      </div>
+
+      <!-- Utilities -->
+      <div class="ttp-col">
+        <label class="ttp-muted">Utilities</label>
+        <div class="ttp-row ttp-wrap">
+          <input id="ttp-importFile" type="file" accept="application/json,.json" style="display:none;">
+          <button class="ttp-btn" id="ttp-importBtn">⤵️ Import (merge)</button>
+          <button class="ttp-btn" id="ttp-exportAllBtn">⤴️ Export All</button>
+        </div>
+      </div>
     </div>
+
     <div class="ttp-topbar-list" id="ttp-tripList"></div>
-  </div>
-
-  <div class="ttp-gap"></div>
-
-  <!-- Predefined Trips Search -->
-  <div class="ttp-card">
-    <div class="ttp-section-title">Predefined trips</div>
-    <div class="ttp-col" style="position:relative;">
-      <input class="ttp-input" id="ttp-predefSearch" type="text" placeholder="Search (e.g., Paris, Tokyo, Bucharest)…">
-      <div id="ttp-predefResults" class="ttp-predef-results" style="display:none;"></div>
-      <div class="ttp-tiny ttp-muted">Type to search curated templates. Click to add as a new trip or merge places into the current trip.</div>
-    </div>
   </div>
 
   <div class="ttp-gap"></div>
@@ -126,7 +136,6 @@ cover: /images/logo-trip-planner.png
   .ttp .ttp-main { color:var(--text); }
   .ttp .ttp-card { background:var(--panel2); border:1px solid var(--border); border-radius:12px; padding:12px; }
   .ttp .ttp-edit-card { border-radius:16px; }
-  .ttp .ttp-topbar { background:var(--panel); border:1px solid var(--border); }
   .ttp .ttp-gap { height:16px; }
   .ttp .ttp-section-title { font-size:13px; color:var(--muted); text-transform:uppercase; letter-spacing:.08em; margin:4px 0 8px; }
   .ttp .ttp-row { display:flex; gap:8px; align-items:center; }
@@ -139,7 +148,7 @@ cover: /images/logo-trip-planner.png
     width:100%; background:#111426; color:var(--text); border:1px solid var(--border);
     border-radius:10px; padding:10px; outline:none; font:inherit;
   }
-  .ttp .ttp-textarea { min_height:80px; resize:vertical; }
+  .ttp .ttp-textarea { min-height:80px; resize:vertical; }
   .ttp .ttp-btn { background:#1f2542; color:var(--text); border:1px solid var(--border); padding:9px 12px; border-radius:10px; cursor:pointer; font:inherit; }
   .ttp .ttp-btn:hover { filter:brightness(1.1); }
   .ttp .ttp-primary { background:#26305b; border-color:#2f3a6e; }
@@ -165,16 +174,22 @@ cover: /images/logo-trip-planner.png
   .ttp .ttp-topbar-list .ttp-tripBtn { background:#13182b; border:1px solid var(--border); color:var(--text); padding:8px 10px; border-radius:10px; cursor:pointer; }
   .ttp .ttp-tripBtn.ttp-active { background:#123c33; border-color:#104235; color:var(--accent); }
 
-  /* Predefined trips dropdown */
+  /* Starter layout */
+  .ttp .ttp-starter-grid { display:grid; grid-template-columns:1fr; gap:12px; }
+  @media (min-width:900px){
+    .ttp .ttp-starter-grid { grid-template-columns:1fr 1fr 1fr; }
+  }
+
+  /* Predefined trips results — in-flow (no overlap) */
   .ttp .ttp-predef-results {
-    position:absolute; top:40px; left:0; right:0;
-    background:#0f1428; border:1px solid var(--border); border-radius:10px;
-    display:grid; gap:8px; padding:8px; z-index:20; max-height:300px; overflow:auto;
+    display:grid; gap:8px; padding:8px; margin-top:8px;
+    border:1px solid var(--border); border-radius:10px; background:#0f1428;
+    max-height:320px; overflow:auto;
   }
   .ttp .ttp-predef-item { display:flex; flex-direction:column; gap:6px; border:1px solid var(--border); background:#121934; border-radius:8px; padding:8px; }
   .ttp .ttp-predef-title { font-weight:600; color:var(--text); }
   .ttp .ttp-predef-tags { font-size:12px; color:var(--muted); }
-  .ttp .ttp-predef-actions { display:flex; gap:8px; }
+  .ttp .ttp-predef-actions { display:flex; gap:8px; flex-wrap:wrap; }
 </style>
 
 <script>
@@ -190,60 +205,44 @@ cover: /images/logo-trip-planner.png
   function nextPlaceId(){ db.lastPlaceId+=1; saveDB(); return db.lastPlaceId; }
 
   // ---------- Predefined Trips (sample dataset) ----------
-  // Feel free to extend with your own! (name, tags[], places[{name,lat,lng,notes?}])
   const PREDEFINED_TRIPS = [
-    {
-      id:'paris-2d',
-      name:'Paris Highlights (2 days)',
-      tags:['paris','france','europe','museum','landmarks'],
-      places:[
-        { name:'Eiffel Tower', lat:48.858370, lng:2.294481, notes:'Great views. Pre-book tickets.' },
-        { name:'Louvre Museum', lat:48.860611, lng:2.337644, notes:'Mona Lisa time.' },
-        { name:'Notre-Dame (outside)', lat:48.852968, lng:2.349902, notes:'Walk the Seine.' },
-        { name:'Montmartre & Sacré-Cœur', lat:48.886705, lng:2.343104, notes:'Sunset on the steps.' },
-      ]
-    },
-    {
-      id:'tokyo-food',
-      name:'Tokyo Food Crawl',
-      tags:['tokyo','japan','food','markets','ramen'],
-      places:[
-        { name:'Tsukiji Outer Market', lat:35.665486, lng:139.770666, notes:'Fresh sushi breakfast.' },
-        { name:'Ameya-Yokochō (Ueno)', lat:35.711246, lng:139.773719, notes:'Street eats + snacks.' },
-        { name:'Ichiran Ramen Shibuya', lat:35.659022, lng:139.700475, notes:'Famous solo booths.' },
-        { name:'Memory Lane (Omoide Yokochō)', lat:35.691340, lng:139.700531, notes:'Yakitori alley.' },
-      ]
-    },
-    {
-      id:'bucharest-day',
-      name:'Bucharest City Day',
-      tags:['bucharest','romania','old town','architecture'],
-      places:[
-        { name:'Old Town (Centrul Vechi)', lat:44.431220, lng:26.098839, notes:'Walk Lipscani streets.' },
-        { name:'Romanian Athenaeum', lat:44.441334, lng:26.097317, notes:'Concert hall & photos.' },
-        { name:'Palace of Parliament', lat:44.427539, lng:26.087536, notes:'Huge building tour.' },
-        { name:'Herastrau Park', lat:44.476365, lng:26.080838, notes:'Relax by the lake.' },
-      ]
-    },
-    {
-      id:'nyc-1d',
-      name:'NYC One-Day Blitz',
-      tags:['new york','usa','city','iconic'],
-      places:[
-        { name:'Times Square', lat:40.758000, lng:-73.985500, notes:'Quick photo stop.' },
-        { name:'Central Park (The Mall)', lat:40.773628, lng:-73.972533, notes:'Stroll through.' },
-        { name:'Top of the Rock', lat:40.759101, lng:-73.979583, notes:'City view.' },
-        { name:'Brooklyn Bridge', lat:40.706086, lng:-73.996864, notes:'Walk at sunset.' },
-      ]
-    }
+    { id:'paris-2d', name:'Paris Highlights (2 days)', tags:['paris','france','europe','museum','landmarks'], places:[
+      { name:'Eiffel Tower', lat:48.858370, lng:2.294481, notes:'Great views. Pre-book tickets.' },
+      { name:'Louvre Museum', lat:48.860611, lng:2.337644, notes:'Mona Lisa time.' },
+      { name:'Notre-Dame (outside)', lat:48.852968, lng:2.349902, notes:'Walk the Seine.' },
+      { name:'Montmartre & Sacré-Cœur', lat:48.886705, lng:2.343104, notes:'Sunset on the steps.' },
+    ]},
+    { id:'tokyo-food', name:'Tokyo Food Crawl', tags:['tokyo','japan','food','markets','ramen'], places:[
+      { name:'Tsukiji Outer Market', lat:35.665486, lng:139.770666, notes:'Fresh sushi breakfast.' },
+      { name:'Ameya-Yokochō (Ueno)', lat:35.711246, lng:139.773719, notes:'Street eats + snacks.' },
+      { name:'Ichiran Ramen Shibuya', lat:35.659022, lng:139.700475, notes:'Famous solo booths.' },
+      { name:'Memory Lane (Omoide Yokochō)', lat:35.691340, lng:139.700531, notes:'Yakitori alley.' },
+    ]},
+    { id:'bucharest-day', name:'Bucharest City Day', tags:['bucharest','romania','old town','architecture'], places:[
+      { name:'Old Town (Centrul Vechi)', lat:44.431220, lng:26.098839, notes:'Walk Lipscani streets.' },
+      { name:'Romanian Athenaeum', lat:44.441334, lng:26.097317, notes:'Concert hall & photos.' },
+      { name:'Palace of Parliament', lat:44.427539, lng:26.087536, notes:'Huge building tour.' },
+      { name:'Herastrau Park', lat:44.476365, lng:26.080838, notes:'Relax by the lake.' },
+    ]},
+    { id:'nyc-1d', name:'NYC One-Day Blitz', tags:['new york','usa','city','iconic'], places:[
+      { name:'Times Square', lat:40.758000, lng:-73.985500, notes:'Quick photo stop.' },
+      { name:'Central Park (The Mall)', lat:40.773628, lng:-73.972533, notes:'Stroll through.' },
+      { name:'Top of the Rock', lat:40.759101, lng:-73.979583, notes:'City view.' },
+      { name:'Brooklyn Bridge', lat:40.706086, lng:-73.996864, notes:'Walk at sunset.' },
+    ]}
   ];
 
   // ---------- Helpers ----------
   function getEl(id){ return root.querySelector('#'+id); }
   const els = {
+    // starter
     newTripName: getEl('ttp-newTripName'),
     addTripBtn: getEl('ttp-addTripBtn'),
+    predefSearch: getEl('ttp-predefSearch'),
+    predefResults: getEl('ttp-predefResults'),
     tripList: getEl('ttp-tripList'),
+
+    // main
     emptyState: getEl('ttp-emptyState'),
     tripView: getEl('ttp-tripView'),
     tripNameInput: getEl('ttp-tripNameInput'),
@@ -267,9 +266,6 @@ cover: /images/logo-trip-planner.png
     importBtn: getEl('ttp-importBtn'),
     importFile: getEl('ttp-importFile'),
     exportAllBtn: getEl('ttp-exportAllBtn'),
-
-    predefSearch: getEl('ttp-predefSearch'),
-    predefResults: getEl('ttp-predefResults'),
   };
 
   function addTrip(name){
@@ -405,6 +401,7 @@ cover: /images/logo-trip-planner.png
   }
 
   function debounce(fn, delay){ let t; return (...a)=>{ clearTimeout(t); t=setTimeout(()=>fn(...a), delay); }; }
+
   const autoParse = debounce(async ()=>{
     const input = els.placeLocation.value.trim();
     if(!input){ els.previewMap.style.display='none'; setStatus(''); return; }
@@ -429,7 +426,7 @@ cover: /images/logo-trip-planner.png
     }
   }, 400);
 
-  // ---------- Default Leaflet pin icons (blue/green + highlight yellow) ----------
+  // ---------- Default Leaflet pin icons ----------
   const shadowUrl = 'https://unpkg.com/leaflet@1.9.4/dist/images/marker-shadow.png';
   const icon = (url)=> new L.Icon({
     iconUrl: url, shadowUrl: shadowUrl,
@@ -720,7 +717,7 @@ cover: /images/logo-trip-planner.png
           notes: p.notes || '',
           lat: Number(p.lat) || 0,
           lng: Number(p.lng) || 0,
-          locationInput: p.locationInput || '',
+          locationInput: '',
           visited: !!p.visited,
           createdAt: Date.now()
         });
@@ -821,16 +818,24 @@ cover: /images/logo-trip-planner.png
   });
 
   // ---------- Events ----------
-  els.predefSearch.addEventListener('input', debounce(renderPredefResults, 150));
-
+  // Starter: new trip create
   els.addTripBtn.addEventListener('click', ()=>{
     const name = els.newTripName.value.trim();
     const t = addTrip(name);
     els.newTripName.value='';
     renderTrips(); openTrip(t.id);
   });
+  els.newTripName.addEventListener('keydown', (e)=>{
+    if(e.key==='Enter'){
+      e.preventDefault();
+      els.addTripBtn.click();
+    }
+  });
 
-  // Autosave trip name on input (debounced)
+  // Starter: predefined search
+  els.predefSearch.addEventListener('input', debounce(renderPredefResults, 150));
+
+  // Trip-level events
   els.tripNameInput.addEventListener('input', debounce(()=>{
     if(currentTripId){
       const name = els.tripNameInput.value.trim();
@@ -870,9 +875,8 @@ cover: /images/logo-trip-planner.png
     }
   });
 
-  // Auto-parse while typing in "Add place"
+  // Add place flow
   els.placeLocation.addEventListener('input', autoParse);
-
   els.addPlaceBtn.addEventListener('click', ()=>{
     if(!currentTripId) return;
     const name = els.placeName.value.trim();
@@ -902,7 +906,9 @@ cover: /images/logo-trip-planner.png
   els.filterUnvisited.addEventListener('change', renderAllPlacesMap);
 
   // ---------- Init ----------
-  function renderInitial(){
+  let currentTripId = null;
+  function init(){
+    loadDB();
     renderTrips();
     if(db.trips.length===0){
       els.emptyState.style.display='block';
@@ -910,11 +916,6 @@ cover: /images/logo-trip-planner.png
       const latest=[...db.trips].sort((a,b)=>b.createdAt-a.createdAt)[0];
       openTrip(latest.id);
     }
-  }
-
-  function init(){
-    loadDB();
-    renderInitial();
   }
   init();
 })();
