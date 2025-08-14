@@ -10,7 +10,7 @@ cover: /images/logo-trip-planner.png
 
 <script>
  // ---------- Predefined Trips (sample dataset) ----------
-  const PREDEFINED_TRIPS = [
+  window.PREDEFINED_TRIPS = [
     { id:'paris-2d', name:'Paris Highlights (2 days)', tags:['paris','france','europe','museum','landmarks'], places:[
       { name:'Eiffel Tower', lat:48.858370, lng:2.294481, notes:'Great views. Pre-book tickets.' },
       { name:'Louvre Museum', lat:48.860611, lng:2.337644, notes:'Mona Lisa time.' },
