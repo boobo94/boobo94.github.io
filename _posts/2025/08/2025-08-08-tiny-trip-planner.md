@@ -8,6 +8,69 @@ date: 2025-08-08 09:09:09 +0000
 cover: /images/logo-trip-planner.png
 ---
 
+<script>
+ // ---------- Predefined Trips (sample dataset) ----------
+  const PREDEFINED_TRIPS = [
+    { id:'paris-2d', name:'Paris Highlights (2 days)', tags:['paris','france','europe','museum','landmarks'], places:[
+      { name:'Eiffel Tower', lat:48.858370, lng:2.294481, notes:'Great views. Pre-book tickets.' },
+      { name:'Louvre Museum', lat:48.860611, lng:2.337644, notes:'Mona Lisa time.' },
+      { name:'Notre-Dame (outside)', lat:48.852968, lng:2.349902, notes:'Walk the Seine.' },
+      { name:'Montmartre & Sacré-Cœur', lat:48.886705, lng:2.343104, notes:'Sunset on the steps.' },
+    ]},
+    { id:'tokyo-food', name:'Tokyo Food Crawl', tags:['tokyo','japan','food','markets','ramen'], places:[
+      { name:'Tsukiji Outer Market', lat:35.665486, lng:139.770666, notes:'Fresh sushi breakfast.' },
+      { name:'Ameya-Yokochō (Ueno)', lat:35.711246, lng:139.773719, notes:'Street eats + snacks.' },
+      { name:'Ichiran Ramen Shibuya', lat:35.659022, lng:139.700475, notes:'Famous solo booths.' },
+      { name:'Memory Lane (Omoide Yokochō)', lat:35.691340, lng:139.700531, notes:'Yakitori alley.' },
+    ]},
+    { id:'bucharest-day', name:'Bucharest City Day', tags:['bucharest','romania','old town','architecture'], places:[
+      { name:'Old Town (Centrul Vechi)', lat:44.431220, lng:26.098839, notes:'Walk Lipscani streets.' },
+      { name:'Romanian Athenaeum', lat:44.441334, lng:26.097317, notes:'Concert hall & photos.' },
+      { name:'Palace of Parliament', lat:44.427539, lng:26.087536, notes:'Huge building tour.' },
+      { name:'Herastrau Park', lat:44.476365, lng:26.080838, notes:'Relax by the lake.' },
+    ]},
+    { id:'nyc-1d', name:'NYC One-Day Blitz', tags:['new york','usa','city','iconic'], places:[
+      { name:'Times Square', lat:40.758000, lng:-73.985500, notes:'Quick photo stop.' },
+      { name:'Central Park (The Mall)', lat:40.773628, lng:-73.972533, notes:'Stroll through.' },
+      { name:'Top of the Rock', lat:40.759101, lng:-73.979583, notes:'City view.' },
+      { name:'Brooklyn Bridge', lat:40.706086, lng:-73.996864, notes:'Walk at sunset.' },
+    ]},
+  { 
+    id: 'santorini-5d', 
+    name: 'Santorini Greece (5 days)', 
+    tags: ['santorini','greece','europe','beaches','historic','cliffs','boat','food'], 
+    places: [
+      { name: 'Orthodox Metropolitan Cathedral (Ypapanti), Fira', lat: 36.418889, lng: 25.431111, notes: 'Start here. Short walk to caldera path.' },
+      { name: 'Cathedral of Saint John the Baptist (Catholic), Fira', lat: 36.41995, lng: 25.43185, notes: 'Baroque interior.' },
+      { name: 'Agios Minas Church Viewpoint', lat: 36.4178, lng: 25.4308, notes: 'Classic caldera viewpoint.' },
+      { name: 'Naoussa Restaurant (Fira)', lat: 36.42127, lng: 25.428107, notes: 'Dinner with caldera view.' },
+      { name: 'PK Cocktail Bar', lat: 36.4209, lng: 25.4303, notes: 'Sunset drinks.' },
+      { name: 'Pyrgos Kallistis', lat: 36.3918, lng: 25.4589, notes: 'Hilltop village with panoramic views.' },
+      { name: 'Akrotiri Archaeological Site', lat: 36.35139, lng: 25.40361, notes: 'Bronze Age city preserved in ash.' },
+      { name: 'Red Beach Viewpoint', lat: 36.348774, lng: 25.393743, notes: 'Photo stop with unique red cliffs.' },
+      { name: 'Vlychada Beach', lat: 36.3425, lng: 25.4392, notes: 'Sculpted cliffs and calm waters.' },
+      { name: 'Santo Wines', lat: 36.3869, lng: 25.4349, notes: 'Wine tasting at sunset.' },
+      { name: 'Vlychada Marina', lat: 36.3465, lng: 25.4546, notes: 'Boat rental starting point.' },
+      { name: 'Santorini SeaBreeze Rent a Boat', lat: 36.3467, lng: 25.4553, notes: 'Popular boat hire without license.' },
+      { name: 'Red Beach (by boat)', lat: 36.3499, lng: 25.3938, notes: 'Swim stop accessible by sea.' },
+      { name: 'Palea Kameni Hot Springs', lat: 36.4033, lng: 25.3956, notes: 'Warm sulfur waters in the caldera.' },
+      { name: 'Ammoudi Bay', lat: 36.45818, lng: 25.37165, notes: 'Dock area under Oia with seafood tavernas.' },
+      { name: 'Dimitris Ammoudi Taverna', lat: 36.4597, lng: 25.3712, notes: 'Seafood dinner by the water.' },
+      { name: 'Oia Byzantine Castle Ruins', lat: 36.46001, lng: 25.37294, notes: 'Best visited early for views.' },
+      { name: 'Caldera Viewpoint (Oia)', lat: 36.46063, lng: 25.37334, notes: 'Iconic cliffside views.' },
+      { name: 'Melitini Oia', lat: 36.4613, lng: 25.3784, notes: 'Greek tapas with a view.' },
+      { name: 'Kamari Beach', lat: 36.376159, lng: 25.484426, notes: 'Organized black sand beach.' },
+      { name: 'Metaxi Mas', lat: 36.3853, lng: 25.4637, notes: 'Beloved local taverna; book ahead.' },
+      { name: 'Imerovigli', lat: 36.4320, lng: 25.4200, notes: 'Cliff village with stunning vistas.' },
+      { name: 'Skaros Rock', lat: 36.432378, lng: 25.418123, notes: 'Hike to fortress ruins with sea views.' },
+      { name: 'Avocado Restaurant Imerovigli', lat: 36.4315, lng: 25.4218, notes: 'Casual lunch with view.' },
+      { name: 'Ancient Thera', lat: 36.362969, lng: 25.47987, notes: 'Hilltop ruins with sweeping views.' },
+      { name: 'Fira Old Town', lat: 36.4203, lng: 25.4322, notes: 'Shops, cafes, and last-minute views.' }
+    ]
+  }
+  ];
+</script>
+
 <!-- Tiny Trip Planner — Integrated Starter, No Overlap, Fixed currentTripId -->
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin>
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin></script>
@@ -49,6 +112,7 @@ cover: /images/logo-trip-planner.png
     </div>
 
     <div class="ttp-topbar-list" id="ttp-tripList"></div>
+
   </div>
 
   <div class="ttp-gap"></div>
@@ -126,6 +190,7 @@ cover: /images/logo-trip-planner.png
         </div>
       </div>
     </div>
+
   </div>
 </div>
 
@@ -195,7 +260,7 @@ cover: /images/logo-trip-planner.png
 <script>
 (function(){
   // ---------- Storage ----------
-  const LS_KEY = 'tiny_trip_planner'; // stable key
+  const LS_KEY = 'tiny_trip_planner'; // local storage key
   const db = { trips: [], lastTripId: 0, lastPlaceId: 0 };
   const root = document.getElementById('ttp-root');
 
@@ -203,67 +268,6 @@ cover: /images/logo-trip-planner.png
   function saveDB(){ localStorage.setItem(LS_KEY, JSON.stringify(db)); }
   function nextTripId(){ db.lastTripId+=1; saveDB(); return db.lastTripId; }
   function nextPlaceId(){ db.lastPlaceId+=1; saveDB(); return db.lastPlaceId; }
-
-  // ---------- Predefined Trips (sample dataset) ----------
-  const PREDEFINED_TRIPS = [
-    { id:'paris-2d', name:'Paris Highlights (2 days)', tags:['paris','france','europe','museum','landmarks'], places:[
-      { name:'Eiffel Tower', lat:48.858370, lng:2.294481, notes:'Great views. Pre-book tickets.' },
-      { name:'Louvre Museum', lat:48.860611, lng:2.337644, notes:'Mona Lisa time.' },
-      { name:'Notre-Dame (outside)', lat:48.852968, lng:2.349902, notes:'Walk the Seine.' },
-      { name:'Montmartre & Sacré-Cœur', lat:48.886705, lng:2.343104, notes:'Sunset on the steps.' },
-    ]},
-    { id:'tokyo-food', name:'Tokyo Food Crawl', tags:['tokyo','japan','food','markets','ramen'], places:[
-      { name:'Tsukiji Outer Market', lat:35.665486, lng:139.770666, notes:'Fresh sushi breakfast.' },
-      { name:'Ameya-Yokochō (Ueno)', lat:35.711246, lng:139.773719, notes:'Street eats + snacks.' },
-      { name:'Ichiran Ramen Shibuya', lat:35.659022, lng:139.700475, notes:'Famous solo booths.' },
-      { name:'Memory Lane (Omoide Yokochō)', lat:35.691340, lng:139.700531, notes:'Yakitori alley.' },
-    ]},
-    { id:'bucharest-day', name:'Bucharest City Day', tags:['bucharest','romania','old town','architecture'], places:[
-      { name:'Old Town (Centrul Vechi)', lat:44.431220, lng:26.098839, notes:'Walk Lipscani streets.' },
-      { name:'Romanian Athenaeum', lat:44.441334, lng:26.097317, notes:'Concert hall & photos.' },
-      { name:'Palace of Parliament', lat:44.427539, lng:26.087536, notes:'Huge building tour.' },
-      { name:'Herastrau Park', lat:44.476365, lng:26.080838, notes:'Relax by the lake.' },
-    ]},
-    { id:'nyc-1d', name:'NYC One-Day Blitz', tags:['new york','usa','city','iconic'], places:[
-      { name:'Times Square', lat:40.758000, lng:-73.985500, notes:'Quick photo stop.' },
-      { name:'Central Park (The Mall)', lat:40.773628, lng:-73.972533, notes:'Stroll through.' },
-      { name:'Top of the Rock', lat:40.759101, lng:-73.979583, notes:'City view.' },
-      { name:'Brooklyn Bridge', lat:40.706086, lng:-73.996864, notes:'Walk at sunset.' },
-    ]},
-  { 
-    id: 'santorini-5d', 
-    name: 'Santorini Greece (5 days)', 
-    tags: ['santorini','greece','europe','beaches','historic','cliffs','boat','food'], 
-    places: [
-      { name: 'Orthodox Metropolitan Cathedral (Ypapanti), Fira', lat: 36.418889, lng: 25.431111, notes: 'Start here. Short walk to caldera path.' },
-      { name: 'Cathedral of Saint John the Baptist (Catholic), Fira', lat: 36.41995, lng: 25.43185, notes: 'Baroque interior.' },
-      { name: 'Agios Minas Church Viewpoint', lat: 36.4178, lng: 25.4308, notes: 'Classic caldera viewpoint.' },
-      { name: 'Naoussa Restaurant (Fira)', lat: 36.42127, lng: 25.428107, notes: 'Dinner with caldera view.' },
-      { name: 'PK Cocktail Bar', lat: 36.4209, lng: 25.4303, notes: 'Sunset drinks.' },
-      { name: 'Pyrgos Kallistis', lat: 36.3918, lng: 25.4589, notes: 'Hilltop village with panoramic views.' },
-      { name: 'Akrotiri Archaeological Site', lat: 36.35139, lng: 25.40361, notes: 'Bronze Age city preserved in ash.' },
-      { name: 'Red Beach Viewpoint', lat: 36.348774, lng: 25.393743, notes: 'Photo stop with unique red cliffs.' },
-      { name: 'Vlychada Beach', lat: 36.3425, lng: 25.4392, notes: 'Sculpted cliffs and calm waters.' },
-      { name: 'Santo Wines', lat: 36.3869, lng: 25.4349, notes: 'Wine tasting at sunset.' },
-      { name: 'Vlychada Marina', lat: 36.3465, lng: 25.4546, notes: 'Boat rental starting point.' },
-      { name: 'Santorini SeaBreeze Rent a Boat', lat: 36.3467, lng: 25.4553, notes: 'Popular boat hire without license.' },
-      { name: 'Red Beach (by boat)', lat: 36.3499, lng: 25.3938, notes: 'Swim stop accessible by sea.' },
-      { name: 'Palea Kameni Hot Springs', lat: 36.4033, lng: 25.3956, notes: 'Warm sulfur waters in the caldera.' },
-      { name: 'Ammoudi Bay', lat: 36.45818, lng: 25.37165, notes: 'Dock area under Oia with seafood tavernas.' },
-      { name: 'Dimitris Ammoudi Taverna', lat: 36.4597, lng: 25.3712, notes: 'Seafood dinner by the water.' },
-      { name: 'Oia Byzantine Castle Ruins', lat: 36.46001, lng: 25.37294, notes: 'Best visited early for views.' },
-      { name: 'Caldera Viewpoint (Oia)', lat: 36.46063, lng: 25.37334, notes: 'Iconic cliffside views.' },
-      { name: 'Melitini Oia', lat: 36.4613, lng: 25.3784, notes: 'Greek tapas with a view.' },
-      { name: 'Kamari Beach', lat: 36.376159, lng: 25.484426, notes: 'Organized black sand beach.' },
-      { name: 'Metaxi Mas', lat: 36.3853, lng: 25.4637, notes: 'Beloved local taverna; book ahead.' },
-      { name: 'Imerovigli', lat: 36.4320, lng: 25.4200, notes: 'Cliff village with stunning vistas.' },
-      { name: 'Skaros Rock', lat: 36.432378, lng: 25.418123, notes: 'Hike to fortress ruins with sea views.' },
-      { name: 'Avocado Restaurant Imerovigli', lat: 36.4315, lng: 25.4218, notes: 'Casual lunch with view.' },
-      { name: 'Ancient Thera', lat: 36.362969, lng: 25.47987, notes: 'Hilltop ruins with sweeping views.' },
-      { name: 'Fira Old Town', lat: 36.4203, lng: 25.4322, notes: 'Shops, cafes, and last-minute views.' }
-    ]
-  }
-  ];
 
   // ---------- Helpers ----------
   function getEl(id){ return root.querySelector('#'+id); }
