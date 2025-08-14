@@ -71,65 +71,12 @@ cover: /images/logo-trip-planner.png
   ];
 </script>
 
-<!-- Tiny Trip Planner — Share Links (gzip+Base64 in URL hash) -->
+<!-- Tiny Trip Planner — Unified Create/Search, Trip-level Share, External PREDEFINED_TRIPS, Banner-first -->
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin>
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin></script>
 
 <div class="ttp" id="ttp-root">
-  <!-- Trip Starter (Create & Predefined in ONE card) -->
-  <div class="ttp-starter ttp-card">
-    <div class="ttp-section-title">Trip starter</div>
-
-    <div class="ttp-starter-grid">
-      <!-- Create new trip -->
-      <div class="ttp-col">
-        <label class="ttp-muted">Create new trip</label>
-        <div class="ttp-row">
-          <input class="ttp-input" id="ttp-newTripName" type="text" placeholder="Trip name (e.g., Paris in 2 days)">
-          <button class="ttp-btn ttp-accent" id="ttp-addTripBtn">Add Trip</button>
-        </div>
-        <div class="ttp-tiny ttp-muted">Tip: Press Enter to create a trip with the typed name.</div>
-      </div>
-
-      <!-- Search predefined trips -->
-      <div class="ttp-col">
-        <label class="ttp-muted">Search predefined trips</label>
-        <input class="ttp-input" id="ttp-predefSearch" type="text" placeholder="Search templates (e.g., Paris, Tokyo, Bucharest)">
-        <!-- Results live here; in-flow so it doesn't overlap content -->
-        <div id="ttp-predefResults" class="ttp-predef-results" style="display:none;"></div>
-        <div class="ttp-tiny ttp-muted">Select a template to add as a new trip or merge into the current one.</div>
-      </div>
-
-      <!-- Utilities -->
-      <div class="ttp-col">
-        <label class="ttp-muted">Utilities</label>
-        <div class="ttp-row ttp-wrap">
-          <input id="ttp-importFile" type="file" accept="application/json,.json" style="display:none;">
-          <button class="ttp-btn" id="ttp-importBtn">⤵️ Import (merge)</button>
-          <button class="ttp-btn" id="ttp-exportAllBtn">⤴️ Export All</button>
-          <button class="ttp-btn" id="ttp-shareTripBtn" title="Share current trip via link">🔗 Share Trip Link</button>
-          <button class="ttp-btn" id="ttp-shareAllBtn" title="Share all trips via link">🔗 Share All Link</button>
-        </div>
-
-        <!-- Share output panel -->
-        <div id="ttp-sharePanel" class="ttp-share" style="display:none;">
-          <input class="ttp-input" id="ttp-shareLink" readonly>
-          <div class="ttp-row ttp-wrap">
-            <button class="ttp-btn ttp-accent" id="ttp-copyShare">Copy</button>
-            <button class="ttp-btn" id="ttp-closeShare">Close</button>
-            <span class="ttp-tiny ttp-muted" id="ttp-shareNote"></span>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="ttp-topbar-list" id="ttp-tripList"></div>
-
-  </div>
-
-  <div class="ttp-gap"></div>
-
-  <!-- Incoming share banner (appears when #ttp-share=... in URL) -->
+  <!-- Shared content banner FIRST -->
   <div id="ttp-shareBanner" class="ttp-card ttp-share-banner" style="display:none;">
     <div class="ttp-row ttp-space-between ttp-wrap">
       <div>
@@ -143,6 +90,33 @@ cover: /images/logo-trip-planner.png
       </div>
     </div>
     <div class="ttp-tiny ttp-muted">Note: Links are Base64-encoded and optionally gzip-compressed. They’re readable, not encrypted.</div>
+  </div>
+
+  <div class="ttp-gap"></div>
+
+  <!-- Trip Starter (Unified Create/Search + Utilities + Trip navbar) -->
+  <div class="ttp-starter ttp-card">
+    <div class="ttp-section-title">Create or search a trip</div>
+
+    <!-- Unified input -->
+    <div class="ttp-col">
+      <input class="ttp-input" id="ttp-quickInput" type="text" placeholder="Type a new trip name (press Enter) or search predefined templates…">
+      <!-- In-flow results list (no overlap) -->
+      <div id="ttp-predefResults" class="ttp-predef-results" style="display:none;"></div>
+    </div>
+
+    <div class="ttp-spacer"></div>
+
+    <!-- Utilities -->
+    <div class="ttp-section-title">Utilities</div>
+    <div class="ttp-row ttp-wrap">
+      <input id="ttp-importFile" type="file" accept="application/json,.json" style="display:none;">
+      <button class="ttp-btn" id="ttp-importBtn">⤵️ Import (merge)</button>
+      <button class="ttp-btn" id="ttp-exportAllBtn">⤴️ Export All</button>
+    </div>
+
+    <div class="ttp-topbar-list" id="ttp-tripList"></div>
+
   </div>
 
   <div class="ttp-gap"></div>
@@ -164,9 +138,20 @@ cover: /images/logo-trip-planner.png
           </div>
           <div class="ttp-tiny">Name auto-saves as you type.</div>
         </div>
-        <div class="ttp-row">
+        <div class="ttp-row ttp-wrap">
           <button id="ttp-exportTripBtn" class="ttp-btn">⤴️ Export Trip</button>
+          <button id="ttp-shareTripBtn" class="ttp-btn" title="Share current trip via link">🔗 Share Trip Link</button>
           <button id="ttp-deleteTripBtn" class="ttp-btn ttp-danger">🗑️ Delete Trip</button>
+        </div>
+      </div>
+
+      <!-- Share output panel (only shown when generating a link) -->
+      <div id="ttp-sharePanel" class="ttp-share" style="display:none;">
+        <input class="ttp-input" id="ttp-shareLink" readonly>
+        <div class="ttp-row ttp-wrap">
+          <button class="ttp-btn ttp-accent" id="ttp-copyShare">Copy</button>
+          <button class="ttp-btn" id="ttp-closeShare">Close</button>
+          <span class="ttp-tiny ttp-muted" id="ttp-shareNote"></span>
         </div>
       </div>
 
@@ -195,6 +180,8 @@ cover: /images/logo-trip-planner.png
       <div class="ttp-grid">
         <div class="ttp-col">
           <div class="ttp-section-title">Add place</div>
+
+          <!-- Location first; auto-parse on input -->
           <input class="ttp-input" id="ttp-placeLocation" type="text" placeholder="Location (lat,lng • full Google Maps URL • or place text)">
           <div id="ttp-parseStatus" class="ttp-muted"></div>
           <div id="ttp-previewMap" class="ttp-map" style="display:none;"></div>
@@ -267,12 +254,6 @@ cover: /images/logo-trip-planner.png
   .ttp .ttp-topbar-list .ttp-tripBtn { background:#13182b; border:1px solid var(--border); color:var(--text); padding:8px 10px; border-radius:10px; cursor:pointer; }
   .ttp .ttp-tripBtn.ttp-active { background:#123c33; border-color:#104235; color:var(--accent); }
 
-  /* Starter layout */
-  .ttp .ttp-starter-grid { display:grid; grid-template-columns:1fr; gap:12px; }
-  @media (min-width:900px){
-    .ttp .ttp-starter-grid { grid-template-columns:1fr 1fr 1fr; }
-  }
-
   /* Predefined trips results — in-flow (no overlap) */
   .ttp .ttp-predef-results {
     display:grid; gap:8px; padding:8px; margin-top:8px;
@@ -301,29 +282,29 @@ cover: /images/logo-trip-planner.png
   function nextTripId(){ db.lastTripId+=1; saveDB(); return db.lastTripId; }
   function nextPlaceId(){ db.lastPlaceId+=1; saveDB(); return db.lastPlaceId; }
 
+  // ---------- Predefined Trips from page (no built-ins here) ----------
+  const PREDEFINED_TRIPS = Array.isArray(window.PREDEFINED_TRIPS) ? window.PREDEFINED_TRIPS : [];
+
   // ---------- Helpers ----------
   function getEl(id){ return root.querySelector('#'+id); }
   const els = {
-    // starter
-    newTripName: getEl('ttp-newTripName'),
-    addTripBtn: getEl('ttp-addTripBtn'),
-    predefSearch: getEl('ttp-predefSearch'),
+    // starter unified
+    quickInput: getEl('ttp-quickInput'),
     predefResults: getEl('ttp-predefResults'),
     tripList: getEl('ttp-tripList'),
 
-    // share
-    shareTripBtn: getEl('ttp-shareTripBtn'),
-    shareAllBtn: getEl('ttp-shareAllBtn'),
-    sharePanel: getEl('ttp-sharePanel'),
-    shareLink: getEl('ttp-shareLink'),
-    copyShare: getEl('ttp-copyShare'),
-    closeShare: getEl('ttp-closeShare'),
-    shareNote: getEl('ttp-shareNote'),
+    // share (banner + panel)
     shareBanner: getEl('ttp-shareBanner'),
     shareSummary: getEl('ttp-shareSummary'),
     importSharedNew: getEl('ttp-importSharedNew'),
     mergeSharedCurrent: getEl('ttp-mergeSharedCurrent'),
     dismissShared: getEl('ttp-dismissShared'),
+    shareTripBtn: getEl('ttp-shareTripBtn'),
+    sharePanel: getEl('ttp-sharePanel'),
+    shareLink: getEl('ttp-shareLink'),
+    copyShare: getEl('ttp-copyShare'),
+    closeShare: getEl('ttp-closeShare'),
+    shareNote: getEl('ttp-shareNote'),
 
     // main
     emptyState: getEl('ttp-emptyState'),
@@ -346,6 +327,7 @@ cover: /images/logo-trip-planner.png
     filterVisited: getEl('ttp-filterVisited'),
     filterUnvisited: getEl('ttp-filterUnvisited'),
 
+    // utilities
     importBtn: getEl('ttp-importBtn'),
     importFile: getEl('ttp-importFile'),
     exportAllBtn: getEl('ttp-exportAllBtn'),
@@ -738,7 +720,7 @@ cover: /images/logo-trip-planner.png
     container.querySelector('#eCancel').addEventListener('click',()=>renderPlaces());
   }
 
-  // ---------- Import / Export file ----------
+  // ---------- Import / Export (file) ----------
   function download(filename, text){
     const blob = new Blob([text], {type:'application/json'});
     const url = URL.createObjectURL(blob);
@@ -802,7 +784,6 @@ cover: /images/logo-trip-planner.png
   }
 
   // ---------- Share Links (gzip + Base64URL in #hash) ----------
-  // Bytes <-> Base64URL
   function uint8ToBase64(bytes){
     let bin = '';
     const chunk = 0x8000;
@@ -826,7 +807,6 @@ cover: /images/logo-trip-planner.png
     return base64ToUint8(b64 + pad);
   }
 
-  // gzip (if available) -> Uint8Array
   async function gzipCompress(str){
     try{
       if('CompressionStream' in window){
@@ -836,7 +816,6 @@ cover: /images/logo-trip-planner.png
         return new Uint8Array(buf);
       }
     }catch(e){}
-    // Fallback: no compression, just UTF-8 bytes
     return new TextEncoder().encode(str);
   }
   async function gzipDecompress(bytes){
@@ -847,7 +826,6 @@ cover: /images/logo-trip-planner.png
         return await new Response(stream).text();
       }
     }catch(e){}
-    // Fallback: assume UTF-8 plain text
     return new TextDecoder().decode(bytes);
   }
 
@@ -864,25 +842,15 @@ cover: /images/logo-trip-planner.png
     els.sharePanel.style.display = 'grid';
     els.shareNote.textContent = note || '';
   }
-
   function hideSharePanel(){
     els.sharePanel.style.display = 'none';
     els.shareLink.value = '';
     els.shareNote.textContent = '';
   }
-
   async function shareCurrentTrip(){
     if(!currentTripId){ alert('Open a trip first'); return; }
     const t = getTrip(currentTripId);
     const payload = { version: 1, exportedAt: new Date().toISOString(), data: { trip: t } };
-    const { url, usedGzip, length } = await makeShareLink(payload);
-    let note = usedGzip ? 'Compressed with gzip + Base64. ' : 'No gzip support detected — using plain Base64. ';
-    if(length > 4000) note += `Warning: link length is ${length} chars; some apps may truncate long links.`;
-    showSharePanel(url, note);
-  }
-
-  async function shareAllTrips(){
-    const payload = { version: 1, exportedAt: new Date().toISOString(), data: db };
     const { url, usedGzip, length } = await makeShareLink(payload);
     let note = usedGzip ? 'Compressed with gzip + Base64. ' : 'No gzip support detected — using plain Base64. ';
     if(length > 4000) note += `Warning: link length is ${length} chars; some apps may truncate long links.`;
@@ -899,26 +867,21 @@ cover: /images/logo-trip-planner.png
       const text = await gzipDecompress(bytes);
       const obj = JSON.parse(text);
 
-      // Compose a summary
       const data = obj?.data ?? obj;
       let summary = 'A friend sent you a trip.';
-      let isSingle = false;
       if(data?.trip){
-        isSingle = true;
         const name = data.trip.name || 'Untitled';
         const count = Array.isArray(data.trip.places) ? data.trip.places.length : 0;
         summary = `Trip: "${name}" with ${count} place(s).`;
       }else if(Array.isArray(data?.trips)){
         summary = `Dataset with ${data.trips.length} trip(s).`;
       }else if(data?.name && Array.isArray(data?.places)){
-        isSingle = true;
         const count = data.places.length;
         summary = `Trip: "${data.name}" with ${count} place(s).`;
       }
       els.shareSummary.textContent = summary;
       els.shareBanner.style.display = 'block';
 
-      // Configure buttons
       els.importSharedNew.onclick = async ()=>{
         await importMerge(obj);
         clearHash();
@@ -948,7 +911,6 @@ cover: /images/logo-trip-planner.png
       };
       els.dismissShared.onclick = ()=>{ clearHash(); els.shareBanner.style.display='none'; };
 
-      // Don’t auto-import; wait for user action
       return obj;
     }catch(e){
       console.error('Failed to parse shared data:', e);
@@ -960,7 +922,6 @@ cover: /images/logo-trip-planner.png
       return null;
     }
   }
-
   function clearHash(){
     if(history.replaceState){
       history.replaceState(null, '', location.pathname + location.search);
@@ -969,8 +930,9 @@ cover: /images/logo-trip-planner.png
     }
   }
 
-  // ---------- Predefined search logic ----------
+  // ---------- Unified Create/Search logic ----------
   function searchPredefs(q){
+    if(!Array.isArray(PREDEFINED_TRIPS)) return [];
     q = (q||'').trim().toLowerCase();
     if(!q) return [];
     const words = q.split(/\s+/).filter(Boolean);
@@ -983,12 +945,30 @@ cover: /images/logo-trip-planner.png
     return scored.slice(0,8).map(x=>x.trip);
   }
 
-  function renderPredefResults(){
-    const q = els.predefSearch.value;
+  function renderUnifiedResults(){
+    const q = els.quickInput.value.trim();
     const results = searchPredefs(q);
     const box = els.predefResults;
-    if(results.length === 0){ box.style.display='none'; box.innerHTML=''; return; }
-    box.innerHTML='';
+    box.innerHTML = '';
+
+    if(q){
+      // First item: Create trip named "q"
+      const createItem = document.createElement('div');
+      createItem.className = 'ttp-predef-item';
+      createItem.innerHTML = `
+        <div class="ttp-predef-title">➕ Create trip named “${escapeHtml(q)}”</div>
+        <div class="ttp-predef-tags">Press Enter or click to create a new trip.</div>
+      `;
+      createItem.addEventListener('click', ()=>{
+        const t = addTrip(q);
+        els.quickInput.value = '';
+        box.style.display = 'none';
+        renderTrips(); openTrip(t.id);
+      });
+      box.appendChild(createItem);
+    }
+
+    // Then template matches
     results.forEach(tpl=>{
       const item = document.createElement('div');
       item.className='ttp-predef-item';
@@ -996,14 +976,14 @@ cover: /images/logo-trip-planner.png
         <div class="ttp-predef-title">${escapeHtml(tpl.name)}</div>
         <div class="ttp-predef-tags">Tags: ${(tpl.tags||[]).map(t=>`<span>#${escapeHtml(t)}</span>`).join(' ')}</div>
         <div class="ttp-predef-actions">
-          <button class="ttp-btn ttp-accent" data-add="${tpl.id}">➕ Add as New Trip</button>
-          <button class="ttp-btn" data-merge="${tpl.id}">➕ Add Places to Current</button>
+          <button class="ttp-btn ttp-accent" data-add>➕ Add as New Trip</button>
+          <button class="ttp-btn" data-merge>➕ Add Places to Current</button>
         </div>
       `;
-      item.querySelector(`[data-add="${tpl.id}"]`).addEventListener('click', ()=>{
+      item.querySelector('[data-add]').addEventListener('click', ()=>{
         const newTrip = {
           id: nextTripId(),
-          name: tpl.name,
+          name: tpl.name || 'New Trip',
           createdAt: Date.now(),
           places: []
         };
@@ -1014,17 +994,16 @@ cover: /images/logo-trip-planner.png
             notes: p.notes || '',
             lat: Number(p.lat),
             lng: Number(p.lng),
-            locationInput: '',
+            locationInput: p.locationInput || '',
             visited: !!p.visited,
             createdAt: Date.now()
           });
         });
         db.trips.push(newTrip); saveDB();
-        els.predefResults.style.display='none';
-        els.predefSearch.blur();
+        els.predefResults.style.display='none'; els.quickInput.value='';
         renderTrips(); openTrip(newTrip.id);
       });
-      item.querySelector(`[data-merge="${tpl.id}"]`).addEventListener('click', ()=>{
+      item.querySelector('[data-merge]').addEventListener('click', ()=>{
         if(!currentTripId){ alert('Open or create a trip first to merge places.'); return; }
         const t = getTrip(currentTripId);
         (tpl.places||[]).forEach(p=>{
@@ -1034,7 +1013,7 @@ cover: /images/logo-trip-planner.png
             notes: p.notes || '',
             lat: Number(p.lat),
             lng: Number(p.lng),
-            locationInput: '',
+            locationInput: p.locationInput || '',
             visited: !!p.visited,
             createdAt: Date.now()
           });
@@ -1045,22 +1024,26 @@ cover: /images/logo-trip-planner.png
       });
       box.appendChild(item);
     });
-    box.style.display='grid';
+
+    box.style.display = (q || results.length) ? 'grid' : 'none';
   }
 
   // ---------- Events ----------
-  els.addTripBtn.addEventListener('click', ()=>{
-    const name = els.newTripName.value.trim();
-    const t = addTrip(name);
-    els.newTripName.value='';
-    renderTrips(); openTrip(t.id);
+  // Unified input: Enter creates a new trip with typed name
+  els.quickInput.addEventListener('keydown', (e)=>{
+    if(e.key === 'Enter'){
+      e.preventDefault();
+      const name = els.quickInput.value.trim();
+      if(!name) return;
+      const t = addTrip(name);
+      els.quickInput.value = '';
+      els.predefResults.style.display='none';
+      renderTrips(); openTrip(t.id);
+    }
   });
-  els.newTripName.addEventListener('keydown', (e)=>{
-    if(e.key==='Enter'){ e.preventDefault(); els.addTripBtn.click(); }
-  });
+  els.quickInput.addEventListener('input', debounce(renderUnifiedResults, 150));
 
-  els.predefSearch.addEventListener('input', debounce(renderPredefResults, 150));
-
+  // Trip-level events
   els.tripNameInput.addEventListener('input', debounce(()=>{
     if(currentTripId){
       const name = els.tripNameInput.value.trim();
@@ -1100,9 +1083,8 @@ cover: /images/logo-trip-planner.png
     }
   });
 
-  // Share (links)
+  // Share (trip-level only)
   els.shareTripBtn.addEventListener('click', shareCurrentTrip);
-  els.shareAllBtn.addEventListener('click', shareAllTrips);
   els.copyShare.addEventListener('click', async ()=>{
     try{
       await navigator.clipboard.writeText(els.shareLink.value);
@@ -1137,6 +1119,7 @@ cover: /images/logo-trip-planner.png
     flashHighlight(lat, lng);
   });
 
+  // Map filters
   els.filterVisited.addEventListener('change', renderAllPlacesMap);
   els.filterUnvisited.addEventListener('change', renderAllPlacesMap);
 
@@ -1150,8 +1133,7 @@ cover: /images/logo-trip-planner.png
       const latest=[...db.trips].sort((a,b)=>b.createdAt-a.createdAt)[0];
       openTrip(latest.id);
     }
-    // Handle shared data in URL hash if present
-    await tryLoadSharedFromHash();
+    await tryLoadSharedFromHash(); // shows banner before starter (already placed above)
   }
   init();
 })();
