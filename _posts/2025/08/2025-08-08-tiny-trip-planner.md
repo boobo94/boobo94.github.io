@@ -71,7 +71,7 @@ cover: /images/logo-trip-planner.png
   ];
 </script>
 
-<!-- Tiny Trip Planner — mobile-friendly labels for Import/Export, smaller place buttons -->
+<!-- Tiny Trip Planner — toolbars as full-width rows (mobile-safe), small place buttons -->
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin>
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin></script>
 
@@ -94,9 +94,9 @@ cover: /images/logo-trip-planner.png
 
   <div class="ttp-gap"></div>
 
-  <!-- Trip Starter (Unified Create/Search + Top-right utilities + Trip navbar) -->
-  <div class="ttp-starter ttp-card ttp-card--tools">
-    <!-- top-right tools -->
+  <!-- Trip Starter (Unified Create/Search + Tools row + Trip navbar) -->
+  <div class="ttp-starter ttp-card">
+    <!-- tools row (full width, wraps on mobile) -->
     <div class="ttp-card-tools">
       <input id="ttp-importFile" type="file" accept="application/json,.json" style="display:none;">
       <button class="ttp-btn ttp-btn--sm" id="ttp-importBtn" title="Import (merge)">⤵️ Import</button>
@@ -128,8 +128,8 @@ cover: /images/logo-trip-planner.png
       <p class="ttp-muted">Create a trip, open one, or use a predefined template.</p>
     </div>
 
-    <div id="ttp-tripView" class="ttp-card ttp-edit-card ttp-card--tools" style="display:none;">
-      <!-- top-right tools for current trip -->
+    <div id="ttp-tripView" class="ttp-card ttp-edit-card" style="display:none;">
+      <!-- trip tools row (full width, wraps on mobile) -->
       <div class="ttp-card-tools">
         <button id="ttp-tripVisitedBtn" class="ttp-btn ttp-btn--sm" title="Toggle trip visited">🗺️ Mark visited</button>
         <button id="ttp-exportTripBtn" class="ttp-btn ttp-btn--sm" title="Export this trip">⤴️ Export Trip</button>
@@ -216,7 +216,7 @@ cover: /images/logo-trip-planner.png
   .ttp { --bg:#0f1220; --panel:#161A2B; --panel2:#1B2138; --text:#E8ECF1; --muted:#A7B0C0; --accent:#6EE7B7; --danger:#f87171; --border:#27304a; }
   .ttp * { box-sizing:border-box; }
   .ttp .ttp-main { color:var(--text); }
-  .ttp .ttp-card { background:var(--panel2); border:1px solid var(--border); border-radius:12px; padding:12px; position:relative; }
+  .ttp .ttp-card { background:var(--panel2); border:1px solid var(--border); border-radius:12px; padding:12px; }
   .ttp .ttp-edit-card { border-radius:16px; }
   .ttp .ttp-gap { height:16px; }
   .ttp .ttp-section-title { font-size:13px; color:var(--muted); text-transform:uppercase; letter-spacing:.08em; margin:4px 0 8px; }
@@ -275,10 +275,9 @@ cover: /images/logo-trip-planner.png
   .ttp .ttp-share { margin-top:10px; display:grid; gap:8px; }
   .ttp .ttp-share-banner { border-left:3px solid var(--accent); }
 
-  /* Card top-right tools */
-  .ttp .ttp-card--tools { position:relative; }
+  /* Card tools: full-width row at top (no absolute positioning) */
   .ttp .ttp-card-tools {
-    position:absolute; top:8px; right:8px; display:flex; gap:6px; align-items:center;
+    display:flex; gap:6px; flex-wrap:wrap; justify-content:flex-end; margin-bottom:8px;
   }
 </style>
 
