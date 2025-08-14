@@ -71,7 +71,7 @@ cover: /images/logo-trip-planner.png
   ];
 </script>
 
-<!-- Tiny Trip Planner — Integrated Starter, No Overlap, Fixed currentTripId -->
+<!-- Tiny Trip Planner — Share Links (gzip+Base64 in URL hash) -->
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin>
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin></script>
 
@@ -88,7 +88,7 @@ cover: /images/logo-trip-planner.png
           <input class="ttp-input" id="ttp-newTripName" type="text" placeholder="Trip name (e.g., Paris in 2 days)">
           <button class="ttp-btn ttp-accent" id="ttp-addTripBtn">Add Trip</button>
         </div>
-        <div class="ttp-tiny ttp-muted">Tip: You can also press Enter to create a trip with the typed name.</div>
+        <div class="ttp-tiny ttp-muted">Tip: Press Enter to create a trip with the typed name.</div>
       </div>
 
       <!-- Search predefined trips -->
@@ -107,12 +107,42 @@ cover: /images/logo-trip-planner.png
           <input id="ttp-importFile" type="file" accept="application/json,.json" style="display:none;">
           <button class="ttp-btn" id="ttp-importBtn">⤵️ Import (merge)</button>
           <button class="ttp-btn" id="ttp-exportAllBtn">⤴️ Export All</button>
+          <button class="ttp-btn" id="ttp-shareTripBtn" title="Share current trip via link">🔗 Share Trip Link</button>
+          <button class="ttp-btn" id="ttp-shareAllBtn" title="Share all trips via link">🔗 Share All Link</button>
+        </div>
+
+        <!-- Share output panel -->
+        <div id="ttp-sharePanel" class="ttp-share" style="display:none;">
+          <input class="ttp-input" id="ttp-shareLink" readonly>
+          <div class="ttp-row ttp-wrap">
+            <button class="ttp-btn ttp-accent" id="ttp-copyShare">Copy</button>
+            <button class="ttp-btn" id="ttp-closeShare">Close</button>
+            <span class="ttp-tiny ttp-muted" id="ttp-shareNote"></span>
+          </div>
         </div>
       </div>
     </div>
 
     <div class="ttp-topbar-list" id="ttp-tripList"></div>
 
+  </div>
+
+  <div class="ttp-gap"></div>
+
+  <!-- Incoming share banner (appears when #ttp-share=... in URL) -->
+  <div id="ttp-shareBanner" class="ttp-card ttp-share-banner" style="display:none;">
+    <div class="ttp-row ttp-space-between ttp-wrap">
+      <div>
+        <div class="ttp-section-title">Shared content detected</div>
+        <div class="ttp-muted" id="ttp-shareSummary">A friend sent you a trip.</div>
+      </div>
+      <div class="ttp-row ttp-wrap">
+        <button class="ttp-btn ttp-accent" id="ttp-importSharedNew">Import as New Trip</button>
+        <button class="ttp-btn" id="ttp-mergeSharedCurrent">Merge Places into Current</button>
+        <button class="ttp-btn ttp-danger" id="ttp-dismissShared">Dismiss</button>
+      </div>
+    </div>
+    <div class="ttp-tiny ttp-muted">Note: Links are Base64-encoded and optionally gzip-compressed. They’re readable, not encrypted.</div>
   </div>
 
   <div class="ttp-gap"></div>
@@ -165,8 +195,6 @@ cover: /images/logo-trip-planner.png
       <div class="ttp-grid">
         <div class="ttp-col">
           <div class="ttp-section-title">Add place</div>
-
-          <!-- Location first; auto-parse on input -->
           <input class="ttp-input" id="ttp-placeLocation" type="text" placeholder="Location (lat,lng • full Google Maps URL • or place text)">
           <div id="ttp-parseStatus" class="ttp-muted"></div>
           <div id="ttp-previewMap" class="ttp-map" style="display:none;"></div>
@@ -255,12 +283,16 @@ cover: /images/logo-trip-planner.png
   .ttp .ttp-predef-title { font-weight:600; color:var(--text); }
   .ttp .ttp-predef-tags { font-size:12px; color:var(--muted); }
   .ttp .ttp-predef-actions { display:flex; gap:8px; flex-wrap:wrap; }
+
+  /* Share panel & banner */
+  .ttp .ttp-share { margin-top:10px; display:grid; gap:8px; }
+  .ttp .ttp-share-banner { border-left:3px solid var(--accent); }
 </style>
 
 <script>
 (function(){
   // ---------- Storage ----------
-  const LS_KEY = 'tiny_trip_planner'; // local storage key
+  const LS_KEY = 'tiny_trip_planner'; // stable key
   const db = { trips: [], lastTripId: 0, lastPlaceId: 0 };
   const root = document.getElementById('ttp-root');
 
@@ -278,6 +310,20 @@ cover: /images/logo-trip-planner.png
     predefSearch: getEl('ttp-predefSearch'),
     predefResults: getEl('ttp-predefResults'),
     tripList: getEl('ttp-tripList'),
+
+    // share
+    shareTripBtn: getEl('ttp-shareTripBtn'),
+    shareAllBtn: getEl('ttp-shareAllBtn'),
+    sharePanel: getEl('ttp-sharePanel'),
+    shareLink: getEl('ttp-shareLink'),
+    copyShare: getEl('ttp-copyShare'),
+    closeShare: getEl('ttp-closeShare'),
+    shareNote: getEl('ttp-shareNote'),
+    shareBanner: getEl('ttp-shareBanner'),
+    shareSummary: getEl('ttp-shareSummary'),
+    importSharedNew: getEl('ttp-importSharedNew'),
+    mergeSharedCurrent: getEl('ttp-mergeSharedCurrent'),
+    dismissShared: getEl('ttp-dismissShared'),
 
     // main
     emptyState: getEl('ttp-emptyState'),
@@ -393,7 +439,7 @@ cover: /images/logo-trip-planner.png
   }
 
   // ---------- Geocoding (auto, debounced) ----------
-  let currentTripId = null; // <— declared ONCE here
+  let currentTripId = null; // declared once
   let previewLeaflet = null;
 
   // SINGLE map vars
@@ -422,7 +468,6 @@ cover: /images/logo-trip-planner.png
     if (isFullGmapsUrl(input)){
       const c = coordsFromGoogleUrl(input);
       if(c) return {...c, source:'google'};
-      // else fall through to OSM
     }
 
     // 3) OSM Nominatim text search (free)
@@ -452,7 +497,6 @@ cover: /images/logo-trip-planner.png
       els.previewMap.dataset.lat = res.lat;
       els.previewMap.dataset.lng = res.lng;
 
-      // auto name only for full google.com/maps URLs
       if (isFullGmapsUrl(input)){
         const nm = nameFromGoogleUrl(input);
         if(nm && !els.placeName.value) els.placeName.value = nm;
@@ -496,7 +540,6 @@ cover: /images/logo-trip-planner.png
       }).addTo(allMapLeaflet);
       setTimeout(()=>allMapLeaflet.invalidateSize(), 100);
     }
-    // clear old layers
     allMapMarkers.forEach(m=>allMapLeaflet.removeLayer(m));
     allMapMarkers = [];
     if(allMapPolyline){ allMapLeaflet.removeLayer(allMapPolyline); allMapPolyline=null; }
@@ -528,7 +571,6 @@ cover: /images/logo-trip-planner.png
     }
   }
 
-  // Temporary highlight pin when adding a place
   function flashHighlight(lat, lng){
     if(!allMapLeaflet) return;
     const m = L.marker([lat,lng], { icon: highlightIcon, zIndexOffset: 1000 }).addTo(allMapLeaflet);
@@ -583,41 +625,33 @@ cover: /images/logo-trip-planner.png
         </div>
 
         <div class="ttp-actions">
-          <!-- Order: Edit, Delete, Open Map, Mark visited, Reorder -->
           <button class="ttp-btn ttp-primary" data-edit="${p.id}">✏️ Edit</button>
           <button class="ttp-btn ttp-danger" data-del="${p.id}">🗑️ Delete</button>
           <button class="ttp-btn ttp-accent" data-open="${p.id}" title="Open in Google Maps">📍 Open Map</button>
-
           <button class="ttp-btn ${p.visited ? 'ttp-accent' : ''}" data-visit="${p.id}" aria-pressed="${p.visited ? 'true':'false'}" title="Toggle visited">
             ${p.visited ? '✅ Visited' : '🗺️ Mark visited'}
           </button>
-
           <button class="ttp-btn ttp-handle-btn" draggable="true" data-handle="${idx}" title="Drag to reorder">↕️ Reorder</button>
         </div>
       `;
 
-      // Open in Google Maps
       li.querySelector(`[data-open="${p.id}"]`).addEventListener('click', ()=>{
         const url = googleLinkForPlace(p);
         window.open(url, '_blank', 'noopener,noreferrer');
       });
 
-      // Toggle visited
       li.querySelector(`[data-visit="${p.id}"]`).addEventListener('click', ()=>{
         updatePlace(t.id, p.id, { visited: !p.visited });
         renderPlaces();
         renderAllPlacesMap();
       });
 
-      // Delete
       li.querySelector('[data-del]').addEventListener('click',()=>{
         if(confirm('Delete this place?')){ deletePlace(t.id, p.id); renderPlaces(); renderTrips(); renderAllPlacesMap(); }
       });
 
-      // Edit inline
       li.querySelector('[data-edit]').addEventListener('click',()=>editPlaceInline(t.id,p));
 
-      // Drag & drop — handle initiates drag, items accept drop
       const handle = li.querySelector(`[data-handle="${idx}"]`);
       handle.addEventListener('dragstart', (ev)=>{
         ev.dataTransfer.setData('text/plain', String(idx));
@@ -648,7 +682,6 @@ cover: /images/logo-trip-planner.png
     container.innerHTML=`
       <div class="ttp-title">Edit: ${escapeHtml(p.name)}</div>
 
-      <!-- Location first; auto parse -->
       <input class="ttp-input" id="eLoc" value="${escapeAttr(p.locationInput || formatLatLng(p.lat,p.lng))}" placeholder="Location (lat,lng / full GMaps URL / place text)">
       <div id="eStatus" class="ttp-muted"></div>
       <div id="eMap" class="ttp-map" style="display:none;"></div>
@@ -692,7 +725,6 @@ cover: /images/logo-trip-planner.png
     }, 400);
 
     eLoc.addEventListener('input', doAuto);
-    // initial map
     showSinglePin(eMap, p.lat, p.lng, p.visited); eMap.style.display='block';
 
     container.querySelector('#eSave').addEventListener('click',()=>{
@@ -706,7 +738,7 @@ cover: /images/logo-trip-planner.png
     container.querySelector('#eCancel').addEventListener('click',()=>renderPlaces());
   }
 
-  // ---------- Import / Export ----------
+  // ---------- Import / Export file ----------
   function download(filename, text){
     const blob = new Blob([text], {type:'application/json'});
     const url = URL.createObjectURL(blob);
@@ -755,7 +787,7 @@ cover: /images/logo-trip-planner.png
           notes: p.notes || '',
           lat: Number(p.lat) || 0,
           lng: Number(p.lng) || 0,
-          locationInput: '',
+          locationInput: p.locationInput || '',
           visited: !!p.visited,
           createdAt: Date.now()
         });
@@ -767,6 +799,174 @@ cover: /images/logo-trip-planner.png
     renderTrips();
     if(addedTripIds.length){ openTrip(addedTripIds[addedTripIds.length-1]); }
     alert(`Imported ${addedTripIds.length} trip(s).`);
+  }
+
+  // ---------- Share Links (gzip + Base64URL in #hash) ----------
+  // Bytes <-> Base64URL
+  function uint8ToBase64(bytes){
+    let bin = '';
+    const chunk = 0x8000;
+    for(let i=0; i<bytes.length; i+=chunk){
+      bin += String.fromCharCode.apply(null, bytes.subarray(i, i+chunk));
+    }
+    return btoa(bin);
+  }
+  function base64ToUint8(b64){
+    const bin = atob(b64);
+    const bytes = new Uint8Array(bin.length);
+    for(let i=0; i<bin.length; i++) bytes[i] = bin.charCodeAt(i);
+    return bytes;
+  }
+  function toBase64Url(bytes){
+    return uint8ToBase64(bytes).replace(/\+/g,'-').replace(/\//g,'_').replace(/=+$/,'');
+  }
+  function fromBase64Url(str){
+    const b64 = str.replace(/-/g,'+').replace(/_/g,'/');
+    const pad = b64.length % 4 ? '='.repeat(4 - (b64.length % 4)) : '';
+    return base64ToUint8(b64 + pad);
+  }
+
+  // gzip (if available) -> Uint8Array
+  async function gzipCompress(str){
+    try{
+      if('CompressionStream' in window){
+        const cs = new CompressionStream('gzip');
+        const stream = new Blob([str]).stream().pipeThrough(cs);
+        const buf = await new Response(stream).arrayBuffer();
+        return new Uint8Array(buf);
+      }
+    }catch(e){}
+    // Fallback: no compression, just UTF-8 bytes
+    return new TextEncoder().encode(str);
+  }
+  async function gzipDecompress(bytes){
+    try{
+      if('DecompressionStream' in window){
+        const ds = new DecompressionStream('gzip');
+        const stream = new Blob([bytes]).stream().pipeThrough(ds);
+        return await new Response(stream).text();
+      }
+    }catch(e){}
+    // Fallback: assume UTF-8 plain text
+    return new TextDecoder().decode(bytes);
+  }
+
+  async function makeShareLink(payloadObj){
+    const json = JSON.stringify(payloadObj);
+    const bytes = await gzipCompress(json);
+    const encoded = toBase64Url(bytes);
+    const url = `${location.origin}${location.pathname}#ttp-share=${encoded}`;
+    return { url, usedGzip: ('CompressionStream' in window), length: url.length };
+  }
+
+  function showSharePanel(url, note){
+    els.shareLink.value = url;
+    els.sharePanel.style.display = 'grid';
+    els.shareNote.textContent = note || '';
+  }
+
+  function hideSharePanel(){
+    els.sharePanel.style.display = 'none';
+    els.shareLink.value = '';
+    els.shareNote.textContent = '';
+  }
+
+  async function shareCurrentTrip(){
+    if(!currentTripId){ alert('Open a trip first'); return; }
+    const t = getTrip(currentTripId);
+    const payload = { version: 1, exportedAt: new Date().toISOString(), data: { trip: t } };
+    const { url, usedGzip, length } = await makeShareLink(payload);
+    let note = usedGzip ? 'Compressed with gzip + Base64. ' : 'No gzip support detected — using plain Base64. ';
+    if(length > 4000) note += `Warning: link length is ${length} chars; some apps may truncate long links.`;
+    showSharePanel(url, note);
+  }
+
+  async function shareAllTrips(){
+    const payload = { version: 1, exportedAt: new Date().toISOString(), data: db };
+    const { url, usedGzip, length } = await makeShareLink(payload);
+    let note = usedGzip ? 'Compressed with gzip + Base64. ' : 'No gzip support detected — using plain Base64. ';
+    if(length > 4000) note += `Warning: link length is ${length} chars; some apps may truncate long links.`;
+    showSharePanel(url, note);
+  }
+
+  async function tryLoadSharedFromHash(){
+    const h = location.hash || '';
+    const prefix = '#ttp-share=';
+    if(!h.startsWith(prefix)) return null;
+    const encoded = h.slice(prefix.length);
+    try{
+      const bytes = fromBase64Url(encoded);
+      const text = await gzipDecompress(bytes);
+      const obj = JSON.parse(text);
+
+      // Compose a summary
+      const data = obj?.data ?? obj;
+      let summary = 'A friend sent you a trip.';
+      let isSingle = false;
+      if(data?.trip){
+        isSingle = true;
+        const name = data.trip.name || 'Untitled';
+        const count = Array.isArray(data.trip.places) ? data.trip.places.length : 0;
+        summary = `Trip: "${name}" with ${count} place(s).`;
+      }else if(Array.isArray(data?.trips)){
+        summary = `Dataset with ${data.trips.length} trip(s).`;
+      }else if(data?.name && Array.isArray(data?.places)){
+        isSingle = true;
+        const count = data.places.length;
+        summary = `Trip: "${data.name}" with ${count} place(s).`;
+      }
+      els.shareSummary.textContent = summary;
+      els.shareBanner.style.display = 'block';
+
+      // Configure buttons
+      els.importSharedNew.onclick = async ()=>{
+        await importMerge(obj);
+        clearHash();
+        els.shareBanner.style.display='none';
+      };
+      els.mergeSharedCurrent.onclick = async ()=>{
+        const dataIn = obj?.data ?? obj;
+        if(!currentTripId){ alert('Open or create a trip first to merge places.'); return; }
+        const t = getTrip(currentTripId);
+        if(dataIn?.trip && Array.isArray(dataIn.trip.places)){
+          dataIn.trip.places.forEach(p=>{
+            t.places.push({
+              id: nextPlaceId(),
+              name: p.name || `Imported Place ${db.lastPlaceId}`,
+              notes: p.notes || '',
+              lat: Number(p.lat) || 0,
+              lng: Number(p.lng) || 0,
+              locationInput: p.locationInput || '',
+              visited: !!p.visited,
+              createdAt: Date.now()
+            });
+          });
+          saveDB(); renderPlaces(); renderAllPlacesMap(); clearHash(); els.shareBanner.style.display='none';
+        }else{
+          alert('Merge is available for a single shared trip. Use "Import as New Trip" for multi-trip data.');
+        }
+      };
+      els.dismissShared.onclick = ()=>{ clearHash(); els.shareBanner.style.display='none'; };
+
+      // Don’t auto-import; wait for user action
+      return obj;
+    }catch(e){
+      console.error('Failed to parse shared data:', e);
+      els.shareSummary.textContent = 'Could not read shared content.';
+      els.mergeSharedCurrent.style.display = 'none';
+      els.importSharedNew.textContent = 'Dismiss';
+      els.importSharedNew.onclick = ()=>{ clearHash(); els.shareBanner.style.display='none'; };
+      els.shareBanner.style.display = 'block';
+      return null;
+    }
+  }
+
+  function clearHash(){
+    if(history.replaceState){
+      history.replaceState(null, '', location.pathname + location.search);
+    }else{
+      location.hash = '';
+    }
   }
 
   // ---------- Predefined search logic ----------
@@ -848,15 +1048,7 @@ cover: /images/logo-trip-planner.png
     box.style.display='grid';
   }
 
-  // hide results when clicking outside
-  document.addEventListener('click', (e)=>{
-    if(!els.predefResults.contains(e.target) && e.target !== els.predefSearch){
-      els.predefResults.style.display='none';
-    }
-  });
-
   // ---------- Events ----------
-  // Starter: new trip create
   els.addTripBtn.addEventListener('click', ()=>{
     const name = els.newTripName.value.trim();
     const t = addTrip(name);
@@ -864,16 +1056,11 @@ cover: /images/logo-trip-planner.png
     renderTrips(); openTrip(t.id);
   });
   els.newTripName.addEventListener('keydown', (e)=>{
-    if(e.key==='Enter'){
-      e.preventDefault();
-      els.addTripBtn.click();
-    }
+    if(e.key==='Enter'){ e.preventDefault(); els.addTripBtn.click(); }
   });
 
-  // Starter: predefined search
   els.predefSearch.addEventListener('input', debounce(renderPredefResults, 150));
 
-  // Trip-level events
   els.tripNameInput.addEventListener('input', debounce(()=>{
     if(currentTripId){
       const name = els.tripNameInput.value.trim();
@@ -894,7 +1081,7 @@ cover: /images/logo-trip-planner.png
     }
   });
 
-  // Import / Export buttons
+  // Import / Export (file)
   els.exportAllBtn.addEventListener('click', exportAll);
   els.exportTripBtn.addEventListener('click', ()=> currentTripId ? exportTrip(currentTripId) : alert('Open a trip first'));
   els.importBtn.addEventListener('click', ()=> els.importFile.click());
@@ -913,6 +1100,19 @@ cover: /images/logo-trip-planner.png
     }
   });
 
+  // Share (links)
+  els.shareTripBtn.addEventListener('click', shareCurrentTrip);
+  els.shareAllBtn.addEventListener('click', shareAllTrips);
+  els.copyShare.addEventListener('click', async ()=>{
+    try{
+      await navigator.clipboard.writeText(els.shareLink.value);
+      els.shareNote.textContent = (els.shareNote.textContent||'') + ' Copied!';
+    }catch(e){
+      els.shareNote.textContent = 'Could not auto-copy. Select and copy manually.';
+    }
+  });
+  els.closeShare.addEventListener('click', hideSharePanel);
+
   // Add place flow
   els.placeLocation.addEventListener('input', autoParse);
   els.addPlaceBtn.addEventListener('click', ()=>{
@@ -929,22 +1129,19 @@ cover: /images/logo-trip-planner.png
     }
     addPlace(currentTripId, { name, notes, lat, lng, locationInput: locInput, visited });
 
-    // reset the add form
     els.placeName.value=''; els.placeNotes.value=''; els.placeLocation.value=''; els.placeVisited.checked=false;
     els.previewMap.style.display='none'; els.previewMap.dataset.lat=''; els.previewMap.dataset.lng='';
     if(previewLeaflet && previewLeaflet.remove) previewLeaflet.remove(); previewLeaflet=null;
 
-    // refresh UI and map, then temporarily highlight the just-added spot
     renderPlaces(); renderTrips(); renderAllPlacesMap();
     flashHighlight(lat, lng);
   });
 
-  // Map filters
   els.filterVisited.addEventListener('change', renderAllPlacesMap);
   els.filterUnvisited.addEventListener('change', renderAllPlacesMap);
 
   // ---------- Init ----------
-  function init(){
+  async function init(){
     loadDB();
     renderTrips();
     if(db.trips.length===0){
@@ -953,6 +1150,8 @@ cover: /images/logo-trip-planner.png
       const latest=[...db.trips].sort((a,b)=>b.createdAt-a.createdAt)[0];
       openTrip(latest.id);
     }
+    // Handle shared data in URL hash if present
+    await tryLoadSharedFromHash();
   }
   init();
 })();
