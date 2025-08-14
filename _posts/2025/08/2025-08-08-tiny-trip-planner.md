@@ -71,7 +71,7 @@ cover: /images/logo-trip-planner.png
   ];
 </script>
 
-<!-- Tiny Trip Planner — Unified Create/Search, Trip-level Share, External PREDEFINED_TRIPS, Banner-first -->
+<!-- Tiny Trip Planner — UI Polish: small top-right tools, labels, map padding, sub-card add form, trip visited toggle -->
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin>
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin></script>
 
@@ -84,9 +84,9 @@ cover: /images/logo-trip-planner.png
         <div class="ttp-muted" id="ttp-shareSummary">A friend sent you a trip.</div>
       </div>
       <div class="ttp-row ttp-wrap">
-        <button class="ttp-btn ttp-accent" id="ttp-importSharedNew">Import as New Trip</button>
-        <button class="ttp-btn" id="ttp-mergeSharedCurrent">Merge Places into Current</button>
-        <button class="ttp-btn ttp-danger" id="ttp-dismissShared">Dismiss</button>
+        <button class="ttp-btn ttp-accent ttp-btn--sm" id="ttp-importSharedNew">Import as New Trip</button>
+        <button class="ttp-btn ttp-btn--sm" id="ttp-mergeSharedCurrent">Merge Places into Current</button>
+        <button class="ttp-btn ttp-danger ttp-btn--sm" id="ttp-dismissShared">Dismiss</button>
       </div>
     </div>
     <div class="ttp-tiny ttp-muted">Note: Links are Base64-encoded and optionally gzip-compressed. They’re readable, not encrypted.</div>
@@ -94,8 +94,15 @@ cover: /images/logo-trip-planner.png
 
   <div class="ttp-gap"></div>
 
-  <!-- Trip Starter (Unified Create/Search + Utilities + Trip navbar) -->
-  <div class="ttp-starter ttp-card">
+  <!-- Trip Starter (Unified Create/Search + Top-right utilities + Trip navbar) -->
+  <div class="ttp-starter ttp-card ttp-card--tools">
+    <!-- top-right tools -->
+    <div class="ttp-card-tools">
+      <input id="ttp-importFile" type="file" accept="application/json,.json" style="display:none;">
+      <button class="ttp-btn ttp-btn--sm" id="ttp-importBtn" title="Import (merge)">⤵️</button>
+      <button class="ttp-btn ttp-btn--sm" id="ttp-exportAllBtn" title="Export all">⤴️</button>
+    </div>
+
     <div class="ttp-section-title">Create or search a trip</div>
 
     <!-- Unified input -->
@@ -107,14 +114,7 @@ cover: /images/logo-trip-planner.png
 
     <div class="ttp-spacer"></div>
 
-    <!-- Utilities -->
-    <div class="ttp-section-title">Utilities</div>
-    <div class="ttp-row ttp-wrap">
-      <input id="ttp-importFile" type="file" accept="application/json,.json" style="display:none;">
-      <button class="ttp-btn" id="ttp-importBtn">⤵️ Import (merge)</button>
-      <button class="ttp-btn" id="ttp-exportAllBtn">⤴️ Export All</button>
-    </div>
-
+    <div class="ttp-section-title">Your Trips</div>
     <div class="ttp-topbar-list" id="ttp-tripList"></div>
 
   </div>
@@ -128,8 +128,16 @@ cover: /images/logo-trip-planner.png
       <p class="ttp-muted">Create a trip, open one, or use a predefined template.</p>
     </div>
 
-    <div id="ttp-tripView" class="ttp-card ttp-edit-card" style="display:none;">
-      <div class="ttp-row ttp-space-between">
+    <div id="ttp-tripView" class="ttp-card ttp-edit-card ttp-card--tools" style="display:none;">
+      <!-- top-right tools for current trip -->
+      <div class="ttp-card-tools">
+        <button id="ttp-tripVisitedBtn" class="ttp-btn ttp-btn--sm" title="Toggle trip visited">🗺️</button>
+        <button id="ttp-exportTripBtn" class="ttp-btn ttp-btn--sm" title="Export this trip">⤴️</button>
+        <button id="ttp-shareTripBtn" class="ttp-btn ttp-btn--sm" title="Share current trip via link">🔗</button>
+        <button id="ttp-deleteTripBtn" class="ttp-btn ttp-danger ttp-btn--sm" title="Delete this trip">🗑️</button>
+      </div>
+
+      <div class="ttp-row ttp-space-between ttp-wrap">
         <div>
           <div class="ttp-section-title">Trip</div>
           <div class="ttp-row ttp-align-center ttp-gap-12">
@@ -138,26 +146,22 @@ cover: /images/logo-trip-planner.png
           </div>
           <div class="ttp-tiny">Name auto-saves as you type.</div>
         </div>
-        <div class="ttp-row ttp-wrap">
-          <button id="ttp-exportTripBtn" class="ttp-btn">⤴️ Export Trip</button>
-          <button id="ttp-shareTripBtn" class="ttp-btn" title="Share current trip via link">🔗 Share Trip Link</button>
-          <button id="ttp-deleteTripBtn" class="ttp-btn ttp-danger">🗑️ Delete Trip</button>
-        </div>
       </div>
 
       <!-- Share output panel (only shown when generating a link) -->
       <div id="ttp-sharePanel" class="ttp-share" style="display:none;">
         <input class="ttp-input" id="ttp-shareLink" readonly>
         <div class="ttp-row ttp-wrap">
-          <button class="ttp-btn ttp-accent" id="ttp-copyShare">Copy</button>
-          <button class="ttp-btn" id="ttp-closeShare">Close</button>
+          <button class="ttp-btn ttp-accent ttp-btn--sm" id="ttp-copyShare">Copy</button>
+          <button class="ttp-btn ttp-btn--sm" id="ttp-closeShare">Close</button>
           <span class="ttp-tiny ttp-muted" id="ttp-shareNote"></span>
         </div>
       </div>
 
       <div class="ttp-spacer"></div>
 
-      <!-- Map filters -->
+      <!-- Filters delimiter -->
+      <div class="ttp-section-title">Filters</div>
       <div class="ttp-row ttp-wrap">
         <label class="ttp-check">
           <input type="checkbox" id="ttp-filterVisited" checked>
@@ -169,8 +173,8 @@ cover: /images/logo-trip-planner.png
         </label>
       </div>
 
-      <!-- All places map -->
-      <div>
+      <!-- All places map with vertical padding -->
+      <div class="ttp-map-wrap">
         <div class="ttp-section-title">Trip map (Visited = green pin, Not visited = blue pin)</div>
         <div id="ttp-allMap" class="ttp-map"></div>
       </div>
@@ -181,21 +185,19 @@ cover: /images/logo-trip-planner.png
         <div class="ttp-col">
           <div class="ttp-section-title">Add place</div>
 
-          <!-- Location first; auto-parse on input -->
-          <input class="ttp-input" id="ttp-placeLocation" type="text" placeholder="Location (lat,lng • full Google Maps URL • or place text)">
-          <div id="ttp-parseStatus" class="ttp-muted"></div>
-          <div id="ttp-previewMap" class="ttp-map" style="display:none;"></div>
+          <!-- sub-card wrapper for add place -->
+          <div class="ttp-subcard">
+            <!-- Location first; auto-parse on input -->
+            <input class="ttp-input" id="ttp-placeLocation" type="text" placeholder="Location (lat,lng • full Google Maps URL • or place text)">
+            <div id="ttp-parseStatus" class="ttp-muted"></div>
+            <div id="ttp-previewMap" class="ttp-map" style="display:none;"></div>
 
-          <input class="ttp-input" id="ttp-placeName" type="text" placeholder="Place name (auto from Maps URL)">
-          <textarea class="ttp-textarea" id="ttp-placeNotes" placeholder="Short notes (what to do, timings, etc.)"></textarea>
+            <input class="ttp-input" id="ttp-placeName" type="text" placeholder="Place name (auto from Maps URL)">
+            <textarea class="ttp-textarea" id="ttp-placeNotes" placeholder="Short notes (what to do, timings, etc.)"></textarea>
 
-          <label class="ttp-check">
-            <input type="checkbox" id="ttp-placeVisited">
-            <span>Visited</span>
-          </label>
-
-          <div class="ttp-row ttp-right">
-            <button id="ttp-addPlaceBtn" class="ttp-btn ttp-accent">Add Place</button>
+            <div class="ttp-row ttp-right">
+              <button id="ttp-addPlaceBtn" class="ttp-btn ttp-accent">Add Place</button>
+            </div>
           </div>
         </div>
 
@@ -214,7 +216,7 @@ cover: /images/logo-trip-planner.png
   .ttp { --bg:#0f1220; --panel:#161A2B; --panel2:#1B2138; --text:#E8ECF1; --muted:#A7B0C0; --accent:#6EE7B7; --danger:#f87171; --border:#27304a; }
   .ttp * { box-sizing:border-box; }
   .ttp .ttp-main { color:var(--text); }
-  .ttp .ttp-card { background:var(--panel2); border:1px solid var(--border); border-radius:12px; padding:12px; }
+  .ttp .ttp-card { background:var(--panel2); border:1px solid var(--border); border-radius:12px; padding:12px; position:relative; }
   .ttp .ttp-edit-card { border-radius:16px; }
   .ttp .ttp-gap { height:16px; }
   .ttp .ttp-section-title { font-size:13px; color:var(--muted); text-transform:uppercase; letter-spacing:.08em; margin:4px 0 8px; }
@@ -231,6 +233,7 @@ cover: /images/logo-trip-planner.png
   .ttp .ttp-textarea { min-height:80px; resize:vertical; }
   .ttp .ttp-btn { background:#1f2542; color:var(--text); border:1px solid var(--border); padding:9px 12px; border-radius:10px; cursor:pointer; font:inherit; }
   .ttp .ttp-btn:hover { filter:brightness(1.1); }
+  .ttp .ttp-btn--sm { padding:6px 8px; border-radius:9px; font-size:12px; line-height:1; }
   .ttp .ttp-primary { background:#26305b; border-color:#2f3a6e; }
   .ttp .ttp-accent { background:#123c33; border-color:#104235; color:var(--accent); }
   .ttp .ttp-danger { background:#3a1416; border-color:#4a1d20; color:#ffb4b4; }
@@ -240,9 +243,12 @@ cover: /images/logo-trip-planner.png
 
   .ttp .ttp-spacer { height:8px; }
   .ttp .ttp-map { width:100%; height:300px; border-radius:12px; overflow:hidden; border:1px solid var(--border); }
+  .ttp .ttp-map-wrap { padding:14px 0; } /* highlight main map vertically */
   .ttp .ttp-list { list-style:none; padding:0; margin:0; display:grid; gap:8px; }
   .ttp .ttp-list-item { border:1px solid var(--border); border-radius:10px; padding:10px; background:#13182b; display:grid; gap:8px; }
   .ttp .ttp-title { font-weight:600; color:var(--text); }
+
+  .ttp .ttp-subcard { border:1px solid var(--border); border-radius:10px; padding:10px; background:#13182b; display:grid; gap:8px; }
 
   /* actions grid */
   .ttp .ttp-actions { display:grid; grid-template-columns:1fr 1fr; gap:8px; }
@@ -268,6 +274,12 @@ cover: /images/logo-trip-planner.png
   /* Share panel & banner */
   .ttp .ttp-share { margin-top:10px; display:grid; gap:8px; }
   .ttp .ttp-share-banner { border-left:3px solid var(--accent); }
+
+  /* Card top-right tools */
+  .ttp .ttp-card--tools { position:relative; }
+  .ttp .ttp-card-tools {
+    position:absolute; top:8px; right:8px; display:flex; gap:6px; align-items:center;
+  }
 </style>
 
 <script>
@@ -311,13 +323,13 @@ cover: /images/logo-trip-planner.png
     tripView: getEl('ttp-tripView'),
     tripNameInput: getEl('ttp-tripNameInput'),
     tripIdBadge: getEl('ttp-tripIdBadge'),
+    tripVisitedBtn: getEl('ttp-tripVisitedBtn'),
     deleteTripBtn: getEl('ttp-deleteTripBtn'),
     exportTripBtn: getEl('ttp-exportTripBtn'),
 
     placeLocation: getEl('ttp-placeLocation'),
     placeName: getEl('ttp-placeName'),
     placeNotes: getEl('ttp-placeNotes'),
-    placeVisited: getEl('ttp-placeVisited'),
     parseStatus: getEl('ttp-parseStatus'),
     previewMap: getEl('ttp-previewMap'),
     addPlaceBtn: getEl('ttp-addPlaceBtn'),
@@ -334,7 +346,7 @@ cover: /images/logo-trip-planner.png
   };
 
   function addTrip(name){
-    const t = { id: nextTripId(), name: name || `Trip ${db.lastTripId}`, createdAt: Date.now(), places: [] };
+    const t = { id: nextTripId(), name: name || `Trip ${db.lastTripId}`, createdAt: Date.now(), visited:false, places: [] };
     db.trips.push(t); saveDB(); return t;
   }
   function getTrip(id){ return db.trips.find(t=>t.id===id); }
@@ -566,7 +578,8 @@ cover: /images/logo-trip-planner.png
     for(const t of sorted){
       const btn=document.createElement('button');
       btn.className='ttp-tripBtn' + (t.id===currentTripId ? ' ttp-active' : '');
-      btn.textContent = `${t.name} (#${t.id})`;
+      // indicate trip visited subtly with a check
+      btn.textContent = `${t.name} (#${t.id})${t.visited ? ' ✅' : ''}`;
       btn.addEventListener('click',()=>openTrip(t.id));
       els.tripList.appendChild(btn);
     }
@@ -575,13 +588,27 @@ cover: /images/logo-trip-planner.png
   function openTrip(id){
     currentTripId = id;
     const t=getTrip(id); if(!t) return;
+    // ensure legacy trips get "visited" field
+    if(typeof t.visited !== 'boolean'){ t.visited = false; saveDB(); }
+
     els.emptyState.style.display='none';
     els.tripView.style.display='block';
     els.tripNameInput.value=t.name;
     els.tripIdBadge.textContent=`Trip #${t.id}`;
+
+    // trip-level visited button styling/text
+    setTripVisitedButton(t.visited);
+
     renderTrips();
     renderPlaces();
     renderAllPlacesMap();
+  }
+
+  function setTripVisitedButton(isVisited){
+    if(!els.tripVisitedBtn) return;
+    els.tripVisitedBtn.classList.toggle('ttp-accent', !!isVisited);
+    els.tripVisitedBtn.textContent = isVisited ? '✅ Trip visited' : '🗺️ Mark trip visited';
+    els.tripVisitedBtn.setAttribute('aria-pressed', isVisited ? 'true' : 'false');
   }
 
   function googleLinkForPlace(p){
@@ -759,6 +786,7 @@ cover: /images/logo-trip-planner.png
         id: nextTripId(),
         name: incoming.name || `Imported Trip ${db.lastTripId}`,
         createdAt: Date.now(),
+        visited: !!incoming.visited,
         places: []
       };
       const places = Array.isArray(incoming.places) ? incoming.places : [];
@@ -976,8 +1004,8 @@ cover: /images/logo-trip-planner.png
         <div class="ttp-predef-title">${escapeHtml(tpl.name)}</div>
         <div class="ttp-predef-tags">Tags: ${(tpl.tags||[]).map(t=>`<span>#${escapeHtml(t)}</span>`).join(' ')}</div>
         <div class="ttp-predef-actions">
-          <button class="ttp-btn ttp-accent" data-add>➕ Add as New Trip</button>
-          <button class="ttp-btn" data-merge>➕ Add Places to Current</button>
+          <button class="ttp-btn ttp-accent ttp-btn--sm" data-add>➕ Add as New Trip</button>
+          <button class="ttp-btn ttp-btn--sm" data-merge>➕ Add Places to Current</button>
         </div>
       `;
       item.querySelector('[data-add]').addEventListener('click', ()=>{
@@ -985,6 +1013,7 @@ cover: /images/logo-trip-planner.png
           id: nextTripId(),
           name: tpl.name || 'New Trip',
           createdAt: Date.now(),
+          visited: !!tpl.visited,
           places: []
         };
         (tpl.places||[]).forEach(p=>{
@@ -1052,6 +1081,15 @@ cover: /images/logo-trip-planner.png
     }
   }, 300));
 
+  els.tripVisitedBtn.addEventListener('click', ()=>{
+    if(!currentTripId) return;
+    const t = getTrip(currentTripId);
+    t.visited = !t.visited;
+    saveDB();
+    setTripVisitedButton(t.visited);
+    renderTrips();
+  });
+
   els.deleteTripBtn.addEventListener('click', ()=>{
     if(!currentTripId) return;
     const t=getTrip(currentTripId); if(!t) return;
@@ -1104,14 +1142,14 @@ cover: /images/logo-trip-planner.png
     const locInput = els.placeLocation.value.trim();
     const lat = parseFloat(els.previewMap.dataset.lat);
     const lng = parseFloat(els.previewMap.dataset.lng);
-    const visited = !!els.placeVisited.checked;
+    const visited = false; // new places default unvisited
     if(!isFinite(lat) || !isFinite(lng)){
       alert('Type a location (lat,lng / full Google Maps URL / text) and wait for it to resolve first.');
       return;
     }
     addPlace(currentTripId, { name, notes, lat, lng, locationInput: locInput, visited });
 
-    els.placeName.value=''; els.placeNotes.value=''; els.placeLocation.value=''; els.placeVisited.checked=false;
+    els.placeName.value=''; els.placeNotes.value=''; els.placeLocation.value='';
     els.previewMap.style.display='none'; els.previewMap.dataset.lat=''; els.previewMap.dataset.lng='';
     if(previewLeaflet && previewLeaflet.remove) previewLeaflet.remove(); previewLeaflet=null;
 
@@ -1126,6 +1164,10 @@ cover: /images/logo-trip-planner.png
   // ---------- Init ----------
   async function init(){
     loadDB();
+    // backfill visited=false for older trips missing the flag
+    db.trips.forEach(t=>{ if(typeof t.visited!=='boolean'){ t.visited=false; } });
+    saveDB();
+
     renderTrips();
     if(db.trips.length===0){
       els.emptyState.style.display='block';
