@@ -71,7 +71,7 @@ cover: /images/logo-trip-planner.png
   ];
 </script>
 
-<!-- Tiny Trip Planner — UI Polish: small top-right tools, labels, map padding, sub-card add form, trip visited toggle -->
+<!-- Tiny Trip Planner — mobile-friendly labels for Import/Export, smaller place buttons -->
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin>
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin></script>
 
@@ -99,8 +99,8 @@ cover: /images/logo-trip-planner.png
     <!-- top-right tools -->
     <div class="ttp-card-tools">
       <input id="ttp-importFile" type="file" accept="application/json,.json" style="display:none;">
-      <button class="ttp-btn ttp-btn--sm" id="ttp-importBtn" title="Import (merge)">⤵️</button>
-      <button class="ttp-btn ttp-btn--sm" id="ttp-exportAllBtn" title="Export all">⤴️</button>
+      <button class="ttp-btn ttp-btn--sm" id="ttp-importBtn" title="Import (merge)">⤵️ Import</button>
+      <button class="ttp-btn ttp-btn--sm" id="ttp-exportAllBtn" title="Export all">⤴️ Export All</button>
     </div>
 
     <div class="ttp-section-title">Create or search a trip</div>
@@ -131,10 +131,10 @@ cover: /images/logo-trip-planner.png
     <div id="ttp-tripView" class="ttp-card ttp-edit-card ttp-card--tools" style="display:none;">
       <!-- top-right tools for current trip -->
       <div class="ttp-card-tools">
-        <button id="ttp-tripVisitedBtn" class="ttp-btn ttp-btn--sm" title="Toggle trip visited">🗺️</button>
-        <button id="ttp-exportTripBtn" class="ttp-btn ttp-btn--sm" title="Export this trip">⤴️</button>
-        <button id="ttp-shareTripBtn" class="ttp-btn ttp-btn--sm" title="Share current trip via link">🔗</button>
-        <button id="ttp-deleteTripBtn" class="ttp-btn ttp-danger ttp-btn--sm" title="Delete this trip">🗑️</button>
+        <button id="ttp-tripVisitedBtn" class="ttp-btn ttp-btn--sm" title="Toggle trip visited">🗺️ Mark visited</button>
+        <button id="ttp-exportTripBtn" class="ttp-btn ttp-btn--sm" title="Export this trip">⤴️ Export Trip</button>
+        <button id="ttp-shareTripBtn" class="ttp-btn ttp-btn--sm" title="Share current trip via link">🔗 Share</button>
+        <button id="ttp-deleteTripBtn" class="ttp-btn ttp-danger ttp-btn--sm" title="Delete this trip">🗑️ Delete</button>
       </div>
 
       <div class="ttp-row ttp-space-between ttp-wrap">
@@ -578,7 +578,6 @@ cover: /images/logo-trip-planner.png
     for(const t of sorted){
       const btn=document.createElement('button');
       btn.className='ttp-tripBtn' + (t.id===currentTripId ? ' ttp-active' : '');
-      // indicate trip visited subtly with a check
       btn.textContent = `${t.name} (#${t.id})${t.visited ? ' ✅' : ''}`;
       btn.addEventListener('click',()=>openTrip(t.id));
       els.tripList.appendChild(btn);
@@ -588,7 +587,6 @@ cover: /images/logo-trip-planner.png
   function openTrip(id){
     currentTripId = id;
     const t=getTrip(id); if(!t) return;
-    // ensure legacy trips get "visited" field
     if(typeof t.visited !== 'boolean'){ t.visited = false; saveDB(); }
 
     els.emptyState.style.display='none';
@@ -596,7 +594,6 @@ cover: /images/logo-trip-planner.png
     els.tripNameInput.value=t.name;
     els.tripIdBadge.textContent=`Trip #${t.id}`;
 
-    // trip-level visited button styling/text
     setTripVisitedButton(t.visited);
 
     renderTrips();
@@ -634,13 +631,13 @@ cover: /images/logo-trip-planner.png
         </div>
 
         <div class="ttp-actions">
-          <button class="ttp-btn ttp-primary" data-edit="${p.id}">✏️ Edit</button>
-          <button class="ttp-btn ttp-danger" data-del="${p.id}">🗑️ Delete</button>
-          <button class="ttp-btn ttp-accent" data-open="${p.id}" title="Open in Google Maps">📍 Open Map</button>
-          <button class="ttp-btn ${p.visited ? 'ttp-accent' : ''}" data-visit="${p.id}" aria-pressed="${p.visited ? 'true':'false'}" title="Toggle visited">
+          <button class="ttp-btn ttp-btn--sm ttp-primary" data-edit="${p.id}">✏️ Edit</button>
+          <button class="ttp-btn ttp-btn--sm ttp-danger" data-del="${p.id}">🗑️ Delete</button>
+          <button class="ttp-btn ttp-btn--sm ttp-accent" data-open="${p.id}" title="Open in Google Maps">📍 Open Map</button>
+          <button class="ttp-btn ttp-btn--sm ${p.visited ? 'ttp-accent' : ''}" data-visit="${p.id}" aria-pressed="${p.visited ? 'true':'false'}" title="Toggle visited">
             ${p.visited ? '✅ Visited' : '🗺️ Mark visited'}
           </button>
-          <button class="ttp-btn ttp-handle-btn" draggable="true" data-handle="${idx}" title="Drag to reorder">↕️ Reorder</button>
+          <button class="ttp-btn ttp-btn--sm ttp-handle-btn" draggable="true" data-handle="${idx}" title="Drag to reorder">↕️ Reorder</button>
         </div>
       `;
 
@@ -980,7 +977,6 @@ cover: /images/logo-trip-planner.png
     box.innerHTML = '';
 
     if(q){
-      // First item: Create trip named "q"
       const createItem = document.createElement('div');
       createItem.className = 'ttp-predef-item';
       createItem.innerHTML = `
@@ -996,7 +992,6 @@ cover: /images/logo-trip-planner.png
       box.appendChild(createItem);
     }
 
-    // Then template matches
     results.forEach(tpl=>{
       const item = document.createElement('div');
       item.className='ttp-predef-item';
@@ -1058,7 +1053,6 @@ cover: /images/logo-trip-planner.png
   }
 
   // ---------- Events ----------
-  // Unified input: Enter creates a new trip with typed name
   els.quickInput.addEventListener('keydown', (e)=>{
     if(e.key === 'Enter'){
       e.preventDefault();
@@ -1072,7 +1066,6 @@ cover: /images/logo-trip-planner.png
   });
   els.quickInput.addEventListener('input', debounce(renderUnifiedResults, 150));
 
-  // Trip-level events
   els.tripNameInput.addEventListener('input', debounce(()=>{
     if(currentTripId){
       const name = els.tripNameInput.value.trim();
@@ -1164,7 +1157,6 @@ cover: /images/logo-trip-planner.png
   // ---------- Init ----------
   async function init(){
     loadDB();
-    // backfill visited=false for older trips missing the flag
     db.trips.forEach(t=>{ if(typeof t.visited!=='boolean'){ t.visited=false; } });
     saveDB();
 
@@ -1175,7 +1167,7 @@ cover: /images/logo-trip-planner.png
       const latest=[...db.trips].sort((a,b)=>b.createdAt-a.createdAt)[0];
       openTrip(latest.id);
     }
-    await tryLoadSharedFromHash(); // shows banner before starter (already placed above)
+    await tryLoadSharedFromHash(); // shows banner before starter
   }
   init();
 })();
