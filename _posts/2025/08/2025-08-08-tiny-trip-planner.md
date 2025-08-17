@@ -192,7 +192,6 @@ cover: /images/logo-trip-planner.png
             <div id="ttp-parseStatus" class="ttp-muted"></div>
             <div id="ttp-previewMap" class="ttp-map" style="display:none;"></div>
 
-            <input class="ttp-input" id="ttp-placeName" type="text" placeholder="Place name (auto when possible)">
             <textarea class="ttp-textarea" id="ttp-placeNotes" placeholder="Short notes (what to do, timings, etc.)"></textarea>
 
             <div class="ttp-row ttp-right">
@@ -386,7 +385,6 @@ cover: /images/logo-trip-planner.png
     suggestBox: getEl('ttp-suggestBox'),
     latInput: getEl('ttp-latInput'),
     lngInput: getEl('ttp-lngInput'),
-    placeName: getEl('ttp-placeName'),
     placeNotes: getEl('ttp-placeNotes'),
     parseStatus: getEl('ttp-parseStatus'),
     previewMap: getEl('ttp-previewMap'),
@@ -590,7 +588,7 @@ cover: /images/logo-trip-planner.png
       const c = coordsFromGoogleUrl(q);
       if(c){
         const nm = nameFromGoogleUrl(q);
-        if(nm && !els.placeName.value) els.placeName.value = nm;
+        if(nm) els.placeQuery.value = nm;
         setStatus(`Got coordinates from Google URL → ${formatLatLng(c.lat, c.lng)}`);
         fillCoordsAndMap(c.lat, c.lng, false);
         els.suggestBox.style.display='none';
@@ -606,7 +604,7 @@ cover: /images/logo-trip-planner.png
       const results = await nominatimSearch(q, 6);
       setStatus(`Found ${results.length} result(s).`);
       showSuggestions(results, pick=>{
-        els.placeName.value = els.placeName.value || pick.name;
+        els.placeQuery.value = pick.name;    // single source of truth for name
         fillCoordsAndMap(pick.lat, pick.lng, false);
       });
     }catch(e){
@@ -752,7 +750,6 @@ cover: /images/logo-trip-planner.png
       <div id="eStatus" class="ttp-muted"></div>
       <div id="eMap" class="ttp-map" style="display:none;"></div>
 
-      <input class="ttp-input" id="eName" value="${escapeAttr(p.name)}" placeholder="Place name">
       <textarea class="ttp-textarea" id="eNotes" placeholder="Notes">${escapeHtml(p.notes||'')}</textarea>
 
       <div class="ttp-row ttp-right">
@@ -763,12 +760,12 @@ cover: /images/logo-trip-planner.png
     els.placeList.prepend(container);
 
     let newCoords = {lat:p.lat, lng:p.lng};
+    let newName = p.name;
 
     const eQuery = container.querySelector('#eQuery');
     const eSuggest = container.querySelector('#eSuggest');
     const eLat = container.querySelector('#eLat');
     const eLng = container.querySelector('#eLng');
-    const eName = container.querySelector('#eName');
     const eStatus = container.querySelector('#eStatus');
     const eMap = container.querySelector('#eMap');
 
@@ -792,7 +789,7 @@ cover: /images/logo-trip-planner.png
         const c = coordsFromGoogleUrl(q);
         if(c){
           const nm = nameFromGoogleUrl(q);
-          if(nm && (!eName.value || /^Place \d+$/.test(eName.value))) eName.value = nm;
+          if(nm) { newName = nm; eQuery.value = nm; }
           setStatusInline(`Got coords from Google URL → ${formatLatLng(c.lat,c.lng)}`);
           newCoords = {lat:c.lat, lng:c.lng};
           fillInline(c.lat, c.lng);
@@ -807,7 +804,6 @@ cover: /images/logo-trip-planner.png
         setStatusInline('Searching…');
         const results = await nominatimSearch(q, 6);
         setStatusInline('');
-        // render suggestions
         eSuggest.innerHTML = '';
         if(!results.length){ eSuggest.style.display='none'; return; }
         results.forEach(item=>{
@@ -820,7 +816,8 @@ cover: /images/logo-trip-planner.png
           div.addEventListener('click', ()=>{
             eSuggest.style.display='none';
             newCoords = { lat: parseFloat(item.lat), lng: parseFloat(item.lon) };
-            if(!eName.value || /^Place \d+$/.test(eName.value)) eName.value = name;
+            newName = name;
+            eQuery.value = name;
             fillInline(newCoords.lat, newCoords.lng);
           });
           eSuggest.appendChild(div);
@@ -847,9 +844,9 @@ cover: /images/logo-trip-planner.png
     fillInline(p.lat, p.lng); // start with existing
 
     container.querySelector('#eSave').addEventListener('click',()=>{
-      const name = eName.value.trim() || p.name;
       const notes = container.querySelector('#eNotes').value;
-      updatePlace(tripId, p.id, { name, notes, lat:newCoords.lat, lng:newCoords.lng });
+      const finalName = (eQuery.value || newName || 'Place').trim();
+      updatePlace(tripId, p.id, { name: finalName, notes, lat:newCoords.lat, lng:newCoords.lng });
       renderPlaces();
       renderAllPlacesMap();
     });
@@ -1168,7 +1165,7 @@ cover: /images/logo-trip-planner.png
 
   els.addPlaceBtn.addEventListener('click', ()=>{
     if(!currentTripId) return;
-    const name = (els.placeName.value || els.placeQuery.value || '').trim() || 'New Place';
+    const name = (els.placeQuery.value || 'New Place').trim();
     const notes = els.placeNotes.value;
     const lat = parseFloat(els.latInput.value);
     const lng = parseFloat(els.lngInput.value);
@@ -1179,7 +1176,7 @@ cover: /images/logo-trip-planner.png
     addPlace(currentTripId, { name, notes, lat, lng, visited:false });
 
     // reset
-    els.placeName.value=''; els.placeNotes.value='';
+    els.placeNotes.value='';
     els.placeQuery.value=''; els.latInput.value=''; els.lngInput.value='';
     els.suggestBox.style.display='none'; els.previewMap.style.display='none';
     if(previewLeaflet && previewLeaflet.remove) previewLeaflet.remove(); previewLeaflet=null;
