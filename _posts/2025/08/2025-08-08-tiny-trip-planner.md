@@ -71,7 +71,7 @@ cover: /images/logo-trip-planner.png
   ];
 </script>
 
-<!-- Tiny Trip Planner — Nominatim autocomplete only, no Google URLs, no locationInput property -->
+<!-- Tiny Trip Planner — Single "Place" field (Google URL or text) + Nominatim autocomplete + auto LAT/LNG -->
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin>
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin></script>
 
@@ -179,14 +179,20 @@ cover: /images/logo-trip-planner.png
         <div class="ttp-col">
           <div class="ttp-section-title">Add place</div>
           <div class="ttp-subcard">
-            <!-- Search & suggestions (Nominatim) -->
-            <input class="ttp-input" id="ttp-placeSearch" type="text" placeholder="Search a place (powered by OpenStreetMap)">
+            <!-- Single field: name or full Google Maps URL or free text -->
+            <input class="ttp-input" id="ttp-placeQuery" type="text" placeholder="Place name or full Google Maps URL">
             <div id="ttp-suggestBox" class="ttp-suggest" style="display:none;"></div>
+
+            <!-- Auto lat/lng -->
+            <div class="ttp-row ttp-wrap">
+              <input class="ttp-input" id="ttp-latInput" type="text" placeholder="Latitude" style="flex:1 1 140px;">
+              <input class="ttp-input" id="ttp-lngInput" type="text" placeholder="Longitude" style="flex:1 1 140px;">
+            </div>
 
             <div id="ttp-parseStatus" class="ttp-muted"></div>
             <div id="ttp-previewMap" class="ttp-map" style="display:none;"></div>
 
-            <input class="ttp-input" id="ttp-placeName" type="text" placeholder="Place name (auto from selection)">
+            <input class="ttp-input" id="ttp-placeName" type="text" placeholder="Place name (auto when possible)">
             <textarea class="ttp-textarea" id="ttp-placeNotes" placeholder="Short notes (what to do, timings, etc.)"></textarea>
 
             <div class="ttp-row ttp-right">
@@ -305,6 +311,50 @@ cover: /images/logo-trip-planner.png
   function escapeAttr(s){ return escapeHtml(s).replace(/"/g,'&quot;'); }
   function slug(s){ return String(s||'trip').toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-+|-+$/g,'').slice(0,40); }
 
+  // Google URL helpers
+  function isFullGmapsUrl(str){ return /https?:\/\/(www\.)?google\.com\/maps\//i.test(str||''); }
+  function coordsFromGoogleUrl(input){
+    try{
+      const u = new URL(input);
+      const href = u.href;
+      const at = href.match(/@(-?\d+\.\d+),\s*(-?\d+\.\d+)/);
+      if(at) return {lat:parseFloat(at[1]), lng:parseFloat(at[2])};
+      const q = u.searchParams.get('q') || u.searchParams.get('ll');
+      if(q){
+        const m = q.match(/(-?\d+(\.\d+)?)\s*,\s*(-?\d+(\.\d+)?)/);
+        if(m) return {lat:parseFloat(m[1]), lng:parseFloat(m[3])};
+      }
+      const bang = href.match(/!3d(-?\d+\.\d+)!4d(-?\d+\.\d+)/);
+      if(bang) return {lat:parseFloat(bang[1]), lng:parseFloat(bang[2])};
+    }catch(e){}
+    return null;
+  }
+  function nameFromGoogleUrl(input){
+    try{
+      const u = new URL(input);
+      const path = u.pathname || '';
+      const placeIdx = path.indexOf('/place/');
+      if(placeIdx !== -1){
+        const seg = path.slice(placeIdx + 7).split('/')[0];
+        const plusFixed = seg.replace(/\+/g,' ');
+        let decoded = decodeURIComponent(plusFixed);
+        decoded = decoded.replace(/`/g, "'").replace(/\s+/g,' ').trim();
+        if(decoded) return decoded;
+      }
+      const q = u.searchParams.get('q');
+      if(q && !/^-?\d+(\.\d+)?\s*,\s*-?\d+(\.\d+)?$/.test(q)){
+        const plusFixed = q.replace(/\+/g,' ');
+        let decoded = decodeURIComponent(plusFixed).replace(/`/g,"'").replace(/\s+/g,' ').trim();
+        if(decoded) return decoded;
+      }
+    }catch(e){}
+    return '';
+  }
+  function buildGmapsUrlFromLatLng(lat,lng,name){
+    const base=`https://www.google.com/maps?q=${encodeURIComponent(lat+','+lng)}`;
+    return name ? `${base}(${encodeURIComponent(name)})` : base;
+  }
+
   // ---------- Elements ----------
   const els = {
     quickInput: getEl('ttp-quickInput'),
@@ -331,8 +381,11 @@ cover: /images/logo-trip-planner.png
     deleteTripBtn: getEl('ttp-deleteTripBtn'),
     exportTripBtn: getEl('ttp-exportTripBtn'),
 
-    placeSearch: getEl('ttp-placeSearch'),
+    // Add place (single query + lat/lng)
+    placeQuery: getEl('ttp-placeQuery'),
     suggestBox: getEl('ttp-suggestBox'),
+    latInput: getEl('ttp-latInput'),
+    lngInput: getEl('ttp-lngInput'),
     placeName: getEl('ttp-placeName'),
     placeNotes: getEl('ttp-placeNotes'),
     parseStatus: getEl('ttp-parseStatus'),
@@ -509,27 +562,69 @@ cover: /images/logo-trip-planner.png
     els.parseStatus.style.color = isErr ? 'var(--danger)' : 'var(--muted)';
   }
 
-  const doSuggest = debounce(async ()=>{
-    const q = els.placeSearch.value.trim();
-    if(!q){ els.suggestBox.style.display='none'; setStatus(''); els.previewMap.style.display='none'; return; }
+  // ---------- Single-field logic: Google first, else Nominatim ----------
+  function fillCoordsAndMap(lat, lng, visited=false){
+    els.latInput.value = isFinite(lat) ? String(lat) : '';
+    els.lngInput.value = isFinite(lng) ? String(lng) : '';
+    if(isFinite(lat) && isFinite(lng)){
+      els.previewMap.style.display='block';
+      if(previewLeaflet && previewLeaflet.remove) previewLeaflet.remove();
+      previewLeaflet = showSinglePin(els.previewMap, Number(lat), Number(lng), visited);
+    }else{
+      els.previewMap.style.display='none';
+    }
+  }
+
+  const handlePlaceQuery = debounce(async ()=>{
+    const q = (els.placeQuery.value || '').trim();
+    if(!q){ els.suggestBox.style.display='none'; setStatus(''); fillCoordsAndMap(NaN, NaN); return; }
+
+    // Reject short/mobile gmaps links; only desktop full URLs supported
+    if (/(^https?:\/\/)?(maps\.app\.goo\.gl|goo\.gl\/maps)/i.test(q)) {
+      setStatus('Mobile short Google Maps links are not supported. Open the link in a browser and paste the full https://www.google.com/maps/... URL. Or just type a place name.', true);
+      els.suggestBox.style.display='none'; return;
+    }
+
+    // 1) If it's a full Google Maps URL, extract immediately
+    if(isFullGmapsUrl(q)){
+      const c = coordsFromGoogleUrl(q);
+      if(c){
+        const nm = nameFromGoogleUrl(q);
+        if(nm && !els.placeName.value) els.placeName.value = nm;
+        setStatus(`Got coordinates from Google URL → ${formatLatLng(c.lat, c.lng)}`);
+        fillCoordsAndMap(c.lat, c.lng, false);
+        els.suggestBox.style.display='none';
+        return; // stop here; user can still override lat/lng
+      }else{
+        setStatus('Could not read coordinates from that Google URL. You can still type a name to search.', true);
+      }
+    }
+
+    // 2) Otherwise, use Nominatim autocomplete
     try{
       setStatus('Searching…');
       const results = await nominatimSearch(q, 6);
       setStatus(`Found ${results.length} result(s).`);
       showSuggestions(results, pick=>{
-        els.placeName.value = pick.name;
-        els.previewMap.dataset.lat = pick.lat;
-        els.previewMap.dataset.lng = pick.lng;
-        els.previewMap.style.display='block';
-        if(previewLeaflet && previewLeaflet.remove) previewLeaflet.remove();
-        previewLeaflet = showSinglePin(els.previewMap, pick.lat, pick.lng, false);
+        els.placeName.value = els.placeName.value || pick.name;
+        fillCoordsAndMap(pick.lat, pick.lng, false);
       });
     }catch(e){
       setStatus('Search failed. Try again.', true);
       els.suggestBox.style.display='none';
-      els.previewMap.style.display='none';
+      fillCoordsAndMap(NaN, NaN);
     }
   }, 350);
+
+  // Manual lat/lng edits update preview
+  const handleManualLatLng = debounce(()=>{
+    const lat = parseFloat(els.latInput.value);
+    const lng = parseFloat(els.lngInput.value);
+    if(isFinite(lat) && isFinite(lng)){
+      setStatus(`Using manual coordinates → ${formatLatLng(lat,lng)}`);
+      fillCoordsAndMap(lat, lng, false);
+    }
+  }, 300);
 
   // ---------- UI render ----------
   function renderTrips(){
@@ -567,6 +662,10 @@ cover: /images/logo-trip-planner.png
     els.tripVisitedBtn.setAttribute('aria-pressed', isVisited ? 'true' : 'false');
   }
 
+  function googleLinkForCoords(lat,lng,name){
+    return buildGmapsUrlFromLatLng(lat, lng, name);
+  }
+
   function renderPlaces(){
     const t=getTrip(currentTripId);
     if(!t) return;
@@ -587,7 +686,7 @@ cover: /images/logo-trip-planner.png
         <div class="ttp-actions">
           <button class="ttp-btn ttp-btn--sm ttp-primary" data-edit="${p.id}">✏️ Edit</button>
           <button class="ttp-btn ttp-btn--sm ttp-danger" data-del="${p.id}">🗑️ Delete</button>
-          <button class="ttp-btn ttp-btn--sm ttp-accent" data-open="${p.id}" title="Open in OpenStreetMap">📍 Open Map</button>
+          <button class="ttp-btn ttp-btn--sm ttp-accent" data-open="${p.id}" title="Open in Google Maps">📍 Open Map</button>
           <button class="ttp-btn ttp-btn--sm ${p.visited ? 'ttp-accent' : ''}" data-visit="${p.id}" aria-pressed="${p.visited ? 'true':'false'}" title="Toggle visited">
             ${p.visited ? '✅ Visited' : '🗺️ Mark visited'}
           </button>
@@ -595,28 +694,23 @@ cover: /images/logo-trip-planner.png
         </div>
       `;
 
-      // Open in OSM
       li.querySelector(`[data-open="${p.id}"]`).addEventListener('click', ()=>{
-        const url = `https://www.openstreetmap.org/?mlat=${encodeURIComponent(p.lat)}&mlon=${encodeURIComponent(p.lng)}#map=16/${encodeURIComponent(p.lat)}/${encodeURIComponent(p.lng)}`;
+        const url = googleLinkForCoords(p.lat, p.lng, p.name);
         window.open(url, '_blank', 'noopener,noreferrer');
       });
 
-      // Toggle visited
       li.querySelector(`[data-visit="${p.id}"]`).addEventListener('click', ()=>{
         updatePlace(t.id, p.id, { visited: !p.visited });
         renderPlaces();
         renderAllPlacesMap();
       });
 
-      // Delete
       li.querySelector('[data-del]').addEventListener('click',()=>{
         if(confirm('Delete this place?')){ deletePlace(t.id, p.id); renderPlaces(); renderTrips(); renderAllPlacesMap(); }
       });
 
-      // Edit inline
       li.querySelector('[data-edit]').addEventListener('click',()=>editPlaceInline(t.id,p));
 
-      // Drag and drop
       const handle = li.querySelector(`[data-handle="${idx}"]`);
       handle.addEventListener('dragstart', (ev)=>{
         ev.dataTransfer.setData('text/plain', String(idx));
@@ -647,8 +741,13 @@ cover: /images/logo-trip-planner.png
     container.innerHTML=`
       <div class="ttp-title">Edit: ${escapeHtml(p.name)}</div>
 
-      <input class="ttp-input" id="eSearch" value="" placeholder="Search a place (OpenStreetMap)">
+      <input class="ttp-input" id="eQuery" value="${escapeAttr(p.name)}" placeholder="Place name or full Google Maps URL">
       <div id="eSuggest" class="ttp-suggest" style="display:none;"></div>
+
+      <div class="ttp-row ttp-wrap">
+        <input class="ttp-input" id="eLat" value="${escapeAttr(p.lat)}" placeholder="Latitude" style="flex:1 1 140px;">
+        <input class="ttp-input" id="eLng" value="${escapeAttr(p.lng)}" placeholder="Longitude" style="flex:1 1 140px;">
+      </div>
 
       <div id="eStatus" class="ttp-muted"></div>
       <div id="eMap" class="ttp-map" style="display:none;"></div>
@@ -665,49 +764,87 @@ cover: /images/logo-trip-planner.png
 
     let newCoords = {lat:p.lat, lng:p.lng};
 
-    const eSearch = container.querySelector('#eSearch');
+    const eQuery = container.querySelector('#eQuery');
     const eSuggest = container.querySelector('#eSuggest');
+    const eLat = container.querySelector('#eLat');
+    const eLng = container.querySelector('#eLng');
     const eName = container.querySelector('#eName');
     const eStatus = container.querySelector('#eStatus');
     const eMap = container.querySelector('#eMap');
 
     function setStatusInline(msg,isErr=false){ eStatus.textContent=msg||''; eStatus.style.color=isErr?'var(--danger)':'var(--muted)'; }
 
-    async function inlineSearch(q){
-      const results = await nominatimSearch(q, 6);
-      eSuggest.innerHTML = '';
-      if(!results.length){ eSuggest.style.display='none'; return; }
-      results.forEach(item=>{
-        const name = item.namedetails?.name || item.display_name || `${item.lat},${item.lon}`;
-        const details = [item.type, item.class, item.address?.city||item.address?.town||item.address?.village||item.address?.state, item.address?.country]
-          .filter(Boolean).join(' • ');
-        const div = document.createElement('div');
-        div.className = 'ttp-suggest-item';
-        div.innerHTML = `
-          <div class="ttp-suggest-name">${escapeHtml(name)}</div>
-          <div class="ttp-suggest-details">${escapeHtml(details)}</div>
-        `;
-        div.addEventListener('click', ()=>{
-          eSuggest.style.display='none';
-          newCoords = {lat:parseFloat(item.lat), lng:parseFloat(item.lon)};
-          if(!eName.value || /^Place \d+$/.test(eName.value)) eName.value = name;
-          showSinglePin(eMap, newCoords.lat, newCoords.lng, p.visited);
-          eMap.style.display='block';
-        });
-        eSuggest.appendChild(div);
-      });
-      eSuggest.style.display='grid';
+    function fillInline(lat,lng){
+      eLat.value = String(lat); eLng.value = String(lng);
+      showSinglePin(eMap, Number(lat), Number(lng), p.visited); eMap.style.display='block';
     }
 
-    const doInlineSuggest = debounce(async ()=>{
-      const q = eSearch.value.trim();
+    const doInlineQuery = debounce(async ()=>{
+      const q = (eQuery.value||'').trim();
       if(!q){ eSuggest.style.display='none'; setStatusInline(''); return; }
-      try{ setStatusInline('Searching…'); await inlineSearch(q); setStatusInline(''); }
-      catch(e){ setStatusInline('Search failed.', true); eSuggest.style.display='none'; }
+
+      if (/(^https?:\/\/)?(maps\.app\.goo\.gl|goo\.gl\/maps)/i.test(q)) {
+        setStatusInline('Mobile short Google Maps links are not supported. Use the full google.com/maps link or type a place name.', true);
+        eSuggest.style.display='none'; return;
+      }
+
+      if(isFullGmapsUrl(q)){
+        const c = coordsFromGoogleUrl(q);
+        if(c){
+          const nm = nameFromGoogleUrl(q);
+          if(nm && (!eName.value || /^Place \d+$/.test(eName.value))) eName.value = nm;
+          setStatusInline(`Got coords from Google URL → ${formatLatLng(c.lat,c.lng)}`);
+          newCoords = {lat:c.lat, lng:c.lng};
+          fillInline(c.lat, c.lng);
+          eSuggest.style.display='none';
+          return;
+        }else{
+          setStatusInline('Could not read coordinates from that Google URL.', true);
+        }
+      }
+
+      try{
+        setStatusInline('Searching…');
+        const results = await nominatimSearch(q, 6);
+        setStatusInline('');
+        // render suggestions
+        eSuggest.innerHTML = '';
+        if(!results.length){ eSuggest.style.display='none'; return; }
+        results.forEach(item=>{
+          const name = item.namedetails?.name || item.display_name || `${item.lat},${item.lon}`;
+          const details = [item.type, item.class, item.address?.city||item.address?.town||item.address?.village||item.address?.state, item.address?.country]
+            .filter(Boolean).join(' • ');
+          const div = document.createElement('div');
+          div.className = 'ttp-suggest-item';
+          div.innerHTML = `<div class="ttp-suggest-name">${escapeHtml(name)}</div><div class="ttp-suggest-details">${escapeHtml(details)}</div>`;
+          div.addEventListener('click', ()=>{
+            eSuggest.style.display='none';
+            newCoords = { lat: parseFloat(item.lat), lng: parseFloat(item.lon) };
+            if(!eName.value || /^Place \d+$/.test(eName.value)) eName.value = name;
+            fillInline(newCoords.lat, newCoords.lng);
+          });
+          eSuggest.appendChild(div);
+        });
+        eSuggest.style.display='grid';
+      }catch(e){
+        setStatusInline('Search failed.', true);
+        eSuggest.style.display='none';
+      }
     }, 350);
 
-    eSearch.addEventListener('input', doInlineSuggest);
-    showSinglePin(eMap, p.lat, p.lng, p.visited); eMap.style.display='block';
+    const doInlineLatLng = debounce(()=>{
+      const la = parseFloat(eLat.value), lo = parseFloat(eLng.value);
+      if(isFinite(la) && isFinite(lo)){
+        newCoords = {lat:la, lng:lo};
+        fillInline(la, lo);
+        setStatusInline(`Using manual coordinates → ${formatLatLng(la,lo)}`);
+      }
+    }, 300);
+
+    eQuery.addEventListener('input', doInlineQuery);
+    eLat.addEventListener('input', doInlineLatLng);
+    eLng.addEventListener('input', doInlineLatLng);
+    fillInline(p.lat, p.lng); // start with existing
 
     container.querySelector('#eSave').addEventListener('click',()=>{
       const name = eName.value.trim() || p.name;
@@ -997,7 +1134,7 @@ cover: /images/logo-trip-planner.png
     }
   });
 
-  // Import / Export
+  // Starter import/export
   els.exportAllBtn.addEventListener('click', exportAll);
   els.exportTripBtn.addEventListener('click', ()=> currentTripId ? exportTrip(currentTripId) : alert('Open a trip first'));
   els.importBtn.addEventListener('click', ()=> els.importFile.click());
@@ -1022,25 +1159,29 @@ cover: /images/logo-trip-planner.png
     try{ await navigator.clipboard.writeText(els.shareLink.value); els.shareNote.textContent = (els.shareNote.textContent||'') + ' Copied!'; }
     catch(e){ els.shareNote.textContent = 'Could not auto-copy. Select and copy manually.'; }
   });
-  els.closeShare.addEventListener('click', ()=>{ els.sharePanel.style.display='none'; });
+  els.closeShare.addEventListener('click', ()=>{ els.sharePanel.style.display='none'; els.shareLink.value=''; els.shareNote.textContent=''; });
 
-  // Add place flow (Nominatim)
-  els.placeSearch.addEventListener('input', doSuggest);
+  // Add place: single field + lat/lng
+  els.placeQuery.addEventListener('input', handlePlaceQuery);
+  els.latInput.addEventListener('input', handleManualLatLng);
+  els.lngInput.addEventListener('input', handleManualLatLng);
+
   els.addPlaceBtn.addEventListener('click', ()=>{
     if(!currentTripId) return;
-    const name = els.placeName.value.trim();
+    const name = (els.placeName.value || els.placeQuery.value || '').trim() || 'New Place';
     const notes = els.placeNotes.value;
-    const lat = parseFloat(els.previewMap.dataset.lat);
-    const lng = parseFloat(els.previewMap.dataset.lng);
+    const lat = parseFloat(els.latInput.value);
+    const lng = parseFloat(els.lngInput.value);
     if(!isFinite(lat) || !isFinite(lng)){
-      alert('Search and select a place first.');
+      alert('Provide coordinates: type a name (pick from suggestions) or paste a full Google Maps URL, or enter LAT/LNG manually.');
       return;
     }
-    addPlace(currentTripId, { name: name || els.placeSearch.value.trim() || 'New Place', notes, lat, lng, visited:false });
+    addPlace(currentTripId, { name, notes, lat, lng, visited:false });
 
-    els.placeName.value=''; els.placeNotes.value=''; els.placeSearch.value='';
-    els.suggestBox.style.display='none';
-    els.previewMap.style.display='none'; els.previewMap.dataset.lat=''; els.previewMap.dataset.lng='';
+    // reset
+    els.placeName.value=''; els.placeNotes.value='';
+    els.placeQuery.value=''; els.latInput.value=''; els.lngInput.value='';
+    els.suggestBox.style.display='none'; els.previewMap.style.display='none';
     if(previewLeaflet && previewLeaflet.remove) previewLeaflet.remove(); previewLeaflet=null;
 
     renderPlaces(); renderTrips(); renderAllPlacesMap();
@@ -1054,7 +1195,6 @@ cover: /images/logo-trip-planner.png
   // ---------- Init ----------
   async function init(){
     loadDB();
-    // drop any legacy per-place "locationInput" silently on use; no migration needed
     renderTrips();
     if(db.trips.length===0){
       els.emptyState.style.display='block';
