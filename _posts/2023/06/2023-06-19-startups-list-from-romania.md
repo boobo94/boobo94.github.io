@@ -567,6 +567,20 @@ In this article, we delve into the captivating landscape of Romanian startups, u
     opacity:.85; transition:opacity .2s ease, transform .2s ease;
   }
   .su-top:hover{opacity:1; transform:translateY(-2px);}
+  .su-btn {
+  display: inline-block;
+  margin-top: .5rem;
+  background: var(--su-accent);
+  color: #fff;
+  padding: .45rem .9rem;
+  border-radius: 6px;
+  text-decoration: none;
+  font-size: .9rem;
+  transition: background .2s ease;
+}
+.su-btn:hover {
+  background: #1e40af;
+}
 </style>
 
 <script>
@@ -675,14 +689,13 @@ In this article, we delve into the captivating landscape of Romanian startups, u
       const subBadges = subCats.map(s=>`<span class="su-badge" title="Tag">${s}</span>`).join('');
 
       return `
-        <article class="su-card">
-          <div class="su-line">
-            <h3><a class="su-link" href="${item.url}" target="_blank" rel="noopener">${name}</a></h3>
-          </div>
-          <div class="su-badges" aria-label="Badges">${catBadge}${subBadges}</div>
-          <p class="su-desc">${desc}</p>
-        </article>
-      `;
+  <article class="su-card">
+    <h3>${item.name}</h3>
+    <div class="su-badges" aria-label="Badges">${catBadge}${subBadges}</div>
+    <p class="su-desc">${desc}</p>
+    <p><a class="su-btn" href="${item.url}" target="_blank" rel="noopener">Visit Website →</a></p>
+  </article>
+`;
     }).join('');
   }
 
