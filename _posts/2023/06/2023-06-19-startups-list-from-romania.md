@@ -327,6 +327,14 @@ In this article, we delve into the captivating landscape of Romanian startups, u
             "category": "Logistics, Management"
         },
     ],
+    "NGO": [
+        {
+            "name": "Transparenta.eu",
+            "url": "https://www.transparenta.eu/",
+            "description": "Public financial data exploration platform for citizens, journalists, public figures and other interested parties.",
+            "category": "Financial, Analytics"
+        },
+    ],
     "Pets": [  
         {
             "name": "Caretopets",
