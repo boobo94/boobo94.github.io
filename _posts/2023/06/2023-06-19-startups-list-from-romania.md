@@ -515,7 +515,7 @@ In this article, we delve into the captivating landscape of Romanian startups, u
     padding:.75rem 0; border-bottom:1px solid var(--su-border);
     backdrop-filter:saturate(180%) blur(6px);
   }
-  .su-search{display:flex; align-items:center; gap:.5rem; border:1px solid var(--su-border); padding:.5rem .75rem; border-radius:10px; min-width:260px; width:min(640px,100%); background:#fff;}
+  .su-search{display:flex; align-items:center; gap:.5rem; border:1px solid var(--su-border); padding:.5rem .75rem; border-radius:10px; min-width:200px; width:min(640px,100%); background:#fff;}
   .su-search input{border:0; outline:0; width:100%; font:inherit;}
   .su-sort{display:flex; align-items:center; gap:.5rem; color:var(--su-muted);}
   .su-sort select{border:1px solid var(--su-border); border-radius:8px; padding:.4rem .6rem; background:#fff;}
