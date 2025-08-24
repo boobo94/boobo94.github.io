@@ -14,14 +14,8 @@ In recent years, this picturesque country has witnessed a remarkable surge in en
 
 In this article, we delve into the captivating landscape of Romanian startups, unveiling a curated list of standout companies that are making waves, transforming industries, and shaping the future. Get ready to discover the rising stars of Romania's startup world.
 
-<h2>Categories:</h2>
-<div id="categories" style="position: -webkit-sticky; position: sticky; top: 0; background-color: white; border-bottom: 1px solid #f2f2f2;"></div>
-
-<h2>Startup List</h2>
-<div id="startup-list"></div>
-
 <script>
-  const startupList = 
+  window.startupList = 
 {
 
     "Advertisment" : [
@@ -474,31 +468,260 @@ In this article, we delve into the captivating landscape of Romanian startups, u
         }
     ],
 }
+</script>
 
-  // loop over startupList object and add them to the div element with startup-list id
-  Object.keys(startupList).forEach((key) => {
-    document.getElementById("categories").innerHTML += `
-            <div class="category" style="display: inline-block;">
-                <a href="#${key}">${key}</a> |
-            </div>
-        `;
+<h2 style="margin-bottom:0.5rem">Startup Directory</h2>
+<p style="margin-top:0;color:#666">Browse Romanian startups by category or search instantly.</p>
 
-    document.getElementById("startup-list").innerHTML += `
-            <div id="${key}">
-                <h3>${key}</h3>
-                <ul>
-                    ${startupList[key]
-                      .map(
-                        (startup) => `
-                            <li>
-                              <p><a href="${startup.url}" target="_blank">${startup.name}</a> | Category: ${startup.category}</p>
-                              <p>${startup.description}</p>
-                            </li>
-                        `
-                      )
-                      .join("")}
-                </ul>
-            </div>
-        `;
+<!-- Toolbar -->
+<div class="su-toolbar">
+  <div class="su-search">
+    <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27a6.471 6.471 0 001.57-4.23C16 6.01 12.99 3 9.5 3S3 6.01 3 9.5 6.01 16 9.5 16a6.471 6.471 0 004.23-1.57l.27.28v.79l4.25 4.25c.41.41 1.07.41 1.48 0 .41-.41.41-1.07 0-1.48L15.5 14zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z" fill="currentColor"/></svg>
+    <input id="su-query" type="search" placeholder="Search startups by name, category, description…" autocomplete="off">
+  </div>
+
+  <div class="su-sort">
+    <label for="su-sort-select">Sort:</label>
+    <select id="su-sort-select">
+      <option value="name-asc">Name (A→Z)</option>
+      <option value="name-desc">Name (Z→A)</option>
+      <option value="category-asc">Category (A→Z)</option>
+    </select>
+  </div>
+</div>
+
+<!-- Category Chips -->
+<div id="su-chips" class="su-chips" role="tablist" aria-label="Categories"></div>
+
+<!-- Results meta -->
+<div class="su-meta"><span id="su-count">0</span> results</div>
+
+<!-- Grid -->
+<div id="su-grid" class="su-grid" aria-live="polite"></div>
+
+<!-- Back to top -->
+<a class="su-top" href="#top" aria-label="Back to top">↑</a>
+
+<style>
+  :root{
+    --su-bg:#fff; --su-muted:#6b7280; --su-border:#e5e7eb; --su-card:#ffffff;
+    --su-shadow:0 1px 3px rgba(0,0,0,.06),0 1px 2px rgba(0,0,0,.04);
+    --su-shadow-hover:0 10px 15px rgba(0,0,0,.08),0 4px 6px rgba(0,0,0,.06);
+    --su-accent:#2563eb; --su-chip:#f3f4f6; --su-radius:12px;
+  }
+  .su-toolbar{
+    position:sticky; top:0; z-index:5; background:var(--su-bg);
+    display:flex; gap:.75rem; align-items:center; justify-content:space-between;
+    padding:.75rem 0; border-bottom:1px solid var(--su-border);
+    backdrop-filter:saturate(180%) blur(6px);
+  }
+  .su-search{display:flex; align-items:center; gap:.5rem; border:1px solid var(--su-border); padding:.5rem .75rem; border-radius:10px; min-width:260px; width:min(640px,100%); background:#fff;}
+  .su-search input{border:0; outline:0; width:100%; font:inherit;}
+  .su-sort{display:flex; align-items:center; gap:.5rem; color:var(--su-muted);}
+  .su-sort select{border:1px solid var(--su-border); border-radius:8px; padding:.4rem .6rem; background:#fff;}
+
+  .su-chips{display:flex; flex-wrap:wrap; gap:.5rem; margin:.75rem 0 0;}
+  .su-chip{
+    display:inline-flex; align-items:center; gap:.4rem; padding:.4rem .7rem; border:1px solid var(--su-border);
+    border-radius:999px; background:var(--su-chip); cursor:pointer; user-select:none; font-size:.92rem;
+    transition:all .15s ease;
+  }
+  .su-chip[aria-selected="true"]{background:rgba(37,99,235,.08); border-color:var(--su-accent); color:var(--su-accent);}
+  .su-chip:hover{transform:translateY(-1px); box-shadow:var(--su-shadow);}
+  .su-meta{color:var(--su-muted); font-size:.95rem; margin:.5rem 0 1rem;}
+
+  .su-grid{
+    display:grid; gap:1rem;
+    grid-template-columns:repeat(1,minmax(0,1fr));
+  }
+  @media (min-width:640px){ .su-grid{grid-template-columns:repeat(2,minmax(0,1fr));} }
+  @media (min-width:1024px){ .su-grid{grid-template-columns:repeat(3,minmax(0,1fr));} }
+
+  .su-card{
+    background:var(--su-card); border:1px solid var(--su-border); border-radius:var(--su-radius);
+    padding:1rem; box-shadow:var(--su-shadow); transition:transform .15s ease, box-shadow .15s ease, border-color .15s ease;
+  }
+  .su-card:hover{transform:translateY(-2px); box-shadow:var(--su-shadow-hover); border-color:#d1d5db;}
+  .su-card h3{margin:.1rem 0 .4rem; font-size:1.05rem;}
+  .su-desc{color:#374151; margin:.4rem 0 0;}
+  .su-line{display:flex; align-items:center; justify-content:space-between; gap:.5rem;}
+  .su-badges{display:flex; gap:.4rem; flex-wrap:wrap;}
+  .su-badge{background:#eef2ff; color:#3730a3; border:1px solid #e0e7ff; padding:.18rem .5rem; border-radius:999px; font-size:.78rem;}
+  .su-link{color:#111827; text-decoration:none;}
+  .su-link:hover{color:var(--su-accent);}
+
+  mark{background: #fde68a; padding:0 .15rem; border-radius:3px;}
+  .su-empty{border:1px dashed var(--su-border); border-radius:10px; padding:2rem; text-align:center; color:var(--su-muted);}
+
+  .su-top{
+    position:fixed; right:1rem; bottom:1rem; width:40px; height:40px; display:grid; place-items:center;
+    background:#111827; color:#fff; border-radius:999px; text-decoration:none; box-shadow:var(--su-shadow);
+    opacity:.85; transition:opacity .2s ease, transform .2s ease;
+  }
+  .su-top:hover{opacity:1; transform:translateY(-2px);}
+</style>
+
+<script>
+  // --- Your data (as provided) ---
+  const startupList = window.startupList || {};
+
+  // ---- Utility ----
+  const $ = (s, r=document) => r.querySelector(s);
+  const $$ = (s, r=document) => Array.from(r.querySelectorAll(s));
+  const escapeReg = s => s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+
+  // Flatten records
+  const records = Object.entries(startupList).flatMap(([cat, items]) =>
+    (items||[]).map(it => ({
+      ...it,
+      _category: cat,
+      name: it.name?.trim() || '',
+      url: it.url || '#',
+      description: it.description || '',
+      category: it.category || cat
+    }))
+  );
+
+  // Build category set (sorted)
+  const categories = ['All', ...Object.keys(startupList).sort((a,b)=>a.localeCompare(b))];
+
+  const state = {
+    query: '',
+    category: 'All',
+    sort: 'name-asc',
+    get filtered(){
+      let list = records.slice();
+      // filter by category
+      if (this.category !== 'All'){
+        list = list.filter(r => r._category === this.category);
+      }
+      // search
+      if (this.query){
+        const q = this.query.toLowerCase();
+        list = list.filter(r =>
+          r.name.toLowerCase().includes(q) ||
+          r.description.toLowerCase().includes(q) ||
+          r.category.toLowerCase().includes(q) ||
+          r._category.toLowerCase().includes(q)
+        );
+      }
+      // sort
+      const [field,dir] = this.sort.split('-'); // name / category
+      list.sort((a,b)=>{
+        const va = (field==='category' ? a._category : a.name).toLowerCase();
+        const vb = (field==='category' ? b._category : b.name).toLowerCase();
+        return dir==='asc' ? va.localeCompare(vb) : vb.localeCompare(va);
+      });
+      return list;
+    }
+  };
+
+  // Render chips
+  const chips = $('#su-chips');
+  function renderChips(){
+    chips.innerHTML = '';
+    categories.forEach(cat=>{
+      const chip = document.createElement('button');
+      chip.className = 'su-chip';
+      chip.type = 'button';
+      chip.setAttribute('role','tab');
+      chip.setAttribute('aria-selected', String(state.category===cat));
+      chip.textContent = cat;
+      chip.addEventListener('click', ()=>{
+        state.category = cat;
+        // update hash to enable deep link to category
+        history.replaceState(null,'', cat === 'All' ? location.pathname + location.search : '#'+encodeURIComponent(cat));
+        update();
+      });
+      chips.appendChild(chip);
+    });
+  }
+
+  // Highlight helper
+  function highlight(text, query){
+    if (!query) return text;
+    const re = new RegExp(`(${escapeReg(query)})`,'ig');
+    return text.replace(re, '<mark>$1</mark>');
+  }
+
+  // Render grid
+  const grid = $('#su-grid');
+  const countEl = $('#su-count');
+
+  function renderGrid(items){
+    countEl.textContent = items.length;
+    if (!items.length){
+      grid.innerHTML = `<div class="su-empty">No startups found. Try a different search or category.</div>`;
+      return;
+    }
+    grid.innerHTML = items.map(item=>{
+      const name = highlight(item.name, state.query);
+      const desc = highlight(item.description, state.query);
+      const catBadge = `<span class="su-badge" title="Primary category">${item._category}</span>`;
+      const subCats = (item.category || '')
+        .split(',')
+        .map(s=>s.trim())
+        .filter(Boolean)
+        .filter(s=>s !== item._category);
+
+      const subBadges = subCats.map(s=>`<span class="su-badge" title="Tag">${s}</span>`).join('');
+
+      return `
+        <article class="su-card">
+          <div class="su-line">
+            <h3><a class="su-link" href="${item.url}" target="_blank" rel="noopener">${name}</a></h3>
+          </div>
+          <div class="su-badges" aria-label="Badges">${catBadge}${subBadges}</div>
+          <p class="su-desc">${desc}</p>
+        </article>
+      `;
+    }).join('');
+  }
+
+  // Update UI
+  function update(){
+    // update chip selection
+    $$('.su-chip', chips).forEach(btn=>{
+      btn.setAttribute('aria-selected', String(btn.textContent === state.category));
+    });
+    // render grid
+    renderGrid(state.filtered);
+  }
+
+  // Attach handlers
+  const input = $('#su-query');
+  const sortSel = $('#su-sort-select');
+  let t;
+  input.addEventListener('input', e=>{
+    clearTimeout(t);
+    t = setTimeout(()=>{
+      state.query = e.target.value.trim();
+      update();
+    }, 120);
+  });
+  sortSel.addEventListener('change', e=>{
+    state.sort = e.target.value;
+    update();
+  });
+
+  // Deep link: hash -> category
+  function applyHashCategory(){
+    const hash = decodeURIComponent(location.hash.replace(/^#/,''));
+    if (hash && categories.includes(hash)){
+      state.category = hash;
+    }
+  }
+
+  // Init
+  renderChips();
+  applyHashCategory();
+  update();
+
+  // Improve UX: focus search on "/" key
+  document.addEventListener('keydown', (e)=>{
+    const tag = (e.target.tagName||'').toLowerCase();
+    if (e.key === '/' && tag !== 'input' && tag !== 'textarea'){
+      e.preventDefault(); input.focus();
+    }
   });
 </script>
