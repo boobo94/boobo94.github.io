@@ -281,6 +281,12 @@ In this article, we delve into the captivating landscape of Romanian startups, u
             "category": "Green"
         },
         {
+            "name": "Recicleo",
+            "url": "https://recicleo.ro/",
+            "description": "Save time and money with our smart solution: you place an order, we come to you with cargo bikes or mini-van, and you receive payment for PET, cans and bottles at your address.",
+            "category": "Green, SGR"
+        },
+        {
             "name": "Reverse PET",
             "url": "https://reversepet.com/",
             "description": "Recycle and earn with Reverse PET",
