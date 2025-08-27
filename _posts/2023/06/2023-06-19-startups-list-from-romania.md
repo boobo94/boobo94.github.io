@@ -348,6 +348,12 @@ In this article, we delve into the captivating landscape of Romanian startups, u
             "description": "Romanian's No 1 pet sitting platform",
             "category": "Pets, Life"
         },
+        {
+            "name": "LolaPet",
+            "url": "https://www.lola.pet/ro/",
+            "description": "An exclusive, invite-only community where each member is personally recommended by someone in the network. Leave your pet in good hands with people who love animals just like you.",
+            "category": "Pets, Life"
+        },
     ],
     "Real-Estate": [
         {
