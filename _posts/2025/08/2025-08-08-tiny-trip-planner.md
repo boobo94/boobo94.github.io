@@ -113,6 +113,7 @@ cover: /images/logo-trip-planner.png
 
     <div class="ttp-section-title">Your Trips</div>
     <div class="ttp-topbar-list" id="ttp-tripList"></div>
+
   </div>
 
   <div class="ttp-gap"></div>
@@ -206,6 +207,7 @@ cover: /images/logo-trip-planner.png
         </div>
       </div>
     </div>
+
   </div>
 </div>
 
