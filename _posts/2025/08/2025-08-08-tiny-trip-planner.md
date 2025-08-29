@@ -244,7 +244,7 @@ cover: /images/logo-trip-planner.png
   .ttp .ttp-tiny { font-size:12px; color:var(--muted); }
 
   .ttp .ttp-spacer { height:8px; }
-  .ttp .ttp-map { width:100%; height:300px; border-radius:12px; overflow:hidden; border:1px solid var(--border); }
+  .ttp .ttp-map { width:100%; height:450px; border-radius:12px; overflow:hidden; border:1px solid var(--border); }
   .ttp .ttp-map-wrap { padding:14px 0; }
   .ttp .ttp-list { list-style:none; padding:0; margin:0; display:grid; gap:8px; }
   .ttp .ttp-list-item { border:1px solid var(--border); border-radius:10px; padding:10px; background:#13182b; display:grid; gap:8px; }
