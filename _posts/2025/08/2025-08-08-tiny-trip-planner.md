@@ -202,7 +202,7 @@ cover: /images/logo-trip-planner.png
         </div>
 
         <div class="ttp-col">
-          <div class="ttp-section-title">Places (drag or change order)</div>
+          <div class="ttp-section-title">Places</div>
           <ul id="ttp-placeList" class="ttp-list"></ul>
         </div>
       </div>
@@ -696,9 +696,9 @@ cover: /images/logo-trip-planner.png
           <button class="ttp-btn ttp-btn--sm ${p.visited ? 'ttp-accent' : ''}" data-visit="${p.id}" aria-pressed="${p.visited ? 'true':'false'}" title="Toggle visited">
             ${p.visited ? '✅ Visited' : '🗺️ Mark visited'}
           </button>
-          <button class="ttp-btn ttp-btn--sm ttp-handle-btn" draggable="true" data-handle="${idx}" title="Drag to reorder">↕️ Reorder</button>
 
           <div class="ttp-row ttp-wrap ttp-order-controls" title="Change order number or use arrows">
+            <span class="ttp-muted" aria-hidden="true">Reorder</span>
             <button class="ttp-btn ttp-btn--sm" data-up="${p.id}" aria-label="Move up">⬆️</button>
             <input class="ttp-input ttp-input--order" type="number" min="1" max="${t.places.length}" value="${idx+1}" data-order="${p.id}">
             <button class="ttp-btn ttp-btn--sm" data-down="${p.id}" aria-label="Move down">⬇️</button>
@@ -723,25 +723,6 @@ cover: /images/logo-trip-planner.png
 
       li.querySelector('[data-edit]').addEventListener('click',()=>editPlaceInline(t.id,p));
 
-      const handle = li.querySelector(`[data-handle="${idx}"]`);
-      handle.addEventListener('dragstart', (ev)=>{
-        ev.dataTransfer.setData('text/plain', String(idx));
-        li.classList.add('ttp-dragging');
-      });
-      handle.addEventListener('dragend', ()=> li.classList.remove('ttp-dragging'));
-      li.addEventListener('dragover', (ev)=>{ ev.preventDefault(); li.classList.add('ttp-drop-target'); });
-      li.addEventListener('dragleave', ()=> li.classList.remove('ttp-drop-target'));
-      li.addEventListener('drop', (ev)=>{
-        ev.preventDefault();
-        li.classList.remove('ttp-drop-target');
-        const from = parseInt(ev.dataTransfer.getData('text/plain'),10);
-        const to = parseInt(li.dataset.index,10);
-        if(Number.isInteger(from) && Number.isInteger(to)){
-          movePlace(t.id, from, to + (from < to ? 1 : 0));
-          renderPlaces();
-          renderAllPlacesMap();
-        }
-      });
 
       // Order number change
       const orderInput = li.querySelector(`[data-order="${p.id}"]`);
