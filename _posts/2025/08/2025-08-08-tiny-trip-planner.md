@@ -202,7 +202,7 @@ cover: /images/logo-trip-planner.png
         </div>
 
         <div class="ttp-col">
-          <div class="ttp-section-title">Places (drag to reorder)</div>
+          <div class="ttp-section-title">Places (drag or change order)</div>
           <ul id="ttp-placeList" class="ttp-list"></ul>
         </div>
       </div>
@@ -256,6 +256,12 @@ cover: /images/logo-trip-planner.png
   .ttp .ttp-handle-btn { cursor:grab; }
   .ttp .ttp-dragging { opacity:.6; }
   .ttp .ttp-drop-target { outline:2px dashed var(--accent); border-radius:10px; }
+
+  /* Order controls */
+  .ttp .ttp-input--order {
+    width:56px; min-width:56px; text-align:center; padding:6px 8px;
+  }
+  .ttp .ttp-order-controls { align-items:stretch; }
 
   .ttp .ttp-topbar-list { display:flex; gap:8px; flex-wrap:wrap; margin-top:10px; }
   .ttp .ttp-topbar-list .ttp-tripBtn { background:#13182b; border:1px solid var(--border); color:var(--text); padding:8px 10px; border-radius:10px; cursor:pointer; }
@@ -691,6 +697,12 @@ cover: /images/logo-trip-planner.png
             ${p.visited ? '✅ Visited' : '🗺️ Mark visited'}
           </button>
           <button class="ttp-btn ttp-btn--sm ttp-handle-btn" draggable="true" data-handle="${idx}" title="Drag to reorder">↕️ Reorder</button>
+
+          <div class="ttp-row ttp-wrap ttp-order-controls" title="Change order number or use arrows">
+            <button class="ttp-btn ttp-btn--sm" data-up="${p.id}" aria-label="Move up">⬆️</button>
+            <input class="ttp-input ttp-input--order" type="number" min="1" max="${t.places.length}" value="${idx+1}" data-order="${p.id}">
+            <button class="ttp-btn ttp-btn--sm" data-down="${p.id}" aria-label="Move down">⬇️</button>
+          </div>
         </div>
       `;
 
@@ -729,6 +741,34 @@ cover: /images/logo-trip-planner.png
           renderPlaces();
           renderAllPlacesMap();
         }
+      });
+
+      // Order number change
+      const orderInput = li.querySelector(`[data-order="${p.id}"]`);
+      const clamp = (n,min,max)=> Math.min(max, Math.max(min, n));
+      function applyOrderChange(newVal){
+        const desired = clamp(parseInt(newVal,10)|| (idx+1), 1, t.places.length);
+        if(desired !== idx+1){
+          const targetIdx = desired - 1;
+          movePlace(t.id, idx, targetIdx);
+          renderPlaces();
+          renderAllPlacesMap();
+        }else{
+          // Ensure the input reflects clamped value
+          orderInput.value = String(desired);
+        }
+      }
+      orderInput.addEventListener('change', ()=> applyOrderChange(orderInput.value));
+      orderInput.addEventListener('keydown', (e)=>{ if(e.key==='Enter'){ e.preventDefault(); applyOrderChange(orderInput.value); }});
+
+      // Up / Down buttons
+      const upBtn = li.querySelector(`[data-up="${p.id}"]`);
+      const downBtn = li.querySelector(`[data-down="${p.id}"]`);
+      upBtn.addEventListener('click', ()=>{
+        if(idx>0){ movePlace(t.id, idx, idx-1); renderPlaces(); renderAllPlacesMap(); }
+      });
+      downBtn.addEventListener('click', ()=>{
+        if(idx < t.places.length-1){ movePlace(t.id, idx, idx+1); renderPlaces(); renderAllPlacesMap(); }
       });
 
       els.placeList.appendChild(li);
