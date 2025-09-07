@@ -5,6 +5,7 @@ date: 2025-09-07
 summary: "A curated list of top engineering blogs that reveal how companies like Netflix, Airbnb, Uber, Spotify, Meta, and more ship into production at massive scale."
 categories: resources
 tags: [AI, Machine Learning, Engineering, Production, Scale, GenAI]
+cover: https://cdn.pixabay.com/photo/2024/07/14/13/46/ai-generated-8894581_1280.jpg
 ---
 
 ## Artificial Intelligence
