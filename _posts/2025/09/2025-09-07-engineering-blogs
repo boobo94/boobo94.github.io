@@ -11,28 +11,28 @@ tags: [AI, Machine Learning, Engineering, Production, Scale, GenAI]
 
 Here are **9 engineering blogs** that show how AI actually ships:
 
-1️⃣ [AWS GenAI Blog](https://lnkd.in/gQSMeGF8){:target="_blank"}  
+1️⃣ [AWS GenAI Blog](https://aws.amazon.com/blogs/machine-learning/category/artificial-intelligence/generative-ai/){:target="_blank"}  
 How they scale to 100K requests/second without melting  
 
-2️⃣ [Netflix Tech Blog](https://lnkd.in/gv3R25fE){:target="_blank"}  
+2️⃣ [Netflix Tech Blog](https://netflixtechblog.com/search?q=AI){:target="_blank"}  
 260M users. Every click predicted. Zero downtime.  
 
-3️⃣ [Airbnb Engineering](https://lnkd.in/gq2vGm-g){:target="_blank"}  
+3️⃣ [Airbnb Engineering](https://medium.com/airbnb-engineering){:target="_blank"}  
 $75B in bookings. All ranked by ML in real-time.  
 
-4️⃣ [LinkedIn Engineering](https://lnkd.in/gyuaHauJ){:target="_blank"}  
+4️⃣ [LinkedIn Engineering](https://www.linkedin.com/blog/engineering/generative-ai){:target="_blank"}  
 This very feed. 1B members. Personalized instantly.  
 
-5️⃣ [Uber Engineering](https://lnkd.in/gGWPruT8){:target="_blank"}  
+5️⃣ [Uber Engineering](https://www.uber.com/en-IN/blog/data/){:target="_blank"}  
 Feature drift detection that saved millions.  
 
-6️⃣ [Spotify Engineering](https://lnkd.in/guVPQG-8){:target="_blank"}  
+6️⃣ [Spotify Engineering](https://engineering.atspotify.com/?c=maching-learning){:target="_blank"}  
 600M playlists. Each one unique. How?  
 
-7️⃣ [LangChain Blog](https://lnkd.in/gcDTb4-h){:target="_blank"}  
+7️⃣ [LangChain Blog](https://blog.langchain.com/){:target="_blank"}  
 From prototype to production LLM apps.  
 
-8️⃣ [HuggingFace Blog](https://lnkd.in/gTpRuW2Z){:target="_blank"}  
+8️⃣ [HuggingFace Blog](https://huggingface.co/blog){:target="_blank"}  
 Model deployment without the 3am panic.  
 
 9️⃣ [Meta AI Blog](https://ai.meta.com/blog/){:target="_blank"}  
