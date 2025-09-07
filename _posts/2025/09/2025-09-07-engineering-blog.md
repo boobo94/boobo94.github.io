@@ -3,7 +3,7 @@ layout: post
 title: "Engineering Blogs"
 date: 2025-09-07
 summary: "A curated list of top engineering blogs that reveal how companies like Netflix, Airbnb, Uber, Spotify, Meta, and more ship into production at massive scale."
-categories: [resources, AI, Engineering, Blogs]
+categories: resources
 tags: [AI, Machine Learning, Engineering, Production, Scale, GenAI]
 ---
 
