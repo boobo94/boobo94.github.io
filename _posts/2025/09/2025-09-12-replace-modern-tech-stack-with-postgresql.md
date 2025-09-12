@@ -7,8 +7,6 @@ tags: [postgresql, fullstack, libraries]
 summary: "Can you replace your entire tech stack with PostgreSQL? A breakdown of Fireship's video exploring Postgres extensions and features."
 ---
 
-# Replacing the Modern Tech Stack with PostgreSQL
-
 I recently watched [Fireship’s video](https://youtu.be/3JW732GrMdg?si=7QJOXUgou0zC_w_-) about how he replaced his entire tech stack with PostgreSQL. The main idea? **Most of what we over-engineer into separate services can actually be handled by Postgres plus its extensions.**
 
 ---
