@@ -1,15 +1,15 @@
 # Site settings
-title:       Why Boobo?
-logo_title:  Why Boobo?
-email:       militaru.bogdanalexandru@gmail.com
-author:      Bogdan Alexandru Militaru
+title: Why Boobo?
+logo_title: Why Boobo?
+email: militaru.bogdanalexandru@gmail.com
+author: Bogdan Alexandru Militaru
 description: "Discover more about me. Learn about web, technology, web services, artificial intelligence, servers, cloud, amazon, alexa skills, tutorials. Check it now!"
-baseurl:     ""
-url:         "https://whyboobo.com"
+baseurl: ""
+url: "https://whyboobo.com"
 date_format: "%b %-d, %Y"
 header_pages:
- - about.md
- - contact.html
+  - about.md
+  - contact.html
 
 # Google services
 google_verification:
@@ -21,10 +21,10 @@ google_tag_manager: G-185H7Z3199
 bing_verification:
 
 # Optional features
-animated:             true
-show_related_posts:   true
-show_post_footers:    true
-show_social_icons:    true
+animated: true
+show_related_posts: true
+show_post_footers: true
+show_social_icons: true
 ajaxify_contact_form: false
 enable_mathjax: false
 extended_fonts: false
@@ -80,43 +80,43 @@ share_hackernews: true
 
 text:
   pagination:
-    newer: 'Newer'
-    older: 'Older'
+    newer: "Newer"
+    older: "Older"
   share_buttons:
-    text:         'Share this post: '
-    facebook:     'Share on Facebook'
-    twitter:      'Share on Twitter'
-    googleplus:   'Share on Google+'
-    linkedin:     'Share on LinkedIn'
-    digg:         'Share on Digg'
-    tumblr:       'Share on Tumblr'
-    reddit:       'Share on Reddit'
-    stumbleupon:  'Share on StumbleUpon'
-    hackernews:   'Share on Hacker News'
+    text: "Share this post: "
+    facebook: "Share on Facebook"
+    twitter: "Share on Twitter"
+    googleplus: "Share on Google+"
+    linkedin: "Share on LinkedIn"
+    digg: "Share on Digg"
+    tumblr: "Share on Tumblr"
+    reddit: "Share on Reddit"
+    stumbleupon: "Share on StumbleUpon"
+    hackernews: "Share on Hacker News"
   post:
-    updated:        'Updated'
-    minute_read:    'minute read'
-    related_posts:  'Related Posts'
+    updated: "Updated"
+    minute_read: "minute read"
+    related_posts: "Related Posts"
   index:
-    coming_soon: 'Coming soon...'
+    coming_soon: "Coming soon..."
   contact:
-    email:    'Email Address'
-    content:  'What would you like to say?'
-    subject:  'New submission!'
-    submit:   'Say Hello'
+    email: "Email Address"
+    content: "What would you like to say?"
+    subject: "New submission!"
+    submit: "Say Hello"
     ajax:
-      sending:  'sending..'
-      sent:     'Message sent!'
-      error:    'Error!'
-  thanks: 'Thanks for contacting us. We will reply as soon as possible.'
-  og_locale: 'en_US'
+      sending: "sending.."
+      sent: "Message sent!"
+      error: "Error!"
+  thanks: "Thanks for contacting us. We will reply as soon as possible."
+  og_locale: "en_US"
 
 # Build settings
-markdown:     kramdown
+markdown: kramdown
 redcarpet:
-  extensions: ['smart', 'tables', 'with_toc_data']
-permalink:    /:categories/:title/
-paginate:     5
+  extensions: ["smart", "tables", "with_toc_data"]
+permalink: /:categories/:title/
+paginate: 5
 sass:
   style: compressed
 plugins:
@@ -142,15 +142,13 @@ collections:
     permalink: /tags/:name/
 
 defaults:
-  -
-    scope:
+  - scope:
       path: ""
       type: category
     values:
       layout: "category"
-  -
-    scope:
+  - scope:
       path: ""
-      type: tag
+      type: tags
     values:
       layout: "tag"
