@@ -6,10 +6,7 @@ layout: default
   <div class="posts" id="search-container">
     <h1>{{ page.title }}</h1>
 
-    {% assign posts_in_tag = site.tags[page.tag] %}
-    <h2>#{{ page.tag }} ({{ posts_in_tag | size }})</h2>
-
-    {% for post in posts_in_tag %}
+    {% for post in site.tags[page.tag] %}
     <div class="post py3">
       <p class="post-meta">{{ post.date | date: site.date_format }}</p>
       <span class="post-meta small">

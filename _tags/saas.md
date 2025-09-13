@@ -1,6 +1,6 @@
 ---
 title: "SaaS"
 summary: "SaaS description"
-layout: tags
+layout: tag
 tag: saas
 ---
