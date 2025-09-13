@@ -2,7 +2,7 @@
 title: Netopiajs library for nodejs
 summary: Unofficial library of Netopia to integrate with Nodejs
 categories: tools
-tags: netopia library package js nodejs
+tags: netopia library package javascript nodejs
 date: 2023-04-06 09:09:09 +0000
 cover: https://netopia-payments.com/storage/2018/04/logo-sizes.png
 layout: post
@@ -53,7 +53,7 @@ To get the settings of account [login into Netopia](https://admin.mobilpay.ro/ro
 ## Import
 
 ```js
-import Netopia from '../../../modules/netopia'
+import Netopia from "../../../modules/netopia";
 ```
 
 ## IPN using Express
@@ -122,6 +122,7 @@ import { urlencoded } from 'express';
 ```
 
 (#ipn-response)
+
 ### IPN response example
 
 ```json
@@ -210,7 +211,6 @@ import { urlencoded } from 'express';
 
 In order to connect Netopia with your local API, you need to expose your server running locally to the internat. To do that you can simply use SSH tunneling. [Connect localhost to the internet](https://whyboobo.com/devops/connect-localhost-to-the-internet/) is an article which describes how to do that.
 
-
 If you're hurry use localhost.run, [documentation here](https://localhost.run/docs/) by simply:
 
 ```sh
@@ -237,9 +237,9 @@ To create simple payments where the user insert the card. This method returns an
 const response = await Netopia.createSimplePayment(
   "10", // the price in RON, in string format
   {
-    type: 'person', // optional, options: 'person' or 'company', default = 'person'
-    firstName: 'John', // required
-    lastName: 'Doe', // required
+    type: "person", // optional, options: 'person' or 'company', default = 'person'
+    firstName: "John", // required
+    lastName: "Doe", // required
     address: "my street", // required
     email: "contact@cmevo.com", // required
     phone: "071034782", // required
@@ -247,9 +247,9 @@ const response = await Netopia.createSimplePayment(
   },
   {
     // pass custom params that will be returned to you on IPN later
-    "userId": 1,
-    "internalPaymentId": "3sad3",
-    "foo": "bar"
+    userId: 1,
+    internalPaymentId: "3sad3",
+    foo: "bar",
   }
 );
 ```
@@ -257,7 +257,7 @@ const response = await Netopia.createSimplePayment(
 This method can be used to register a card using the alias `registerCard(amount, billing, params)`. Is the same function. Create a symbolic transaction of 1 RON. If your seller account has an user which is activated for token usage, you'll receive on IPN a token. Save it for further payments. **Very important**, if your account is set with pre-authorization, when the IPN response confirm the card addition you should capture that transaction of 1 RON.
 
 ```js
-await Netopia.capture(ipnResponse.decoded.order.$.id,1)
+await Netopia.capture(ipnResponse.decoded.order.$.id, 1);
 ```
 
 ### Save the token for further payments
@@ -268,15 +268,14 @@ The token can be saved from the [IPN response](#ipn-response) from path `decoded
 
 If your seller account doesn't have pre-authorization active, by default all payments are captured instantly.
 
-
 ```js
 const response = await Netopia.captureWithoutAuthorization(
   "10", // the price in RON, in string format
   "the token stored previously",
   {
-    type: 'person', // optional, options: 'person' or 'company', default = 'person'
-    firstName: 'John', // required
-    lastName: 'Doe', // required
+    type: "person", // optional, options: 'person' or 'company', default = 'person'
+    firstName: "John", // required
+    lastName: "Doe", // required
     address: "my street", // required
     email: "contact@cmevo.com", // required
     phone: "071034782", // required
@@ -288,10 +287,11 @@ const response = await Netopia.captureWithoutAuthorization(
   },
   {
     // pass custom params that will be returned to you on IPN later
-    "userId": 1,
-    "internalPaymentId": "3sad3",
-    "foo": "bar"
-  });
+    userId: 1,
+    internalPaymentId: "3sad3",
+    foo: "bar",
+  }
+);
 ```
 
 I created an alias of this function for pre-authorization (if your seller account supports), only to be easier for you with the name. Instead of `captureWithoutAuthorization(...)` use `authorize(...)`. Pre-authorization means the money are locked in the customer's account, but are not transferred to your account until you don't execute the capture method.
@@ -304,8 +304,8 @@ Execute this function to transfer the money from customer to your account.
 ```js
 const response = await Netopia.capture(
   "previous order id pre-authorized", // response.order.id, where response = Netopia.authorize(...), in string format
-  "5", // the price in RON, in string format
-  )
+  "5" // the price in RON, in string format
+);
 ```
 
 You can capture the pre-authorize value or a smaller amount and the difference will remain in the customer. Is not a refund, because the money didn't leave his account yet. You only capture partially. You cannot capture more than the pre-authorized value.
@@ -318,8 +318,8 @@ If you decide at any moment to cancel a payment, use:
 
 ```js
 const response = await Netopia.cancel(
-  "previous order id pre-authorized", // response.order.id, where response = Netopia.authorize(...), in string format
-)
+  "previous order id pre-authorized" // response.order.id, where response = Netopia.authorize(...), in string format
+);
 ```
 
 ## Refund payment
@@ -329,8 +329,8 @@ If you decide to refund a payment
 ```js
 const response = await Netopia.refund(
   "previous order id pre-authorized", // response.order.id, where response = Netopia.authorize(...), in string format
-  "5", // the price in RON, in string format
-  )
+  "5" // the price in RON, in string format
+);
 ```
 
 The amount you refund can be different that the value you captured. For example if you captured 5 lei, you can refund only 2, maximum 5.
@@ -340,9 +340,7 @@ The amount you refund can be different that the value you captured. For example 
 To delete a card and make the token inactive for further payments do:
 
 ```js
-const response = await Netopia.deleteCard(
-  "the token stored previously",
-)
+const response = await Netopia.deleteCard("the token stored previously");
 ```
 
 ## How to check the SOAP documentation
@@ -364,8 +362,8 @@ You can find a [simple payment example](https://github.com/mobilpay/Node.js) and
 
 9900827979991500 - CVV2/CCV incorect
 
-9900576270414197 - transaction declined 
+9900576270414197 - transaction declined
 
-9900334791085173 - high risk card (for example is a stolen card) 
+9900334791085173 - high risk card (for example is a stolen card)
 
 9900130597497640 - error from the bank (connection with the bank cannot be established)

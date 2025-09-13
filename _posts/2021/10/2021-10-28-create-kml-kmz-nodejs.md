@@ -2,12 +2,11 @@
 title: Create kml/kmz files in Nodejs
 summary: This article presents how to create kml or kmz files in Nodejs using JavaScript. A simple and fast way of generating kml and kmz files and how to preview them.
 categories: tutorials
-tags: kml kmz js nodejs
+tags: kml kmz javascript nodejs
 date: 2021-10-28 09:09:09 +0000
 cover: https://cdn.pixabay.com/photo/2018/01/31/05/43/web-3120321_1280.png
 layout: post
 ---
-
 
 This article presents how to create kml or kmz files in Nodejs using JavaScript.
 
@@ -18,7 +17,6 @@ Create kml file - [@maphubs/tokml](https://www.npmjs.com/package/@maphubs/tokml)
 Create geojson - [geojson](https://www.npmjs.com/package/geojson)
 
 Create kmz using zip - [archiver](https://www.npmjs.com/package/archiver)
-
 
 ## Create KML File
 
@@ -49,18 +47,17 @@ Content-type for kml:
 'Content-Type': 'application/vnd.google-earth.kml+xml',
 ```
 
-
 ## Create KMZ File
 
 ```js
- const archive = archiver('zip', {
-    zlib: { level: 9 }, // Sets the compression level.
-  });
+const archive = archiver("zip", {
+  zlib: { level: 9 }, // Sets the compression level.
+});
 
-  archive.append(Buffer.from(kmlFile), { name: 'file.kml' });
-  // archive.pipe(res); // for expressjs stream
+archive.append(Buffer.from(kmlFile), { name: "file.kml" });
+// archive.pipe(res); // for expressjs stream
 
-  return archive.finalize();
+return archive.finalize();
 ```
 
 Content-type for kml:

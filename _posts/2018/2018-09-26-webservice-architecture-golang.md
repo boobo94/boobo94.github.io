@@ -3,22 +3,22 @@ title: Web Service Architecture for Golang Developers
 layout: post
 categories: tutorials
 date: 2018-09-26 19:07:54 +0000
-summary: The web service architecture it's one of the most important part from your
+summary:
+  The web service architecture it's one of the most important part from your
   project. Learn how to create APIs, take care of security, interact with the database,
   write tests, use translations and manage the deployment process simply by using
   Golang.
 keywords: web service architecture, software architecture, golang, apis
 tags:
-- webservice
-- software-architecture
-- software
-- architecture
-- golang
-- go
-- models
+  - webservice
+  - software-architecture
+  - software
+  - architecture
+  - golang
+  - models
 cover: https://cdn.pixabay.com/photo/2016/08/05/07/17/laptop-1571702_1280.jpg
 redirect_from:
-- /webservice/webservice-architecture-golang/
+  - /webservice/webservice-architecture-golang/
 ---
 
 Web service architecture is the first phase before building every project, it's like you prepare to build a house and start by creating the architecture plan.
@@ -121,10 +121,10 @@ func ConvertAToB(obj A) B {
 
 Most web services must have at least one authorization method implemented, like:
 
-* [OAuth](https://en.wikipedia.org/wiki/OAuth) — Open Authentication
-* Basic Authentication
-* Token Authentication (I prefer this one with JWT — [JSON Web Token](https://jwt.io))
-* OpenID
+- [OAuth](https://en.wikipedia.org/wiki/OAuth) — Open Authentication
+- Basic Authentication
+- Token Authentication (I prefer this one with JWT — [JSON Web Token](https://jwt.io))
+- OpenID
 
 Personally, I use [JWT](https://jwt.io), because I write web services for our clients ([ATNM](https://www.airtouchmedia.com)), mostly for [mobile apps](https://whyboobo.com/portfolio/2021-01-01-public-law-mobile-app/) or [CMS](https://en.wikipedia.org/wiki/Content_management_system). If you'd like to read more about the [Web Authentication API](https://developer.mozilla.org/en-US/docs/Web/API/Web_Authentication_API), Mozilla has a great article that explains it very well.
 
@@ -136,8 +136,8 @@ Personally, I use [JWT](https://jwt.io), because I write web services for our cl
 
 ##### Why you should use JWT ?
 
-> * **Authorization**: This is the most common scenario for using JWT. Once the user is logged in, each subsequent request will include the JWT, allowing the user to access routes, services, and resources that are permitted with that token. Single Sign On is a feature that widely uses JWT nowadays, because of its small overhead and its ability to be easily used across different domains.
-> * **Information Exchange**: JSON Web Tokens are a good way of securely transmitting information between parties. Because JWTs can be signed—for example, using public/private key pairs—you can be sure the senders are who they say they are. Additionally, as the signature is calculated using the header and the payload, you can also verify that the content hasn't been tampered with.
+> - **Authorization**: This is the most common scenario for using JWT. Once the user is logged in, each subsequent request will include the JWT, allowing the user to access routes, services, and resources that are permitted with that token. Single Sign On is a feature that widely uses JWT nowadays, because of its small overhead and its ability to be easily used across different domains.
+> - **Information Exchange**: JSON Web Tokens are a good way of securely transmitting information between parties. Because JWTs can be signed—for example, using public/private key pairs—you can be sure the senders are who they say they are. Additionally, as the signature is calculated using the header and the payload, you can also verify that the content hasn't been tampered with.
 
 So, you have to verify the signature, to encode or decode the body, or to compose the JWT body. For this kind of processes I created the file _jwt.helper.go_, to keep a consistency and to find all the code related to JWT in a single place under the package _auth_.
 
@@ -155,7 +155,7 @@ I always prefer to put the _main.go_ file in this package, which contains all th
 
 **Why is name like that ?** It's simple, because _cmd_ is short for command.
 
-**What to understand through command?**  A command represents a task which is part of something, call other tasks, or run independently. The _main.go_ file is a command which usually wraps all the functions and packages of a web service in a single file and calls just the main functions of any package. At any moment, if you want to remove a functionality, you can simply remove it just by commenting the instance from the main file.
+**What to understand through command?** A command represents a task which is part of something, call other tasks, or run independently. The _main.go_ file is a command which usually wraps all the functions and packages of a web service in a single file and calls just the main functions of any package. At any moment, if you want to remove a functionality, you can simply remove it just by commenting the instance from the main file.
 
 ## /config
 
@@ -185,27 +185,27 @@ type Configuration struct {
 But this, is just the structure definitions and we still need the real data to be placed somewhere. For that part I prefer to have multiple [JSON files](https://json.org), depends by environment and to name them like `config.ENV.json`. For the structs defined before a dummy JSON example is the following:
 
 ```json
- {
-    "Database": {
-        "Dialect": "postgres",
-        "Debug": true,
-        "Username": "postgres",
-        "Password": "pass",
-        "Host": "example.com",
-        "Port": 5432,
-        "SSLMode": true,
-    },
-    "JWT": {
-        "Secret": "abcdefghijklmnopqrstuvwxyz"
-    }
+{
+  "Database": {
+    "Dialect": "postgres",
+    "Debug": true,
+    "Username": "postgres",
+    "Password": "pass",
+    "Host": "example.com",
+    "Port": 5432,
+    "SSLMode": true
+  },
+  "JWT": {
+    "Secret": "abcdefghijklmnopqrstuvwxyz"
+  }
 }
 ```
 
 Let's talk about business, because this part is very special for me and very important for the time invested in finding the best answer. I don't know if you faced this problem or not, or for you, maybe it is not a problem, but I really encountered some problems trying to import the config in a good way. There are many possibilities, but I had to face the dilemma to choose between two:
 
-* passing the config object as a variable from main.go to the final function, where I need to use it. This for sure is a good idea, because I pass that variable just for those instances which need it, so in this way I don't compromise speed quality. But this is very time consuming for development or refactoring, because I need to pass the config from one function to another one all the time, so in the end, you want to kill yourself, meeh.., maybe not, but I still don't like it.
-* declaring a global variable and using that instance everywhere I need. But this is not the best option at all in my opinion, because I have to declare a variable, for example in main.go file, and later in the main function I need to `Unmarshal()` the JSON file, to put that content into the variable object declared as global. But guess what, maybe I'm trying to call that object before it's initialization is ready, so I'll have an empty object, with no real values, so in this case my app will crash.
-* inject the config object directly where I need, and yes, this is my best option which fits perfectly with me. In _config.go_ file, at the end of it, I declare the following lines:
+- passing the config object as a variable from main.go to the final function, where I need to use it. This for sure is a good idea, because I pass that variable just for those instances which need it, so in this way I don't compromise speed quality. But this is very time consuming for development or refactoring, because I need to pass the config from one function to another one all the time, so in the end, you want to kill yourself, meeh.., maybe not, but I still don't like it.
+- declaring a global variable and using that instance everywhere I need. But this is not the best option at all in my opinion, because I have to declare a variable, for example in main.go file, and later in the main function I need to `Unmarshal()` the JSON file, to put that content into the variable object declared as global. But guess what, maybe I'm trying to call that object before it's initialization is ready, so I'll have an empty object, with no real values, so in this case my app will crash.
+- inject the config object directly where I need, and yes, this is my best option which fits perfectly with me. In _config.go_ file, at the end of it, I declare the following lines:
 
 ```go
 var Main = (func() Configuration {
@@ -308,7 +308,7 @@ A simple example of instantiation in main.go looks like:
 
 ### /service.go
 
-The purpose of this file is to keep a structure for all the handlers and instead to import a handler in multiple places or to keep an inconsistency to pass just a single object from _main.go_  to all API handlers which contains a reference to all handlers of database. So this file looks like:
+The purpose of this file is to keep a structure for all the handlers and instead to import a handler in multiple places or to keep an inconsistency to pass just a single object from _main.go_ to all API handlers which contains a reference to all handlers of database. So this file looks like:
 
 ```go
 package db
@@ -408,7 +408,7 @@ func HashPassword(password string) (*string, error) {
 
 func GenerateToken() string {
 	hasher := md5.New()
-    
+
 	// you can check the utils.RandStr() in /utils chapter of this article
 	hasher.Write([]byte(utils.RandStr(32)))
 
@@ -493,9 +493,9 @@ I know probably you project manager can skip this step, because the project must
 
 ## /gen
 
-Gen folder is that folder where all the code generated by third party libraries  is placed in. It's very simple to keep all that code inside a single place, because maybe.. you need to clean it by time to time, before to generate a new version and you can do that by simply using a [Makefile](https://en.wikipedia.org/wiki/Makefile) task, we will discuss about that, later.
+Gen folder is that folder where all the code generated by third party libraries is placed in. It's very simple to keep all that code inside a single place, because maybe.. you need to clean it by time to time, before to generate a new version and you can do that by simply using a [Makefile](https://en.wikipedia.org/wiki/Makefile) task, we will discuss about that, later.
 
-At work, we usually use [Swagger](https://swagger.io), a tool that makes our life easier and helps us to maintain a single file which serves as base for [APIs declaration](https://editor.swagger.io/?_ga=2.19720637.408907328.1539089399-1459746301.1538552745), [code generation](https://github.com/swagger-api/swagger-codegen) and documentation. But because Swagger is so cool and we are just human, it's much simple to use a graphical interface than to write [YAML](https://en.wikipedia.org/wiki/YAML) or JSON spec files. For that kind of job we use [StopLight](https://stoplight.io). What it does,  basically offers a graphic interface and after the work is done to export your desired spec file.
+At work, we usually use [Swagger](https://swagger.io), a tool that makes our life easier and helps us to maintain a single file which serves as base for [APIs declaration](https://editor.swagger.io/?_ga=2.19720637.408907328.1539089399-1459746301.1538552745), [code generation](https://github.com/swagger-api/swagger-codegen) and documentation. But because Swagger is so cool and we are just human, it's much simple to use a graphical interface than to write [YAML](https://en.wikipedia.org/wiki/YAML) or JSON spec files. For that kind of job we use [StopLight](https://stoplight.io). What it does, basically offers a graphic interface and after the work is done to export your desired spec file.
 
 ## /locales
 
@@ -516,8 +516,8 @@ JSON files looks like:
 
 ```json
 {
-    "hello_world":"Hello World",
-    "find_more":"Find more information about the project on the website %s"
+  "hello_world": "Hello World",
+  "find_more": "Find more information about the project on the website %s"
 }
 ```
 
@@ -535,7 +535,7 @@ Probably you asked yourself _Whatt?! A public folder inside a webservice ?!_ Yea
 
 Building a big project, sometimes require extra tools or let's say helpers to solve little problems. But these [helpers](/tips/5-questions-build-custom-alexa-skill//) are just small piece of code, so is not needed to create a separated package just for a simple and small piece of code. So yeah, **utils** package make the trick, because you can put here into separated files different code to make for example things like:
 
-* generate a random token
+- generate a random token
 
 ```go
 var letters = []rune("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ")
@@ -549,11 +549,11 @@ func RandStr(n int) string {
 }
 ```
 
-* generate a hash password
-* creating handlers to upload in Cloud
-* creating handlers to send emails
-* manager for logs
-* etc..
+- generate a hash password
+- creating handlers to upload in Cloud
+- creating handlers to send emails
+- manager for logs
+- etc..
 
 Basically here it's the place where with store all your mess which cannot be categorized, but it's more than a mess, because this mess makes your life easier and probably helps you to save time, by not repeating to write the same code in many places.
 
@@ -605,15 +605,15 @@ clean:
 
 serve:
 	realize start
-    
+
 # Build
 build:
 	go build cmd/main.go
-    
+
 # Build for linux
 build-linux:
 	env GOOS=linux go build cmd/main.go
-    
+
 # Deploy just the code to dev
 deploy-dev-code: build-linux copy-project
 

@@ -3,7 +3,7 @@ layout: post
 title: "Replacing the Modern Tech Stack with PostgreSQL"
 date: 2025-09-12 10:00:00 +0300
 categories: abstract
-tags: [postgresql, fullstack, libraries]
+tags: [postgresql, fullstack]
 summary: "Can you replace your entire tech stack with PostgreSQL? A breakdown of Fireship's video exploring Postgres extensions and features."
 ---
 

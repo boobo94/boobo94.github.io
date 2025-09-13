@@ -2,11 +2,10 @@
 layout: post
 title: The work environment is your second home
 categories: abstract
-summary: The work environment is your second home, or maybe even better is your first home. If you have a 9-5 job, probably you spend most of your day time inside your work environment. 
+summary: The work environment is your second home, or maybe even better is your first home. If you have a 9-5 job, probably you spend most of your day time inside your work environment.
 tags:
-- career
-- productivity
-- learning
+  - productivity
+  - learning
 date: 2021-01-13 09:09:09 +0000
 cover: https://cdn.pixabay.com/photo/2018/01/04/07/59/salt-harvesting-3060093_1280.jpg
 ---

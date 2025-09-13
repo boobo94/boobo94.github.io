@@ -3,7 +3,7 @@ layout: post
 title: Tiny Trip Planner
 summary: This is your tiny trip planner fully GDPR compliant, the data are stored only on your device.
 categories: tools
-tags: js trip app
+tags: javascript trip app
 date: 2025-08-08 09:09:09 +0000
 cover: /images/logo-trip-planner.png
 ---

@@ -2,7 +2,7 @@
 title: "Discover the Power of Whatsapp-web.js for Safe and Easy Automation"
 summary: "Automate WhatsApp with ease using Whatsapp-web.js, a NodeJS client library that connects through the official WhatsApp Web app, reducing ban risks. Perfect for user or business accounts."
 categories: tools
-tags: js tools
+tags: javascript tools
 date: 2023-10-20 09:09:09 +0000
 cover: https://wwebjs.dev/logo.png
 layout: post
@@ -41,37 +41,36 @@ then should look like:
     "whatsapp-web.js": "^1.22.2-alpha.4"
   }
 }
-
 ```
 
 Create an `index.js` file and add the code:
 
 ```js
 import { Client } from "whatsapp-web.js";
-import qrcode  from 'qrcode-terminal';
+import qrcode from "qrcode-terminal";
 import sendMessages from "./src/sendMessages.js";
 
 const client = new Client();
 
-client.on('qr', (qr) => {
-    console.log('QR RECEIVED', qr);
-    qrcode.generate(qr, { small: true });
+client.on("qr", (qr) => {
+  console.log("QR RECEIVED", qr);
+  qrcode.generate(qr, { small: true });
 });
 
-client.on('ready', () => {
-    console.log('Client is ready!');
+client.on("ready", () => {
+  console.log("Client is ready!");
 });
 
-client.on('authenticated', (session) => {    
-    // Save the session object however you prefer.
-    // Convert it to json, save it to a file, store it in a database...
-    console.log('Authenticated')
+client.on("authenticated", (session) => {
+  // Save the session object however you prefer.
+  // Convert it to json, save it to a file, store it in a database...
+  console.log("Authenticated");
 });
 
-client.on('message', message => {
-    if (message.body === '!ping') {
-        message.reply('pong');
-    }
+client.on("message", (message) => {
+  if (message.body === "!ping") {
+    message.reply("pong");
+  }
 });
 
 client.initialize();
@@ -121,10 +120,10 @@ Client is ready!
 As you can see, we have a code block:
 
 ```js
-client.on('message', message => {
-    if (message.body === '!ping') {
-        message.reply('pong');
-    }
+client.on("message", (message) => {
+  if (message.body === "!ping") {
+    message.reply("pong");
+  }
 });
 ```
 
@@ -159,6 +158,7 @@ function sendMessages(client, data) {
 ```
 
 As you can see in function definition it has two params:
+
 - `client` - the whatsapp client created above
 - `data` - where are stored the contacts and the message
 
@@ -168,13 +168,11 @@ The object looks like below and it's stored in `data.js` file, imported in `inde
 // data.js
 
 export default {
-    message: "test message ",
-    contacts: [
-        "4072XYZXYZX",
-        "4072AXYZXYZ",
-    ]
-}
+  message: "test message ",
+  contacts: ["4072XYZXYZX", "4072AXYZXYZ"],
+};
 ```
+
 !!! Very important to use the international prefix for your country.
 
 Then I have to call that function inside of `ready` event, so the events now looks like:
@@ -183,13 +181,12 @@ Then I have to call that function inside of `ready` event, so the events now loo
 // index.js
 import data from "./data.js";
 
-client.on('ready', () => {
-    console.log('Client is ready!');
+client.on("ready", () => {
+  console.log("Client is ready!");
 
-    sendMessages(client, data)
+  sendMessages(client, data);
 });
 ```
-
 
 ## Known issues & fixies
 
@@ -198,13 +195,14 @@ On whatsapp-web.js v1.22.1, after QR scanning is stucked.
 In order to fix it, go to `node_modules/whatsapp-web.js/src/CLient.js#175` (line 175) and replace
 
 ```js
-const INTRO_IMG_SELECTOR = '[data-testid="intro-md-beta-logo-dark"], [data-testid="intro-md-beta-logo-light"], [data-asset-intro-image-light="true"], [data-asset-intro-image-dark="true"]';
+const INTRO_IMG_SELECTOR =
+  '[data-testid="intro-md-beta-logo-dark"], [data-testid="intro-md-beta-logo-light"], [data-asset-intro-image-light="true"], [data-asset-intro-image-dark="true"]';
 ```
 
 with
 
 ```js
-const INTRO_IMG_SELECTOR = 'div[role=\'textbox\']';
+const INTRO_IMG_SELECTOR = "div[role='textbox']";
 ```
 
 [Source](https://github.com/pedroslopez/whatsapp-web.js/issues/2473#issuecomment-1707469920)

@@ -6,8 +6,6 @@ summary: Verify if point of coordinates (longitude, latitude) is polygon of coor
 tags:
   - geolocation
   - javascript
-  - es6
-  - polygon
   - coordinates
 date: 2021-01-13 09:09:09 +0000
 cover: "https://cdn.pixabay.com/photo/2015/09/05/20/03/globe-924927_960_720.jpg"

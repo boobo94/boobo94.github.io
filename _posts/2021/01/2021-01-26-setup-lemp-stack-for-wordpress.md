@@ -4,12 +4,11 @@ title: How to setup LEMP stack for Wordpress
 categories: devops
 summary: "In this tutorial, you’ll learn how to install and secure a LEMP server on Ubuntu or Debian. I used the following software versions, but most versions will be okay to use: Ubuntu 18.04 LTS, Nginx 1.14.0, MariaDB 15.1, PHP 7.2"
 tags:
-- devops
-- ubuntu
-- LEMP
-- wordpress
-- mariadb
-- php
+  - devops
+  - ubuntu
+  - wordpress
+  - mariadb
+  - php
 date: 2021-01-26 09:09:09 +0000
 cover: https://www.raffaelechiatto.com/wp-content/uploads/2018/09/lemp-logo2-978x489.jpg
 ---
@@ -111,7 +110,7 @@ Open `wp-config.php` with a text editor and make the following changes according
 
 ```sh
 define( 'DB_NAME', 'example_db' );
-define( 'DB_USER', 'example_user' ); 
+define( 'DB_USER', 'example_user' );
 define( 'DB_PASSWORD', 'example_pw' );
 ```
 
