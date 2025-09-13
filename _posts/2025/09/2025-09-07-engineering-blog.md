@@ -4,7 +4,7 @@ title: "Engineering Blogs"
 date: 2025-09-07
 summary: "A curated list of top engineering blogs that reveal how companies like Netflix, Airbnb, Uber, Spotify, Meta, and more ship into production at massive scale."
 categories: resources
-tags: [AI, Machine Learning, Engineering, Production, Scale, GenAI]
+tags: [ai, Machine Learning, Engineering, Production]
 cover: https://cdn.pixabay.com/photo/2024/07/14/13/46/ai-generated-8894581_1280.jpg
 ---
 
@@ -12,29 +12,29 @@ cover: https://cdn.pixabay.com/photo/2024/07/14/13/46/ai-generated-8894581_1280.
 
 Here are **9 engineering blogs** that show how AI actually ships:
 
-1️⃣ [AWS GenAI Blog](https://aws.amazon.com/blogs/machine-learning/category/artificial-intelligence/generative-ai/){:target="_blank"}  
-How they scale to 100K requests/second without melting  
+1️⃣ [AWS GenAI Blog](https://aws.amazon.com/blogs/machine-learning/category/artificial-intelligence/generative-ai/){:target="\_blank"}  
+How they scale to 100K requests/second without melting
 
-2️⃣ [Netflix Tech Blog](https://netflixtechblog.com/search?q=AI){:target="_blank"}  
-260M users. Every click predicted. Zero downtime.  
+2️⃣ [Netflix Tech Blog](https://netflixtechblog.com/search?q=AI){:target="\_blank"}  
+260M users. Every click predicted. Zero downtime.
 
-3️⃣ [Airbnb Engineering](https://medium.com/airbnb-engineering){:target="_blank"}  
-$75B in bookings. All ranked by ML in real-time.  
+3️⃣ [Airbnb Engineering](https://medium.com/airbnb-engineering){:target="\_blank"}  
+$75B in bookings. All ranked by ML in real-time.
 
-4️⃣ [LinkedIn Engineering](https://www.linkedin.com/blog/engineering/generative-ai){:target="_blank"}  
-This very feed. 1B members. Personalized instantly.  
+4️⃣ [LinkedIn Engineering](https://www.linkedin.com/blog/engineering/generative-ai){:target="\_blank"}  
+This very feed. 1B members. Personalized instantly.
 
-5️⃣ [Uber Engineering](https://www.uber.com/en-IN/blog/data/){:target="_blank"}  
-Feature drift detection that saved millions.  
+5️⃣ [Uber Engineering](https://www.uber.com/en-IN/blog/data/){:target="\_blank"}  
+Feature drift detection that saved millions.
 
-6️⃣ [Spotify Engineering](https://engineering.atspotify.com/?c=maching-learning){:target="_blank"}  
-600M playlists. Each one unique. How?  
+6️⃣ [Spotify Engineering](https://engineering.atspotify.com/?c=maching-learning){:target="\_blank"}  
+600M playlists. Each one unique. How?
 
-7️⃣ [LangChain Blog](https://blog.langchain.com/){:target="_blank"}  
-From prototype to production LLM apps.  
+7️⃣ [LangChain Blog](https://blog.langchain.com/){:target="\_blank"}  
+From prototype to production LLM apps.
 
-8️⃣ [HuggingFace Blog](https://huggingface.co/blog){:target="_blank"}  
-Model deployment without the 3am panic.  
+8️⃣ [HuggingFace Blog](https://huggingface.co/blog){:target="\_blank"}  
+Model deployment without the 3am panic.
 
-9️⃣ [Meta AI Blog](https://ai.meta.com/blog/){:target="_blank"}  
-PyTorch to production at 3B users daily.  
+9️⃣ [Meta AI Blog](https://ai.meta.com/blog/){:target="\_blank"}  
+PyTorch to production at 3B users daily.
