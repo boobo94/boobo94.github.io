@@ -3,7 +3,7 @@ layout: post
 title: How I got my digital certificate connected it with ANAF
 summary: How I got my digital certificate from certSIGN and connected it with ANAF
 categories: abstract
-tags: invoice tag2
+tags: invoice anaf
 date: 2024-01-03 09:09:09 +0000
 cover: https://media.licdn.com/dms/image/D4D22AQG603cZ3NfLbg/feedshare-shrink_800/0/1703786964714?e=1707955200&v=beta&t=_u6y-360_-ArrpL2zhJMihjfF3qSMW6jMKJK9N_5y5o
 ---

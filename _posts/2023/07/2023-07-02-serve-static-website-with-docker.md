@@ -2,7 +2,7 @@
 title: How to setup Docker with static HTML file
 summary: Are you ready to launch your static website with HTML, Docker and NginxProxyManager. Check this out and do it yourself pretty easy.
 categories: devops
-tags: docker tag2
+tags: docker
 date: 2023-01-01 09:09:09 +0000
 cover: https://cdn.pixabay.com/photo/2021/05/29/09/12/container-port-6292881_1280.jpg
 layout: post
@@ -80,7 +80,6 @@ volumes:
 
 
 ```
-
 
 Related articles:
 
