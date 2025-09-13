@@ -2,7 +2,7 @@
 title: Linode Object Storage usage in NodeJS
 summary: Simple use case of Linode Object storage in NodeJS with AWS-SDK for S3. Learn how to handle Linode Objects in plain Javascript.
 categories: tutorials
-tags: tag1 tag2
+tags: linode s3 aws cloud
 date: 2021-11-15 09:09:09 +0000
 cover: https://www.linode.com/wp-content/uploads/2019/12/hero-objectstorage-email-2048x1075.png
 layout: post
@@ -11,8 +11,8 @@ layout: post
 Simple use case of Linode Object storage in NodeJS with AWS-SDK for S3. Learn how to handle Linode Objects in plain Javascript.
 
 ```js
-import { Credentials } from 'aws-sdk';
-import S3 from 'aws-sdk/clients/s3';
+import { Credentials } from "aws-sdk";
+import S3 from "aws-sdk/clients/s3";
 
 const s3Client = new S3({
   region: process.env.LINODE_OBJECT_STORAGE_REGION,
@@ -25,13 +25,19 @@ const s3Client = new S3({
   }),
 });
 
-export async function uploadFileToObjectStorage(base64Data, path, fileName, fileType, extension) {
+export async function uploadFileToObjectStorage(
+  base64Data,
+  path,
+  fileName,
+  fileType,
+  extension
+) {
   const params = {
     Bucket: process.env.LINODE_OBJECT_BUCKET,
     Key: `${path}/${fileName}`,
     Body: base64Data,
-    ACL: 'public-read',
-    ContentEncoding: 'base64',
+    ACL: "public-read",
+    ContentEncoding: "base64",
     ContentType: `${fileType}/${extension}`,
   };
 
