@@ -6,8 +6,7 @@ layout: default
   <div class="posts" id="search-container">
     <h1>{{ page.title }}</h1>
 
-    {% assign posts_in_tag = site.posts | where_exp: 'post', 'post.tags contains page.tag' %}
-    {% for post in posts_in_tag %}
+    {% for post in site.tags[page.tag] %}
     <div class="post py3">
       <p class="post-meta">{{ post.date | date: site.date_format }}</p>
       <span class="post-meta small">
