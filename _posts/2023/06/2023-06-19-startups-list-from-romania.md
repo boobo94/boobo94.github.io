@@ -273,11 +273,19 @@ In this article, we delve into the captivating landscape of Romanian startups, u
             "category": "Health, Fitness"
         }
     ],
+    "Food": [
+        {
+            "name": "Nommy",
+            "url": "https://nommy.ro/",
+            "description": "Nommy offers customers a solution through which they can discover new restaurants and rewards when they choose to go out, a solution for gastronomic exploration of Romania.",
+            "category": "Food, Restaurants, Rewards, Gastronomic"
+        },
+    ],
     "Green": [
         {
             "name": "Ecotree",
             "url": "https://ecotree.ro",
-            "description": "Prima platformă digitală de management al deșeurilor din România",
+            "description": "The first digital waste management platform in Romania",
             "category": "Green"
         },
         {
