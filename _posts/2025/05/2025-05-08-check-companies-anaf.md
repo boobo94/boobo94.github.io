@@ -39,7 +39,7 @@ date: 2025-05-07 09:09:09 +0000
 
     const ANAF_API = "https://webservicesp.anaf.ro/api/PlatitorTvaRest/v9/tva";
 
-    fetch(`https://cors-anywhere.herokuapp.com/${ANAF_API}`, {
+    fetch(`https://cors-anywhere.com/${ANAF_API}`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -54,29 +54,31 @@ date: 2025-05-07 09:09:09 +0000
       .catch((error) => {
         document.getElementById("responseTable").innerHTML =
           "<pre>Error: " + error + "</pre>";
+
       });
-  }
 
-  function cleanDenumire(denumire) {
-    return denumire
-      .replace(/S\.R\.L\./g, "SRL")
-      .replace(/S\.R\.L/g, "SRL")
-      .replace(/SOCIETATE CU RASPUNDERE LIMITATĂ/g, "SRL")
-      .replace(/PERSOANĂ FIZICĂ AUTORIZATĂ/g, "PFA")
-      .replace(/ÎNTREPRINDERE INDIVIDUALĂ/g, "II")
-      .replace(/\./g, "");
-  }
+}
 
-  function copyToClipboard(text) {
-    navigator.clipboard.writeText(text);
-  }
+function cleanDenumire(denumire) {
+return denumire
+.replace(/S\.R\.L\./g, "SRL")
+.replace(/S\.R\.L/g, "SRL")
+.replace(/SOCIETATE CU RASPUNDERE LIMITATĂ/g, "SRL")
+.replace(/PERSOANĂ FIZICĂ AUTORIZATĂ/g, "PFA")
+.replace(/ÎNTREPRINDERE INDIVIDUALĂ/g, "II")
+.replace(/\./g, "");
+}
 
-  function renderTable(results) {
-    if (!results.length) {
-      document.getElementById("responseTable").innerHTML =
-        "<p>No data found.</p>";
-      return;
-    }
+function copyToClipboard(text) {
+navigator.clipboard.writeText(text);
+}
+
+function renderTable(results) {
+if (!results.length) {
+document.getElementById("responseTable").innerHTML =
+"<p>No data found.</p>";
+return;
+}
 
     let table = `
       <table border="1" cellspacing="0" cellpadding="5">
@@ -118,8 +120,8 @@ date: 2025-05-07 09:09:09 +0000
 
     table += `</tbody></table>`;
     document.getElementById("responseTable").innerHTML = table;
-  }
+
+}
 </script>
 
-
-<a href="https://cors-anywhere.herokuapp.com/" target="_blank">Pre-authorize CORS Anywhere</a>
+<a href="https://cors-anywhere.com/" target="_blank">Pre-authorize CORS Anywhere</a>
