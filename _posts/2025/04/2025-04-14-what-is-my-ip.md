@@ -1,6 +1,6 @@
 ---
 layout: post
-title: What is my Internet IP Address?
+title: What is my IP Address?
 summary: Discover your IP address over the internet
 categories: tools
 tags: ip
