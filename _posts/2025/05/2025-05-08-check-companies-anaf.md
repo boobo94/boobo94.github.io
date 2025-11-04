@@ -66,6 +66,7 @@ return denumire
 .replace(/SOCIETATE CU RASPUNDERE LIMITATĂ/g, "SRL")
 .replace(/PERSOANĂ FIZICĂ AUTORIZATĂ/g, "PFA")
 .replace(/ÎNTREPRINDERE INDIVIDUALĂ/g, "II")
+.replace(/ÎNTREPRINDERE FAMILIALĂ/g, "IF")
 .replace(/\./g, "");
 }
 
