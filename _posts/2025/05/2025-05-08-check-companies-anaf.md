@@ -27,7 +27,7 @@ date: 2025-05-07 09:09:09 +0000
     const input = document.getElementById("cuiInput").value;
     const taxIds = input
       .split("\n")
-      .map((line) => line.trim())
+      .map((line) => line.replace(/ro/gi, "").trim())
       .filter(Boolean);
 
     const today = new Date().toISOString().split("T")[0];
