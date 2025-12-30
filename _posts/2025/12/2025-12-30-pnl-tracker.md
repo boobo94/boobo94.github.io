@@ -18,7 +18,7 @@ cover: https://pixabay.com/images/download/businessman-2245098_1920.jpg
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
 
 <style>
-    :root {
+    .pnl-tracker {
     --bg: #0b1220;
     --text: #e7eefc;
     --muted: #a9b7d6;
@@ -29,12 +29,11 @@ cover: https://pixabay.com/images/download/businessman-2245098_1920.jpg
         "Liberation Mono", "Courier New", monospace;
     --sans: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto,
         Helvetica, Arial;
-    }
-    * {
-    box-sizing: border-box;
-    }
-    body {
     margin: 0;
+    width: 100vw;
+    max-width: 100vw;
+    margin-left: calc(50% - 50vw);
+    margin-right: calc(50% - 50vw);
     font-family: var(--sans);
     color: var(--text);
     background: radial-gradient(
@@ -49,7 +48,14 @@ cover: https://pixabay.com/images/download/businessman-2245098_1920.jpg
         ),
         var(--bg);
     }
-    header {
+
+    .pnl-tracker *,
+    .pnl-tracker *::before,
+    .pnl-tracker *::after {
+    box-sizing: border-box;
+    }
+
+    .pnl-tracker header {
     position: sticky;
     top: 0;
     z-index: 10;
@@ -62,12 +68,12 @@ cover: https://pixabay.com/images/download/businessman-2245098_1920.jpg
     align-items: flex-start;
     justify-content: space-between;
     }
-    header h1 {
+    .pnl-tracker header h1 {
     margin: 0;
     font-size: 16px;
     letter-spacing: 0.2px;
     }
-    header .sub {
+    .pnl-tracker header .sub {
     margin-top: 6px;
     font-size: 12.5px;
     color: var(--muted);
@@ -75,41 +81,41 @@ cover: https://pixabay.com/images/download/businessman-2245098_1920.jpg
     max-width: 980px;
     }
 
-    .actions {
+    .pnl-tracker .actions {
     display: flex;
     gap: 10px;
     flex-wrap: wrap;
     justify-content: flex-end;
     align-items: center;
     }
-    button,
-    input,
-    select,
-    textarea {
+    .pnl-tracker button,
+    .pnl-tracker input,
+    .pnl-tracker select,
+    .pnl-tracker textarea {
     font: inherit;
     color: inherit;
     }
-    button {
+    .pnl-tracker button {
     background: rgba(255, 255, 255, 0.06);
     border: 1px solid var(--border);
     padding: 10px 12px;
     border-radius: 12px;
     cursor: pointer;
     }
-    button.primary {
+    .pnl-tracker button.primary {
     background: rgba(102, 163, 255, 0.14);
     border-color: rgba(102, 163, 255, 0.35);
     }
-    button.danger {
+    .pnl-tracker button.danger {
     background: rgba(255, 107, 107, 0.12);
     border-color: rgba(255, 107, 107, 0.35);
     }
-    button:disabled {
+    .pnl-tracker button:disabled {
     opacity: 0.55;
     cursor: not-allowed;
     }
 
-    .pill {
+    .pnl-tracker .pill {
     display: inline-flex;
     gap: 8px;
     align-items: center;
@@ -127,40 +133,40 @@ cover: https://pixabay.com/images/download/businessman-2245098_1920.jpg
     transition: border-color 0.2s ease, background 0.2s ease,
         color 0.2s ease;
     }
-    .pill.success {
+    .pnl-tracker .pill.success {
     border-color: rgba(72, 199, 116, 0.55);
     background: rgba(72, 199, 116, 0.15);
     color: #baf3cf;
     }
-    .pill.warn {
+    .pnl-tracker .pill.warn {
     border-color: rgba(244, 177, 93, 0.7);
     background: rgba(244, 177, 93, 0.18);
     color: #ffe3c4;
     }
-    .pill.danger {
+    .pnl-tracker .pill.danger {
     border-color: rgba(255, 107, 107, 0.55);
     background: rgba(255, 107, 107, 0.14);
     color: #ffdada;
     }
 
-    main {
+    .pnl-tracker main {
     max-width: 1400px;
     margin: 0 auto;
     padding: 14px 18px 30px;
     }
-    .layout {
+    .pnl-tracker .layout {
     display: grid;
     grid-template-columns: 250px 1fr;
     gap: 12px;
     align-items: start;
     }
     @media (max-width: 980px) {
-    .layout {
+    .pnl-tracker .layout {
         grid-template-columns: 1fr;
     }
     }
 
-    .card {
+    .pnl-tracker .card {
     background: linear-gradient(
         180deg,
         rgba(255, 255, 255, 0.06),
@@ -171,7 +177,7 @@ cover: https://pixabay.com/images/download/businessman-2245098_1920.jpg
     box-shadow: var(--shadow);
     overflow: hidden;
     }
-    .hd {
+    .pnl-tracker .hd {
     padding: 12px 14px;
     border-bottom: 1px solid var(--border);
     background: rgba(15, 27, 51, 0.55);
@@ -180,58 +186,58 @@ cover: https://pixabay.com/images/download/businessman-2245098_1920.jpg
     align-items: center;
     gap: 10px;
     }
-    .hd h2 {
+    .pnl-tracker .hd h2 {
     margin: 0;
     font-size: 13px;
     letter-spacing: 0.2px;
     }
-    .bd {
+    .pnl-tracker .bd {
     padding: 14px;
     }
-    .nav {
+    .pnl-tracker .nav {
     padding: 10px;
     display: flex;
     flex-direction: column;
     gap: 8px;
     }
-    .nav button {
+    .pnl-tracker .nav button {
     text-align: left;
     }
-    .nav button.active {
+    .pnl-tracker .nav button.active {
     background: rgba(102, 163, 255, 0.14);
     border-color: rgba(102, 163, 255, 0.35);
     }
 
-    .row {
+    .pnl-tracker .row {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 10px;
     margin-bottom: 10px;
     }
-    .row3 {
+    .pnl-tracker .row3 {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     gap: 10px;
     margin-bottom: 10px;
     }
     @media (max-width: 900px) {
-    .row,
-    .row3 {
+    .pnl-tracker .row,
+    .pnl-tracker .row3 {
         grid-template-columns: 1fr;
     }
     }
 
-    label {
+    .pnl-tracker label {
     display: block;
     font-size: 12px;
     color: var(--muted);
     margin-bottom: 6px;
     }
-    input[type="text"],
-    input[type="number"],
-    input[type="date"],
-    select,
-    textarea {
+    .pnl-tracker input[type="text"],
+    .pnl-tracker input[type="number"],
+    .pnl-tracker input[type="date"],
+    .pnl-tracker select,
+    .pnl-tracker textarea {
     width: 100%;
     background: rgba(255, 255, 255, 0.05);
     border: 1px solid var(--border);
@@ -239,36 +245,36 @@ cover: https://pixabay.com/images/download/businessman-2245098_1920.jpg
     padding: 10px 10px;
     outline: none;
     }
-    textarea {
+    .pnl-tracker textarea {
     min-height: 70px;
     resize: vertical;
     }
 
-    table {
+    .pnl-tracker table {
     width: 100%;
     border-collapse: collapse;
     font-size: 12.5px;
     }
-    th,
-    td {
+    .pnl-tracker th,
+    .pnl-tracker td {
     padding: 10px 8px;
     border-bottom: 1px solid var(--border);
     text-align: left;
     vertical-align: top;
     }
-    th {
+    .pnl-tracker th {
     color: var(--muted);
     font-size: 12px;
     font-weight: 600;
     white-space: nowrap;
     }
-    td.mono {
+    .pnl-tracker td.mono {
     font-family: var(--mono);
     }
-    tr:hover td {
+    .pnl-tracker tr:hover td {
     background: rgba(255, 255, 255, 0.03);
     }
-    .toolbar {
+    .pnl-tracker .toolbar {
     display: flex;
     flex-wrap: wrap;
     gap: 10px;
@@ -276,66 +282,66 @@ cover: https://pixabay.com/images/download/businessman-2245098_1920.jpg
     align-items: end;
     margin-bottom: 10px;
     }
-    .toolbar .left,
-    .toolbar .right {
+    .pnl-tracker .toolbar .left,
+    .pnl-tracker .toolbar .right {
     display: flex;
     gap: 10px;
     flex-wrap: wrap;
     align-items: end;
     }
 
-    .kpis {
+    .pnl-tracker .kpis {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 10px;
     margin-bottom: 12px;
     }
     @media (max-width: 980px) {
-    .kpis {
+    .pnl-tracker .kpis {
         grid-template-columns: 1fr 1fr;
     }
     }
     @media (max-width: 520px) {
-    .kpis {
+    .pnl-tracker .kpis {
         grid-template-columns: 1fr;
     }
     }
-    .kpi {
+    .pnl-tracker .kpi {
     padding: 12px;
     border: 1px solid var(--border);
     border-radius: 14px;
     background: rgba(255, 255, 255, 0.04);
     }
-    .kpi .t {
+    .pnl-tracker .kpi .t {
     font-size: 12px;
     color: var(--muted);
     margin-bottom: 6px;
     }
-    .kpi .v {
+    .pnl-tracker .kpi .v {
     font-family: var(--mono);
     font-size: 18px;
     }
 
-    .gridCharts {
+    .pnl-tracker .gridCharts {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 12px;
     }
     @media (max-width: 980px) {
-    .gridCharts {
+    .pnl-tracker .gridCharts {
         grid-template-columns: 1fr;
     }
     }
-    .chartWrap {
+    .pnl-tracker .chartWrap {
     padding: 12px;
     }
-    canvas {
+    .pnl-tracker canvas {
     width: 100% !important;
     height: 320px !important;
     }
 
     /* Modal */
-    .modalBack {
+    .pnl-tracker .modalBack {
     position: fixed;
     inset: 0;
     background: rgba(0, 0, 0, 0.55);
@@ -345,7 +351,7 @@ cover: https://pixabay.com/images/download/businessman-2245098_1920.jpg
     padding: 16px;
     z-index: 50;
     }
-    .modal {
+    .pnl-tracker .modal {
     width: min(860px, 100%);
     background: rgba(16, 31, 60, 0.96);
     border: 1px solid var(--border);
@@ -353,84 +359,87 @@ cover: https://pixabay.com/images/download/businessman-2245098_1920.jpg
     box-shadow: var(--shadow);
     overflow: hidden;
     }
-    .modal .hd {
+    .pnl-tracker .modal .hd {
     background: rgba(15, 27, 51, 0.9);
     }
-    .hint {
+    .pnl-tracker .hint {
     font-size: 12px;
     color: var(--muted);
     line-height: 1.35;
     }
-    .warn {
+    .pnl-tracker .warn {
     font-size: 12px;
     color: #ffd166;
     line-height: 1.35;
     }
 </style>
 
-<header>
-    <div>
-    <h1>P&L Tracker</h1>
-    <div class="sub">Track profitability of your company</div>
-    </div>
-    <div class="actions">
-    <span class="pill" id="dbPill">DB: IndexedDB</span>
-    </div>
-</header>
+<div class="pnl-tracker">
+    <header>
+        <div>
+        <h1>P&L Tracker</h1>
+        <div class="sub">Track profitability of your company</div>
+        </div>
+        <div class="actions">
+        <span class="pill" id="dbPill">DB: IndexedDB</span>
+        </div>
+    </header>
 
-<input
-    type="file"
-    id="fileInputJson"
-    accept=".json,application/json"
-    style="display: none"
-/>
-<input
-    type="file"
-    id="fileInputCsv"
-    accept=".csv,text/csv"
-    style="display: none"
-/>
+    <input
+        type="file"
+        id="fileInputJson"
+        accept=".json,application/json"
+        style="display: none"
+    />
+    <input
+        type="file"
+        id="fileInputCsv"
+        accept=".csv,text/csv"
+        style="display: none"
+    />
 
-<main>
-    <div class="layout">
-    <div class="card">
-        <div class="hd"><h2>Navigation</h2></div>
-    <div class="nav">
-    <button class="active" data-view="dashboard">Dashboard</button>
-    <button data-view="transactions">Income & Expenses</button>
-    <button data-view="categories">Categories</button>
-    <button data-view="apps">Apps</button>
-    <button data-view="reports">Reports</button>
-    <button data-view="settings">Settings</button>
-    </div>
-        <div class="bd">
-        <div class="hint" id="status">Initializing…</div>
-        <div class="warn" style="margin-top: 10px">
-            Data is stored in your browser (IndexedDB). Use Settings to back
-            up or restore data across machines.
+    <main>
+        <div class="layout">
+        <div class="card">
+            <div class="hd"><h2>Navigation</h2></div>
+        <div class="nav">
+        <button class="active" data-view="dashboard">Dashboard</button>
+        <button data-view="transactions">Income & Expenses</button>
+        <button data-view="categories">Categories</button>
+        <button data-view="apps">Apps</button>
+        <button data-view="reports">Reports</button>
+        <button data-view="settings">Settings</button>
+        </div>
+            <div class="bd">
+            <div class="hint" id="status">Initializing…</div>
+            <div class="warn" style="margin-top: 10px">
+                Data is stored in your browser (IndexedDB). Use Settings to back
+                up or restore data across machines.
+            </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="hd"><h2 id="viewTitle">Dashboard</h2></div>
+            <div class="bd" id="viewRoot"></div>
         </div>
         </div>
-    </div>
 
-    <div class="card">
-        <div class="hd"><h2 id="viewTitle">Dashboard</h2></div>
-        <div class="bd" id="viewRoot"></div>
-    </div>
-    </div>
+    </main>
 
-</main>
-
-<!-- Modal -->
-<div class="modalBack" id="modalBack">
-    <div class="modal">
-    <div class="hd">
-        <h2 id="modalTitle">Edit</h2>
-        <div style="display: flex; gap: 10px">
-        <button id="btnModalClose">Close</button>
+    <!-- Modal -->
+    <div class="modalBack" id="modalBack">
+        <div class="modal">
+        <div class="hd">
+            <h2 id="modalTitle">Edit</h2>
+            <div style="display: flex; gap: 10px">
+            <button id="btnModalClose">Close</button>
+            </div>
+        </div>
+        <div class="bd" id="modalBody"></div>
         </div>
     </div>
-    <div class="bd" id="modalBody"></div>
-    </div>
+
 </div>
 
 <script>
