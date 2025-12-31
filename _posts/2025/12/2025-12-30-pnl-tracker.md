@@ -456,6 +456,11 @@ date: 2025-11-30 09:09:09 +0000
     const el = (id) => document.getElementById(id);
     const fmt = (n) =>
     n === null || n === undefined || isNaN(n) ? "—" : Number(n).toFixed(2);
+    const numberFormatter = new Intl.NumberFormat("en-US", {
+    minimumFractionDigits: 2,
+    maximumFractionDigits: 2,
+    });
+    const fmtNum = (n) => numberFormatter.format(Number(n || 0));
     const todayISO = () => {
     const d = new Date();
     const p = (x) => String(x).padStart(2, "0");
@@ -477,6 +482,44 @@ date: 2025-11-30 09:09:09 +0000
     };
     const markDirty = () => setBackupState(true);
     const markBackedUp = () => setBackupState(false);
+    const dominantCurrency = (rows) => {
+    const counts = new Map();
+    rows.forEach((t) => {
+        const cur = (t.currency || "RON").toUpperCase();
+        counts.set(cur, (counts.get(cur) || 0) + 1);
+    });
+    return counts.size
+        ? [...counts.entries()].sort((a, b) => b[1] - a[1])[0][0]
+        : "RON";
+    };
+    const chartOptions = (currency, { stacked = false } = {}) => ({
+    responsive: true,
+    maintainAspectRatio: false,
+    interaction: { mode: "index", intersect: false },
+    plugins: {
+        legend: { position: "bottom" },
+        tooltip: {
+        callbacks: {
+            label: (ctx) => {
+            const raw = ctx.raw ?? ctx.parsed?.y ?? ctx.parsed ?? 0;
+            const name = ctx.dataset?.label || "";
+            const suffix = currency ? ` ${currency}` : "";
+            return `${name}: ${fmtNum(raw)}${suffix}`;
+            },
+        },
+        },
+    },
+    scales: {
+        x: { stacked },
+        y: {
+        stacked,
+        beginAtZero: true,
+        ticks: {
+            callback: (v) => fmtNum(v),
+        },
+        },
+    },
+    });
 
     // ---------- IndexedDB storage ----------
     function openIDB() {
@@ -887,6 +930,7 @@ date: 2025-11-30 09:09:09 +0000
     const txs = db.transactions.filter(
         (t) => t.date >= start && t.date <= end
     );
+    const currency = dominantCurrency(txs);
 
     const income = txs
         .filter((t) => t.type === "income")
@@ -932,10 +976,7 @@ date: 2025-11-30 09:09:09 +0000
             { label: "Profit (Net)", data: profitSeries, tension: 0.2 },
         ],
         },
-        options: {
-        responsive: true,
-        plugins: { legend: { position: "bottom" } },
-        },
+        options: chartOptions(currency),
     });
 
     // Profitability by project
@@ -966,10 +1007,7 @@ date: 2025-11-30 09:09:09 +0000
         labels: projectLabels,
         datasets: [{ label: "Profit (Net)", data: projectProfit }],
         },
-        options: {
-        responsive: true,
-        plugins: { legend: { position: "bottom" } },
-        },
+        options: chartOptions(currency),
     });
 
     // Monthly revenue by project (stacked)
@@ -984,7 +1022,9 @@ date: 2025-11-30 09:09:09 +0000
         });
         });
 
-    const months = [...new Set(incomeByProjectMonth.map((r) => r.month))];
+    const months = [...new Set(incomeByProjectMonth.map((r) => r.month))].sort(
+        (a, b) => a.localeCompare(b)
+    );
     const projects = [
         ...new Set(incomeByProjectMonth.map((r) => r.project)),
     ];
@@ -1005,11 +1045,7 @@ date: 2025-11-30 09:09:09 +0000
     charts.revenueByProject = new Chart(el("cRevenueByProject"), {
         type: "bar",
         data: { labels: months, datasets },
-        options: {
-        responsive: true,
-        plugins: { legend: { position: "bottom" } },
-        scales: { x: { stacked: true }, y: { stacked: true } },
-        },
+        options: chartOptions(currency, { stacked: true }),
     });
 
     setStatus(`Dashboard refreshed for ${start} → ${end}.`);
