@@ -406,7 +406,7 @@ cover: https://pixabay.com/images/download/businessman-2245098_1920.jpg
         <button class="active" data-view="dashboard">Dashboard</button>
         <button data-view="transactions">Income & Expenses</button>
         <button data-view="categories">Categories</button>
-        <button data-view="apps">Apps</button>
+        <button data-view="apps">Projects</button>
         <button data-view="reports">Reports</button>
         <button data-view="settings">Settings</button>
         </div>
@@ -558,7 +558,7 @@ cover: https://pixabay.com/images/download/businessman-2245098_1920.jpg
     });
 
     const findApp = (id) => db.apps.find((a) => a.id === id) || null;
-    const appName = (id) => findApp(id)?.name || "(Unassigned)";
+    const appName = (id) => findApp(id)?.name || "(Unassigned project)";
 
     // ---------- Export / Import ----------
     function exportJson() {
@@ -616,7 +616,7 @@ cover: https://pixabay.com/images/download/businessman-2245098_1920.jpg
     const headers = [
         "type",
         "date",
-        "app",
+        "project",
         "party",
         "category",
         "amount_net",
@@ -627,7 +627,7 @@ cover: https://pixabay.com/images/download/businessman-2245098_1920.jpg
     const sample = [
         "income",
         todayISO(),
-        "Sample App",
+        "Sample Project",
         "ACME Corp",
         "Services",
         "1200",
@@ -669,7 +669,7 @@ cover: https://pixabay.com/images/download/businessman-2245098_1920.jpg
         }
 
         let created = 0;
-        let createdApps = 0;
+        let createdProjects = 0;
         rows.forEach((row, idx) => {
         const type = String(row.type || "").toLowerCase();
         if (type !== "income" && type !== "expense") return;
@@ -683,7 +683,7 @@ cover: https://pixabay.com/images/download/businessman-2245098_1920.jpg
         const amount_gross = amount_net + vat_amount;
         const currency = (row.currency || "RON").toUpperCase();
 
-        const appLabel = (row.app || "").trim();
+        const appLabel = (row.project || row.app || "").trim();
         let app_id = null;
         if (appLabel) {
             const existing =
@@ -700,7 +700,7 @@ cover: https://pixabay.com/images/download/businessman-2245098_1920.jpg
             };
             db.apps.push(newApp);
             app_id = newApp.id;
-            createdApps += 1;
+            createdProjects += 1;
             }
         }
 
@@ -726,7 +726,7 @@ cover: https://pixabay.com/images/download/businessman-2245098_1920.jpg
         renderCurrentView();
         setStatus(
         `Imported ${created} row(s) from ${file.name}${
-            createdApps ? ` (created ${createdApps} new app(s))` : ""
+            createdProjects ? ` (created ${createdProjects} new project(s))` : ""
         }.`
         );
     } catch (e) {
@@ -811,7 +811,7 @@ cover: https://pixabay.com/images/download/businessman-2245098_1920.jpg
         : currentView === "categories"
         ? "Categories (CRUD)"
         : currentView === "apps"
-        ? "Apps (CRUD)"
+        ? "Projects (CRUD)"
         : currentView === "settings"
         ? "Settings"
         : "Reports";
@@ -864,13 +864,13 @@ cover: https://pixabay.com/images/download/businessman-2245098_1920.jpg
         <div class="chartWrap"><canvas id="cProfitMonthly"></canvas></div>
     </div>
     <div class="card" style="box-shadow:none;">
-        <div class="hd"><h2>Profitability by app</h2></div>
+        <div class="hd"><h2>Profitability by project</h2></div>
         <div class="chartWrap"><canvas id="cProfitByApp"></canvas></div>
     </div>
     </div>
 
     <div class="card" style="margin-top:12px; box-shadow:none;">
-    <div class="hd"><h2>Monthly revenue by app</h2></div>
+    <div class="hd"><h2>Monthly revenue by project</h2></div>
     <div class="chartWrap"><canvas id="cRevenueByApp"></canvas></div>
     </div>
 `;
@@ -936,7 +936,7 @@ cover: https://pixabay.com/images/download/businessman-2245098_1920.jpg
         },
     });
 
-    // Profitability by app
+    // Profitability by project
     const appMap = new Map();
     txs.forEach((t) => {
         const key = appName(t.app_id);
@@ -969,7 +969,7 @@ cover: https://pixabay.com/images/download/businessman-2245098_1920.jpg
         },
     });
 
-    // Monthly revenue by app (stacked)
+    // Monthly revenue by project (stacked)
     const incomeByAppMonth = [];
     txs
         .filter((t) => t.type === "income")
@@ -1023,7 +1023,7 @@ cover: https://pixabay.com/images/download/businessman-2245098_1920.jpg
         </select>
         </div>
         <div><label>Search (party/category)</label><input id="tSearch" type="text" placeholder="optional"></div>
-        <div><label>App</label><select id="tApp"></select></div>
+        <div><label>Project</label><select id="tApp"></select></div>
     </div>
     <div class="right">
         <button id="btnAddTx" class="primary">Add income/expense</button>
@@ -1036,7 +1036,7 @@ cover: https://pixabay.com/images/download/businessman-2245098_1920.jpg
         <table>
         <thead>
             <tr>
-            <th>Date</th><th>Type</th><th>App</th><th>Party</th><th>Category</th>
+            <th>Date</th><th>Type</th><th>Project</th><th>Party</th><th>Category</th>
             <th class="mono">Net</th><th class="mono">VAT</th><th class="mono">Gross</th><th>Cur</th><th></th>
             </tr>
         </thead>
@@ -1209,21 +1209,21 @@ cover: https://pixabay.com/images/download/businessman-2245098_1920.jpg
     };
     }
 
-    // ---------- Apps (CRUD) ----------
-    // ---------- Apps (CRUD) ----------
+    // ---------- Projects (CRUD) ----------
+    // ---------- Projects (CRUD) ----------
     function renderApps(root) {
     root.innerHTML = `
     <div class="toolbar">
     <div class="left">
-        <div class="hint">Apps drive the “profitability by app” charts and filters.</div>
+        <div class="hint">Projects drive the “profitability by project” charts and filters.</div>
     </div>
     <div class="right">
-        <button id="btnAddApp" class="primary">Add app</button>
+        <button id="btnAddApp" class="primary">Add project</button>
     </div>
     </div>
 
     <div class="card" style="box-shadow:none;">
-    <div class="hd"><h2>Apps</h2></div>
+    <div class="hd"><h2>Projects</h2></div>
     <div class="bd" style="padding:0;">
         <table>
         <thead><tr><th>Name</th><th>Active</th><th></th></tr></thead>
@@ -1256,7 +1256,7 @@ cover: https://pixabay.com/images/download/businessman-2245098_1920.jpg
 `
         )
         .join("") ||
-        `<tr><td colspan="3" style="padding:12px;" class="hint">No apps.</td></tr>`;
+        `<tr><td colspan="3" style="padding:12px;" class="hint">No projects.</td></tr>`;
 
     el("appRows").onclick = async (e) => {
         const editId = e.target?.getAttribute?.("data-edit");
@@ -1271,7 +1271,7 @@ cover: https://pixabay.com/images/download/businessman-2245098_1920.jpg
         db.apps = db.apps.filter((a) => a.id !== id);
         markDirty();
         await persist();
-        setStatus(`Deleted app #${id}.`);
+        setStatus(`Deleted project #${id}.`);
         refreshApps();
         }
     };
@@ -1288,7 +1288,7 @@ cover: https://pixabay.com/images/download/businessman-2245098_1920.jpg
         <label>Group</label>
         <select id="rGroup">
             <option value="category">By category</option>
-            <option value="app">By app</option>
+            <option value="app">By project</option>
             <option value="month">By month</option>
         </select>
         </div>
@@ -1351,7 +1351,7 @@ cover: https://pixabay.com/images/download/businessman-2245098_1920.jpg
     if (grp === "app") {
         el(
         "rHead"
-        ).innerHTML = `<tr><th>App</th><th class="mono">Income</th><th class="mono">Expenses</th><th class="mono">Profit</th></tr>`;
+        ).innerHTML = `<tr><th>Project</th><th class="mono">Income</th><th class="mono">Expenses</th><th class="mono">Profit</th></tr>`;
         const rowsMap = new Map();
         db.transactions
         .filter((t) => t.date >= start && t.date <= end)
@@ -1449,8 +1449,8 @@ cover: https://pixabay.com/images/download/businessman-2245098_1920.jpg
         <div>
             <label>CSV import & model</label>
             <div class="hint">
-            CSV headers: type, date (YYYY-MM-DD), app, party, category, amount_net, vat_pct, currency, notes.
-            Missing apps will be created automatically.
+            CSV headers: type, date (YYYY-MM-DD), project (or app), party, category, amount_net, vat_pct, currency, notes.
+            Missing projects will be created automatically.
             </div>
             <div style="display:flex; gap:8px; flex-wrap:wrap; margin-top:8px;">
             <button id="btnSettingsImportCsv">Import CSV</button>
@@ -1564,7 +1564,7 @@ cover: https://pixabay.com/images/download/businessman-2245098_1920.jpg
     openModal();
     }
 
-    // ---------- Modal: App CRUD ----------
+    // ---------- Modal: Project CRUD ----------
     function openAppModal(appId, onDone) {
     const isEdit = !!appId;
     const app = isEdit
@@ -1572,8 +1572,8 @@ cover: https://pixabay.com/images/download/businessman-2245098_1920.jpg
         : { name: "", is_active: 1 };
 
     el("modalTitle").textContent = isEdit
-        ? `Edit app #${appId}`
-        : "Add app";
+        ? `Edit project #${appId}`
+        : "Add project";
     el("modalBody").innerHTML = `
     <div class="row">
     <div>
@@ -1591,7 +1591,7 @@ cover: https://pixabay.com/images/download/businessman-2245098_1920.jpg
     </div>
     </div>
     <div class="toolbar">
-    <div class="left"><div class="hint">Apps are referenced by transactions via app_id.</div></div>
+    <div class="left"><div class="hint">Projects are referenced by transactions via app_id.</div></div>
     <div class="right">
         <button id="btnSaveApp" class="primary">${
         isEdit ? "Save" : "Create"
@@ -1604,7 +1604,7 @@ cover: https://pixabay.com/images/download/businessman-2245098_1920.jpg
         const name = el("mAppName").value.trim();
         const active = Number(el("mAppActive").value);
         if (!name) {
-        setStatus("App name is required.");
+        setStatus("Project name is required.");
         return;
         }
 
@@ -1620,7 +1620,7 @@ cover: https://pixabay.com/images/download/businessman-2245098_1920.jpg
         markDirty();
         await persist();
         closeModal();
-        setStatus(isEdit ? "App updated." : "App created.");
+        setStatus(isEdit ? "Project updated." : "Project created.");
         onDone?.();
         if (currentView === "dashboard") refreshDashboard();
         } catch (e) {
@@ -1690,7 +1690,7 @@ cover: https://pixabay.com/images/download/businessman-2245098_1920.jpg
 
     <div class="row">
     <div>
-        <label>App</label>
+        <label>Project</label>
         <select id="mTxApp"></select>
     </div>
     <div>
@@ -1850,7 +1850,7 @@ cover: https://pixabay.com/images/download/businessman-2245098_1920.jpg
         .sort((a, b) => a.name.localeCompare(b.name));
     const options = [];
     if (includeAll) options.push(`<option value="all">All</option>`);
-    options.push(`<option value="null">(Unassigned)</option>`);
+    options.push(`<option value="null">(Unassigned project)</option>`);
     apps.forEach((a) =>
         options.push(`<option value="${a.id}">${escapeHtml(a.name)}</option>`)
     );
