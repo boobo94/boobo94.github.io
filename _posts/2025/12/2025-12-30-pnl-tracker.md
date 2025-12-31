@@ -6,7 +6,6 @@ summary: Track your income and expenses.
 categories: tools
 tags: tag1 tag2
 date: 2025-11-30 09:09:09 +0000
-cover: https://pixabay.com/images/download/businessman-2245098_1920.jpg
 # redirect_from:
 # - /old1-route
 # - /old2-route
@@ -407,7 +406,7 @@ cover: https://pixabay.com/images/download/businessman-2245098_1920.jpg
         <button class="active" data-view="dashboard">Dashboard</button>
         <button data-view="transactions">Income & Expenses</button>
         <button data-view="categories">Categories</button>
-        <button data-view="apps">Projects</button>
+        <button data-view="projects">Projects</button>
         <button data-view="reports">Reports</button>
         <button data-view="settings">Settings</button>
         </div>
@@ -449,8 +448,8 @@ cover: https://pixabay.com/images/download/businessman-2245098_1920.jpg
     let idbHealthy = true; // flag to skip persistence if IndexedDB is not available
     let charts = {
     profitMonthly: null,
-    profitByApp: null,
-    revenueByApp: null,
+    profitByProject: null,
+    revenueByProject: null,
     };
     let backupDirty = true;
 
@@ -550,16 +549,18 @@ cover: https://pixabay.com/images/download/businessman-2245098_1920.jpg
     ];
 
     const createEmptyDb = () => ({
-    apps: [],
+    projects: [],
     categories: defaultCategories(),
     transactions: [],
-    nextAppId: 1,
+    nextProjectId: 1,
     nextCategoryId: 7,
     nextTxId: 1,
     });
 
-    const findApp = (id) => db.apps.find((a) => a.id === id) || null;
-    const appName = (id) => findApp(id)?.name || "(Unassigned project)";
+    const findProject = (id) =>
+    db.projects.find((p) => p.id === id) || null;
+    const projectName = (id) =>
+    findProject(id)?.name || "(Unassigned project)";
 
     // ---------- Export / Import ----------
     function exportJson() {
@@ -584,17 +585,17 @@ cover: https://pixabay.com/images/download/businessman-2245098_1920.jpg
     try {
         const text = await file.text();
         const parsed = JSON.parse(text);
-        if (!parsed || !Array.isArray(parsed.apps) || !Array.isArray(parsed.transactions)) {
+        if (!parsed || !Array.isArray(parsed.projects) || !Array.isArray(parsed.transactions)) {
         throw new Error("Invalid JSON structure.");
         }
         const categories = Array.isArray(parsed.categories)
         ? parsed.categories
         : defaultCategories();
         db = {
-        apps: parsed.apps,
+        projects: parsed.projects,
         categories,
         transactions: parsed.transactions,
-        nextAppId: parsed.nextAppId || 1,
+        nextProjectId: parsed.nextProjectId || 1,
         nextCategoryId:
             parsed.nextCategoryId ||
             (categories.length
@@ -684,23 +685,23 @@ cover: https://pixabay.com/images/download/businessman-2245098_1920.jpg
         const amount_gross = amount_net + vat_amount;
         const currency = (row.currency || "RON").toUpperCase();
 
-        const appLabel = (row.project || row.app || "").trim();
-        let app_id = null;
-        if (appLabel) {
+        const projectLabel = (row.project || "").trim();
+        let project_id = null;
+        if (projectLabel) {
             const existing =
-            db.apps.find(
-                (a) => a.name.toLowerCase() === appLabel.toLowerCase()
+            db.projects.find(
+                (p) => p.name.toLowerCase() === projectLabel.toLowerCase()
             ) || null;
             if (existing) {
-            app_id = existing.id;
+            project_id = existing.id;
             } else {
-            const newApp = {
-                id: db.nextAppId++,
-                name: appLabel,
+            const newProject = {
+                id: db.nextProjectId++,
+                name: projectLabel,
                 is_active: 1,
             };
-            db.apps.push(newApp);
-            app_id = newApp.id;
+            db.projects.push(newProject);
+            project_id = newProject.id;
             createdProjects += 1;
             }
         }
@@ -709,7 +710,7 @@ cover: https://pixabay.com/images/download/businessman-2245098_1920.jpg
             id: db.nextTxId++,
             type,
             date,
-            app_id,
+            project_id,
             party: row.party?.trim() || null,
             category: row.category?.trim() || null,
             amount_net,
@@ -752,12 +753,12 @@ cover: https://pixabay.com/images/download/businessman-2245098_1920.jpg
 
     const parseRaw = (r) => {
         if (!r) return null;
-        if (r.apps && r.transactions) return r;
+        if (r.projects && r.transactions) return r;
         try {
         // Attempt to decode Uint8Array or ArrayBuffer as JSON text
         const txt = new TextDecoder().decode(r);
         const obj = JSON.parse(txt);
-        if (obj.apps && obj.transactions) return obj;
+        if (obj.projects && obj.transactions) return obj;
         } catch {}
         return null;
     };
@@ -811,7 +812,7 @@ cover: https://pixabay.com/images/download/businessman-2245098_1920.jpg
         ? "Income & Expenses (CRUD)"
         : currentView === "categories"
         ? "Categories (CRUD)"
-        : currentView === "apps"
+        : currentView === "projects"
         ? "Projects (CRUD)"
         : currentView === "settings"
         ? "Settings"
@@ -831,7 +832,7 @@ cover: https://pixabay.com/images/download/businessman-2245098_1920.jpg
     if (currentView === "dashboard") renderDashboard(root);
     else if (currentView === "transactions") renderTransactions(root);
     else if (currentView === "categories") renderCategories(root);
-    else if (currentView === "apps") renderApps(root);
+    else if (currentView === "projects") renderProjects(root);
     else if (currentView === "settings") renderSettings(root);
     else renderReports(root);
     }
@@ -866,13 +867,13 @@ cover: https://pixabay.com/images/download/businessman-2245098_1920.jpg
     </div>
     <div class="card" style="box-shadow:none;">
         <div class="hd"><h2>Profitability by project</h2></div>
-        <div class="chartWrap"><canvas id="cProfitByApp"></canvas></div>
+        <div class="chartWrap"><canvas id="cProfitByProject"></canvas></div>
     </div>
     </div>
 
     <div class="card" style="margin-top:12px; box-shadow:none;">
     <div class="hd"><h2>Monthly revenue by project</h2></div>
-    <div class="chartWrap"><canvas id="cRevenueByApp"></canvas></div>
+    <div class="chartWrap"><canvas id="cRevenueByProject"></canvas></div>
     </div>
 `;
 
@@ -938,31 +939,32 @@ cover: https://pixabay.com/images/download/businessman-2245098_1920.jpg
     });
 
     // Profitability by project
-    const appMap = new Map();
+    const projectMap = new Map();
     txs.forEach((t) => {
-        const key = appName(t.app_id);
-        const cur = appMap.get(key) || { app: key, income: 0, expense: 0 };
+        const key = projectName(t.project_id);
+        const cur =
+        projectMap.get(key) || { project: key, income: 0, expense: 0 };
         if (t.type === "income") cur.income += Number(t.amount_net || 0);
         else cur.expense += Number(t.amount_net || 0);
-        appMap.set(key, cur);
+        projectMap.set(key, cur);
     });
     const profit = (row) =>
         Number(row.income || 0) - Number(row.expense || 0);
-    const byApp = [...appMap.values()].sort(
+    const byProject = [...projectMap.values()].sort(
         (a, b) => profit(b) - profit(a)
     );
 
-    const appLabels = byApp.map((r) => r.app);
-    const appProfit = byApp.map(
+    const projectLabels = byProject.map((r) => r.project);
+    const projectProfit = byProject.map(
         (r) => Number(r.income || 0) - Number(r.expense || 0)
     );
 
-    if (charts.profitByApp) charts.profitByApp.destroy();
-    charts.profitByApp = new Chart(el("cProfitByApp"), {
+    if (charts.profitByProject) charts.profitByProject.destroy();
+    charts.profitByProject = new Chart(el("cProfitByProject"), {
         type: "bar",
         data: {
-        labels: appLabels,
-        datasets: [{ label: "Profit (Net)", data: appProfit }],
+        labels: projectLabels,
+        datasets: [{ label: "Profit (Net)", data: projectProfit }],
         },
         options: {
         responsive: true,
@@ -971,31 +973,36 @@ cover: https://pixabay.com/images/download/businessman-2245098_1920.jpg
     });
 
     // Monthly revenue by project (stacked)
-    const incomeByAppMonth = [];
+    const incomeByProjectMonth = [];
     txs
         .filter((t) => t.type === "income")
         .forEach((t) => {
-        incomeByAppMonth.push({
+        incomeByProjectMonth.push({
             month: String(t.date).slice(0, 7),
-            app: appName(t.app_id),
+            project: projectName(t.project_id),
             income: Number(t.amount_net || 0),
         });
         });
 
-    const months = [...new Set(incomeByAppMonth.map((r) => r.month))];
-    const apps = [...new Set(incomeByAppMonth.map((r) => r.app))];
+    const months = [...new Set(incomeByProjectMonth.map((r) => r.month))];
+    const projects = [
+        ...new Set(incomeByProjectMonth.map((r) => r.project)),
+    ];
 
-    const datasets = apps.map((app) => {
+    const datasets = projects.map((project) => {
         const m = new Map(
-        incomeByAppMonth
-            .filter((x) => x.app === app)
+        incomeByProjectMonth
+            .filter((x) => x.project === project)
             .map((x) => [x.month, Number(x.income || 0)])
         );
-        return { label: app, data: months.map((mm) => m.get(mm) || 0) };
+        return {
+        label: project,
+        data: months.map((mm) => m.get(mm) || 0),
+        };
     });
 
-    if (charts.revenueByApp) charts.revenueByApp.destroy();
-    charts.revenueByApp = new Chart(el("cRevenueByApp"), {
+    if (charts.revenueByProject) charts.revenueByProject.destroy();
+    charts.revenueByProject = new Chart(el("cRevenueByProject"), {
         type: "bar",
         data: { labels: months, datasets },
         options: {
@@ -1024,7 +1031,7 @@ cover: https://pixabay.com/images/download/businessman-2245098_1920.jpg
         </select>
         </div>
         <div><label>Search (party/category)</label><input id="tSearch" type="text" placeholder="optional"></div>
-        <div><label>Project</label><select id="tApp"></select></div>
+        <div><label>Project</label><select id="tProject"></select></div>
     </div>
     <div class="right">
         <button id="btnAddTx" class="primary">Add income/expense</button>
@@ -1047,9 +1054,9 @@ cover: https://pixabay.com/images/download/businessman-2245098_1920.jpg
     </div>
 `;
 
-    fillAppSelect(el("tApp"), true);
+    fillProjectSelect(el("tProject"), true);
     const refresh = () => refreshTransactions();
-    ["tStart", "tEnd", "tType", "tApp"].forEach(
+    ["tStart", "tEnd", "tType", "tProject"].forEach(
         (id) => (el(id).onchange = refresh)
     );
     el("tSearch").oninput = debounce(refresh, 250);
@@ -1062,7 +1069,7 @@ cover: https://pixabay.com/images/download/businessman-2245098_1920.jpg
     const start = el("tStart").value;
     const end = el("tEnd").value;
     const type = el("tType").value;
-    const appId = el("tApp").value;
+    const projectId = el("tProject").value;
     const q = (el("tSearch").value || "").trim();
 
     const where = ["t.date>=?", "t.date<=?"];
@@ -1072,9 +1079,9 @@ cover: https://pixabay.com/images/download/businessman-2245098_1920.jpg
         (t) => t.date >= start && t.date <= end
     );
     if (type !== "all") rows = rows.filter((t) => t.type === type);
-    if (appId !== "all") {
-        const val = appId === "null" ? null : Number(appId);
-        rows = rows.filter((t) => t.app_id === val);
+    if (projectId !== "all") {
+        const val = projectId === "null" ? null : Number(projectId);
+        rows = rows.filter((t) => t.project_id === val);
     }
     if (q) {
         const qq = q.toLowerCase();
@@ -1093,7 +1100,7 @@ cover: https://pixabay.com/images/download/businessman-2245098_1920.jpg
             : b.date.localeCompare(a.date)
         )
         .slice(0, 2000)
-        .map((t) => ({ ...t, app_name: appName(t.app_id) }));
+        .map((t) => ({ ...t, project_name: projectName(t.project_id) }));
 
     el("txRows").innerHTML =
         rows
@@ -1102,7 +1109,7 @@ cover: https://pixabay.com/images/download/businessman-2245098_1920.jpg
     <tr>
     <td class="mono">${r.date}</td>
     <td>${r.type}</td>
-    <td>${escapeHtml(r.app_name || "")}</td>
+    <td>${escapeHtml(r.project_name || "")}</td>
     <td>${escapeHtml(r.party || "")}</td>
     <td>${escapeHtml(r.category || "")}</td>
     <td class="mono">${fmt(r.amount_net)}</td>
@@ -1211,15 +1218,14 @@ cover: https://pixabay.com/images/download/businessman-2245098_1920.jpg
     }
 
     // ---------- Projects (CRUD) ----------
-    // ---------- Projects (CRUD) ----------
-    function renderApps(root) {
+    function renderProjects(root) {
     root.innerHTML = `
     <div class="toolbar">
     <div class="left">
         <div class="hint">Projects drive the “profitability by project” charts and filters.</div>
     </div>
     <div class="right">
-        <button id="btnAddApp" class="primary">Add project</button>
+        <button id="btnAddProject" class="primary">Add project</button>
     </div>
     </div>
 
@@ -1228,30 +1234,30 @@ cover: https://pixabay.com/images/download/businessman-2245098_1920.jpg
     <div class="bd" style="padding:0;">
         <table>
         <thead><tr><th>Name</th><th>Active</th><th></th></tr></thead>
-        <tbody id="appRows"></tbody>
+        <tbody id="projectRows"></tbody>
         </table>
     </div>
     </div>
 `;
 
-    el("btnAddApp").onclick = () => openAppModal(null, refreshApps);
-    refreshApps();
+    el("btnAddProject").onclick = () => openProjectModal(null, refreshProjects);
+    refreshProjects();
     }
 
-    function refreshApps() {
-    const apps = db.apps
+    function refreshProjects() {
+    const projects = db.projects
         .slice()
         .sort((a, b) => a.name.localeCompare(b.name));
-    el("appRows").innerHTML =
-        apps
+    el("projectRows").innerHTML =
+        projects
         .map(
-            (a) => `
+            (p) => `
     <tr>
-    <td>${escapeHtml(a.name)}</td>
-    <td class="mono">${a.is_active ? "1" : "0"}</td>
+    <td>${escapeHtml(p.name)}</td>
+    <td class="mono">${p.is_active ? "1" : "0"}</td>
     <td style="white-space:nowrap;">
-        <button data-edit="${a.id}">Edit</button>
-        <button class="danger" data-del="${a.id}">Delete</button>
+        <button data-edit="${p.id}">Edit</button>
+        <button class="danger" data-del="${p.id}">Delete</button>
     </td>
     </tr>
 `
@@ -1259,21 +1265,21 @@ cover: https://pixabay.com/images/download/businessman-2245098_1920.jpg
         .join("") ||
         `<tr><td colspan="3" style="padding:12px;" class="hint">No projects.</td></tr>`;
 
-    el("appRows").onclick = async (e) => {
+    el("projectRows").onclick = async (e) => {
         const editId = e.target?.getAttribute?.("data-edit");
         const delId = e.target?.getAttribute?.("data-del");
         if (editId) {
-        openAppModal(Number(editId), refreshApps);
+        openProjectModal(Number(editId), refreshProjects);
         } else if (delId) {
         const id = Number(delId);
         db.transactions.forEach((t) => {
-            if (t.app_id === id) t.app_id = null;
+            if (t.project_id === id) t.project_id = null;
         });
-        db.apps = db.apps.filter((a) => a.id !== id);
+        db.projects = db.projects.filter((p) => p.id !== id);
         markDirty();
         await persist();
         setStatus(`Deleted project #${id}.`);
-        refreshApps();
+        refreshProjects();
         }
     };
     }
@@ -1289,7 +1295,7 @@ cover: https://pixabay.com/images/download/businessman-2245098_1920.jpg
         <label>Group</label>
         <select id="rGroup">
             <option value="category">By category</option>
-            <option value="app">By project</option>
+            <option value="project">By project</option>
             <option value="month">By month</option>
         </select>
         </div>
@@ -1349,7 +1355,7 @@ cover: https://pixabay.com/images/download/businessman-2245098_1920.jpg
         `<tr><td colspan="3" style="padding:12px;" class="hint">No data.</td></tr>`;
     }
 
-    if (grp === "app") {
+    if (grp === "project") {
         el(
         "rHead"
         ).innerHTML = `<tr><th>Project</th><th class="mono">Income</th><th class="mono">Expenses</th><th class="mono">Profit</th></tr>`;
@@ -1357,7 +1363,7 @@ cover: https://pixabay.com/images/download/businessman-2245098_1920.jpg
         db.transactions
         .filter((t) => t.date >= start && t.date <= end)
         .forEach((t) => {
-            const key = appName(t.app_id);
+            const key = projectName(t.project_id);
             const cur = rowsMap.get(key) || {
             key,
             income: 0,
@@ -1450,7 +1456,7 @@ cover: https://pixabay.com/images/download/businessman-2245098_1920.jpg
         <div>
             <label>CSV import & model</label>
             <div class="hint">
-            CSV headers: type, date (YYYY-MM-DD), project (or app), party, category, amount_net, vat_pct, currency, notes.
+            CSV headers: type, date (YYYY-MM-DD), project, party, category, amount_net, vat_pct, currency, notes.
             Missing projects will be created automatically.
             </div>
             <div style="display:flex; gap:8px; flex-wrap:wrap; margin-top:8px;">
@@ -1566,44 +1572,44 @@ cover: https://pixabay.com/images/download/businessman-2245098_1920.jpg
     }
 
     // ---------- Modal: Project CRUD ----------
-    function openAppModal(appId, onDone) {
-    const isEdit = !!appId;
-    const app = isEdit
-        ? db.apps.find((a) => a.id === appId)
+    function openProjectModal(projectId, onDone) {
+    const isEdit = !!projectId;
+    const project = isEdit
+        ? db.projects.find((p) => p.id === projectId)
         : { name: "", is_active: 1 };
 
     el("modalTitle").textContent = isEdit
-        ? `Edit project #${appId}`
+        ? `Edit project #${projectId}`
         : "Add project";
     el("modalBody").innerHTML = `
     <div class="row">
     <div>
         <label>Name</label>
-        <input id="mAppName" type="text" value="${escapeAttr(
-        app.name || ""
+        <input id="mProjectName" type="text" value="${escapeAttr(
+        project.name || ""
         )}" />
     </div>
     <div>
         <label>Active</label>
-        <select id="mAppActive">
-        <option value="1" ${app.is_active ? "selected" : ""}>1</option>
-        <option value="0" ${!app.is_active ? "selected" : ""}>0</option>
+        <select id="mProjectActive">
+        <option value="1" ${project.is_active ? "selected" : ""}>1</option>
+        <option value="0" ${!project.is_active ? "selected" : ""}>0</option>
         </select>
     </div>
     </div>
     <div class="toolbar">
-    <div class="left"><div class="hint">Projects are referenced by transactions via app_id.</div></div>
+    <div class="left"><div class="hint">Projects are referenced by transactions via project_id.</div></div>
     <div class="right">
-        <button id="btnSaveApp" class="primary">${
+        <button id="btnSaveProject" class="primary">${
         isEdit ? "Save" : "Create"
         }</button>
     </div>
     </div>
 `;
 
-    el("btnSaveApp").onclick = async () => {
-        const name = el("mAppName").value.trim();
-        const active = Number(el("mAppActive").value);
+    el("btnSaveProject").onclick = async () => {
+        const name = el("mProjectName").value.trim();
+        const active = Number(el("mProjectActive").value);
         if (!name) {
         setStatus("Project name is required.");
         return;
@@ -1611,11 +1617,19 @@ cover: https://pixabay.com/images/download/businessman-2245098_1920.jpg
 
         try {
         if (isEdit) {
-            const idx = db.apps.findIndex((a) => a.id === appId);
+            const idx = db.projects.findIndex((p) => p.id === projectId);
             if (idx >= 0)
-            db.apps[idx] = { ...db.apps[idx], name, is_active: active };
+            db.projects[idx] = {
+                ...db.projects[idx],
+                name,
+                is_active: active,
+            };
         } else {
-            db.apps.push({ id: db.nextAppId++, name, is_active: active });
+            db.projects.push({
+                id: db.nextProjectId++,
+                name,
+                is_active: active,
+            });
         }
 
         markDirty();
@@ -1640,7 +1654,7 @@ cover: https://pixabay.com/images/download/businessman-2245098_1920.jpg
         : {
             type: "income",
             date: todayISO(),
-            app_id: null,
+            project_id: null,
             party: "",
             category: "",
             amount_net: 0,
@@ -1692,7 +1706,7 @@ cover: https://pixabay.com/images/download/businessman-2245098_1920.jpg
     <div class="row">
     <div>
         <label>Project</label>
-        <select id="mTxApp"></select>
+        <select id="mTxProject"></select>
     </div>
     <div>
         <label>Category</label>
@@ -1746,11 +1760,11 @@ cover: https://pixabay.com/images/download/businessman-2245098_1920.jpg
     </div>
 `;
 
-    fillAppSelect(el("mTxApp"), true);
-    el("mTxApp").value =
-        tx.app_id === null || tx.app_id === undefined
+    fillProjectSelect(el("mTxProject"), true);
+    el("mTxProject").value =
+        tx.project_id === null || tx.project_id === undefined
         ? "null"
-        : String(tx.app_id);
+        : String(tx.project_id);
     const categorySel = el("mTxCat");
     const refreshCategoriesForType = (current) =>
         fillCategorySelect(
@@ -1777,8 +1791,8 @@ cover: https://pixabay.com/images/download/businessman-2245098_1920.jpg
         const type = el("mTxType").value;
         const date = el("mTxDate").value;
         const currency = el("mTxCur").value;
-        const appVal = el("mTxApp").value;
-        const app_id = appVal === "null" ? null : Number(appVal);
+        const projectVal = el("mTxProject").value;
+        const project_id = projectVal === "null" ? null : Number(projectVal);
 
         const party = el("mTxParty").value.trim() || null;
         const category = el("mTxCat").value.trim() || null;
@@ -1805,7 +1819,7 @@ cover: https://pixabay.com/images/download/businessman-2245098_1920.jpg
             ...db.transactions[idx],
             type,
             date,
-            app_id,
+            project_id,
             party,
             category,
             amount_net,
@@ -1820,7 +1834,7 @@ cover: https://pixabay.com/images/download/businessman-2245098_1920.jpg
             id: db.nextTxId++,
             type,
             date,
-            app_id,
+            project_id,
             party,
             category,
             amount_net,
@@ -1844,16 +1858,18 @@ cover: https://pixabay.com/images/download/businessman-2245098_1920.jpg
     }
 
     // ---------- Helpers ----------
-    function fillAppSelect(sel, includeAll) {
-    const apps = db.apps
+    function fillProjectSelect(sel, includeAll) {
+    const projects = db.projects
         .filter((a) => a.is_active)
         .slice()
         .sort((a, b) => a.name.localeCompare(b.name));
     const options = [];
     if (includeAll) options.push(`<option value="all">All</option>`);
     options.push(`<option value="null">(Unassigned project)</option>`);
-    apps.forEach((a) =>
-        options.push(`<option value="${a.id}">${escapeHtml(a.name)}</option>`)
+    projects.forEach((p) =>
+        options.push(
+        `<option value="${p.id}">${escapeHtml(p.name)}</option>`
+        )
     );
     sel.innerHTML = options.join("");
     }
