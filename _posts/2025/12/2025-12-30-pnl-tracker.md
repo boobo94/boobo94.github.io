@@ -29,6 +29,7 @@ cover: https://pixabay.com/images/download/businessman-2245098_1920.jpg
         "Liberation Mono", "Courier New", monospace;
     --sans: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto,
         Helvetica, Arial;
+    position: relative;
     margin: 0;
     width: 100vw;
     max-width: 100vw;
@@ -342,7 +343,7 @@ cover: https://pixabay.com/images/download/businessman-2245098_1920.jpg
 
     /* Modal */
     .pnl-tracker .modalBack {
-    position: fixed;
+    position: absolute;
     inset: 0;
     background: rgba(0, 0, 0, 0.55);
     display: none;
