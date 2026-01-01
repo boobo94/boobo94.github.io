@@ -340,6 +340,12 @@ date: 2025-11-30 09:09:09 +0000
     height: 320px !important;
     }
 
+    /* Disable layout animation transform so fixed modal centers on viewport */
+    body.fade-in-down {
+    animation: none !important;
+    transform: none !important;
+    }
+
     /* Modal */
     .pnl-tracker .modalBack {
     position: fixed;
@@ -454,6 +460,11 @@ date: 2025-11-30 09:09:09 +0000
     revenueByProject: null,
     };
     let backupDirty = true;
+
+    // Remove page-level fade-in transform so the modal stays fixed to the viewport
+    document.body.classList.remove("animated", "fade-in-down");
+    document.body.style.animation = "none";
+    document.body.style.transform = "none";
 
     const el = (id) => document.getElementById(id);
     const fmt = (n) =>
