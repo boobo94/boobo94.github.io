@@ -1011,33 +1011,29 @@ date: 2025-11-30 09:09:09 +0000
     });
 
     // Monthly revenue by project (stacked)
-    const incomeByProjectMonth = [];
-    txs
-        .filter((t) => t.type === "income")
-        .forEach((t) => {
-        incomeByProjectMonth.push({
-            month: String(t.date).slice(0, 7),
-            project: projectName(t.project_id),
-            income: Number(t.amount_net || 0),
-        });
-        });
+    // Aggregate income per project per month so stacked totals are correct
+    const incomeByProjectMonth = new Map();
+    txs.filter((t) => t.type === "income").forEach((t) => {
+        const month = String(t.date).slice(0, 7);
+        const project = projectName(t.project_id);
+        if (!incomeByProjectMonth.has(project))
+        incomeByProjectMonth.set(project, new Map());
+        const monthMap = incomeByProjectMonth.get(project);
+        monthMap.set(month, (monthMap.get(month) || 0) + Number(t.amount_net || 0));
+    });
 
-    const months = [...new Set(incomeByProjectMonth.map((r) => r.month))].sort(
-        (a, b) => a.localeCompare(b)
+    const monthSet = new Set();
+    incomeByProjectMonth.forEach((monthMap) =>
+        monthMap.forEach((_, month) => monthSet.add(month))
     );
-    const projects = [
-        ...new Set(incomeByProjectMonth.map((r) => r.project)),
-    ];
+    const months = [...monthSet].sort((a, b) => a.localeCompare(b));
+    const projects = [...incomeByProjectMonth.keys()];
 
     const datasets = projects.map((project) => {
-        const m = new Map(
-        incomeByProjectMonth
-            .filter((x) => x.project === project)
-            .map((x) => [x.month, Number(x.income || 0)])
-        );
+        const monthMap = incomeByProjectMonth.get(project) || new Map();
         return {
         label: project,
-        data: months.map((mm) => m.get(mm) || 0),
+        data: months.map((mm) => monthMap.get(mm) || 0),
         };
     });
 
