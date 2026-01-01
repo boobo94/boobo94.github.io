@@ -342,7 +342,7 @@ date: 2025-11-30 09:09:09 +0000
 
     /* Modal */
     .pnl-tracker .modalBack {
-    position: absolute;
+    position: fixed;
     inset: 0;
     background: rgba(0, 0, 0, 0.55);
     display: none;
@@ -352,12 +352,17 @@ date: 2025-11-30 09:09:09 +0000
     z-index: 50;
     }
     .pnl-tracker .modal {
-    width: min(860px, 100%);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: min(860px, calc(100vw - 32px));
+    max-height: calc(100vh - 32px);
+    overflow: auto;
     background: rgba(16, 31, 60, 0.96);
     border: 1px solid var(--border);
     border-radius: 16px;
     box-shadow: var(--shadow);
-    overflow: hidden;
     }
     .pnl-tracker .modal .hd {
     background: rgba(15, 27, 51, 0.9);
