@@ -346,7 +346,8 @@ date: 2025-11-30 09:09:09 +0000
     inset: 0;
     background: rgba(0, 0, 0, 0.55);
     display: none;
-    place-items: center;
+    align-items: center;
+    justify-content: center;
     padding: 16px;
     z-index: 50;
     }
@@ -1985,12 +1986,10 @@ date: 2025-11-30 09:09:09 +0000
     }
 
     function openModal() {
-    el("modalBack").style.display = "grid";
-    document.body.style.overflow = "hidden";
+    el("modalBack").style.display = "flex";
     }
     function closeModal() {
     el("modalBack").style.display = "none";
-    document.body.style.overflow = "";
     }
     el("btnModalClose").onclick = closeModal;
     el("modalBack").onclick = (e) => {
