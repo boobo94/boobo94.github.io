@@ -352,10 +352,7 @@ date: 2025-11-30 09:09:09 +0000
     z-index: 50;
     }
     .pnl-tracker .modal {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    position: relative;
     width: min(860px, calc(100vw - 32px));
     max-height: calc(100vh - 32px);
     overflow: auto;
