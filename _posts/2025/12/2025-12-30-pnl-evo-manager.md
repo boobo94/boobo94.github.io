@@ -556,7 +556,13 @@ redirect_from:
     responsive: true,
     maintainAspectRatio: false,
     plugins: {
-        legend: { position: "right" },
+        legend: {
+        position: "bottom",
+        labels: {
+            boxWidth: 12,
+            padding: 12,
+        },
+        },
         tooltip: {
         callbacks: {
             label: (ctx) => {
