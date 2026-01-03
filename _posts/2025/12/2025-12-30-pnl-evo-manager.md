@@ -6,6 +6,8 @@ summary: Track your income and expenses.
 categories: tools
 tags: pnl financial management manager
 date: 2025-12-30 09:09:09 +0000
+redirect_from:
+  - /tools/pnl-tracker/
 ---
 
 <!-- Chart.js -->
