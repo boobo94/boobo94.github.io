@@ -457,6 +457,7 @@ redirect_from:
     revenueByProject: null,
     expenseByCategory: null,
     incomeByCategory: null,
+    vatMonthly: null,
     };
     let backupDirty = true;
 
@@ -979,6 +980,11 @@ redirect_from:
     <div class="hd"><h2>Monthly revenue by project</h2></div>
     <div class="chartWrap"><canvas id="cRevenueByProject"></canvas></div>
     </div>
+
+    <div class="card" style="margin-top:12px; box-shadow:none;">
+    <div class="hd"><h2>VAT per month</h2></div>
+    <div class="chartWrap"><canvas id="cVatMonthly"></canvas></div>
+    </div>
 `;
 
     ["dStart", "dEnd"].forEach((id) => (el(id).onchange = () => refreshDashboard()));
@@ -1154,6 +1160,41 @@ redirect_from:
         type: "bar",
         data: { labels: months, datasets },
         options: chartOptions(currency, { stacked: true }),
+    });
+
+    // VAT per month (income vs expenses vs net)
+    const vatMonthlyMap = new Map();
+    txs.forEach((t) => {
+        const month = String(t.date).slice(0, 7);
+        const vat =
+        Number(t.vat_amount ?? (t.amount_net || 0) * (t.vat_pct || 0)) || 0;
+        const cur =
+        vatMonthlyMap.get(month) || { month, incomeVat: 0, expenseVat: 0 };
+        if (t.type === "income") cur.incomeVat += vat;
+        else cur.expenseVat += vat;
+        vatMonthlyMap.set(month, cur);
+    });
+    const vatMonthly = [...vatMonthlyMap.values()].sort((a, b) =>
+        a.month.localeCompare(b.month)
+    );
+    const vatLabels = vatMonthly.map((r) => r.month);
+    const incomeVatSeries = vatMonthly.map((r) => Number(r.incomeVat || 0));
+    const expenseVatSeries = vatMonthly.map((r) => Number(r.expenseVat || 0));
+    const netVatSeries = vatMonthly.map(
+        (r) => Number(r.incomeVat || 0) - Number(r.expenseVat || 0)
+    );
+    if (charts.vatMonthly) charts.vatMonthly.destroy();
+    charts.vatMonthly = new Chart(el("cVatMonthly"), {
+        type: "line",
+        data: {
+        labels: vatLabels,
+        datasets: [
+            { label: "VAT on income", data: incomeVatSeries, tension: 0.2 },
+            { label: "VAT on expenses", data: expenseVatSeries, tension: 0.2 },
+            { label: "VAT net", data: netVatSeries, tension: 0.2 },
+        ],
+        },
+        options: chartOptions(currency),
     });
 
     setStatus(`Dashboard refreshed for ${start} → ${end}.`);
