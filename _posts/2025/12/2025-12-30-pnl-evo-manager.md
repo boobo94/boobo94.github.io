@@ -941,9 +941,6 @@ redirect_from:
         <div><label>Start</label><input id="dStart" type="date" value="${start}"></div>
         <div><label>End</label><input id="dEnd" type="date" value="${end}"></div>
     </div>
-    <div class="right">
-        <button id="btnDashRefresh" class="primary">Refresh</button>
-    </div>
     </div>
 
     <div class="kpis">
@@ -978,7 +975,7 @@ redirect_from:
     </div>
 `;
 
-    el("btnDashRefresh").onclick = () => refreshDashboard();
+    ["dStart", "dEnd"].forEach((id) => (el(id).onchange = () => refreshDashboard()));
     refreshDashboard();
     }
 
@@ -1175,7 +1172,7 @@ redirect_from:
         <div><label>Project</label><select id="tProject"></select></div>
     </div>
     <div class="right">
-        <button id="btnAddTx" class="primary">Add income/expense</button>
+        <button id="btnAddTx" class="primary">Add</button>
     </div>
     </div>
 
@@ -1294,7 +1291,7 @@ redirect_from:
         <div class="hint">Define reusable categories to tag income and expense records.</div>
     </div>
     <div class="right">
-        <button id="btnAddCat" class="primary">Add category</button>
+        <button id="btnAddCat" class="primary">Add</button>
     </div>
     </div>
 
@@ -1366,7 +1363,7 @@ redirect_from:
         <div class="hint">Projects drive the “profitability by project” charts and filters.</div>
     </div>
     <div class="right">
-        <button id="btnAddProject" class="primary">Add project</button>
+        <button id="btnAddProject" class="primary">Add</button>
     </div>
     </div>
 
@@ -1442,7 +1439,7 @@ redirect_from:
         </div>
     </div>
     <div class="right">
-        <button id="btnRunReport" class="primary">Run</button>
+        <button id="btnRunReport" class="primary">Refresh</button>
     </div>
     </div>
 
