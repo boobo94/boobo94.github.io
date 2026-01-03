@@ -1,16 +1,11 @@
 ---
 layout: post
-title: P&L Tracker
+title: P&L EVO Manager
 summary: Track your income and expenses.
 # Available categories: abstract, devops, research, resources, startup, tools, tutorials
 categories: tools
-tags: tag1 tag2
-date: 2025-11-30 09:09:09 +0000
-# redirect_from:
-# - /old1-route
-# - /old2-route
-# canonical_url: https://example.com
-# sitemap: false // don't add it to sitemap
+tags: pnl financial management manager
+date: 2025-12-30 09:09:09 +0000
 ---
 
 <!-- Chart.js -->
@@ -68,7 +63,7 @@ date: 2025-11-30 09:09:09 +0000
     align-items: flex-start;
     justify-content: space-between;
     }
-    .pnl-tracker header h1 {
+    .pnl-tracker header h2 {
     margin: 0;
     font-size: 16px;
     letter-spacing: 0.2px;
@@ -385,7 +380,7 @@ date: 2025-11-30 09:09:09 +0000
 <div class="pnl-tracker">
     <header>
         <div>
-        <h1>P&L Tracker</h1>
+        <h2>P&L EVO Manager</h2>
         <div class="sub">Track profitability of your company</div>
         </div>
         <div class="actions">
