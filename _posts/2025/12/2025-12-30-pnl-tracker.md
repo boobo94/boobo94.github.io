@@ -453,6 +453,8 @@ date: 2025-12-30 09:09:09 +0000
     profitMonthly: null,
     profitByProject: null,
     revenueByProject: null,
+    expenseByCategory: null,
+    incomeByCategory: null,
     };
     let backupDirty = true;
 
@@ -500,6 +502,26 @@ date: 2025-12-30 09:09:09 +0000
         ? [...counts.entries()].sort((a, b) => b[1] - a[1])[0][0]
         : "RON";
     };
+    const colorPalette = (count) => {
+    const colors = [
+        "#8ec5fc",
+        "#ff8fb1",
+        "#f6d365",
+        "#9be7ff",
+        "#ffd2a0",
+        "#b8ffb8",
+        "#f8b3ff",
+        "#c4c1ff",
+        "#7dd3fc",
+        "#f7c59f",
+    ];
+    if (count <= colors.length) return colors.slice(0, count);
+    const extra = Array.from({ length: count - colors.length }, (_, i) => {
+        const hue = Math.floor((i / Math.max(1, count - colors.length)) * 360);
+        return `hsl(${hue}, 70%, 60%)`;
+    });
+    return [...colors, ...extra];
+    };
     const chartOptions = (currency, { stacked = false } = {}) => ({
     responsive: true,
     maintainAspectRatio: false,
@@ -524,6 +546,24 @@ date: 2025-12-30 09:09:09 +0000
         beginAtZero: true,
         ticks: {
             callback: (v) => fmtNum(v),
+        },
+        },
+    },
+    });
+    const pieOptions = (currency, total) => ({
+    responsive: true,
+    maintainAspectRatio: false,
+    plugins: {
+        legend: { position: "right" },
+        tooltip: {
+        callbacks: {
+            label: (ctx) => {
+            const value = ctx.raw || 0;
+            const pct = total ? ((value / total) * 100).toFixed(1) : "0.0";
+            const name = ctx.label || ctx.dataset?.label || "";
+            const suffix = currency ? ` ${currency}` : "";
+            return `${name}: ${fmtNum(value)}${suffix} (${pct}%)`;
+            },
         },
         },
     },
@@ -920,6 +960,14 @@ date: 2025-12-30 09:09:09 +0000
         <div class="hd"><h2>Profitability by project</h2></div>
         <div class="chartWrap"><canvas id="cProfitByProject"></canvas></div>
     </div>
+    <div class="card" style="box-shadow:none;">
+        <div class="hd"><h2>Expenses by category</h2></div>
+        <div class="chartWrap"><canvas id="cExpenseByCategory"></canvas></div>
+    </div>
+    <div class="card" style="box-shadow:none;">
+        <div class="hd"><h2>Incomes by category</h2></div>
+        <div class="chartWrap"><canvas id="cIncomeByCategory"></canvas></div>
+    </div>
     </div>
 
     <div class="card" style="margin-top:12px; box-shadow:none;">
@@ -1016,6 +1064,57 @@ date: 2025-12-30 09:09:09 +0000
         datasets: [{ label: "Profit (Net)", data: projectProfit }],
         },
         options: chartOptions(currency),
+    });
+
+    // Net amounts by category (pie)
+    const categoryBreakdown = (type) => {
+        const map = new Map();
+        txs.filter((t) => t.type === type).forEach((t) => {
+        const name = (t.category || "(Uncategorized)").trim() || "(Uncategorized)";
+        map.set(name, (map.get(name) || 0) + Number(t.amount_net || 0));
+        });
+        const entries = [...map.entries()].sort((a, b) => b[1] - a[1]);
+        return entries.length ? entries : [["No data", 0]];
+    };
+
+    const expenseCats = categoryBreakdown("expense");
+    const expenseLabels = expenseCats.map(([name]) => name);
+    const expenseValues = expenseCats.map(([, sum]) => sum);
+    const expenseTotal = expenseValues.reduce((s, v) => s + Number(v || 0), 0);
+    if (charts.expenseByCategory) charts.expenseByCategory.destroy();
+    charts.expenseByCategory = new Chart(el("cExpenseByCategory"), {
+        type: "pie",
+        data: {
+        labels: expenseLabels,
+        datasets: [
+            {
+            label: "Expenses (Net)",
+            data: expenseValues,
+            backgroundColor: colorPalette(expenseLabels.length || 1),
+            },
+        ],
+        },
+        options: pieOptions(currency, expenseTotal),
+    });
+
+    const incomeCats = categoryBreakdown("income");
+    const incomeLabels = incomeCats.map(([name]) => name);
+    const incomeValues = incomeCats.map(([, sum]) => sum);
+    const incomeTotal = incomeValues.reduce((s, v) => s + Number(v || 0), 0);
+    if (charts.incomeByCategory) charts.incomeByCategory.destroy();
+    charts.incomeByCategory = new Chart(el("cIncomeByCategory"), {
+        type: "pie",
+        data: {
+        labels: incomeLabels,
+        datasets: [
+            {
+            label: "Income (Net)",
+            data: incomeValues,
+            backgroundColor: colorPalette(incomeLabels.length || 1),
+            },
+        ],
+        },
+        options: pieOptions(currency, incomeTotal),
     });
 
     // Monthly revenue by project (stacked)
