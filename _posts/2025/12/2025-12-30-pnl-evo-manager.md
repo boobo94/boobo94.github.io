@@ -1215,8 +1215,8 @@ redirect_from:
             <option value="expense">Expenses</option>
         </select>
         </div>
-        <div><label>Search (party/category)</label><input id="tSearch" type="text" placeholder="optional"></div>
         <div><label>Project</label><select id="tProject"></select></div>
+        <div><label>Search (party/category)</label><input id="tSearch" type="text" placeholder="optional"></div>
     </div>
     <div class="right">
         <button id="btnAddTx" class="primary">Add</button>
@@ -1485,9 +1485,6 @@ redirect_from:
         </select>
         </div>
     </div>
-    <div class="right">
-        <button id="btnRunReport" class="primary">Refresh</button>
-    </div>
     </div>
 
     <div class="card" style="box-shadow:none;">
@@ -1500,7 +1497,9 @@ redirect_from:
     </div>
     </div>
 `;
-    el("btnRunReport").onclick = runReport;
+    ["rStart", "rEnd", "rGroup"].forEach(
+        (id) => (el(id).onchange = () => runReport())
+    );
     runReport();
     }
 
