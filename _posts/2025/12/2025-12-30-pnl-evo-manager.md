@@ -1887,10 +1887,10 @@ redirect_from:
         )}" />
     </div>
     <div>
-        <label>Gross (computed)</label>
+        <label>Gross</label>
         <input id="mTxGross" type="number" step="0.01" value="${Number(
         tx.amount_gross || 0
-        )}" disabled />
+        )}" />
     </div>
     </div>
 
@@ -1921,15 +1921,28 @@ redirect_from:
         refreshCategoriesForType("");
     };
 
-    const recompute = () => {
-        const net = Number(el("mTxNet").value || 0);
-        const vatPct = Number(el("mTxVatPct").value || 0);
-        const vat = net * vatPct;
-        el("mTxGross").value = (net + vat).toFixed(2);
+    let lastAmountSource = "net";
+    const recompute = (source = lastAmountSource) => {
+        const vatPctRaw = Number(el("mTxVatPct").value || 0);
+        const vatPct = Number.isFinite(vatPctRaw) ? vatPctRaw : 0;
+        const netRaw = Number(el("mTxNet").value || 0);
+        const grossRaw = Number(el("mTxGross").value || 0);
+
+        if (source === "gross") {
+        const gross = Number.isFinite(grossRaw) ? grossRaw : 0;
+        const net = gross / (1 + vatPct || 1);
+        el("mTxNet").value = net.toFixed(2);
+        } else {
+        const net = Number.isFinite(netRaw) ? netRaw : 0;
+        const gross = net * (1 + vatPct);
+        el("mTxGross").value = gross.toFixed(2);
+        }
+        lastAmountSource = source;
     };
-    el("mTxNet").oninput = recompute;
-    el("mTxVatPct").oninput = recompute;
-    recompute();
+    el("mTxNet").oninput = () => recompute("net");
+    el("mTxGross").oninput = () => recompute("gross");
+    el("mTxVatPct").oninput = () => recompute(lastAmountSource);
+    recompute("net");
 
     el("btnSaveTx").onclick = async () => {
         const type = el("mTxType").value;
@@ -1942,10 +1955,11 @@ redirect_from:
         const category = el("mTxCat").value.trim() || null;
         const notes = el("mTxNotes").value.trim() || null;
 
+        recompute(lastAmountSource);
         const amount_net = Number(el("mTxNet").value || 0);
         const vat_pct = Number(el("mTxVatPct").value || 0);
+        const amount_gross = Number(el("mTxGross").value || 0);
         const vat_amount = amount_net * vat_pct;
-        const amount_gross = amount_net + vat_amount;
 
         if (!date) {
         setStatus("Date is required.");
