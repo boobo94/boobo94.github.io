@@ -21,10 +21,14 @@ I consider freecodecamp the most important resource in your beginning. You shoul
 
 ## Online Tools
 
-- SQL diagrams <https://sql.toad.cz/>
-- Diagrams <https://app.diagrams.net>
 - Discover what technology uses a website <https://builtwith.com/>
 - Responsive preview of multiple sizes once <https://responsively.app/>
+
+## DB Tools
+
+- SQL diagrams <https://sql.toad.cz/>
+- Diagrams <https://app.diagrams.net>
+- DrawDB <https://www.drawdb.app/>
 
 ### Courses
 
