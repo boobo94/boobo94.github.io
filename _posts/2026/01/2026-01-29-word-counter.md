@@ -35,3 +35,15 @@ date: 2026-01-29 08:19:01 +0000
     wordCount.textContent = words.length;
   });
 </script>
+
+## What Is WordCounter?
+
+WordCounter is a powerful online word count and writing analysis tool designed to help you write better, clearer, and more effective content.
+
+To check your word count, simply place your cursor in the text box above and start typing. The word and character counts update in real time as you type, delete, or edit text. You can also copy and paste content from any other application directly into the editor.
+
+**Tip: Bookmark this page for quick access anytime.**
+
+Knowing the exact word count of your text is essential for many writing tasks. Whether you’re working on an essay, article, report, story, book, or academic paper, WordCounter helps ensure your content meets minimum or maximum word count requirements and stays within defined limits.
+
+Disclaimer: While we strive to make WordCou
