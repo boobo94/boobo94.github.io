@@ -84,7 +84,7 @@ date: 2025-05-07 09:09:09 +0000
 
     const ANAF_API = "https://webservicesp.anaf.ro/api/PlatitorTvaRest/v9/tva";
 
-    fetch(`https://api.cors.lol/?url=${ANAF_API}`, {
+    fetch(`https://proxy.corsfix.com/?url=${ANAF_API}`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
