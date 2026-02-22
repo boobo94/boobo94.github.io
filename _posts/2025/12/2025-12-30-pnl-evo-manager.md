@@ -14,17 +14,19 @@ redirect_from:
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
 
 <style>
-    .pnl-tracker {
+  .pnl-tracker {
     --bg: #0b1220;
     --text: #e7eefc;
     --muted: #a9b7d6;
     --border: rgba(255, 255, 255, 0.1);
     --shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
     --radius: 14px;
-    --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
-        "Liberation Mono", "Courier New", monospace;
-    --sans: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto,
-        Helvetica, Arial;
+    --mono:
+      ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
+      "Courier New", monospace;
+    --sans:
+      ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica,
+      Arial;
     position: relative;
     margin: 0;
     width: 100vw;
@@ -33,26 +35,27 @@ redirect_from:
     margin-right: calc(50% - 50vw);
     font-family: var(--sans);
     color: var(--text);
-    background: radial-gradient(
+    background:
+      radial-gradient(
         1200px 600px at 20% 10%,
         #162a53 0%,
         rgba(22, 42, 83, 0) 55%
-        ),
-        radial-gradient(
+      ),
+      radial-gradient(
         900px 500px at 80% 20%,
         #1b2f5a 0%,
         rgba(27, 47, 90, 0) 55%
-        ),
-        var(--bg);
-    }
+      ),
+      var(--bg);
+  }
 
-    .pnl-tracker *,
-    .pnl-tracker *::before,
-    .pnl-tracker *::after {
+  .pnl-tracker *,
+  .pnl-tracker *::before,
+  .pnl-tracker *::after {
     box-sizing: border-box;
-    }
+  }
 
-    .pnl-tracker header {
+  .pnl-tracker header {
     position: sticky;
     top: 0;
     z-index: 10;
@@ -64,55 +67,55 @@ redirect_from:
     gap: 14px;
     align-items: flex-start;
     justify-content: space-between;
-    }
-    .pnl-tracker header h2 {
+  }
+  .pnl-tracker header h2 {
     margin: 0;
     font-size: 16px;
     letter-spacing: 0.2px;
-    }
-    .pnl-tracker header .sub {
+  }
+  .pnl-tracker header .sub {
     margin-top: 6px;
     font-size: 12.5px;
     color: var(--muted);
     line-height: 1.35;
     max-width: 980px;
-    }
+  }
 
-    .pnl-tracker .actions {
+  .pnl-tracker .actions {
     display: flex;
     gap: 10px;
     flex-wrap: wrap;
     justify-content: flex-end;
     align-items: center;
-    }
-    .pnl-tracker button,
-    .pnl-tracker input,
-    .pnl-tracker select,
-    .pnl-tracker textarea {
+  }
+  .pnl-tracker button,
+  .pnl-tracker input,
+  .pnl-tracker select,
+  .pnl-tracker textarea {
     font: inherit;
     color: inherit;
-    }
-    .pnl-tracker button {
+  }
+  .pnl-tracker button {
     background: rgba(255, 255, 255, 0.06);
     border: 1px solid var(--border);
     padding: 10px 12px;
     border-radius: 12px;
     cursor: pointer;
-    }
-    .pnl-tracker button.primary {
+  }
+  .pnl-tracker button.primary {
     background: rgba(102, 163, 255, 0.14);
     border-color: rgba(102, 163, 255, 0.35);
-    }
-    .pnl-tracker button.danger {
+  }
+  .pnl-tracker button.danger {
     background: rgba(255, 107, 107, 0.12);
     border-color: rgba(255, 107, 107, 0.35);
-    }
-    .pnl-tracker button:disabled {
+  }
+  .pnl-tracker button:disabled {
     opacity: 0.55;
     cursor: not-allowed;
-    }
+  }
 
-    .pnl-tracker .pill {
+  .pnl-tracker .pill {
     display: inline-flex;
     gap: 8px;
     align-items: center;
@@ -127,54 +130,56 @@ redirect_from:
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
-    transition: border-color 0.2s ease, background 0.2s ease,
-        color 0.2s ease;
-    }
-    .pnl-tracker .pill.success {
+    transition:
+      border-color 0.2s ease,
+      background 0.2s ease,
+      color 0.2s ease;
+  }
+  .pnl-tracker .pill.success {
     border-color: rgba(72, 199, 116, 0.55);
     background: rgba(72, 199, 116, 0.15);
     color: #baf3cf;
-    }
-    .pnl-tracker .pill.warn {
+  }
+  .pnl-tracker .pill.warn {
     border-color: rgba(244, 177, 93, 0.7);
     background: rgba(244, 177, 93, 0.18);
     color: #ffe3c4;
-    }
-    .pnl-tracker .pill.danger {
+  }
+  .pnl-tracker .pill.danger {
     border-color: rgba(255, 107, 107, 0.55);
     background: rgba(255, 107, 107, 0.14);
     color: #ffdada;
-    }
+  }
 
-    .pnl-tracker main {
+  .pnl-tracker main {
     max-width: 1400px;
     margin: 0 auto;
     padding: 14px 18px 30px;
-    }
-    .pnl-tracker .layout {
+  }
+  .pnl-tracker .layout {
     display: grid;
     grid-template-columns: 250px 1fr;
     gap: 12px;
     align-items: start;
-    }
-    @media (max-width: 980px) {
+  }
+  @media (max-width: 980px) {
     .pnl-tracker .layout {
-        grid-template-columns: 1fr;
+      grid-template-columns: 1fr;
     }
-    }
+  }
 
-    .pnl-tracker .card {
+  .pnl-tracker .card {
     background: linear-gradient(
-        180deg,
-        rgba(255, 255, 255, 0.06),
-        rgba(255, 255, 255, 0.03)
+      180deg,
+      rgba(255, 255, 255, 0.06),
+      rgba(255, 255, 255, 0.03)
     );
     border: 1px solid var(--border);
     border-radius: var(--radius);
     box-shadow: var(--shadow);
     overflow: hidden;
-    }
-    .pnl-tracker .hd {
+  }
+  .pnl-tracker .hd {
     padding: 12px 14px;
     border-bottom: 1px solid var(--border);
     background: rgba(15, 27, 51, 0.55);
@@ -182,169 +187,169 @@ redirect_from:
     justify-content: space-between;
     align-items: center;
     gap: 10px;
-    }
-    .pnl-tracker .hd h2 {
+  }
+  .pnl-tracker .hd h2 {
     margin: 0;
     font-size: 13px;
     letter-spacing: 0.2px;
-    }
-    .pnl-tracker .bd {
+  }
+  .pnl-tracker .bd {
     padding: 14px;
-    }
-    .pnl-tracker .nav {
+  }
+  .pnl-tracker .nav {
     padding: 10px;
     display: flex;
     flex-direction: column;
     gap: 8px;
-    }
-    .pnl-tracker .nav button {
+  }
+  .pnl-tracker .nav button {
     text-align: left;
-    }
-    .pnl-tracker .nav button.active {
+  }
+  .pnl-tracker .nav button.active {
     background: rgba(102, 163, 255, 0.14);
     border-color: rgba(102, 163, 255, 0.35);
-    }
+  }
 
-    .pnl-tracker .row {
+  .pnl-tracker .row {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 10px;
     margin-bottom: 10px;
-    }
-    .pnl-tracker .row3 {
+  }
+  .pnl-tracker .row3 {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     gap: 10px;
     margin-bottom: 10px;
-    }
-    @media (max-width: 900px) {
+  }
+  @media (max-width: 900px) {
     .pnl-tracker .row,
     .pnl-tracker .row3 {
-        grid-template-columns: 1fr;
+      grid-template-columns: 1fr;
     }
-    }
+  }
 
-    .pnl-tracker label {
+  .pnl-tracker label {
     display: block;
     font-size: 12px;
     color: var(--muted);
     margin-bottom: 6px;
-    }
-    .pnl-tracker input[type="text"],
-    .pnl-tracker input[type="number"],
-    .pnl-tracker input[type="date"],
-    .pnl-tracker select,
-    .pnl-tracker textarea {
+  }
+  .pnl-tracker input[type="text"],
+  .pnl-tracker input[type="number"],
+  .pnl-tracker input[type="date"],
+  .pnl-tracker select,
+  .pnl-tracker textarea {
     width: 100%;
     background: rgba(255, 255, 255, 0.05);
     border: 1px solid var(--border);
     border-radius: 12px;
     padding: 10px 10px;
     outline: none;
-    }
-    .pnl-tracker textarea {
+  }
+  .pnl-tracker textarea {
     min-height: 70px;
     resize: vertical;
-    }
+  }
 
-    .pnl-tracker table {
+  .pnl-tracker table {
     width: 100%;
     border-collapse: collapse;
     font-size: 12.5px;
-    }
-    .pnl-tracker th,
-    .pnl-tracker td {
+  }
+  .pnl-tracker th,
+  .pnl-tracker td {
     padding: 10px 8px;
     border-bottom: 1px solid var(--border);
     text-align: left;
     vertical-align: top;
-    }
-    .pnl-tracker th {
+  }
+  .pnl-tracker th {
     color: var(--muted);
     font-size: 12px;
     font-weight: 600;
     white-space: nowrap;
-    }
-    .pnl-tracker td.mono {
+  }
+  .pnl-tracker td.mono {
     font-family: var(--mono);
-    }
-    .pnl-tracker tr:hover td {
+  }
+  .pnl-tracker tr:hover td {
     background: rgba(255, 255, 255, 0.03);
-    }
-    .pnl-tracker .toolbar {
+  }
+  .pnl-tracker .toolbar {
     display: flex;
     flex-wrap: wrap;
     gap: 10px;
     justify-content: space-between;
     align-items: end;
     margin-bottom: 10px;
-    }
-    .pnl-tracker .toolbar .left,
-    .pnl-tracker .toolbar .right {
+  }
+  .pnl-tracker .toolbar .left,
+  .pnl-tracker .toolbar .right {
     display: flex;
     gap: 10px;
     flex-wrap: wrap;
     align-items: end;
-    }
+  }
 
-    .pnl-tracker .kpis {
+  .pnl-tracker .kpis {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 10px;
     margin-bottom: 12px;
-    }
-    @media (max-width: 980px) {
+  }
+  @media (max-width: 980px) {
     .pnl-tracker .kpis {
-        grid-template-columns: 1fr 1fr;
+      grid-template-columns: 1fr 1fr;
     }
-    }
-    @media (max-width: 520px) {
+  }
+  @media (max-width: 520px) {
     .pnl-tracker .kpis {
-        grid-template-columns: 1fr;
+      grid-template-columns: 1fr;
     }
-    }
-    .pnl-tracker .kpi {
+  }
+  .pnl-tracker .kpi {
     padding: 12px;
     border: 1px solid var(--border);
     border-radius: 14px;
     background: rgba(255, 255, 255, 0.04);
-    }
-    .pnl-tracker .kpi .t {
+  }
+  .pnl-tracker .kpi .t {
     font-size: 12px;
     color: var(--muted);
     margin-bottom: 6px;
-    }
-    .pnl-tracker .kpi .v {
+  }
+  .pnl-tracker .kpi .v {
     font-family: var(--mono);
     font-size: 18px;
-    }
+  }
 
-    .pnl-tracker .gridCharts {
+  .pnl-tracker .gridCharts {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 12px;
-    }
-    @media (max-width: 980px) {
+  }
+  @media (max-width: 980px) {
     .pnl-tracker .gridCharts {
-        grid-template-columns: 1fr;
+      grid-template-columns: 1fr;
     }
-    }
-    .pnl-tracker .chartWrap {
+  }
+  .pnl-tracker .chartWrap {
     padding: 12px;
-    }
-    .pnl-tracker canvas {
+  }
+  .pnl-tracker canvas {
     width: 100% !important;
     height: 320px !important;
-    }
+  }
 
-    /* Disable layout animation transform so fixed modal centers on viewport */
-    body.fade-in-down {
+  /* Disable layout animation transform so fixed modal centers on viewport */
+  body.fade-in-down {
     animation: none !important;
     transform: none !important;
-    }
+  }
 
-    /* Modal */
-    .pnl-tracker .modalBack {
+  /* Modal */
+  .pnl-tracker .modalBack {
     position: fixed;
     inset: 0;
     background: rgba(0, 0, 0, 0.55);
@@ -353,8 +358,8 @@ redirect_from:
     justify-content: center;
     padding: 16px;
     z-index: 50;
-    }
-    .pnl-tracker .modal {
+  }
+  .pnl-tracker .modal {
     position: relative;
     width: min(860px, calc(100vw - 32px));
     max-height: calc(100vh - 32px);
@@ -363,313 +368,316 @@ redirect_from:
     border: 1px solid var(--border);
     border-radius: 16px;
     box-shadow: var(--shadow);
-    }
-    .pnl-tracker .modal .hd {
+  }
+  .pnl-tracker .modal .hd {
     background: rgba(15, 27, 51, 0.9);
-    }
-    .pnl-tracker .hint {
+  }
+  .pnl-tracker .hint {
     font-size: 12px;
     color: var(--muted);
     line-height: 1.35;
-    }
-    .pnl-tracker .warn {
+  }
+  .pnl-tracker .warn {
     font-size: 12px;
     color: #ffd166;
     line-height: 1.35;
-    }
+  }
 </style>
 
 <div class="pnl-tracker">
-    <header>
-        <div>
-        <h2>P&L EVO Manager</h2>
-        <div class="sub">Track profitability of your company</div>
-        </div>
-        <div class="actions">
-        <span class="pill" id="dbPill">DB: IndexedDB</span>
-        </div>
-    </header>
+  <header>
+    <div>
+      <h2>P&L EVO Manager</h2>
+      <div class="sub">Track profitability of your company</div>
+    </div>
+    <div class="actions">
+      <span class="pill" id="dbPill">DB: IndexedDB</span>
+    </div>
+  </header>
 
-    <input
-        type="file"
-        id="fileInputJson"
-        accept=".json,application/json"
-        style="display: none"
-    />
-    <input
-        type="file"
-        id="fileInputCsv"
-        accept=".csv,text/csv"
-        style="display: none"
-    />
+<input
+    type="file"
+    id="fileInputJson"
+    accept=".json,application/json"
+    style="display: none"
+  />
+<input
+    type="file"
+    id="fileInputCsv"
+    accept=".csv,text/csv"
+    style="display: none"
+  />
 
-    <main>
-        <div class="layout">
-        <div class="card">
-            <div class="hd"><h2>Navigation</h2></div>
+  <main>
+    <div class="layout">
+      <div class="card">
+        <div class="hd"><h2>Navigation</h2></div>
         <div class="nav">
-        <button class="active" data-view="dashboard">Dashboard</button>
-        <button data-view="transactions">Income & Expenses</button>
-        <button data-view="categories">Categories</button>
-        <button data-view="projects">Projects</button>
-        <button data-view="reports">Reports</button>
-        <button data-view="settings">Settings</button>
+          <button class="active" data-view="dashboard">Dashboard</button>
+          <button data-view="transactions">Income & Expenses</button>
+          <button data-view="recurring">Recurring</button>
+          <button data-view="categories">Categories</button>
+          <button data-view="projects">Projects</button>
+          <button data-view="reports">Reports</button>
+          <button data-view="settings">Settings</button>
         </div>
-            <div class="bd">
-            <div class="hint" id="status">Initializing…</div>
-            <div class="warn" style="margin-top: 10px">
-                Data is stored in your browser (IndexedDB). Use Settings to back
-                up or restore data across machines.
-            </div>
-            </div>
+        <div class="bd">
+          <div class="hint" id="status">Initializing…</div>
+          <div class="warn" style="margin-top: 10px">
+            Data is stored in your browser (IndexedDB). Use Settings to back up
+            or restore data across machines.
+          </div>
         </div>
+      </div>
 
-        <div class="card">
-            <div class="hd"><h2 id="viewTitle">Dashboard</h2></div>
-            <div class="bd" id="viewRoot"></div>
-        </div>
-        </div>
-
-    </main>
-
-    <!-- Modal -->
-    <div class="modalBack" id="modalBack">
-        <div class="modal">
-        <div class="hd">
-            <h2 id="modalTitle">Edit</h2>
-            <div style="display: flex; gap: 10px">
-            <button id="btnModalClose">Close</button>
-            </div>
-        </div>
-        <div class="bd" id="modalBody"></div>
-        </div>
+      <div class="card">
+        <div class="hd"><h2 id="viewTitle">Dashboard</h2></div>
+        <div class="bd" id="viewRoot"></div>
+      </div>
     </div>
 
+  </main>
+
+  <!-- Modal -->
+  <div class="modalBack" id="modalBack">
+    <div class="modal">
+      <div class="hd">
+        <h2 id="modalTitle">Edit</h2>
+        <div style="display: flex; gap: 10px">
+          <button id="btnModalClose">Close</button>
+        </div>
+      </div>
+      <div class="bd" id="modalBody"></div>
+    </div>
+  </div>
 </div>
 
 <script>
-    let db = null; // in-memory data object
-    const DB_KEY = "pnl.json";
-    let idbHealthy = true; // flag to skip persistence if IndexedDB is not available
-    let charts = {
+  let db = null; // in-memory data object
+  const DB_KEY = "pnl.json";
+  let idbHealthy = true; // flag to skip persistence if IndexedDB is not available
+  let charts = {
     profitMonthly: null,
     profitByProject: null,
     revenueByProject: null,
     expenseByCategory: null,
     incomeByCategory: null,
     vatMonthly: null,
-    };
-    let backupDirty = true;
+  };
+  let backupDirty = true;
 
-    // Remove page-level fade-in transform so the modal stays fixed to the viewport
-    document.body.classList.remove("animated", "fade-in-down");
-    document.body.style.animation = "none";
-    document.body.style.transform = "none";
+  // Remove page-level fade-in transform so the modal stays fixed to the viewport
+  document.body.classList.remove("animated", "fade-in-down");
+  document.body.style.animation = "none";
+  document.body.style.transform = "none";
 
-    const el = (id) => document.getElementById(id);
-    const fmt = (n) =>
+  const el = (id) => document.getElementById(id);
+  const fmt = (n) =>
     n === null || n === undefined || isNaN(n) ? "—" : Number(n).toFixed(2);
-    const numberFormatter = new Intl.NumberFormat("en-US", {
+  const numberFormatter = new Intl.NumberFormat("en-US", {
     minimumFractionDigits: 2,
     maximumFractionDigits: 2,
-    });
-    const fmtNum = (n) => numberFormatter.format(Number(n || 0));
-    const todayISO = () => {
+  });
+  const fmtNum = (n) => numberFormatter.format(Number(n || 0));
+  const todayISO = () => {
     const d = new Date();
     const p = (x) => String(x).padStart(2, "0");
     return `${d.getFullYear()}-${p(d.getMonth() + 1)}-${p(d.getDate())}`;
-    };
-    const firstDayOfMonthISO = () => {
+  };
+  const firstDayOfMonthISO = () => {
     const d = new Date();
     const p = (x) => String(x).padStart(2, "0");
     return `${d.getFullYear()}-${p(d.getMonth() + 1)}-01`;
-    };
-    const setStatus = (msg) => (el("status").textContent = msg);
-    const setDbLabel = (msg) => (el("dbPill").textContent = msg);
-    const setBackupState = (dirty) => {
+  };
+  const setStatus = (msg) => (el("status").textContent = msg);
+  const setDbLabel = (msg) => (el("dbPill").textContent = msg);
+  const setBackupState = (dirty) => {
     backupDirty = dirty;
     const pill = el("dbPill");
     if (!pill) return;
     pill.classList.toggle("warn", dirty);
     pill.classList.toggle("success", !dirty);
-    };
-    const markDirty = () => setBackupState(true);
-    const markBackedUp = () => setBackupState(false);
-    const dominantCurrency = (rows) => {
+  };
+  const markDirty = () => setBackupState(true);
+  const markBackedUp = () => setBackupState(false);
+  const dominantCurrency = (rows) => {
     const counts = new Map();
     rows.forEach((t) => {
-        const cur = (t.currency || "RON").toUpperCase();
-        counts.set(cur, (counts.get(cur) || 0) + 1);
+      const cur = (t.currency || "RON").toUpperCase();
+      counts.set(cur, (counts.get(cur) || 0) + 1);
     });
     return counts.size
-        ? [...counts.entries()].sort((a, b) => b[1] - a[1])[0][0]
-        : "RON";
-    };
-    const colorPalette = (count) => {
+      ? [...counts.entries()].sort((a, b) => b[1] - a[1])[0][0]
+      : "RON";
+  };
+  const colorPalette = (count) => {
     const colors = [
-        "#8ec5fc",
-        "#ff8fb1",
-        "#f6d365",
-        "#9be7ff",
-        "#ffd2a0",
-        "#b8ffb8",
-        "#f8b3ff",
-        "#c4c1ff",
-        "#7dd3fc",
-        "#f7c59f",
+      "#8ec5fc",
+      "#ff8fb1",
+      "#f6d365",
+      "#9be7ff",
+      "#ffd2a0",
+      "#b8ffb8",
+      "#f8b3ff",
+      "#c4c1ff",
+      "#7dd3fc",
+      "#f7c59f",
     ];
     if (count <= colors.length) return colors.slice(0, count);
     const extra = Array.from({ length: count - colors.length }, (_, i) => {
-        const hue = Math.floor((i / Math.max(1, count - colors.length)) * 360);
-        return `hsl(${hue}, 70%, 60%)`;
+      const hue = Math.floor((i / Math.max(1, count - colors.length)) * 360);
+      return `hsl(${hue}, 70%, 60%)`;
     });
     return [...colors, ...extra];
-    };
-    const chartOptions = (currency, { stacked = false } = {}) => ({
+  };
+  const chartOptions = (currency, { stacked = false } = {}) => ({
     responsive: true,
     maintainAspectRatio: false,
     interaction: { mode: "index", intersect: false },
     plugins: {
-        legend: { position: "bottom" },
-        tooltip: {
+      legend: { position: "bottom" },
+      tooltip: {
         callbacks: {
-            label: (ctx) => {
+          label: (ctx) => {
             const raw = ctx.raw ?? ctx.parsed?.y ?? ctx.parsed ?? 0;
             const name = ctx.dataset?.label || "";
             const suffix = currency ? ` ${currency}` : "";
             return `${name}: ${fmtNum(raw)}${suffix}`;
-            },
+          },
         },
-        },
+      },
     },
     scales: {
-        x: { stacked },
-        y: {
+      x: { stacked },
+      y: {
         stacked,
         beginAtZero: true,
         ticks: {
-            callback: (v) => fmtNum(v),
+          callback: (v) => fmtNum(v),
         },
-        },
+      },
     },
-    });
-    const pieOptions = (currency, total) => ({
+  });
+  const pieOptions = (currency, total) => ({
     responsive: true,
     maintainAspectRatio: false,
     plugins: {
-        legend: {
+      legend: {
         position: "bottom",
         labels: {
-            boxWidth: 12,
-            padding: 12,
+          boxWidth: 12,
+          padding: 12,
         },
-        },
-        tooltip: {
+      },
+      tooltip: {
         callbacks: {
-            label: (ctx) => {
+          label: (ctx) => {
             const value = ctx.raw || 0;
             const pct = total ? ((value / total) * 100).toFixed(1) : "0.0";
             const name = ctx.label || ctx.dataset?.label || "";
             const suffix = currency ? ` ${currency}` : "";
             return `${name}: ${fmtNum(value)}${suffix} (${pct}%)`;
-            },
+          },
         },
-        },
+      },
     },
-    });
+  });
 
-    // ---------- IndexedDB storage ----------
-    function openIDB() {
+  // ---------- IndexedDB storage ----------
+  function openIDB() {
     return new Promise((resolve, reject) => {
-        const req = indexedDB.open("pnl_sqljs_db", 1);
-        req.onupgradeneeded = () => {
+      const req = indexedDB.open("pnl_sqljs_db", 1);
+      req.onupgradeneeded = () => {
         const db = req.result;
         if (!db.objectStoreNames.contains("files"))
-            db.createObjectStore("files");
-        };
-        req.onsuccess = () => resolve(req.result);
-        req.onerror = () => reject(req.error);
+          db.createObjectStore("files");
+      };
+      req.onsuccess = () => resolve(req.result);
+      req.onerror = () => reject(req.error);
     });
-    }
+  }
 
-    async function idbGet(key) {
+  async function idbGet(key) {
     const idb = await openIDB();
     return new Promise((resolve, reject) => {
-        const tx = idb.transaction("files", "readonly");
-        const store = tx.objectStore("files");
-        const req = store.get(key);
-        req.onsuccess = () => resolve(req.result || null);
-        req.onerror = () => reject(req.error);
+      const tx = idb.transaction("files", "readonly");
+      const store = tx.objectStore("files");
+      const req = store.get(key);
+      req.onsuccess = () => resolve(req.result || null);
+      req.onerror = () => reject(req.error);
     });
-    }
+  }
 
-    async function idbPut(key, value) {
+  async function idbPut(key, value) {
     const idb = await openIDB();
     return new Promise((resolve, reject) => {
-        const tx = idb.transaction("files", "readwrite");
-        const store = tx.objectStore("files");
-        const req = store.put(value, key);
-        req.onsuccess = () => resolve(true);
-        req.onerror = () => reject(req.error);
+      const tx = idb.transaction("files", "readwrite");
+      const store = tx.objectStore("files");
+      const req = store.put(value, key);
+      req.onsuccess = () => resolve(true);
+      req.onerror = () => reject(req.error);
     });
-    }
+  }
 
-    async function idbDel(key) {
+  async function idbDel(key) {
     const idb = await openIDB();
     return new Promise((resolve, reject) => {
-        const tx = idb.transaction("files", "readwrite");
-        const store = tx.objectStore("files");
-        const req = store.delete(key);
-        req.onsuccess = () => resolve(true);
-        req.onerror = () => reject(req.error);
+      const tx = idb.transaction("files", "readwrite");
+      const store = tx.objectStore("files");
+      const req = store.delete(key);
+      req.onsuccess = () => resolve(true);
+      req.onerror = () => reject(req.error);
     });
-    }
+  }
 
-    async function persist() {
+  async function persist() {
     if (!db || !idbHealthy) return;
     try {
-        await idbPut(DB_KEY, db);
+      await idbPut(DB_KEY, db);
     } catch (e) {
-        console.error("IndexedDB write failed; disabling persistence", e);
-        idbHealthy = false;
-        setStatus(
-        "IndexedDB unavailable; continuing in-memory (changes will not persist)."
-        );
+      console.error("IndexedDB write failed; disabling persistence", e);
+      idbHealthy = false;
+      setStatus(
+        "IndexedDB unavailable; continuing in-memory (changes will not persist).",
+      );
     }
-    }
+  }
 
-    // ---------- Data helpers ----------
-    const defaultCategories = () => [
+  // ---------- Data helpers ----------
+  const defaultCategories = () => [
     { id: 1, name: "Services", type: "income" },
     { id: 2, name: "Products", type: "income" },
     { id: 3, name: "Subscriptions", type: "income" },
     { id: 4, name: "Payroll", type: "expense" },
     { id: 5, name: "Operations", type: "expense" },
     { id: 6, name: "Marketing", type: "expense" },
-    ];
+  ];
 
-    const createEmptyDb = () => ({
+  const createEmptyDb = () => ({
     projects: [],
     categories: defaultCategories(),
     transactions: [],
+    recurring_transactions: [],
+    company_name: "",
+    company_tax_id: "",
+    company_bank_account: "",
     nextProjectId: 1,
     nextCategoryId: 7,
     nextTxId: 1,
-    });
+    nextRecurringTxId: 1,
+  });
 
-    const findProject = (id) =>
-    db.projects.find((p) => p.id === id) || null;
-    const projectName = (id) =>
-    findProject(id)?.name || "(Unassigned project)";
+  const findProject = (id) => db.projects.find((p) => p.id === id) || null;
+  const projectName = (id) => findProject(id)?.name || "(Unassigned project)";
 
-    // ---------- Export / Import ----------
-    function exportJson() {
+  // ---------- Export / Import ----------
+  function exportJson() {
     if (!db) {
-        setStatus("DB not ready yet.");
-        return;
+      setStatus("DB not ready yet.");
+      return;
     }
     const blob = new Blob([JSON.stringify(db, null, 2)], {
-        type: "application/json",
+      type: "application/json",
     });
     const url = URL.createObjectURL(blob);
     const a = document.createElement("a");
@@ -679,63 +687,80 @@ redirect_from:
     URL.revokeObjectURL(url);
     setStatus("Exported JSON.");
     markBackedUp();
-    }
+  }
 
-    async function importJson(file) {
+  async function importJson(file) {
     try {
-        const text = await file.text();
-        const parsed = JSON.parse(text);
-        if (!parsed || !Array.isArray(parsed.projects) || !Array.isArray(parsed.transactions)) {
+      const text = await file.text();
+      const parsed = JSON.parse(text);
+      if (
+        !parsed ||
+        !Array.isArray(parsed.projects) ||
+        !Array.isArray(parsed.transactions)
+      ) {
         throw new Error("Invalid JSON structure.");
-        }
-        const categories = Array.isArray(parsed.categories)
+      }
+      const categories = Array.isArray(parsed.categories)
         ? parsed.categories
         : defaultCategories();
-        db = {
+      const recurringTransactions = Array.isArray(parsed.recurring_transactions)
+        ? parsed.recurring_transactions
+        : [];
+      db = {
         projects: parsed.projects,
         categories,
         transactions: parsed.transactions,
+        recurring_transactions: recurringTransactions,
+        company_name: String(parsed.company_name || "").trim(),
+        company_tax_id: String(parsed.company_tax_id || "").trim(),
+        company_bank_account: String(parsed.company_bank_account || "").trim(),
         nextProjectId: parsed.nextProjectId || 1,
         nextCategoryId:
-            parsed.nextCategoryId ||
-            (categories.length
+          parsed.nextCategoryId ||
+          (categories.length
             ? Math.max(...categories.map((c) => Number(c.id) || 0)) + 1
             : 1),
         nextTxId: parsed.nextTxId || 1,
-        };
-        await persist();
-        renderCurrentView();
-        setStatus(`Imported ${file.name}.`);
-        setDbLabel("DB: IndexedDB (JSON)");
-        markDirty();
+        nextRecurringTxId:
+          parsed.nextRecurringTxId ||
+          (recurringTransactions.length
+            ? Math.max(...recurringTransactions.map((t) => Number(t.id) || 0)) +
+              1
+            : 1),
+      };
+      await persist();
+      renderCurrentView();
+      setStatus(`Imported ${file.name}.`);
+      setDbLabel("DB: IndexedDB (JSON)");
+      markDirty();
     } catch (e) {
-        console.error("Import failed", e);
-        setStatus(`Import failed: ${e.message || e}`);
+      console.error("Import failed", e);
+      setStatus(`Import failed: ${e.message || e}`);
     }
-    }
+  }
 
-    function exportModelCsv() {
+  function exportModelCsv() {
     const headers = [
-        "type",
-        "date",
-        "project",
-        "party",
-        "category",
-        "amount_net",
-        "vat_pct",
-        "currency",
-        "notes",
+      "type",
+      "date",
+      "project",
+      "party",
+      "category",
+      "amount_net",
+      "vat_pct",
+      "currency",
+      "notes",
     ];
     const sample = [
-        "income",
-        todayISO(),
-        "Sample Project",
-        "ACME Corp",
-        "Services",
-        "1200",
-        "0.19",
-        "EUR",
-        "Optional notes",
+      "income",
+      todayISO(),
+      "Sample Project",
+      "ACME Corp",
+      "Services",
+      "1200",
+      "0.19",
+      "EUR",
+      "Optional notes",
     ];
     const csv = [headers.join(","), sample.join(",")].join("\n");
     const blob = new Blob([csv], { type: "text/csv" });
@@ -746,33 +771,31 @@ redirect_from:
     a.click();
     URL.revokeObjectURL(url);
     setStatus("Exported CSV model template.");
-    }
+  }
 
-    async function importCsvFile(file) {
+  async function importCsvFile(file) {
     try {
-        if (!db) {
+      if (!db) {
         setStatus("DB not ready yet.");
         return;
-        }
-        const text = await file.text();
-        const rows = parseCsv(text);
-        if (!rows.length) {
+      }
+      const text = await file.text();
+      const rows = parseCsv(text);
+      if (!rows.length) {
         setStatus("CSV import: no data rows found.");
         return;
-        }
+      }
 
-        const required = ["type", "date", "amount_net"];
-        const missing = required.filter((r) => !(r in rows[0]));
-        if (missing.length) {
-        setStatus(
-            `CSV import failed: missing headers ${missing.join(", ")}.`
-        );
+      const required = ["type", "date", "amount_net"];
+      const missing = required.filter((r) => !(r in rows[0]));
+      if (missing.length) {
+        setStatus(`CSV import failed: missing headers ${missing.join(", ")}.`);
         return;
-        }
+      }
 
-        let created = 0;
-        let createdProjects = 0;
-        rows.forEach((row, idx) => {
+      let created = 0;
+      let createdProjects = 0;
+      rows.forEach((row, idx) => {
         const type = String(row.type || "").toLowerCase();
         if (type !== "income" && type !== "expense") return;
 
@@ -788,157 +811,174 @@ redirect_from:
         const projectLabel = (row.project || "").trim();
         let project_id = null;
         if (projectLabel) {
-            const existing =
+          const existing =
             db.projects.find(
-                (p) => p.name.toLowerCase() === projectLabel.toLowerCase()
+              (p) => p.name.toLowerCase() === projectLabel.toLowerCase(),
             ) || null;
-            if (existing) {
+          if (existing) {
             project_id = existing.id;
-            } else {
+          } else {
             const newProject = {
-                id: db.nextProjectId++,
-                name: projectLabel,
-                is_active: 1,
+              id: db.nextProjectId++,
+              name: projectLabel,
+              is_active: 1,
             };
             db.projects.push(newProject);
             project_id = newProject.id;
             createdProjects += 1;
-            }
+          }
         }
 
         db.transactions.push({
-            id: db.nextTxId++,
-            type,
-            date,
-            project_id,
-            party: row.party?.trim() || null,
-            category: row.category?.trim() || null,
-            amount_net,
-            vat_pct,
-            vat_amount,
-            amount_gross,
-            currency,
-            notes: row.notes?.trim() || null,
+          id: db.nextTxId++,
+          type,
+          date,
+          project_id,
+          party: row.party?.trim() || null,
+          category: row.category?.trim() || null,
+          amount_net,
+          vat_pct,
+          vat_amount,
+          amount_gross,
+          currency,
+          notes: row.notes?.trim() || null,
         });
         created += 1;
-        });
+      });
 
-        markDirty();
-        await persist();
-        renderCurrentView();
-        setStatus(
+      markDirty();
+      await persist();
+      renderCurrentView();
+      setStatus(
         `Imported ${created} row(s) from ${file.name}${
-            createdProjects ? ` (created ${createdProjects} new project(s))` : ""
-        }.`
-        );
+          createdProjects ? ` (created ${createdProjects} new project(s))` : ""
+        }.`,
+      );
     } catch (e) {
-        console.error("CSV import failed", e);
-        setStatus(`CSV import failed: ${e.message || e}`);
+      console.error("CSV import failed", e);
+      setStatus(`CSV import failed: ${e.message || e}`);
     }
-    }
+  }
 
-    async function initDb() {
+  async function initDb() {
     setStatus("Checking IndexedDB for existing DB…");
     let raw = null;
     try {
-        raw = await idbGet(DB_KEY);
+      raw = await idbGet(DB_KEY);
     } catch (e) {
-        console.error("IndexedDB read failed; continuing in-memory only", e);
-        idbHealthy = false;
-        setStatus(
-        "IndexedDB unavailable; using in-memory DB (data will not persist)."
-        );
-        setDbLabel("DB: in-memory (no persistence)");
+      console.error("IndexedDB read failed; continuing in-memory only", e);
+      idbHealthy = false;
+      setStatus(
+        "IndexedDB unavailable; using in-memory DB (data will not persist).",
+      );
+      setDbLabel("DB: in-memory (no persistence)");
     }
 
     const parseRaw = (r) => {
-        if (!r) return null;
-        if (r.projects && r.transactions) return r;
-        try {
+      if (!r) return null;
+      if (r.projects && r.transactions) return r;
+      try {
         // Attempt to decode Uint8Array or ArrayBuffer as JSON text
         const txt = new TextDecoder().decode(r);
         const obj = JSON.parse(txt);
         if (obj.projects && obj.transactions) return obj;
-        } catch {}
-        return null;
+      } catch {}
+      return null;
     };
 
     db = parseRaw(raw) || createEmptyDb();
     if (!Array.isArray(db.categories)) db.categories = defaultCategories();
+    if (!Array.isArray(db.recurring_transactions))
+      db.recurring_transactions = [];
+    if (typeof db.company_name !== "string") db.company_name = "";
+    if (typeof db.company_tax_id !== "string") db.company_tax_id = "";
+    if (typeof db.company_bank_account !== "string")
+      db.company_bank_account = "";
     if (!db.nextCategoryId) {
-        db.nextCategoryId =
+      db.nextCategoryId =
         db.categories.length > 0
-            ? Math.max(...db.categories.map((c) => Number(c.id) || 0)) + 1
-            : 1;
+          ? Math.max(...db.categories.map((c) => Number(c.id) || 0)) + 1
+          : 1;
+    }
+    if (!db.nextRecurringTxId) {
+      db.nextRecurringTxId =
+        db.recurring_transactions.length > 0
+          ? Math.max(
+              ...db.recurring_transactions.map((t) => Number(t.id) || 0),
+            ) + 1
+          : 1;
     }
     await persist();
     setStatus(
-        raw
+      raw
         ? "DB loaded from IndexedDB (auto-save enabled)."
         : idbHealthy
-        ? "No DB found. Created empty DB automatically in IndexedDB."
-        : "Started empty in-memory DB (no persistence)."
+          ? "No DB found. Created empty DB automatically in IndexedDB."
+          : "Started empty in-memory DB (no persistence).",
     );
     setDbLabel(
-        idbHealthy ? "DB: IndexedDB (JSON)" : "DB: in-memory (no persistence)"
+      idbHealthy ? "DB: IndexedDB (JSON)" : "DB: in-memory (no persistence)",
     );
 
     renderCurrentView();
     setBackupState(true);
-    }
+  }
 
-    function requireDb() {
+  function requireDb() {
     if (!db) {
-        setStatus("DB not ready yet.");
-        return false;
+      setStatus("DB not ready yet.");
+      return false;
     }
     return true;
-    }
+  }
 
-    // ---------- Views ----------
-    let currentView = "dashboard";
-    function setView(v) {
+  // ---------- Views ----------
+  let currentView = "dashboard";
+  function setView(v) {
     currentView = v;
     document
-        .querySelectorAll(".nav button")
-        .forEach((b) => b.classList.toggle("active", b.dataset.view === v));
+      .querySelectorAll(".nav button")
+      .forEach((b) => b.classList.toggle("active", b.dataset.view === v));
     renderCurrentView();
-    }
+  }
 
-    function viewTitle() {
+  function viewTitle() {
     return currentView === "dashboard"
-        ? "Dashboard"
-        : currentView === "transactions"
+      ? "Dashboard"
+      : currentView === "transactions"
         ? "Income & Expenses"
-        : currentView === "categories"
-        ? "Categories"
-        : currentView === "projects"
-        ? "Projects"
-        : currentView === "settings"
-        ? "Settings"
-        : "Reports";
-    }
+        : currentView === "recurring"
+          ? "Recurring transactions"
+          : currentView === "categories"
+            ? "Categories"
+            : currentView === "projects"
+              ? "Projects"
+              : currentView === "settings"
+                ? "Settings"
+                : "Reports";
+  }
 
-    function renderCurrentView() {
+  function renderCurrentView() {
     el("viewTitle").textContent = viewTitle();
     const root = el("viewRoot");
     root.innerHTML = "";
 
     if (!requireDb()) {
-        root.innerHTML = `<div class="hint">Initializing…</div>`;
-        return;
+      root.innerHTML = `<div class="hint">Initializing…</div>`;
+      return;
     }
 
     if (currentView === "dashboard") renderDashboard(root);
     else if (currentView === "transactions") renderTransactions(root);
+    else if (currentView === "recurring") renderRecurringTransactions(root);
     else if (currentView === "categories") renderCategories(root);
     else if (currentView === "projects") renderProjects(root);
     else if (currentView === "settings") renderSettings(root);
     else renderReports(root);
-    }
+  }
 
-    // ---------- Dashboard ----------
-    function renderDashboard(root) {
+  // ---------- Dashboard ----------
+  function renderDashboard(root) {
     const start = firstDayOfMonthISO();
     const end = todayISO();
 
@@ -987,24 +1027,24 @@ redirect_from:
     </div>
 `;
 
-    ["dStart", "dEnd"].forEach((id) => (el(id).onchange = () => refreshDashboard()));
+    ["dStart", "dEnd"].forEach(
+      (id) => (el(id).onchange = () => refreshDashboard()),
+    );
     refreshDashboard();
-    }
+  }
 
-    function refreshDashboard() {
+  function refreshDashboard() {
     const start = el("dStart").value;
     const end = el("dEnd").value;
-    const txs = db.transactions.filter(
-        (t) => t.date >= start && t.date <= end
-    );
+    const txs = db.transactions.filter((t) => t.date >= start && t.date <= end);
     const currency = dominantCurrency(txs);
 
     const income = txs
-        .filter((t) => t.type === "income")
-        .reduce((s, t) => s + Number(t.amount_net || 0), 0);
+      .filter((t) => t.type === "income")
+      .reduce((s, t) => s + Number(t.amount_net || 0), 0);
     const expense = txs
-        .filter((t) => t.type === "expense")
-        .reduce((s, t) => s + Number(t.amount_net || 0), 0);
+      .filter((t) => t.type === "expense")
+      .reduce((s, t) => s + Number(t.amount_net || 0), 0);
     const count = txs.length;
 
     el("kIncome").textContent = fmt(income);
@@ -1015,77 +1055,82 @@ redirect_from:
     // Monthly profitability
     const monthlyMap = new Map();
     txs.forEach((t) => {
-        const m = String(t.date).slice(0, 7);
-        const cur = monthlyMap.get(m) || { month: m, income: 0, expense: 0 };
-        if (t.type === "income") cur.income += Number(t.amount_net || 0);
-        else cur.expense += Number(t.amount_net || 0);
-        monthlyMap.set(m, cur);
+      const m = String(t.date).slice(0, 7);
+      const cur = monthlyMap.get(m) || { month: m, income: 0, expense: 0 };
+      if (t.type === "income") cur.income += Number(t.amount_net || 0);
+      else cur.expense += Number(t.amount_net || 0);
+      monthlyMap.set(m, cur);
     });
     const monthly = [...monthlyMap.values()].sort((a, b) =>
-        a.month.localeCompare(b.month)
+      a.month.localeCompare(b.month),
     );
 
     const labels = monthly.map((r) => r.month);
     const incomeSeries = monthly.map((r) => Number(r.income || 0));
     const expenseSeries = monthly.map((r) => Number(r.expense || 0));
     const profitSeries = monthly.map(
-        (r) => Number(r.income || 0) - Number(r.expense || 0)
+      (r) => Number(r.income || 0) - Number(r.expense || 0),
     );
 
     if (charts.profitMonthly) charts.profitMonthly.destroy();
     charts.profitMonthly = new Chart(el("cProfitMonthly"), {
-        type: "line",
-        data: {
+      type: "line",
+      data: {
         labels,
         datasets: [
-            { label: "Income (Net)", data: incomeSeries, tension: 0.2 },
-            { label: "Expenses (Net)", data: expenseSeries, tension: 0.2 },
-            { label: "Profit (Net)", data: profitSeries, tension: 0.2 },
+          { label: "Income (Net)", data: incomeSeries, tension: 0.2 },
+          { label: "Expenses (Net)", data: expenseSeries, tension: 0.2 },
+          { label: "Profit (Net)", data: profitSeries, tension: 0.2 },
         ],
-        },
-        options: chartOptions(currency),
+      },
+      options: chartOptions(currency),
     });
 
     // Profitability by project
     const projectMap = new Map();
     txs.forEach((t) => {
-        const key = projectName(t.project_id);
-        const cur =
-        projectMap.get(key) || { project: key, income: 0, expense: 0 };
-        if (t.type === "income") cur.income += Number(t.amount_net || 0);
-        else cur.expense += Number(t.amount_net || 0);
-        projectMap.set(key, cur);
+      const key = projectName(t.project_id);
+      const cur = projectMap.get(key) || {
+        project: key,
+        income: 0,
+        expense: 0,
+      };
+      if (t.type === "income") cur.income += Number(t.amount_net || 0);
+      else cur.expense += Number(t.amount_net || 0);
+      projectMap.set(key, cur);
     });
-    const profit = (row) =>
-        Number(row.income || 0) - Number(row.expense || 0);
+    const profit = (row) => Number(row.income || 0) - Number(row.expense || 0);
     const byProject = [...projectMap.values()].sort(
-        (a, b) => profit(b) - profit(a)
+      (a, b) => profit(b) - profit(a),
     );
 
     const projectLabels = byProject.map((r) => r.project);
     const projectProfit = byProject.map(
-        (r) => Number(r.income || 0) - Number(r.expense || 0)
+      (r) => Number(r.income || 0) - Number(r.expense || 0),
     );
 
     if (charts.profitByProject) charts.profitByProject.destroy();
     charts.profitByProject = new Chart(el("cProfitByProject"), {
-        type: "bar",
-        data: {
+      type: "bar",
+      data: {
         labels: projectLabels,
         datasets: [{ label: "Profit (Net)", data: projectProfit }],
-        },
-        options: chartOptions(currency),
+      },
+      options: chartOptions(currency),
     });
 
     // Net amounts by category (pie)
     const categoryBreakdown = (type) => {
-        const map = new Map();
-        txs.filter((t) => t.type === type).forEach((t) => {
-        const name = (t.category || "(Uncategorized)").trim() || "(Uncategorized)";
-        map.set(name, (map.get(name) || 0) + Number(t.amount_net || 0));
+      const map = new Map();
+      txs
+        .filter((t) => t.type === type)
+        .forEach((t) => {
+          const name =
+            (t.category || "(Uncategorized)").trim() || "(Uncategorized)";
+          map.set(name, (map.get(name) || 0) + Number(t.amount_net || 0));
         });
-        const entries = [...map.entries()].sort((a, b) => b[1] - a[1]);
-        return entries.length ? entries : [["No data", 0]];
+      const entries = [...map.entries()].sort((a, b) => b[1] - a[1]);
+      return entries.length ? entries : [["No data", 0]];
     };
 
     const expenseCats = categoryBreakdown("expense");
@@ -1094,18 +1139,18 @@ redirect_from:
     const expenseTotal = expenseValues.reduce((s, v) => s + Number(v || 0), 0);
     if (charts.expenseByCategory) charts.expenseByCategory.destroy();
     charts.expenseByCategory = new Chart(el("cExpenseByCategory"), {
-        type: "pie",
-        data: {
+      type: "pie",
+      data: {
         labels: expenseLabels,
         datasets: [
-            {
+          {
             label: "Expenses (Net)",
             data: expenseValues,
             backgroundColor: colorPalette(expenseLabels.length || 1),
-            },
+          },
         ],
-        },
-        options: pieOptions(currency, expenseTotal),
+      },
+      options: pieOptions(currency, expenseTotal),
     });
 
     const incomeCats = categoryBreakdown("income");
@@ -1114,94 +1159,102 @@ redirect_from:
     const incomeTotal = incomeValues.reduce((s, v) => s + Number(v || 0), 0);
     if (charts.incomeByCategory) charts.incomeByCategory.destroy();
     charts.incomeByCategory = new Chart(el("cIncomeByCategory"), {
-        type: "pie",
-        data: {
+      type: "pie",
+      data: {
         labels: incomeLabels,
         datasets: [
-            {
+          {
             label: "Income (Net)",
             data: incomeValues,
             backgroundColor: colorPalette(incomeLabels.length || 1),
-            },
+          },
         ],
-        },
-        options: pieOptions(currency, incomeTotal),
+      },
+      options: pieOptions(currency, incomeTotal),
     });
 
     // Monthly revenue by project (stacked)
     // Aggregate income per project per month so stacked totals are correct
     const incomeByProjectMonth = new Map();
-    txs.filter((t) => t.type === "income").forEach((t) => {
+    txs
+      .filter((t) => t.type === "income")
+      .forEach((t) => {
         const month = String(t.date).slice(0, 7);
         const project = projectName(t.project_id);
         if (!incomeByProjectMonth.has(project))
-        incomeByProjectMonth.set(project, new Map());
+          incomeByProjectMonth.set(project, new Map());
         const monthMap = incomeByProjectMonth.get(project);
-        monthMap.set(month, (monthMap.get(month) || 0) + Number(t.amount_net || 0));
-    });
+        monthMap.set(
+          month,
+          (monthMap.get(month) || 0) + Number(t.amount_net || 0),
+        );
+      });
 
     const monthSet = new Set();
     incomeByProjectMonth.forEach((monthMap) =>
-        monthMap.forEach((_, month) => monthSet.add(month))
+      monthMap.forEach((_, month) => monthSet.add(month)),
     );
     const months = [...monthSet].sort((a, b) => a.localeCompare(b));
     const projects = [...incomeByProjectMonth.keys()];
 
     const datasets = projects.map((project) => {
-        const monthMap = incomeByProjectMonth.get(project) || new Map();
-        return {
+      const monthMap = incomeByProjectMonth.get(project) || new Map();
+      return {
         label: project,
         data: months.map((mm) => monthMap.get(mm) || 0),
-        };
+      };
     });
 
     if (charts.revenueByProject) charts.revenueByProject.destroy();
     charts.revenueByProject = new Chart(el("cRevenueByProject"), {
-        type: "bar",
-        data: { labels: months, datasets },
-        options: chartOptions(currency, { stacked: true }),
+      type: "bar",
+      data: { labels: months, datasets },
+      options: chartOptions(currency, { stacked: true }),
     });
 
     // VAT per month (income vs expenses vs net)
     const vatMonthlyMap = new Map();
     txs.forEach((t) => {
-        const month = String(t.date).slice(0, 7);
-        const vat =
+      const month = String(t.date).slice(0, 7);
+      const vat =
         Number(t.vat_amount ?? (t.amount_net || 0) * (t.vat_pct || 0)) || 0;
-        const cur =
-        vatMonthlyMap.get(month) || { month, incomeVat: 0, expenseVat: 0 };
-        if (t.type === "income") cur.incomeVat += vat;
-        else cur.expenseVat += vat;
-        vatMonthlyMap.set(month, cur);
+      const cur = vatMonthlyMap.get(month) || {
+        month,
+        incomeVat: 0,
+        expenseVat: 0,
+      };
+      if (t.type === "income") cur.incomeVat += vat;
+      else cur.expenseVat += vat;
+      vatMonthlyMap.set(month, cur);
     });
     const vatMonthly = [...vatMonthlyMap.values()].sort((a, b) =>
-        a.month.localeCompare(b.month)
+      a.month.localeCompare(b.month),
     );
     const vatLabels = vatMonthly.map((r) => r.month);
     const incomeVatSeries = vatMonthly.map((r) => Number(r.incomeVat || 0));
     const expenseVatSeries = vatMonthly.map((r) => Number(r.expenseVat || 0));
     const netVatSeries = vatMonthly.map(
-        (r) => Number(r.incomeVat || 0) - Number(r.expenseVat || 0)
+      (r) => Number(r.incomeVat || 0) - Number(r.expenseVat || 0),
     );
     if (charts.vatMonthly) charts.vatMonthly.destroy();
     charts.vatMonthly = new Chart(el("cVatMonthly"), {
-        type: "line",
-        data: {
+      type: "line",
+      data: {
         labels: vatLabels,
         datasets: [
-            { label: "VAT on income", data: incomeVatSeries, tension: 0.2 },
-            { label: "VAT on expenses", data: expenseVatSeries, tension: 0.2 },
-            { label: "VAT net", data: netVatSeries, tension: 0.2 },
+          { label: "VAT on income", data: incomeVatSeries, tension: 0.2 },
+          { label: "VAT on expenses", data: expenseVatSeries, tension: 0.2 },
+          { label: "VAT net", data: netVatSeries, tension: 0.2 },
         ],
-        },
-        options: chartOptions(currency),
+      },
+      options: chartOptions(currency),
     });
 
     setStatus(`Dashboard refreshed for ${start} → ${end}.`);
-    }
+  }
 
-    // ---------- Transactions (CRUD) ----------
-    function renderTransactions(root) {
+  // ---------- Transactions (CRUD) ----------
+  function renderTransactions(root) {
     root.innerHTML = `
     <div class="toolbar">
     <div class="left">
@@ -1242,15 +1295,15 @@ redirect_from:
     fillProjectSelect(el("tProject"), true);
     const refresh = () => refreshTransactions();
     ["tStart", "tEnd", "tType", "tProject"].forEach(
-        (id) => (el(id).onchange = refresh)
+      (id) => (el(id).onchange = refresh),
     );
     el("tSearch").oninput = debounce(refresh, 250);
     el("btnAddTx").onclick = () => openTxModal(null, refresh);
 
     refreshTransactions();
-    }
+  }
 
-    function refreshTransactions() {
+  function refreshTransactions() {
     const start = el("tStart").value;
     const end = el("tEnd").value;
     const type = el("tType").value;
@@ -1260,37 +1313,35 @@ redirect_from:
     const where = ["t.date>=?", "t.date<=?"];
     const params = [start, end];
 
-    let rows = db.transactions.filter(
-        (t) => t.date >= start && t.date <= end
-    );
+    let rows = db.transactions.filter((t) => t.date >= start && t.date <= end);
     if (type !== "all") rows = rows.filter((t) => t.type === type);
     if (projectId !== "all") {
-        const val = projectId === "null" ? null : Number(projectId);
-        rows = rows.filter((t) => t.project_id === val);
+      const val = projectId === "null" ? null : Number(projectId);
+      rows = rows.filter((t) => t.project_id === val);
     }
     if (q) {
-        const qq = q.toLowerCase();
-        rows = rows.filter(
+      const qq = q.toLowerCase();
+      rows = rows.filter(
         (t) =>
-            (t.party || "").toLowerCase().includes(qq) ||
-            (t.category || "").toLowerCase().includes(qq)
-        );
+          (t.party || "").toLowerCase().includes(qq) ||
+          (t.category || "").toLowerCase().includes(qq),
+      );
     }
 
     rows = rows
-        .slice()
-        .sort((a, b) =>
+      .slice()
+      .sort((a, b) =>
         a.date === b.date
-            ? Number(b.id || 0) - Number(a.id || 0)
-            : b.date.localeCompare(a.date)
-        )
-        .slice(0, 2000)
-        .map((t) => ({ ...t, project_name: projectName(t.project_id) }));
+          ? Number(b.id || 0) - Number(a.id || 0)
+          : b.date.localeCompare(a.date),
+      )
+      .slice(0, 2000)
+      .map((t) => ({ ...t, project_name: projectName(t.project_id) }));
 
     el("txRows").innerHTML =
-        rows
+      rows
         .map(
-            (r) => `
+          (r) => `
     <tr>
     <td class="mono">${r.date}</td>
     <td>${r.type}</td>
@@ -1306,32 +1357,258 @@ redirect_from:
         <button class="danger" data-del="${r.id}">Delete</button>
     </td>
     </tr>
-`
+`,
         )
         .join("") ||
-        `<tr><td colspan="10" style="padding:12px;" class="hint">No records.</td></tr>`;
+      `<tr><td colspan="10" style="padding:12px;" class="hint">No records.</td></tr>`;
 
     el("txRows").onclick = async (e) => {
-        const editId = e.target?.getAttribute?.("data-edit");
-        const delId = e.target?.getAttribute?.("data-del");
-        if (editId) {
+      const editId = e.target?.getAttribute?.("data-edit");
+      const delId = e.target?.getAttribute?.("data-del");
+      if (editId) {
         openTxModal(Number(editId), () => refreshTransactions());
-        } else if (delId) {
+      } else if (delId) {
         await deleteTransaction(Number(delId));
         refreshTransactions();
-        }
+      }
     };
-    }
+  }
 
-    async function deleteTransaction(id) {
+  async function deleteTransaction(id) {
     db.transactions = db.transactions.filter((t) => t.id !== id);
     markDirty();
     await persist();
     setStatus(`Deleted transaction #${id}.`);
+  }
+
+  // ---------- Recurring Transactions ----------
+  function renderRecurringTransactions(root) {
+    root.innerHTML = `
+    <div class="toolbar">
+    <div class="left">
+        <div class="hint">Recurring transactions are reusable templates. Use "Create transactions" to add them into Income & Expenses.</div>
+    </div>
+    <div class="right">
+        <button id="btnExportRecurring">Export bank report</button>
+        <button id="btnCreateRecurringTxs">Create transactions</button>
+        <button id="btnAddRecurringTx" class="primary">Add</button>
+    </div>
+    </div>
+
+    <div class="card" style="box-shadow:none;">
+    <div class="hd"><h2>Recurring templates</h2></div>
+    <div class="bd" style="padding:0;">
+        <table>
+        <thead>
+            <tr>
+            <th>Type</th><th>Project</th><th>Party</th><th>Client Tax ID</th><th>Bank account</th><th>Category</th>
+            <th class="mono">Net</th><th class="mono">VAT</th><th class="mono">Gross</th><th>Cur</th><th></th>
+            </tr>
+        </thead>
+        <tbody id="rtxRows"></tbody>
+        </table>
+    </div>
+    </div>
+`;
+
+    el("btnAddRecurringTx").onclick = () =>
+      openRecurringTxModal(null, () => refreshRecurringTransactions());
+    el("btnCreateRecurringTxs").onclick = () => createRecurringTransactions();
+    el("btnExportRecurring").onclick = () => openRecurringExportModal();
+    refreshRecurringTransactions();
+  }
+
+  function refreshRecurringTransactions() {
+    const rows = db.recurring_transactions
+      .slice()
+      .sort((a, b) => Number(b.id || 0) - Number(a.id || 0))
+      .map((t) => ({ ...t, project_name: projectName(t.project_id) }));
+
+    el("rtxRows").innerHTML =
+      rows
+        .map(
+          (r) => `
+    <tr>
+    <td>${r.type}</td>
+    <td>${escapeHtml(r.project_name || "")}</td>
+    <td>${escapeHtml(r.party || "")}</td>
+    <td>${escapeHtml(r.clientTaxId || "")}</td>
+    <td>${escapeHtml(r.bankAccount || "")}</td>
+    <td>${escapeHtml(r.category || "")}</td>
+    <td class="mono">${fmt(r.amount_net)}</td>
+    <td class="mono">${fmt(r.vat_amount)}</td>
+    <td class="mono">${fmt(r.amount_gross)}</td>
+    <td class="mono">${r.currency || "RON"}</td>
+    <td style="white-space:nowrap;">
+        <button data-edit="${r.id}">Edit</button>
+        <button class="danger" data-del="${r.id}">Delete</button>
+    </td>
+    </tr>
+    `,
+        )
+        .join("") ||
+      `<tr><td colspan="11" style="padding:12px;" class="hint">No recurring templates.</td></tr>`;
+
+    el("rtxRows").onclick = async (e) => {
+      const editId = e.target?.getAttribute?.("data-edit");
+      const delId = e.target?.getAttribute?.("data-del");
+      if (editId) {
+        openRecurringTxModal(Number(editId), () =>
+          refreshRecurringTransactions(),
+        );
+      } else if (delId) {
+        await deleteRecurringTransaction(Number(delId));
+        refreshRecurringTransactions();
+      }
+    };
+  }
+
+  async function deleteRecurringTransaction(id) {
+    db.recurring_transactions = db.recurring_transactions.filter(
+      (t) => t.id !== id,
+    );
+    markDirty();
+    await persist();
+    setStatus(`Deleted recurring template #${id}.`);
+  }
+
+  async function createRecurringTransactions() {
+    const templates = db.recurring_transactions || [];
+    if (!templates.length) {
+      setStatus("No recurring templates defined.");
+      return;
+    }
+    if (
+      !confirm(
+        `Create ${templates.length} transaction(s) from recurring templates into Income & Expenses?`,
+      )
+    ) {
+      setStatus("Create transactions cancelled.");
+      return;
     }
 
-    // ---------- Categories (CRUD) ----------
-    function renderCategories(root) {
+    const date = todayISO();
+    templates.forEach((t) => {
+      db.transactions.push({
+        id: db.nextTxId++,
+        type: t.type,
+        date,
+        project_id: t.project_id ?? null,
+        party: t.party ?? null,
+        category: t.category ?? null,
+        amount_net: Number(t.amount_net || 0),
+        vat_pct: Number(t.vat_pct || 0),
+        vat_amount: Number(t.vat_amount || 0),
+        amount_gross: Number(t.amount_gross || 0),
+        currency: t.currency || "RON",
+        notes: t.notes ?? null,
+        clientTaxId: t.clientTaxId ?? null,
+        bankAccount: t.bankAccount ?? null,
+        recurring_template_id: t.id,
+      });
+    });
+
+    markDirty();
+    await persist();
+    setStatus(
+      `Created ${templates.length} transaction(s) from recurring templates.`,
+    );
+    if (currentView === "transactions") refreshTransactions();
+    if (currentView === "dashboard") refreshDashboard();
+  }
+
+  function exportRecurringTransactions(providerRaw) {
+    const provider = String(providerRaw || "").toLowerCase();
+    if (!provider) {
+      setStatus("Select an export provider first.");
+      return;
+    }
+    if (provider === "ing") {
+      exportRecurringTransactionsForING();
+      return;
+    }
+    setStatus("Unsupported export provider.");
+  }
+
+  function openRecurringExportModal() {
+    el("modalTitle").textContent = "Export bank report";
+    el("modalBody").innerHTML = `
+    <div class="row">
+    <div>
+        <label>Bank</label>
+        <select id="mRecurringExportType">
+        <option value="">Select bank...</option>
+        <option value="ing">ING</option>
+        </select>
+    </div>
+    </div>
+    <div class="toolbar">
+    <div class="left"><div class="hint">Export format: TSV with .txt extension.</div></div>
+    <div class="right">
+        <button id="btnRunRecurringExport" class="primary">Export</button>
+    </div>
+    </div>
+`;
+    el("btnRunRecurringExport").onclick = () => {
+      const provider = el("mRecurringExportType").value;
+      if (!provider) {
+        setStatus("Select an export provider first.");
+        return;
+      }
+      closeModal();
+      exportRecurringTransactions(provider);
+    };
+    openModal();
+  }
+
+  function exportRecurringTransactionsForING() {
+    const rows = (db.recurring_transactions || []).filter(
+      (t) => t.type === "expense",
+    );
+    if (!rows.length) {
+      setStatus("No recurring expense templates available for ING export.");
+      return;
+    }
+
+    const header = [
+      "Nume Beneficiar",
+      "Cont Beneficiar",
+      "Suma",
+      "Detalii Plata",
+      "CUI/CNP",
+    ];
+
+    const sanitize = (v) =>
+      String(v ?? "")
+        .replace(/\t/g, " ")
+        .replace(/\r?\n/g, " ")
+        .trim();
+    const tsvRows = rows.map((t) => [
+      sanitize(t.party || ""),
+      sanitize(t.bankAccount || ""),
+      Number(t.amount_net || 0).toFixed(2),
+      sanitize(t.notes || `Recurring ${t.category || "payment"}`),
+      sanitize(t.clientTaxId || ""),
+    ]);
+
+    const tsv = [header, ...tsvRows]
+      .map((row) => row.map(sanitize).join("\t"))
+      .join("\n");
+
+    const blob = new Blob([tsv], { type: "text/plain;charset=utf-8" });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = `recurring-ing-${todayISO()}.txt`;
+    a.click();
+    URL.revokeObjectURL(url);
+    setStatus(
+      `Exported ${rows.length} recurring expense template(s) for ING (.txt TSV).`,
+    );
+  }
+
+  // ---------- Categories (CRUD) ----------
+  function renderCategories(root) {
     root.innerHTML = `
     <div class="toolbar">
     <div class="left">
@@ -1354,21 +1631,20 @@ redirect_from:
 `;
 
     el("btnAddCat").onclick = () =>
-        openCategoryModal(null, () => refreshCategories());
+      openCategoryModal(null, () => refreshCategories());
     refreshCategories();
-    }
+  }
 
-    function refreshCategories() {
+  function refreshCategories() {
     const rows = db.categories
-        .slice()
-        .sort(
-        (a, b) =>
-            a.type.localeCompare(b.type) || a.name.localeCompare(b.name)
-        );
+      .slice()
+      .sort(
+        (a, b) => a.type.localeCompare(b.type) || a.name.localeCompare(b.name),
+      );
     el("catRows").innerHTML =
-        rows
+      rows
         .map(
-            (c) => `
+          (c) => `
     <tr>
     <td>${escapeHtml(c.name)}</td>
     <td>${c.type}</td>
@@ -1377,33 +1653,33 @@ redirect_from:
         <button class="danger" data-del="${c.id}">Delete</button>
     </td>
     </tr>
-`
+`,
         )
         .join("") ||
-        `<tr><td colspan="3" style="padding:12px;" class="hint">No categories.</td></tr>`;
+      `<tr><td colspan="3" style="padding:12px;" class="hint">No categories.</td></tr>`;
 
     el("catRows").onclick = async (e) => {
-        const editId = e.target?.getAttribute?.("data-edit");
-        const delId = e.target?.getAttribute?.("data-del");
-        if (editId) {
+      const editId = e.target?.getAttribute?.("data-edit");
+      const delId = e.target?.getAttribute?.("data-del");
+      if (editId) {
         openCategoryModal(Number(editId), refreshCategories);
-        } else if (delId) {
+      } else if (delId) {
         const id = Number(delId);
         const cat = db.categories.find((c) => c.id === id);
         db.transactions.forEach((t) => {
-            if (cat && t.category === cat.name) t.category = null;
+          if (cat && t.category === cat.name) t.category = null;
         });
         db.categories = db.categories.filter((c) => c.id !== id);
         markDirty();
         await persist();
         setStatus(`Deleted category #${id}.`);
         refreshCategories();
-        }
+      }
     };
-    }
+  }
 
-    // ---------- Projects (CRUD) ----------
-    function renderProjects(root) {
+  // ---------- Projects (CRUD) ----------
+  function renderProjects(root) {
     root.innerHTML = `
     <div class="toolbar">
     <div class="left">
@@ -1427,16 +1703,16 @@ redirect_from:
 
     el("btnAddProject").onclick = () => openProjectModal(null, refreshProjects);
     refreshProjects();
-    }
+  }
 
-    function refreshProjects() {
+  function refreshProjects() {
     const projects = db.projects
-        .slice()
-        .sort((a, b) => a.name.localeCompare(b.name));
+      .slice()
+      .sort((a, b) => a.name.localeCompare(b.name));
     el("projectRows").innerHTML =
-        projects
+      projects
         .map(
-            (p) => `
+          (p) => `
     <tr>
     <td>${escapeHtml(p.name)}</td>
     <td class="mono">${p.is_active ? "1" : "0"}</td>
@@ -1445,32 +1721,32 @@ redirect_from:
         <button class="danger" data-del="${p.id}">Delete</button>
     </td>
     </tr>
-`
+`,
         )
         .join("") ||
-        `<tr><td colspan="3" style="padding:12px;" class="hint">No projects.</td></tr>`;
+      `<tr><td colspan="3" style="padding:12px;" class="hint">No projects.</td></tr>`;
 
     el("projectRows").onclick = async (e) => {
-        const editId = e.target?.getAttribute?.("data-edit");
-        const delId = e.target?.getAttribute?.("data-del");
-        if (editId) {
+      const editId = e.target?.getAttribute?.("data-edit");
+      const delId = e.target?.getAttribute?.("data-del");
+      if (editId) {
         openProjectModal(Number(editId), refreshProjects);
-        } else if (delId) {
+      } else if (delId) {
         const id = Number(delId);
         db.transactions.forEach((t) => {
-            if (t.project_id === id) t.project_id = null;
+          if (t.project_id === id) t.project_id = null;
         });
         db.projects = db.projects.filter((p) => p.id !== id);
         markDirty();
         await persist();
         setStatus(`Deleted project #${id}.`);
         refreshProjects();
-        }
+      }
     };
-    }
+  }
 
-    // ---------- Reports ----------
-    function renderReports(root) {
+  // ---------- Reports ----------
+  function renderReports(root) {
     root.innerHTML = `
     <div class="toolbar">
     <div class="left">
@@ -1498,134 +1774,161 @@ redirect_from:
     </div>
 `;
     ["rStart", "rEnd", "rGroup"].forEach(
-        (id) => (el(id).onchange = () => runReport())
+      (id) => (el(id).onchange = () => runReport()),
     );
     runReport();
-    }
+  }
 
-    function runReport() {
+  function runReport() {
     const start = el("rStart").value;
     const end = el("rEnd").value;
     const grp = el("rGroup").value;
 
     if (grp === "category") {
-        el(
-        "rHead"
-        ).innerHTML = `<tr><th>Type</th><th>Category</th><th class="mono">Net</th></tr>`;
-        const rowsMap = new Map();
-        db.transactions
+      el("rHead").innerHTML =
+        `<tr><th>Type</th><th>Category</th><th class="mono">Net</th></tr>`;
+      const rowsMap = new Map();
+      db.transactions
         .filter((t) => t.date >= start && t.date <= end)
         .forEach((t) => {
-            const key = `${t.type}||${t.category || "Uncategorized"}`;
-            const cur = rowsMap.get(key) || {
+          const key = `${t.type}||${t.category || "Uncategorized"}`;
+          const cur = rowsMap.get(key) || {
             type: t.type,
             key: t.category || "Uncategorized",
             v: 0,
-            };
-            cur.v += Number(t.amount_net || 0);
-            rowsMap.set(key, cur);
+          };
+          cur.v += Number(t.amount_net || 0);
+          rowsMap.set(key, cur);
         });
-        const rows = [...rowsMap.values()].sort((a, b) => b.v - a.v);
-        el("rBody").innerHTML =
+      const rows = [...rowsMap.values()].sort((a, b) => b.v - a.v);
+      el("rBody").innerHTML =
         rows
-            .map(
+          .map(
             (r) => `
     <tr><td>${r.type}</td><td>${escapeHtml(
-                r.key
-            )}</td><td class="mono">${fmt(r.v)}</td></tr>
-    `
-            )
-            .join("") ||
+      r.key,
+    )}</td><td class="mono">${fmt(r.v)}</td></tr>
+    `,
+          )
+          .join("") ||
         `<tr><td colspan="3" style="padding:12px;" class="hint">No data.</td></tr>`;
     }
 
     if (grp === "project") {
-        el(
-        "rHead"
-        ).innerHTML = `<tr><th>Project</th><th class="mono">Income</th><th class="mono">Expenses</th><th class="mono">Profit</th></tr>`;
-        const rowsMap = new Map();
-        db.transactions
+      el("rHead").innerHTML =
+        `<tr><th>Project</th><th class="mono">Income</th><th class="mono">Expenses</th><th class="mono">Profit</th></tr>`;
+      const rowsMap = new Map();
+      db.transactions
         .filter((t) => t.date >= start && t.date <= end)
         .forEach((t) => {
-            const key = projectName(t.project_id);
-            const cur = rowsMap.get(key) || {
+          const key = projectName(t.project_id);
+          const cur = rowsMap.get(key) || {
             key,
             income: 0,
             expense: 0,
-            };
-            if (t.type === "income") cur.income += Number(t.amount_net || 0);
-            else cur.expense += Number(t.amount_net || 0);
-            rowsMap.set(key, cur);
+          };
+          if (t.type === "income") cur.income += Number(t.amount_net || 0);
+          else cur.expense += Number(t.amount_net || 0);
+          rowsMap.set(key, cur);
         });
-        const profit = (r) => Number(r.income || 0) - Number(r.expense || 0);
-        const rows = [...rowsMap.values()].sort(
-        (a, b) => profit(b) - profit(a)
-        );
-        el("rBody").innerHTML =
+      const profit = (r) => Number(r.income || 0) - Number(r.expense || 0);
+      const rows = [...rowsMap.values()].sort((a, b) => profit(b) - profit(a));
+      el("rBody").innerHTML =
         rows
-            .map(
+          .map(
             (r) => `
     <tr>
         <td>${escapeHtml(r.key)}</td>
         <td class="mono">${fmt(r.income)}</td>
         <td class="mono">${fmt(r.expense)}</td>
         <td class="mono">${fmt(
-        Number(r.income || 0) - Number(r.expense || 0)
+          Number(r.income || 0) - Number(r.expense || 0),
         )}</td>
     </tr>
-    `
-            )
-            .join("") ||
+    `,
+          )
+          .join("") ||
         `<tr><td colspan="4" style="padding:12px;" class="hint">No data.</td></tr>`;
     }
 
     if (grp === "month") {
-        el(
-        "rHead"
-        ).innerHTML = `<tr><th>Month</th><th class="mono">Income</th><th class="mono">Expenses</th><th class="mono">Profit</th></tr>`;
-        const rowsMap = new Map();
-        db.transactions
+      el("rHead").innerHTML =
+        `<tr><th>Month</th><th class="mono">Income</th><th class="mono">Expenses</th><th class="mono">Profit</th></tr>`;
+      const rowsMap = new Map();
+      db.transactions
         .filter((t) => t.date >= start && t.date <= end)
         .forEach((t) => {
-            const key = String(t.date).slice(0, 7);
-            const cur = rowsMap.get(key) || {
+          const key = String(t.date).slice(0, 7);
+          const cur = rowsMap.get(key) || {
             key,
             income: 0,
             expense: 0,
-            };
-            if (t.type === "income") cur.income += Number(t.amount_net || 0);
-            else cur.expense += Number(t.amount_net || 0);
-            rowsMap.set(key, cur);
+          };
+          if (t.type === "income") cur.income += Number(t.amount_net || 0);
+          else cur.expense += Number(t.amount_net || 0);
+          rowsMap.set(key, cur);
         });
-        const rows = [...rowsMap.values()].sort((a, b) =>
-        a.key.localeCompare(b.key)
-        );
-        el("rBody").innerHTML =
+      const rows = [...rowsMap.values()].sort((a, b) =>
+        a.key.localeCompare(b.key),
+      );
+      el("rBody").innerHTML =
         rows
-            .map(
+          .map(
             (r) => `
     <tr>
         <td class="mono">${r.key}</td>
         <td class="mono">${fmt(r.income)}</td>
         <td class="mono">${fmt(r.expense)}</td>
         <td class="mono">${fmt(
-        Number(r.income || 0) - Number(r.expense || 0)
+          Number(r.income || 0) - Number(r.expense || 0),
         )}</td>
     </tr>
-    `
-            )
-            .join("") ||
+    `,
+          )
+          .join("") ||
         `<tr><td colspan="4" style="padding:12px;" class="hint">No data.</td></tr>`;
     }
 
     setStatus(`Report generated for ${start} → ${end}.`);
-    }
+  }
 
-    // ---------- Settings ----------
-    function renderSettings(root) {
+  // ---------- Settings ----------
+  function renderSettings(root) {
     const storageLabel = el("dbPill")?.textContent || "DB";
     root.innerHTML = `
     <div class="card" style="box-shadow:none;">
+    <div class="hd"><h2>Company profile</h2></div>
+    <div class="bd">
+        <div class="row">
+        <div>
+            <label>Company name</label>
+            <input id="sCompanyName" type="text" value="${escapeAttr(
+              db.company_name || "",
+            )}" />
+        </div>
+        <div>
+            <label>Company tax ID</label>
+            <input id="sCompanyTaxId" type="text" value="${escapeAttr(
+              db.company_tax_id || "",
+            )}" />
+        </div>
+        </div>
+        <div class="row">
+        <div>
+            <label>Company bank account</label>
+            <input id="sCompanyBankAccount" type="text" value="${escapeAttr(
+              db.company_bank_account || "",
+            )}" />
+        </div>
+        <div style="display:flex; align-items:flex-end; justify-content:flex-end;">
+            <button id="btnSaveCompanyProfile" class="primary">Save company profile</button>
+        </div>
+        </div>
+        <div class="hint">Used for exports (e.g., company bank account fills "cont ordonator").</div>
+    </div>
+    </div>
+
+    <div class="card" style="box-shadow:none; margin-top:12px;">
     <div class="hd"><h2>Data management</h2></div>
     <div class="bd">
         <div class="row">
@@ -1672,37 +1975,45 @@ redirect_from:
     el("btnSettingsImportCsv").onclick = () => el("fileInputCsv").click();
     el("btnExportModel").onclick = exportModelCsv;
     el("btnReset").onclick = resetDb;
-    }
+    el("btnSaveCompanyProfile").onclick = async () => {
+      db.company_name = el("sCompanyName").value.trim();
+      db.company_tax_id = el("sCompanyTaxId").value.trim();
+      db.company_bank_account = el("sCompanyBankAccount").value.trim();
+      markDirty();
+      await persist();
+      setStatus("Company profile saved.");
+    };
+  }
 
-    // ---------- Modal: Category CRUD ----------
-    function openCategoryModal(categoryId, onDone) {
+  // ---------- Modal: Category CRUD ----------
+  function openCategoryModal(categoryId, onDone) {
     const isEdit = !!categoryId;
     const cat = isEdit
-        ? db.categories.find((c) => c.id === categoryId) || {
-            name: "",
-            type: "income",
+      ? db.categories.find((c) => c.id === categoryId) || {
+          name: "",
+          type: "income",
         }
-        : { name: "", type: "income" };
+      : { name: "", type: "income" };
 
     el("modalTitle").textContent = isEdit
-        ? `Edit category #${categoryId}`
-        : "Add category";
+      ? `Edit category #${categoryId}`
+      : "Add category";
     el("modalBody").innerHTML = `
     <div class="row">
     <div>
         <label>Name</label>
         <input id="mCatName" type="text" value="${escapeAttr(
-        cat.name || ""
+          cat.name || "",
         )}" />
     </div>
     <div>
         <label>Type</label>
         <select id="mCatType">
         <option value="income" ${
-            cat.type === "income" ? "selected" : ""
+          cat.type === "income" ? "selected" : ""
         }>income</option>
         <option value="expense" ${
-            cat.type === "expense" ? "selected" : ""
+          cat.type === "expense" ? "selected" : ""
         }>expense</option>
         </select>
     </div>
@@ -1711,34 +2022,37 @@ redirect_from:
     <div class="left"><div class="hint">Categories feed the dropdown when adding transactions.</div></div>
     <div class="right">
         <button id="btnSaveCat" class="primary">${
-        isEdit ? "Save" : "Create"
+          isEdit ? "Save" : "Create"
         }</button>
     </div>
     </div>
 `;
 
     el("btnSaveCat").onclick = async () => {
-        const name = el("mCatName").value.trim();
-        const type = el("mCatType").value;
-        if (!name) {
+      const name = el("mCatName").value.trim();
+      const type = el("mCatType").value;
+      if (!name) {
         setStatus("Category name is required.");
         return;
-        }
+      }
 
-        try {
+      try {
         if (isEdit) {
-            const idx = db.categories.findIndex((c) => c.id === categoryId);
-            if (idx >= 0) {
+          const idx = db.categories.findIndex((c) => c.id === categoryId);
+          if (idx >= 0) {
             const prevName = db.categories[idx].name;
             db.categories[idx] = { ...db.categories[idx], name, type };
             if (prevName !== name) {
-                db.transactions.forEach((t) => {
+              db.transactions.forEach((t) => {
                 if (t.category === prevName) t.category = name;
-                });
+              });
+              db.recurring_transactions.forEach((t) => {
+                if (t.category === prevName) t.category = name;
+              });
             }
-            }
+          }
         } else {
-            db.categories.push({ id: db.nextCategoryId++, name, type });
+          db.categories.push({ id: db.nextCategoryId++, name, type });
         }
 
         markDirty();
@@ -1747,30 +2061,31 @@ redirect_from:
         setStatus(isEdit ? "Category updated." : "Category created.");
         onDone?.();
         if (currentView === "transactions") refreshTransactions();
-        } catch (e) {
+        if (currentView === "recurring") refreshRecurringTransactions();
+      } catch (e) {
         setStatus(`Error: ${String(e.message || e)}`);
-        }
+      }
     };
 
     openModal();
-    }
+  }
 
-    // ---------- Modal: Project CRUD ----------
-    function openProjectModal(projectId, onDone) {
+  // ---------- Modal: Project CRUD ----------
+  function openProjectModal(projectId, onDone) {
     const isEdit = !!projectId;
     const project = isEdit
-        ? db.projects.find((p) => p.id === projectId)
-        : { name: "", is_active: 1 };
+      ? db.projects.find((p) => p.id === projectId)
+      : { name: "", is_active: 1 };
 
     el("modalTitle").textContent = isEdit
-        ? `Edit project #${projectId}`
-        : "Add project";
+      ? `Edit project #${projectId}`
+      : "Add project";
     el("modalBody").innerHTML = `
     <div class="row">
     <div>
         <label>Name</label>
         <input id="mProjectName" type="text" value="${escapeAttr(
-        project.name || ""
+          project.name || "",
         )}" />
     </div>
     <div>
@@ -1785,35 +2100,35 @@ redirect_from:
     <div class="left"><div class="hint">Projects are referenced by transactions via project_id.</div></div>
     <div class="right">
         <button id="btnSaveProject" class="primary">${
-        isEdit ? "Save" : "Create"
+          isEdit ? "Save" : "Create"
         }</button>
     </div>
     </div>
 `;
 
     el("btnSaveProject").onclick = async () => {
-        const name = el("mProjectName").value.trim();
-        const active = Number(el("mProjectActive").value);
-        if (!name) {
+      const name = el("mProjectName").value.trim();
+      const active = Number(el("mProjectActive").value);
+      if (!name) {
         setStatus("Project name is required.");
         return;
-        }
+      }
 
-        try {
+      try {
         if (isEdit) {
-            const idx = db.projects.findIndex((p) => p.id === projectId);
-            if (idx >= 0)
+          const idx = db.projects.findIndex((p) => p.id === projectId);
+          if (idx >= 0)
             db.projects[idx] = {
-                ...db.projects[idx],
-                name,
-                is_active: active,
+              ...db.projects[idx],
+              name,
+              is_active: active,
             };
         } else {
-            db.projects.push({
-                id: db.nextProjectId++,
-                name,
-                is_active: active,
-            });
+          db.projects.push({
+            id: db.nextProjectId++,
+            name,
+            is_active: active,
+          });
         }
 
         markDirty();
@@ -1822,66 +2137,301 @@ redirect_from:
         setStatus(isEdit ? "Project updated." : "Project created.");
         onDone?.();
         if (currentView === "dashboard") refreshDashboard();
-        } catch (e) {
+        if (currentView === "recurring") refreshRecurringTransactions();
+      } catch (e) {
         setStatus(`Error: ${String(e.message || e)}`);
-        }
+      }
     };
 
     openModal();
-    }
+  }
 
-    // ---------- Modal: Transaction CRUD ----------
-    function openTxModal(txId, onDone) {
+  // ---------- Modal: Recurring Transaction CRUD ----------
+  function openRecurringTxModal(txId, onDone) {
     const isEdit = !!txId;
     const tx = isEdit
-        ? db.transactions.find((t) => t.id === txId)
-        : {
-            type: "income",
-            date: todayISO(),
-            project_id: null,
-            party: "",
-            category: "",
-            amount_net: 0,
-            vat_pct: 0,
-            vat_amount: 0,
-            amount_gross: 0,
-            currency: "RON",
-            notes: "",
+      ? db.recurring_transactions.find((t) => t.id === txId)
+      : {
+          type: "income",
+          project_id: null,
+          party: "",
+          clientTaxId: "",
+          bankAccount: "",
+          category: "",
+          amount_net: 0,
+          vat_pct: 0,
+          vat_amount: 0,
+          amount_gross: 0,
+          currency: "RON",
+          notes: "",
         };
 
     el("modalTitle").textContent = isEdit
-        ? `Edit transaction #${txId}`
-        : "Add transaction";
+      ? `Edit recurring template #${txId}`
+      : "Add recurring template";
+    el("modalBody").innerHTML = `
+    <div class="row3">
+    <div>
+        <label>Type</label>
+        <select id="mRtxType">
+        <option value="income" ${
+          tx.type === "income" ? "selected" : ""
+        }>income</option>
+        <option value="expense" ${
+          tx.type === "expense" ? "selected" : ""
+        }>expense</option>
+        </select>
+    </div>
+    <div>
+        <label>Currency</label>
+        <select id="mRtxCur">
+        <option value="RON" ${
+          tx.currency === "RON" ? "selected" : ""
+        }>RON</option>
+        <option value="EUR" ${
+          tx.currency === "EUR" ? "selected" : ""
+        }>EUR</option>
+        <option value="USD" ${
+          tx.currency === "USD" ? "selected" : ""
+        }>USD</option>
+        </select>
+    </div>
+    <div></div>
+    </div>
+
+    <div class="row">
+    <div>
+        <label>Project</label>
+        <select id="mRtxProject"></select>
+    </div>
+    <div>
+        <label>Category</label>
+        <select id="mRtxCat"></select>
+    </div>
+    </div>
+
+    <div class="row">
+    <div>
+        <label>Client/Vendor (Party)</label>
+        <input id="mRtxParty" type="text" value="${escapeAttr(
+          tx.party || "",
+        )}" />
+    </div>
+    <div>
+        <label>Client Tax ID</label>
+        <input id="mRtxClientTaxId" type="text" value="${escapeAttr(
+          tx.clientTaxId || "",
+        )}" />
+    </div>
+    <div>
+        <label>Bank account</label>
+        <input id="mRtxBankAccount" type="text" value="${escapeAttr(
+          tx.bankAccount || "",
+        )}" />
+    </div>
+     <div>
+        <label>Notes</label>
+        <input id="mRtxNotes" type="text" value="${escapeAttr(
+          tx.notes || "",
+        )}" />
+    </div>
+    </div>
+
+    <div class="row3">
+    <div>
+        <label>Net</label>
+        <input id="mRtxNet" type="number" step="0.01" value="${Number(
+          tx.amount_net || 0,
+        )}" />
+    </div>
+    <div>
+        <label>VAT % (e.g., 0.19)</label>
+        <input id="mRtxVatPct" type="number" step="0.01" value="${Number(
+          tx.vat_pct || 0,
+        )}" />
+    </div>
+    <div>
+        <label>Gross</label>
+        <input id="mRtxGross" type="number" step="0.01" value="${Number(
+          tx.amount_gross || 0,
+        )}" />
+    </div>
+    </div>
+
+    <div class="toolbar">
+    <div class="left"><div class="hint">Recurring templates are copied into transactions using today's date.</div></div>
+    <div class="right">
+        <button id="btnSaveRecurringTx" class="primary">${
+          isEdit ? "Save" : "Create"
+        }</button>
+    </div>
+    </div>
+`;
+
+    fillProjectSelect(el("mRtxProject"), false);
+    el("mRtxProject").value =
+      tx.project_id === null || tx.project_id === undefined
+        ? "null"
+        : String(tx.project_id);
+    const categorySel = el("mRtxCat");
+    const refreshCategoriesForType = (current) =>
+      fillCategorySelect(
+        categorySel,
+        el("mRtxType").value,
+        current ?? categorySel.value ?? tx.category,
+      );
+    refreshCategoriesForType(tx.category);
+    el("mRtxType").onchange = () => {
+      refreshCategoriesForType("");
+    };
+
+    let lastAmountSource = "net";
+    const recompute = (source = lastAmountSource) => {
+      const vatPctRaw = Number(el("mRtxVatPct").value || 0);
+      const vatPct = Number.isFinite(vatPctRaw) ? vatPctRaw : 0;
+      const netRaw = Number(el("mRtxNet").value || 0);
+      const grossRaw = Number(el("mRtxGross").value || 0);
+
+      if (source === "gross") {
+        const gross = Number.isFinite(grossRaw) ? grossRaw : 0;
+        const net = gross / (1 + vatPct || 1);
+        el("mRtxNet").value = net.toFixed(2);
+      } else {
+        const net = Number.isFinite(netRaw) ? netRaw : 0;
+        const gross = net * (1 + vatPct);
+        el("mRtxGross").value = gross.toFixed(2);
+      }
+      lastAmountSource = source;
+    };
+    el("mRtxNet").oninput = () => recompute("net");
+    el("mRtxGross").oninput = () => recompute("gross");
+    el("mRtxVatPct").oninput = () => recompute(lastAmountSource);
+    recompute("net");
+
+    el("btnSaveRecurringTx").onclick = async () => {
+      const type = el("mRtxType").value;
+      const currency = el("mRtxCur").value;
+      const projectVal = el("mRtxProject").value;
+      const project_id = projectVal === "null" ? null : Number(projectVal);
+
+      const party = el("mRtxParty").value.trim() || null;
+      const clientTaxId = el("mRtxClientTaxId").value.trim() || null;
+      const bankAccount = el("mRtxBankAccount").value.trim() || null;
+      const category = el("mRtxCat").value.trim() || null;
+      const notes = el("mRtxNotes").value.trim() || null;
+
+      recompute(lastAmountSource);
+      const amount_net = Number(el("mRtxNet").value || 0);
+      const vat_pct = Number(el("mRtxVatPct").value || 0);
+      const amount_gross = Number(el("mRtxGross").value || 0);
+      const vat_amount = amount_net * vat_pct;
+
+      if (!isFinite(amount_net)) {
+        setStatus("Net must be a number.");
+        return;
+      }
+
+      if (isEdit) {
+        const idx = db.recurring_transactions.findIndex((t) => t.id === txId);
+        if (idx >= 0)
+          db.recurring_transactions[idx] = {
+            ...db.recurring_transactions[idx],
+            type,
+            project_id,
+            party,
+            clientTaxId,
+            bankAccount,
+            category,
+            amount_net,
+            vat_pct,
+            vat_amount,
+            amount_gross,
+            currency,
+            notes,
+          };
+      } else {
+        db.recurring_transactions.push({
+          id: db.nextRecurringTxId++,
+          type,
+          project_id,
+          party,
+          clientTaxId,
+          bankAccount,
+          category,
+          amount_net,
+          vat_pct,
+          vat_amount,
+          amount_gross,
+          currency,
+          notes,
+        });
+      }
+
+      markDirty();
+      await persist();
+      closeModal();
+      setStatus(
+        isEdit ? "Recurring template updated." : "Recurring template created.",
+      );
+      onDone?.();
+      if (currentView === "dashboard") refreshDashboard();
+    };
+
+    openModal();
+  }
+
+  // ---------- Modal: Transaction CRUD ----------
+  function openTxModal(txId, onDone) {
+    const isEdit = !!txId;
+    const tx = isEdit
+      ? db.transactions.find((t) => t.id === txId)
+      : {
+          type: "income",
+          date: todayISO(),
+          project_id: null,
+          party: "",
+          category: "",
+          amount_net: 0,
+          vat_pct: 0,
+          vat_amount: 0,
+          amount_gross: 0,
+          currency: "RON",
+          notes: "",
+        };
+
+    el("modalTitle").textContent = isEdit
+      ? `Edit transaction #${txId}`
+      : "Add transaction";
     el("modalBody").innerHTML = `
     <div class="row3">
     <div>
         <label>Type</label>
         <select id="mTxType">
         <option value="income" ${
-            tx.type === "income" ? "selected" : ""
+          tx.type === "income" ? "selected" : ""
         }>income</option>
         <option value="expense" ${
-            tx.type === "expense" ? "selected" : ""
+          tx.type === "expense" ? "selected" : ""
         }>expense</option>
         </select>
     </div>
     <div>
         <label>Date</label>
         <input id="mTxDate" type="date" value="${escapeAttr(
-        tx.date || todayISO()
+          tx.date || todayISO(),
         )}" />
     </div>
     <div>
         <label>Currency</label>
         <select id="mTxCur">
         <option value="RON" ${
-            tx.currency === "RON" ? "selected" : ""
+          tx.currency === "RON" ? "selected" : ""
         }>RON</option>
         <option value="EUR" ${
-            tx.currency === "EUR" ? "selected" : ""
+          tx.currency === "EUR" ? "selected" : ""
         }>EUR</option>
         <option value="USD" ${
-            tx.currency === "USD" ? "selected" : ""
+          tx.currency === "USD" ? "selected" : ""
         }>USD</option>
         </select>
     </div>
@@ -1902,13 +2452,13 @@ redirect_from:
     <div>
         <label>Client/Vendor (Party)</label>
         <input id="mTxParty" type="text" value="${escapeAttr(
-        tx.party || ""
+          tx.party || "",
         )}" />
     </div>
     <div>
         <label>Notes</label>
         <input id="mTxNotes" type="text" value="${escapeAttr(
-        tx.notes || ""
+          tx.notes || "",
         )}" />
     </div>
     </div>
@@ -1917,19 +2467,19 @@ redirect_from:
     <div>
         <label>Net</label>
         <input id="mTxNet" type="number" step="0.01" value="${Number(
-        tx.amount_net || 0
+          tx.amount_net || 0,
         )}" />
     </div>
     <div>
         <label>VAT % (e.g., 0.19)</label>
         <input id="mTxVatPct" type="number" step="0.01" value="${Number(
-        tx.vat_pct || 0
+          tx.vat_pct || 0,
         )}" />
     </div>
     <div>
         <label>Gross</label>
         <input id="mTxGross" type="number" step="0.01" value="${Number(
-        tx.amount_gross || 0
+          tx.amount_gross || 0,
         )}" />
     </div>
     </div>
@@ -1938,7 +2488,7 @@ redirect_from:
     <div class="left"><div class="hint">Auto-saves to IndexedDB after save/delete.</div></div>
     <div class="right">
         <button id="btnSaveTx" class="primary">${
-        isEdit ? "Save" : "Create"
+          isEdit ? "Save" : "Create"
         }</button>
     </div>
     </div>
@@ -1946,38 +2496,38 @@ redirect_from:
 
     fillProjectSelect(el("mTxProject"), true);
     el("mTxProject").value =
-        tx.project_id === null || tx.project_id === undefined
+      tx.project_id === null || tx.project_id === undefined
         ? "null"
         : String(tx.project_id);
     const categorySel = el("mTxCat");
     const refreshCategoriesForType = (current) =>
-        fillCategorySelect(
+      fillCategorySelect(
         categorySel,
         el("mTxType").value,
-        current ?? categorySel.value ?? tx.category
-        );
+        current ?? categorySel.value ?? tx.category,
+      );
     refreshCategoriesForType(tx.category);
     el("mTxType").onchange = () => {
-        refreshCategoriesForType("");
+      refreshCategoriesForType("");
     };
 
     let lastAmountSource = "net";
     const recompute = (source = lastAmountSource) => {
-        const vatPctRaw = Number(el("mTxVatPct").value || 0);
-        const vatPct = Number.isFinite(vatPctRaw) ? vatPctRaw : 0;
-        const netRaw = Number(el("mTxNet").value || 0);
-        const grossRaw = Number(el("mTxGross").value || 0);
+      const vatPctRaw = Number(el("mTxVatPct").value || 0);
+      const vatPct = Number.isFinite(vatPctRaw) ? vatPctRaw : 0;
+      const netRaw = Number(el("mTxNet").value || 0);
+      const grossRaw = Number(el("mTxGross").value || 0);
 
-        if (source === "gross") {
+      if (source === "gross") {
         const gross = Number.isFinite(grossRaw) ? grossRaw : 0;
         const net = gross / (1 + vatPct || 1);
         el("mTxNet").value = net.toFixed(2);
-        } else {
+      } else {
         const net = Number.isFinite(netRaw) ? netRaw : 0;
         const gross = net * (1 + vatPct);
         el("mTxGross").value = gross.toFixed(2);
-        }
-        lastAmountSource = source;
+      }
+      lastAmountSource = source;
     };
     el("mTxNet").oninput = () => recompute("net");
     el("mTxGross").oninput = () => recompute("gross");
@@ -1985,35 +2535,35 @@ redirect_from:
     recompute("net");
 
     el("btnSaveTx").onclick = async () => {
-        const type = el("mTxType").value;
-        const date = el("mTxDate").value;
-        const currency = el("mTxCur").value;
-        const projectVal = el("mTxProject").value;
-        const project_id = projectVal === "null" ? null : Number(projectVal);
+      const type = el("mTxType").value;
+      const date = el("mTxDate").value;
+      const currency = el("mTxCur").value;
+      const projectVal = el("mTxProject").value;
+      const project_id = projectVal === "null" ? null : Number(projectVal);
 
-        const party = el("mTxParty").value.trim() || null;
-        const category = el("mTxCat").value.trim() || null;
-        const notes = el("mTxNotes").value.trim() || null;
+      const party = el("mTxParty").value.trim() || null;
+      const category = el("mTxCat").value.trim() || null;
+      const notes = el("mTxNotes").value.trim() || null;
 
-        recompute(lastAmountSource);
-        const amount_net = Number(el("mTxNet").value || 0);
-        const vat_pct = Number(el("mTxVatPct").value || 0);
-        const amount_gross = Number(el("mTxGross").value || 0);
-        const vat_amount = amount_net * vat_pct;
+      recompute(lastAmountSource);
+      const amount_net = Number(el("mTxNet").value || 0);
+      const vat_pct = Number(el("mTxVatPct").value || 0);
+      const amount_gross = Number(el("mTxGross").value || 0);
+      const vat_amount = amount_net * vat_pct;
 
-        if (!date) {
+      if (!date) {
         setStatus("Date is required.");
         return;
-        }
-        if (!isFinite(amount_net)) {
+      }
+      if (!isFinite(amount_net)) {
         setStatus("Net must be a number.");
         return;
-        }
+      }
 
-        if (isEdit) {
+      if (isEdit) {
         const idx = db.transactions.findIndex((t) => t.id === txId);
         if (idx >= 0)
-            db.transactions[idx] = {
+          db.transactions[idx] = {
             ...db.transactions[idx],
             type,
             date,
@@ -2026,183 +2576,179 @@ redirect_from:
             amount_gross,
             currency,
             notes,
-            };
-        } else {
+          };
+      } else {
         db.transactions.push({
-            id: db.nextTxId++,
-            type,
-            date,
-            project_id,
-            party,
-            category,
-            amount_net,
-            vat_pct,
-            vat_amount,
-            amount_gross,
-            currency,
-            notes,
+          id: db.nextTxId++,
+          type,
+          date,
+          project_id,
+          party,
+          category,
+          amount_net,
+          vat_pct,
+          vat_amount,
+          amount_gross,
+          currency,
+          notes,
         });
-        }
+      }
 
-        markDirty();
-        await persist();
-        closeModal();
-        setStatus(isEdit ? "Transaction updated." : "Transaction created.");
-        onDone?.();
-        if (currentView === "dashboard") refreshDashboard();
+      markDirty();
+      await persist();
+      closeModal();
+      setStatus(isEdit ? "Transaction updated." : "Transaction created.");
+      onDone?.();
+      if (currentView === "dashboard") refreshDashboard();
     };
 
     openModal();
-    }
+  }
 
-    // ---------- Helpers ----------
-    function fillProjectSelect(sel, includeAll) {
+  // ---------- Helpers ----------
+  function fillProjectSelect(sel, includeAll) {
     const projects = db.projects
-        .filter((a) => a.is_active)
-        .slice()
-        .sort((a, b) => a.name.localeCompare(b.name));
+      .filter((a) => a.is_active)
+      .slice()
+      .sort((a, b) => a.name.localeCompare(b.name));
     const options = [];
     if (includeAll) options.push(`<option value="all">All</option>`);
     options.push(`<option value="null">(Unassigned project)</option>`);
     projects.forEach((p) =>
-        options.push(
-        `<option value="${p.id}">${escapeHtml(p.name)}</option>`
-        )
+      options.push(`<option value="${p.id}">${escapeHtml(p.name)}</option>`),
     );
     sel.innerHTML = options.join("");
-    }
+  }
 
-    function fillCategorySelect(sel, type, currentValue) {
+  function fillCategorySelect(sel, type, currentValue) {
     const cats = db.categories
-        .filter((c) => c.type === type)
-        .slice()
-        .sort((a, b) => a.name.localeCompare(b.name));
+      .filter((c) => c.type === type)
+      .slice()
+      .sort((a, b) => a.name.localeCompare(b.name));
     const options = [`<option value="">(Uncategorized)</option>`];
     cats.forEach((c) =>
-        options.push(
-        `<option value="${escapeAttr(c.name)}">${escapeHtml(c.name)}</option>`
-        )
+      options.push(
+        `<option value="${escapeAttr(c.name)}">${escapeHtml(c.name)}</option>`,
+      ),
     );
     if (
-        currentValue &&
-        !cats.find((c) => c.name.toLowerCase() === currentValue.toLowerCase())
+      currentValue &&
+      !cats.find((c) => c.name.toLowerCase() === currentValue.toLowerCase())
     ) {
-        options.push(
+      options.push(
         `<option value="${escapeAttr(currentValue)}">Custom: ${escapeHtml(
-            currentValue
-        )}</option>`
-        );
+          currentValue,
+        )}</option>`,
+      );
     }
     sel.innerHTML = options.join("");
     sel.value = currentValue || "";
-    }
+  }
 
-    function escapeHtml(s) {
+  function escapeHtml(s) {
     return String(s ?? "")
-        .replaceAll("&", "&amp;")
-        .replaceAll("<", "&lt;")
-        .replaceAll(">", "&gt;")
-        .replaceAll('"', "&quot;")
-        .replaceAll("'", "&#039;");
-    }
-    function escapeAttr(s) {
+      .replaceAll("&", "&amp;")
+      .replaceAll("<", "&lt;")
+      .replaceAll(">", "&gt;")
+      .replaceAll('"', "&quot;")
+      .replaceAll("'", "&#039;");
+  }
+  function escapeAttr(s) {
     return escapeHtml(s).replaceAll("\n", " ");
-    }
+  }
 
-    function splitCsvLine(line) {
+  function splitCsvLine(line) {
     const cols = [];
     let cur = "";
     let inQuotes = false;
     for (let i = 0; i < line.length; i++) {
-        const ch = line[i];
-        if (ch === '"') {
+      const ch = line[i];
+      if (ch === '"') {
         if (inQuotes && line[i + 1] === '"') {
-            cur += '"';
-            i += 1;
+          cur += '"';
+          i += 1;
         } else {
-            inQuotes = !inQuotes;
+          inQuotes = !inQuotes;
         }
-        } else if (ch === "," && !inQuotes) {
+      } else if (ch === "," && !inQuotes) {
         cols.push(cur);
         cur = "";
-        } else {
+      } else {
         cur += ch;
-        }
+      }
     }
     cols.push(cur);
     return cols;
-    }
+  }
 
-    function parseCsv(text) {
+  function parseCsv(text) {
     const lines = text.split(/\r?\n/).filter((l) => l.trim().length);
     if (!lines.length) return [];
-    const headers = splitCsvLine(lines[0]).map((h) =>
-        h.trim().toLowerCase()
-    );
+    const headers = splitCsvLine(lines[0]).map((h) => h.trim().toLowerCase());
     return lines.slice(1).map((line) => {
-        const parts = splitCsvLine(line);
-        const row = {};
-        headers.forEach((h, idx) => {
+      const parts = splitCsvLine(line);
+      const row = {};
+      headers.forEach((h, idx) => {
         row[h] = (parts[idx] || "").trim();
-        });
-        return row;
+      });
+      return row;
     });
-    }
+  }
 
-    function openModal() {
+  function openModal() {
     el("modalBack").style.display = "flex";
-    }
-    function closeModal() {
+  }
+  function closeModal() {
     el("modalBack").style.display = "none";
-    }
-    el("btnModalClose").onclick = closeModal;
-    el("modalBack").onclick = (e) => {
+  }
+  el("btnModalClose").onclick = closeModal;
+  el("modalBack").onclick = (e) => {
     if (e.target === el("modalBack")) closeModal();
-    };
+  };
 
-    function debounce(fn, ms) {
+  function debounce(fn, ms) {
     let t = null;
     return (...args) => {
-        clearTimeout(t);
-        t = setTimeout(() => fn(...args), ms);
+      clearTimeout(t);
+      t = setTimeout(() => fn(...args), ms);
     };
-    }
+  }
 
-    // ---------- Reset ----------
-    async function resetDb() {
+  // ---------- Reset ----------
+  async function resetDb() {
     if (
-        !confirm(
-        "Reset will delete all data stored in this browser for this DB. Continue?"
-        )
+      !confirm(
+        "Reset will delete all data stored in this browser for this DB. Continue?",
+      )
     )
-        return;
+      return;
     db = createEmptyDb();
     markDirty();
     await persist();
     setStatus("Reset done. Fresh DB in IndexedDB.");
     setDbLabel(
-        idbHealthy ? "DB: IndexedDB (JSON)" : "DB: in-memory (no persistence)"
+      idbHealthy ? "DB: IndexedDB (JSON)" : "DB: in-memory (no persistence)",
     );
     renderCurrentView();
-    }
+  }
 
-    // Navigation
-    document
+  // Navigation
+  document
     .querySelectorAll(".nav button")
     .forEach((b) => (b.onclick = () => setView(b.dataset.view)));
 
-    // File inputs
-    el("fileInputJson").onchange = (e) => {
+  // File inputs
+  el("fileInputJson").onchange = (e) => {
     const file = e.target.files?.[0];
     if (file) importJson(file);
     e.target.value = "";
-    };
-    el("fileInputCsv").onchange = (e) => {
+  };
+  el("fileInputCsv").onchange = (e) => {
     const file = e.target.files?.[0];
     if (file) importCsvFile(file);
     e.target.value = "";
-    };
+  };
 
-    // Boot
-    initDb();
+  // Boot
+  initDb();
 </script>
