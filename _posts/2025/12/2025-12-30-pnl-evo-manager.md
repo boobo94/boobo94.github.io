@@ -1586,7 +1586,7 @@ redirect_from:
     const tsvRows = rows.map((t) => [
       sanitize(t.party || ""),
       sanitize(t.bankAccount || ""),
-      Number(t.amount_net || 0).toFixed(2),
+      Number(t.amount_gross || 0).toFixed(2),
       sanitize(t.notes || `Recurring ${t.category || "payment"}`),
       sanitize(t.clientTaxId || ""),
     ]);
