@@ -1570,14 +1570,6 @@ redirect_from:
       return;
     }
 
-    const header = [
-      "Nume Beneficiar",
-      "Cont Beneficiar",
-      "Suma",
-      "Detalii Plata",
-      "CUI/CNP",
-    ];
-
     const sanitize = (v) =>
       String(v ?? "")
         .replace(/\t/g, " ")
@@ -1591,9 +1583,7 @@ redirect_from:
       sanitize(t.clientTaxId || ""),
     ]);
 
-    const tsv = [header, ...tsvRows]
-      .map((row) => row.map(sanitize).join("\t"))
-      .join("\n");
+    const tsv = tsvRows.map((row) => row.map(sanitize).join("\t")).join("\n");
 
     const blob = new Blob([tsv], { type: "text/plain;charset=utf-8" });
     const url = URL.createObjectURL(blob);
