@@ -1967,7 +1967,10 @@ redirect_from:
             <td class="mono">${fmt(p.vat_amount)}</td>
             <td class="mono">${fmt(p.amount_gross)}</td>
             <td>${escapeHtml(p.currency || "RON")}</td>
-            <td><button data-proforma-download="${p.id}">Download</button></td>
+            <td>
+              <button data-proforma-download="${p.id}">Download</button>
+              <button data-proforma-delete="${p.id}" class="danger">Delete</button>
+            </td>
             </tr>
             `,
                 )
@@ -1984,10 +1987,30 @@ redirect_from:
       openProformaSettingsModal(() => renderProforma(root));
     el("btnProformaAdd").onclick = () =>
       openProformaAddModal(() => renderProforma(root));
-    el("pRows").onclick = (e) => {
+    el("pRows").onclick = async (e) => {
       const downloadId = e.target?.getAttribute?.("data-proforma-download");
       if (downloadId) downloadProformaPdf(Number(downloadId));
+      const deleteId = e.target?.getAttribute?.("data-proforma-delete");
+      if (deleteId) await deleteProforma(Number(deleteId), () => renderProforma(root));
     };
+  }
+
+  async function deleteProforma(proformaId, onDone) {
+    const row = (db.proforma_invoices || []).find((p) => p.id === proformaId);
+    if (!row) {
+      setStatus("Proforma not found.");
+      return;
+    }
+    if (!confirm(`Delete proforma ${row.invoice_no || `#${proformaId}`}?`))
+      return;
+
+    db.proforma_invoices = (db.proforma_invoices || []).filter(
+      (p) => p.id !== proformaId,
+    );
+    markDirty();
+    await persist();
+    setStatus(`Deleted proforma ${row.invoice_no || `#${proformaId}`}.`);
+    onDone?.();
   }
 
   function downloadProformaPdf(proformaId) {
