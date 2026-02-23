@@ -2044,10 +2044,6 @@ redirect_from:
     doc.setFontSize(11);
     doc.text(`No: ${row.invoice_no || `${series}-${number}`}`, 20, y);
     doc.text(`Date: ${row.date || ""}`, right, y, { align: "right" });
-    y += 6;
-    doc.text(`Due date: ${row.due_date || row.date || ""}`, right, y, {
-      align: "right",
-    });
     y += 10;
 
     doc.setDrawColor(180);
@@ -2096,12 +2092,6 @@ redirect_from:
     doc.text(`Total: ${fmt(row.amount_gross)} ${currency}`, right, y, {
       align: "right",
     });
-    y += 10;
-
-    if (row.notes) {
-      doc.setFont("helvetica", "normal");
-      doc.text(`Notes: ${String(row.notes)}`, 20, y);
-    }
 
     const safeNo = String(row.invoice_no || `proforma-${row.id || "x"}`)
       .replace(/[^a-zA-Z0-9-_]/g, "_")
@@ -2161,10 +2151,6 @@ redirect_from:
         <input id="mProformaDate" type="date" value="${todayISO()}" />
     </div>
     <div>
-        <label>Due date</label>
-        <input id="mProformaDueDate" type="date" value="${todayISO()}" />
-    </div>
-    <div>
         <label>Currency</label>
         <select id="mProformaCurrency">
         <option value="RON">RON</option>
@@ -2172,6 +2158,7 @@ redirect_from:
         <option value="USD">USD</option>
         </select>
     </div>
+    <div></div>
     </div>
     <div class="row">
     <div>
@@ -2187,10 +2174,6 @@ redirect_from:
     <div>
         <label>Description</label>
         <input id="mProformaDescription" type="text" placeholder="Services provided" />
-    </div>
-    <div>
-        <label>Notes</label>
-        <input id="mProformaNotes" type="text" />
     </div>
     </div>
     <div class="row3">
@@ -2237,12 +2220,10 @@ redirect_from:
 
     el("btnSaveProformaAdd").onclick = async () => {
       const date = el("mProformaDate").value || todayISO();
-      const due_date = el("mProformaDueDate").value || date;
       const currency = el("mProformaCurrency").value || "RON";
       const client_name = el("mProformaClientName").value.trim();
       const client_tax_id = el("mProformaClientTaxId").value.trim() || null;
       const description = el("mProformaDescription").value.trim();
-      const notes = el("mProformaNotes").value.trim() || null;
       const amount_net = Number(el("mProformaAmountNet").value || 0);
       const vat_pct = Number(el("mProformaVatPct").value || 0);
       const amount_gross = Number(el("mProformaAmountGross").value || 0);
@@ -2271,11 +2252,9 @@ redirect_from:
         series: currentSeries,
         number: next,
         date,
-        due_date,
         client_name,
         client_tax_id,
         description,
-        notes,
         amount_net,
         vat_pct,
         vat_amount,
