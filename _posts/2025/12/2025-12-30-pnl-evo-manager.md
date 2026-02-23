@@ -12,6 +12,8 @@ redirect_from:
 
 <!-- Chart.js -->
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+<!-- jsPDF -->
+<script src="https://cdn.jsdelivr.net/npm/jspdf@2.5.1/dist/jspdf.umd.min.js"></script>
 
 <style>
   .pnl-tracker {
@@ -416,6 +418,7 @@ redirect_from:
           <button class="active" data-view="dashboard">Dashboard</button>
           <button data-view="transactions">Income & Expenses</button>
           <button data-view="recurring">Recurring</button>
+          <button data-view="proforma">Proforma Invoices</button>
           <button data-view="categories">Categories</button>
           <button data-view="projects">Projects</button>
           <button data-view="reports">Reports</button>
@@ -658,6 +661,9 @@ redirect_from:
     categories: defaultCategories(),
     transactions: [],
     recurring_transactions: [],
+    proforma_series: "PF",
+    proforma_current_number: 0,
+    proforma_invoices: [],
     company_name: "",
     company_tax_id: "",
     company_bank_account: "",
@@ -665,6 +671,7 @@ redirect_from:
     nextCategoryId: 7,
     nextTxId: 1,
     nextRecurringTxId: 1,
+    nextProformaId: 1,
   });
 
   const findProject = (id) => db.projects.find((p) => p.id === id) || null;
@@ -711,6 +718,11 @@ redirect_from:
         categories,
         transactions: parsed.transactions,
         recurring_transactions: recurringTransactions,
+        proforma_series: String(parsed.proforma_series || "EVOP").trim() || "EVOP",
+        proforma_current_number: Number(parsed.proforma_current_number || 0),
+        proforma_invoices: Array.isArray(parsed.proforma_invoices)
+          ? parsed.proforma_invoices
+          : [],
         company_name: String(parsed.company_name || "").trim(),
         company_tax_id: String(parsed.company_tax_id || "").trim(),
         company_bank_account: String(parsed.company_bank_account || "").trim(),
@@ -726,6 +738,14 @@ redirect_from:
           (recurringTransactions.length
             ? Math.max(...recurringTransactions.map((t) => Number(t.id) || 0)) +
               1
+            : 1),
+        nextProformaId:
+          parsed.nextProformaId ||
+          (Array.isArray(parsed.proforma_invoices) &&
+          parsed.proforma_invoices.length
+            ? Math.max(
+                ...parsed.proforma_invoices.map((i) => Number(i.id) || 0),
+              ) + 1
             : 1),
       };
       await persist();
@@ -890,6 +910,10 @@ redirect_from:
     if (!Array.isArray(db.categories)) db.categories = defaultCategories();
     if (!Array.isArray(db.recurring_transactions))
       db.recurring_transactions = [];
+    if (!Array.isArray(db.proforma_invoices)) db.proforma_invoices = [];
+    if (typeof db.proforma_series !== "string") db.proforma_series = "EVOP";
+    if (!Number.isFinite(Number(db.proforma_current_number)))
+      db.proforma_current_number = 0;
     if (typeof db.company_name !== "string") db.company_name = "";
     if (typeof db.company_tax_id !== "string") db.company_tax_id = "";
     if (typeof db.company_bank_account !== "string")
@@ -906,6 +930,12 @@ redirect_from:
           ? Math.max(
               ...db.recurring_transactions.map((t) => Number(t.id) || 0),
             ) + 1
+          : 1;
+    }
+    if (!db.nextProformaId) {
+      db.nextProformaId =
+        db.proforma_invoices.length > 0
+          ? Math.max(...db.proforma_invoices.map((t) => Number(t.id) || 0)) + 1
           : 1;
     }
     await persist();
@@ -949,6 +979,8 @@ redirect_from:
         ? "Income & Expenses"
         : currentView === "recurring"
           ? "Recurring transactions"
+          : currentView === "proforma"
+            ? "Proforma invoices"
           : currentView === "categories"
             ? "Categories"
             : currentView === "projects"
@@ -971,6 +1003,7 @@ redirect_from:
     if (currentView === "dashboard") renderDashboard(root);
     else if (currentView === "transactions") renderTransactions(root);
     else if (currentView === "recurring") renderRecurringTransactions(root);
+    else if (currentView === "proforma") renderProforma(root);
     else if (currentView === "categories") renderCategories(root);
     else if (currentView === "projects") renderProjects(root);
     else if (currentView === "settings") renderSettings(root);
@@ -1880,6 +1913,362 @@ redirect_from:
     }
 
     setStatus(`Report generated for ${start} → ${end}.`);
+  }
+
+  // ---------- Proforma invoices ----------
+  function renderProforma(root) {
+    const nextNumber = Number(db.proforma_current_number || 0) + 1;
+    const series = String(db.proforma_series || "EVOP").trim() || "EVOP";
+    const proformas = (db.proforma_invoices || [])
+      .slice()
+      .sort((a, b) => Number(b.id || 0) - Number(a.id || 0));
+
+    root.innerHTML = `
+    <div class="toolbar">
+    <div class="left">
+        <div class="hint">Next proforma number: ${escapeHtml(
+          `${series}-${nextNumber}`,
+        )}</div>
+    </div>
+    <div class="right">
+        <button id="btnProformaSettings">General settings</button>
+        <button id="btnProformaAdd" class="primary">Add</button>
+    </div>
+    </div>
+
+    <div class="card" style="box-shadow:none; margin-top:12px;">
+    <div class="hd"><h2>Created proformas</h2></div>
+    <div class="bd" style="padding:0;">
+        <table>
+        <thead>
+            <tr>
+            <th>No.</th>
+            <th>Date</th>
+            <th>Client</th>
+            <th>Description</th>
+            <th class="mono">Net</th>
+            <th class="mono">VAT</th>
+            <th class="mono">Gross</th>
+            <th>Currency</th>
+            <th>Action</th>
+            </tr>
+        </thead>
+        <tbody id="pRows">
+            ${
+              proformas
+                .map(
+                  (p) => `
+            <tr>
+            <td class="mono">${escapeHtml(p.invoice_no || "")}</td>
+            <td class="mono">${escapeHtml(p.date || "")}</td>
+            <td>${escapeHtml(p.client_name || "")}</td>
+            <td>${escapeHtml(p.description || "")}</td>
+            <td class="mono">${fmt(p.amount_net)}</td>
+            <td class="mono">${fmt(p.vat_amount)}</td>
+            <td class="mono">${fmt(p.amount_gross)}</td>
+            <td>${escapeHtml(p.currency || "RON")}</td>
+            <td><button data-proforma-download="${p.id}">Download</button></td>
+            </tr>
+            `,
+                )
+                .join("") ||
+              `<tr><td colspan="9" style="padding:12px;" class="hint">No proforma invoices yet.</td></tr>`
+            }
+        </tbody>
+        </table>
+    </div>
+    </div>
+`;
+
+    el("btnProformaSettings").onclick = () =>
+      openProformaSettingsModal(() => renderProforma(root));
+    el("btnProformaAdd").onclick = () =>
+      openProformaAddModal(() => renderProforma(root));
+    el("pRows").onclick = (e) => {
+      const downloadId = e.target?.getAttribute?.("data-proforma-download");
+      if (downloadId) downloadProformaPdf(Number(downloadId));
+    };
+  }
+
+  function downloadProformaPdf(proformaId) {
+    const row = (db.proforma_invoices || []).find((p) => p.id === proformaId);
+    if (!row) {
+      setStatus("Proforma not found.");
+      return;
+    }
+    if (!window.jspdf?.jsPDF) {
+      setStatus("PDF library is not available.");
+      return;
+    }
+
+    const { jsPDF } = window.jspdf;
+    const doc = new jsPDF({ unit: "mm", format: "a4" });
+    const pageWidth = doc.internal.pageSize.getWidth();
+    const right = pageWidth - 20;
+    let y = 18;
+
+    const series = row.series || db.proforma_series || "";
+    const number = row.number ?? "";
+    const vatPct = Number(row.vat_pct || 0) * 100;
+    const currency = row.currency || "RON";
+
+    doc.setFont("helvetica", "bold");
+    doc.setFontSize(16);
+    doc.text("PROFORMA INVOICE", 20, y);
+    y += 8;
+
+    doc.setFont("helvetica", "normal");
+    doc.setFontSize(11);
+    doc.text(`No: ${row.invoice_no || `${series}-${number}`}`, 20, y);
+    doc.text(`Date: ${row.date || ""}`, right, y, { align: "right" });
+    y += 6;
+    doc.text(`Due date: ${row.due_date || row.date || ""}`, right, y, {
+      align: "right",
+    });
+    y += 10;
+
+    doc.setDrawColor(180);
+    doc.line(20, y, right, y);
+    y += 8;
+
+    doc.setFont("helvetica", "bold");
+    doc.text("Issuer", 20, y);
+    doc.text("Client", 110, y);
+    y += 6;
+    doc.setFont("helvetica", "normal");
+    doc.text(String(db.company_name || "-"), 20, y);
+    doc.text(String(row.client_name || "-"), 110, y);
+    y += 5;
+    doc.text(`Tax ID: ${db.company_tax_id || "-"}`, 20, y);
+    doc.text(`Tax ID: ${row.client_tax_id || "-"}`, 110, y);
+    y += 5;
+    doc.text(`Bank: ${db.company_bank_account || "-"}`, 20, y);
+    y += 10;
+
+    doc.setDrawColor(180);
+    doc.line(20, y, right, y);
+    y += 8;
+
+    doc.setFont("helvetica", "bold");
+    doc.text("Description", 20, y);
+    doc.text("Net", 130, y, { align: "right" });
+    doc.text("VAT", 160, y, { align: "right" });
+    doc.text("Gross", right, y, { align: "right" });
+    y += 6;
+    doc.setFont("helvetica", "normal");
+    doc.text(String(row.description || "-"), 20, y);
+    doc.text(fmt(row.amount_net), 130, y, { align: "right" });
+    doc.text(fmt(row.vat_amount), 160, y, { align: "right" });
+    doc.text(fmt(row.amount_gross), right, y, { align: "right" });
+    y += 10;
+
+    doc.setDrawColor(180);
+    doc.line(20, y, right, y);
+    y += 8;
+
+    doc.text(`VAT rate: ${fmt(vatPct)}%`, 20, y);
+    doc.text(`Currency: ${currency}`, right, y, { align: "right" });
+    y += 6;
+    doc.setFont("helvetica", "bold");
+    doc.text(`Total: ${fmt(row.amount_gross)} ${currency}`, right, y, {
+      align: "right",
+    });
+    y += 10;
+
+    if (row.notes) {
+      doc.setFont("helvetica", "normal");
+      doc.text(`Notes: ${String(row.notes)}`, 20, y);
+    }
+
+    const safeNo = String(row.invoice_no || `proforma-${row.id || "x"}`)
+      .replace(/[^a-zA-Z0-9-_]/g, "_")
+      .slice(0, 80);
+    doc.save(`${safeNo}.pdf`);
+    setStatus(`Downloaded PDF for ${row.invoice_no || safeNo}.`);
+  }
+
+  function openProformaSettingsModal(onDone) {
+    const series = String(db.proforma_series || "EVOP").trim() || "EVOP";
+    const currentNumber = Number(db.proforma_current_number || 0);
+
+    el("modalTitle").textContent = "Proforma general settings";
+    el("modalBody").innerHTML = `
+    <div class="row3">
+    <div>
+        <label>Series</label>
+        <input id="mProformaSeries" type="text" value="${escapeAttr(series)}" />
+    </div>
+    <div>
+        <label>Current number</label>
+        <input id="mProformaCurrentNumber" type="number" min="0" step="1" value="${currentNumber}" />
+    </div>
+    <div></div>
+    </div>
+    <div class="toolbar">
+    <div class="left"><div class="hint">Used to generate the next proforma invoice number.</div></div>
+    <div class="right">
+        <button id="btnSaveProformaSettings" class="primary">Save</button>
+    </div>
+    </div>
+`;
+
+    el("btnSaveProformaSettings").onclick = async () => {
+      const nextSeries = el("mProformaSeries").value.trim() || "EVOP";
+      const nextCurrent = Number(el("mProformaCurrentNumber").value || 0);
+      db.proforma_series = nextSeries;
+      db.proforma_current_number = Number.isFinite(nextCurrent)
+        ? Math.max(0, Math.floor(nextCurrent))
+        : 0;
+      markDirty();
+      await persist();
+      closeModal();
+      setStatus("Proforma settings saved.");
+      onDone?.();
+    };
+
+    openModal();
+  }
+
+  function openProformaAddModal(onDone) {
+    el("modalTitle").textContent = "Add proforma invoice";
+    el("modalBody").innerHTML = `
+    <div class="row3">
+    <div>
+        <label>Date</label>
+        <input id="mProformaDate" type="date" value="${todayISO()}" />
+    </div>
+    <div>
+        <label>Due date</label>
+        <input id="mProformaDueDate" type="date" value="${todayISO()}" />
+    </div>
+    <div>
+        <label>Currency</label>
+        <select id="mProformaCurrency">
+        <option value="RON">RON</option>
+        <option value="EUR">EUR</option>
+        <option value="USD">USD</option>
+        </select>
+    </div>
+    </div>
+    <div class="row">
+    <div>
+        <label>Client name</label>
+        <input id="mProformaClientName" type="text" />
+    </div>
+    <div>
+        <label>Client tax ID</label>
+        <input id="mProformaClientTaxId" type="text" />
+    </div>
+    </div>
+    <div class="row">
+    <div>
+        <label>Description</label>
+        <input id="mProformaDescription" type="text" placeholder="Services provided" />
+    </div>
+    <div>
+        <label>Notes</label>
+        <input id="mProformaNotes" type="text" />
+    </div>
+    </div>
+    <div class="row3">
+    <div>
+        <label>Net</label>
+        <input id="mProformaAmountNet" type="number" step="0.01" value="0" />
+    </div>
+    <div>
+        <label>VAT % (e.g., 0.19)</label>
+        <input id="mProformaVatPct" type="number" step="0.01" value="0" />
+    </div>
+    <div>
+        <label>Gross</label>
+        <input id="mProformaAmountGross" type="number" step="0.01" value="0" />
+    </div>
+    </div>
+    <div class="toolbar">
+    <div class="left"><div class="hint">Number is generated automatically from the current settings.</div></div>
+    <div class="right">
+        <button id="btnSaveProformaAdd" class="primary">Create</button>
+    </div>
+    </div>
+`;
+
+    const recompute = (source = "net") => {
+      const vatPctRaw = Number(el("mProformaVatPct").value || 0);
+      const vatPct = Number.isFinite(vatPctRaw) ? vatPctRaw : 0;
+      const netRaw = Number(el("mProformaAmountNet").value || 0);
+      const grossRaw = Number(el("mProformaAmountGross").value || 0);
+      if (source === "gross") {
+        const gross = Number.isFinite(grossRaw) ? grossRaw : 0;
+        const net = gross / (1 + vatPct || 1);
+        el("mProformaAmountNet").value = net.toFixed(2);
+      } else {
+        const net = Number.isFinite(netRaw) ? netRaw : 0;
+        const gross = net * (1 + vatPct);
+        el("mProformaAmountGross").value = gross.toFixed(2);
+      }
+    };
+    el("mProformaAmountNet").oninput = () => recompute("net");
+    el("mProformaAmountGross").oninput = () => recompute("gross");
+    el("mProformaVatPct").oninput = () => recompute("net");
+    recompute("net");
+
+    el("btnSaveProformaAdd").onclick = async () => {
+      const date = el("mProformaDate").value || todayISO();
+      const due_date = el("mProformaDueDate").value || date;
+      const currency = el("mProformaCurrency").value || "RON";
+      const client_name = el("mProformaClientName").value.trim();
+      const client_tax_id = el("mProformaClientTaxId").value.trim() || null;
+      const description = el("mProformaDescription").value.trim();
+      const notes = el("mProformaNotes").value.trim() || null;
+      const amount_net = Number(el("mProformaAmountNet").value || 0);
+      const vat_pct = Number(el("mProformaVatPct").value || 0);
+      const amount_gross = Number(el("mProformaAmountGross").value || 0);
+      const vat_amount = amount_gross - amount_net;
+
+      if (!client_name) {
+        setStatus("Client name is required.");
+        return;
+      }
+      if (!description) {
+        setStatus("Description is required.");
+        return;
+      }
+      if (!Number.isFinite(amount_net) || amount_net < 0) {
+        setStatus("Net amount must be a valid number.");
+        return;
+      }
+
+      const next = Number(db.proforma_current_number || 0) + 1;
+      const currentSeries = String(db.proforma_series || "EVOP").trim() || "EVOP";
+      const invoice_no = `${currentSeries}-${next}`;
+
+      db.proforma_invoices.push({
+        id: db.nextProformaId++,
+        invoice_no,
+        series: currentSeries,
+        number: next,
+        date,
+        due_date,
+        client_name,
+        client_tax_id,
+        description,
+        notes,
+        amount_net,
+        vat_pct,
+        vat_amount,
+        amount_gross,
+        currency,
+      });
+      db.proforma_current_number = next;
+
+      markDirty();
+      await persist();
+      closeModal();
+      setStatus(`Proforma invoice ${invoice_no} created.`);
+      onDone?.();
+    };
+
+    openModal();
   }
 
   // ---------- Settings ----------
