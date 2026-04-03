@@ -1,0 +1,33 @@
+.button-green {
+  color: #d1fae5;
+  background-color: #16a34a;
+  border-radius: $border-radius;
+  border: 1px solid #16a34a;
+  transition-duration: .15s;
+  transition-timing-function: ease-out;
+  transition-property: box-shadow, background-color, border-color, color;
+}
+
+.button-green:hover {
+  background-color: #15803d;
+  border-color: #15803d;
+  color: #fff;
+  opacity: 1;
+}
+
+.button-green:active,
+.button-green.is-active {
+  background-color: #0b1a10;
+  border-color: #22c55e;
+  box-shadow: inset 0 0 0 32px rgba(#000,.15), inset 0 2px 3px 0 rgba(#000,.2);
+}
+
+.button-green:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(#d1fae5, .4), 0 0 1px 4px rgba(#16a34a, .5);
+}
+
+.button-green:disabled,
+.button-green.is-disabled {
+  opacity: .4;
+}
