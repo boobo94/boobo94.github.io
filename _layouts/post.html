@@ -2,83 +2,108 @@
 layout: default
 ---
 
+{% assign minutes = content | strip_html | number_of_words | divided_by: 180 %}
+{% if minutes == 0 %}{% assign minutes = 1 %}{% endif %}
 
 <div id="search-container">
-{% assign minutes = content | strip_html | number_of_words | divided_by: 180 %}
-{% if minutes == 0 %}
-{% assign minutes = 1 %}
-{% endif %}
 
-<div class="post-header mb2">
-  <h1>{{ page.title }}</h1>
-  <span class="post-meta">{{ page.date | date: site.date_format }}</span><br>
-  {% if page.update_date %}
-    <span class="post-meta">{{ site.text.post.updated }}: {{ page.update_date | date: site.date_format }}</span><br>
-  {% endif %}
-  <span class="post-meta small">
-  {% if page.minutes %}
-    {{ page.minutes }} {{ site.text.post.minute_read }}
-  {% else %}
-    {{ minutes }} {{ site.text.post.minute_read }}
-  {% endif %}
-  </span>
-  <span class="post-meta small">
-  {% for category in page.categories %}
-    <a href="{{ site.url }}/{{ category }}" class="post-link">\{{ category }}</a> 
-  {% endfor %}
-  </span>
-</div>
-
-<article class="post-content">
-  {% if page.cover %}
-  <img src="{{ page.cover }}" alt="{{ page.title }}"/>
-  {% endif %}
-
-  {{ content }}
-</article>
-
-{% if site.show_sharing_icons %}
-  {% include share_buttons.html %}
-{% endif %}
-
-{% if site.tinyletter %}
-  {% include subscribe.html %}
-{% endif %}
-
-{% if site.show_post_footers %}
-  {% include post_footer.html %}
-{% endif %}
-
-{% if txtpen.txtpen_sitename %}
-  <script src="https://txtpen.com/embed.js?site={{txtpen.txtpen_sitename}}" />
-{% endif %}
-
-{% if site.disqus_shortname %}
-  <div id="disqus_thread"></div>
-  <script type="text/javascript">
-    var disqus_shortname  = '{{ site.disqus_shortname }}';
-    var disqus_identifier = '{{ page.id }}';
-    var disqus_title      = {{ page.title | jsonify }};
-
-    (function() {
-      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-    })();
-  </script>
-  <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-{% endif %}
-
-{% if site.show_related_posts %}
-  <h3 class="related-post-title">{{ site.text.post.related_posts }}</h3>
-  {% for post in site.related_posts %}
-    <div class="post ml2">
-      <a href="{{ post.url | prepend: site.baseurl }}" class="post-link">
-        <h4 class="post-title">{{ post.title }}</h4>
-        <p class="post-summary">{{ post.summary }}</p>
-      </a>
+  <div class="post-page-header">
+    <div class="post-page-breadcrumb">
+      <span class="sym" style="color:#00c853">$</span>
+      {% for category in page.categories %}
+      <a href="{{ site.url }}/{{ category }}">/{{ category }}</a>
+      {% unless forloop.last %}<span>/</span>{% endunless %}
+      {% endfor %}
     </div>
-  {% endfor %}
-{% endif %}
+
+    <h1 class="post-page-title">{{ page.title }}</h1>
+
+    <div class="post-page-meta">
+      <span class="post-page-meta-label">published</span>
+      <time class="post-page-meta-value">{{ page.date | date: '%Y-%m-%d' }}</time>
+
+      {% if page.update_date %}
+      <span class="post-page-meta-sep">·</span>
+      <span class="post-page-meta-label">updated</span>
+      <time class="post-page-meta-value">{{ page.update_date | date: '%Y-%m-%d' }}</time>
+      {% endif %}
+
+      <span class="post-page-meta-sep">·</span>
+      <span class="post-page-meta-value">
+        {% if page.minutes %}{{ page.minutes }}{% else %}{{ minutes }}{% endif %} {{ site.text.post.minute_read }}
+      </span>
+
+      {% if page.tags %}
+      <span class="post-page-meta-sep">·</span>
+      {% for tag in page.tags %}
+      <a href="{{ site.url }}/tags/{{ tag | slugify }}/" class="post-page-tag">{{ tag }}</a>
+      {% endfor %}
+      {% endif %}
+    </div>
+  </div>
+
+  <article class="post-content">
+    {% if page.cover %}
+    <img src="{{ page.cover }}" alt="{{ page.title }}" class="post-cover-img"/>
+    {% endif %}
+    {{ content }}
+  </article>
+
+  {% if site.show_sharing_icons %}
+    {% include share_buttons.html %}
+  {% endif %}
+
+  {% if site.tinyletter %}
+    {% include subscribe.html %}
+  {% endif %}
+
+  {% if site.show_post_footers %}
+    {% include post_footer.html %}
+  {% endif %}
+
+  {% if txtpen.txtpen_sitename %}
+    <script src="https://txtpen.com/embed.js?site={{txtpen.txtpen_sitename}}" />
+  {% endif %}
+
+  {% if site.disqus_shortname %}
+    <div id="disqus_thread"></div>
+    <script type="text/javascript">
+      var disqus_shortname  = '{{ site.disqus_shortname }}';
+      var disqus_identifier = '{{ page.id }}';
+      var disqus_title      = {{ page.title | jsonify }};
+      (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+      })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  {% endif %}
+
+  {% if site.show_related_posts %}
+  <div class="related-posts-section">
+    <p class="related-posts-prompt"><span class="sym">$</span> {{ site.text.post.related_posts | downcase }}</p>
+    <div class="post-list">
+      {% for post in site.related_posts %}
+      <div class="post-list-item">
+        <div class="post-list-index">{{ forloop.index | prepend: '0' | slice: -2, 2 }}</div>
+        <div class="post-list-inner">
+          <div class="post-list-meta">
+            <time class="post-list-date">{{ post.date | date: '%Y-%m-%d' }}</time>
+          </div>
+          <a href="{{ post.url | prepend: site.baseurl }}" class="post-list-link">
+            <h4 class="post-list-title" style="font-size:.9rem">
+              <span class="list-arrow">&rsaquo;</span>{{ post.title }}
+            </h4>
+          </a>
+          {% if post.summary %}
+          <p class="post-list-summary">{{ post.summary }}</p>
+          {% endif %}
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+  {% endif %}
 
 </div>
