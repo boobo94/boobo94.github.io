@@ -1,22 +1,38 @@
 <footer class="center">
   <div class="measure">
     <small>
-      Powered by <a href="https://cmevo.com">Website Development Services</a> - Cmevo Digital.
+      Powered by <a href="https://cmevo.com">Website Development Services</a> -
+      Cmevo Digital.
     </small>
   </div>
 </footer>
 {% if site.enable_anchorjs %}<!-- AnchorJS -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/3.0.0/anchor.min.js"></script>
 <script>
-  anchors.options.visible = 'always';
-  anchors.add('article h2, article h3, article h4, article h5, article h6');
-</script>{% endif %}
+  anchors.options.visible = "always";
+  anchors.add("article h2, article h3, article h4, article h5, article h6");
+</script>
+{% endif %}
 <script src="https://unpkg.com/simple-jekyll-search@1.5.0/dest/simple-jekyll-search.min.js"></script>
 <script>
   SimpleJekyllSearch({
-    searchInput: document.getElementById('search-input'),
-    resultsContainer: document.getElementById('search-container'),
-    json: '/search.json',
-    searchResultTemplate: '<div class="post-list-item"><div class="post-list-inner"><div class="post-list-meta"><time class="post-list-date">{date}</time><a href="{url}" class="post-list-cat">/{category}</a></div><a href="{url}" class="post-list-link"><h2 class="post-list-title"><span class="list-arrow">&rsaquo;</span>{title}</h2></a><p class="post-list-summary">{summary}</p></div></div>'
-  })
+    searchInput: document.getElementById("search-input"),
+    resultsContainer: document.getElementById("search-container"),
+    json: "/search.json",
+    searchResultTemplate:
+      '<div class="post-list-item"><div class="post-list-inner"><div class="post-list-meta"><time class="post-list-date">{date}</time><a href="{url}" class="post-list-cat">/{category}</a></div><a href="{url}" class="post-list-link"><h2 class="post-list-title"><span class="list-arrow">&rsaquo;</span>{title}</h2></a><p class="post-list-summary">{summary}</p></div></div>',
+  });
+</script>
+<script>
+  // Keyboard shortcut for search (Cmd/Ctrl + /)
+  document.addEventListener("keydown", function (e) {
+    if ((e.metaKey || e.ctrlKey) && e.key === "/") {
+      e.preventDefault();
+      var input = document.getElementById("search-input");
+      if (input) {
+        input.focus();
+        input.select();
+      }
+    }
+  });
 </script>
