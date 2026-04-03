@@ -2,7 +2,7 @@
 title: Free resources to start a career as developer
 summary: A curated list with all resources that I personally find interesting to share for developers at the beginning of their careers. A list with links, articles, and other resources.
 categories: resources
-tags: developer resources
+tags: developer
 date: 2026-01-24 09:09:09 +0000
 cover: https://cdn.pixabay.com/photo/2017/10/10/21/48/filmmaker-2838932_1280.jpg
 layout: post
@@ -15,7 +15,7 @@ That is exactly what I'm describing below. It is a list with links, articles and
 ## Learn to code
 
 - [Freecodecamp](https://www.freecodecamp.org/)
-I consider freecodecamp the most important resource in your beginning. You should give it a try, create an account an choose a course. Check their [blog](https://www.freecodecamp.org/news/) too.
+  I consider freecodecamp the most important resource in your beginning. You should give it a try, create an account an choose a course. Check their [blog](https://www.freecodecamp.org/news/) too.
 
 - [A lot of reads on different topics](https://medium.com)
 
@@ -68,10 +68,9 @@ It depends by your vibe, but sometimes I listen Snoop Dog, Bug Mafia, etc. But m
 
 - [StudyMD Youtube Channel](https://www.youtube.com/channel/UC5CRP-6oxYenIgBj17CkBZg)
 
-
 ## Assets and images for free
 
- Discover [free assets and images list](https://whyboobo.com/resources/free-assets-and-images)
+Discover [free assets and images list](https://whyboobo.com/resources/free-assets-and-images)
 
 ## Mockup List of Tools
 
@@ -88,15 +87,13 @@ Discover - [Mockup List of Tools](https://whyboobo.com/resources/mockup-tools/)
 
 I've wrote a full article about <a href="https://whyboobo.com/resources/hosting-providers/">Hosting providers - free & paid</a>.
 
-
 ### Libraries
 
-- <a href="https://barba.js.org" target="_blank">Barba.js</a> - Barba.js is a progressive enhancement library to create fluid and smooth transitions between your website's pages. 
+- <a href="https://barba.js.org" target="_blank">Barba.js</a> - Barba.js is a progressive enhancement library to create fluid and smooth transitions between your website's pages.
 
 ## Others
 
 - <a href="https://xsgames.co/devassets/" target="_blank">DevAssets</a>
-
 
 The list is updated constantly, bookmark this into your browser...
 

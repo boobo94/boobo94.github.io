@@ -4,7 +4,7 @@ title: Word and Character Counter
 summary: A simple tool to count words and characters from a text area.
 # Available categories: abstract, devops, research, resources, startup, tools, tutorials
 categories: tools
-tags: javascript tools
+tags: javascript
 date: 2026-01-29 08:19:01 +0000
 ---
 
