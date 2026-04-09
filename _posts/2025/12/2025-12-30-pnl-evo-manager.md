@@ -194,6 +194,7 @@ redirect_from:
     margin: 0;
     font-size: 13px;
     letter-spacing: 0.2px;
+    color: white;
   }
   .pnl-tracker .bd {
     padding: 14px;
