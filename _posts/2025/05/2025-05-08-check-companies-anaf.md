@@ -265,11 +265,10 @@ function checkTva() {
 
   document.getElementById("responseTable").innerHTML = "<p>Loading...</p>";
 
-  fetch(`https://corsproxy.io/?url=${encodeURIComponent(ANAF_API)}`, {
+  const PROXY = "https://anaf-proxy.bogdan-militaru.workers.dev";
+  fetch(`${PROXY}/?url=${encodeURIComponent(ANAF_API)}`, {
     method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
+    headers: { "Content-Type": "application/json" },
     body: JSON.stringify(requestBody),
   })
     .then((res) => res.json())

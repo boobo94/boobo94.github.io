@@ -202,9 +202,10 @@ function fetchReport() {
 
   const ANAF_API = `https://webservicesp.anaf.ro/bilant?an=${year}&cui=${encodeURIComponent(cui)}`;
 
-  fetch(`https://api.allorigins.win/get?url=${encodeURIComponent(ANAF_API)}`)
+  const PROXY = "https://anaf-proxy.bogdan-militaru.workers.dev";
+  fetch(`${PROXY}/?url=${encodeURIComponent(ANAF_API)}`)
     .then((res) => res.json())
-    .then((data) => renderReport(JSON.parse(data.contents)))
+    .then((data) => renderReport(data))
     .catch((err) => {
       out.innerHTML = "<pre>Error: " + err + "</pre>";
     });
