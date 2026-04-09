@@ -17,9 +17,9 @@ redirect_from:
 
 <style>
   .pnl-tracker {
-    --bg: #0b1220;
-    --text: #e7eefc;
-    --muted: #a9b7d6;
+    --bg: #091510;
+    --text: #e8f5ec;
+    --muted: #9ab5a4;
     --border: rgba(255, 255, 255, 0.1);
     --shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
     --radius: 14px;
@@ -40,13 +40,13 @@ redirect_from:
     background:
       radial-gradient(
         1200px 600px at 20% 10%,
-        #162a53 0%,
-        rgba(22, 42, 83, 0) 55%
+        #0f2d1a 0%,
+        rgba(15, 45, 26, 0) 55%
       ),
       radial-gradient(
         900px 500px at 80% 20%,
-        #1b2f5a 0%,
-        rgba(27, 47, 90, 0) 55%
+        #142d1c 0%,
+        rgba(20, 45, 28, 0) 55%
       ),
       var(--bg);
   }
@@ -62,7 +62,7 @@ redirect_from:
     top: 0;
     z-index: 10;
     padding: 18px 18px 12px;
-    background: rgba(11, 18, 32, 0.78);
+    background: rgba(9, 21, 14, 0.78);
     backdrop-filter: blur(10px);
     border-bottom: 1px solid var(--border);
     display: flex;
@@ -74,6 +74,7 @@ redirect_from:
     margin: 0;
     font-size: 16px;
     letter-spacing: 0.2px;
+    color: white;
   }
   .pnl-tracker header .sub {
     margin-top: 6px;
@@ -105,8 +106,8 @@ redirect_from:
     cursor: pointer;
   }
   .pnl-tracker button.primary {
-    background: rgba(102, 163, 255, 0.14);
-    border-color: rgba(102, 163, 255, 0.35);
+    background: rgba(22, 163, 74, 0.14);
+    border-color: rgba(22, 163, 74, 0.35);
   }
   .pnl-tracker button.danger {
     background: rgba(255, 107, 107, 0.12);
@@ -184,7 +185,7 @@ redirect_from:
   .pnl-tracker .hd {
     padding: 12px 14px;
     border-bottom: 1px solid var(--border);
-    background: rgba(15, 27, 51, 0.55);
+    background: rgba(10, 22, 13, 0.55);
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -209,8 +210,8 @@ redirect_from:
     text-align: left;
   }
   .pnl-tracker .nav button.active {
-    background: rgba(102, 163, 255, 0.14);
-    border-color: rgba(102, 163, 255, 0.35);
+    background: rgba(22, 163, 74, 0.14);
+    border-color: rgba(22, 163, 74, 0.35);
   }
 
   .pnl-tracker .row {
@@ -367,13 +368,13 @@ redirect_from:
     width: min(860px, calc(100vw - 32px));
     max-height: calc(100vh - 32px);
     overflow: auto;
-    background: rgba(16, 31, 60, 0.96);
+    background: rgba(10, 25, 14, 0.96);
     border: 1px solid var(--border);
     border-radius: 16px;
     box-shadow: var(--shadow);
   }
   .pnl-tracker .modal .hd {
-    background: rgba(15, 27, 51, 0.9);
+    background: rgba(10, 22, 13, 0.9);
   }
   .pnl-tracker .hint {
     font-size: 12px;
@@ -516,15 +517,15 @@ redirect_from:
   };
   const colorPalette = (count) => {
     const colors = [
-      "#8ec5fc",
+      "#86efac",
       "#ff8fb1",
       "#f6d365",
-      "#9be7ff",
+      "#6ee7b7",
       "#ffd2a0",
-      "#b8ffb8",
+      "#4ade80",
       "#f8b3ff",
-      "#c4c1ff",
-      "#7dd3fc",
+      "#a7f3d0",
+      "#34d399",
       "#f7c59f",
     ];
     if (count <= colors.length) return colors.slice(0, count);
