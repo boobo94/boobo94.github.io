@@ -189,6 +189,7 @@ function renderCompany(item) {
       <div class="company-card-header">
         <h3>${name || "—"} ${copyField(name)}</h3>
         <span class="cui-badge">CUI: ${g.cui || "—"} ${copyField(g.cui)}</span>
+        <a href="/tools/2026/04/03/financial-reports-anaf/?cui=${g.cui}" style="margin-left:auto;font-size:0.82em;white-space:nowrap;">Financial Report →</a>
       </div>
       <div class="company-card-body">
 

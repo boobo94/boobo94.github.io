@@ -186,6 +186,12 @@ function renderReport(data) {
 
 document.addEventListener("DOMContentLoaded", () => {
   document.getElementById("yearInput").value = new Date().getFullYear() - 1;
+  const params = new URLSearchParams(window.location.search);
+  const cui = params.get("cui");
+  if (cui) {
+    document.getElementById("cuiInput").value = cui;
+    fetchReport();
+  }
 });
 
 function fetchReport() {
