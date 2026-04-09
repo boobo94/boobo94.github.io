@@ -265,11 +265,10 @@ function checkTva() {
 
   document.getElementById("responseTable").innerHTML = "<p>Loading...</p>";
 
-  fetch(`https://cors-anywhere.herokuapp.com/${ANAF_API}`, {
+  fetch(`https://corsproxy.io/?url=${encodeURIComponent(ANAF_API)}`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
-      "Origin": "https://whyboobo.com"
     },
     body: JSON.stringify(requestBody),
   })
@@ -288,4 +287,3 @@ function checkTva() {
 }
 </script>
 
-<a href="https://cors-anywhere.herokuapp.com/" target="_blank">Pre-authorize CORS Anywhere</a>

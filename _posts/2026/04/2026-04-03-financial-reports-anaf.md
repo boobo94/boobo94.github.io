@@ -202,15 +202,12 @@ function fetchReport() {
 
   const ANAF_API = `https://webservicesp.anaf.ro/bilant?an=${year}&cui=${encodeURIComponent(cui)}`;
 
-  fetch(`https://cors-anywhere.herokuapp.com/${ANAF_API}`, {
-    headers: { "Origin": "https://whyboobo.com" }
-  })
+  fetch(`https://api.allorigins.win/get?url=${encodeURIComponent(ANAF_API)}`)
     .then((res) => res.json())
-    .then((data) => renderReport(data))
+    .then((data) => renderReport(JSON.parse(data.contents)))
     .catch((err) => {
       out.innerHTML = "<pre>Error: " + err + "</pre>";
     });
 }
 </script>
 
-<a href="https://cors-anywhere.herokuapp.com/" target="_blank">Pre-authorize CORS Anywhere</a>
