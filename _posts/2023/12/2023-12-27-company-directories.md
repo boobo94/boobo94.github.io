@@ -1,7 +1,7 @@
 ---
 layout: post
-title: Company Directories to Boost Your Networking
-summary: Discover useful company directories from Romania to find businesses, verify details, and expand your network.
+title: Romanian Company Directories to Boost Your Networking
+summary: A curated list of Romanian company directories and lookup tools for business research, verification, and networking.
 categories: resources
 tags: business directory
 date: 2023-12-27 09:09:09 +0000
