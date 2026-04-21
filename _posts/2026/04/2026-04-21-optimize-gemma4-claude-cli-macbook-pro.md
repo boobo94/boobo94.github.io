@@ -49,9 +49,22 @@ rm Gemma-Claude.Modelfile
 
 ---
 
-### 3. The "One-Command" Setup for Claude CLI
+### 3. Running the Session
 
-Finally, you need to tell the Claude CLI to look at your local Mac instead of Anthropic's servers. Add these lines to your `~/.zshrc` (or just run them in your current terminal):
+Finally, you need to tell the Claude CLI to look at your local Mac instead of Anthropic's servers.
+
+**Method A: The "Launch" Way (Ollama 2026 Native) without Step 3**
+If you haven't set the environment variables, the newest versions of Ollama have a shortcut:
+
+```bash
+CLAUDE_CODE_DISABLE_NONESSENTIAL_TRAFFIC=1 ollama launch claude --model gemma4-claude
+```
+
+Now, you have two ways to start coding:
+
+**Method B: The Direct Way**
+
+Add these lines to your `~/.zshrc` (or just run them in your current terminal):
 
 ```bash
 # Point Claude CLI to your local Ollama instance
@@ -63,24 +76,10 @@ export ANTHROPIC_MODEL="gemma4-claude"
 export CLAUDE_CODE_DISABLE_NONESSENTIAL_TRAFFIC=1
 ```
 
----
-
-### 4. Running the Session
-
-Now, you have two ways to start coding:
-
-**Method A: The Direct Way (Recommended)**
 Since you've set the environment variables above, simply type:
 
 ```bash
 claude
-```
-
-**Method B: The "Launch" Way (Ollama 2026 Native) without Step 3**
-If you haven't set the environment variables, the newest versions of Ollama have a shortcut:
-
-```bash
-CLAUDE_CODE_DISABLE_NONESSENTIAL_TRAFFIC=1 ollama launch claude --model gemma4-claude
 ```
 
 ### Why this is the best script for you:
