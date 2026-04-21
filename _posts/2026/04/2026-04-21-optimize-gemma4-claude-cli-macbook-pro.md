@@ -1,13 +1,13 @@
 ---
 layout: post
-title: Optimizing Gemma 4 and Claude CLI for Macbook PRO M2,M3,M4,M5 Plus/Max
+title: Optimizing Gemma 4 and Claude CLI for Macbook PRO M2,M3,M4,M5 Pro or Max
 summary: A guide to the most optimized configuration for running Gemma 4 and Claude CLI on M2 Max Macs.
 categories: ai
 tags: gemma4 claude-cli ollama m2-max
 date: 2026-04-21 09:00:00 +0000
 ---
 
-To leverage your **M2 Max (64GB RAM)** with the most optimized configuration for **Gemma 4** and the **Claude CLI**, you should use a combination of persistent environment variables (for performance) and a custom model setup (for intelligence).
+To leverage your **Macbook PRO M2,M3,M4,M5 Pro or Max** with the most optimized configuration for **Gemma 4** and the **Claude CLI**, you should use a combination of persistent environment variables (for performance) and a custom model setup (for intelligence).
 
 Here is the "final" script and configuration plan.
 
