@@ -2,13 +2,6 @@
 // Site-wide techy design — green palette
 // ─────────────────────────────────────────────
 
-// ── Fix white text-shadow on dark backgrounds ──
-.site-header a,
-.categories-nav a,
-footer a {
-  text-shadow: none !important;
-}
-
 // ── Base ──
 body {
   background: #e8f2ea;
@@ -49,7 +42,6 @@ body {
     font-weight: 700;
     color: #d1fae5 !important;
     letter-spacing: -0.01em;
-    text-shadow: none !important;
 
     &::before {
       content: "~/";
@@ -62,7 +54,6 @@ body {
     color: #6b9a79;
     font-size: 0.8rem;
     background-image: none;
-    text-shadow: none !important;
   }
 
   .site-nav {
@@ -83,9 +74,6 @@ body {
     transition:
       color 0.15s,
       background 0.15s;
-    border-bottom: none !important;
-    text-shadow: none !important;
-
     &:hover,
     &:focus,
     &:active {
@@ -126,8 +114,6 @@ body {
     transition:
       background 0.15s,
       color 0.15s;
-    background-image: none;
-    text-shadow: none !important;
 
     &:hover {
       color: #fff !important;
@@ -147,7 +133,6 @@ body {
   background: transparent;
   color: #6b9a79;
   border-bottom: 1px solid #1c3524;
-  text-shadow: none;
 
   &:focus,
   &:hover {
@@ -224,8 +209,6 @@ body {
   font-size: 0.65rem;
   color: #5a7d60;
   text-decoration: none;
-  background-image: none;
-  text-shadow: none;
   transition: color 0.15s;
 
   &:hover {
@@ -242,8 +225,6 @@ body {
   border-radius: 3px;
   padding: 0.05rem 0.35rem;
   text-decoration: none;
-  background-image: none;
-  text-shadow: none;
   transition:
     background 0.15s,
     color 0.15s;
@@ -263,9 +244,7 @@ body {
 
 .post-list-link {
   text-decoration: none;
-  background-image: none;
   display: block;
-  text-shadow: none;
 }
 
 .post-list-title {
@@ -367,8 +346,6 @@ body {
   a {
     color: #4ade80;
     text-decoration: none;
-    background-image: none;
-    text-shadow: none !important;
     &:hover {
       color: #d1fae5;
       opacity: 1;
@@ -417,8 +394,6 @@ body {
   border-radius: 3px;
   padding: 0.05rem 0.35rem;
   text-decoration: none;
-  background-image: none;
-  text-shadow: none !important;
   transition:
     background 0.15s,
     color 0.15s;
@@ -517,7 +492,6 @@ body {
     border-radius: 4px;
     padding: 0.5rem 1rem;
     transition: all 0.15s;
-    text-shadow: none;
   }
 
   a:hover,
@@ -525,7 +499,6 @@ body {
     background: #16a34a;
     border-color: #16a34a;
     color: #fff;
-    text-shadow: none;
   }
 
   .pagination-meta {
@@ -545,8 +518,6 @@ footer {
 
   a {
     color: #4ade80 !important;
-    background-image: none;
-    text-shadow: none !important;
     &:hover {
       color: #d1fae5 !important;
       opacity: 1;
@@ -570,8 +541,6 @@ footer {
     color: #5a7d60;
     margin: 0 0.3rem;
     font-size: 1rem;
-    background-image: none;
-    text-shadow: none;
     transition: color 0.15s;
     &:hover {
       color: #16a34a;
@@ -595,12 +564,6 @@ footer {
     font-family: "Source Code Pro", Consolas, monospace;
     font-size: 0.78rem;
     color: #5a7d60;
-  }
-
-  a {
-    color: #16a34a;
-    background-image: none;
-    text-shadow: none;
   }
 }
 
