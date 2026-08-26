@@ -1,6 +1,6 @@
 ---
-title: Free resources to start a career as developer
-summary: A curated list with all resources that I personally find interesting to share for developers at the beginning of their careers. A list with links, articles, and other resources.
+title: Free resources to start a career as a developer
+summary: A curated list of all resources that I personally find interesting to share with developers at the beginning of their careers. A list with links, articles, and other resources.
 categories: resources
 tags: developer
 date: 2026-01-24 09:09:09 +0000
@@ -8,14 +8,14 @@ cover: https://cdn.pixabay.com/photo/2017/10/10/21/48/filmmaker-2838932_1280.jpg
 layout: post
 ---
 
-When I started my journey as developer, I tried to figure it out a way of finding the best resources out there. How can I learn something new, without someone to teach me? Well, I can learn by myself, but for that I need materials.
+When I started my journey as a developer, I tried to figure out a way of finding the best resources out there. How can I learn something new without someone to teach me? Well, I can learn by myself, but for that I need materials.
 
-That is exactly what I'm describing below. It is a list with links, articles and other resources only for you.
+That is exactly what I'm describing below. It is a list with links, articles, and other resources only for you.
 
 ## Learn to code
 
 - [Freecodecamp](https://www.freecodecamp.org/)
-  I consider freecodecamp the most important resource in your beginning. You should give it a try, create an account an choose a course. Check their [blog](https://www.freecodecamp.org/news/) too.
+  I consider freecodecamp the most important resource at the beginning. You should give it a try, create an account, and choose a course. Check their [blog](https://www.freecodecamp.org/news/) too.
 
 - [A lot of reads on different topics](https://medium.com)
 
@@ -55,16 +55,16 @@ That is exactly what I'm describing below. It is a list with links, articles and
 
 ## Where to find books?
 
-I've wrote an article some time ago [Complete list with reading resources and free books](https://whyboobo.com/resources/free-books-and-reading-resources/)
+I've written an article some time ago [Complete list with reading resources and free books](https://whyboobo.com/resources/free-books-and-reading-resources/)
 
-## You are thinking beyond of cloud, maybe you're an entrepreneur?
+## You are thinking beyond of cloud; maybe you're an entrepreneur?
 
 - [Free ideas for the next startup](https://whyboobo.com/startup/how-to-launch-a-startup/)
 - [Curated list of 25 startup launch platforms](https://whyboobo.com/startup/how-to-launch-a-startup/)
 
-## What to listen to, when you code?
+## What to listen to when you code?
 
-It depends by your vibe, but sometimes I listen Snoop Dog, Bug Mafia, etc. But mostly, if I need to concentrate I listen to some chill music.
+It depends on your vibe, but sometimes I listen to Snoop Dogg, Bug Mafia, etc. But mostly, if I need to concentrate, I listen to some chill music.
 
 - [StudyMD Youtube Channel](https://www.youtube.com/channel/UC5CRP-6oxYenIgBj17CkBZg)
 
@@ -81,20 +81,21 @@ Discover - [Mockup List of Tools](https://whyboobo.com/resources/mockup-tools/)
 - <https://www.awwwards.com/>
 - <https://dribbble.com/>
 - <https://www.webdesign-inspiration.com/>
-- <https://checklist.design/> the place where you can find the best design pattern
+- <https://checklist.design/> the place where you can find the best design patterns
 
 ### Where to host your project for free
 
-I've wrote a full article about <a href="https://whyboobo.com/resources/hosting-providers/">Hosting providers - free & paid</a>.
+I've written a full article about <a href="https://whyboobo.com/resources/hosting-providers/">Hosting providers - free & paid</a>.
 
 ### Libraries
 
 - <a href="https://barba.js.org" target="_blank">Barba.js</a> - Barba.js is a progressive enhancement library to create fluid and smooth transitions between your website's pages.
+- [Free Teleprompter](https://cueprompter.com/){:target="_blank"} service
 
 ## Others
 
 - <a href="https://xsgames.co/devassets/" target="_blank">DevAssets</a>
 
-The list is updated constantly, bookmark this into your browser...
+The list is updated constantly; bookmark this in your browser...
 
-What is your excuse to not start today?!
+What is your excuse for not starting today?!
