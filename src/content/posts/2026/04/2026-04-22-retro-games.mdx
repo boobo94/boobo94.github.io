@@ -1,0 +1,26 @@
+---
+title: "🕹️ My Retro Gaming Vault"
+summary: "A collection of classic games to play in your browser."
+categories: abstract
+tags: games
+date: 2026-04-21 09:00:00 +0000
+games:
+  - title: "Chicken Invaders"
+    url: "https://www.gamenora.com/splash/chicken-invaders/"
+    image: "https://www.gamenora.com/upload/games/thumbnails/Chicken%20Invaders.webp"
+  - title: "Coming Soon..."
+    url: "#"
+    image: "https://tse4.mm.bing.net/th/id/OIG1.sGUky.3a012Ess9NN72F?pid=ImgGn"
+######## How to add your next game: ##################
+#  - title: "New Retro Game"
+#    url: "https://link-to-game.com"
+#    image: "https://link-to-screenshot.jpg"
+######################################################
+---
+
+import GameGrid from "../../../../components/GameGrid.astro";
+
+Welcome to my retro collection. Click on any tile to launch the game in a new window.
+
+<GameGrid games={frontmatter.games} />
+

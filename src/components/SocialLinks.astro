@@ -1,0 +1,29 @@
+---
+import { Icon } from 'astro-icon/components';
+import { site } from '../site.config';
+
+const s = site.social;
+const links = [
+  { icon: 'simple-icons:x', label: 'Twitter', href: `https://twitter.com/${s.twitter}` },
+  { icon: 'simple-icons:github', label: 'GitHub', href: `https://github.com/${s.github}` },
+  { icon: 'simple-icons:stackoverflow', label: 'Stack Overflow', href: `https://stackoverflow.com/users/${s.stackoverflow}` },
+  { icon: 'simple-icons:skype', label: 'Skype', href: `skype:${s.skype}?userinfo` },
+  { icon: 'simple-icons:linkedin', label: 'LinkedIn', href: `https://www.linkedin.com/in/${s.linkedin}` },
+  { icon: 'simple-icons:medium', label: 'Medium', href: `https://${s.medium}.medium.com/` },
+  { icon: 'lucide:mail', label: 'Email', href: `mailto:${site.email}` },
+  { icon: 'lucide:rss', label: 'RSS', href: '/feed.xml' },
+];
+---
+
+<div class="social-icons">
+  <div class="social-icons-right">
+    {
+      links.map((l) => (
+        <a href={l.href} aria-label={l.label} title={l.label}>
+          <Icon name={l.icon} />
+        </a>
+      ))
+    }
+  </div>
+</div>
+<div class="clearfix"></div>

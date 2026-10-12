@@ -1,0 +1,35 @@
+---
+import { Icon } from 'astro-icon/components';
+import { site } from '../site.config';
+
+interface Props {
+  title: string;
+  url: string;
+}
+
+const { title, url } = Astro.props;
+const u = encodeURIComponent(url);
+const t = encodeURIComponent(title);
+const t9 = site.text.shareButtons;
+const links = [
+  site.share.facebook && { icon: 'simple-icons:facebook', title: t9.facebook, href: `https://facebook.com/sharer.php?u=${u}` },
+  site.share.twitter && { icon: 'simple-icons:x', title: t9.twitter, href: `https://twitter.com/intent/tweet?text=${t}&url=${u}` },
+  site.share.linkedin && { icon: 'simple-icons:linkedin', title: t9.linkedin, href: `https://www.linkedin.com/shareArticle?url=${u}&title=${t}` },
+  site.share.reddit && { icon: 'simple-icons:reddit', title: t9.reddit, href: `https://reddit.com/submit?url=${u}&title=${t}` },
+  site.share.hackernews && { icon: 'simple-icons:ycombinator', title: t9.hackernews, href: `https://news.ycombinator.com/submitlink?u=${u}&t=${t}` },
+].filter(Boolean) as { icon: string; title: string; href: string }[];
+---
+
+<div class="share-page">
+  <br />
+  {t9.text}
+  <span class="share-links">
+    {
+      links.map((l) => (
+        <a href={l.href} rel="nofollow noopener" target="_blank" title={l.title} aria-label={l.title}>
+          <Icon name={l.icon} />
+        </a>
+      ))
+    }
+  </span>
+</div>

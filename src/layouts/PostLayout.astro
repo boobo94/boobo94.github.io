@@ -1,0 +1,105 @@
+---
+import BaseLayout from './BaseLayout.astro';
+import ShareButtons from '../components/ShareButtons.astro';
+import PostFooter from '../components/PostFooter.astro';
+import { formatDate, readingTime, relatedPosts, type Post } from '../lib/posts';
+import { categoryUrl, postUrl, tagUrl } from '../lib/urls';
+import { site } from '../site.config';
+
+interface Props {
+  post: Post;
+  all: Post[];
+}
+
+const { post, all } = Astro.props;
+const d = post.data;
+const related = relatedPosts(post, all);
+const url = new URL(postUrl(post), site.url).href;
+---
+
+<BaseLayout
+  title={d.title}
+  description={d.meta_description || d.summary}
+  image={d.cover}
+  canonical={d.canonical_url}
+  keywords={d.keywords}
+>
+  <div id="search-container">
+    <div class="post-page-header">
+      <div class="post-page-breadcrumb">
+        <span class="sym" style="color:#00c853">$</span>
+        {
+          d.categories.map((c, i) => (
+            <>
+              <a href={categoryUrl(c)}>/{c}</a>
+              {i < d.categories.length - 1 && <span>/</span>}
+            </>
+          ))
+        }
+      </div>
+
+      <h1 class="post-page-title" data-pagefind-meta="title">{d.title}</h1>
+      <span hidden data-pagefind-meta={`date:${formatDate(d.date)}`}></span>
+      {d.categories[0] && <span hidden data-pagefind-meta={`category:${d.categories[0]}`}></span>}
+
+      <div class="post-page-meta">
+        <span class="post-page-meta-label">published</span>
+        <time class="post-page-meta-value">{formatDate(d.date)}</time>
+        {
+          d.update_date && (
+            <>
+              <span class="post-page-meta-sep">·</span>
+              <span class="post-page-meta-label">updated</span>
+              <time class="post-page-meta-value">{formatDate(d.update_date)}</time>
+            </>
+          )
+        }
+        <span class="post-page-meta-sep">·</span>
+        <span class="post-page-meta-value">{readingTime(post)} {site.text.post.minuteRead}</span>
+        {
+          d.tags.length > 0 && (
+            <>
+              <span class="post-page-meta-sep">·</span>
+              {d.tags.map((t) => (
+                <a href={tagUrl(t)} class="post-page-tag">{t}</a>
+              ))}
+            </>
+          )
+        }
+      </div>
+    </div>
+
+    <article class="post-content" data-pagefind-body>
+      {d.cover && <img src={d.cover} alt={d.title} class="post-cover-img" />}
+      <slot />
+    </article>
+
+    <ShareButtons title={d.title} url={url} />
+    <PostFooter />
+
+    <div class="related-posts-section">
+      <p class="related-posts-prompt"><span class="sym">$</span> {site.text.post.relatedPosts.toLowerCase()}</p>
+      <div class="post-list">
+        {
+          related.map((p, i) => (
+            <div class="post-list-item">
+              <div class="post-list-index">{String(i + 1).padStart(2, '0').slice(-2)}</div>
+              <div class="post-list-inner">
+                <div class="post-list-meta">
+                  <time class="post-list-date">{formatDate(p.data.date)}</time>
+                </div>
+                <a href={postUrl(p)} class="post-list-link">
+                  <h4 class="post-list-title" style="font-size:.9rem">
+                    <span class="list-arrow">&rsaquo;</span>
+                    {p.data.title}
+                  </h4>
+                </a>
+                {p.data.summary && <p class="post-list-summary">{p.data.summary}</p>}
+              </div>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </div>
+</BaseLayout>

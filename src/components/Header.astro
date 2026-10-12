@@ -1,0 +1,32 @@
+---
+import { getCollection } from 'astro:content';
+import { Icon } from 'astro-icon/components';
+import { site } from '../site.config';
+import { categoryUrl } from '../lib/urls';
+
+const categories = (await getCollection('categories')).map((c) => c.data.category).sort();
+---
+
+<header class="site-header px2 px-responsive">
+  <div class="mt2 wrap">
+    <div class="measure">
+      <a href="/" class="site-logo">
+        <img src="/images/b94_logo.png" alt="why boobo logo" />
+      </a>
+      <a href="/" class="site-title">{site.logoTitle}</a>
+      <nav class="site-nav">
+        <label for="search-input" id="search-label">
+          <Icon name="lucide:search" />
+          <input type="text" id="search-input" placeholder="Search" autocomplete="off" />
+        </label>
+        {site.headerPages.map((p) => <a href={p.href}>{p.title}</a>)}
+      </nav>
+    </div>
+  </div>
+  <div class="categories-nav wrap">
+    <div class="measure">
+      <span>cd &nbsp;</span>
+      {categories.map((c) => <a href={categoryUrl(c)}>/{c}</a>)}
+    </div>
+  </div>
+</header>

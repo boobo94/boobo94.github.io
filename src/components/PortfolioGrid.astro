@@ -1,0 +1,24 @@
+---
+import { getCollection } from 'astro:content';
+import { portfolioUrl } from '../lib/urls';
+
+const items = (await getCollection('portfolio')).sort((a, b) => a.id.localeCompare(b.id));
+---
+
+<div class="posts">
+  {
+    items.map((item) => (
+      <div class="post">
+        <a href={portfolioUrl(item)} class="post-link">
+          {item.data.cover && (
+            <span class="cover">
+              <img src={item.data.cover} alt={item.data.title} />
+            </span>
+          )}
+          <h3 class="post-title">{item.data.title}</h3>
+        </a>
+        <p class="post-summary">{item.data.summary}</p>
+      </div>
+    ))
+  }
+</div>

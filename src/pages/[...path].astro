@@ -1,0 +1,76 @@
+---
+// One catch-all for every top-level content route, so posts (including the
+// category-less /twispay-integration-nodejs/), category pages and
+// redirect_from stubs never collide.
+import { getCollection, render } from 'astro:content';
+import PostLayout from '../layouts/PostLayout.astro';
+import ListPage from '../components/ListPage.astro';
+import Redirect from '../components/Redirect.astro';
+import { getPublishedPosts, type Post } from '../lib/posts';
+import { categoryUrl, normalizePath, postPath, postUrl } from '../lib/urls';
+import { site } from '../site.config';
+
+type Props =
+  | { kind: 'post'; post: Post; all: Post[] }
+  | { kind: 'category'; category: string; title: string; summary?: string; posts: Post[] }
+  | { kind: 'redirect'; to: string };
+
+export async function getStaticPaths() {
+  const all = await getPublishedPosts();
+  const categoryEntries = await getCollection('categories');
+  const paths: { params: { path: string }; props: Props }[] = [];
+
+  for (const post of all) {
+    paths.push({ params: { path: postPath(post) }, props: { kind: 'post', post, all } });
+  }
+
+  const used = new Set(all.flatMap((p) => p.data.categories));
+  const meta = new Map(categoryEntries.map((c) => [c.data.category, c.data]));
+  for (const category of new Set([...meta.keys(), ...used])) {
+    const m = meta.get(category);
+    paths.push({
+      params: { path: category },
+      props: {
+        kind: 'category',
+        category,
+        title: m?.title ?? category,
+        summary: m?.summary,
+        posts: all.filter((p) => p.data.categories.includes(category)),
+      },
+    });
+  }
+
+  const redirects = [
+    ...all.flatMap((p) => p.data.redirect_from.map((from) => [from, postUrl(p)])),
+    ...categoryEntries.flatMap((c) => c.data.redirect_from.map((from) => [from, categoryUrl(c.data.category)])),
+  ];
+  for (const [from, to] of redirects) {
+    paths.push({ params: { path: normalizePath(from) }, props: { kind: 'redirect', to: new URL(to, site.url).href } });
+  }
+
+  return paths;
+}
+
+const props = Astro.props as Props;
+const rendered = props.kind === 'post' ? await render(props.post) : undefined;
+---
+
+{
+  props.kind === 'post' && rendered && (
+    <PostLayout post={props.post} all={props.all}>
+      <rendered.Content />
+    </PostLayout>
+  )
+}
+{
+  props.kind === 'category' && (
+    <ListPage
+      title={props.title}
+      prompt={`ls ./${props.category}/`}
+      description={props.summary ?? `Posts in ${props.category}`}
+      posts={props.posts}
+      showCategories={false}
+    />
+  )
+}
+{props.kind === 'redirect' && <Redirect to={props.to} />}

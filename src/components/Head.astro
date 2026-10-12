@@ -1,0 +1,80 @@
+---
+import { site } from '../site.config';
+
+interface Props {
+  title?: string;
+  description?: string;
+  image?: string;
+  canonical?: string | null;
+  keywords?: string | null;
+  robots?: string;
+}
+
+const { title, description, image, canonical, keywords, robots } = Astro.props;
+const pageTitle = title ?? site.title;
+const desc = description || site.description;
+const pageUrl = new URL(Astro.url.pathname, site.url).href;
+const ogImage = new URL(image || site.defaultImage, site.url).href;
+---
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>{pageTitle}</title>
+  <meta name="description" content={desc} />
+  <meta name="robots" content={robots ?? 'all'} />
+  <meta name="author" content={site.author} />
+  {keywords && <meta name="keywords" content={keywords} />}
+  <link rel="canonical" href={canonical || pageUrl} />
+  <link rel="alternate" type="application/rss+xml" title={`RSS Feed for ${site.title}`} href="/feed.xml" />
+  <link rel="sitemap" href="/sitemap-index.xml" />
+
+  <link
+    href="https://fonts.googleapis.com/css?family=Merriweather:900,900italic,300,300italic|Lato:900,300"
+    rel="stylesheet"
+    type="text/css"
+  />
+
+  <!-- Open Graph -->
+  <meta property="og:locale" content={site.text.ogLocale} />
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content={pageTitle} />
+  <meta property="og:description" content={desc} />
+  <meta property="og:url" content={pageUrl} />
+  <meta property="og:site_name" content={site.title} />
+  <meta property="og:image" content={ogImage} />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content={`@${site.social.twitter}`} />
+  <meta name="twitter:creator" content={`@${site.social.twitter}`} />
+  <meta name="twitter:title" content={pageTitle} />
+  <meta name="twitter:description" content={desc} />
+  <meta name="twitter:url" content={pageUrl} />
+  <meta name="twitter:image" content={ogImage} />
+
+  <!-- Icons -->
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+  <link rel="manifest" href="/site.webmanifest" />
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5" />
+  <meta name="msapplication-TileColor" content="#ffffff" />
+  <meta name="theme-color" content="#ffffff" />
+
+  {
+    site.ga4Id && (
+      <>
+        <script async src={`https://www.googletagmanager.com/gtag/js?id=${site.ga4Id}`} />
+        <script is:inline define:vars={{ id: site.ga4Id }}>
+          window.dataLayer = window.dataLayer || [];
+          function gtag() {
+            dataLayer.push(arguments);
+          }
+          gtag('js', new Date());
+          gtag('config', id);
+        </script>
+      </>
+    )
+  }
+</head>

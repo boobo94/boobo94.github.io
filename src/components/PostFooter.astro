@@ -1,0 +1,12 @@
+---
+import { Icon } from 'astro-icon/components';
+import { site } from '../site.config';
+---
+
+<div class="py2 post-footer">
+  <img src="/images/me-02.jpg" alt={site.author} class="avatar" />
+  <p>
+    Would you like to chat about this article or something else? Write me on
+    <a href={`https://twitter.com/${site.social.twitter}`} target="_blank" rel="noopener"><Icon name="simple-icons:x" /> Twitter</a>
+  </p>
+</div>

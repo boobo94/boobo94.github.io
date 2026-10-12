@@ -1,10 +1,17 @@
 .DS_Store
 Thumbs.db
-db.json
 *.log
+
+# Astro
+dist/
+.astro/
+
+# Yarn
 node_modules/
-public/
-.deploy*/
-_site
-.sass-cache/
-Gemfile.lock
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/sdks
+!.yarn/versions
+.pnp.*
