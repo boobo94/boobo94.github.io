@@ -1,0 +1,10 @@
+---
+import HomePage from '../components/HomePage.astro';
+import { getPublishedPosts } from '../lib/posts';
+import { site } from '../site.config';
+
+const all = await getPublishedPosts();
+const totalPages = Math.max(1, Math.ceil(all.length / site.postsPerPage));
+---
+
+<HomePage posts={all.slice(0, site.postsPerPage)} page={1} totalPages={totalPages} />

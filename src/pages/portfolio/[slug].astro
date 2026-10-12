@@ -1,0 +1,22 @@
+---
+import { getCollection, render } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+export async function getStaticPaths() {
+  const items = await getCollection('portfolio');
+  return items.map((item) => ({ params: { slug: item.id }, props: { item } }));
+}
+
+const { item } = Astro.props;
+const { Content } = await render(item);
+---
+
+<BaseLayout title={item.data.title} description={item.data.summary} image={item.data.cover}>
+  <div class="post-page-header">
+    <h1 class="post-page-title">{item.data.title}</h1>
+  </div>
+  <article class="post-content">
+    {item.data.cover && <img src={item.data.cover} alt={item.data.title} class="post-cover-img" />}
+    <Content />
+  </article>
+</BaseLayout>

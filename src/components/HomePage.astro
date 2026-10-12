@@ -1,0 +1,40 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PostListItem from './PostListItem.astro';
+import Pagination from './Pagination.astro';
+import type { Post } from '../lib/posts';
+import { site } from '../site.config';
+
+interface Props {
+  posts: Post[];
+  page: number;
+  totalPages: number;
+}
+
+const { posts, page, totalPages } = Astro.props;
+---
+
+<BaseLayout>
+  <div class="home">
+    {
+      posts.length > 0 ? (
+        <>
+          <p class="site-prompt">
+            <span class="sym">$</span> blog --latest
+            <span class="dim">// page {page} of {totalPages}</span>
+          </p>
+          <div class="post-list" id="search-container">
+            {posts.map((post, i) => (
+              <PostListItem post={post} index={i + 1} />
+            ))}
+          </div>
+          <Pagination page={page} totalPages={totalPages} />
+        </>
+      ) : (
+        <p class="site-prompt">
+          <span class="sym">$</span> <span class="dim">{site.text.index.comingSoon}</span>
+        </p>
+      )
+    }
+  </div>
+</BaseLayout>

@@ -1,0 +1,28 @@
+---
+import { getCollection } from 'astro:content';
+import ListPage from '../../components/ListPage.astro';
+import { getPublishedPosts } from '../../lib/posts';
+import { slugify } from '../../lib/urls';
+
+export async function getStaticPaths() {
+  const all = await getPublishedPosts();
+  const tagEntries = await getCollection('tags');
+  const bySlug = new Map<string, string>();
+  for (const t of tagEntries) bySlug.set(slugify(t.data.tag), t.data.tag);
+  for (const p of all) for (const t of p.data.tags) if (!bySlug.has(slugify(t))) bySlug.set(slugify(t), t);
+
+  return [...bySlug].map(([slug, tag]) => ({
+    params: { tag: slug },
+    props: { tag, posts: all.filter((p) => p.data.tags.some((t) => slugify(t) === slug)) },
+  }));
+}
+
+const { tag, posts } = Astro.props;
+---
+
+<ListPage
+  title={`#${tag}`}
+  prompt={`grep -r "#${tag}" ./posts/`}
+  description={`${posts.length} post${posts.length !== 1 ? 's' : ''} tagged with ${tag}`}
+  posts={posts}
+/>

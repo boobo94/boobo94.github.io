@@ -1,0 +1,36 @@
+---
+import Head from '../components/Head.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import Search from '../components/Search.astro';
+import '../styles/main.scss';
+
+interface Props {
+  title?: string;
+  description?: string;
+  image?: string;
+  canonical?: string | null;
+  keywords?: string | null;
+  robots?: string;
+  center?: boolean;
+}
+
+const { center, ...head } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <Head {...head} />
+  <body class="site animated fade-in-down">
+    <div class:list={['site-wrap', { center }]}>
+      <Header />
+      <div class="post p2 p-responsive wrap" role="main">
+        <div class="measure">
+          <slot />
+        </div>
+      </div>
+    </div>
+    <Footer />
+    <Search />
+  </body>
+</html>

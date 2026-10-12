@@ -1,0 +1,21 @@
+---
+import HomePage from '../../components/HomePage.astro';
+import { getPublishedPosts } from '../../lib/posts';
+import { site } from '../../site.config';
+
+export async function getStaticPaths() {
+  const all = await getPublishedPosts();
+  const totalPages = Math.ceil(all.length / site.postsPerPage);
+  return Array.from({ length: Math.max(0, totalPages - 1) }, (_, i) => {
+    const page = i + 2;
+    return {
+      params: { num: String(page) },
+      props: { posts: all.slice((page - 1) * site.postsPerPage, page * site.postsPerPage), page, totalPages },
+    };
+  });
+}
+
+const { posts, page, totalPages } = Astro.props;
+---
+
+<HomePage posts={posts} page={page} totalPages={totalPages} />
