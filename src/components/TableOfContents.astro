@@ -1,0 +1,41 @@
+---
+import type { MarkdownHeading } from 'astro';
+import { site } from '../site.config';
+
+interface Props {
+  headings: MarkdownHeading[];
+}
+
+// h2 entries with their h3 children; shown only for posts long enough to need it.
+const items = Astro.props.headings.filter((h) => h.depth === 2 || h.depth === 3);
+const tree: { heading: MarkdownHeading; children: MarkdownHeading[] }[] = [];
+for (const h of items) {
+  if (h.depth === 2 || tree.length === 0) tree.push({ heading: h, children: [] });
+  else tree[tree.length - 1].children.push(h);
+}
+const show = items.length >= 3;
+---
+
+{
+  show && (
+    <details class="toc" open>
+      <summary>{site.text.post.contents}</summary>
+      <ol>
+        {tree.map(({ heading, children }) => (
+          <li>
+            <a href={`#${heading.slug}`}>{heading.text}</a>
+            {children.length > 0 && (
+              <ol>
+                {children.map((c) => (
+                  <li>
+                    <a href={`#${c.slug}`}>{c.text}</a>
+                  </li>
+                ))}
+              </ol>
+            )}
+          </li>
+        ))}
+      </ol>
+    </details>
+  )
+}

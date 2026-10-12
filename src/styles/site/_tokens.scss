@@ -1,0 +1,34 @@
+// Design tokens. Every color in the site comes from here.
+
+:root {
+  color-scheme: light;
+  --bg: #e8f2ea;
+  --surface: #ffffff;
+  --surface-hover: #f4fbf5;
+  --border: #d1e7d4;
+  --border-soft: #edf4ee;
+  --text: #1a2e1c;
+  --text-muted: #4a6b50;
+  --text-subtle: #4b6d52;
+  --accent: #166534;
+  --accent-bright: #16a34a;
+  --on-accent: #ffffff;
+
+  // The header, page headers, code and footer use a dark "terminal" look.
+  --term-bg: #0b1a10;
+  --term-bg-2: #091508;
+  --term-border: #1c3524;
+  --term-text: #d1fae5;
+  --term-muted: #8fb89a;
+  --term-dim: #7aa386;
+  --term-accent: #4ade80;
+
+  --font-body: 'Merriweather', Georgia, 'Times New Roman', serif;
+  --font-heading: 'Lato', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  --font-mono: 'Source Code Pro', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+
+  --radius: 6px;
+  --content-width: 46rem;
+  --gutter: 1rem;
+}
+

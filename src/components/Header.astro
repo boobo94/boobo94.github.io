@@ -5,28 +5,38 @@ import { site } from '../site.config';
 import { categoryUrl } from '../lib/urls';
 
 const categories = (await getCollection('categories')).map((c) => c.data.category).sort();
+const current = Astro.url.pathname.split('/')[1];
 ---
 
-<header class="site-header px2 px-responsive">
-  <div class="mt2 wrap">
-    <div class="measure">
-      <a href="/" class="site-logo">
-        <img src="/images/b94_logo.png" alt="why boobo logo" />
-      </a>
-      <a href="/" class="site-title">{site.logoTitle}</a>
-      <nav class="site-nav">
-        <label for="search-input" id="search-label">
-          <Icon name="lucide:search" />
-          <input type="text" id="search-input" placeholder="Search" autocomplete="off" />
-        </label>
-        {site.headerPages.map((p) => <a href={p.href}>{p.title}</a>)}
-      </nav>
+<header class="site-header">
+  <div class="wrap site-header-bar">
+    <a href="/" class="site-brand">
+      <img src="/images/b94_logo.png" alt="" width="28" height="28" />
+      <span class="site-title">{site.logoTitle}</span>
+    </a>
+    <div class="site-search" role="search">
+      <label for="search-input" class="visually-hidden">Search posts</label>
+      <Icon name="lucide:search" aria-hidden="true" />
+      <input type="search" id="search-input" placeholder="Search posts" autocomplete="off" />
+      <kbd class="search-kbd" aria-hidden="true">Ctrl /</kbd>
+      <button type="button" class="search-clear" aria-label="Clear search" hidden>
+        <Icon name="lucide:x" />
+      </button>
     </div>
+    <nav class="site-nav" aria-label="Pages">
+      {site.headerPages.map((p) => <a href={p.href}>{p.title}</a>)}
+    </nav>
   </div>
-  <div class="categories-nav wrap">
-    <div class="measure">
-      <span>cd &nbsp;</span>
-      {categories.map((c) => <a href={categoryUrl(c)}>/{c}</a>)}
+  <nav class="categories-nav" aria-label="Categories">
+    <div class="wrap categories-scroll">
+      <span aria-hidden="true">cd</span>
+      {
+        categories.map((c) => (
+          <a href={categoryUrl(c)} aria-current={c === current ? 'page' : undefined}>
+            /{c}
+          </a>
+        ))
+      }
     </div>
-  </div>
+  </nav>
 </header>

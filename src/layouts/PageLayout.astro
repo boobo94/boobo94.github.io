@@ -11,12 +11,8 @@ const { title } = Astro.props;
 ---
 
 <BaseLayout {...Astro.props}>
-  <div class="post">
-    <header class="post-header">
-      <h1 class="h2">{title}</h1>
-    </header>
-    <article class="post-content">
-      <slot />
-    </article>
-  </div>
+  <h1 class="page-title">{title}</h1>
+  <article class="post-content">
+    <slot />
+  </article>
 </BaseLayout>

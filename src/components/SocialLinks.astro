@@ -15,15 +15,12 @@ const links = [
 ];
 ---
 
-<div class="social-icons">
-  <div class="social-icons-right">
-    {
-      links.map((l) => (
-        <a href={l.href} aria-label={l.label} title={l.label}>
-          <Icon name={l.icon} />
-        </a>
-      ))
-    }
-  </div>
+<div class="social-links">
+  {
+    links.map((l) => (
+      <a href={l.href} aria-label={l.label} title={l.label}>
+        <Icon name={l.icon} />
+      </a>
+    ))
+  }
 </div>
-<div class="clearfix"></div>

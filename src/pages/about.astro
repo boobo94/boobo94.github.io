@@ -7,8 +7,10 @@ import { site } from '../site.config';
 <PageLayout title="About me">
   <h2 id="who-am-i">Who am I?</h2>
 
-  <button id="speakBtn" type="button">Read aloud</button>
-  <button id="stopBtn" type="button">Stop</button>
+  <div class="button-row">
+    <button id="speakBtn" type="button" class="btn">Read aloud</button>
+    <button id="stopBtn" type="button" class="btn">Stop</button>
+  </div>
 
   <h3 id="on-short-short">On short short</h3>
   <p>
@@ -30,17 +32,10 @@ import { site } from '../site.config';
   </div>
 
   <h2 id="how-i-look-like">How I look like</h2>
-  <img
-    src="/images/me-03.jpg"
-    alt={site.author}
-    class="avatar"
-    style="max-height: 400px;border-radius: 50%;display: block;margin: 0 auto;"
-  />
+  <img src="/images/me-03.jpg" alt={site.author} class="avatar-large" loading="lazy" decoding="async" />
 
   <h2 id="portfolio">Portfolio</h2>
-  <div class="portfolio">
-    <PortfolioGrid />
-  </div>
+  <PortfolioGrid />
 
   <h2 id="personal">Personal</h2>
   <p>Vorbitor de limba romana. I speak English too.</p>

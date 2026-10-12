@@ -57,7 +57,7 @@ const rendered = props.kind === 'post' ? await render(props.post) : undefined;
 
 {
   props.kind === 'post' && rendered && (
-    <PostLayout post={props.post} all={props.all}>
+    <PostLayout post={props.post} all={props.all} headings={rendered.headings}>
       <rendered.Content />
     </PostLayout>
   )

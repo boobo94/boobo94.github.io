@@ -1,16 +1,23 @@
 ---
-// Pagefind-backed search. Results replace the contents of #search-container,
-// matching the old simple-jekyll-search behaviour.
+// Pagefind-backed search. Results replace the contents of #search-container
+// (the post list on list pages, the article on post pages).
 ---
 
 <script>
-  type PagefindResult = { data: () => Promise<{ url: string; meta: Record<string, string>; excerpt: string }> };
-  type Pagefind = { search: (q: string) => Promise<{ results: PagefindResult[] }> };
+  type ResultData = { url: string; meta: Record<string, string>; excerpt: string };
+  type Pagefind = {
+    search: (q: string) => Promise<{ results: { data: () => Promise<ResultData> }[] }>;
+  };
 
   const input = document.getElementById('search-input') as HTMLInputElement | null;
+  const clear = document.querySelector<HTMLButtonElement>('.search-clear');
+  const kbd = document.querySelector('.search-kbd');
   const container = document.getElementById('search-container');
-  let pagefind: Pagefind | undefined;
   const original = container?.innerHTML ?? '';
+  let pagefind: Pagefind | undefined;
+  let seq = 0;
+
+  if (kbd && /Mac|iPhone|iPad/.test(navigator.platform)) kbd.textContent = '⌘ /';
 
   async function load(): Promise<Pagefind | undefined> {
     if (!pagefind) {
@@ -27,30 +34,53 @@
   const esc = (s = '') =>
     s.replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c]!);
 
-  function render(r: { url: string; meta: Record<string, string>; excerpt: string }) {
+  function render(r: ResultData) {
     const { title = '', date = '', category = '' } = r.meta;
-    return `<div class="post-list-item"><div class="post-list-inner"><div class="post-list-meta"><time class="post-list-date">${esc(date)}</time>${
-      category ? `<a href="/${esc(category)}/" class="post-list-cat">/${esc(category)}</a>` : ''
-    }</div><a href="${esc(r.url)}" class="post-list-link"><h2 class="post-list-title"><span class="list-arrow">&rsaquo;</span>${esc(
-      title,
-    )}</h2></a><p class="post-list-summary">${r.excerpt}</p></div></div>`;
+    const cat = category ? `<a href="/${esc(category)}/">/${esc(category)}</a>` : '';
+    return `<article class="post-list-item"><div class="post-list-meta"><time>${esc(date)}</time>${cat}</div><h2 class="post-list-title"><a href="${esc(
+      r.url,
+    )}">${esc(title)}</a></h2><p class="post-list-summary">${r.excerpt}</p></article>`;
   }
 
-  let seq = 0;
+  function reset() {
+    if (!input || !container) return;
+    seq++;
+    input.value = '';
+    clear?.setAttribute('hidden', '');
+    container.innerHTML = original;
+    container.classList.remove('post-list');
+    if (container.dataset.list !== undefined) container.classList.add('post-list');
+  }
+
   input?.addEventListener('input', async () => {
     if (!container) return;
     const q = input.value.trim();
+    clear?.toggleAttribute('hidden', !input.value);
+    if (!q) return reset();
     const mine = ++seq;
-    if (!q) {
-      container.innerHTML = original;
-      return;
-    }
     const pf = await load();
     if (!pf) return;
     const { results } = await pf.search(q);
     const data = await Promise.all(results.slice(0, 20).map((r) => r.data()));
     if (mine !== seq) return;
-    container.innerHTML = data.length ? data.map(render).join('') : '<p class="post-list-summary">No results.</p>';
+    const count = results.length;
+    const shown = count > data.length ? ` (showing ${data.length})` : '';
+    container.classList.add('post-list');
+    container.innerHTML =
+      `<p class="search-status" role="status">${count} result${count === 1 ? '' : 's'} for “${esc(q)}”${shown}</p>` +
+      data.map(render).join('');
+  });
+
+  input?.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+      reset();
+      input.blur();
+    }
+  });
+
+  clear?.addEventListener('click', () => {
+    reset();
+    input?.focus();
   });
 
   // Keyboard shortcut for search (Cmd/Ctrl + /)

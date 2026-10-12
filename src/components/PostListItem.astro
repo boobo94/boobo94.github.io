@@ -1,29 +1,21 @@
 ---
 import type { Post } from '../lib/posts';
 import { excerpt, formatDate } from '../lib/posts';
-import { categoryUrl, postUrl, tagUrl } from '../lib/urls';
+import { categoryUrl, postUrl } from '../lib/urls';
 
 interface Props {
   post: Post;
-  index: number;
   showCategories?: boolean;
-  showTags?: boolean;
 }
 
-const { post, index, showCategories = true, showTags = true } = Astro.props;
+const { post, showCategories = true } = Astro.props;
 ---
 
-<div class="post-list-item">
-  <div class="post-list-index">{String(index).padStart(2, '0').slice(-2)}</div>
-  <div class="post-list-inner">
-    <div class="post-list-meta">
-      <time class="post-list-date">{formatDate(post.data.date)}</time>
-      {showCategories && post.data.categories.map((c) => <a href={categoryUrl(c)} class="post-list-cat">/{c}</a>)}
-      {showTags && post.data.tags.map((t) => <a href={tagUrl(t)} class="post-list-tag">{t}</a>)}
-    </div>
-    <a href={postUrl(post)} class="post-list-link">
-      <h2 class="post-list-title"><span class="list-arrow">&rsaquo;</span>{post.data.title}</h2>
-    </a>
-    <p class="post-list-summary">{excerpt(post)}</p>
+<article class="post-list-item">
+  <div class="post-list-meta">
+    <time datetime={post.data.date.toISOString()}>{formatDate(post.data.date)}</time>
+    {showCategories && post.data.categories.map((c) => <a href={categoryUrl(c)}>/{c}</a>)}
   </div>
-</div>
+  <h2 class="post-list-title"><a href={postUrl(post)}>{post.data.title}</a></h2>
+  <p class="post-list-summary">{excerpt(post)}</p>
+</article>

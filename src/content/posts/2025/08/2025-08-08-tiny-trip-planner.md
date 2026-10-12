@@ -91,9 +91,7 @@ cover: /images/logo-trip-planner.png
     </div>
     <div class="ttp-tiny ttp-muted">Note: Links are Base64-encoded and optionally gzip-compressed. They’re readable, not encrypted.</div>
   </div>
-
   <div class="ttp-gap"></div>
-
   <!-- Trip Starter -->
   <div class="ttp-starter ttp-card">
     <div class="ttp-card-tools">
@@ -101,30 +99,22 @@ cover: /images/logo-trip-planner.png
       <button class="ttp-btn ttp-btn--sm" id="ttp-importBtn" title="Import (merge)">⤵️ Import</button>
       <button class="ttp-btn ttp-btn--sm" id="ttp-exportAllBtn" title="Export all">⤴️ Export All</button>
     </div>
-
     <div class="ttp-section-title">Create or search a trip</div>
-
     <div class="ttp-col">
       <input class="ttp-input" id="ttp-quickInput" type="text" placeholder="Type a new trip name (press Enter) or search predefined templates…">
       <div id="ttp-predefResults" class="ttp-predef-results" style="display:none;"></div>
     </div>
-
     <div class="ttp-spacer"></div>
-
     <div class="ttp-section-title">Your Trips</div>
     <div class="ttp-topbar-list" id="ttp-tripList"></div>
-
   </div>
-
   <div class="ttp-gap"></div>
-
   <!-- Content -->
   <div class="ttp-main">
     <div id="ttp-emptyState" class="ttp-card" style="display:none;">
       <div class="ttp-section-title">No trip selected</div>
       <p class="ttp-muted">Create a trip, open one, or use a predefined template.</p>
     </div>
-
     <div id="ttp-tripView" class="ttp-card ttp-edit-card" style="display:none;">
       <div class="ttp-card-tools">
         <button id="ttp-tripVisitedBtn" class="ttp-btn ttp-btn--sm" title="Toggle trip visited">🗺️ Mark trip visited</button>
@@ -132,7 +122,6 @@ cover: /images/logo-trip-planner.png
         <button id="ttp-shareTripBtn" class="ttp-btn ttp-btn--sm" title="Share current trip via link">🔗 Share Trip</button>
         <button id="ttp-deleteTripBtn" class="ttp-btn ttp-danger ttp-btn--sm" title="Delete this trip">🗑️ Delete</button>
       </div>
-
       <div class="ttp-row ttp-space-between ttp-wrap">
         <div>
           <div class="ttp-section-title">Trip</div>
@@ -143,7 +132,6 @@ cover: /images/logo-trip-planner.png
           <div class="ttp-tiny">Name auto-saves as you type.</div>
         </div>
       </div>
-
       <!-- Share output panel -->
       <div id="ttp-sharePanel" class="ttp-share" style="display:none;">
         <input class="ttp-input" id="ttp-shareLink" readonly>
@@ -153,9 +141,7 @@ cover: /images/logo-trip-planner.png
           <span class="ttp-tiny ttp-muted" id="ttp-shareNote"></span>
         </div>
       </div>
-
       <div class="ttp-spacer"></div>
-
       <div class="ttp-section-title">Filters</div>
       <div class="ttp-row ttp-wrap">
         <label class="ttp-check">
@@ -167,15 +153,12 @@ cover: /images/logo-trip-planner.png
           <span>Show unvisited</span>
         </label>
       </div>
-
       <!-- Map -->
       <div class="ttp-map-wrap">
         <div class="ttp-section-title">Trip map (Visited = green pin, Not visited = blue pin)</div>
         <div id="ttp-allMap" class="ttp-map"></div>
       </div>
-
       <div class="ttp-spacer"></div>
-
       <div class="ttp-grid">
         <div class="ttp-col">
           <div class="ttp-section-title">Add place</div>
@@ -183,31 +166,25 @@ cover: /images/logo-trip-planner.png
             <!-- Single field: name or full Google Maps URL or free text -->
             <input class="ttp-input" id="ttp-placeQuery" type="text" placeholder="Place name or full Google Maps URL">
             <div id="ttp-suggestBox" class="ttp-suggest" style="display:none;"></div>
-
             <!-- Auto lat/lng -->
             <div class="ttp-row ttp-wrap">
               <input class="ttp-input" id="ttp-latInput" type="text" placeholder="Latitude" style="flex:1 1 140px;">
               <input class="ttp-input" id="ttp-lngInput" type="text" placeholder="Longitude" style="flex:1 1 140px;">
             </div>
-
             <div id="ttp-parseStatus" class="ttp-muted"></div>
             <div id="ttp-previewMap" class="ttp-map" style="display:none;"></div>
-
             <textarea class="ttp-textarea" id="ttp-placeNotes" placeholder="Short notes (what to do, timings, etc.)"></textarea>
-
             <div class="ttp-row ttp-right">
               <button id="ttp-addPlaceBtn" class="ttp-btn ttp-accent">Add Place</button>
             </div>
           </div>
         </div>
-
         <div class="ttp-col">
           <div class="ttp-section-title">Places</div>
           <ul id="ttp-placeList" class="ttp-list"></ul>
         </div>
       </div>
     </div>
-
   </div>
 </div>
 

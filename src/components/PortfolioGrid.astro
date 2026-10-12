@@ -5,20 +5,20 @@ import { portfolioUrl } from '../lib/urls';
 const items = (await getCollection('portfolio')).sort((a, b) => a.id.localeCompare(b.id));
 ---
 
-<div class="posts">
+<div class="portfolio-grid">
   {
     items.map((item) => (
-      <div class="post">
-        <a href={portfolioUrl(item)} class="post-link">
-          {item.data.cover && (
-            <span class="cover">
-              <img src={item.data.cover} alt={item.data.title} />
-            </span>
-          )}
-          <h3 class="post-title">{item.data.title}</h3>
-        </a>
-        <p class="post-summary">{item.data.summary}</p>
-      </div>
+      <article class="portfolio-item panel">
+        {item.data.cover && (
+          <div class="cover">
+            <img src={item.data.cover} alt="" loading="lazy" decoding="async" onerror="this.parentElement.remove()" />
+          </div>
+        )}
+        <h3>
+          <a href={portfolioUrl(item)}>{item.data.title}</a>
+        </h3>
+        <p>{item.data.summary}</p>
+      </article>
     ))
   }
 </div>

@@ -14,27 +14,26 @@ interface Props {
 const { posts, page, totalPages } = Astro.props;
 ---
 
-<BaseLayout>
-  <div class="home">
-    {
-      posts.length > 0 ? (
-        <>
-          <p class="site-prompt">
-            <span class="sym">$</span> blog --latest
-            <span class="dim">// page {page} of {totalPages}</span>
-          </p>
-          <div class="post-list" id="search-container">
-            {posts.map((post, i) => (
-              <PostListItem post={post} index={i + 1} />
-            ))}
-          </div>
-          <Pagination page={page} totalPages={totalPages} />
-        </>
-      ) : (
-        <p class="site-prompt">
-          <span class="sym">$</span> <span class="dim">{site.text.index.comingSoon}</span>
+<BaseLayout title={page > 1 ? `${site.title} - Page ${page}` : undefined}>
+  {
+    posts.length > 0 ? (
+      <>
+        <p class="prompt">
+          <span class="sym">$</span>blog --latest
+          <span class="dim">// page {page} of {totalPages}</span>
         </p>
-      )
-    }
-  </div>
+        <div class="post-list" id="search-container" data-list>
+          {posts.map((post) => (
+            <PostListItem post={post} />
+          ))}
+        </div>
+        <Pagination page={page} totalPages={totalPages} />
+      </>
+    ) : (
+      <p class="prompt">
+        <span class="sym">$</span>
+        <span class="dim">{site.text.index.comingSoon}</span>
+      </p>
+    )
+  }
 </BaseLayout>

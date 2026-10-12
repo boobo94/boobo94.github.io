@@ -13,22 +13,28 @@ const pageUrl = (n: number) => (n === 1 ? '/' : `/page${n}/`);
 
 {
   totalPages > 1 && (
-    <div class="pagination clearfix mb1 mt4">
-      <div class="left">
-        {page > 1 ? (
-          <a class="pagination-item" href={pageUrl(page - 1)}>{site.text.pagination.newer}</a>
-        ) : (
-          <span class="pagination-item disabled">{site.text.pagination.newer}</span>
-        )}
-      </div>
-      <div class="right">
-        {page < totalPages ? (
-          <a class="pagination-item" href={pageUrl(page + 1)}>{site.text.pagination.older}</a>
-        ) : (
-          <span class="pagination-item disabled">{site.text.pagination.older}</span>
-        )}
-      </div>
-      <div class="pagination-meta">Page {page} of {totalPages}</div>
-    </div>
+    <nav class="pagination" aria-label="Pagination">
+      {page > 1 ? (
+        <a class="btn" href={pageUrl(page - 1)} rel="prev">
+          ← {site.text.pagination.newer}
+        </a>
+      ) : (
+        <span class="btn is-disabled" aria-hidden="true">
+          ← {site.text.pagination.newer}
+        </span>
+      )}
+      <span class="pagination-meta">
+        Page {page} of {totalPages}
+      </span>
+      {page < totalPages ? (
+        <a class="btn" href={pageUrl(page + 1)} rel="next">
+          {site.text.pagination.older} →
+        </a>
+      ) : (
+        <span class="btn is-disabled" aria-hidden="true">
+          {site.text.pagination.older} →
+        </span>
+      )}
+    </nav>
   )
 }

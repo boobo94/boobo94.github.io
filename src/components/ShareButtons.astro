@@ -12,24 +12,55 @@ const u = encodeURIComponent(url);
 const t = encodeURIComponent(title);
 const t9 = site.text.shareButtons;
 const links = [
-  site.share.facebook && { icon: 'simple-icons:facebook', title: t9.facebook, href: `https://facebook.com/sharer.php?u=${u}` },
-  site.share.twitter && { icon: 'simple-icons:x', title: t9.twitter, href: `https://twitter.com/intent/tweet?text=${t}&url=${u}` },
-  site.share.linkedin && { icon: 'simple-icons:linkedin', title: t9.linkedin, href: `https://www.linkedin.com/shareArticle?url=${u}&title=${t}` },
-  site.share.reddit && { icon: 'simple-icons:reddit', title: t9.reddit, href: `https://reddit.com/submit?url=${u}&title=${t}` },
-  site.share.hackernews && { icon: 'simple-icons:ycombinator', title: t9.hackernews, href: `https://news.ycombinator.com/submitlink?u=${u}&t=${t}` },
-].filter(Boolean) as { icon: string; title: string; href: string }[];
+  site.share.twitter && { icon: 'simple-icons:x', label: 'X', title: t9.twitter, href: `https://twitter.com/intent/tweet?text=${t}&url=${u}` },
+  site.share.linkedin && { icon: 'simple-icons:linkedin', label: 'LinkedIn', title: t9.linkedin, href: `https://www.linkedin.com/shareArticle?url=${u}&title=${t}` },
+  site.share.facebook && { icon: 'simple-icons:facebook', label: 'Facebook', title: t9.facebook, href: `https://facebook.com/sharer.php?u=${u}` },
+].filter(Boolean) as { icon: string; label: string; title: string; href: string }[];
 ---
 
-<div class="share-page">
-  <br />
-  {t9.text}
-  <span class="share-links">
-    {
-      links.map((l) => (
-        <a href={l.href} rel="nofollow noopener" target="_blank" title={l.title} aria-label={l.title}>
-          <Icon name={l.icon} />
-        </a>
-      ))
-    }
-  </span>
+<div class="share panel" data-share-title={title} data-share-url={url}>
+  <span class="share-label">{t9.text}</span>
+  <button type="button" class="share-native" hidden>
+    <Icon name="lucide:share-2" />
+    {t9.native}
+  </button>
+  {
+    links.map((l) => (
+      <a href={l.href} rel="nofollow noopener" target="_blank" title={l.title}>
+        <Icon name={l.icon} />
+        {l.label}
+      </a>
+    ))
+  }
+  <button type="button" class="share-copy" data-copied={t9.copied}>
+    <Icon name="lucide:link" />
+    <span>{t9.copy}</span>
+  </button>
 </div>
+
+<script>
+  document.querySelectorAll<HTMLElement>('.share').forEach((box) => {
+    const title = box.dataset.shareTitle ?? document.title;
+    const url = box.dataset.shareUrl ?? location.href;
+
+    const native = box.querySelector<HTMLButtonElement>('.share-native');
+    if (native && 'share' in navigator) {
+      native.hidden = false;
+      native.addEventListener('click', () => navigator.share({ title, url }).catch(() => {}));
+    }
+
+    const copy = box.querySelector<HTMLButtonElement>('.share-copy');
+    const label = copy?.querySelector('span');
+    copy?.addEventListener('click', async () => {
+      try {
+        await navigator.clipboard.writeText(url);
+      } catch {
+        return;
+      }
+      if (!label) return;
+      const before = label.textContent;
+      label.textContent = copy.dataset.copied ?? 'Copied';
+      setTimeout(() => (label.textContent = before), 2000);
+    });
+  });
+</script>

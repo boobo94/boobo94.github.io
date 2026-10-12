@@ -332,6 +332,21 @@
   dependencies:
     tslib "^2.4.0"
 
+"@fontsource/lato@5.3.0":
+  version "5.3.0"
+  resolved "https://registry.yarnpkg.com/@fontsource/lato/-/lato-5.3.0.tgz#c1c8c66aca07c4cd9299bdfe1ba679683465d1c3"
+  integrity sha512-0WhF/4rhrw+ErIyneKvhHn2YAl+xf8GDtllgOgOzDmeaSlLQtjpChXaQOpWhG2BchQW0WJy2zLV12Hdg0ndOMw==
+
+"@fontsource/merriweather@5.3.0":
+  version "5.3.0"
+  resolved "https://registry.yarnpkg.com/@fontsource/merriweather/-/merriweather-5.3.0.tgz#6b3e916dc3250def1664e1b123a99487d383e91c"
+  integrity sha512-9LpPsNTYzRALj468Uj1K9Usl5eXk991L/kKmcpdWbTF1na9NfMyAXMgUABlMReViU1MYBz9kJ8jEzEOtX9qGDg==
+
+"@fontsource/source-code-pro@5.3.1":
+  version "5.3.1"
+  resolved "https://registry.yarnpkg.com/@fontsource/source-code-pro/-/source-code-pro-5.3.1.tgz#996949b9b0bb398a9e75118d626bc2b74599f013"
+  integrity sha512-qsJEkwJWXYP/9clmtt3BsIlZ+Lr4cuRgNAgu0vyZdCgESMRMhRkAmEFFHHNM81VdeURqg5D5+Rr3bALDFav78A==
+
 "@iconify-json/lucide@^1.2.142":
   version "1.2.143"
   resolved "https://registry.yarnpkg.com/@iconify-json/lucide/-/lucide-1.2.143.tgz#e4c4fe01a3644af0f555de78706f2e1bce5a3ad9"

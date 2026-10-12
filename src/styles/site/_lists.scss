@@ -1,0 +1,119 @@
+// ── Post list ──
+.post-list {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  margin-bottom: 1.5rem;
+}
+
+.post-list-item {
+  position: relative;
+  padding: 1.1rem 1.25rem;
+  border-bottom: 1px solid var(--border-soft);
+  transition: background 0.15s;
+
+  &:last-child {
+    border-bottom: 0;
+  }
+
+  &:hover {
+    background: var(--surface-hover);
+  }
+}
+
+.post-list-meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.25rem 0.6rem;
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: var(--text-subtle);
+  margin-bottom: 0.35rem;
+
+  a {
+    position: relative; // above the stretched title link
+    z-index: 1;
+    color: var(--text-muted);
+    text-decoration: none;
+
+    &:hover {
+      color: var(--accent);
+    }
+  }
+}
+
+.post-list-title {
+  font-size: 1.15rem;
+  font-weight: 700;
+  margin: 0 0 0.35rem;
+
+  a {
+    color: var(--text);
+    text-decoration: none;
+
+    // Make the whole item clickable.
+    &::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+    }
+  }
+
+  .post-list-item:hover & a {
+    color: var(--accent);
+  }
+
+  &::before {
+    content: '›';
+    color: var(--accent-bright);
+    margin-right: 0.35rem;
+  }
+}
+
+.post-list-summary {
+  font-size: 0.925rem;
+  color: var(--text-muted);
+  margin: 0;
+}
+
+.post-list-empty {
+  padding: 1.25rem;
+  margin: 0;
+  color: var(--text-muted);
+}
+
+// ── List page header (category / tag) ──
+.list-header {
+  .list-title {
+    font-size: 1.35rem;
+    color: var(--term-text);
+    margin: 0 0 0.35rem;
+  }
+
+  .list-desc {
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+    color: var(--term-muted);
+    margin: 0;
+  }
+}
+
+// ── Pagination ──
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  font-family: var(--font-mono);
+  font-size: 0.875rem;
+
+  .pagination-meta {
+    color: var(--text-subtle);
+  }
+
+  .is-disabled {
+    visibility: hidden;
+  }
+}

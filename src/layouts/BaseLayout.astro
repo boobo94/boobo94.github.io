@@ -3,33 +3,37 @@ import Head from '../components/Head.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import Search from '../components/Search.astro';
+import '@fontsource/lato/400.css';
+import '@fontsource/lato/700.css';
+import '@fontsource/lato/900.css';
+import '@fontsource/merriweather/400.css';
+import '@fontsource/merriweather/400-italic.css';
+import '@fontsource/merriweather/700.css';
+import '@fontsource/source-code-pro/400.css';
+import '@fontsource/source-code-pro/700.css';
 import '../styles/main.scss';
 
 interface Props {
   title?: string;
-  description?: string;
-  image?: string;
+  description?: string | null;
+  image?: string | null;
   canonical?: string | null;
   keywords?: string | null;
   robots?: string;
   center?: boolean;
 }
 
-const { center, ...head } = Astro.props;
+const { center, title, description, image, ...head } = Astro.props;
 ---
 
 <!doctype html>
 <html lang="en">
-  <Head {...head} />
-  <body class="site animated fade-in-down">
-    <div class:list={['site-wrap', { center }]}>
-      <Header />
-      <div class="post p2 p-responsive wrap" role="main">
-        <div class="measure">
-          <slot />
-        </div>
-      </div>
-    </div>
+  <Head title={title} description={description ?? undefined} image={image ?? undefined} {...head} />
+  <body>
+    <Header />
+    <main class:list={['wrap', { 'is-centered': center }]}>
+      <slot />
+    </main>
     <Footer />
     <Search />
   </body>

@@ -12,11 +12,12 @@ const { Content } = await render(item);
 ---
 
 <BaseLayout title={item.data.title} description={item.data.summary} image={item.data.cover}>
-  <div class="post-page-header">
-    <h1 class="post-page-title">{item.data.title}</h1>
-  </div>
+  <header class="term-panel post-header">
+    <p class="prompt"><span class="sym">$</span><a href="/portfolio/">/portfolio</a></p>
+    <h1 class="post-title">{item.data.title}</h1>
+  </header>
   <article class="post-content">
-    {item.data.cover && <img src={item.data.cover} alt={item.data.title} class="post-cover-img" />}
+    {item.data.cover && <img src={item.data.cover} alt="" class="portfolio-cover" decoding="async" onerror="this.remove()" />}
     <Content />
   </article>
 </BaseLayout>

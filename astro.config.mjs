@@ -7,6 +7,18 @@ import rehypeExternalLinks from 'rehype-external-links';
 import { readFileSync } from 'node:fs';
 
 const site = 'https://whyboobo.com';
+
+// Lazy-load images inside posts (covers are rendered by the layout, not here).
+function rehypeLazyImages() {
+  const walk = (node) => {
+    if (node.type === 'element' && node.tagName === 'img') {
+      node.properties.loading ??= 'lazy';
+      node.properties.decoding ??= 'async';
+    }
+    node.children?.forEach(walk);
+  };
+  return walk;
+}
 const outDir = new URL('./dist/', import.meta.url);
 
 // Like jekyll-sitemap: leave out redirect stubs (noindex) and pages whose
@@ -34,20 +46,12 @@ export default defineConfig({
   },
   markdown: {
     processor: unified({
-      rehypePlugins: [[rehypeExternalLinks, { target: '_blank', rel: ['noopener'] }]],
+      rehypePlugins: [[rehypeExternalLinks, { target: '_blank', rel: ['noopener'] }], rehypeLazyImages],
     }),
     shikiConfig: {
-      theme: 'github-light',
+      theme: 'github-dark',
       // Fence names used in old posts that Shiki doesn't know as-is.
       langAlias: { Bash: 'bash', Dockerfile: 'dockerfile', 'C++': 'cpp', conf: 'nginx', curl: 'bash', env: 'dotenv' },
-    },
-  },
-  vite: {
-    css: {
-      preprocessorOptions: {
-        // The ported Pixyll styles still use @import and global color functions.
-        scss: { silenceDeprecations: ['import', 'global-builtin', 'color-functions'] },
-      },
     },
   },
   integrations: [

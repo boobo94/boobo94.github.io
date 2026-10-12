@@ -398,7 +398,6 @@ redirect_from:
       <span class="pill" id="dbPill">DB: IndexedDB</span>
     </div>
   </header>
-
 <input
     type="file"
     id="fileInputJson"
@@ -411,7 +410,6 @@ redirect_from:
     accept=".csv,text/csv"
     style="display: none"
   />
-
   <main>
     <div class="layout">
       <div class="card">
@@ -434,15 +432,12 @@ redirect_from:
           </div>
         </div>
       </div>
-
       <div class="card">
         <div class="hd"><h2 id="viewTitle">Dashboard</h2></div>
         <div class="bd" id="viewRoot"></div>
       </div>
     </div>
-
   </main>
-
   <!-- Modal -->
   <div class="modalBack" id="modalBack">
     <div class="modal">

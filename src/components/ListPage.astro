@@ -15,14 +15,12 @@ const { title, prompt, description, posts, showCategories = true } = Astro.props
 ---
 
 <BaseLayout title={title} description={description}>
-  <div class="home">
-    <div class="cat-page-header">
-      <p class="site-prompt" style="margin:0 0 .4rem;"><span class="sym">$</span> {prompt}</p>
-      <h1 class="cat-page-title">{title}</h1>
-      <p class="cat-page-desc">// {description}</p>
-    </div>
-    <div class="post-list" id="search-container">
-      {posts.map((post, i) => <PostListItem post={post} index={i + 1} showCategories={showCategories} />)}
-    </div>
+  <header class="term-panel list-header">
+    <p class="prompt"><span class="sym">$</span>{prompt}</p>
+    <h1 class="list-title">{title}</h1>
+    <p class="list-desc">// {description}</p>
+  </header>
+  <div class="post-list" id="search-container" data-list>
+    {posts.map((post) => <PostListItem post={post} showCategories={showCategories} />)}
   </div>
 </BaseLayout>
