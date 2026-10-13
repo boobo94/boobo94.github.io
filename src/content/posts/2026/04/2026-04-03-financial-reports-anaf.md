@@ -213,7 +213,7 @@ function fetchReport() {
     .then((res) => res.json())
     .then((data) => renderReport(data))
     .catch((err) => {
-      out.innerHTML = "<pre>Error: " + err + "</pre>";
+      out.innerHTML = "<pre>Error: " + err + "<\/pre>";
     });
 }
 </script>

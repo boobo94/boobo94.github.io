@@ -282,7 +282,7 @@ function checkTva() {
       document.getElementById("responseTable").innerHTML = found.map(renderCompany).join("");
     })
     .catch((err) => {
-      document.getElementById("responseTable").innerHTML = "<pre>Error: " + err + "</pre>";
+      document.getElementById("responseTable").innerHTML = "<pre>Error: " + err + "<\/pre>";
 
     });
 
