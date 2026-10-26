@@ -18,7 +18,7 @@ const links = [
 <div class="social-links">
   {
     links.map((l) => (
-      <a href={l.href} aria-label={l.label} title={l.label}>
+      <a href={l.href} aria-label={l.label} title={l.label} target="_blank" rel="noopener noreferrer">
         <Icon name={l.icon} />
       </a>
     ))
