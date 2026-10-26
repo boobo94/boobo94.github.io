@@ -34,9 +34,9 @@ const posts = defineCollection({
     redirect_from: stringList,
     canonical_url: z.string().nullish(),
     keywords: z.string().nullish(),
-    meta_description: z.string().nullish(),
     sitemap: z.boolean().nullish(),
     draft: z.boolean().default(false),
+    toc: z.boolean().default(true),
     games: z
       .array(z.object({ title: z.string(), url: z.string(), image: z.string() }))
       .optional(),

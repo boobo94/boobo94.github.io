@@ -18,14 +18,11 @@ interface Props {
 
 const { post, all, headings } = Astro.props;
 const d = post.data;
-const body = post.body ?? '';
 const related = relatedPosts(post, all, 4);
 const url = new URL(postUrl(post), site.url).href;
-// Skip the generated contents list when the post already has a hand-written one.
-const hasManualToc = (body.match(/\]\(#/g) ?? []).length >= 3;
 ---
 
-<BaseLayout title={d.title} description={d.meta_description || d.summary} image={d.cover} canonical={d.canonical_url} keywords={d.keywords}>
+<BaseLayout title={d.title} description={d.summary} image={d.cover} canonical={d.canonical_url} keywords={d.keywords}>
   <div class="reading-progress" aria-hidden="true"></div>
 
   <div id="search-container">
@@ -75,7 +72,7 @@ const hasManualToc = (body.match(/\]\(#/g) ?? []).length >= 3;
       </div>
     </header>
 
-    {!hasManualToc && <TableOfContents headings={headings} />}
+    {d.toc && <TableOfContents headings={headings} />}
 
     <article class="post-content" data-pagefind-body>
       {
