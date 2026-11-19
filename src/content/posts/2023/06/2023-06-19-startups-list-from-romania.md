@@ -151,6 +151,26 @@ In this article, we delve into the captivating landscape of Romanian startups, u
             "category": "Business, AI"
         }
     ],
+    "Civic": [
+        {
+            "name": "Transparenta.eu",
+            "url": "https://www.transparenta.eu/",
+            "description": "Public financial data exploration platform for citizens, journalists, public figures and other interested parties.",
+            "category": "Civic"
+        },
+        {
+            "name": "De strajă"
+            "url": "https://destraja.ro/"
+            "description": "Tracks legislative bills in the Senate and the Chamber of Deputies and explain them in a way that’s easy for everyone to understand. Each bill is assigned a risk score, allowing you to quickly see what warrants your attention and where you can still intervene."
+            "category": "Civic, Analytics"
+        },
+        {
+            "name": "De strajă"
+            "url": "https://bucuresti.help/"
+            "description": "This is a citizen initiative where people can submit reports to the authorities."
+            "category": "Civic"
+        },
+    ],
     "CRM": [
         {
             "name": "Tiny ERP",
@@ -342,12 +362,7 @@ In this article, we delve into the captivating landscape of Romanian startups, u
         },
     ],
     "NGO": [
-        {
-            "name": "Transparenta.eu",
-            "url": "https://www.transparenta.eu/",
-            "description": "Public financial data exploration platform for citizens, journalists, public figures and other interested parties.",
-            "category": "Financial, Analytics"
-        },
+
     ],
     "Pets": [  
         {
@@ -528,6 +543,7 @@ In this article, we delve into the captivating landscape of Romanian startups, u
 <div id="su-grid" class="su-grid" aria-live="polite"></div>
 
 <!-- Back to top -->
+
 <a class="su-top" href="#top" aria-label="Back to top">↑</a>
 
 <style>
