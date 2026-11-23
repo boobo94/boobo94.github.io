@@ -17,7 +17,7 @@
     "@fontsource/source-code-pro": "5.3.1",
     "@iconify-json/lucide": "^1.2.142",
     "@iconify-json/simple-icons": "^1.2.99",
-    "astro": "^7.3.8",
+    "astro": "^7.4.7",
     "astro-icon": "^1.2.0",
     "rehype-external-links": "^3.0.0"
   },
